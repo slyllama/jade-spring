@@ -14,5 +14,16 @@ signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended
 signal adjustment_started
 
-var active_decoration: Decoration = null # the decoration currently being adjusted
+# Decoration currently being adjusted
+var active_decoration: Decoration = null
 var tool_mode = TOOL_MODE_NONE
+
+func _ready() -> void:
+	# Set up retina
+	if DisplayServer.screen_get_size().x > 2000:
+		get_window().size *= 2
+		get_window().content_scale_factor = 2
+		# macOS already configures the cursor for retina
+		if OS.get_name() != "macOS":
+			DisplayServer.cursor_set_custom_image(
+				load("res://generic/textures/cursor_2x.png"))

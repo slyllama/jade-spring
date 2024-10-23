@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://mc7cfdajs4rm"]
+
+[ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
+[ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
+[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="2_yply7"]
+[ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="4_r77lv"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ryxhn")
+
+[node name="Vignette" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CornerNW" type="TextureRect" parent="Vignette"]
+offset_right = 400.0
+offset_bottom = 500.0
+texture = ExtResource("1_8jsj4")
+expand_mode = 1
+
+[node name="CornerNE" type="TextureRect" parent="Vignette"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
+offset_bottom = 500.0
+grow_horizontal = 0
+texture = ExtResource("1_8jsj4")
+expand_mode = 1
+flip_h = true
+
+[node name="CornerSE" type="TextureRect" parent="Vignette"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -500.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_8jsj4")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="CornerSW" type="TextureRect" parent="Vignette"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -500.0
+offset_right = 400.0
+grow_vertical = 0
+texture = ExtResource("1_8jsj4")
+expand_mode = 1
+flip_v = true
+
+[node name="Debug" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 0, 1)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 616.0
+offset_bottom = 216.0
+mouse_filter = 2
+theme_override_constants/line_separation = -2
+theme_override_fonts/normal_font = ExtResource("2_yply7")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[Debug]"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]

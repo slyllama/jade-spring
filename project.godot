@@ -14,6 +14,9 @@ config/name="Seitung Spring Clean"
 run/main_scene="res://maps/playground/playground.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://generic/textures/splash.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]

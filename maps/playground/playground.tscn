@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=11 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/playground/playground.gd" id="1_hqfkm"]
 [ext_resource type="Material" uid="uid://cih6fdnrclm1e" path="res://generic/materials/mat_floor.tres" id="2_57iaj"]
-[ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="2_xnpx2"]
-[ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="3_2obvh"]
-[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="3_b3f21"]
+[ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_4rhvg"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="4_p6mop"]
 [ext_resource type="PackedScene" uid="uid://b6x6dgmtoy2en" path="res://lib/decoration/decoration.tscn" id="5_6lfdh"]
 
@@ -50,31 +48,6 @@ environment = SubResource("Environment_01xfs")
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 3, 0)
 shadow_enabled = true
 
-[node name="FG" type="CanvasLayer" parent="."]
-
-[node name="CornerNW" type="TextureRect" parent="FG"]
-offset_right = 400.0
-offset_bottom = 500.0
-texture = ExtResource("2_xnpx2")
-expand_mode = 1
-
-[node name="Debug" type="RichTextLabel" parent="FG"]
-modulate = Color(1, 1, 0, 1)
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 616.0
-offset_bottom = 216.0
-mouse_filter = 2
-theme_override_constants/line_separation = -2
-theme_override_fonts/normal_font = ExtResource("3_b3f21")
-theme_override_font_sizes/normal_font_size = 14
-bbcode_enabled = true
-text = "[Debug]"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Toolbox" parent="." instance=ExtResource("3_2obvh")]
-
 [node name="TestBox" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -8)
 size = Vector3(3, 8, 3)
@@ -82,6 +55,8 @@ material = ExtResource("2_57iaj")
 
 [node name="Player" parent="." instance=ExtResource("4_p6mop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
+
+[node name="HUD" parent="." instance=ExtResource("4_4rhvg")]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
