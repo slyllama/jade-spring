@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bldvwv8jpp23b"]
+
+[ext_resource type="Texture2D" uid="uid://7f4sc8hfiqxv" path="res://lib/player/materials/textures/jade_body_diff.jpg" id="1_b8kb6"]
+[ext_resource type="Texture2D" uid="uid://ctmislvryfnmb" path="res://lib/player/materials/textures/jade_body_norm.jpg" id="2_aiusm"]
+
+[resource]
+albedo_texture = ExtResource("1_b8kb6")
+metallic = 0.5
+metallic_specular = 0.0
+roughness = 0.45
+normal_enabled = true
+normal_texture = ExtResource("2_aiusm")
+rim_enabled = true

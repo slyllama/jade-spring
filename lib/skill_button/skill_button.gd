@@ -16,6 +16,9 @@ const TEXTURES = { # associations with texture paths
 
 @export var id := "empty"
 @export var enabled := true
+@export var input_binding: String
+
+var binding_validated = false # is the exported input binding real?
 
 func set_highlight(state = true) -> void:
 	$ActiveOverlay.visible = state
@@ -37,6 +40,24 @@ func switch_skill(get_id: String) -> void:
 	await $Animation.animation_finished
 	$Animation.play_backwards("squeeze")
 	set_enabled()
+
+func _input(_event: InputEvent) -> void:
+	if !binding_validated: return
+	if Input.is_action_just_pressed(input_binding):
+		_on_button_down()
+
+func _ready() -> void:
+	if InputMap.has_action(input_binding):
+		binding_validated = true
+		var key_string = ""
+		
+		# If the input is a key, show its keycode string as a hint above the skill
+		if InputMap.action_get_events(input_binding)[0] is InputEventKey:
+			key_string = OS.get_keycode_string(
+				InputMap.action_get_events(input_binding)[0].physical_keycode)
+		key_string = "[center]" + key_string + "[/center]"
+		$InputKeyBox/InputKey.text = key_string
+	else: $InputKeyBox.visible = false # only show input hint if valid
 
 func _on_button_down() -> void:
 	if enabled:

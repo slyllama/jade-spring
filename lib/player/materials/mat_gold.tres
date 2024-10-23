@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bj88x6tkt5o2"]
+
+[ext_resource type="Texture2D" uid="uid://cajwfxk8b1lcy" path="res://lib/player/materials/textures/gold_diff.jpg" id="1_6kqc3"]
+[ext_resource type="Texture2D" uid="uid://cy25tuewwcvyu" path="res://lib/player/materials/textures/gold_norm.jpg" id="2_5rboi"]
+
+[resource]
+albedo_color = Color(0.998231, 0.944897, 0.805839, 1)
+albedo_texture = ExtResource("1_6kqc3")
+metallic = 0.75
+roughness = 0.35
+normal_enabled = true
+normal_scale = 0.25
+normal_texture = ExtResource("2_5rboi")
+rim_enabled = true
+rim_tint = 0.1
+uv1_scale = Vector3(1.6, 1.6, 1.6)

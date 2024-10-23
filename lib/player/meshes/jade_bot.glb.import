@@ -28,14 +28,22 @@ skins/use_named_skins=true
 animation/import=true
 animation/fps=60.0
 animation/trimming=true
-animation/remove_immutable_tracks=true
-animation/import_rest_as_RESET=true
+animation/remove_immutable_tracks=false
+animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"mat_grey": {
+"mat_face_baked": {
 "use_external/enabled": true,
-"use_external/path": "res://generic/materials/mat_fade.tres"
+"use_external/path": "res://lib/player/materials/mat_jade_body.tres"
+},
+"mat_gold": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_gold.tres"
+},
+"mat_jade": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_jade.tres"
 }
 }
 }

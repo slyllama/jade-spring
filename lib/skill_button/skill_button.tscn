@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7mfp50wcm5wy"]
+[gd_scene load_steps=10 format=3 uid="uid://c7mfp50wcm5wy"]
 
 [ext_resource type="Texture2D" uid="uid://bq8xa3vmxn1qa" path="res://lib/skill_button/textures/_base_blank.png" id="1_7h740"]
 [ext_resource type="Texture2D" uid="uid://ddv52j2upxoqm" path="res://lib/skill_button/textures/empty.png" id="1_spyej"]
@@ -51,6 +51,13 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rc50"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="SkillButton" type="TextureButton"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
@@ -92,6 +99,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5yqc4")
+
+[node name="InputKeyBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="InputKey" type="RichTextLabel" parent="InputKeyBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0rc50")
+bbcode_enabled = true
+text = "[center]#[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

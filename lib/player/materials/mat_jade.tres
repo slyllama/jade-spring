@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ihoir867mar"]
+
+[ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_lefjk"]
+[ext_resource type="Texture2D" uid="uid://begdpwr5l122o" path="res://lib/player/materials/textures/jade_mask.jpg" id="2_d4reu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lefjk")
+shader_parameter/base_color = Color(0, 0.282353, 0, 1)
+shader_parameter/swirl_color = Color(0.490196, 0.929412, 0.14902, 1)
+shader_parameter/cloud_color = Color(0.833494, 1, 0.896922, 1)
+shader_parameter/fresnel_color = Color(0.86979, 0.96234, 0.498776, 1)
+shader_parameter/cloud_scale = 0.67
+shader_parameter/speed_scale = 0.05
+shader_parameter/mask = ExtResource("2_d4reu")

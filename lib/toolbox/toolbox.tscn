@@ -33,9 +33,11 @@ alignment = 1
 
 [node name="Skill1" parent="Box" instance=ExtResource("2_xy11a")]
 layout_mode = 2
+input_binding = "skill_1"
 
 [node name="Skill2" parent="Box" instance=ExtResource("2_xy11a")]
 layout_mode = 2
+input_binding = "skill_2"
 
 [node name="Central" type="ColorRect" parent="Box"]
 custom_minimum_size = Vector2(128.81, 64)
@@ -44,9 +46,11 @@ color = Color(1, 1, 1, 0)
 
 [node name="Skill3" parent="Box" instance=ExtResource("2_xy11a")]
 layout_mode = 2
+input_binding = "skill_3"
 
 [node name="Skill4" parent="Box" instance=ExtResource("2_xy11a")]
 layout_mode = 2
+input_binding = "skill_4"
 
 [connection signal="clicked" from="Box/Skill1" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill2" to="." method="skill_used"]

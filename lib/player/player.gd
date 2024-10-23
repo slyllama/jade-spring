@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var base_speed := 2.0
 @export var smoothing := 7.0
 
+@onready var anim: AnimationPlayer = get_node("PlayerMesh/AnimationPlayer")
 var _direction := Vector3.ZERO
 var _speed := base_speed
 var _target_velocity := Vector3.ZERO
@@ -11,7 +12,15 @@ func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
 	
-	$PlayerMesh/AnimationPlayer.play("dance")
+	anim.set_blend_time("dance", "accelerate", 0.4)
+	anim.set_blend_time("accelerate", "dance", 1.0)
+	anim.play("dance")
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("move_forward"):
+		anim.play("accelerate")
+	if Input.is_action_just_released("move_forward"):
+		anim.play("dance")
 
 func _physics_process(delta: float) -> void:
 	# Process inputs
@@ -45,9 +54,9 @@ func _physics_process(delta: float) -> void:
 	
 	if _direction.length() > 0:
 		$PlayerMesh.rotation.y = lerp(
-			$PlayerMesh.rotation.y, $Camera.rotation.y - PI, smoothing * delta)
-	$PlayerMesh.rotation.x = lerp(
-		$PlayerMesh.rotation.x, _direction.x * -0.2, smoothing * 0.4 * delta)
+			$PlayerMesh.rotation.y, $Camera.rotation.y - PI, smoothing * 0.6 * delta)
+	#$PlayerMesh.rotation.x = lerp(
+		#$PlayerMesh.rotation.x, _direction.x * -0.2, smoothing * 0.4 * delta)
 	$PlayerMesh.rotation.z = lerp(
 		$PlayerMesh.rotation.z, _direction.z * -0.2, smoothing * 0.4 * delta)
 
