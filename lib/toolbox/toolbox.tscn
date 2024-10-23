@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://rn5fh3rx0ovg"]
+
+[ext_resource type="Script" path="res://lib/toolbox/toolbox.gd" id="1_2co4q"]
+[ext_resource type="Texture2D" uid="uid://dp6jk6xva0k17" path="res://lib/toolbox/textures/toolbox_base.png" id="2_ogq4t"]
+[ext_resource type="PackedScene" uid="uid://c7mfp50wcm5wy" path="res://lib/skill_button/skill_button.tscn" id="2_xy11a"]
+
+[node name="Toolbox" type="CanvasLayer"]
+script = ExtResource("1_2co4q")
+
+[node name="Base" type="TextureRect" parent="."]
+modulate = Color(0.65, 0.65, 0.65, 1)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_ogq4t")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Box" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 64)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Skill1" parent="Box" instance=ExtResource("2_xy11a")]
+layout_mode = 2
+
+[node name="Skill2" parent="Box" instance=ExtResource("2_xy11a")]
+layout_mode = 2
+
+[node name="Central" type="ColorRect" parent="Box"]
+custom_minimum_size = Vector2(128.81, 64)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Skill3" parent="Box" instance=ExtResource("2_xy11a")]
+layout_mode = 2
+
+[node name="Skill4" parent="Box" instance=ExtResource("2_xy11a")]
+layout_mode = 2
+
+[connection signal="clicked" from="Box/Skill1" to="." method="skill_used"]
+[connection signal="clicked" from="Box/Skill2" to="." method="skill_used"]
+[connection signal="clicked" from="Box/Skill3" to="." method="skill_used"]
+[connection signal="clicked" from="Box/Skill4" to="." method="skill_used"]

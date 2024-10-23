@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://ct8pbsfvaht25"]
+
+[ext_resource type="Script" path="res://maps/playground/playground.gd" id="1_hqfkm"]
+[ext_resource type="Material" uid="uid://cih6fdnrclm1e" path="res://generic/materials/mat_floor.tres" id="2_57iaj"]
+[ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="2_xnpx2"]
+[ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="3_2obvh"]
+[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="3_b3f21"]
+[ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="4_p6mop"]
+[ext_resource type="PackedScene" uid="uid://b6x6dgmtoy2en" path="res://lib/decoration/decoration.tscn" id="5_6lfdh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
+sky_top_color = Color(0.213, 0.420083, 0.71, 1)
+ground_bottom_color = Color(0.658, 0.6895, 0.7, 1)
+
+[sub_resource type="Sky" id="Sky_1mh13"]
+sky_material = SubResource("ProceduralSkyMaterial_r55gw")
+
+[sub_resource type="Environment" id="Environment_01xfs"]
+background_mode = 2
+background_energy_multiplier = 1.3
+sky = SubResource("Sky_1mh13")
+ambient_light_source = 2
+ambient_light_color = Color(0.340339, 0.340339, 0.340339, 1)
+tonemap_mode = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.70178, 0.725538, 0.734834, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 7.0
+fog_depth_end = 20.0
+adjustment_enabled = true
+adjustment_saturation = 1.15
+
+[sub_resource type="QuadMesh" id="QuadMesh_kfp6d"]
+material = ExtResource("2_57iaj")
+size = Vector2(20, 20)
+orientation = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bvguu"]
+size = Vector3(20, 0.1, 20)
+
+[node name="Playground" type="Node3D"]
+script = ExtResource("1_hqfkm")
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_01xfs")
+
+[node name="Sun" type="DirectionalLight3D" parent="Sky"]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 3, 0)
+shadow_enabled = true
+
+[node name="FG" type="CanvasLayer" parent="."]
+
+[node name="CornerNW" type="TextureRect" parent="FG"]
+offset_right = 400.0
+offset_bottom = 500.0
+texture = ExtResource("2_xnpx2")
+expand_mode = 1
+
+[node name="Debug" type="RichTextLabel" parent="FG"]
+modulate = Color(1, 1, 0, 1)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 616.0
+offset_bottom = 216.0
+mouse_filter = 2
+theme_override_constants/line_separation = -2
+theme_override_fonts/normal_font = ExtResource("3_b3f21")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[Debug]"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Toolbox" parent="." instance=ExtResource("3_2obvh")]
+
+[node name="TestBox" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -8)
+size = Vector3(3, 8, 3)
+material = ExtResource("2_57iaj")
+
+[node name="Player" parent="." instance=ExtResource("4_p6mop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("QuadMesh_kfp6d")
+skeleton = NodePath("../..")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_bvguu")
+
+[node name="Decoration" parent="." instance=ExtResource("5_6lfdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, -0.5)
+
+[node name="Decoration2" parent="." instance=ExtResource("5_6lfdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23007, 0.75, -1.70059)

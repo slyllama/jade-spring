@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5aewysclei7o"]
+
+[ext_resource type="Script" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
+[ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
+[ext_resource type="PackedScene" uid="uid://dow0fxe5m8rr1" path="res://lib/player/meshes/jade_bot.glb" id="4_0sx7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_trp5b"]
+radius = 0.25
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_wipkt")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00538364, 0, 0)
+shape = SubResource("SphereShape3D_trp5b")
+
+[node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("excluded_collision_objects")]
+script = ExtResource("1_lnnkv")
+max_zoom_out = 2.3
+v_offset = 0.8
+excluded_collision_objects = [NodePath("..")]
+clamp_x_upper = 30.0
+
+[node name="PlayerMesh" parent="." instance=ExtResource("4_0sx7s")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0263149, 0)

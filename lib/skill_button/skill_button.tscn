@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7mfp50wcm5wy"]
+
+[ext_resource type="Texture2D" uid="uid://bq8xa3vmxn1qa" path="res://lib/skill_button/textures/_base_blank.png" id="1_7h740"]
+[ext_resource type="Texture2D" uid="uid://ddv52j2upxoqm" path="res://lib/skill_button/textures/empty.png" id="1_spyej"]
+[ext_resource type="Script" path="res://lib/skill_button/skill_button.gd" id="2_qy3x5"]
+[ext_resource type="Texture2D" uid="uid://coftu1xcxomsv" path="res://lib/skill_button/textures/_base_active.png" id="4_ell5w"]
+
+[sub_resource type="Animation" id="Animation_l7lqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_y5w6u"]
+resource_name = "squeeze"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oapoh"]
+_data = {
+"RESET": SubResource("Animation_l7lqc"),
+"squeeze": SubResource("Animation_y5w6u")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yqc4"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 1, 1)
+
+[node name="SkillButton" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+texture_normal = ExtResource("1_7h740")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_qy3x5")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oapoh")
+}
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_spyej")
+
+[node name="ActiveOverlay" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_ell5w")
+expand_mode = 1
+
+[node name="HoverBorder" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yqc4")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
