@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta)
 	velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta)
 	move_and_slide()
+	Global.player_position = global_position
 	
 	if _direction.length() > 0:
 		$PlayerMesh.rotation.y = lerp(
