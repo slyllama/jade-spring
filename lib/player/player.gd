@@ -13,15 +13,31 @@ func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
 	
-	anim.set_blend_time("reset", "accelerate", 0.4)
-	anim.set_blend_time("accelerate", "reset", 0.4)
+	#anim.set_blend_time("reset", "accelerate", 0.4)
+	#anim.set_blend_time("accelerate", "reset", 0.4)
 	anim.play("reset")
 
+var _forward_state = 0
+
 func _input(_event: InputEvent) -> void:
+	var _query_forward_state = _forward_state
 	if Input.is_action_just_pressed("move_forward"):
-		anim.play("accelerate")
+		_query_forward_state += 1
+	if Input.is_action_just_pressed("move_up"):
+		_query_forward_state += 1
 	if Input.is_action_just_released("move_forward"):
-		anim.play("reset")
+		_query_forward_state -= 1
+	if Input.is_action_just_released("move_up"):
+		_query_forward_state -= 1
+	
+	if _query_forward_state > 0 and _forward_state == 0:
+		$PlayerMesh/Tree.set(
+			"parameters/test_transition/transition_request", "accelerate")
+	elif _query_forward_state == 0 and _forward_state > 0:
+		$PlayerMesh/Tree.set(
+			"parameters/test_transition/transition_request", "dance")
+	
+	_forward_state = _query_forward_state
 
 func _physics_process(delta: float) -> void:
 	# Process inputs
@@ -53,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	Global.player_position = global_position
 	
-	if _direction.x > 0:
+	if _direction.x > 0 or _direction.z != 0:
 		$PlayerMesh.rotation.y = lerp(
 			$PlayerMesh.rotation.y, $Camera.rotation.y - PI, smoothing * 0.6 * delta)
 	$PlayerMesh.rotation.z = lerp(
