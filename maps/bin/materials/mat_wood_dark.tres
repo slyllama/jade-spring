@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://di581w1ndubk1"]
+
+[ext_resource type="Texture2D" uid="uid://bkhyxloxjwoau" path="res://maps/bin/materials/textures/wood_dark_diffuse.jpg" id="1_bouv7"]
+[ext_resource type="Texture2D" uid="uid://briwh7nndqy32" path="res://maps/bin/materials/textures/wood_dark_norm.jpg" id="2_lc1fh"]
+
+[resource]
+albedo_texture = ExtResource("1_bouv7")
+metallic = 0.45
+normal_enabled = true
+normal_texture = ExtResource("2_lc1fh")
+backlight_enabled = true
+backlight = Color(0.6, 0.6, 0.6, 1)
+uv1_scale = Vector3(2, 2, 2)

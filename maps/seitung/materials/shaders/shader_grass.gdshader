@@ -27,10 +27,10 @@ void fragment() {
 	vec3 grass_add = texture(grass_texture_add, rotate_uv(UV, vec2(0.5), PI / 2.0) * uv_scale * 0.5).rgb;
 	vec3 grass_normal = texture(grass_normal_texture, UV * uv_scale).rgb;
 	
-	vec3 dirt = texture(dirt_texture, UV * uv_scale * 0.55).rgb;
+	vec3 dirt = texture(dirt_texture, UV * uv_scale * 0.75).rgb * 1.2;
 	
 	ALBEDO = mix(grass_base * 0.5, grass_add * 1.5, blend_noise);
-	ALBEDO = mix(ALBEDO, dirt, pow(dirt_blend, 1.7));
+	ALBEDO = mix(ALBEDO, dirt, dirt_blend);
 	NORMAL_MAP = grass_normal;
 	NORMAL_MAP_DEPTH = 1.0;
 	SPECULAR = 0.2;
