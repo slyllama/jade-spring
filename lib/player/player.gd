@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var smoothing := 7.0
 
 @onready var anim: AnimationPlayer = get_node("PlayerMesh/AnimationPlayer")
+@onready var engine_bone: BoneAttachment3D = get_node("PlayerMesh/JadeArmature/Skeleton3D/EngineRing1")
 var _direction := Vector3.ZERO
 var _speed := base_speed
 var _target_velocity := Vector3.ZERO
@@ -13,7 +14,7 @@ func _ready() -> void:
 	$Camera.top_level = true
 	
 	anim.set_blend_time("dance", "accelerate", 0.4)
-	anim.set_blend_time("accelerate", "dance", 1.0)
+	anim.set_blend_time("accelerate", "dance", 0.4)
 	anim.play("dance")
 
 func _input(_event: InputEvent) -> void:
@@ -52,15 +53,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	Global.player_position = global_position
 	
-	if _direction.length() > 0:
+	if _direction.x > 0:
 		$PlayerMesh.rotation.y = lerp(
 			$PlayerMesh.rotation.y, $Camera.rotation.y - PI, smoothing * 0.6 * delta)
-	#$PlayerMesh.rotation.x = lerp(
-		#$PlayerMesh.rotation.x, _direction.x * -0.2, smoothing * 0.4 * delta)
 	$PlayerMesh.rotation.z = lerp(
 		$PlayerMesh.rotation.z, _direction.z * -0.2, smoothing * 0.4 * delta)
 
 func _process(delta: float) -> void:
+	$Stars.global_position = engine_bone.global_position
 	$Camera.global_position.x = global_position.x
 	$Camera.global_position.z = global_position.z
 	$Camera.global_position.y = lerp(

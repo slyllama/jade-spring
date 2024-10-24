@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"mat_engine_glow": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_engine_glow.tres"
+},
 "mat_face_baked": {
 "use_external/enabled": true,
 "use_external/path": "res://lib/player/materials/mat_jade_body.tres"
@@ -40,6 +44,10 @@ _subresources={
 "mat_gold": {
 "use_external/enabled": true,
 "use_external/path": "res://lib/player/materials/mat_gold.tres"
+},
+"mat_gold_dark": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_gold_dark.tres"
 },
 "mat_jade": {
 "use_external/enabled": true,

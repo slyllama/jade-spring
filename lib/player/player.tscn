@@ -1,11 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=11 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
 [ext_resource type="PackedScene" uid="uid://dow0fxe5m8rr1" path="res://lib/player/meshes/jade_bot.glb" id="4_0sx7s"]
+[ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/bin/star.res" id="4_wdnsj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_trp5b"]
 radius = 0.25
+
+[sub_resource type="Curve" id="Curve_jlsfb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4dtce"]
+curve = SubResource("Curve_jlsfb")
+
+[sub_resource type="Gradient" id="Gradient_qcf6u"]
+colors = PackedColorArray(6.49765e-07, 0.399391, 0.0462379, 1, 0.880833, 1, 0.35, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ccpmc"]
+gradient = SubResource("Gradient_qcf6u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2h2up"]
+emission_shape_scale = Vector3(0.12, 0.12, 0.12)
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+gravity = Vector3(0, -0.3, 0)
+scale_min = 0.6
+scale_max = 1.1
+color_initial_ramp = SubResource("GradientTexture1D_ccpmc")
+alpha_curve = SubResource("CurveTexture_4dtce")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_wipkt")
@@ -23,3 +51,9 @@ clamp_x_upper = 30.0
 
 [node name="PlayerMesh" parent="." instance=ExtResource("4_0sx7s")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0263149, 0)
+
+[node name="Stars" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.2)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2h2up")
+draw_pass_1 = ExtResource("4_wdnsj")

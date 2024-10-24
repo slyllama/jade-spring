@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=12 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Material" uid="uid://cih6fdnrclm1e" path="res://generic/materials/mat_floor.tres" id="2_vyc52"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_6ilxl"]
 [ext_resource type="PackedScene" uid="uid://b6x6dgmtoy2en" path="res://lib/decoration/decoration.tscn" id="5_0gh7v"]
+[ext_resource type="Material" uid="uid://c6qtw46vrdldo" path="res://maps/seitung/mat_grass.tres" id="5_i00gp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
 sky_top_color = Color(0.213, 0.420083, 0.71, 1)
-ground_bottom_color = Color(0.658, 0.6895, 0.7, 1)
+sky_curve = 0.1
+ground_bottom_color = Color(0.643137, 0.666667, 0.678431, 1)
+ground_horizon_color = Color(0.643137, 0.666667, 0.678431, 1)
 
 [sub_resource type="Sky" id="Sky_1mh13"]
 sky_material = SubResource("ProceduralSkyMaterial_r55gw")
@@ -16,22 +19,21 @@ sky_material = SubResource("ProceduralSkyMaterial_r55gw")
 [sub_resource type="Environment" id="Environment_01xfs"]
 background_mode = 2
 sky = SubResource("Sky_1mh13")
-ambient_light_source = 3
-ambient_light_color = Color(0.340339, 0.340339, 0.340339, 1)
-ambient_light_energy = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.5, 0.5, 0.5, 1)
 tonemap_mode = 2
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.70178, 0.725538, 0.734834, 1)
+fog_light_color = Color(0.641775, 0.668034, 0.678301, 1)
 fog_density = 1.0
 fog_sky_affect = 0.0
 fog_depth_begin = 7.0
-fog_depth_end = 20.0
+fog_depth_end = 12.0
 adjustment_enabled = true
 adjustment_saturation = 1.2
 
 [sub_resource type="QuadMesh" id="QuadMesh_kfp6d"]
-material = ExtResource("2_vyc52")
+material = ExtResource("5_i00gp")
 size = Vector2(20, 20)
 orientation = 1
 
@@ -45,7 +47,7 @@ script = ExtResource("1_uenug")
 environment = SubResource("Environment_01xfs")
 
 [node name="Sun" type="DirectionalLight3D" parent="Sky"]
-transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 3, 0)
+transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612372, 0, 3, 0)
 shadow_enabled = true
 
 [node name="TestBox" type="CSGBox3D" parent="."]
@@ -69,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_bvguu")
 
 [node name="Decoration" parent="." instance=ExtResource("5_0gh7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -0.5)
 
 [node name="Decoration2" parent="." instance=ExtResource("5_0gh7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23007, 0.75, -1.70059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23, 0.5, -1.701)

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c3ygaq1wjp7c0"]
+
+[ext_resource type="Shader" uid="uid://cr660gpb0btrf" path="res://lib/player/materials/shaders/shader_engine_glow.tres" id="1_u7gul"]
+
+[sub_resource type="Gradient" id="Gradient_4uvcy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_37k17"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1t7wh"]
+seamless = true
+color_ramp = SubResource("Gradient_4uvcy")
+noise = SubResource("FastNoiseLite_37k17")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u7gul")
+shader_parameter/glow_color = Color(0.626992, 0.786677, 0.583957, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_1t7wh")
