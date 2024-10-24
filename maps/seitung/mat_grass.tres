@@ -1,7 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://c6qtw46vrdldo"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://c6qtw46vrdldo"]
 
 [ext_resource type="Shader" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_ng8hm"]
 [ext_resource type="Texture2D" uid="uid://cejwijfwr6xsg" path="res://maps/seitung/materials/textures/grass_diff.jpg" id="2_2s1io"]
+[ext_resource type="Texture2D" uid="uid://cuw5jbeuqm6uo" path="res://maps/seitung/materials/textures/grass_norm.jpg" id="2_5a6nf"]
 
 [sub_resource type="Gradient" id="Gradient_qv4sk"]
 
@@ -15,6 +16,7 @@ noise = SubResource("FastNoiseLite_csnh3")
 [resource]
 render_priority = 0
 shader = ExtResource("1_ng8hm")
-shader_parameter/uv_scale = 15.0
+shader_parameter/uv_scale = 48.0
 shader_parameter/grass_texture = ExtResource("2_2s1io")
+shader_parameter/grass_normal_texture = ExtResource("2_5a6nf")
 shader_parameter/blend_noise_texture = SubResource("NoiseTexture2D_x871w")

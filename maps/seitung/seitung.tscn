@@ -20,25 +20,25 @@ sky_material = SubResource("ProceduralSkyMaterial_r55gw")
 background_mode = 2
 sky = SubResource("Sky_1mh13")
 ambient_light_source = 2
-ambient_light_color = Color(0.5, 0.5, 0.5, 1)
+ambient_light_color = Color(0.35, 0.35, 0.35, 1)
 tonemap_mode = 2
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.641775, 0.668034, 0.678301, 1)
 fog_density = 1.0
 fog_sky_affect = 0.0
-fog_depth_begin = 7.0
-fog_depth_end = 12.0
+fog_depth_begin = 20.0
+fog_depth_end = 30.0
 adjustment_enabled = true
 adjustment_saturation = 1.2
 
 [sub_resource type="QuadMesh" id="QuadMesh_kfp6d"]
 material = ExtResource("5_i00gp")
-size = Vector2(20, 20)
+size = Vector2(80, 80)
 orientation = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvguu"]
-size = Vector3(20, 0.1, 20)
+size = Vector3(80, 0.1, 80)
 
 [node name="Playground" type="Node3D"]
 script = ExtResource("1_uenug")
@@ -51,7 +51,7 @@ transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866026, 0.5, 0.70710
 shadow_enabled = true
 
 [node name="TestBox" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.9, -8)
 size = Vector3(3, 8, 3)
 material = ExtResource("2_vyc52")
 
@@ -63,6 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="Mesh" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 mesh = SubResource("QuadMesh_kfp6d")
 skeleton = NodePath("../..")
 
@@ -75,3 +76,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -0.5)
 
 [node name="Decoration2" parent="." instance=ExtResource("5_0gh7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23, 0.5, -1.701)
+
+[node name="Base" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+size = Vector3(6, 0.1, 6)
+material = ExtResource("2_vyc52")
