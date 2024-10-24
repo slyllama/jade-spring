@@ -8,12 +8,13 @@
 script = ExtResource("1_2co4q")
 
 [node name="Base" type="TextureRect" parent="."]
-modulate = Color(0.65, 0.65, 0.65, 1)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
 offset_top = -124.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_ogq4t")
@@ -26,9 +27,11 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -68.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 alignment = 1
 
 [node name="Skill1" parent="Box" instance=ExtResource("2_xy11a")]
@@ -40,7 +43,7 @@ layout_mode = 2
 input_binding = "skill_2"
 
 [node name="Central" type="ColorRect" parent="Box"]
-custom_minimum_size = Vector2(128.81, 64)
+custom_minimum_size = Vector2(118, 64)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 

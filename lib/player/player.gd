@@ -13,15 +13,15 @@ func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
 	
-	anim.set_blend_time("dance", "accelerate", 0.4)
-	anim.set_blend_time("accelerate", "dance", 0.4)
-	anim.play("dance")
+	anim.set_blend_time("reset", "accelerate", 0.4)
+	anim.set_blend_time("accelerate", "reset", 0.4)
+	anim.play("reset")
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("move_forward"):
 		anim.play("accelerate")
 	if Input.is_action_just_released("move_forward"):
-		anim.play("dance")
+		anim.play("reset")
 
 func _physics_process(delta: float) -> void:
 	# Process inputs

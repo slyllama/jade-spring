@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7mfp50wcm5wy"]
+[gd_scene load_steps=11 format=3 uid="uid://c7mfp50wcm5wy"]
 
 [ext_resource type="Texture2D" uid="uid://bq8xa3vmxn1qa" path="res://lib/skill_button/textures/_base_blank.png" id="1_7h740"]
-[ext_resource type="Texture2D" uid="uid://ddv52j2upxoqm" path="res://lib/skill_button/textures/empty.png" id="1_spyej"]
+[ext_resource type="Texture2D" uid="uid://cnf7aaj3x2wdb" path="res://lib/skill_button/textures/empty.png" id="1_spyej"]
 [ext_resource type="Script" path="res://lib/skill_button/skill_button.gd" id="2_qy3x5"]
 [ext_resource type="Texture2D" uid="uid://coftu1xcxomsv" path="res://lib/skill_button/textures/_base_active.png" id="4_ell5w"]
+[ext_resource type="FontFile" uid="uid://b6r7pypxn4inf" path="res://generic/fonts/libertinus_sans.otf" id="5_p2keg"]
 
 [sub_resource type="Animation" id="Animation_l7lqc"]
 length = 0.001
@@ -45,13 +46,14 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yqc4"]
 bg_color = Color(1, 1, 1, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rc50"]
+content_margin_top = 1.0
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -91,6 +93,7 @@ expand_mode = 1
 
 [node name="HoverBorder" type="Panel" parent="."]
 visible = false
+custom_minimum_size = Vector2(68, 68)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +104,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5yqc4")
 
 [node name="InputKeyBox" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -113,6 +117,7 @@ alignment = 1
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_p2keg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rc50")
 bbcode_enabled = true
 text = "[center]#[/center]"
