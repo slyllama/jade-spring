@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		$PlayerMesh.rotation.y = lerp(
 			$PlayerMesh.rotation.y, $Camera.rotation.y - PI, smoothing * 0.6 * delta)
 	$PlayerMesh.rotation.z = lerp(
-		$PlayerMesh.rotation.z, _direction.z * -0.2, smoothing * 0.4 * delta)
+		$PlayerMesh.rotation.z, _direction.z * 0.2, smoothing * 0.4 * delta)
 
 func _process(delta: float) -> void:
 	$Stars.global_position = engine_bone.global_position

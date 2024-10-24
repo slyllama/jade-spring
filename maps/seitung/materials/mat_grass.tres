@@ -1,7 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://c6qtw46vrdldo"]
+[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://c6qtw46vrdldo"]
 
 [ext_resource type="Shader" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_ng8hm"]
 [ext_resource type="Texture2D" uid="uid://cuw5jbeuqm6uo" path="res://maps/seitung/materials/textures/grass_norm.jpg" id="2_5a6nf"]
+[ext_resource type="Texture2D" uid="uid://c1gwf0wic4lce" path="res://maps/seitung/materials/textures/dirt_mask.png" id="2_o3h8l"]
+[ext_resource type="Texture2D" uid="uid://culde2mjyr2qq" path="res://maps/seitung/materials/textures/dirt_diff.jpg" id="3_k1i0h"]
 [ext_resource type="Texture2D" uid="uid://coytnfhpqhb7s" path="res://maps/seitung/materials/textures/grass_add_diff.jpg" id="3_lmnrd"]
 [ext_resource type="Texture2D" uid="uid://cejwijfwr6xsg" path="res://maps/seitung/materials/textures/grass_base_diff.jpg" id="4_xlesa"]
 
@@ -22,3 +24,5 @@ shader_parameter/grass_texture_base = ExtResource("4_xlesa")
 shader_parameter/grass_texture_add = ExtResource("3_lmnrd")
 shader_parameter/grass_normal_texture = ExtResource("2_5a6nf")
 shader_parameter/blend_noise_texture = SubResource("NoiseTexture2D_x871w")
+shader_parameter/dirt_texture = ExtResource("3_k1i0h")
+shader_parameter/dirt_mask_texture = ExtResource("2_o3h8l")

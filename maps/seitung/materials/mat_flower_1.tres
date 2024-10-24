@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bi5s8iqcu76xx"]
+
+[ext_resource type="Texture2D" uid="uid://c3y8n4gvjyl0x" path="res://maps/seitung/materials/textures/flower_1_diff.png" id="1_2680l"]
+
+[resource]
+resource_name = "mat_flower"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_2680l")
+distance_fade_mode = 2
+distance_fade_min_distance = 10.5

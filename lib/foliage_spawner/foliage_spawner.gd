@@ -4,9 +4,13 @@ class_name FoliageSpawner extends MultiMeshInstance3D
 # FoliageSpawner
 # Uses a MultiMeshInstance to render grasses and flowers.
 
+const MOSS_MASK = preload("res://maps/seitung/materials/textures/moss_mask.png")
+
 # Useful default
 var rng = RandomNumberGenerator.new()
 var foliage_count = 0
+
+@export var custom_mesh: ArrayMesh;
 
 @export var count := 5
 @export var density := 1.0
@@ -61,17 +65,24 @@ func set_display_distance() -> void:
 # Moss functions are separated as to allow live undergrowh updating without
 # trigging a MeshInstance buffer replacement
 func _render_moss() -> void:
-	pass
-	#if moss_cover:
-		#$Moss.visible = true
-		#$Moss.albedo_mix = moss_albedo_mix
-		#$Moss.size = Vector3(
-			#size * moss_scaling, 0.5, size * moss_scaling)
-	#else: 
-		#$Moss.visible = false
+	for _n in get_children():
+		if _n is Decal:
+			_n.queue_free()
+	
+	if moss_cover:
+		var moss_decal = Decal.new()
+		moss_decal.texture_albedo = MOSS_MASK
+		moss_decal.albedo_mix = moss_albedo_mix
+		moss_decal.modulate = lerp(colour_1, colour_2, 0.5)
+		moss_decal.size = Vector3(
+			size * moss_scaling, 0.5, size * moss_scaling)
+		add_child(moss_decal)
 
 func render() -> void:
-	active_foliage_mesh = load("res://maps/bin/grass.res")
+	if custom_mesh != null:
+		active_foliage_mesh = custom_mesh
+	else:
+		active_foliage_mesh = load("res://maps/bin/_grass.res")
 	_render_moss()
 	
 	# Reset - clear foliage count

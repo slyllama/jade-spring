@@ -6,6 +6,9 @@ uniform sampler2D grass_texture_add: source_color, filter_linear_mipmap, repeat_
 uniform sampler2D grass_normal_texture: filter_linear_mipmap, repeat_enable;
 uniform sampler2D blend_noise_texture: filter_linear_mipmap, repeat_enable, hint_default_black;
 
+uniform sampler2D dirt_texture: source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D dirt_mask_texture: filter_linear_mipmap, hint_default_black;
+
 vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
 	float cosa = cos(rotation);
 	float sina = sin(rotation);
@@ -18,13 +21,16 @@ vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
 
 void fragment() {
 	float blend_noise = texture(blend_noise_texture, UV).r;
+	float dirt_blend = texture(dirt_mask_texture, UV).r;
 	
 	vec3 grass_base = texture(grass_texture_base, UV * uv_scale).rgb;
-	vec3 grass_add = texture(grass_texture_add,
-		rotate_uv(UV, vec2(0.5), PI / 2.0) * uv_scale * 0.5).rgb;
+	vec3 grass_add = texture(grass_texture_add, rotate_uv(UV, vec2(0.5), PI / 2.0) * uv_scale * 0.5).rgb;
 	vec3 grass_normal = texture(grass_normal_texture, UV * uv_scale).rgb;
 	
+	vec3 dirt = texture(dirt_texture, UV * uv_scale * 0.55).rgb;
+	
 	ALBEDO = mix(grass_base * 0.5, grass_add * 1.5, blend_noise);
+	ALBEDO = mix(ALBEDO, dirt, pow(dirt_blend, 1.7));
 	NORMAL_MAP = grass_normal;
 	NORMAL_MAP_DEPTH = 1.0;
 	SPECULAR = 0.2;
