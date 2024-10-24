@@ -1,3 +1,4 @@
+@icon("res://lib/decoration/icon_decoration.svg")
 class_name Decoration extends Node3D
 
 @export var collision_box: PhysicsBody3D
