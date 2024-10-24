@@ -12,34 +12,32 @@ var _target_velocity := Vector3.ZERO
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
-	
-	#anim.set_blend_time("reset", "accelerate", 0.4)
-	#anim.set_blend_time("accelerate", "reset", 0.4)
-	anim.play("reset")
 
-var _forward_state = 0
-
-func _input(_event: InputEvent) -> void:
-	var _query_forward_state = _forward_state
-	if Input.is_action_just_pressed("move_forward"):
-		_query_forward_state += 1
-	if Input.is_action_just_pressed("move_up"):
-		_query_forward_state += 1
-	if Input.is_action_just_released("move_forward"):
-		_query_forward_state -= 1
-	if Input.is_action_just_released("move_up"):
-		_query_forward_state -= 1
+var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
+func _physics_process(delta: float) -> void:
+	# Handle animations
+	var _query_fs = _fs
+	if Input.is_action_just_pressed("move_forward"): _query_fs += 1
+	if Input.is_action_just_pressed("move_up"): _query_fs += 1
+	if Input.is_action_just_pressed("move_left"): _query_fs += 1
+	if Input.is_action_just_pressed("move_right"): _query_fs += 1
 	
-	if _query_forward_state > 0 and _forward_state == 0:
+	if Input.is_action_just_released("move_forward"): _query_fs -= 1
+	if Input.is_action_just_released("move_up"): _query_fs -= 1
+	if Input.is_action_just_released("move_left"): _query_fs -= 1
+	if Input.is_action_just_released("move_right"): _query_fs -= 1
+	
+	if _query_fs > 0 and _fs == 0:
 		$PlayerMesh/Tree.set(
 			"parameters/test_transition/transition_request", "accelerate")
-	elif _query_forward_state == 0 and _forward_state > 0:
+	elif _query_fs == 0 and _fs > 0:
 		$PlayerMesh/Tree.set(
 			"parameters/test_transition/transition_request", "dance")
 	
-	_forward_state = _query_forward_state
-
-func _physics_process(delta: float) -> void:
+	if _fs != 0:
+		if velocity.length() < 0.1:
+			_fs = 0 # reset forward state (for animations) if it gets stuck
+	
 	# Process inputs
 	if Input.is_action_pressed("move_forward"): _direction.x = 1
 	elif Input.is_action_pressed("move_back"): _direction.x = -1
@@ -66,8 +64,10 @@ func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta)
 	velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta)
 	velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta)
+	
 	move_and_slide()
 	Global.player_position = global_position
+	_fs = _query_fs
 	
 	if _direction.x > 0 or _direction.z != 0:
 		$PlayerMesh.rotation.y = lerp(

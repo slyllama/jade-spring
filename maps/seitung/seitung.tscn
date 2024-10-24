@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=13 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Material" uid="uid://cih6fdnrclm1e" path="res://generic/materials/mat_floor.tres" id="2_vyc52"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_6ilxl"]
 [ext_resource type="PackedScene" uid="uid://b6x6dgmtoy2en" path="res://lib/decoration/decoration.tscn" id="5_0gh7v"]
-[ext_resource type="Material" uid="uid://c6qtw46vrdldo" path="res://maps/seitung/mat_grass.tres" id="5_i00gp"]
+[ext_resource type="Material" uid="uid://c6qtw46vrdldo" path="res://maps/seitung/materials/mat_grass.tres" id="5_i00gp"]
+[ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
 sky_top_color = Color(0.213, 0.420083, 0.71, 1)
@@ -24,7 +25,7 @@ ambient_light_color = Color(0.35, 0.35, 0.35, 1)
 tonemap_mode = 2
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.641775, 0.668034, 0.678301, 1)
+fog_light_color = Color(0.407351, 0.432856, 0.442802, 1)
 fog_density = 1.0
 fog_sky_affect = 0.0
 fog_depth_begin = 20.0
@@ -50,13 +51,8 @@ environment = SubResource("Environment_01xfs")
 transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612372, 0, 3, 0)
 shadow_enabled = true
 
-[node name="TestBox" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.9, -8)
-size = Vector3(3, 8, 3)
-material = ExtResource("2_vyc52")
-
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11)
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
 
@@ -64,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
 
 [node name="Mesh" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+visible = false
 mesh = SubResource("QuadMesh_kfp6d")
 skeleton = NodePath("../..")
 
@@ -79,5 +76,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23, 0.5, -1.701)
 
 [node name="Base" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+visible = false
 size = Vector3(6, 0.1, 6)
 material = ExtResource("2_vyc52")
+
+[node name="House" parent="." instance=ExtResource("7_61cdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, -2)
+light_color = Color(1, 0.9405, 0.83, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2, -2)
+light_color = Color(1, 0.9405, 0.83, 1)
+light_energy = 1.5
+shadow_enabled = true

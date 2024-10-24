@@ -12,3 +12,6 @@ normal_scale = 0.25
 normal_texture = ExtResource("2_5rboi")
 rim_enabled = true
 rim_tint = 0.1
+distance_fade_mode = 2
+distance_fade_min_distance = 0.2
+distance_fade_max_distance = 0.4
