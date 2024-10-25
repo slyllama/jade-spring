@@ -79,10 +79,9 @@ func _render_moss() -> void:
 		add_child(moss_decal)
 
 func render() -> void:
-	if custom_mesh != null:
-		active_foliage_mesh = custom_mesh
-	else:
-		active_foliage_mesh = load("res://maps/bin/_grass.res")
+	# Apply custom mesh if one is specified
+	if custom_mesh != null: active_foliage_mesh = custom_mesh
+	else: active_foliage_mesh = load("res://maps/bin/_grass.res")
 	_render_moss()
 	
 	# Reset - clear foliage count
@@ -131,6 +130,7 @@ func render() -> void:
 func _ready() -> void:
 	if !Engine.is_editor_hint():
 		Global.foliage_count += count * count * density
+	
 	cast_shadow = SHADOW_CASTING_SETTING_OFF
 	_render_moss()
 

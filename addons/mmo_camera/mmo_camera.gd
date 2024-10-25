@@ -69,7 +69,7 @@ func _ready() -> void:
 	target.position.z = axis.position.z + _target_zoom
 	camera.position = target.position * 1.5
 	camera.v_offset = _get_v_offset()
-	#orbit_handler.set_initial_rotation(rotation_degrees + Vector3(-30, 45, 0,))
+	orbit_handler.set_initial_rotation(rotation_degrees + Vector3(-30, 45, 0,))
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint(): return

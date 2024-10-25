@@ -4,7 +4,8 @@
 
 [resource]
 transparency = 2
-alpha_scissor_threshold = 0.5
+alpha_scissor_threshold = 0.25
 alpha_antialiasing_mode = 0
+albedo_color = Color(0.838897, 0.838897, 0.838897, 1)
 albedo_texture = ExtResource("1_7v5ld")
-uv1_scale = Vector3(16, 16, 16)
+uv1_scale = Vector3(12, 12, 12)

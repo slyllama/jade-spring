@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqsur07csv74t"
-path="res://.godot/imported/_base_overlay.png-9ee570379701de5736dc7397703d59c8.ctex"
+uid="uid://6vp2jyvqvvbc"
+path="res://.godot/imported/toolbox_ui.png-8a24930435054364092d28cc2cb7afd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/skill_button/textures/_base_overlay.png"
-dest_files=["res://.godot/imported/_base_overlay.png-9ee570379701de5736dc7397703d59c8.ctex"]
+source_file="res://lib/toolbox/textures/toolbox_ui.png"
+dest_files=["res://.godot/imported/toolbox_ui.png-8a24930435054364092d28cc2cb7afd5.ctex"]
 
 [params]
 

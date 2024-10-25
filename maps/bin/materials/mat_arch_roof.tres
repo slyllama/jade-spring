@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dild3r36n6ou0"]
+
+[ext_resource type="Shader" path="res://maps/bin/materials/shaders/shader_arch_roof.gdshader" id="1_ubm6s"]
+[ext_resource type="Texture2D" uid="uid://b2fu2iskwm7ij" path="res://maps/bin/materials/textures/arch_roof_diff.jpg" id="2_ejw0o"]
+[ext_resource type="Texture2D" uid="uid://0dqemkdqxo8j" path="res://maps/bin/materials/textures/arch_roof_mask.jpg" id="2_qqwa4"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ubm6s")
+shader_parameter/colour_1 = Color(0.452384, 0.611433, 0.760958, 1)
+shader_parameter/colour_2 = Color(0.0838215, 0.0421156, 0.146077, 1)
+shader_parameter/uv_scale = 2.0
+shader_parameter/ao_mask_texture = ExtResource("2_qqwa4")
+shader_parameter/stain_texture = ExtResource("2_ejw0o")

@@ -33,9 +33,17 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"AlternateRoofTile": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/bin/materials/mat_arch_rafters.tres"
+},
 "LighterWood": {
 "use_external/enabled": true,
 "use_external/path": "res://maps/bin/materials/mat_wood_dark.tres"
+},
+"RoofTile": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/bin/materials/mat_arch_roof.tres"
 },
 "Trellis": {
 "use_external/enabled": true,

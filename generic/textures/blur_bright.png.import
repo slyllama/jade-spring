@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp6jk6xva0k17"
-path="res://.godot/imported/toolbox_base.png-97c4bca20f28d212ad988ff93bc7fb09.ctex"
+uid="uid://dv0f3vmgqba2p"
+path="res://.godot/imported/blur_bright.png-2a1df90a0b82edc29002c0c1c7915bf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/toolbox/textures/toolbox_base.png"
-dest_files=["res://.godot/imported/toolbox_base.png-97c4bca20f28d212ad988ff93bc7fb09.ctex"]
+source_file="res://generic/textures/blur_bright.png"
+dest_files=["res://.godot/imported/blur_bright.png-2a1df90a0b82edc29002c0c1c7915bf7.ctex"]
 
 [params]
 
