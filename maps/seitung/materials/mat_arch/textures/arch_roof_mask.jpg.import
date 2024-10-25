@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dln0ld32kbp06"
-path.s3tc="res://.godot/imported/trellis_mask.png-d1f5a48a2484090971486db088b35d17.s3tc.ctex"
+uid="uid://0dqemkdqxo8j"
+path.s3tc="res://.godot/imported/arch_roof_mask.jpg-268529c569518eac423e8b82685ae6fa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/bin/materials/textures/trellis_mask.png"
-dest_files=["res://.godot/imported/trellis_mask.png-d1f5a48a2484090971486db088b35d17.s3tc.ctex"]
+source_file="res://maps/seitung/materials/mat_arch/textures/arch_roof_mask.jpg"
+dest_files=["res://.godot/imported/arch_roof_mask.jpg-268529c569518eac423e8b82685ae6fa.s3tc.ctex"]
 
 [params]
 

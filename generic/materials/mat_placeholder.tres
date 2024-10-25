@@ -1,4 +1,15 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4a1lhxjtjvy5"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://d4a1lhxjtjvy5"]
+
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_qmon0"]
+[ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="2_6yemw"]
+[ext_resource type="Texture2D" uid="uid://cmjr446mnahyf" path="res://generic/materials/textures/tile_64px_rough.png" id="3_cu63k"]
 
 [resource]
-albedo_color = Color(0.1, 0.1, 0.1, 1)
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+albedo_texture = ExtResource("1_qmon0")
+roughness_texture = ExtResource("3_cu63k")
+normal_enabled = true
+normal_texture = ExtResource("2_6yemw")
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true
+uv1_world_triplanar = true

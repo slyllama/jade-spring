@@ -20,6 +20,7 @@ var foliage_count = 0
 @export var max_scale := 5.0
 @export_range(0.01, 1.5) var area_scale := 1.0
 @export var smooth := true
+@export var ignore_density_check := false
 
 @export var reload := false:
 	set(_value):
@@ -72,6 +73,7 @@ func _render_moss() -> void:
 	if moss_cover:
 		var moss_decal = Decal.new()
 		moss_decal.texture_albedo = MOSS_MASK
+		moss_decal.normal_fade = 0.5
 		moss_decal.albedo_mix = moss_albedo_mix
 		moss_decal.modulate = lerp(colour_1, colour_2, 0.5)
 		moss_decal.size = Vector3(
@@ -94,7 +96,8 @@ func render() -> void:
 	build_multimesh.mesh = active_foliage_mesh
 	build_multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	build_multimesh.instance_count = count * count
-	build_multimesh.visible_instance_count = floor(count * count * density)
+	if !ignore_density_check:
+		build_multimesh.visible_instance_count = floor(count * count * density)
 	var midpoint = Vector3(size / 2, 0, size / 2)
 	var separation = size / count # base distance between instances
 	
@@ -122,10 +125,18 @@ func render() -> void:
 			grass_transform = grass_transform.rotated_local(Vector3.UP, grass_rotation)
 			build_multimesh.set_instance_transform(i, grass_transform)
 	
-	foliage_count = floor(count * count * density)
+	if !ignore_density_check:
+		foliage_count = floor(count * count * density)
+	else:
+		foliage_count = floor(count * count)
 	multimesh = build_multimesh
 	if !Engine.is_editor_hint():
 		set_display_distance()
+
+func set_density(get_density) -> void:
+	if ignore_density_check: return
+	density = get_density
+	multimesh.visible_instance_count = floor(count * count * density)
 
 func _ready() -> void:
 	if !Engine.is_editor_hint(): # display foliage count at runtime

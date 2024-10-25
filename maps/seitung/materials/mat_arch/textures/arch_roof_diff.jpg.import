@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0dqemkdqxo8j"
-path.s3tc="res://.godot/imported/arch_roof_mask.jpg-ad03b38908bc066e78e4531f1606364c.s3tc.ctex"
+uid="uid://b2fu2iskwm7ij"
+path.s3tc="res://.godot/imported/arch_roof_diff.jpg-4c316357106ae7fb607fdf67a9c9b807.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/bin/materials/textures/arch_roof_mask.jpg"
-dest_files=["res://.godot/imported/arch_roof_mask.jpg-ad03b38908bc066e78e4531f1606364c.s3tc.ctex"]
+source_file="res://maps/seitung/materials/mat_arch/textures/arch_roof_diff.jpg"
+dest_files=["res://.godot/imported/arch_roof_diff.jpg-4c316357106ae7fb607fdf67a9c9b807.s3tc.ctex"]
 
 [params]
 

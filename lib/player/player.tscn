@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
 [ext_resource type="PackedScene" uid="uid://dow0fxe5m8rr1" path="res://lib/player/meshes/jade_bot.glb" id="4_0sx7s"]
 [ext_resource type="Animation" uid="uid://jg6kyecjnitv" path="res://lib/player/anims/accelerate.res" id="4_vjr6v"]
-[ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/bin/_star.res" id="4_wdnsj"]
+[ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="4_wdnsj"]
 [ext_resource type="Animation" uid="uid://ba7rwcpdhgmdb" path="res://lib/player/anims/dance.res" id="5_4xqlf"]
 [ext_resource type="Animation" uid="uid://7ydatkv748qo" path="res://lib/player/anims/reset.res" id="6_yk0gp"]
 

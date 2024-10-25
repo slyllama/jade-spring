@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hooieo80ip7g"
-path="res://.godot/imported/arch_test.glb-46ca232e1574780c22d3c398994e5823.scn"
+path="res://.godot/imported/arch_test.glb-6f4ba743136f3b42fc3340de85ece0d4.scn"
 
 [deps]
 
-source_file="res://maps/bin/arch_test.glb"
-dest_files=["res://.godot/imported/arch_test.glb-46ca232e1574780c22d3c398994e5823.scn"]
+source_file="res://maps/seitung/meshes/arch_test.glb"
+dest_files=["res://.godot/imported/arch_test.glb-6f4ba743136f3b42fc3340de85ece0d4.scn"]
 
 [params]
 
@@ -35,27 +35,27 @@ _subresources={
 "materials": {
 "AlternateRoofTile": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/bin/materials/mat_arch_rafters.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_rafters.tres"
 },
 "LighterWood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/bin/materials/mat_wood_dark.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_wood_dark.tres"
 },
 "RoofTile": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/bin/materials/mat_arch_roof.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_roof.tres"
 },
 "Trellis": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/bin/materials/mat_trellis.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_trellis.tres"
 },
 "Wood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/bin/materials/mat_wood_dark.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_wood_dark.tres"
 },
 "WoodColumns": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/bin/materials/mat_wood_dark.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_wood_dark.tres"
 }
 }
 }
