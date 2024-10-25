@@ -52,7 +52,7 @@ var foliage_count = 0
 @export var colour_2 := Color(0.4, 0.48, 0)
 
 var active_foliage_mesh: ArrayMesh
-var render_distance := 20.0
+var render_distance := 10.0
 var render_fade_spread := 2.0
 
 func set_display_distance() -> void:
@@ -85,9 +85,9 @@ func render() -> void:
 	_render_moss()
 	
 	# Reset - clear foliage count
-	if !Engine.is_editor_hint():
-		Global.foliage_count -= foliage_count
-	foliage_count = 0
+	#if !Engine.is_editor_hint():
+		#Global.foliage_count -= foliage_count
+	#foliage_count = 0
 	
 	var build_multimesh: Resource = MultiMesh.new()
 	if vary_colours: build_multimesh.use_colors = true
@@ -128,7 +128,7 @@ func render() -> void:
 		set_display_distance()
 
 func _ready() -> void:
-	if !Engine.is_editor_hint():
+	if !Engine.is_editor_hint(): # display foliage count at runtime
 		Global.foliage_count += count * count * density
 	
 	cast_shadow = SHADOW_CASTING_SETTING_OFF

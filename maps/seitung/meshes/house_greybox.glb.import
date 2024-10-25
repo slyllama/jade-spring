@@ -39,7 +39,11 @@ _subresources={
 },
 "mat_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://generic/materials/mat_floor.tres"
+"use_external/path": "res://generic/materials/mat_placeholder.tres"
+},
+"mat_rocks": {
+"use_external/enabled": true,
+"use_external/path": "res://generic/materials/mat_rocks.tres"
 }
 }
 }

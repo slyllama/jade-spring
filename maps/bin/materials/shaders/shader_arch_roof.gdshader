@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode cull_disabled;
 
 uniform sampler2D ao_mask_texture: filter_linear_mipmap;
 uniform sampler2D stain_texture: filter_linear_mipmap, repeat_enable;

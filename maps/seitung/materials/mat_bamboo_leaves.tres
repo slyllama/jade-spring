@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dx2ji8xrhg2o4"]
+
+[ext_resource type="Texture2D" uid="uid://bw2sfi3aq2o41" path="res://maps/seitung/materials/textures/bamboo_mask.png" id="1_vuic1"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.35
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.3
+cull_mode = 2
+albedo_color = Color(0.783523, 0.783523, 0.783523, 1)
+albedo_texture = ExtResource("1_vuic1")
+metallic_specular = 0.0
+emission = Color(0.118581, 0.118581, 0.118581, 1)
+backlight_enabled = true
+backlight = Color(0.533037, 0.533037, 0.533037, 1)
+uv1_scale = Vector3(0.95, 0.95, 0.95)
+uv1_offset = Vector3(0, 0.05, 0)
+distance_fade_mode = 2
+distance_fade_min_distance = 10.5

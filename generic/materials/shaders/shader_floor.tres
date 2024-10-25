@@ -1,0 +1,26 @@
+[gd_resource type="Shader" format=3 uid="uid://dhb4i3pdmtqp"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_always;
+
+uniform vec4 colour: source_color;
+
+//uniform sampler2D DEPTH_TEXTURE: hint_depth_texture, filter_linear_mipmap;
+//uniform float proximity_fade_distance : hint_range(0.0, 1.0) = 0.3;
+//uniform float falloff: hint_range(0.001, 5.0) = 1.0;
+
+float saturate(float val) {
+	return clamp(val, 0.0, 1.0);
+}
+
+void fragment() {
+	ALBEDO = colour.rgb;
+	
+	//float depth = textureLod(DEPTH_TEXTURE, SCREEN_UV, 0.0).r;
+	//vec4 world_pos = INV_PROJECTION_MATRIX * vec4(UV, depth, 1.0);
+	//world_pos.xyz /= world_pos.w;
+	//ALPHA *= saturate(1.0 - smoothstep(world_pos.z + proximity_fade_distance, world_pos.z, VERTEX.z));
+	//ALPHA = pow(ALPHA, falloff);
+}
+"
