@@ -8,16 +8,16 @@ alpha_scissor_threshold = 0.75
 alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0.16492, 0.21, 0.1617, 1)
+albedo_color = Color(0.173572, 0.220345, 0.17023, 1)
 albedo_texture = ExtResource("1_dvdvu")
-billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_oeukl"]
 material = SubResource("StandardMaterial3D_cf0lx")
-size = Vector2(12, 12)
+size = Vector2(10, 10)
+orientation = 0
 
 [node name="TreeCard" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_oeukl")
