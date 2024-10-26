@@ -19,38 +19,34 @@ _data = {
 "reset": ExtResource("6_yk0gp")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqjon"]
-animation = &"player/accelerate"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y1sbe"]
-animation = &"player/dance"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_algkr"]
+animation = &"player/reset"
 use_custom_timeline = true
-timeline_length = 1.983
+timeline_length = 2.0
 stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 1
 
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_enuxw"]
-xfade_time = 0.2
-input_0/name = "dance"
-input_0/auto_advance = false
-input_0/break_loop_at_end = false
-input_0/reset = true
-input_1/name = "accelerate"
-input_1/auto_advance = false
-input_1/break_loop_at_end = false
-input_1/reset = true
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5hquj"]
+animation = &"player/dance"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_gsm4j"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_algkr")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_5hquj")
+blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5upv6"]
-graph_offset = Vector2(-789.716, 26.9879)
-nodes/anim_accelerate/node = SubResource("AnimationNodeAnimation_uqjon")
-nodes/anim_accelerate/position = Vector2(-280, 280)
-nodes/anim_dance/node = SubResource("AnimationNodeAnimation_y1sbe")
-nodes/anim_dance/position = Vector2(-280, 133.333)
+graph_offset = Vector2(-702.518, 156.093)
 nodes/output/position = Vector2(280, 140)
-nodes/test_transition/node = SubResource("AnimationNodeTransition_enuxw")
-nodes/test_transition/position = Vector2(40, 133.333)
-node_connections = [&"output", 0, &"test_transition", &"test_transition", 0, &"anim_dance", &"test_transition", 1, &"anim_accelerate"]
+nodes/test_blend/node = SubResource("AnimationNodeBlendSpace1D_gsm4j")
+nodes/test_blend/position = Vector2(-13.3333, 146.667)
+node_connections = [&"output", 0, &"test_blend"]
 
 [sub_resource type="Curve" id="Curve_jlsfb"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -80,15 +76,19 @@ color_initial_ramp = SubResource("GradientTexture1D_ccpmc")
 alpha_curve = SubResource("CurveTexture_4dtce")
 
 [node name="Player" type="CharacterBody3D"]
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
 script = ExtResource("1_wipkt")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00538364, 0, 0)
 shape = SubResource("CapsuleShape3D_hn77j")
 
 [node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("excluded_collision_objects")]
 script = ExtResource("1_lnnkv")
-max_zoom_out = 2.0
+zoom_increment = 0.2
+max_zoom_in = 0.8
+max_zoom_out = 2.5
 v_offset = 0.8
 excluded_collision_objects = [NodePath("..")]
 clamp_x_upper = 30.0
@@ -101,9 +101,7 @@ libraries = {
 "player": SubResource("AnimationLibrary_6ksk3")
 }
 tree_root = SubResource("AnimationNodeBlendTree_5upv6")
-parameters/test_transition/current_state = "dance"
-parameters/test_transition/transition_request = ""
-parameters/test_transition/current_index = 0
+parameters/test_blend/blend_position = 0.5
 
 [node name="Stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.2)

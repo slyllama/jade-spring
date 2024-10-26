@@ -31,7 +31,8 @@ var in_exclusive_ui = false
 var mouse_in_ui = false
 var calculated_sensitivity = orbit_sensitivity
 
-var _target_zoom = max_zoom_in + 0.5 * (max_zoom_out - max_zoom_in)
+var _target_zoom = max_zoom_out
+#var _target_zoom = max_zoom_in + 0.5 * (max_zoom_out - max_zoom_in)
 
 var axis = SpringArm3D.new()
 var camera = Camera3D.new()
@@ -65,6 +66,7 @@ func _ready() -> void:
 		axis.add_excluded_object(_n)
 	
 	# Set up initial characteristics
+	_target_zoom = max_zoom_out
 	axis.spring_length = _target_zoom
 	target.position.z = axis.position.z + _target_zoom
 	camera.position = target.position * 1.5

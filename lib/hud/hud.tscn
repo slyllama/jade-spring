@@ -54,6 +54,7 @@ flip_h = true
 flip_v = true
 
 [node name="Debug" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 616.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=46 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -189,41 +189,47 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vj374")
 
-[sub_resource type="MultiMesh" id="MultiMesh_vpmdp"]
+[sub_resource type="MultiMesh" id="MultiMesh_kfmx2"]
 transform_format = 1
 instance_count = 16
 mesh = SubResource("ArrayMesh_lpqlk")
-buffer = PackedFloat32Array(0.921806, 0, 1.02513, -1.05416, 0, 1.37863, 0, 0, -1.02513, 0, 0.921806, -1.40109, -1.55583, 0, -1.14882, -0.232784, 0, 1.93401, 0, 0, 1.14882, 0, -1.55583, -1.39638, -0.208043, 0, 1.83096, 0.237464, 0, 1.84274, 0, 0, -1.83096, 0, -0.208043, -1.17881, 0.982041, 0, 1.62872, 1.31547, 0, 1.90188, 0, 0, -1.62872, 0, 0.982041, -1.49263, 1.56578, 0, 0.571771, -1.57692, 0, 1.66691, 0, 0, -0.571771, 0, 1.56578, -0.620475, 1.44633, 0, -0.540046, -0.577693, 0, 1.54386, 0, 0, 0.540046, 0, 1.44633, -0.501432, 0.958331, 0, -1.6288, 0.371805, 0, 1.88981, 0, 0, 1.6288, 0, 0.958331, -0.425046, -1.17524, 0, -1.36718, 1.07848, 0, 1.80288, 0, 0, 1.36718, 0, -1.17524, -0.144423, 1.03272, 0, 1.51707, -1.28909, 0, 1.83522, 0, 0, -1.51707, 0, 1.03272, 0.6598, 1.52989, 0, 0.844347, -0.404088, 0, 1.74742, 0, 0, -0.844347, 0, 1.52989, 0.63024, -1.43341, 0, 1.15721, 0.335471, 0, 1.84223, 0, 0, -1.15721, 0, -1.43341, 0.504603, 1.16001, 0, 1.12086, 1.08248, 0, 1.61305, 0, 0, -1.12086, 0, 1.16001, 0.398036, 0.31116, 0, 1.44095, -1.53353, 0, 1.47416, 0, 0, -1.44095, 0, 0.31116, 0.86528, -1.7493, 0, -0.783247, -0.135514, 0, 1.91665, 0, 0, 0.783247, 0, -1.7493, 0.896135, -1.98, 0, -0.153389, 0.663738, 0, 1.98593, 0, 0, 0.153389, 0, -1.98, 1.04227, -1.02924, 0, 1.5431, 1.19071, 0, 1.85486, 0, 0, -1.5431, 0, -1.02924, 0.858744)
+buffer = PackedFloat32Array(0.841349, 0, 1.19977, -1.03041, 0, 1.46537, 0, 0, -1.19977, 0, 0.841349, -1.20434, -1.47774, 0, 0.247932, -0.548933, 0, 1.49839, 0, 0, -0.247932, 0, -1.47774, -1.28107, 1.1803, 0, 0.688657, 0.48039, 0, 1.36652, 0, 0, -0.688657, 0, 1.1803, -1.45679, -0.977616, 0, 0.993172, 1.14307, 0, 1.3936, 0, 0, -0.993172, 0, -0.977616, -1.56699, -0.487223, 0, -1.3192, -1.51158, 0, 1.4063, 0, 0, 1.3192, 0, -0.487223, -0.749693, -0.10233, 0, -1.34517, -0.628106, 0, 1.34906, 0, 0, 1.34517, 0, -0.10233, -0.516659, -0.256029, 0, -1.35408, 0.0797305, 0, 1.37807, 0, 0, 1.35408, 0, -0.256029, -0.327582, 0.772372, 0, -1.25456, 1.22669, 0, 1.47325, 0, 0, 1.25456, 0, 0.772372, -0.257072, -1.45087, 0, 0.156293, -1.4562, 0, 1.45927, 0, 0, -0.156293, 0, -1.45087, 0.288058, -1.10959, 0, -0.764176, -0.623425, 0, 1.34727, 0, 0, 0.764176, 0, -1.10959, 0.206497, -0.823433, 0, 1.20873, 0.0744797, 0, 1.46255, 0, 0, -1.20873, 0, -0.823433, 0.0513396, 1.0401, 0, -1.00874, 0.820143, 0, 1.44892, 0, 0, 1.00874, 0, 1.0401, 0.316916, -0.879245, 0, 0.96579, -1.59675, 0, 1.30607, 0, 0, -0.96579, 0, -0.879245, 0.925168, -0.98168, 0, -1.13317, -0.354786, 0, 1.49925, 0, 0, 1.13317, 0, -0.98168, 1.20798, -0.14516, 0, -1.3916, 0.0896935, 0, 1.39915, 0, 0, 1.3916, 0, -0.14516, 1.2611, 1.12386, 0, -0.929574, 0.85143, 0, 1.45848, 0, 0, 0.929574, 0, 1.12386, 1.32486)
 
-[sub_resource type="MultiMesh" id="MultiMesh_st34h"]
+[sub_resource type="MultiMesh" id="MultiMesh_2gpet"]
 transform_format = 1
 instance_count = 4
 mesh = SubResource("ArrayMesh_lpqlk")
-buffer = PackedFloat32Array(-0.66875, 0, 1.66854, -0.491509, 0, 1.79757, 0, 0, -1.66854, 0, -0.66875, -0.340354, -1.79206, 0, -0.461853, 0.0449688, 0, 1.85061, 0, 0, 0.461853, 0, -1.79206, -0.277633, 0.816794, 0, -1.44329, -0.242094, 0, 1.65839, 0, 0, 1.44329, 0, 0.816794, 0.0296918, 1.49272, 0, -1.11977, 0.160645, 0, 1.86604, 0, 0, 1.11977, 0, 1.49272, 0.318544)
+buffer = PackedFloat32Array(1.10849, 0, -0.921853, -0.328172, 0, 1.44172, 0, 0, 0.921853, 0, 1.10849, -0.249351, 0.161832, 0, -1.31343, 0.172775, 0, 1.32336, 0, 0, 1.31343, 0, 0.161832, -0.309648, -0.0173885, 0, 1.39853, -0.413433, 0, 1.39864, 0, 0, -1.39853, 0, -0.0173885, 0.0719567, -1.4046, 0, 0.0150933, 0.00205082, 0, 1.40468, 0, 0, -0.0150933, 0, -1.4046, 0.156144)
 
-[sub_resource type="MultiMesh" id="MultiMesh_nor85"]
+[sub_resource type="MultiMesh" id="MultiMesh_kml6t"]
 transform_format = 1
 instance_count = 4
 mesh = SubResource("ArrayMesh_lpqlk")
-buffer = PackedFloat32Array(-1.28805, 0, 0.271978, 0.260009, 0, 1.31646, 0, 0, -0.271978, 0, -1.28805, -0.69563, 1.24102, 0, 1.43466, 1.25184, 0, 1.89694, 0, 0, -1.43466, 0, 1.24102, 0.75456, 1.0259, 0, 1.58394, 0.260033, 0, 1.88715, 0, 0, -1.58394, 0, 1.0259, 0.318732, -1.19318, 0, 0.681173, 0.637314, 0, 1.37393, 0, 0, -0.681173, 0, -1.19318, 0.125986)
+buffer = PackedFloat32Array(0.112779, 0, -1.37941, -0.0678026, 0, 1.38401, 0, 0, 1.37941, 0, 0.112779, 0.236869, 1.29647, 0, 0.104277, 0.89316, 0, 1.30066, 0, 0, -0.104277, 0, 1.29647, 0.142125, 0.936684, 0, 1.14569, -0.420434, 0, 1.47986, 0, 0, -1.14569, 0, 0.936684, 0.938857, 0.0875519, 0, 1.31315, 0.883688, 0, 1.31607, 0, 0, -1.31315, 0, 0.0875519, 0.890231)
 
-[sub_resource type="MultiMesh" id="MultiMesh_qbsxc"]
+[sub_resource type="MultiMesh" id="MultiMesh_5knil"]
+transform_format = 1
+instance_count = 4
+mesh = SubResource("ArrayMesh_lpqlk")
+buffer = PackedFloat32Array(1.41459, 0, 0.480585, 0.320903, 0, 1.494, 0, 0, -0.480585, 0, 1.41459, 0.407847, -1.23895, 0, 0.796066, 0.674131, 0, 1.47266, 0, 0, -0.796066, 0, -1.23895, -0.484856, -0.32749, 0, 1.45334, -0.124032, 0, 1.48978, 0, 0, -1.45334, 0, -0.32749, 1.00083, -1.25026, 0, 0.72232, 0.803393, 0, 1.44392, 0, 0, -0.72232, 0, -1.25026, 0.80041)
+
+[sub_resource type="MultiMesh" id="MultiMesh_7nob5"]
 transform_format = 1
 instance_count = 4
 mesh = ExtResource("14_yeybn")
-buffer = PackedFloat32Array(1.87247, 0, 0.55238, -0.495627, 0, 1.95224, 0, 0, -0.55238, 0, 1.87247, -0.502688, -0.32472, 0, -1.82581, 1.44676, 0, 1.85446, 0, 0, 1.82581, 0, -0.32472, 1.44372, -1.61566, 0, -0.225803, -0.936481, 0, 1.63136, 0, 0, 0.225803, 0, -1.61566, 1.40899, 1.45648, 0, 0.11348, 0.709611, 0, 1.4609, 0, 0, -0.11348, 0, 1.45648, 1.5203)
+buffer = PackedFloat32Array(0.499367, 0, 1.25399, -0.939427, 0, 1.34976, 0, 0, -1.25399, 0, 0.499367, -0.786691, 1.00304, 0, -1.08935, 0.708481, 0, 1.4808, 0, 0, 1.08935, 0, 1.00304, -0.42341, 1.22979, 0, -0.823178, -0.910053, 0, 1.47987, 0, 0, 0.823178, 0, 1.22979, 0.520326, -0.54499, 0, -1.35029, 0.0250778, 0, 1.45612, 0, 0, 1.35029, 0, -0.54499, 0.367155)
 
-[sub_resource type="MultiMesh" id="MultiMesh_twxo3"]
+[sub_resource type="MultiMesh" id="MultiMesh_cw0nd"]
 transform_format = 1
 instance_count = 4
 mesh = ExtResource("14_yeybn")
-buffer = PackedFloat32Array(-1.23715, 0, -0.519124, -0.648559, 0, 1.34165, 0, 0, 0.519124, 0, -1.23715, -0.992938, -1.76402, 0, 0.904735, 0.254075, 0, 1.9825, 0, 0, -0.904735, 0, -1.76402, -0.815494, -1.62579, 0, 0.688427, -0.147677, 0, 1.76554, 0, 0, -0.688427, 0, -1.62579, 0.493396, 0.832348, 0, -1.36632, 0.0423737, 0, 1.59989, 0, 0, 1.36632, 0, 0.832348, 0.670337)
+buffer = PackedFloat32Array(-0.104442, 0, -1.36495, -0.6097, 0, 1.36894, 0, 0, 1.36495, 0, -0.104442, -0.478799, -1.32, 0, 0.339843, 0.0485128, 0, 1.36305, 0, 0, -0.339843, 0, -1.32, -0.711045, 1.02044, 0, 0.935323, -0.764473, 0, 1.38424, 0, 0, -0.935323, 0, 1.02044, 0.611845, -0.524776, 0, -1.40232, 0.180864, 0, 1.4973, 0, 0, 1.40232, 0, -0.524776, 0.00173687)
 
-[sub_resource type="MultiMesh" id="MultiMesh_73420"]
+[sub_resource type="MultiMesh" id="MultiMesh_bklrj"]
 transform_format = 1
 instance_count = 4
 mesh = ExtResource("14_yeybn")
-buffer = PackedFloat32Array(0.73019, 0, -1.41609, -0.883358, 0, 1.59326, 0, 0, 1.41609, 0, 0.73019, -0.886388, 1.618, 0, -0.908097, 0.576553, 0, 1.85541, 0, 0, 0.908097, 0, 1.618, -0.0899696, 1.26276, 0, 1.49, -0.691848, 0, 1.95311, 0, 0, -1.49, 0, 1.26276, 0.707901, 1.15842, 0, 0.720744, 0.198614, 0, 1.36434, 0, 0, -0.720744, 0, 1.15842, 0.125395)
+buffer = PackedFloat32Array(1.38897, 0, -0.165568, -0.917382, 0, 1.3988, 0, 0, 0.165568, 0, 1.38897, -0.739238, 1.1031, 0, -0.774167, 0.118271, 0, 1.34765, 0, 0, 0.774167, 0, 1.1031, -0.627239, -1.0945, 0, -0.883703, -0.557223, 0, 1.40672, 0, 0, 0.883703, 0, -1.0945, 0.308181, 0.433113, 0, 1.31845, 0.160315, 0, 1.38777, 0, 0, -1.31845, 0, 0.433113, 0.617528)
 
 [sub_resource type="Curve" id="Curve_ai1cj"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
@@ -272,6 +278,8 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11)
+base_speed = null
+smoothing = null
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
 
@@ -465,16 +473,16 @@ colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 8.0
 
 [node name="BambooSpawner" type="MultiMeshInstance3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54653, 2.63912, 8.04944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54653, 2.12775, 8.1282)
 cast_shadow = 0
-multimesh = SubResource("MultiMesh_vpmdp")
+multimesh = SubResource("MultiMesh_kfmx2")
 script = ExtResource("9_7bo6h")
 custom_mesh = SubResource("ArrayMesh_lpqlk")
 count = 4
 size = 3.2
 scatter = 0.4
 min_scale = 1.3
-max_scale = 2.0
+max_scale = 1.5
 smooth = false
 ignore_density_check = true
 moss_albedo_mix = 0.5
@@ -484,15 +492,15 @@ colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
 [node name="BambooSpawner6" type="MultiMeshInstance3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22198, 4.15749, 16.4042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22198, 4.32359, 16.4042)
 cast_shadow = 0
-multimesh = SubResource("MultiMesh_st34h")
+multimesh = SubResource("MultiMesh_2gpet")
 script = ExtResource("9_7bo6h")
 custom_mesh = SubResource("ArrayMesh_lpqlk")
 count = 2
 size = 1.0
 min_scale = 1.3
-max_scale = 2.0
+max_scale = 1.5
 smooth = false
 ignore_density_check = true
 moss_albedo_mix = 0.5
@@ -502,16 +510,35 @@ colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
 [node name="BambooSpawner2" type="MultiMeshInstance3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55399, 2.04595, 10.7672)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50085, 1.41995, 10.6072)
 cast_shadow = 0
-multimesh = SubResource("MultiMesh_nor85")
+multimesh = SubResource("MultiMesh_kml6t")
 script = ExtResource("9_7bo6h")
 custom_mesh = SubResource("ArrayMesh_lpqlk")
 count = 2
-size = 3.0
-scatter = 1.4
+size = 1.0
+scatter = 0.7
 min_scale = 1.3
-max_scale = 2.0
+max_scale = 1.5
+smooth = false
+ignore_density_check = true
+moss_albedo_mix = 0.5
+vary_colours = false
+colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
+colour_2 = Color(0.336, 0.72, 0, 1)
+render_distance = 20.0
+
+[node name="BambooSpawner7" type="MultiMeshInstance3D" parent="Foliage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.87081, 4.53655, 10.8473)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_5knil")
+script = ExtResource("9_7bo6h")
+custom_mesh = SubResource("ArrayMesh_lpqlk")
+count = 2
+size = 1.0
+scatter = 0.7
+min_scale = 1.3
+max_scale = 1.5
 smooth = false
 ignore_density_check = true
 moss_albedo_mix = 0.5
@@ -521,15 +548,15 @@ colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
 [node name="BambooSpawner3" type="MultiMeshInstance3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73397, -0.346134, 4.48119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79742, -0.175203, 4.91768)
 cast_shadow = 0
-multimesh = SubResource("MultiMesh_qbsxc")
+multimesh = SubResource("MultiMesh_7nob5")
 script = ExtResource("9_7bo6h")
 custom_mesh = ExtResource("14_yeybn")
 count = 2
-scatter = 1.4
+scatter = 0.5
 min_scale = 1.3
-max_scale = 2.0
+max_scale = 1.5
 smooth = false
 ignore_density_check = true
 vary_colours = false
@@ -538,15 +565,15 @@ colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
 [node name="BambooSpawner4" type="MultiMeshInstance3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1145, 0.0338993, 18.9188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1145, 0.437153, 18.9188)
 cast_shadow = 0
-multimesh = SubResource("MultiMesh_twxo3")
+multimesh = SubResource("MultiMesh_cw0nd")
 script = ExtResource("9_7bo6h")
 custom_mesh = ExtResource("14_yeybn")
 count = 2
 scatter = 0.5
 min_scale = 1.3
-max_scale = 2.0
+max_scale = 1.5
 smooth = false
 ignore_density_check = true
 moss_albedo_mix = 0.5
@@ -556,15 +583,15 @@ colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
 [node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Foliage"]
-transform = Transform3D(0.446666, 0, 0.894701, 0, 1, 0, -0.894701, 0, 0.446666, -3.2974, -0.248592, 18.0964)
+transform = Transform3D(0.446666, 0, 0.894701, 0, 1, 0, -0.894701, 0, 0.446666, -3.8339, -0.305874, 18.2941)
 cast_shadow = 0
-multimesh = SubResource("MultiMesh_73420")
+multimesh = SubResource("MultiMesh_bklrj")
 script = ExtResource("9_7bo6h")
 custom_mesh = ExtResource("14_yeybn")
 count = 2
 scatter = 0.5
 min_scale = 1.3
-max_scale = 2.0
+max_scale = 1.5
 smooth = false
 ignore_density_check = true
 moss_cover = false

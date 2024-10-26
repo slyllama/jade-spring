@@ -32,7 +32,6 @@ gdscript/warnings/unused_signal=0
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/scale_mode="integer"
-window/vsync/vsync_mode=2
 mouse_cursor/custom_image="res://generic/textures/cursor.png"
 
 [editor_plugins]
