@@ -53,15 +53,17 @@ var foliage_count = 0
 @export var colour_2 := Color(0.639, 0.729, 0)
 
 var active_foliage_mesh: ArrayMesh
-var render_distance := 10.0
-var render_fade_spread := 2.0
+@export var render_distance := 10.0
+@export var render_fade_spread := 2.0
 
-func set_display_distance() -> void:
+func _set_display_distance() -> void:
 	#Configure materials to fade away at a certain distance
-	var mat: StandardMaterial3D = active_foliage_mesh.surface_get_material(0)
-	mat.distance_fade_mode = BaseMaterial3D.DISTANCE_FADE_PIXEL_DITHER
-	mat.distance_fade_min_distance = render_distance + render_fade_spread
-	mat.distance_fade_max_distance = render_distance
+	for i in multimesh.mesh.get_surface_count():
+		var mat: StandardMaterial3D = multimesh.mesh.surface_get_material(i).duplicate()
+		multimesh.mesh.surface_set_material(i, mat)
+		mat.distance_fade_mode = BaseMaterial3D.DISTANCE_FADE_PIXEL_DITHER
+		mat.distance_fade_min_distance = render_distance + render_fade_spread
+		mat.distance_fade_max_distance = render_distance
 
 # Moss functions are separated as to allow live undergrowh updating without
 # trigging a MeshInstance buffer replacement
@@ -130,8 +132,6 @@ func render() -> void:
 	else:
 		foliage_count = floor(count * count)
 	multimesh = build_multimesh
-	if !Engine.is_editor_hint():
-		set_display_distance()
 
 func set_density(get_density) -> void:
 	if ignore_density_check: return
@@ -141,6 +141,7 @@ func set_density(get_density) -> void:
 func _ready() -> void:
 	if !Engine.is_editor_hint(): # display foliage count at runtime
 		Global.foliage_count += count * count * density
+		_set_display_distance()
 	
 	cast_shadow = SHADOW_CASTING_SETTING_OFF
 	_render_moss()
@@ -151,5 +152,5 @@ func _process(_delta: float) -> void:
 	# Turn off foliage visiblity after the shader has faded it out
 	var dist = global_position.distance_to(Global.player_position)
 	if visible: # includes a buffer
-		if dist > render_distance + 1.0: visible = false
-	else:if dist < render_distance + 1.0: visible = true
+		if dist > render_distance + render_fade_spread * 2.0: visible = false
+	else:if dist < render_distance + render_fade_spread * 2.0: visible = true
