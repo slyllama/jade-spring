@@ -18,14 +18,14 @@ func _physics_process(delta: float) -> void:
 	# Handle animations
 	var _query_fs = _fs
 	if Input.is_action_just_pressed("move_forward"): _query_fs += 1
-	if Input.is_action_just_pressed("move_up"): _query_fs += 1
-	if Input.is_action_just_pressed("move_left"): _query_fs += 1
-	if Input.is_action_just_pressed("move_right"): _query_fs += 1
+	#if Input.is_action_just_pressed("move_up"): _query_fs += 1
+	#if Input.is_action_just_pressed("move_left"): _query_fs += 1
+	#if Input.is_action_just_pressed("move_right"): _query_fs += 1
 	
 	if Input.is_action_just_released("move_forward"): _query_fs -= 1
-	if Input.is_action_just_released("move_up"): _query_fs -= 1
-	if Input.is_action_just_released("move_left"): _query_fs -= 1
-	if Input.is_action_just_released("move_right"): _query_fs -= 1
+	#if Input.is_action_just_released("move_up"): _query_fs -= 1
+	#if Input.is_action_just_released("move_left"): _query_fs -= 1
+	#if Input.is_action_just_released("move_right"): _query_fs -= 1
 	
 	if _query_fs > 0 and _fs == 0:
 		$PlayerMesh/Tree.set(

@@ -39,7 +39,7 @@ _subresources={
 },
 "LighterWood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_wood_dark.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_desaturated.tres"
 },
 "RoofTile": {
 "use_external/enabled": true,
@@ -51,11 +51,11 @@ _subresources={
 },
 "Wood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_wood_dark.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_frame.tres"
 },
 "WoodColumns": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_wood_dark.tres"
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_columns.tres"
 }
 }
 }

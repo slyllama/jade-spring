@@ -31,8 +31,7 @@ start_offset = 0.0
 loop_mode = 1
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_enuxw"]
-xfade_time = 0.5
-allow_transition_to_self = true
+xfade_time = 0.2
 input_0/name = "dance"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
@@ -102,9 +101,9 @@ libraries = {
 "player": SubResource("AnimationLibrary_6ksk3")
 }
 tree_root = SubResource("AnimationNodeBlendTree_5upv6")
-parameters/test_transition/current_state = ""
+parameters/test_transition/current_state = "dance"
 parameters/test_transition/transition_request = ""
-parameters/test_transition/current_index = -1
+parameters/test_transition/current_index = 0
 
 [node name="Stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.2)

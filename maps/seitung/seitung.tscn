@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=41 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -203,6 +203,12 @@ transform_format = 1
 instance_count = 4
 mesh = ExtResource("14_yeybn")
 buffer = PackedFloat32Array(-1.23715, 0, -0.519124, -0.648559, 0, 1.34165, 0, 0, 0.519124, 0, -1.23715, -0.992938, -1.76402, 0, 0.904735, 0.254075, 0, 1.9825, 0, 0, -0.904735, 0, -1.76402, -0.815494, -1.62579, 0, 0.688427, -0.147677, 0, 1.76554, 0, 0, -0.688427, 0, -1.62579, 0.493396, 0.832348, 0, -1.36632, 0.0423737, 0, 1.59989, 0, 0, 1.36632, 0, 0.832348, 0.670337)
+
+[sub_resource type="MultiMesh" id="MultiMesh_73420"]
+transform_format = 1
+instance_count = 4
+mesh = ExtResource("14_yeybn")
+buffer = PackedFloat32Array(0.73019, 0, -1.41609, -0.883358, 0, 1.59326, 0, 0, 1.41609, 0, 0.73019, -0.886388, 1.618, 0, -0.908097, 0.576553, 0, 1.85541, 0, 0, 0.908097, 0, 1.618, -0.0899696, 1.26276, 0, 1.49, -0.691848, 0, 1.95311, 0, 0, -1.49, 0, 1.26276, 0.707901, 1.15842, 0, 0.720744, 0.198614, 0, 1.36434, 0, 0, -0.720744, 0, 1.15842, 0.125395)
 
 [sub_resource type="Curve" id="Curve_ai1cj"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
@@ -485,6 +491,24 @@ vary_colours = false
 colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 
+[node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Foliage"]
+transform = Transform3D(0.446666, 0, 0.894701, 0, 1, 0, -0.894701, 0, 0.446666, -3.2974, -0.248592, 18.0964)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_73420")
+script = ExtResource("9_7bo6h")
+custom_mesh = ExtResource("14_yeybn")
+count = 2
+scatter = 0.5
+min_scale = 1.3
+max_scale = 2.0
+smooth = false
+ignore_density_check = true
+moss_cover = false
+moss_albedo_mix = 0.5
+vary_colours = false
+colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
+colour_2 = Color(0.336, 0.72, 0, 1)
+
 [node name="Motes" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
 amount = 50
@@ -513,15 +537,15 @@ process_material = SubResource("ParticleProcessMaterial_f5nkf")
 draw_pass_1 = SubResource("PlaneMesh_2fc7p")
 
 [node name="Arch" parent="." instance=ExtResource("12_4v57y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.433729, 15)
+transform = Transform3D(0.977721, 0, 0.209909, 0, 1, 0, -0.209909, 0, 0.977721, -5.0583, -0.0138671, 14.6878)
 
 [node name="Decal" type="Decal" parent="Arch"]
-transform = Transform3D(-0.166558, 0.687211, -0.707107, -0.971862, -0.235549, 0, -0.166558, 0.687211, 0.707107, -0.772768, 2.9973, -0.874584)
+transform = Transform3D(-0.270529, 0.65331, -0.707107, -0.923919, -0.382587, 0, -0.270529, 0.65331, 0.707107, -0.772768, 3.2238, -0.874584)
 size = Vector3(3, 3, 3)
 texture_albedo = ExtResource("13_vc25n")
 modulate = Color(0.60359, 0.78, 0.3198, 1)
 albedo_mix = 0.75
-normal_fade = 0.5
+normal_fade = 0.537
 
 [node name="Arch2" parent="." instance=ExtResource("12_4v57y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, -0.3, 15)
