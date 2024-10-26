@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=19 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
@@ -30,31 +30,27 @@ stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 1
 
-[sub_resource type="Curve" id="Curve_sdyxs"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_enuxw"]
 xfade_time = 0.5
-xfade_curve = SubResource("Curve_sdyxs")
+allow_transition_to_self = true
 input_0/name = "dance"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
-input_0/reset = false
+input_0/reset = true
 input_1/name = "accelerate"
 input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5upv6"]
-graph_offset = Vector2(-729.143, 70.9181)
+graph_offset = Vector2(-789.716, 26.9879)
 nodes/anim_accelerate/node = SubResource("AnimationNodeAnimation_uqjon")
 nodes/anim_accelerate/position = Vector2(-280, 280)
 nodes/anim_dance/node = SubResource("AnimationNodeAnimation_y1sbe")
-nodes/anim_dance/position = Vector2(-280, 140)
+nodes/anim_dance/position = Vector2(-280, 133.333)
 nodes/output/position = Vector2(280, 140)
 nodes/test_transition/node = SubResource("AnimationNodeTransition_enuxw")
-nodes/test_transition/position = Vector2(40, 140)
+nodes/test_transition/position = Vector2(40, 133.333)
 node_connections = [&"output", 0, &"test_transition", &"test_transition", 0, &"anim_dance", &"test_transition", 1, &"anim_accelerate"]
 
 [sub_resource type="Curve" id="Curve_jlsfb"]
@@ -106,9 +102,9 @@ libraries = {
 "player": SubResource("AnimationLibrary_6ksk3")
 }
 tree_root = SubResource("AnimationNodeBlendTree_5upv6")
-parameters/test_transition/current_state = "dance"
+parameters/test_transition/current_state = ""
 parameters/test_transition/transition_request = ""
-parameters/test_transition/current_index = 0
+parameters/test_transition/current_index = -1
 
 [node name="Stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.2)

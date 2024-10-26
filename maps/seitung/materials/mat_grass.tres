@@ -2,15 +2,17 @@
 
 [ext_resource type="Shader" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_ng8hm"]
 [ext_resource type="Texture2D" uid="uid://cuw5jbeuqm6uo" path="res://maps/seitung/materials/textures/grass_norm.jpg" id="2_5a6nf"]
-[ext_resource type="Texture2D" uid="uid://c1gwf0wic4lce" path="res://maps/seitung/materials/textures/dirt_mask.png" id="2_o3h8l"]
+[ext_resource type="Texture2D" uid="uid://cuhtgebfn4wg5" path="res://maps/seitung/materials/textures/dirt_mask.jpg" id="2_huoc2"]
 [ext_resource type="Texture2D" uid="uid://culde2mjyr2qq" path="res://maps/seitung/materials/textures/dirt_diff.jpg" id="3_k1i0h"]
 [ext_resource type="Texture2D" uid="uid://coytnfhpqhb7s" path="res://maps/seitung/materials/textures/grass_add_diff.jpg" id="3_lmnrd"]
 [ext_resource type="Texture2D" uid="uid://cejwijfwr6xsg" path="res://maps/seitung/materials/textures/grass_base_diff.jpg" id="4_xlesa"]
 
 [sub_resource type="Gradient" id="Gradient_qv4sk"]
+offsets = PackedFloat32Array(0.0710383, 0.491803, 0.983607, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0722085, 0.0722085, 0.0722085, 1, 0.964706, 0.964706, 0.964706, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_csnh3"]
-frequency = 0.015
+frequency = 0.02
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x871w"]
 color_ramp = SubResource("Gradient_qv4sk")
@@ -19,10 +21,10 @@ noise = SubResource("FastNoiseLite_csnh3")
 [resource]
 render_priority = 0
 shader = ExtResource("1_ng8hm")
-shader_parameter/uv_scale = 50.0
+shader_parameter/uv_scale = 45.0
 shader_parameter/grass_texture_base = ExtResource("4_xlesa")
 shader_parameter/grass_texture_add = ExtResource("3_lmnrd")
 shader_parameter/grass_normal_texture = ExtResource("2_5a6nf")
 shader_parameter/blend_noise_texture = SubResource("NoiseTexture2D_x871w")
 shader_parameter/dirt_texture = ExtResource("3_k1i0h")
-shader_parameter/dirt_mask_texture = ExtResource("2_o3h8l")
+shader_parameter/dirt_mask_texture = ExtResource("2_huoc2")

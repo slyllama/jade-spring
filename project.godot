@@ -13,7 +13,7 @@ config_version=5
 config/name="Seitung Spring Clean"
 run/main_scene="res://maps/seitung/seitung.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-run/max_fps=60
+run/max_fps=59
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://generic/textures/splash.png"
 boot_splash/fullsize=false
@@ -32,6 +32,7 @@ gdscript/warnings/unused_signal=0
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=2
 mouse_cursor/custom_image="res://generic/textures/cursor.png"
 
 [editor_plugins]

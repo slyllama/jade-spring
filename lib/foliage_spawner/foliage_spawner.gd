@@ -49,8 +49,8 @@ var foliage_count = 0
 
 @export_category("Shader Configuration")
 @export var vary_colours := true
-@export var colour_1 := Color(0.077, 0.17, 0)
-@export var colour_2 := Color(0.4, 0.48, 0)
+@export var colour_1 := Color("1b3800")
+@export var colour_2 := Color(0.639, 0.729, 0)
 
 var active_foliage_mesh: ArrayMesh
 var render_distance := 10.0
@@ -73,17 +73,17 @@ func _render_moss() -> void:
 	if moss_cover:
 		var moss_decal = Decal.new()
 		moss_decal.texture_albedo = MOSS_MASK
-		moss_decal.normal_fade = 0.5
+		moss_decal.normal_fade = 0.9
 		moss_decal.albedo_mix = moss_albedo_mix
-		moss_decal.modulate = lerp(colour_1, colour_2, 0.5)
+		moss_decal.modulate = lerp(colour_1, colour_2, 0.7)
 		moss_decal.size = Vector3(
-			size * moss_scaling, 0.5, size * moss_scaling)
+			size * moss_scaling, 2.5, size * moss_scaling)
 		add_child(moss_decal)
 
 func render() -> void:
 	# Apply custom mesh if one is specified
 	if custom_mesh != null: active_foliage_mesh = custom_mesh
-	else: active_foliage_mesh = load("res://maps/bin/_grass.res")
+	else: active_foliage_mesh = load("res://maps/seitung/meshes/_grass.res")
 	_render_moss()
 	
 	# Reset - clear foliage count

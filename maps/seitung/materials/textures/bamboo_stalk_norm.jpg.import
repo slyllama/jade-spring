@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1gwf0wic4lce"
-path.s3tc="res://.godot/imported/dirt_mask.png-9b55752fd8f66e26b762de31f487e8ba.s3tc.ctex"
+uid="uid://c2sdaoaj2qkou"
+path.s3tc="res://.godot/imported/bamboo_stalk_norm.jpg-ee45432bd50167f726d7f98f1c867754.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/seitung/materials/textures/dirt_mask.png"
-dest_files=["res://.godot/imported/dirt_mask.png-9b55752fd8f66e26b762de31f487e8ba.s3tc.ctex"]
+source_file="res://maps/seitung/materials/textures/bamboo_stalk_norm.jpg"
+dest_files=["res://.godot/imported/bamboo_stalk_norm.jpg-ee45432bd50167f726d7f98f1c867754.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://maps/seitung/materials/textures/bamboo_stalk_norm.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
