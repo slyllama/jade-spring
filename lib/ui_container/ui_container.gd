@@ -31,9 +31,9 @@ func open(silent = false):
 func close():
 	if !closeable or !is_open: return
 	
+	Global.click_sound.emit()
 	is_open = false
 	closed.emit()
-	#SettingsHandler.save_to_file()
 	var close_tween = create_tween()
 	close_tween.tween_property(self, "modulate:a", 0.0, TRANS_TIME)
 	close_tween.tween_callback(func():

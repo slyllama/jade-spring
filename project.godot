@@ -12,6 +12,8 @@ config_version=5
 
 config/name="Seitung Spring Clean"
 run/main_scene="res://maps/seitung/seitung.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="seitung"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -23,6 +25,7 @@ config/icon="res://icon.svg"
 
 Global="*res://lib/_global/global.tscn"
 Utilities="*res://lib/_global/utilities.gd"
+SettingsHandler="*res://lib/settings_handler/settings_handler.tscn"
 
 [debug]
 

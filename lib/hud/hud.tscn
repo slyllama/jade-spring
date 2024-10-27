@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=8 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="2_yply7"]
 [ext_resource type="Texture2D" uid="uid://df53qugtj3cxj" path="res://generic/textures/ui_corner.png" id="3_bavum"]
 [ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="4_r77lv"]
-[ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="6_pwxtf"]
+[ext_resource type="Texture2D" uid="uid://couvfdq0mtm6p" path="res://lib/hud/textures/settings_icon.png" id="6_n0v1s"]
+[ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="7_w7sr0"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ryxhn")
@@ -71,10 +72,32 @@ autowrap_mode = 0
 
 [node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
 
-[node name="UIContainer" parent="." instance=ExtResource("6_pwxtf")]
-custom_minimum_size = Vector2(300, 500)
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 332.0
-offset_bottom = 532.0
-title = "Container Test"
+[node name="CornerButtons" type="HBoxContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 257.0
+offset_bottom = 28.0
+
+[node name="SettingsButton" type="TextureButton" parent="CornerButtons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("6_n0v1s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SettingsPane" parent="." instance=ExtResource("7_w7sr0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -294.0
+offset_right = 200.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+title = "Settings"
+
+[connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://pr2mjxwcnmao"]
+
+[ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_ssrkn"]
+[ext_resource type="Script" path="res://lib/settings_handler/settings_pane/settings_pane.gd" id="2_iwjpb"]
+
+[node name="SettingsPane" instance=ExtResource("1_ssrkn")]
+script = ExtResource("2_iwjpb")

@@ -5,6 +5,8 @@ var camera: Camera3D # reference for ray projections
 var foliage_count = 0
 var player_position = Vector3.ZERO
 
+signal click_sound
+
 # Decoration signals and parameters
 
 enum {TOOL_MODE_NONE, TOOL_MODE_ADJUST, TOOL_MODE_SELECT}
@@ -22,8 +24,8 @@ var active_decoration: Decoration = null
 var tool_mode = TOOL_MODE_NONE
 
 # Execution
-
 func _ready() -> void:
+	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:
 		get_window().size *= 2
@@ -32,3 +34,6 @@ func _ready() -> void:
 		if OS.get_name() != "macOS":
 			DisplayServer.cursor_set_custom_image(
 				load("res://generic/textures/cursor_2x.png"))
+
+func _on_click_sound() -> void:
+	$Click.play()

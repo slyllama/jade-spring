@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const FADE = 0.6 # faded buttons will have this alpha value
+
 func _render_fps() -> String: # pretty formatting of FPS values
 	var color = "green"
 	var _fps = Engine.get_frames_per_second()
@@ -10,7 +12,12 @@ func _render_fps() -> String: # pretty formatting of FPS values
 	return("[color=" + color + "]" + str(_fps) + "fps[/color]")
 
 func _ready() -> void:
-	$UIContainer.open()
+	# Configure corner buttons to light up when hovered over
+	for _n: TextureButton in $CornerButtons.get_children():
+		_n.modulate.a = FADE
+		_n.mouse_entered.connect(func(): _n.modulate.a = 1.0)
+		_n.mouse_exited.connect(func(): _n.modulate.a = FADE)
+		_n.button_down.connect(Global.click_sound.emit)
 
 func _process(_delta: float) -> void:
 	# Debug stuff
@@ -21,3 +28,9 @@ func _process(_delta: float) -> void:
 	$Debug.text += ("\nFoliage count: " + str(Global.foliage_count))
 	if Global.active_decoration != null:
 		$Debug.text += ("\n[color=yellow]Active decoration: " + str(Global.active_decoration) + "[/color]")
+
+func _on_settings_down() -> void:
+	if !$SettingsPane.is_open:
+		$SettingsPane.open()
+	else:
+		$SettingsPane.close()
