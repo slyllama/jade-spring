@@ -11,7 +11,8 @@ const DEFAULT_SETTINGS = {
 	#"orbit_sensitivity": 100
 	
 	"window_mode": "full_screen",
-	"foliage_density": "high"
+	"foliage_density": "high",
+	"grass_aa": "on"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

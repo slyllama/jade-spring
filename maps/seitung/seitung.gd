@@ -17,6 +17,13 @@ func _ready() -> void:
 				for _n in $Foliage.get_children():
 					if _n is FoliageSpawner:
 						_n.set_density(_d)
+			"grass_aa":
+				for _n in $Foliage.get_children():
+					if _n is FoliageSpawner:
+						if _value == "on":
+							_n.set_aa(true)
+						else:
+							_n.set_aa(false)
 	)
 	
 	SettingsHandler.refresh()

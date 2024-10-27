@@ -21,6 +21,7 @@ var foliage_count = 0
 @export_range(0.01, 1.5) var area_scale := 1.0
 @export var smooth := true
 @export var ignore_density_check := false
+@export var ignore_aliasing_check := false
 
 @export var reload := false:
 	set(_value):
@@ -77,9 +78,10 @@ func _render_moss() -> void:
 		moss_decal.texture_albedo = MOSS_MASK
 		moss_decal.normal_fade = 0.9
 		moss_decal.albedo_mix = moss_albedo_mix
-		moss_decal.modulate = lerp(colour_1, colour_2, 0.7)
+		moss_decal.modulate = lerp(colour_1, colour_2, 0.6)
 		moss_decal.size = Vector3(
 			size * moss_scaling, 2.5, size * moss_scaling)
+		moss_decal.cull_mask = 1
 		add_child(moss_decal)
 
 func render() -> void:
@@ -120,8 +122,14 @@ func render() -> void:
 			grass_transform = grass_transform.translated_local(grass_scatter)
 			grass_transform = grass_transform.rotated_local(Vector3.UP, grass_rotation)
 			build_multimesh.set_instance_transform(i, grass_transform)
-	
 	multimesh = build_multimesh
+
+func set_aa(state: bool) -> void: # set antialiasing according to settings
+	if !ignore_aliasing_check:
+		for i in multimesh.mesh.get_surface_count():
+			var mat: StandardMaterial3D = multimesh.mesh.surface_get_material(i)
+			if state: mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_ALPHA_TO_COVERAGE
+			else: mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_OFF
 
 func set_density(get_density) -> void:
 	if ignore_density_check: density = 1.0
@@ -134,6 +142,10 @@ func set_density(get_density) -> void:
 
 func _ready() -> void:
 	cast_shadow = SHADOW_CASTING_SETTING_OFF
+	# Prevent moss decals painting onto grass
+	set_layer_mask_value(1, 0)
+	set_layer_mask_value(2, 1)
+	
 	_render_moss()
 	_set_display_distance()
 
@@ -144,4 +156,4 @@ func _process(_delta: float) -> void:
 	var dist = global_position.distance_to(Global.player_position)
 	if visible: # includes a buffer
 		if dist > render_distance + render_fade_spread * 2.0: visible = false
-	else:if dist < render_distance + render_fade_spread * 2.0: visible = true
+	else: if dist < render_distance + render_fade_spread * 2.0: visible = true

@@ -21,16 +21,23 @@ id = "foliage_density"
 options = Array[String](["low", "medium", "high"])
 default_option = "high"
 
-[node name="Fill" type="ColorRect" parent="Container" index="5"]
+[node name="GrassAA" parent="Container" index="5" instance=ExtResource("3_b7vwo")]
+layout_mode = 2
+title = "Antialiased grass"
+id = "grass_aa"
+options = Array[String](["on", "off"])
+default_option = "on"
+
+[node name="Fill" type="ColorRect" parent="Container" index="6"]
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
 
-[node name="Quit" type="Button" parent="Container" index="6"]
+[node name="Quit" type="Button" parent="Container" index="7"]
 layout_mode = 2
 text = "Quit Game"
 
-[node name="Done" type="Button" parent="Container" index="7"]
+[node name="Done" type="Button" parent="Container" index="8"]
 layout_mode = 2
 text = "Save Settings"
 
