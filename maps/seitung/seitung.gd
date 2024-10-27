@@ -8,9 +8,16 @@ func _ready() -> void:
 				if _value == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
 				elif _value == "maximized": get_window().mode = Window.MODE_MAXIMIZED
 				else: get_window().mode = Window.MODE_WINDOWED
+			"foliage_density":
+				print("doing this")
+				var _d = 1.0
+				if _value == "medium":
+					_d = 0.7
+				elif _value == "low":
+					_d = 0.3
+				for _n in $Foliage.get_children():
+					if _n is FoliageSpawner:
+						_n.set_density(_d)
 	)
 	
 	SettingsHandler.refresh()
-	#for _n in $Foliage.get_children():
-		#if _n is FoliageSpawner:
-			#_n.set_density(0.5)

@@ -278,8 +278,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11)
-base_speed = null
-smoothing = null
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
 

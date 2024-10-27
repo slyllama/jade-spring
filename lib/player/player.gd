@@ -85,6 +85,8 @@ func _process(delta: float) -> void:
 	$Camera.global_position.z = global_position.z
 	$Camera.global_position.y = lerp(
 		$Camera.global_position.y, global_position.y, smoothing * delta)
+	
+	$Camera.popup_open = Global.popup_open
 	$Camera.mouse_in_ui = Global.mouse_in_ui
 	
 	# TODO: animation tests

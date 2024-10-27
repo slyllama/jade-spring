@@ -61,6 +61,7 @@ func _ready() -> void:
 
 func _on_button_down() -> void:
 	if enabled:
+		Global.click_sound.emit()
 		clicked.emit(id)
 
 func _on_mouse_entered() -> void:

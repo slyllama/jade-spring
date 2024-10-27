@@ -35,6 +35,7 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/subwindows/embed_subwindows=false
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="res://generic/textures/cursor.png"
 
@@ -44,6 +45,7 @@ enabled=PackedStringArray("res://addons/mmo_camera/plugin.cfg")
 
 [gui]
 
+theme/custom="res://generic/themes/dwelt.tres"
 theme/custom_font="res://generic/fonts/libertinus_sans.otf"
 
 [input]

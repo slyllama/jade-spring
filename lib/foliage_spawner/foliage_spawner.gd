@@ -127,20 +127,22 @@ func render() -> void:
 			grass_transform = grass_transform.rotated_local(Vector3.UP, grass_rotation)
 			build_multimesh.set_instance_transform(i, grass_transform)
 	
-	if !ignore_density_check:
-		foliage_count = floor(count * count * density)
-	else:
-		foliage_count = floor(count * count)
 	multimesh = build_multimesh
 
 func set_density(get_density) -> void:
-	if ignore_density_check: return
-	density = get_density
+	if ignore_density_check:
+		density = 1.0
+	else:
+		density = get_density
+	
+	Global.foliage_count -= foliage_count
+	foliage_count = floor(count * count * density)
+	Global.foliage_count += foliage_count
 	multimesh.visible_instance_count = floor(count * count * density)
 
 func _ready() -> void:
 	if !Engine.is_editor_hint(): # display foliage count at runtime
-		Global.foliage_count += count * count * density
+		#Global.foliage_count += count * count * density
 		_set_display_distance()
 	
 	cast_shadow = SHADOW_CASTING_SETTING_OFF

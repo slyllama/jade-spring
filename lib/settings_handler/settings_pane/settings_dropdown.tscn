@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6uc8guyh2tr"]
+
+[ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="1_eo82w"]
+[ext_resource type="Script" path="res://lib/settings_handler/settings_pane/settings_dropdown.gd" id="1_jvcfa"]
+
+[node name="SettingsDropdown" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+offset_right = 320.0
+offset_bottom = 27.0
+theme = ExtResource("1_eo82w")
+script = ExtResource("1_jvcfa")
+
+[node name="Title" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Setting:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Menu" type="MenuButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+flat = false
+alignment = 0
+
+[connection signal="about_to_popup" from="Menu" to="." method="_on_menu_about_to_popup"]

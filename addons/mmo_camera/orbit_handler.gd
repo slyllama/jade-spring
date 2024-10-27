@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 		return
 	
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
-	if (!orbiting and !_clicked_in_ui and Input.is_action_pressed(get_parent().left_click)):
+	if (!orbiting and !_clicked_in_ui and Input.is_action_pressed(get_parent().left_click) and !get_parent().popup_open):
 		var _mouse_offset = get_window().get_mouse_position() - _last_click_position
 		if abs(_mouse_offset.x) > 5 or abs(_mouse_offset.y) > 5:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

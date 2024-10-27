@@ -29,6 +29,7 @@ const MMOOrbitHandler = preload("res://addons/mmo_camera/orbit_handler.gd")
 
 var in_exclusive_ui = false
 var mouse_in_ui = false
+var popup_open = false
 var calculated_sensitivity = orbit_sensitivity
 
 var _target_zoom = max_zoom_out

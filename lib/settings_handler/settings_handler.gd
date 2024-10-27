@@ -3,12 +3,15 @@ extends Node
 # Handles the management and updating of settings
 const FILE_PATH = "user://settings.dat"
 const DEFAULT_SETTINGS = { 
-	"fov": 90,
-	"particle_density": "high",
+	#"fov": 90,
+	#"particle_density": "high",
+	#"window_mode": "full_screen",
+	#"shadows": "on",
+	#"music_vol": 50, # percent
+	#"orbit_sensitivity": 100
+	
 	"window_mode": "full_screen",
-	"shadows": "on",
-	"music_vol": 50, # percent
-	"orbit_sensitivity": 100
+	"foliage_density": "high"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

@@ -4,6 +4,7 @@ var mouse_in_ui = false
 var camera: Camera3D # reference for ray projections
 var foliage_count = 0
 var player_position = Vector3.ZERO
+var popup_open = false
 
 signal click_sound
 
