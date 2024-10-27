@@ -47,9 +47,12 @@ func _ready():
 	
 	# Update panel position on window resize to avoid jumping
 	get_window().size_changed.connect(func(): current_position = position)
+	
 	# Pass mouse events through UI elements, because non-orbit checks are done on the panel itself
-	for n in Utilities.get_all_children(self):
-		if "mouse_filter" in n: n.mouse_filter = MOUSE_FILTER_PASS
+	for _n in Utilities.get_all_children(self):
+		if "mouse_filter" in _n: _n.mouse_filter = MOUSE_FILTER_PASS
+		if _n is BaseButton or _n is Range:
+			_n.button_down.connect(func(): Global.click_sound.emit())
 	$Corner.mouse_filter = MOUSE_FILTER_IGNORE
 
 func _input(_event: InputEvent) -> void:

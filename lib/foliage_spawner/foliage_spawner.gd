@@ -86,12 +86,6 @@ func render() -> void:
 	# Apply custom mesh if one is specified
 	if custom_mesh != null: active_foliage_mesh = custom_mesh
 	else: active_foliage_mesh = load("res://maps/seitung/meshes/_grass.res")
-	_render_moss()
-	
-	# Reset - clear foliage count
-	#if !Engine.is_editor_hint():
-		#Global.foliage_count -= foliage_count
-	#foliage_count = 0
 	
 	var build_multimesh: Resource = MultiMesh.new()
 	if vary_colours: build_multimesh.use_colors = true
@@ -130,10 +124,8 @@ func render() -> void:
 	multimesh = build_multimesh
 
 func set_density(get_density) -> void:
-	if ignore_density_check:
-		density = 1.0
-	else:
-		density = get_density
+	if ignore_density_check: density = 1.0
+	else: density = get_density
 	
 	Global.foliage_count -= foliage_count
 	foliage_count = floor(count * count * density)
@@ -141,12 +133,9 @@ func set_density(get_density) -> void:
 	multimesh.visible_instance_count = floor(count * count * density)
 
 func _ready() -> void:
-	if !Engine.is_editor_hint(): # display foliage count at runtime
-		#Global.foliage_count += count * count * density
-		_set_display_distance()
-	
 	cast_shadow = SHADOW_CASTING_SETTING_OFF
 	_render_moss()
+	_set_display_distance()
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return

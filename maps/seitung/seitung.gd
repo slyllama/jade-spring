@@ -9,7 +9,6 @@ func _ready() -> void:
 				elif _value == "maximized": get_window().mode = Window.MODE_MAXIMIZED
 				else: get_window().mode = Window.MODE_WINDOWED
 			"foliage_density":
-				print("doing this")
 				var _d = 1.0
 				if _value == "medium":
 					_d = 0.7

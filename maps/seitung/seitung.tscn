@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=49 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="8_67fdu"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="9_7bo6h"]
+[ext_resource type="Texture2D" uid="uid://cjjw141oar4wk" path="res://maps/seitung/materials/textures/bamboo_stalk_diff.jpg" id="9_o21wu"]
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="10_bm5ul"]
+[ext_resource type="Texture2D" uid="uid://c2sdaoaj2qkou" path="res://maps/seitung/materials/textures/bamboo_stalk_norm.jpg" id="10_s08bu"]
+[ext_resource type="Texture2D" uid="uid://bw2sfi3aq2o41" path="res://maps/seitung/materials/textures/bamboo_mask.png" id="11_8i2n2"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="11_aq4pe"]
-[ext_resource type="Material" uid="uid://dx2ji8xrhg2o4" path="res://maps/seitung/materials/mat_bamboo_leaves.tres" id="11_nkp3m"]
-[ext_resource type="Material" uid="uid://bvasfm0p8iv80" path="res://maps/seitung/materials/mat_bamboo_stalk.tres" id="11_xh1wq"]
 [ext_resource type="PackedScene" uid="uid://hooieo80ip7g" path="res://maps/seitung/meshes/arch_test.glb" id="12_4v57y"]
 [ext_resource type="Texture2D" uid="uid://xkm0o3y7uf4i" path="res://maps/seitung/materials/textures/moss_mask.png" id="13_vc25n"]
 [ext_resource type="ArrayMesh" uid="uid://doa5q1fyry2wt" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
@@ -131,6 +132,40 @@ visible_instance_count = 16
 mesh = ExtResource("10_bm5ul")
 buffer = PackedFloat32Array(-2.25916, 0, -0.578592, -1.2035, 0, 2.33207, 0, 0, 0.578592, 0, -2.25916, -0.607267, 0.31153, 0.658685, 1.73901e-08, 1, 2.37927, 0, -1.19924, -0.728267, 0, 2.66442, 0, 0, 1.19924, 0, 2.37927, -0.991849, 0.209506, 0.40304, 8.98952e-08, 1, -1.10434, 0, -2.21795, 0.827701, 0, 2.47768, 0, 0, 2.21795, 0, -1.10434, -0.896183, 0.300719, 0.631596, 2.5073e-08, 1, -2.61728, 0, -1.43579, 1.69304, 0, 2.98524, 0, 0, 1.43579, 0, -2.61728, -1.38445, 0.209455, 0.402912, 8.99315e-08, 1, 0.534348, 0, -2.0046, -1.40599, 0, 2.0746, 0, 0, 2.0046, 0, 0.534348, -0.584798, 0.316391, 0.670864, 1.39358e-08, 1, -1.38537, 0, -1.85839, -0.451174, 0, 2.31794, 0, 0, 1.85839, 0, -1.38537, 0.094449, 0.296376, 0.620713, 2.81596e-08, 1, 1.68309, 0, 2.11438, 0.143695, 0, 2.70248, 0, 0, -2.11438, 0, 1.68309, -0.450717, 0.29333, 0.613081, 3.03241e-08, 1, 0.883871, 0, 2.78743, 0.908774, 0, 2.92421, 0, 0, -2.78743, 0, 0.883871, -0.408876, 0.329106, 0.702724, 4.89968e-09, 1, 1.83906, 0, -1.54307, -1.41055, 0, 2.40067, 0, 0, 1.54307, 0, 1.83906, 0.315832, 0.229381, 0.452841, 7.57709e-08, 1, 2.19972, 0, 0.930334, -0.0381215, 0, 2.38836, 0, 0, -0.930334, 0, 2.19972, 0.330363, 0.297414, 0.623314, 2.74217e-08, 1, -2.32292, 0, -1.79006, 0.765652, 0, 2.93262, 0, 0, 1.79006, 0, -2.32292, 0.362395, 0.276557, 0.571052, 4.22442e-08, 1, 2.37051, 0, -1.18964, 1.64146, 0, 2.65228, 0, 0, 1.18964, 0, 2.37051, 0.289132, 0.281855, 0.584326, 3.84795e-08, 1, -0.167713, 0, -2.13385, -1.09238, 0, 2.14043, 0, 0, 2.13385, 0, -0.167713, 1.25753, 0.233947, 0.464282, 7.25258e-08, 1, -1.17724, 0, -2.14388, -0.660347, 0, 2.44584, 0, 0, 2.14388, 0, -1.17724, 0.92763, 0.241573, 0.483391, 6.71064e-08, 1, 1.53768, 0, -1.40404, 0.720259, 0, 2.08225, 0, 0, 1.40404, 0, 1.53768, 1.48713, 0.210375, 0.405217, 8.92778e-08, 1, 1.37491, 0, -2.31098, 1.49331, 0, 2.68906, 0, 0, 2.31098, 0, 1.37491, 1.67001, 0.230455, 0.455533, 7.50073e-08, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq56m"]
+cull_mode = 2
+albedo_color = Color(0.691357, 0.691357, 0.691357, 1)
+albedo_texture = ExtResource("9_o21wu")
+metallic_specular = 0.2
+roughness = 0.65
+emission = Color(0.118581, 0.118581, 0.118581, 1)
+normal_enabled = true
+normal_scale = 3.0
+normal_texture = ExtResource("10_s08bu")
+backlight = Color(1, 1, 1, 1)
+uv1_scale = Vector3(32, 32, 32)
+uv1_offset = Vector3(0, 0.05, 0)
+distance_fade_mode = 2
+distance_fade_min_distance = 22.0
+distance_fade_max_distance = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6x21r"]
+transparency = 2
+alpha_scissor_threshold = 0.9
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.482735, 0.67, 0.3819, 1)
+albedo_texture = ExtResource("11_8i2n2")
+metallic_specular = 0.0
+emission = Color(0.118581, 0.118581, 0.118581, 1)
+backlight_enabled = true
+backlight = Color(0.533037, 0.533037, 0.533037, 1)
+uv1_scale = Vector3(0.95, 0.95, 0.95)
+uv1_offset = Vector3(0, 0.05, 0)
+distance_fade_mode = 2
+distance_fade_min_distance = 22.0
+distance_fade_max_distance = 20.0
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_vj374"]
 _surfaces = [{
 "aabb": AABB(-0.257553, -1.45384, -0.033484, 0.69951, 3.18557, 0.0669655),
@@ -166,7 +201,7 @@ _surfaces = [{
 "index_count": 168,
 "index_data": PackedByteArray("NwAAAC8AAAACADIAAgA3ADQAAAA3AAIAEwAHABEABwANAA8ADQATAAoABwATAA0ABgAcABUABgAOABwAEAAUABYAEAAFABQAEgAWABcAEgAQABYACQAXABgACQASABcACwAZABoACwAIABkADgAbABwADgAMABsAFQAlAB4AFQAcACUAFgAdAB8AFgAUAB0AFwAfACAAFwAWAB8AGAAgACEAGAAXACAAGgAiACMAGgAZACIAHAAkACUAHAAbACQAHgAuACcAHgAlAC4AHwAmACgAHwAdACYAIAAoACkAIAAfACgAIQApACsAIQAgACkAIwAqACwAIwAiACoAJQAtAC4AJQAkAC0AJwA4ADEAJwAuADgAKAAwAAEAKAAmADAAKQABADMAKQAoAAEAKwAzAAQAKwApADMALAADADUALAAqAAMALgA2ADgALgAtADYA"),
 "lods": [0.0364097, PackedByteArray("TwBIAEUAOQBQAEwASQBRADoABwANAA8ABwARAA0APgA/AD0ABgAbAB4ABgAOABsADgAMABsAHgAbAC0AHgAtADgAHgBSAEcAEAAFAB0AEAAdABgACQAQABgAGAAdACsAQgAdAEsAQgBLADwACwAZABoACwAIABkAGgAZACoAGgAqACwAQABGAEoAQwA7AE0AQwBBADsARABOAFMA")],
-"material": ExtResource("11_xh1wq"),
+"material": SubResource("StandardMaterial3D_gq56m"),
 "name": "mat_bamboo_stalk",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -179,7 +214,7 @@ _surfaces = [{
 "index_count": 720,
 "index_data": PackedByteArray("CgADAAsACgACAAMACwAEAAEACwAMAAQADAAGAAQADAANAAYADQAIAAYADQAOAAgABwAOAA0ABwAJAA4ABQANAAwABQAHAA0AAwAMAAsAAwAFAAwAAAALAAEAAAAKAAsAGQASABoAGQARABIAGgATABAAGgAbABMAGwAVABMAGwAcABUAHAAXABUAHAAdABcAFgAdABwAFgAYAB0AFAAcABsAFAAWABwAEgAbABoAEgAUABsADwAaABAADwAZABoAKAAhACkAKAAgACEAKQAiAB8AKQAqACIAKgAkACIAKgArACQAKwAmACQAKwAsACYAJQAsACsAJQAnACwAIwArACoAIwAlACsAIQAqACkAIQAjACoAHgApAB8AHgAoACkANwAwADgANwAvADAAOAAxAC4AOAA5ADEAOQAzADEAOQA6ADMAOgA1ADMAOgA7ADUANAA7ADoANAA2ADsAMgA6ADkAMgA0ADoAMAA5ADgAMAAyADkALQA4AC4ALQA3ADgARgA/AEcARgA+AD8ARwBAAD0ARwBIAEAASABCAEAASABJAEIASQBEAEIASQBKAEQAQwBKAEkAQwBFAEoAQQBJAEgAQQBDAEkAPwBIAEcAPwBBAEgAPABHAD0APABGAEcAVQBOAFYAVQBNAE4AVgBPAEwAVgBXAE8AVwBRAE8AVwBYAFEAWABTAFEAWABZAFMAUgBZAFgAUgBUAFkAUABYAFcAUABSAFgATgBXAFYATgBQAFcASwBWAEwASwBVAFYAZABdAGUAZABcAF0AZQBeAFsAZQBmAF4AZgBgAF4AZgBnAGAAZwBiAGAAZwBoAGIAYQBoAGcAYQBjAGgAXwBnAGYAXwBhAGcAXQBmAGUAXQBfAGYAWgBlAFsAWgBkAGUAcwBsAHQAcwBrAGwAdABtAGoAdAB1AG0AdQBvAG0AdQB2AG8AdgBxAG8AdgB3AHEAcAB3AHYAcAByAHcAbgB2AHUAbgBwAHYAbAB1AHQAbABuAHUAaQB0AGoAaQBzAHQAggB7AIMAggB6AHsAgwB8AHkAgwCEAHwAhAB+AHwAhACFAH4AhQCAAH4AhQCGAIAAfwCGAIUAfwCBAIYAfQCFAIQAfQB/AIUAewCEAIMAewB9AIQAeACDAHkAeACCAIMAkQCKAJIAkQCJAIoAkgCLAIgAkgCTAIsAkwCNAIsAkwCUAI0AlACPAI0AlACVAI8AjgCVAJQAjgCQAJUAjACUAJMAjACOAJQAigCTAJIAigCMAJMAhwCSAIgAhwCRAJIAoACZAKEAoACYAJkAoQCaAJcAoQCiAJoAogCcAJoAogCjAJwAowCeAJwAowCkAJ4AnQCkAKMAnQCfAKQAmwCjAKIAmwCdAKMAmQCiAKEAmQCbAKIAlgChAJcAlgCgAKEArwCoALAArwCnAKgAsACpAKYAsACxAKkAsQCrAKkAsQCyAKsAsgCtAKsAsgCzAK0ArACzALIArACuALMAqgCyALEAqgCsALIAqACxALAAqACqALEApQCwAKYApQCvALAAvgC3AL8AvgC2ALcAvwC4ALUAvwDAALgAwAC6ALgAwADBALoAwQC8ALoAwQDCALwAuwDCAMEAuwC9AMIAuQDBAMAAuQC7AMEAtwDAAL8AtwC5AMAAtAC/ALUAtAC+AL8AzQDGAM4AzQDFAMYAzgDHAMQAzgDPAMcAzwDJAMcAzwDQAMkA0ADLAMkA0ADRAMsAygDRANAAygDMANEAyADQAM8AyADKANAAxgDPAM4AxgDIAM8AwwDOAMQAwwDNAM4A3ADVAN0A3ADUANUA3QDWANMA3QDeANYA3gDYANYA3gDfANgA3wDaANgA3wDgANoA2QDgAN8A2QDbAOAA1wDfAN4A1wDZAN8A1QDeAN0A1QDXAN4A0gDdANMA0gDcAN0A"),
 "lods": [0.322367, PackedByteArray("CgADAAEACgACAAMAAAAKAAEAAwAFAAEAAQAFAAQABQAGAAQABQAHAAYABwAIAAYABwAOAAgABwAJAA4AGQASABAAGQARABIADwAZABAAEgDiABAAEADiAOEA4gDjAOEA4gDkAOMA4gAdAOQAFgAdAOIAFgAYAB0AKAAhAB8AKAAgACEAHgAoAB8AIQDmAB8AHwDmAOUA5gDnAOUA5gDoAOcA5gAsAOgAJQAsAOYAJQAnACwANwAwAC4ANwAvADAALQA3AC4AMAAyAC4ALgAyADEAMgAzADEAMgA0ADMANAA1ADMANAA7ADUANAA2ADsARgA/AD0ARgA+AD8APABGAD0APwDqAD0APQDqAOkA6gDrAOkA6gDsAOsA6gBKAOwAQwBKAOoAQwBFAEoAVQBOAEwAVQBNAE4ASwBVAEwATgDuAEwATADuAO0A7gBRAO0A7gDvAFEA7gBZAO8AUgBZAO4AUgBUAFkAZABdAFsAZABcAF0AWgBkAFsAXQBfAFsAWwBfAF4AXwBgAF4AXwBhAGAAYQBiAGAAYQBoAGIAYQBjAGgAcwBsAGoAcwBrAGwAaQBzAGoAbADxAGoAagDxAPAA8QDyAPAA8QDzAPIA8QB3APMAcAB3APEAcAByAHcAggB7APQAggB6AHsAeACCAPQAewD2APQA9AD2APUA9gD3APUA9gD4APcA9gCGAPgAfwCGAPYAfwCBAIYAkQCKAIgAkQCJAIoAhwCRAIgAigCMAIgAiACMAIsAjACNAIsAjACOAI0AjgCPAI0AjgCVAI8AjgCQAJUAoACZAJcAoACYAJkAlgCgAJcAmQD6AJcAlwD6APkA+gD7APkA+gD8APsA+gCkAPwAnQCkAPoAnQCfAKQArwCoAKYArwCnAKgApQCvAKYAqAD+AKYApgD+AP0A/gD/AP0A/gAAAf8A/gCzAAABrACzAP4ArACuALMAvgC3ALUAvgC2ALcAtAC+ALUAtwC5ALUAtQC5ALgAuQC6ALgAuQC7ALoAuwC8ALoAuwDCALwAuwC9AMIAzQDGAMQAzQDFAMYAwwDNAMQAxgABAcQAxAABAccAAQHJAMcAAQECAckAAQHRAAIBygDRAAEBygDMANEA3ADVANMA3ADUANUA0gDcANMA1QAEAdMA0wAEAQMBBAEFAQMBBAEGAQUBBAHgAAYB2QDgAAQB2QDbAOAA")],
-"material": ExtResource("11_nkp3m"),
+"material": SubResource("StandardMaterial3D_6x21r"),
 "name": "mat_bamboo_leaf",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
