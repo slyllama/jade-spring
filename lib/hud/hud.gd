@@ -9,6 +9,9 @@ func _render_fps() -> String: # pretty formatting of FPS values
 		color = "red"
 	return("[color=" + color + "]" + str(_fps) + "fps[/color]")
 
+func _ready() -> void:
+	$UIContainer.open()
+
 func _process(_delta: float) -> void:
 	# Debug stuff
 	$Debug.text = _render_fps()

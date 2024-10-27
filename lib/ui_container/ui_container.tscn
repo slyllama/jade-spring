@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmcbebjwagmmf"]
+
+[ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="1_3n7f6"]
+[ext_resource type="Script" path="res://lib/ui_container/ui_container.gd" id="1_5t6ie"]
+[ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="2_mg8j7"]
+[ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="2_wwnru"]
+[ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="4_qohij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j30ib"]
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.897813, 0.897813, 0.897813, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vair0"]
+
+[node name="UIContainer" type="Panel"]
+custom_minimum_size = Vector2(400, 500)
+theme_override_styles/panel = SubResource("StyleBoxFlat_j30ib")
+script = ExtResource("1_5t6ie")
+
+[node name="Corner" type="TextureRect" parent="."]
+clip_children = 2
+layout_mode = 1
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 461.0
+offset_bottom = 430.0
+mouse_filter = 2
+texture = ExtResource("2_wwnru")
+expand_mode = 1
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Container/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vair0")
+text = "Title"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CloseButton" type="TextureButton" parent="Container/TitleContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture_normal = ExtResource("1_3n7f6")
+texture_hover = ExtResource("2_mg8j7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Separator" type="ColorRect" parent="Container"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.235294)
+
+[node name="TitleSeparator" type="ColorRect" parent="Container"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="Paper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qohij")
+volume_db = -3.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Container/TitleContainer" to="." method="_on_title_mouse_entered"]
+[connection signal="mouse_exited" from="Container/TitleContainer" to="." method="_on_title_mouse_exited"]
+[connection signal="button_down" from="Container/TitleContainer/CloseButton" to="." method="close"]
