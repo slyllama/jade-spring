@@ -1,6 +1,7 @@
 extends Node3D
 
 func _ready() -> void:
+	# Apply settings
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:
@@ -20,10 +21,11 @@ func _ready() -> void:
 			"grass_aa":
 				for _n in $Foliage.get_children():
 					if _n is FoliageSpawner:
-						if _value == "on":
-							_n.set_aa(true)
-						else:
-							_n.set_aa(false)
+						if _value == "on": _n.set_aa(true)
+						else: _n.set_aa(false)
 	)
-	
 	SettingsHandler.refresh()
+	
+	Global.cursor_enabled.connect(func():
+		var _cu = Cursor3D.new()
+		add_child(_cu))

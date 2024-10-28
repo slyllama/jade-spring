@@ -30,7 +30,5 @@ func _process(_delta: float) -> void:
 		$Debug.text += ("\n[color=yellow]Active decoration: " + str(Global.active_decoration) + "[/color]")
 
 func _on_settings_down() -> void:
-	if !$SettingsPane.is_open:
-		$SettingsPane.open()
-	else:
-		$SettingsPane.close()
+	if !$SettingsPane.is_open: $SettingsPane.open()
+	else: $SettingsPane.close()

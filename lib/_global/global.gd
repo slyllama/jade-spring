@@ -1,14 +1,14 @@
 extends Node
 
-var mouse_in_ui = false
 var camera: Camera3D # reference for ray projections
 var foliage_count = 0
+var mouse_in_ui = false
 var player_position = Vector3.ZERO
 var popup_open = false
 
 signal click_sound
 
-# Decoration signals and parameters
+##### Decoration signals and parameters
 
 enum {TOOL_MODE_NONE, TOOL_MODE_ADJUST, TOOL_MODE_SELECT}
 const tool_identities = [ # associations for debug printing
@@ -24,9 +24,27 @@ signal adjustment_started
 var active_decoration: Decoration = null
 var tool_mode = TOOL_MODE_NONE
 
-# Execution
+##### Cursor signals and parameters
+
+var cursor_active = false
+
+signal cursor_enabled
+signal cursor_disabled
+signal cursor_tint_changed(color: Color)
+
+# Set the cursor on or off
+func set_cursor(state = true) -> void:
+	if state:
+		if cursor_active: return # don't enable twice
+		cursor_enabled.emit()
+	else:
+		if !cursor_active: return # don't disable twice
+		cursor_disabled.emit()
+	cursor_active = state
+
+##### Execution
+
 func _ready() -> void:
-	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:
 		get_window().size *= 2

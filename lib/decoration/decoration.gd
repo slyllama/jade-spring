@@ -11,7 +11,7 @@ func start_adjustment() -> void:
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	
 	last_position = position
-	collision_box.input_ray_pickable = false
+	#collision_box.input_ray_pickable = false
 	collision_box.set_collision_layer_value(1, 0)
 	$Gizmo.activate()
 
@@ -22,7 +22,7 @@ func apply_adjustment() -> void:
 		
 		collision_box.set_collision_layer_value(1, 1)
 		$Gizmo.deactivate()
-		collision_box.input_ray_pickable = true
+		#collision_box.input_ray_pickable = true
 
 func cancel_adjustment() -> void:
 	if Global.active_decoration == self:
@@ -30,7 +30,7 @@ func cancel_adjustment() -> void:
 		
 		collision_box.set_collision_layer_value(1, 1)
 		$Gizmo.deactivate()
-		collision_box.input_ray_pickable = true
+		#collision_box.input_ray_pickable = true
 		
 		position = last_position
 
@@ -39,8 +39,16 @@ func _ready() -> void:
 	Global.adjustment_applied.connect(apply_adjustment)
 	
 	if collision_box != null:
+		collision_box.input_ray_pickable = true
+		
+		collision_box.mouse_entered.connect(func():
+			Global.cursor_tint_changed.emit(Color.GREEN))
+		collision_box.mouse_exited.connect(func():
+			Global.cursor_tint_changed.emit(Color.RED))
+		
 		collision_box.input_event.connect(func(_c, _e, _p, _n, _i):
-			if Global.tool_mode != Global.TOOL_MODE_SELECT: return
-			if Global.active_decoration != null: return
+			if (Global.tool_mode != Global.TOOL_MODE_SELECT
+				or Global.active_decoration != null): return
 			if Input.is_action_just_pressed("left_click"):
+				Global.set_cursor(false)
 				start_adjustment())

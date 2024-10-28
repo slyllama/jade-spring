@@ -9,6 +9,7 @@ func set_default_skills() -> void:
 	clear_skills()
 	$Box/Skill1.switch_skill("select")
 	Global.tool_mode = Global.TOOL_MODE_NONE
+	Global.set_cursor(false)
 
 func _ready() -> void:
 	set_default_skills()
@@ -24,6 +25,7 @@ func skill_used(skill_id: String) -> void:
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_SELECT
 				$Box/Skill1.set_highlight()
+				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_SELECT:
 				Global.tool_mode = Global.TOOL_MODE_NONE
 				set_default_skills()
