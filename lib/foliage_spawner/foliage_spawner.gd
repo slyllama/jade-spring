@@ -58,13 +58,18 @@ var active_foliage_mesh: ArrayMesh
 @export var render_fade_spread := 2.0
 
 func _set_display_distance() -> void:
-	#Configure materials to fade away at a certain distance
+	# Configure materials to fade away at a certain distance
 	for i in multimesh.mesh.get_surface_count():
-		var mat: StandardMaterial3D = multimesh.mesh.surface_get_material(i).duplicate()
-		multimesh.mesh.surface_set_material(i, mat)
-		mat.distance_fade_mode = BaseMaterial3D.DISTANCE_FADE_PIXEL_DITHER
-		mat.distance_fade_min_distance = render_distance + render_fade_spread
-		mat.distance_fade_max_distance = render_distance
+		if multimesh.mesh.surface_get_material(i) is StandardMaterial3D:
+			var mat: StandardMaterial3D = multimesh.mesh.surface_get_material(i).duplicate()
+			mat.distance_fade_mode = BaseMaterial3D.DISTANCE_FADE_PIXEL_DITHER
+			mat.distance_fade_min_distance = render_distance + render_fade_spread
+			mat.distance_fade_max_distance = render_distance
+		elif multimesh.mesh.surface_get_material(i) is ShaderMaterial:
+			var mat: ShaderMaterial = multimesh.mesh.surface_get_material(i).duplicate()
+			multimesh.mesh.surface_set_material(i, mat)
+			mat.set_shader_parameter("distance_fade_min", render_distance+ render_fade_spread)
+			mat.set_shader_parameter("distance_fade_max", render_distance)
 
 # Moss functions are separated as to allow live undergrowh updating without
 # trigging a MeshInstance buffer replacement
@@ -78,7 +83,7 @@ func _render_moss() -> void:
 		moss_decal.texture_albedo = MOSS_MASK
 		moss_decal.normal_fade = 0.9
 		moss_decal.albedo_mix = moss_albedo_mix
-		moss_decal.modulate = lerp(colour_1, colour_2, 0.6)
+		moss_decal.modulate = lerp(colour_1, colour_2, 0.65)
 		moss_decal.size = Vector3(
 			size * moss_scaling, 2.5, size * moss_scaling)
 		moss_decal.cull_mask = 1
@@ -127,9 +132,14 @@ func render() -> void:
 func set_aa(state: bool) -> void: # set antialiasing according to settings
 	if !ignore_aliasing_check:
 		for i in multimesh.mesh.get_surface_count():
+			# TODO: currently doesn't apply to the new generic foliage material (ShaderMaterial)
+			if multimesh.mesh.surface_get_material(i) is ShaderMaterial: continue
+			
 			var mat: StandardMaterial3D = multimesh.mesh.surface_get_material(i)
-			if state: mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_ALPHA_TO_COVERAGE
-			else: mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_OFF
+			if state:
+				mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_ALPHA_TO_COVERAGE
+			else:
+				mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_OFF
 
 func set_density(get_density) -> void:
 	if ignore_density_check: density = 1.0
