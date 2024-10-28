@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://gokqv1eo16nh"]
+
+[ext_resource type="PackedScene" uid="uid://d0nttru1cd431" path="res://lib/hud/side_panel/side_panel_box.tscn" id="1_ycodo"]
+[ext_resource type="Shader" path="res://lib/hud/side_panel/materials/shaders/shader_panel_gradient.gdshader" id="2_xwfhn"]
+[ext_resource type="Texture2D" uid="uid://cmq3a01pn8uh1" path="res://lib/hud/side_panel/materials/textures/side_panel_gradient.tres" id="3_0npe3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqi0m"]
+shader = ExtResource("2_xwfhn")
+shader_parameter/gradient = ExtResource("3_0npe3")
+
+[node name="SidePanel" type="VBoxContainer"]
+custom_minimum_size = Vector2(270, 0)
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_constants/separation = 0
+
+[node name="TestBox" parent="." instance=ExtResource("1_ycodo")]
+layout_mode = 2
+title = "Title Test"
+description = "And a description"
+
+[node name="Separator" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fqi0m")
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="TestBox2" parent="." instance=ExtResource("1_ycodo")]
+layout_mode = 2

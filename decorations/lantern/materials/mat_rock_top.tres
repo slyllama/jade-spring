@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://co04qmi7scdgw"]
+
+[ext_resource type="Shader" path="res://decorations/materials/shaders/shader_multires_rock.gdshader" id="1_g1fpn"]
+[ext_resource type="Texture2D" uid="uid://3qdki81h8ji7" path="res://decorations/lantern/materials/textures/rock_top_multires.jpg" id="2_evadw"]
+[ext_resource type="Texture2D" uid="uid://cygalwrbgljs8" path="res://decorations/lantern/materials/textures/rock_top_lighten.jpg" id="2_f33if"]
+[ext_resource type="Texture2D" uid="uid://mycf4akhf2ov" path="res://decorations/lantern/materials/textures/rock_norm.jpg" id="4_7f8uh"]
+[ext_resource type="Texture2D" uid="uid://c2we08mbthjms" path="res://decorations/lantern/materials/textures/rock_diff.jpg" id="4_dxpw5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_g1fpn")
+shader_parameter/uv_scale = 2.1
+shader_parameter/rock_texture = ExtResource("4_dxpw5")
+shader_parameter/normal_multires_texture = ExtResource("2_evadw")
+shader_parameter/normal_rock_texture = ExtResource("4_7f8uh")
+shader_parameter/lighten_texture = ExtResource("2_f33if")

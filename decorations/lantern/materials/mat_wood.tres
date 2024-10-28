@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dea4wfxui5nk8"]
+
+[ext_resource type="Shader" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_wood.gdshader" id="1_54edb"]
+[ext_resource type="Texture2D" uid="uid://briwh7nndqy32" path="res://maps/seitung/materials/mat_arch/textures/wood_dark_norm.jpg" id="2_c612i"]
+[ext_resource type="Texture2D" uid="uid://bkhyxloxjwoau" path="res://maps/seitung/materials/mat_arch/textures/wood_dark_diffuse.jpg" id="3_q1t07"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_54edb")
+shader_parameter/occlusion_intensity = 1.0
+shader_parameter/uv_scale = 1.0
+shader_parameter/saturation = 1.0
+shader_parameter/multiplier = 0.75
+shader_parameter/wood_texture = ExtResource("3_q1t07")
+shader_parameter/wood_normal_texture = ExtResource("2_c612i")
