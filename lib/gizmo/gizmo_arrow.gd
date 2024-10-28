@@ -38,7 +38,6 @@ func disable() -> void:
 
 func set_axis(get_axis: Vector3) -> void:
 	axis = get_axis
-	print(axis)
 
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color

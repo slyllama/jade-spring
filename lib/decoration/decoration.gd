@@ -26,6 +26,7 @@ func apply_adjustment() -> void:
 func cancel_adjustment() -> void:
 	if Global.active_decoration == self:
 		Global.active_decoration = null
+		Global.jade_bot_sound.emit()
 		
 		collision_box.set_collision_layer_value(2, 1)
 		$Gizmo.deactivate()

@@ -65,7 +65,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="SkillButton" type="TextureButton"]
-custom_minimum_size = Vector2(74, 74)
+custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
 texture_normal = ExtResource("1_7h740")
@@ -79,7 +79,7 @@ libraries = {
 }
 
 [node name="Image" type="Sprite2D" parent="."]
-position = Vector2(37, 37)
+position = Vector2(32, 32)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_spyej")
 

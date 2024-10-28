@@ -14,7 +14,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -80.0
+offset_top = -66.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_ap58g")
@@ -45,11 +45,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -76.0
-offset_bottom = -2.0
+offset_top = -64.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 4
+theme_override_constants/separation = 1
 alignment = 1
 
 [node name="Skill1" parent="Box" instance=ExtResource("2_xy11a")]
