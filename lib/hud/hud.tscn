@@ -12,6 +12,7 @@ script = ExtResource("1_ryxhn")
 metadata/_edit_horizontal_guides_ = [721.0]
 
 [node name="Vignette" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,8 +23,8 @@ mouse_filter = 2
 
 [node name="CornerNW" type="TextureRect" parent="Vignette"]
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 500.0
+offset_right = 200.0
+offset_bottom = 300.0
 texture = ExtResource("1_8jsj4")
 expand_mode = 1
 
@@ -32,8 +33,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -300.0
-offset_bottom = 500.0
+offset_left = -200.0
+offset_bottom = 300.0
 grow_horizontal = 0
 texture = ExtResource("1_8jsj4")
 expand_mode = 1

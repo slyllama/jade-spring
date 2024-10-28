@@ -1,8 +1,6 @@
 @icon("res://lib/gizmo/icon_gizmo.svg")
 class_name Gizmo extends Node3D
 
-const GizmoArrow = preload("res://lib/gizmo/gizmo_arrow.gd")
-
 @export var active = false
 var offset = Vector3.ZERO
 var arrows: Array[GizmoArrow] = []

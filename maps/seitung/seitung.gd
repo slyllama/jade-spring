@@ -1,5 +1,13 @@
 extends Node3D
 
+var picking_disabled_objects: Array[StaticBody3D] = []
+
+# Re-enable mouse event-disabled static bodies
+func reset_picking_disabled_objects() -> void:
+	for _n in picking_disabled_objects:
+		_n.input_ray_pickable = true
+	picking_disabled_objects = []
+
 func _ready() -> void:
 	# Apply settings
 	SettingsHandler.setting_changed.connect(func(parameter):
@@ -29,6 +37,18 @@ func _ready() -> void:
 	Global.cursor_enabled.connect(func():
 		var _cu = Cursor3D.new()
 		add_child(_cu))
+	
+	# Prevent static bodies from consuming mouse input while decoration
+	# manipulation is active (so the arrows can still be dragged even if the
+	# decoration is, say, underground)
+	Global.adjustment_started.connect(func():
+		for _n in Utilities.get_all_children(self):
+			if _n is StaticBody3D:
+				picking_disabled_objects.append(_n)
+				_n.input_ray_pickable = false)
+	
+	Global.adjustment_applied.connect(reset_picking_disabled_objects)
+	Global.adjustment_canceled.connect(reset_picking_disabled_objects)
 	
 	await get_tree().create_timer(5.0).timeout
 	$Music.play()

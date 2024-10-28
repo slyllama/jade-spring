@@ -1,4 +1,4 @@
-extends Node3D
+class_name GizmoArrow extends Node3D
 const MESH = preload("res://lib/gizmo/meshes/gizmo_arrow.res")
 const SHADER = preload("res://generic/materials/shaders/shader_color.gdshader")
 
@@ -38,6 +38,7 @@ func disable() -> void:
 
 func set_axis(get_axis: Vector3) -> void:
 	axis = get_axis
+	print(axis)
 
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
@@ -109,7 +110,11 @@ func _input(_event: InputEvent) -> void:
 		deactivate()
 
 func _process(delta: float) -> void:
-	if !enabled or !activated: return
+	if !enabled: return
+	if axis == Vector3(1, 0, 0):
+		drag_box.look_at(Global.player_position)
+		drag_box.rotation.x = PI / 2.0
+	if !activated: return
 	
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = Global.camera.project_ray_origin(mouse_pos)
