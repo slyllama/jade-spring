@@ -1,5 +1,12 @@
 extends CharacterBody3D
 
+const JADE_SOUNDS = [
+	preload("res://lib/player/sounds/jade_sound_1.ogg"),
+	preload("res://lib/player/sounds/jade_sound_2.ogg"),
+	preload("res://lib/player/sounds/jade_sound_3.ogg"),
+	preload("res://lib/player/sounds/jade_sound_4.ogg")
+]
+
 @export var base_speed := 2.0
 @export var smoothing := 7.0
 
@@ -9,9 +16,24 @@ var _direction := Vector3.ZERO
 var _speed := base_speed
 var _target_velocity := Vector3.ZERO
 
+func play_jade_sound() -> void:
+	var rng = RandomNumberGenerator.new()
+	var _ind = rng.randi_range(0, JADE_SOUNDS.size() - 1)
+	
+	var sound = AudioStreamPlayer.new()
+	sound.stream = JADE_SOUNDS[_ind]
+	sound.volume_db = linear_to_db(0.4)
+	sound.pitch_scale = 0.8 + 0.4 * rng.randf()
+	add_child(sound)
+	
+	sound.finished.connect(sound.queue_free)
+	sound.play()
+
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
+	
+	Global.jade_bot_sound.connect(play_jade_sound)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
 var _blend_target = 1.0
@@ -31,12 +53,8 @@ func _physics_process(delta: float) -> void:
 	
 	if _query_fs > 0 and _fs == 0:
 		_blend_target = -1.0
-		#$PlayerMesh/Tree.set(
-			#"parameters/test_transition/transition_request", "accelerate")
 	elif _query_fs == 0 and _fs > 0:
 		_blend_target = 1.0
-		#$PlayerMesh/Tree.set(
-			#"parameters/test_transition/transition_request", "dance")
 	
 	if _fs != 0:
 		if velocity.length() < 0.1:
@@ -92,3 +110,8 @@ func _process(delta: float) -> void:
 	# TODO: animation tests
 	_blend_state = lerp(_blend_state, _blend_target, 2.0 * delta)
 	$PlayerMesh/Tree.set("parameters/test_blend/blend_position", _blend_state)
+	
+	var _target_pitch_scale: float = (1.0
+		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)
+	#if Global.in_exclusive_ui: _target_pitch_scale = 1.0
+	$EngineSound.pitch_scale = lerp($EngineSound.pitch_scale, _target_pitch_scale, 0.07)

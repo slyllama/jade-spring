@@ -12,12 +12,13 @@ func start_adjustment() -> void:
 	
 	last_position = position
 	collision_box.set_collision_layer_value(2, 0)
-	$Gizmo.scale = Vector3(1.0, 1.0, 1.0)
+	$Gizmo.scale = Vector3(1.5, 1.5, 1.5)
 	$Gizmo.activate()
 
 func apply_adjustment() -> void:
 	if Global.active_decoration == self:
 		Global.active_decoration = null
+		Global.jade_bot_sound.emit()
 		
 		collision_box.set_collision_layer_value(2, 1)
 		$Gizmo.deactivate()

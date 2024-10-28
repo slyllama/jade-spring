@@ -5,6 +5,9 @@ extends Node
 const DEG = "[char=0x000000B0]"
 const TICK = "[char=0x00002713]"
 
+func set_master_vol(vol: float) -> void:
+	AudioServer.set_bus_volume_db(0, linear_to_db(vol))
+
 # Get all children recursively
 func get_all_children(node: Node) -> Array:
 	var nodes: Array = []

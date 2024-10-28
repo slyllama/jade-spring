@@ -29,3 +29,6 @@ func _ready() -> void:
 	Global.cursor_enabled.connect(func():
 		var _cu = Cursor3D.new()
 		add_child(_cu))
+	
+	await get_tree().create_timer(5.0).timeout
+	$Music.play()

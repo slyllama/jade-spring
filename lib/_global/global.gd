@@ -7,6 +7,7 @@ var player_position = Vector3.ZERO
 var popup_open = false
 
 signal click_sound
+signal jade_bot_sound
 
 ##### Decoration signals and parameters
 
@@ -45,6 +46,8 @@ func set_cursor(state = true) -> void:
 ##### Execution
 
 func _ready() -> void:
+	Utilities.set_master_vol(0.0)
+	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:
 		get_window().size *= 2
@@ -53,6 +56,10 @@ func _ready() -> void:
 		if OS.get_name() != "macOS":
 			DisplayServer.cursor_set_custom_image(
 				load("res://generic/textures/cursor_2x.png"))
+	
+	await get_tree().create_timer(0.5).timeout
+	var vol_tween = create_tween()
+	vol_tween.tween_method(Utilities.set_master_vol, 0.0, 1.0, 1.0)
 
 func _on_click_sound() -> void:
 	$Click.play()

@@ -8,5 +8,6 @@ script = ExtResource("1_bx37s")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4wn1a")
+volume_db = 2.0
 
 [connection signal="click_sound" from="." to="." method="_on_click_sound"]

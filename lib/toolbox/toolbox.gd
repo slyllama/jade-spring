@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func clear_skills() -> void:
+	$SkillSwap.play()
 	for _b in $Box.get_children():
 		if _b is SkillButton:
 			_b.switch_skill("empty")
@@ -12,7 +13,10 @@ func set_default_skills() -> void:
 	Global.set_cursor(false)
 
 func _ready() -> void:
+	$SkillSwap.volume_db = linear_to_db(0)
 	set_default_skills()
+	await $SkillSwap.finished
+	$SkillSwap.volume_db = linear_to_db(1.0)
 	
 	Global.adjustment_started.connect(func():
 		clear_skills()
