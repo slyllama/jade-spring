@@ -11,27 +11,23 @@ func start_adjustment() -> void:
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	
 	last_position = position
-	#collision_box.input_ray_pickable = false
-	collision_box.set_collision_layer_value(1, 0)
+	collision_box.set_collision_layer_value(2, 0)
+	$Gizmo.scale = Vector3(1.0, 1.0, 1.0)
 	$Gizmo.activate()
-
 
 func apply_adjustment() -> void:
 	if Global.active_decoration == self:
 		Global.active_decoration = null
 		
-		collision_box.set_collision_layer_value(1, 1)
+		collision_box.set_collision_layer_value(2, 1)
 		$Gizmo.deactivate()
-		#collision_box.input_ray_pickable = true
 
 func cancel_adjustment() -> void:
 	if Global.active_decoration == self:
 		Global.active_decoration = null
 		
-		collision_box.set_collision_layer_value(1, 1)
+		collision_box.set_collision_layer_value(2, 1)
 		$Gizmo.deactivate()
-		#collision_box.input_ray_pickable = true
-		
 		position = last_position
 
 func _ready() -> void:

@@ -22,6 +22,8 @@ func enable() -> void:
 	scale_tween.tween_property(
 		arrow_mesh, "scale", Vector3(1.0, 1.0, 1.0), 0.3).set_ease(
 			Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+		
+	pick_box.set_collision_layer_value(1, 1)
 	enabled = true
 
 func disable() -> void:
@@ -30,6 +32,8 @@ func disable() -> void:
 	scale_tween.tween_property(
 		arrow_mesh, "scale", Vector3(0.01, 0.01, 0.01), 0.3).set_ease(
 			Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	
+	pick_box.set_collision_layer_value(1, 0)
 	enabled = false
 
 func set_axis(get_axis: Vector3) -> void:
@@ -74,6 +78,7 @@ func _ready() -> void:
 	pick_coll.position.z = -0.4
 	pick_coll.shape = pick_shape
 	pick_box.add_child(pick_coll)
+	pick_box.set_collision_layer_value(1, 0)
 	add_child(pick_box)
 	
 	pick_box.mouse_entered.connect(func():

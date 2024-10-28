@@ -28,7 +28,7 @@ var tool_mode = TOOL_MODE_NONE
 
 var cursor_active = false
 
-signal cursor_enabled
+signal cursor_enabled(data: Dictionary)
 signal cursor_disabled
 signal cursor_tint_changed(color: Color)
 
