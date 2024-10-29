@@ -8,9 +8,6 @@ var loading_status: int
 var progress: Array[float]
 var load_bar_bias = 2.0 # only seems to go to 50% by default
 
-#func _set_aberration(value):
-	#$Aberration.material.set_shader_parameter("intensity", value)
-
 # Clear parameters set by the previous instance
 func _reset_map() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

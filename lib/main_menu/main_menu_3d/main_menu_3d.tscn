@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgyyv0rfs8bmv"]
+
+[ext_resource type="PackedScene" uid="uid://dow0fxe5m8rr1" path="res://lib/player/meshes/jade_bot.glb" id="1_gv1h4"]
+[ext_resource type="Script" path="res://lib/main_menu/main_menu_3d/main_menu_3d.gd" id="1_rjx7n"]
+
+[sub_resource type="Environment" id="Environment_omntl"]
+ambient_light_source = 2
+ambient_light_color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="MainMenu3D" type="Node3D"]
+script = ExtResource("1_rjx7n")
+
+[node name="JadeBot" parent="." instance=ExtResource("1_gv1h4")]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.1)
+current = true
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.258812, 0.677948, -0.688043, 0.00184754, 0.711964, 0.702213, 0.965926, -0.183013, 0.183013, 0, 2, 0)
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_omntl")
