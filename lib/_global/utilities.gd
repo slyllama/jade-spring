@@ -5,6 +5,13 @@ extends Node
 const DEG = "[char=0x000000B0]"
 const TICK = "[char=0x00002713]"
 
+func get_user_vol() -> float:
+	if "volume" in SettingsHandler.settings:
+		return(clamp(float(SettingsHandler.settings.volume), 0.0, 1.0))
+	else:
+		return(0.0)
+
+# Set master volume on the bus
 func set_master_vol(vol: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(vol))
 

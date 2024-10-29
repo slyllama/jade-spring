@@ -10,6 +10,9 @@ extends HBoxContainer
 		$Title.text = title + ":"
 @export var id: String
 
+func set_value_silent(value: float) -> void:
+	$Slider.set_value_no_signal(value * 100)
+
 func _ready() -> void:
 	$Title.text = title + ":"
 	if Engine.is_editor_hint(): return

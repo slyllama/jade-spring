@@ -7,7 +7,7 @@ const DEFAULT_SETTINGS = {
 	#"particle_density": "high",
 	#"shadows": "on",
 	"music_vol": 1.0, # ratio (1.0),
-	"vol": 1.0,
+	"volume": 1.0,
 	#"orbit_sensitivity": 100
 	
 	"window_mode": "full_screen",
@@ -39,10 +39,12 @@ func reset() -> void:
 	refresh()
 	save_to_file()
 
-# Ping 'setting_changed' for all settings
-func refresh() -> void:
+# Ping 'setting_changed' for all settings except those included in the
+# exceptions list
+func refresh(exceptions: Array[String] = []) -> void:
 	for s in settings:
-		setting_changed.emit(s)
+		if !s in exceptions:
+			setting_changed.emit(s)
 
 func update(parameter, value) -> void:
 	settings[parameter] = value

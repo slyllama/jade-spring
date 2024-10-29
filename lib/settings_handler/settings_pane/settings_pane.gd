@@ -14,5 +14,11 @@ func _input(event: InputEvent) -> void:
 			await get_tree().process_frame
 			close()
 
+func _ready() -> void:
+	super()
+	# Volume needs to be set independently because its setting update isn't
+	# pinged on start (to prevent an awkward spike in volume)
+	$Container/Volume.set_value_silent(Utilities.get_user_vol())
+
 func _on_save_press() -> void:
 	close()

@@ -31,10 +31,12 @@ func _ready() -> void:
 					if _n is FoliageSpawner:
 						if _value == "on": _n.set_aa(true)
 						else: _n.set_aa(false)
+			"volume":
+				Utilities.set_master_vol(Utilities.get_user_vol())
 			"music_vol":
-				$Music.volume_db = linear_to_db(clamp(float(_value) * 0.75, 0.0, 1.0))
+				$Music.volume_db = linear_to_db(clamp(float(_value) * 0.55, 0.0, 1.0))
 	)
-	SettingsHandler.refresh()
+	SettingsHandler.refresh(["volume"])
 	
 	Global.cursor_enabled.connect(func():
 		var _cu = Cursor3D.new()
@@ -55,6 +57,6 @@ func _ready() -> void:
 	# Fade volume in and play music after a short delay
 	await get_tree().create_timer(0.5).timeout
 	var vol_tween = create_tween()
-	vol_tween.tween_method(Utilities.set_master_vol, 0.0, 1.0, 1.0)
+	vol_tween.tween_method(Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
 	await get_tree().create_timer(4.0).timeout
 	$Music.play()
