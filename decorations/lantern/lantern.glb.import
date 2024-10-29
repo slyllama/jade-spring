@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"mat_rock_base": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/lantern/materials/mat_rock_base.tres"
+},
 "mat_rock_top": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/lantern/materials/mat_rock_top.tres"
@@ -41,7 +45,7 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://decorations/lantern/materials/mat_wood.tres"
 },
-"mat_wood_darker": {
+"mat_wood_dark": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/lantern/materials/mat_wood_darker.tres"
 }

@@ -13,11 +13,12 @@ func _render_fps() -> String: # pretty formatting of FPS values
 
 func _ready() -> void:
 	# Configure corner buttons to light up when hovered over
-	for _n: TextureButton in $CornerButtons.get_children():
-		_n.modulate.a = FADE
-		_n.mouse_entered.connect(func(): _n.modulate.a = 1.0)
-		_n.mouse_exited.connect(func(): _n.modulate.a = FADE)
-		_n.button_down.connect(Global.click_sound.emit)
+	for _n in $CornerButtons.get_children():
+		if _n is TextureButton:
+			_n.modulate.a = FADE
+			_n.mouse_entered.connect(func(): _n.modulate.a = 1.0)
+			_n.mouse_exited.connect(func(): _n.modulate.a = FADE)
+			_n.button_down.connect(Global.click_sound.emit)
 	
 	await get_tree().process_frame
 	var _fade_tween = create_tween()
@@ -37,3 +38,6 @@ func _process(_delta: float) -> void:
 func _on_settings_down() -> void:
 	if !$SettingsPane.is_open: $SettingsPane.open()
 	else: $SettingsPane.close()
+
+func _on_close_pressed() -> void:
+	get_tree().quit()

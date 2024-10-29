@@ -18,8 +18,8 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://generic/textures/splash.png"
-boot_splash/fullsize=false
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1500
 
 [autoload]
 
@@ -42,6 +42,10 @@ mouse_cursor/custom_image="res://generic/textures/cursor.png"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/mmo_camera/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [gui]
 

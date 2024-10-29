@@ -68,6 +68,9 @@ func _init() -> void:
 	arrow_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 func _ready() -> void:
+	# Prevent foliage decals painting onto arrows
+	arrow_mesh.set_layer_mask_value(1, 0)
+	arrow_mesh.set_layer_mask_value(2, 1)
 	add_child(arrow_mesh)
 	
 	# Generate the picking box used to select the gizmo axis

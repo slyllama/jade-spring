@@ -9,7 +9,7 @@ shader = ExtResource("2_xwfhn")
 shader_parameter/gradient = ExtResource("3_0npe3")
 
 [node name="SidePanel" type="VBoxContainer"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(310, 0)
 offset_right = 200.0
 offset_bottom = 200.0
 theme_override_constants/separation = 0

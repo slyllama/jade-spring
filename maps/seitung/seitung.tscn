@@ -307,7 +307,7 @@ transform = Transform3D(0.866026, -0.25, 0.433012, 0, 0.866026, 0.5, -0.5, -0.43
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
 
@@ -719,5 +719,15 @@ mesh = ExtResource("14_yeybn")
 transform = Transform3D(0.968556, 0, -0.790189, 0, 1.25, 0, 0.790189, 0, 0.968556, -10.9622, 3.19721, 8.15624)
 mesh = ExtResource("14_yeybn")
 
-[node name="lantern" parent="." instance=ExtResource("20_suyf7")]
-transform = Transform3D(0.948379, 0, 0.317139, 0, 1, 0, -0.317139, 0, 0.948379, -1.45242, -0.0889814, 7.33251)
+[node name="Lantern" parent="." instance=ExtResource("20_suyf7")]
+transform = Transform3D(1.12488, 0, -0.417894, 0, 1.2, 0, 0.417894, 0, 1.12488, -5.54787, -0.232318, 10.0261)
+
+[node name="Lamp" type="OmniLight3D" parent="Lantern"]
+transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 2.98023e-08, 0, 0.833333, -0.772445, 0.736787, 0.0607977)
+light_color = Color(1, 0.75, 0, 1)
+light_energy = 3.0
+distance_fade_enabled = true
+distance_fade_begin = 7.0
+distance_fade_length = 1.0
+omni_range = 2.3
+omni_attenuation = 0.0

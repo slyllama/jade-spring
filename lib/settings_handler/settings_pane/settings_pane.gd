@@ -14,8 +14,5 @@ func _input(event: InputEvent) -> void:
 			await get_tree().process_frame
 			close()
 
-func _on_quit_button_down() -> void:
-	get_tree().quit()
-
 func _on_save_press() -> void:
 	close()
