@@ -29,6 +29,6 @@ func _on_cancel_button_down() -> void:
 
 func _on_quit_button_down() -> void:
 	var vol_tween = create_tween()
-	vol_tween.tween_method(Utilities.set_master_vol, 1.0, 0.0, 0.3)
+	vol_tween.tween_method(Utilities.set_master_vol, Utilities.get_user_vol(), 0.0, 0.3)
 	await vol_tween.finished
 	get_tree().quit()
