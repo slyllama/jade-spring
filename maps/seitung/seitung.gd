@@ -19,22 +19,17 @@ func _ready() -> void:
 				else: get_window().mode = Window.MODE_WINDOWED
 			"foliage_density":
 				var _d = 1.0
-				if _value == "medium":
-					_d = 0.7
-				elif _value == "low":
-					_d = 0.3
+				if _value == "medium": _d = 0.7
+				elif _value == "low": _d = 0.3
 				for _n in $Foliage.get_children():
-					if _n is FoliageSpawner:
-						_n.set_density(_d)
+					if _n is FoliageSpawner: _n.set_density(_d)
 			"grass_aa":
 				for _n in $Foliage.get_children():
 					if _n is FoliageSpawner:
 						if _value == "on": _n.set_aa(true)
 						else: _n.set_aa(false)
-			"volume":
-				Utilities.set_master_vol(Utilities.get_user_vol())
-			"music_vol":
-				$Music.volume_db = linear_to_db(clamp(float(_value) * 0.55, 0.0, 1.0))
+			"volume": Utilities.set_master_vol(Utilities.get_user_vol())
+			"music_vol": $Music.volume_db = linear_to_db(clamp(float(_value) * 0.55, 0.0, 1.0))
 	)
 	SettingsHandler.refresh(["volume"])
 	

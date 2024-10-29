@@ -1,9 +1,11 @@
-[gd_scene load_steps=51 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=53 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_6ilxl"]
+[ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_fqdye"]
 [ext_resource type="PackedScene" uid="uid://b6x6dgmtoy2en" path="res://lib/decoration/decoration.tscn" id="5_0gh7v"]
+[ext_resource type="Script" path="res://lib/crumb/crumb.gd" id="5_evg50"]
 [ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="8_67fdu"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="9_7bo6h"]
@@ -310,6 +312,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
+
+[node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
+
+[node name="Crumb" type="Area3D" parent="CrumbHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267237, 0, 9.75841)
+script = ExtResource("5_evg50")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 3
@@ -638,8 +646,8 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_f5nkf")
 draw_pass_1 = SubResource("PlaneMesh_2fc7p")
 
-[node name="Motes3" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 9)
+[node name="Motes2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 9)
 amount = 80
 lifetime = 2.0
 preprocess = 5.0
@@ -647,8 +655,8 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_f5nkf")
 draw_pass_1 = SubResource("PlaneMesh_2fc7p")
 
-[node name="Motes2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 9)
+[node name="Motes3" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 9)
 amount = 80
 lifetime = 2.0
 preprocess = 5.0
@@ -708,7 +716,6 @@ stream = ExtResource("19_frkxa")
 volume_db = -4.0
 unit_size = 5.0
 autoplay = true
-panning_strength = 2.0
 attenuation_filter_cutoff_hz = 10000.0
 
 [node name="Bamboo" type="MeshInstance3D" parent="."]

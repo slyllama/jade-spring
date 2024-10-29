@@ -12,6 +12,14 @@ func _render_fps() -> String: # pretty formatting of FPS values
 		color = "red"
 	return("[color=" + color + "]" + str(_fps) + "fps[/color]")
 
+# Print information about crumbs spawned into the map
+func _render_crumb_debug() -> String:
+	if Global.crumb_handler == null:
+		return("\n\n*** CRUMB HANDLER DISCONNECTED ***")
+	var _s = ("\n\n*** CRUMB HANDLER CONNECTED ("
+		+ str(Global.crumb_handler.crumb_count) + ") ***")
+	return(_s)
+
 func _ready() -> void:
 	# Configure corner buttons to light up when hovered over
 	for _n in $CornerButtons.get_children():
@@ -35,6 +43,8 @@ func _process(_delta: float) -> void:
 	$Debug.text += ("\nFoliage count: " + str(Global.foliage_count))
 	if Global.active_decoration != null:
 		$Debug.text += ("\n[color=yellow]Active decoration: " + str(Global.active_decoration) + "[/color]")
+	
+	$Debug.text += _render_crumb_debug()
 
 func _on_settings_down() -> void:
 	if !$SettingsPane.is_open: $SettingsPane.open()
