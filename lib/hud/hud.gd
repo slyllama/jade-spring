@@ -18,6 +18,11 @@ func _ready() -> void:
 		_n.mouse_entered.connect(func(): _n.modulate.a = 1.0)
 		_n.mouse_exited.connect(func(): _n.modulate.a = FADE)
 		_n.button_down.connect(Global.click_sound.emit)
+	
+	await get_tree().process_frame
+	var _fade_tween = create_tween()
+	_fade_tween.tween_property($FG, "modulate:a", 0.0, 0.5)
+	_fade_tween.tween_callback($FG.queue_free)
 
 func _process(_delta: float) -> void:
 	# Debug stuff

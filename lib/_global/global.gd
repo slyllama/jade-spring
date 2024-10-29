@@ -58,10 +58,6 @@ func _ready() -> void:
 		if OS.get_name() != "macOS":
 			DisplayServer.cursor_set_custom_image(
 				load("res://generic/textures/cursor_2x.png"))
-	
-	await get_tree().create_timer(0.5).timeout
-	var vol_tween = create_tween()
-	vol_tween.tween_method(Utilities.set_master_vol, 0.0, 1.0, 1.0)
 
 func _on_click_sound() -> void:
 	$Click.play()

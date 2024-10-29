@@ -110,4 +110,12 @@ offset_right = 0.0
 offset_bottom = 300.0
 grow_horizontal = 0
 
+[node name="FG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]

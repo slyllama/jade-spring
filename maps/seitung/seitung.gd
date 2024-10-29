@@ -50,5 +50,9 @@ func _ready() -> void:
 	Global.adjustment_applied.connect(reset_picking_disabled_objects)
 	Global.adjustment_canceled.connect(reset_picking_disabled_objects)
 	
-	await get_tree().create_timer(5.0).timeout
+	# Fade volume in and play music after a short delay
+	await get_tree().create_timer(0.5).timeout
+	var vol_tween = create_tween()
+	vol_tween.tween_method(Utilities.set_master_vol, 0.0, 1.0, 1.0)
+	await get_tree().create_timer(4.0).timeout
 	$Music.play()
