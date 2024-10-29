@@ -14,9 +14,9 @@ dest_files=["res://.godot/imported/lantern.glb-b99491a64770b15eb5f383055927d29e.
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="Lantern"
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=1.25
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -40,6 +40,10 @@ _subresources={
 "mat_wood": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/lantern/materials/mat_wood.tres"
+},
+"mat_wood_darker": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/lantern/materials/mat_wood_darker.tres"
 }
 }
 }

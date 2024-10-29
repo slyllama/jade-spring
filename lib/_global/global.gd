@@ -5,6 +5,7 @@ var foliage_count = 0
 var mouse_in_ui = false
 var player_position = Vector3.ZERO
 var popup_open = false
+var retina_scale = 1
 
 signal click_sound
 signal jade_bot_sound
@@ -50,8 +51,9 @@ func _ready() -> void:
 	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:
-		get_window().size *= 2
-		get_window().content_scale_factor = 2
+		retina_scale = 2
+		get_window().size *= retina_scale
+		get_window().content_scale_factor = retina_scale
 		# macOS already configures the cursor for retina
 		if OS.get_name() != "macOS":
 			DisplayServer.cursor_set_custom_image(
