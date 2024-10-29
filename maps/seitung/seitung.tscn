@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=54 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_fqdye"]
 [ext_resource type="PackedScene" uid="uid://b6x6dgmtoy2en" path="res://lib/decoration/decoration.tscn" id="5_0gh7v"]
 [ext_resource type="Script" path="res://lib/crumb/crumb.gd" id="5_evg50"]
+[ext_resource type="AudioStream" uid="uid://c1ird7hemm8dx" path="res://generic/sounds/bees.ogg" id="6_beuhg"]
 [ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="8_67fdu"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="9_7bo6h"]
@@ -315,9 +316,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
 
 [node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
 
-[node name="Crumb" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267237, 0, 9.75841)
+[node name="BeesTest" type="Area3D" parent="CrumbHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.287, 1, 7.872)
 script = ExtResource("5_evg50")
+
+[node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest"]
+stream = ExtResource("6_beuhg")
+volume_db = -4.0
+unit_size = 5.0
+autoplay = true
+attenuation_filter_cutoff_hz = 10000.0
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 3

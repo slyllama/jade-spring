@@ -3,6 +3,8 @@ class_name Cursor3D extends Node3D
 const DECAL_TEXTURE = preload("res://lib/cursor_3d/textures/cursor_decal.png")
 var cursor_decal = Decal.new() # will be able to change this
 
+var cursor_area = CursorArea.new()
+
 func set_cursor_tint(color: Color):
 	cursor_decal.modulate = color
 
@@ -11,7 +13,9 @@ func _ready() -> void:
 	cursor_decal.normal_fade = 0.99
 	cursor_decal.cull_mask = 1 # don't paint grass!
 	cursor_decal.size.y = 5.0
+	
 	add_child(cursor_decal)
+	add_child(cursor_area)
 	
 	Global.cursor_disabled.connect(queue_free)
 	Global.cursor_tint_changed.connect(set_cursor_tint)
