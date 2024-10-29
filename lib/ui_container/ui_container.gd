@@ -51,7 +51,7 @@ func _ready():
 	# Pass mouse events through UI elements, because non-orbit checks are done on the panel itself
 	for _n in Utilities.get_all_children(self):
 		if "mouse_filter" in _n: _n.mouse_filter = MOUSE_FILTER_PASS
-		if _n is BaseButton or _n is Range:
+		if _n is BaseButton:
 			_n.button_down.connect(func(): Global.click_sound.emit())
 	$Corner.mouse_filter = MOUSE_FILTER_IGNORE
 

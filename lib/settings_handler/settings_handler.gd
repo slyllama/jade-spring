@@ -5,9 +5,9 @@ const FILE_PATH = "user://settings.dat"
 const DEFAULT_SETTINGS = { 
 	#"fov": 90,
 	#"particle_density": "high",
-	#"window_mode": "full_screen",
 	#"shadows": "on",
-	#"music_vol": 50, # percent
+	"music_vol": 1.0, # ratio (1.0),
+	"vol": 1.0,
 	#"orbit_sensitivity": 100
 	
 	"window_mode": "full_screen",

@@ -31,6 +31,8 @@ func _ready() -> void:
 					if _n is FoliageSpawner:
 						if _value == "on": _n.set_aa(true)
 						else: _n.set_aa(false)
+			"music_vol":
+				$Music.volume_db = linear_to_db(clamp(float(_value) * 0.75, 0.0, 1.0))
 	)
 	SettingsHandler.refresh()
 	

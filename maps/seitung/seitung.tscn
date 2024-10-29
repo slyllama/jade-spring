@@ -273,8 +273,8 @@ emission_shape_scale = Vector3(3, 1, 3)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0.1, 0)
-scale_min = 0.1
-scale_max = 0.2
+scale_min = 0.2
+scale_max = 0.4
 alpha_curve = SubResource("CurveTexture_22nej")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf8mi"]
@@ -723,9 +723,9 @@ mesh = ExtResource("14_yeybn")
 transform = Transform3D(1.12488, 0, -0.417894, 0, 1.2, 0, 0.417894, 0, 1.12488, -5.54787, -0.232318, 10.0261)
 
 [node name="Lamp" type="OmniLight3D" parent="Lantern"]
-transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 2.98023e-08, 0, 0.833333, -0.772445, 0.736787, 0.0607977)
+transform = Transform3D(0.833336, 0, 0, 0, 0.833333, 0, 0, 0, 0.833336, 0.424135, 0.736787, 0.0236149)
 light_color = Color(1, 0.75, 0, 1)
-light_energy = 3.0
+light_energy = 2.0
 distance_fade_enabled = true
 distance_fade_begin = 7.0
 distance_fade_length = 1.0

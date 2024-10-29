@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://lib/settings_handler/settings_pane/settings_dropdown.gd" id="1_jvcfa"]
 
 [node name="SettingsDropdown" type="HBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(0, 20)
 offset_right = 320.0
 offset_bottom = 27.0
 theme = ExtResource("1_eo82w")
 script = ExtResource("1_jvcfa")
 
 [node name="Title" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
 text = "Setting:"
@@ -20,8 +20,10 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Menu" type="MenuButton" parent="."]
+custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 mouse_filter = 1
 flat = false
 alignment = 0

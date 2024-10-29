@@ -54,11 +54,6 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rc50"]
 bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.617455, 0.617455, 0.617455, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -117,15 +112,14 @@ grow_horizontal = 2
 alignment = 1
 
 [node name="InputKey" type="RichTextLabel" parent="InputKeyBox"]
-custom_minimum_size = Vector2(32, 0)
+custom_minimum_size = Vector2(25, 24)
 layout_mode = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("5_i52s4")
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rc50")
 bbcode_enabled = true
 text = "[center]#[/center]"
-fit_content = true
 scroll_active = false
 autowrap_mode = 0
 

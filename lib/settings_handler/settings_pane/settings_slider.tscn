@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://np0dx7q0lxai"]
+
+[ext_resource type="Script" path="res://lib/settings_handler/settings_pane/settings_slider.gd" id="1_dwb46"]
+
+[node name="SettingsSlider" type="HBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_dwb46")
+
+[node name="Title" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Setting:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Slider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]

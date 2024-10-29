@@ -2,24 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="1_3n7f6"]
 [ext_resource type="Script" path="res://lib/ui_container/ui_container.gd" id="1_5t6ie"]
+[ext_resource type="StyleBox" uid="uid://bt8uive6gei3k" path="res://lib/ui_container/ui_container_style.tres" id="1_oxo8x"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="2_mg8j7"]
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="2_wwnru"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="4_qohij"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j30ib"]
-bg_color = Color(0, 0, 0, 0.784314)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.897813, 0.897813, 0.897813, 1)
-border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vair0"]
 
 [node name="UIContainer" type="Panel"]
 custom_minimum_size = Vector2(400, 500)
-theme_override_styles/panel = SubResource("StyleBoxFlat_j30ib")
+theme_override_styles/panel = ExtResource("1_oxo8x")
 script = ExtResource("1_5t6ie")
 
 [node name="Corner" type="TextureRect" parent="."]

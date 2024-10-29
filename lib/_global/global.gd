@@ -2,6 +2,7 @@ extends Node
 
 var camera: Camera3D # reference for ray projections
 var foliage_count = 0
+var in_exclusive_ui = false
 var mouse_in_ui = false
 var player_position = Vector3.ZERO
 var popup_open = false

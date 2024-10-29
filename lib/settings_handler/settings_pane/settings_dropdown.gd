@@ -1,8 +1,14 @@
+@tool
 extends HBoxContainer
 # SettingsDropdown
 # Multi-choice options in the settings menu!
 
-@export var title = "Setting"
+@export var title = "Setting":
+	get():
+		return(title)
+	set(_v):
+		title = _v
+		$Title.text = title + ":"
 @export var id: String
 @export var options: Array[String]
 @export var default_option = ""
@@ -14,6 +20,8 @@ func _refresh() -> void:
 
 func _ready() -> void:
 	$Title.text = title + ":"
+	
+	if Engine.is_editor_hint(): return
 	
 	# Populate based on exported variables and refresh
 	for option in options:
