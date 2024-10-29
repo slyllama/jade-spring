@@ -37,11 +37,6 @@ func _center_cog() -> void:
 	$Spinner.position = get_window().size / Global.retina_scale / 2.0 + Vector2(0, -50.0)
 
 func _ready() -> void:
-	var _splash_fade = create_tween()
-	_splash_fade.tween_property($Splash, "modulate:a", 0.0, 0.35)
-	await _splash_fade.finished
-	
-	$Splash.queue_free()
 	$Spinner.visible = true
 	AudioServer.set_bus_volume_db(0, -80)
 	

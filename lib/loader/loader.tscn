@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://fqasq1ggshha"]
+[gd_scene load_steps=5 format=3 uid="uid://fqasq1ggshha"]
 
 [ext_resource type="Script" path="res://lib/loader/loader.gd" id="1_kyod5"]
-[ext_resource type="Texture2D" uid="uid://c2rph5slcelgy" path="res://generic/textures/splash.png" id="2_130f5"]
 [ext_resource type="Texture2D" uid="uid://vpqu0iau82yh" path="res://lib/loader/textures/spinner.png" id="2_qblbj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83o4o"]
@@ -39,13 +38,3 @@ show_percentage = false
 visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_qblbj")
-
-[node name="Splash" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_130f5")
-expand_mode = 1
-stretch_mode = 5

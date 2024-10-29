@@ -5,7 +5,6 @@ const TRANS_TIME = 0.11
 func close():
 	Global.click_sound.emit()
 	$Box/Buttons/Cancel.release_focus()
-	
 	$Box/Buttons/Quit.disabled = true
 	$Box/Buttons/Cancel.disabled = true
 	

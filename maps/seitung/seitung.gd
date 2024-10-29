@@ -13,10 +13,10 @@ func _ready() -> void:
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:
-			"window_mode":
-				if _value == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
-				elif _value == "maximized": get_window().mode = Window.MODE_MAXIMIZED
-				else: get_window().mode = Window.MODE_WINDOWED
+			#"window_mode":
+				#if _value == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
+				#elif _value == "maximized": get_window().mode = Window.MODE_MAXIMIZED
+				#else: get_window().mode = Window.MODE_WINDOWED
 			"foliage_density":
 				var _d = 1.0
 				if _value == "medium": _d = 0.7

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10bojm2cekkc"]
+
+[ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_sktpt"]
+[ext_resource type="Texture2D" uid="uid://c2rph5slcelgy" path="res://generic/textures/splash.png" id="2_ih2cd"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_sktpt")
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -102.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Play" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Quit"
+
+[node name="Splash" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ih2cd")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="button_down" from="Buttons/Play" to="." method="_on_play_button_down"]
