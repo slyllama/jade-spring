@@ -6,6 +6,7 @@ var crumb_handler: CrumbHandler
 var foliage_count = 0
 var in_exclusive_ui = false
 var mouse_in_ui = false
+var camera_orbiting = true
 var player_position = Vector3.ZERO
 var popup_open = false
 var retina_scale = 1

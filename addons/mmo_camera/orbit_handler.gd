@@ -21,6 +21,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	get_window().focus_exited.connect(func():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Global.camera_orbiting = false
 		orbiting = false)
 
 func _input(event: InputEvent) -> void:
@@ -36,6 +37,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_released(get_parent().left_click):
 		_clicked_in_ui = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Global.camera_orbiting = false
 		orbiting = false
 	
 	if event is InputEventMouseMotion:
@@ -54,6 +56,7 @@ func _process(delta: float) -> void:
 		var _mouse_offset = get_window().get_mouse_position() - _last_click_position
 		if abs(_mouse_offset.x) > 5 or abs(_mouse_offset.y) > 5:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Global.camera_orbiting = true
 			orbiting = true
 	
 	# Process relative mouse movement (_mouse_delta)

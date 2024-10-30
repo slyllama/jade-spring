@@ -1,26 +1,56 @@
 class_name Cursor3D extends Node3D
 
-const DECAL_TEXTURE = preload("res://lib/cursor_3d/textures/cursor_decal.png")
-var cursor_decal = Decal.new() # will be able to change this
+const CursorSphere = preload("res://lib/cursor_3d/meshes/cursor_sphere.glb")
 
-var cursor_area = CursorArea.new()
+var current_radius := 1.0
+var cursor_sphere: Node3D = CursorSphere.instantiate()
+var cursor_area := CursorArea.new()
+var disabled = false
 
 func set_cursor_tint(color: Color):
-	cursor_decal.modulate = color
+	if disabled: return
+	for _n in Utilities.get_all_children(cursor_sphere):
+		if _n is MeshInstance3D:
+			_n.get_active_material(0).set_shader_parameter("albedo", color)
+
+func set_radius(radius: float) -> void:
+	current_radius = radius
+	cursor_area.shape.radius = radius
+	cursor_sphere.scale = Vector3(2, 2, 2) * radius
 
 func _ready() -> void:
-	cursor_decal.texture_albedo = DECAL_TEXTURE
-	cursor_decal.normal_fade = 0.99
-	cursor_decal.cull_mask = 1 # don't paint grass!
-	cursor_decal.size.y = 5.0
+	for _n in Utilities.get_all_children(cursor_sphere):
+		if _n is MeshInstance3D:
+			var _m = _n.get_active_material(0).duplicate()
+			_n.set_surface_override_material(0, _m)
 	
-	add_child(cursor_decal)
 	add_child(cursor_area)
+	add_child(cursor_sphere)
 	
-	Global.cursor_disabled.connect(queue_free)
+	set_cursor_tint(Color.RED)
+	set_radius(0.25)
+	
+	# Animate the cursor out and destroy it when it is dismissed
+	Global.cursor_disabled.connect(func():
+		disabled = true
+		var scale_out_tween = create_tween()
+		scale_out_tween.tween_property(
+			cursor_sphere, "scale", Vector3(0.01, 0.01, 0.01), 0.12)
+		scale_out_tween.tween_callback(queue_free))
+	
 	Global.cursor_tint_changed.connect(set_cursor_tint)
+	
+	# Animate the cursor in
+	cursor_sphere.scale = Vector3(0.01, 0.01, 0.01)
+	var scale_tween = create_tween()
+	scale_tween.tween_property(
+		cursor_sphere, "scale", Vector3(2, 2, 2) * current_radius, 0.1)
 
-func _process(_delta: float) -> void:
+var _target_normal = Vector3.ZERO
+
+func _process(delta: float) -> void:
+	if disabled: return
+	
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = Global.camera.project_ray_origin(mouse_pos)
 	var to = from + Global.camera.project_ray_normal(mouse_pos) * 200
@@ -36,7 +66,15 @@ func _process(_delta: float) -> void:
 		if !visible:
 			visible = true
 		position = intersect.position
-		#rotation = intersect.normal
+		_target_normal = intersect.normal
 	else:
 		if visible:
 			visible = false
+	
+	# Hide the cursor while panning with the mouse
+	if visible and Global.camera_orbiting:
+		visible = false
+	if !visible and !Global.camera_orbiting:
+		visible = true
+	
+	rotation = lerp(rotation, _target_normal, delta * 3)
