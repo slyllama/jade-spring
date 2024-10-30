@@ -37,12 +37,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Debug stuff
 	$Debug.text = _render_fps()
-	$Debug.text += "\nPrimitives: " + str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME))
+	$Debug.text += ("\nPrimitives: "
+		+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)))
 	$Debug.text += "\n"
 	$Debug.text += ("\nTool mode: " + str(Global.tool_identities[Global.tool_mode]))
 	$Debug.text += ("\nFoliage count: " + str(Global.foliage_count))
 	if Global.active_decoration != null:
-		$Debug.text += ("\n[color=yellow]Active decoration: " + str(Global.active_decoration) + "[/color]")
+		$Debug.text += ("\n[color=yellow]Active decoration: "
+			+ str(Global.active_decoration) + "[/color]")
 	
 	$Debug.text += _render_crumb_debug()
 

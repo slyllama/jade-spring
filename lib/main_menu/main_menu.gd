@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 	bg_x_offset = lerp(bg_x_offset, x_offset * bg_x_offset_intensity, delta * 2)
 	bg_y_offset = lerp(bg_y_offset, y_offset * bg_y_offset_intensity, delta * 2)
 	jade_bot.position.x = lerp(jade_bot.position.x, x_offset * -0.2 + 0.05, delta * 2)
-	jade_bot.position.y = lerp(jade_bot.position.y, y_offset * -0.03 + 0.25, delta * 2)
+	jade_bot.position.y = lerp(jade_bot.position.y, y_offset * -0.03 + 0.19, delta * 2)
 	
 	# Apply movement to BG
 	_position_bg()

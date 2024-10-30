@@ -6,12 +6,9 @@ class_name SkillButton extends TextureButton
 signal clicked(id: String)
 const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
-	"add": preload("res://lib/skill_button/textures/add.png"),
 	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
-	"rotate": preload("res://lib/skill_button/textures/rotate.png"),
-	"select": preload("res://lib/skill_button/textures/select.png"),
-	"translate": preload("res://lib/skill_button/textures/translate.png")
+	"select": preload("res://lib/skill_button/textures/select.png")
 }
 
 @export var id := "empty"

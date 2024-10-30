@@ -129,18 +129,6 @@ func render() -> void:
 			build_multimesh.set_instance_transform(i, grass_transform)
 	multimesh = build_multimesh
 
-func set_aa(state: bool) -> void: # set antialiasing according to settings
-	if !ignore_aliasing_check:
-		for i in multimesh.mesh.get_surface_count():
-			# TODO: currently doesn't apply to the new generic foliage material (ShaderMaterial)
-			if multimesh.mesh.surface_get_material(i) is ShaderMaterial: continue
-			
-			var mat: StandardMaterial3D = multimesh.mesh.surface_get_material(i)
-			if state:
-				mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_ALPHA_TO_COVERAGE
-			else:
-				mat.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_OFF
-
 func set_density(get_density) -> void:
 	if ignore_density_check: density = 1.0
 	else: density = get_density
