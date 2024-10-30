@@ -4,9 +4,9 @@ extends CanvasLayer
 var x_offset = 0.0
 var y_offset = 0.0
 
-var bg_x_offset_intensity = 20.0
+var bg_x_offset_intensity = 24.0
 var bg_x_offset = 0.0
-var bg_y_offset_intensity = 7.0
+var bg_y_offset_intensity = 9.0
 var bg_y_offset = 0.0
 
 @onready var jade_bot = $JBWorldBox/JBWorld/MainMenu3D/JadeBot
@@ -29,6 +29,10 @@ func _ready():
 	if Engine.is_editor_hint(): return
 	$Splash.visible = true
 	
+	for _n in Utilities.get_all_children($Buttons):
+		if _n is BaseButton:
+			_n.button_down.connect(func(): Global.click_sound.emit())
+	
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:
@@ -41,7 +45,8 @@ func _ready():
 	get_window().size_changed.connect(func():
 		_position_bg(true))
 	
-	SettingsHandler.refresh(["volume"])
+	SettingsHandler.refresh()
+	Utilities.set_master_vol()
 	$Buttons/Play.grab_focus()
 	
 	var _splash_fade = create_tween()
@@ -59,11 +64,14 @@ func _process(delta: float) -> void:
 	# Parallax-move the background and jade bot
 	bg_x_offset = lerp(bg_x_offset, x_offset * bg_x_offset_intensity, delta * 2)
 	bg_y_offset = lerp(bg_y_offset, y_offset * bg_y_offset_intensity, delta * 2)
-	jade_bot.position.x = lerp(jade_bot.position.x, x_offset * 0.2 + 0.05, delta * 2)
-	jade_bot.position.y = lerp(jade_bot.position.y, y_offset * 0.1 + 0.1, delta * 2)
+	jade_bot.position.x = lerp(jade_bot.position.x, x_offset * -0.2 + 0.05, delta * 2)
+	jade_bot.position.y = lerp(jade_bot.position.y, y_offset * -0.03 + 0.25, delta * 2)
 	
 	# Apply movement to BG
 	_position_bg()
 
 func _on_play_button_down() -> void:
 	get_tree().change_scene_to_file("res://lib/loader/loader.tscn")
+
+func _on_settings_button_down() -> void:
+	$SettingsPane.open()

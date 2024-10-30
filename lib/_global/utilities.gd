@@ -12,7 +12,7 @@ func get_user_vol() -> float:
 		return(0.0)
 
 # Set master volume on the bus
-func set_master_vol(vol: float) -> void:
+func set_master_vol(vol = get_user_vol()) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(vol))
 
 # Get all children recursively
