@@ -1,10 +1,9 @@
-[gd_scene load_steps=54 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=53 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_6ilxl"]
 [ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_fqdye"]
-[ext_resource type="PackedScene" uid="uid://b6x6dgmtoy2en" path="res://lib/decoration/decoration.tscn" id="5_0gh7v"]
 [ext_resource type="Script" path="res://lib/crumb/crumb.gd" id="5_evg50"]
 [ext_resource type="AudioStream" uid="uid://c1ird7hemm8dx" path="res://generic/sounds/bees.ogg" id="6_beuhg"]
 [ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
@@ -22,7 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://l3ctgouysbd2" path="res://maps/seitung/sounds/mus_scratch_track.ogg" id="17_vlvv6"]
 [ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
 [ext_resource type="AudioStream" uid="uid://qs8mrppeh6he" path="res://maps/seitung/sounds/fountain.ogg" id="19_frkxa"]
-[ext_resource type="PackedScene" uid="uid://bt4skwxifwah0" path="res://decorations/lantern/lantern.glb" id="20_suyf7"]
+[ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
 sky_top_color = Color(0.213, 0.420083, 0.71, 1)
@@ -334,12 +333,6 @@ collision_mask = 3
 [node name="Collision" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_bvguu")
-
-[node name="Decoration3" parent="." instance=ExtResource("5_0gh7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38082, 0.521315, 11.7469)
-
-[node name="Decoration2" parent="." instance=ExtResource("5_0gh7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9308, 0.124087, 7.8097)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -734,28 +727,8 @@ mesh = ExtResource("14_yeybn")
 transform = Transform3D(0.968556, 0, -0.790189, 0, 1.25, 0, 0.790189, 0, 0.968556, -10.9622, 3.19721, 8.15624)
 mesh = ExtResource("14_yeybn")
 
-[node name="Lantern" parent="." instance=ExtResource("20_suyf7")]
-transform = Transform3D(1.12488, 0, -0.417894, 0, 1.2, 0, 0.417894, 0, 1.12488, -5.54787, -0.232318, 10.0261)
+[node name="DecoLantern" parent="." instance=ExtResource("24_hqlax")]
+transform = Transform3D(0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, -3.12077, 7.07805e-08, 12.1117)
 
-[node name="Lamp" type="OmniLight3D" parent="Lantern"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424135, 0.736787, 0.0236149)
-light_color = Color(1, 0.75, 0, 1)
-light_energy = 2.0
-distance_fade_enabled = true
-distance_fade_begin = 7.0
-distance_fade_length = 1.0
-omni_range = 2.3
-omni_attenuation = 0.0
-
-[node name="Lantern2" parent="." instance=ExtResource("20_suyf7")]
-transform = Transform3D(1.09316, 0, 0.494959, 0, 1.2, 0, -0.494959, 0, 1.09316, -5.99278, 0.390491, 14.3276)
-
-[node name="Lamp" type="OmniLight3D" parent="Lantern2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424135, 0.736787, 0.0236149)
-light_color = Color(1, 0.75, 0, 1)
-light_energy = 2.0
-distance_fade_enabled = true
-distance_fade_begin = 7.0
-distance_fade_length = 1.0
-omni_range = 2.3
-omni_attenuation = 0.0
+[node name="DecoLantern2" parent="." instance=ExtResource("24_hqlax")]
+transform = Transform3D(0.366745, 0, -0.930322, 0, 1, 0, 0.930322, 0, 0.366745, -5.68726, 0.200365, 14.3049)

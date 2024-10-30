@@ -4,16 +4,19 @@ class_name Decoration extends Node3D
 @export var collision_box: PhysicsBody3D
 
 var last_position: Vector3
+var gizmo = Gizmo.new()
 
 func start_adjustment() -> void:
 	Global.active_decoration = self
 	Global.adjustment_started.emit()
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	
+	Global.transform_mode_changed.emit(Global.TRANSFORM_MODE_WORLD)
+	
 	last_position = position
 	collision_box.set_collision_layer_value(2, 0)
-	$Gizmo.scale = Vector3(1.5, 1.5, 1.5)
-	$Gizmo.activate()
+	gizmo.scale = Vector3(1.5, 1.5, 1.5)
+	gizmo.activate()
 
 func apply_adjustment() -> void:
 	if Global.active_decoration == self:
@@ -21,7 +24,7 @@ func apply_adjustment() -> void:
 		Global.jade_bot_sound.emit()
 		
 		collision_box.set_collision_layer_value(2, 1)
-		$Gizmo.deactivate()
+		gizmo.deactivate()
 
 func cancel_adjustment() -> void:
 	if Global.active_decoration == self:
@@ -29,15 +32,26 @@ func cancel_adjustment() -> void:
 		Global.jade_bot_sound.emit()
 		
 		collision_box.set_collision_layer_value(2, 1)
-		$Gizmo.deactivate()
+		gizmo.deactivate()
 		position = last_position
 
 func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
 	
+	gizmo.position.y = 0.65
+	add_child(gizmo)
+	
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
+		
+		Global.transform_mode_changed.connect(func(transform_mode):
+			if !Global.active_decoration == self: return
+			if transform_mode == Global.TRANSFORM_MODE_WORLD:
+				print("doing this")
+				gizmo.global_rotation_degrees.y = 0.0
+			elif transform_mode == Global.TRANSFORM_MODE_OBJECT:
+				gizmo.global_rotation = collision_box.global_rotation)
 		
 		collision_box.mouse_entered.connect(func():
 			Global.cursor_tint_changed.emit(Color.GREEN))

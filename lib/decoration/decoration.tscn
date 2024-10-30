@@ -1,30 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6x6dgmtoy2en"]
+[gd_scene load_steps=3 format=3 uid="uid://6snaidw2tn5q"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_aunu6"]
 [ext_resource type="Script" path="res://lib/gizmo/gizmo.gd" id="1_xv5vf"]
-[ext_resource type="Texture2D" uid="uid://uu08x585a1r" path="res://generic/materials/textures/1m_diff.png" id="2_ivmm8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poykq"]
-albedo_texture = ExtResource("2_ivmm8")
-metallic_specular = 0.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nwunu"]
-size = Vector3(1.2, 1.2, 1.2)
-
-[node name="Decoration" type="Node3D" node_paths=PackedStringArray("collision_box")]
+[node name="Decoration" type="Node3D"]
 script = ExtResource("1_aunu6")
-collision_box = NodePath("Cube")
 
 [node name="Gizmo" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
 script = ExtResource("1_xv5vf")
-
-[node name="Cube" type="StaticBody3D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="1mBox" type="CSGBox3D" parent="Cube"]
-material = SubResource("StandardMaterial3D_poykq")
-
-[node name="Collision" type="CollisionShape3D" parent="Cube"]
-shape = SubResource("BoxShape3D_nwunu")

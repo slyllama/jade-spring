@@ -17,6 +17,8 @@ signal jade_bot_sound
 ##### Decoration signals and parameters
 
 enum {TOOL_MODE_NONE, TOOL_MODE_ADJUST, TOOL_MODE_SELECT}
+enum {TRANSFORM_MODE_OBJECT, TRANSFORM_MODE_WORLD}
+
 const tool_identities = [ # associations for debug printing
 	"TOOL_MODE_NONE",
 	"TOOL_MODE_ADJUST",
@@ -25,10 +27,19 @@ const tool_identities = [ # associations for debug printing
 signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended
 signal adjustment_started
+signal transform_mode_changed(transform_mode)
 
 # Decoration currently being adjusted
 var active_decoration: Decoration = null
 var tool_mode = TOOL_MODE_NONE
+var transform_mode = TRANSFORM_MODE_WORLD
+
+func toggle_transform_mode() -> void:
+	if transform_mode == TRANSFORM_MODE_WORLD:
+		transform_mode = TRANSFORM_MODE_OBJECT
+	else:
+		transform_mode = TRANSFORM_MODE_WORLD
+	transform_mode_changed.emit(transform_mode)
 
 ##### Cursor signals and parameters
 

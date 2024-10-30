@@ -6,7 +6,7 @@ var activated = false
 var enabled = true
 var color: Color
 var axis := Vector3(1, 0, 0)
-var drag_plane_scale := 5.0
+var drag_plane_scale := 20.0
 
 var drag_box = Area3D.new()
 var pick_box = Area3D.new()
@@ -104,6 +104,7 @@ func _ready() -> void:
 	drag_coll.shape = drag_shape
 	drag_box.add_child(drag_coll)
 	drag_box.set_collision_layer_value(1, 0)
+	drag_box.rotation_degrees.z = 90.0
 	add_child(drag_box)
 
 func _input(_event: InputEvent) -> void:
@@ -113,6 +114,7 @@ func _input(_event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if !enabled: return
+	
 	if axis == Vector3(1, 0, 0):
 		drag_box.look_at(Global.player_position)
 		drag_box.rotation.x = PI / 2.0
@@ -132,5 +134,6 @@ func _process(delta: float) -> void:
 	if intersect != {}:
 		if Input.is_action_just_pressed("left_click"):
 			last_click_pos = intersect.position
+	
 		get_parent().position = lerp(get_parent().position, last_pos + (
 			intersect.position - last_click_pos) * axis, 14 * delta)

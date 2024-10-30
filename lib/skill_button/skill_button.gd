@@ -8,7 +8,8 @@ const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
 	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
-	"select": preload("res://lib/skill_button/textures/select.png")
+	"select": preload("res://lib/skill_button/textures/select.png"),
+	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png")
 }
 
 @export var id := "empty"
