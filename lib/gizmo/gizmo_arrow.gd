@@ -6,7 +6,7 @@ var activated = false
 var enabled = true
 var color: Color
 var axis := Vector3(1, 0, 0)
-var drag_plane_scale := 20.0
+var drag_plane_scale := 30.0
 
 var drag_box = Area3D.new()
 var pick_box = Area3D.new()
@@ -15,6 +15,9 @@ var mat = ShaderMaterial.new()
 
 var last_pos := Vector3.ZERO
 var last_click_pos := Vector3.ZERO
+
+var adjacent_box: Area3D 
+var tangent_cast = RayCast3D.new()
 
 func enable() -> void:
 	var scale_tween = create_tween()
@@ -50,11 +53,13 @@ func activate() -> void:
 	activated = true
 	pick_box.input_ray_pickable = false
 	drag_box.set_collision_layer_value(2, 1)
+	adjacent_box.set_collision_layer_value(3, 1)
 
 func deactivate() -> void:
 	activated = false
 	pick_box.input_ray_pickable = true
 	drag_box.set_collision_layer_value(2, 0)
+	adjacent_box.set_collision_layer_value(3, 0)
 	
 	set_color(color, 0.5)
 	Global.mouse_in_ui = false
@@ -104,28 +109,47 @@ func _ready() -> void:
 	drag_coll.shape = drag_shape
 	drag_box.add_child(drag_coll)
 	drag_box.set_collision_layer_value(1, 0)
-	drag_box.rotation_degrees.z = 90.0
+	
 	add_child(drag_box)
+	drag_box.top_level = true
+	drag_box.global_position = global_position
+	drag_box.global_rotation = global_rotation + Vector3(0, 0, deg_to_rad(90))
+	
+	adjacent_box = drag_box.duplicate()
+	add_child(adjacent_box)
+	adjacent_box.top_level = true
+	adjacent_box.global_position = global_position
+	adjacent_box.global_rotation = drag_box.global_rotation + Vector3(0, 0, deg_to_rad(90))
+	
+	adjacent_box.input_ray_pickable = false
+	adjacent_box.set_collision_layer_value(1, 0)
+	adjacent_box.set_collision_layer_value(2, 0)
+	adjacent_box.set_collision_layer_value(3, 0)
+	
+	add_child(tangent_cast)
+	tangent_cast.top_level = true
+	tangent_cast.set_collision_mask_value(1, 0)
+	tangent_cast.set_collision_mask_value(2, 0)
+	tangent_cast.set_collision_mask_value(3, 1)
+	tangent_cast.collide_with_areas = true
+	tangent_cast.target_position = Vector3(0, -drag_plane_scale, 0)
 
 func _input(_event: InputEvent) -> void:
 	if !activated: return
 	if Input.is_action_just_released("left_click"):
 		deactivate()
 
+var _f = 0
+
 func _process(delta: float) -> void:
-	if !enabled: return
-	
-	if axis == Vector3(1, 0, 0):
-		drag_box.look_at(Global.player_position)
-		drag_box.rotation.x = PI / 2.0
-	if !activated: return
+	if !enabled or !activated: return
 	
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = Global.camera.project_ray_origin(mouse_pos)
 	var to = from + Global.camera.project_ray_normal(mouse_pos) * 200
 	var space_state = get_world_3d().direct_space_state
-	
 	var mesh_query = PhysicsRayQueryParameters3D.create(from, to)
+	
 	mesh_query.collide_with_areas = true
 	mesh_query.collide_with_bodies = false
 	mesh_query.collision_mask = 0b0010
@@ -134,6 +158,19 @@ func _process(delta: float) -> void:
 	if intersect != {}:
 		if Input.is_action_just_pressed("left_click"):
 			last_click_pos = intersect.position
-	
-		get_parent().position = lerp(get_parent().position, last_pos + (
-			intersect.position - last_click_pos) * axis, 14 * delta)
+		
+		
+		
+		tangent_cast.global_position = last_pos + (
+			intersect.position - last_click_pos)
+		tangent_cast.position += get_parent().global_transform.basis.y * drag_plane_scale / 2.0
+		if _f < 5:
+			_f += 1
+			return
+		
+		if tangent_cast.get_collider() == null: return
+		if tangent_cast.get_collider() != adjacent_box: return
+		get_parent().global_position = lerp(get_parent().global_position, tangent_cast.get_collision_point(), 14 * delta)
+		
+		#get_parent().position = lerp(get_parent().position, last_pos + (
+			#intersect.position - last_click_pos), 14 * delta)

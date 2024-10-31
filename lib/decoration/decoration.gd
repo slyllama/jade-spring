@@ -11,8 +11,6 @@ func start_adjustment() -> void:
 	Global.adjustment_started.emit()
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	
-	Global.transform_mode_changed.emit(Global.TRANSFORM_MODE_WORLD)
-	
 	last_position = position
 	collision_box.set_collision_layer_value(2, 0)
 	gizmo.scale = Vector3(1.5, 1.5, 1.5)
@@ -45,13 +43,12 @@ func _ready() -> void:
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
 		
-		Global.transform_mode_changed.connect(func(transform_mode):
-			if !Global.active_decoration == self: return
-			if transform_mode == Global.TRANSFORM_MODE_WORLD:
-				print("doing this")
-				gizmo.global_rotation_degrees.y = 0.0
-			elif transform_mode == Global.TRANSFORM_MODE_OBJECT:
-				gizmo.global_rotation = collision_box.global_rotation)
+		#Global.transform_mode_changed.connect(func(transform_mode):
+			#if !Global.active_decoration == self: return
+			#if transform_mode == Global.TRANSFORM_MODE_WORLD:
+				#gizmo.global_rotation_degrees.y = 0.0
+			#elif transform_mode == Global.TRANSFORM_MODE_OBJECT:
+				#gizmo.global_rotation = collision_box.global_rotation)
 		
 		collision_box.mouse_entered.connect(func():
 			Global.cursor_tint_changed.emit(Color.GREEN))
