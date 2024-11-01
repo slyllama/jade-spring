@@ -3,12 +3,12 @@ class_name Decoration extends Node3D
 
 @export var collision_box: PhysicsBody3D
 var last_position: Vector3
-var arrows: Array[Arrow] = []
+var arrows: Array[GizmoArrow] = []
 
 func _spawn_arrows(transform_space: int):
 	_clear_arrows()
 	
-	var _arr_x = Arrow.new()
+	var _arr_x = GizmoArrow.new()
 	if transform_space == Global.TRANSFORM_MODE_WORLD:
 		_arr_x.initial_override_rotation = Vector3(0, 0, 0)
 	
@@ -16,7 +16,7 @@ func _spawn_arrows(transform_space: int):
 	add_child(_arr_x)
 	arrows.append(_arr_x)
 	
-	var _arr_y = Arrow.new()
+	var _arr_y = GizmoArrow.new()
 	if transform_space == Global.TRANSFORM_MODE_WORLD:
 		_arr_y.initial_override_rotation = Vector3(0, 0, 90)
 	else:
@@ -26,7 +26,7 @@ func _spawn_arrows(transform_space: int):
 	add_child(_arr_y)
 	arrows.append(_arr_y)
 	
-	var _arr_z = Arrow.new()
+	var _arr_z = GizmoArrow.new()
 	if transform_space == Global.TRANSFORM_MODE_WORLD:
 		_arr_z.initial_override_rotation = Vector3(0, 90, 0)
 	else:
@@ -76,10 +76,6 @@ func _ready() -> void:
 		Global.transform_mode_changed.connect(func(transform_mode):
 			if !Global.active_decoration == self: return
 			_spawn_arrows(transform_mode))
-			#if transform_mode == Global.TRANSFORM_MODE_WORLD:
-				#gizmo.global_rotation_degrees.y = 0.0
-			#elif transform_mode == Global.TRANSFORM_MODE_OBJECT:
-				#gizmo.global_rotation = collision_box.global_rotation)
 		
 		collision_box.mouse_entered.connect(func():
 			Global.cursor_tint_changed.emit(Color.GREEN))

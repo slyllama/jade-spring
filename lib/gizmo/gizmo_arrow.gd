@@ -1,149 +1,65 @@
+@icon("res://lib/gizmo/icon_gizmo.svg")
 class_name GizmoArrow extends Node3D
-const MESH = preload("res://lib/gizmo/meshes/gizmo_arrow.res")
-const SHADER = preload("res://generic/materials/shaders/shader_color.gdshader")
 
-var activated = false
-var enabled = true
-var color: Color
-var axis := Vector3(1, 0, 0)
-var drag_plane_scale := 30.0
+const ArrowMesh = preload("res://lib/gizmo/meshes/gizmo_arrow.res")
+const EXTENTS = 30.0
 
-var drag_box = Area3D.new()
-var pick_box = Area3D.new()
-var arrow_mesh = MeshInstance3D.new()
-var mat = ShaderMaterial.new()
-
-var last_pos := Vector3.ZERO
-var last_click_pos := Vector3.ZERO
-
-var adjacent_box: Area3D 
-var tangent_cast = RayCast3D.new()
-
-func enable() -> void:
-	var scale_tween = create_tween()
-	arrow_mesh.scale = Vector3(0.6, 0.6, 0.6)
-	scale_tween.tween_property(
-		arrow_mesh, "scale", Vector3(1.0, 1.0, 1.0), 0.3).set_ease(
-			Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-		
-	pick_box.set_collision_layer_value(1, 1)
-	enabled = true
-
-func disable() -> void:
-	deactivate()
-	var scale_tween = create_tween()
-	scale_tween.tween_property(
-		arrow_mesh, "scale", Vector3(0.01, 0.01, 0.01), 0.3).set_ease(
-			Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+# Small, convenient class for making static bodies
+class PickBox extends Area3D:
+	var enabled = true
+	var active = false
+	var coll = CollisionShape3D.new()
+	var shape = BoxShape3D.new()
 	
-	pick_box.set_collision_layer_value(1, 0)
-	enabled = false
+	signal drag_started
+	signal drag_ended
+	
+	func set_size(size: Vector3) -> void:
+		shape.size = size
+	
+	# If set, the camera won't orbit when dragging in this shape
+	func make_ui_component() -> void:
+		mouse_entered.connect(func():
+			if enabled:
+				Global.mouse_in_ui = true)
+		mouse_exited.connect(func():
+			Global.mouse_in_ui = false)
+	
+	func _input(_event: InputEvent) -> void:
+		if active:
+			if Input.is_action_just_released("left_click"):
+				active = false
+				drag_ended.emit()
+	
+	func _ready() -> void:
+		coll.shape = shape
+		add_child(coll)
+		
+		input_event.connect(func(_c, _e, _p, _n, _i):
+			if active: return
+			if Input.is_action_just_pressed("left_click"):
+				active = true
+				drag_started.emit())
 
-func set_axis(get_axis: Vector3) -> void:
-	axis = get_axis
+var enabled = false
+var active = false
+var color: Color
+var single_axis = true
+var initial_rotation = Vector3.ZERO
+var initial_override_rotation = null
+
+var grabber = PickBox.new()
+var arrow_visual = MeshInstance3D.new()
+var drag_plane = PickBox.new()
+var adjacent_plane = PickBox.new()
+var tangent_cast = RayCast3D.new()
+var mat = ShaderMaterial.new()
 
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
 	mat.set_shader_parameter("color", get_color * dim)
 
-func activate() -> void:
-	if !enabled: return
-	last_pos = get_parent().position
-	
-	activated = true
-	pick_box.input_ray_pickable = false
-	drag_box.set_collision_layer_value(2, 1)
-	adjacent_box.set_collision_layer_value(3, 1)
-
-func deactivate() -> void:
-	activated = false
-	pick_box.input_ray_pickable = true
-	drag_box.set_collision_layer_value(2, 0)
-	adjacent_box.set_collision_layer_value(3, 0)
-	
-	set_color(color, 0.5)
-	Global.mouse_in_ui = false
-
-func _init() -> void:
-	# Configure the arrow mesh, including making the mesh and shader unique
-	# so that color changes will be individual
-	arrow_mesh.mesh = MESH.duplicate()
-	mat.shader = SHADER.duplicate()
-	arrow_mesh.mesh.surface_set_material(0, mat)
-	arrow_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-
-func _ready() -> void:
-	# Prevent foliage decals painting onto arrows
-	arrow_mesh.set_layer_mask_value(1, 0)
-	arrow_mesh.set_layer_mask_value(2, 1)
-	add_child(arrow_mesh)
-	
-	# Generate the picking box used to select the gizmo axis
-	var pick_coll = CollisionShape3D.new()
-	var pick_shape = BoxShape3D.new()
-	
-	pick_shape.size = Vector3(0.2, 0.2, 0.5)
-	pick_coll.position.z = -0.4
-	pick_coll.shape = pick_shape
-	pick_box.add_child(pick_coll)
-	pick_box.set_collision_layer_value(1, 0)
-	add_child(pick_box)
-	
-	pick_box.mouse_entered.connect(func():
-		if !enabled: return
-		set_color(color, 1.0)
-		Global.mouse_in_ui = true)
-	pick_box.mouse_exited.connect(func():
-		if !activated:
-			set_color(color, 0.5)
-			Global.mouse_in_ui = false)
-	
-	pick_box.input_event.connect(func(_c, _e, _p, _n, _i):
-		if Input.is_action_just_pressed("left_click"):
-			activate())
-	
-	var drag_coll = CollisionShape3D.new()
-	var drag_shape = BoxShape3D.new()
-	
-	drag_shape.size = Vector3(drag_plane_scale, 0.05, drag_plane_scale)
-	drag_coll.shape = drag_shape
-	drag_box.add_child(drag_coll)
-	drag_box.set_collision_layer_value(1, 0)
-	
-	add_child(drag_box)
-	drag_box.top_level = true
-	drag_box.global_position = global_position
-	drag_box.global_rotation = global_rotation + Vector3(0, 0, deg_to_rad(90))
-	
-	adjacent_box = drag_box.duplicate()
-	add_child(adjacent_box)
-	adjacent_box.top_level = true
-	adjacent_box.global_position = global_position
-	adjacent_box.global_rotation = drag_box.global_rotation + Vector3(0, 0, deg_to_rad(90))
-	
-	adjacent_box.input_ray_pickable = false
-	adjacent_box.set_collision_layer_value(1, 0)
-	adjacent_box.set_collision_layer_value(2, 0)
-	adjacent_box.set_collision_layer_value(3, 0)
-	
-	add_child(tangent_cast)
-	tangent_cast.top_level = true
-	tangent_cast.set_collision_mask_value(1, 0)
-	tangent_cast.set_collision_mask_value(2, 0)
-	tangent_cast.set_collision_mask_value(3, 1)
-	tangent_cast.collide_with_areas = true
-	tangent_cast.target_position = Vector3(0, -drag_plane_scale, 0)
-
-func _input(_event: InputEvent) -> void:
-	if !activated: return
-	if Input.is_action_just_released("left_click"):
-		deactivate()
-
-var _f = 0
-
-func _process(delta: float) -> void:
-	if !enabled or !activated: return
-	
+func get_drag_collision():
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = Global.camera.project_ray_origin(mouse_pos)
 	var to = from + Global.camera.project_ray_normal(mouse_pos) * 200
@@ -155,22 +71,120 @@ func _process(delta: float) -> void:
 	mesh_query.collision_mask = 0b0010
 	
 	var intersect = space_state.intersect_ray(mesh_query)
-	if intersect != {}:
-		if Input.is_action_just_pressed("left_click"):
-			last_click_pos = intersect.position
-		
-		
-		
-		tangent_cast.global_position = last_pos + (
-			intersect.position - last_click_pos)
-		tangent_cast.position += get_parent().global_transform.basis.y * drag_plane_scale / 2.0
-		if _f < 5:
-			_f += 1
-			return
-		
-		if tangent_cast.get_collider() == null: return
-		if tangent_cast.get_collider() != adjacent_box: return
-		get_parent().global_position = lerp(get_parent().global_position, tangent_cast.get_collision_point(), 14 * delta)
-		
-		#get_parent().position = lerp(get_parent().position, last_pos + (
-			#intersect.position - last_click_pos), 14 * delta)
+	if intersect != {}: return(intersect.position)
+	else: return(null)
+
+func destroy() -> void:
+	enabled = false
+	var scale_out_tween = create_tween()
+	scale_out_tween.tween_property(arrow_visual, "scale", Vector3(0.01, 0.01, 0.01), 0.15)
+	scale_out_tween.tween_callback(queue_free)
+
+func _ready() -> void:
+	enabled = true
+	rotation_degrees += initial_rotation
+	if initial_override_rotation != null:
+		global_rotation_degrees = initial_override_rotation
+	
+	grabber.set_size(Vector3(0.8, 0.4, 0.4))
+	grabber.make_ui_component()
+	grabber.position.x = 0.45
+	add_child(grabber)
+	
+	# Visual arrow display
+	arrow_visual.mesh = ArrowMesh
+	arrow_visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	arrow_visual.set_layer_mask_value(1, 0)
+	arrow_visual.set_layer_mask_value(2, 0)
+	arrow_visual.set_layer_mask_value(3, 1)
+	arrow_visual.position.x = -0.25
+	arrow_visual.rotation_degrees.y = -90 # correct visual orientation
+	grabber.add_child(arrow_visual)
+	arrow_visual.scale = Vector3(0.01, 0.01, 0.01)
+	
+	var scale_in_tween = create_tween()
+	scale_in_tween.tween_property(arrow_visual, "scale", Vector3(1.35, 1.35, 1.35), 0.15)
+	
+	mat.shader = load("res://generic/materials/shaders/shader_color.gdshader")
+	arrow_visual.set_surface_override_material(0, mat)
+	
+	grabber.mouse_entered.connect(func():
+		if !enabled: return
+		set_color(color, 1.0))
+	grabber.mouse_exited.connect(func():
+		if active: return
+		set_color(color, 0.5))
+	
+	grabber.drag_started.connect(func():
+		if !enabled: return
+		tangent_cast.visible = true
+		drag_plane.set_collision_layer_value(2, 1)
+		adjacent_plane.set_collision_layer_value(3, 1)
+		active = true)
+	
+	grabber.drag_ended.connect(func():
+		tangent_cast.visible = false
+		drag_plane.set_collision_layer_value(2, 0)
+		adjacent_plane.set_collision_layer_value(3, 0)
+		set_color(color, 1.0)
+		active = false)
+	
+	drag_plane.input_ray_pickable = false
+	drag_plane.set_collision_layer_value(1, 0)
+	drag_plane.set_collision_layer_value(2, 0)
+	drag_plane.set_size(Vector3(EXTENTS, 0.01, EXTENTS))
+	grabber.add_child(drag_plane)
+	
+	adjacent_plane.input_ray_pickable = false
+	adjacent_plane.set_collision_layer_value(1, 0)
+	adjacent_plane.set_collision_layer_value(3, 0)
+	adjacent_plane.set_size(Vector3(0.2, 0.01, EXTENTS))
+	grabber.add_child(adjacent_plane)
+	adjacent_plane.rotation_degrees = Vector3(0, 90, 90)
+	
+	# Set planes top-level
+	drag_plane.position.y += 1
+	drag_plane.top_level = true
+	adjacent_plane.position.y += 1
+	adjacent_plane.top_level = true
+	
+	add_child(tangent_cast)
+	tangent_cast.visible = false
+	tangent_cast.set_collision_mask_value(1, 0)
+	tangent_cast.set_collision_mask_value(2, 0)
+	tangent_cast.set_collision_mask_value(3, 1)
+	tangent_cast.collide_with_areas = true
+	tangent_cast.target_position = Vector3(0, 0, EXTENTS)
+	tangent_cast.top_level = true
+	
+	position.y = 1.0
+
+var last_collision = null
+@onready var last_position = get_parent().global_position
+
+func _process(delta: float) -> void:
+	if !enabled: return
+	
+	adjacent_plane.global_position = global_position
+	drag_plane.global_position = global_position
+	
+	if !active or !get_drag_collision(): return
+	tangent_cast.global_position = get_drag_collision()
+	tangent_cast.global_rotation = global_rotation
+	tangent_cast.global_position -= EXTENTS / 2 * global_transform.basis.z
+	
+	if active and get_drag_collision() != null:
+		if tangent_cast.get_collider() != null:
+			if last_collision == null:
+				last_position = get_parent().global_position
+				if single_axis:
+					last_collision = tangent_cast.get_collision_point()
+				else: last_collision = get_drag_collision()
+			else:
+				var _new_pos
+				if single_axis: _new_pos = last_position + tangent_cast.get_collision_point() - last_collision
+				else: _new_pos = last_position + get_drag_collision() - last_collision
+				get_parent().global_position = lerp(get_parent().global_position, _new_pos, 14 * delta)
+		else:
+			drag_plane.global_position = global_position
+			last_collision = null
