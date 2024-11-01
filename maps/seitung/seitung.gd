@@ -46,19 +46,19 @@ func _ready() -> void:
 	Global.adjustment_canceled.connect(reset_picking_disabled_objects)
 	
 	# TODO: tests
-	var _a = Arrow.new()
-	_a.initial_rotation = Vector3(0, 90, 0)
-	$TestBox.add_child(_a)
-	
-	var _a2 = Arrow.new()
-	_a2.initial_rotation = Vector3(0, 0, 0)
-	$TestBox.add_child(_a2)
-	
-	var _b = Arrow.new()
-	$TestBox2.add_child(_b)
-	var _b2 = Arrow.new()
-	_b2.initial_rotation = Vector3(0, 0, 90)
-	$TestBox2.add_child(_b2)
+	#var _a = Arrow.new()
+	#_a.initial_rotation = Vector3(0, 90, 0)
+	#$TestBox.add_child(_a)
+	#
+	#var _a2 = Arrow.new()
+	#_a2.initial_rotation = Vector3(0, 0, 0)
+	#$TestBox.add_child(_a2)
+	#
+	#var _b = Arrow.new()
+	#$TestBox2.add_child(_b)
+	#var _b2 = Arrow.new()
+	#_b2.initial_rotation = Vector3(0, 0, 90)
+	#$TestBox2.add_child(_b2)
 	
 	# Fade volume in and play music after a short delay
 	await get_tree().create_timer(0.5).timeout

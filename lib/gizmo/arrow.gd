@@ -1,7 +1,7 @@
 class_name Arrow extends Node3D
 
 const ArrowMesh = preload("res://lib/gizmo/meshes/gizmo_arrow.res")
-const EXTENTS = 6.0
+const EXTENTS = 30.0
 
 # Small, convenient class for making static bodies
 class PickBox extends Area3D:
@@ -40,14 +40,22 @@ class PickBox extends Area3D:
 				active = true
 				drag_started.emit())
 
+var enabled = false
 var active = false
+var color: Color
 var single_axis = true
 var initial_rotation = Vector3.ZERO
 
 var grabber = PickBox.new()
+var arrow_visual = MeshInstance3D.new()
 var drag_plane = PickBox.new()
 var adjacent_plane = PickBox.new()
 var tangent_cast = RayCast3D.new()
+var mat = ShaderMaterial.new()
+
+func set_color(get_color: Color, dim = 0.5) -> void:
+	color = get_color
+	mat.set_shader_parameter("color", get_color * dim)
 
 func get_drag_collision():
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -64,22 +72,47 @@ func get_drag_collision():
 	if intersect != {}: return(intersect.position)
 	else: return(null)
 
+func destroy() -> void:
+	enabled = false
+	var scale_out_tween = create_tween()
+	scale_out_tween.tween_property(arrow_visual, "scale", Vector3(0.01, 0.01, 0.01), 0.15)
+	scale_out_tween.tween_callback(queue_free)
+
 func _ready() -> void:
+	enabled = true
 	rotation_degrees += initial_rotation
 	
-	grabber.set_size(Vector3(0.5, 0.2, 0.2))
+	grabber.set_size(Vector3(0.8, 0.4, 0.4))
 	grabber.make_ui_component()
-	grabber.position.x = 0.25
+	grabber.position.x = 0.45
 	add_child(grabber)
 	
 	# Visual arrow display
-	var arrow_visual = MeshInstance3D.new()
 	arrow_visual.mesh = ArrowMesh
+	arrow_visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	arrow_visual.set_layer_mask_value(1, 0)
+	arrow_visual.set_layer_mask_value(2, 0)
+	arrow_visual.set_layer_mask_value(3, 1)
 	arrow_visual.position.x = -0.25
 	arrow_visual.rotation_degrees.y = -90 # correct visual orientation
 	grabber.add_child(arrow_visual)
+	arrow_visual.scale = Vector3(0.01, 0.01, 0.01)
+	
+	var scale_in_tween = create_tween()
+	scale_in_tween.tween_property(arrow_visual, "scale", Vector3(1.35, 1.35, 1.35), 0.15)
+	
+	mat.shader = load("res://generic/materials/shaders/shader_color.gdshader")
+	arrow_visual.set_surface_override_material(0, mat)
+	
+	grabber.mouse_entered.connect(func():
+		if !enabled: return
+		set_color(color, 1.0))
+	grabber.mouse_exited.connect(func():
+		if active: return
+		set_color(color, 0.5))
 	
 	grabber.drag_started.connect(func():
+		if !enabled: return
 		tangent_cast.visible = true
 		drag_plane.set_collision_layer_value(2, 1)
 		adjacent_plane.set_collision_layer_value(3, 1)
@@ -89,6 +122,7 @@ func _ready() -> void:
 		tangent_cast.visible = false
 		drag_plane.set_collision_layer_value(2, 0)
 		adjacent_plane.set_collision_layer_value(3, 0)
+		set_color(color, 1.0)
 		active = false)
 	
 	drag_plane.input_ray_pickable = false
@@ -125,6 +159,8 @@ var last_collision = null
 @onready var last_position = get_parent().global_position
 
 func _process(delta: float) -> void:
+	if !enabled: return
+	
 	adjacent_plane.global_position = global_position
 	drag_plane.global_position = global_position
 	

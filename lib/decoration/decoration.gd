@@ -2,43 +2,58 @@
 class_name Decoration extends Node3D
 
 @export var collision_box: PhysicsBody3D
-
 var last_position: Vector3
-var gizmo = Gizmo.new()
+var arrows: Array[Arrow] = []
+
+func _clear_arrows() -> void:
+	for _a in arrows: _a.destroy()
+	arrows = []
 
 func start_adjustment() -> void:
 	Global.active_decoration = self
 	Global.adjustment_started.emit()
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	
+	var _arr_x = Arrow.new()
+	_arr_x.set_color(Color.RED)
+	add_child(_arr_x)
+	arrows.append(_arr_x)
+	
+	var _arr_y = Arrow.new()
+	_arr_y.initial_rotation = Vector3(0, 0, 90)
+	_arr_y.set_color(Color.BLUE)
+	add_child(_arr_y)
+	arrows.append(_arr_y)
+	
+	var _arr_z = Arrow.new()
+	_arr_z.initial_rotation = Vector3(0, 90, 0)
+	_arr_z.set_color(Color.GREEN)
+	add_child(_arr_z)
+	arrows.append(_arr_z)
+	
 	last_position = position
 	collision_box.set_collision_layer_value(2, 0)
-	gizmo.scale = Vector3(1.5, 1.5, 1.5)
-	gizmo.activate()
 
 func apply_adjustment() -> void:
 	if Global.active_decoration == self:
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
+		_clear_arrows() 
 		collision_box.set_collision_layer_value(2, 1)
-		gizmo.deactivate()
 
 func cancel_adjustment() -> void:
 	if Global.active_decoration == self:
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
+		_clear_arrows() 
 		collision_box.set_collision_layer_value(2, 1)
-		gizmo.deactivate()
 		position = last_position
 
 func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
-	
-	gizmo.position.y = 0.65
-	add_child(gizmo)
 	
 	if collision_box != null:
 		collision_box.input_ray_pickable = true

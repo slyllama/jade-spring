@@ -676,6 +676,7 @@ transform = Transform3D(0.977721, 0, 0.209909, 0, 1, 0, -0.209909, 0, 0.977721, 
 
 [node name="Decal" type="Decal" parent="Arch"]
 transform = Transform3D(-0.270529, 0.65331, -0.707107, -0.923919, -0.382587, 0, -0.270529, 0.65331, 0.707107, -0.772768, 3.2238, -0.874584)
+layers = 2
 size = Vector3(3, 3, 3)
 texture_albedo = ExtResource("13_vc25n")
 modulate = Color(0.60359, 0.78, 0.3198, 1)
@@ -684,6 +685,7 @@ normal_fade = 0.537
 
 [node name="Decal2" type="Decal" parent="Arch"]
 transform = Transform3D(0.701831, 0.70946, -0.0640143, -0.709459, 0.688089, -0.152316, -0.0640143, 0.152316, 0.986257, -0.88663, -0.398231, -1.46444)
+layers = 2
 size = Vector3(3, 3, 3)
 texture_albedo = ExtResource("13_vc25n")
 modulate = Color(0.411681, 0.540843, 0.19953, 1)
@@ -734,7 +736,7 @@ transform = Transform3D(0.968556, 0, -0.790189, 0, 1.25, 0, 0.790189, 0, 0.96855
 mesh = ExtResource("14_yeybn")
 
 [node name="Lantern" parent="." instance=ExtResource("24_hqlax")]
-transform = Transform3D(0.366745, 0, -0.930322, 0, 1, 0, 0.930322, 0, 0.366745, -5.68726, 0.200365, 14.3049)
+transform = Transform3D(0.843952, -0.222231, -0.488221, 0.320263, 0.938878, 0.126252, 0.430323, -0.262909, 0.86354, -3.76709, -0.333023, 10.8995)
 
 [node name="TestBox" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81869, 0.900844, 8.38411)
