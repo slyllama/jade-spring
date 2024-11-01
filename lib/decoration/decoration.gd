@@ -5,6 +5,36 @@ class_name Decoration extends Node3D
 var last_position: Vector3
 var arrows: Array[Arrow] = []
 
+func _spawn_arrows(transform_space: int):
+	_clear_arrows()
+	
+	var _arr_x = Arrow.new()
+	if transform_space == Global.TRANSFORM_MODE_WORLD:
+		_arr_x.initial_override_rotation = Vector3(0, 0, 0)
+	
+	_arr_x.set_color(Color.RED)
+	add_child(_arr_x)
+	arrows.append(_arr_x)
+	
+	var _arr_y = Arrow.new()
+	if transform_space == Global.TRANSFORM_MODE_WORLD:
+		_arr_y.initial_override_rotation = Vector3(0, 0, 90)
+	else:
+		_arr_y.initial_rotation = Vector3(0, 0, 90)
+	
+	_arr_y.set_color(Color.BLUE)
+	add_child(_arr_y)
+	arrows.append(_arr_y)
+	
+	var _arr_z = Arrow.new()
+	if transform_space == Global.TRANSFORM_MODE_WORLD:
+		_arr_z.initial_override_rotation = Vector3(0, 90, 0)
+	else:
+		_arr_z.initial_rotation = Vector3(0, 90, 0)
+	_arr_z.set_color(Color.GREEN)
+	add_child(_arr_z)
+	arrows.append(_arr_z)
+
 func _clear_arrows() -> void:
 	for _a in arrows: _a.destroy()
 	arrows = []
@@ -14,22 +44,7 @@ func start_adjustment() -> void:
 	Global.adjustment_started.emit()
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	
-	var _arr_x = Arrow.new()
-	_arr_x.set_color(Color.RED)
-	add_child(_arr_x)
-	arrows.append(_arr_x)
-	
-	var _arr_y = Arrow.new()
-	_arr_y.initial_rotation = Vector3(0, 0, 90)
-	_arr_y.set_color(Color.BLUE)
-	add_child(_arr_y)
-	arrows.append(_arr_y)
-	
-	var _arr_z = Arrow.new()
-	_arr_z.initial_rotation = Vector3(0, 90, 0)
-	_arr_z.set_color(Color.GREEN)
-	add_child(_arr_z)
-	arrows.append(_arr_z)
+	_spawn_arrows(Global.transform_mode)
 	
 	last_position = position
 	collision_box.set_collision_layer_value(2, 0)
@@ -58,8 +73,9 @@ func _ready() -> void:
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
 		
-		#Global.transform_mode_changed.connect(func(transform_mode):
-			#if !Global.active_decoration == self: return
+		Global.transform_mode_changed.connect(func(transform_mode):
+			if !Global.active_decoration == self: return
+			_spawn_arrows(transform_mode))
 			#if transform_mode == Global.TRANSFORM_MODE_WORLD:
 				#gizmo.global_rotation_degrees.y = 0.0
 			#elif transform_mode == Global.TRANSFORM_MODE_OBJECT:

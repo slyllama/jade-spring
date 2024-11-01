@@ -45,6 +45,7 @@ var active = false
 var color: Color
 var single_axis = true
 var initial_rotation = Vector3.ZERO
+var initial_override_rotation = null
 
 var grabber = PickBox.new()
 var arrow_visual = MeshInstance3D.new()
@@ -81,6 +82,8 @@ func destroy() -> void:
 func _ready() -> void:
 	enabled = true
 	rotation_degrees += initial_rotation
+	if initial_override_rotation != null:
+		global_rotation_degrees = initial_override_rotation
 	
 	grabber.set_size(Vector3(0.8, 0.4, 0.4))
 	grabber.make_ui_component()

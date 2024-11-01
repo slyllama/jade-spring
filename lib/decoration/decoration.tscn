@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://6snaidw2tn5q"]
+[gd_scene load_steps=2 format=3 uid="uid://6snaidw2tn5q"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_aunu6"]
-[ext_resource type="Script" path="res://lib/gizmo/gizmo.gd" id="1_xv5vf"]
 
 [node name="Decoration" type="Node3D"]
 script = ExtResource("1_aunu6")
-
-[node name="Gizmo" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
-script = ExtResource("1_xv5vf")
