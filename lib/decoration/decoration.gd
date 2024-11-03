@@ -40,6 +40,7 @@ func _clear_arrows() -> void:
 	arrows = []
 
 func start_adjustment() -> void:
+	Global.deco_pane_closed.emit() # decoration pane will not close until the adjustment is initiated
 	Global.active_decoration = self
 	Global.adjustment_started.emit()
 	Global.tool_mode = Global.TOOL_MODE_ADJUST

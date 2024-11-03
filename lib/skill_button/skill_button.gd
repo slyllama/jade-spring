@@ -5,7 +5,7 @@ class_name SkillButton extends TextureButton
 
 signal clicked(id: String)
 
-const RANDOM_COLORS = [ Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.DEEP_PINK ]
+const RANDOM_COLORS = [ Color.CYAN, Color.ORANGE_RED, Color.GREEN, Color.YELLOW, Color.DEEP_PINK ]
 
 const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),

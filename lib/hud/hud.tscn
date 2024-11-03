@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=11 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://couvfdq0mtm6p" path="res://lib/hud/textures/settings_icon.png" id="6_n0v1s"]
 [ext_resource type="PackedScene" uid="uid://gokqv1eo16nh" path="res://lib/hud/side_panel/side_panel.tscn" id="7_6qwis"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="7_w7sr0"]
+[ext_resource type="PackedScene" uid="uid://bvh87e5dxhdg8" path="res://lib/decoration/decoration_pane/decoration_pane.tscn" id="9_qacaq"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ryxhn")
@@ -119,6 +120,13 @@ offset_right = 200.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 432.0
+offset_bottom = 532.0
+title = "Decorations"
 
 [node name="SidePanel" parent="." instance=ExtResource("7_6qwis")]
 anchors_preset = 1

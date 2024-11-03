@@ -49,8 +49,10 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_applied.emit()
 				set_default_skills()
 		"deco_test":
-			print("deco test")
-			pass
+			Global.deco_pane_opened.emit() # open the decoration pane
+			if Global.tool_mode == Global.TOOL_MODE_SELECT: # clear the cursor if it is active
+				Global.tool_mode = Global.TOOL_MODE_NONE
+				set_default_skills()
 		"transform_mode":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.toggle_transform_mode()

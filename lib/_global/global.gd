@@ -15,7 +15,6 @@ signal click_sound
 signal jade_bot_sound
 
 ##### Decoration signals and parameters
-
 enum {
 	TOOL_MODE_NONE,
 	TOOL_MODE_ADJUST,
@@ -32,6 +31,8 @@ const tool_identities = [ # associations for debug printing
 signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended
 signal adjustment_started
+signal deco_pane_closed
+signal deco_pane_opened
 signal transform_mode_changed(transform_mode)
 
 # Decoration currently being adjusted
