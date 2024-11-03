@@ -34,7 +34,7 @@ theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_f7jj3")
-text = "Title"
+text = "((Title))"
 fit_content = true
 scroll_active = false
 
@@ -44,6 +44,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_3i0vl")
-text = "Text"
+text = "((Description))"
 fit_content = true
 scroll_active = false

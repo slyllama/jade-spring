@@ -32,7 +32,7 @@ signal transform_mode_changed(transform_mode)
 # Decoration currently being adjusted
 var active_decoration: Decoration = null
 var tool_mode = TOOL_MODE_NONE
-var transform_mode = TRANSFORM_MODE_WORLD
+var transform_mode = TRANSFORM_MODE_OBJECT
 
 func toggle_transform_mode() -> void:
 	if transform_mode == TRANSFORM_MODE_WORLD:

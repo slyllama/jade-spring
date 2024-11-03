@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7mfp50wcm5wy"]
+[gd_scene load_steps=12 format=3 uid="uid://c7mfp50wcm5wy"]
 
 [ext_resource type="Texture2D" uid="uid://bq8xa3vmxn1qa" path="res://lib/skill_button/textures/_base_blank.png" id="1_7h740"]
 [ext_resource type="Texture2D" uid="uid://cnf7aaj3x2wdb" path="res://lib/skill_button/textures/empty.png" id="1_spyej"]
@@ -54,6 +54,22 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rc50"]
 bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu7n"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.823529)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.568973, 0.568973, 0.568973, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -122,6 +138,23 @@ bbcode_enabled = true
 text = "[center]#[/center]"
 scroll_active = false
 autowrap_mode = 0
+
+[node name="Tooltip" type="RichTextLabel" parent="."]
+top_level = true
+custom_minimum_size = Vector2(200, 0)
+offset_top = -105.0
+offset_right = 13.0
+offset_bottom = -74.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyu7n")
+bbcode_enabled = true
+text = "((Description))
+This is another line."
+fit_content = true
+scroll_active = false
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
