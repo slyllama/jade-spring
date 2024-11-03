@@ -14,7 +14,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -66.0
+offset_top = -79.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_ap58g")
@@ -67,6 +67,14 @@ input_binding = "skill_3"
 layout_mode = 2
 input_binding = "skill_4"
 
+[node name="Skill5" parent="Box" instance=ExtResource("2_xy11a")]
+layout_mode = 2
+input_binding = "skill_5"
+
+[node name="Skill6" parent="Box" instance=ExtResource("2_xy11a")]
+layout_mode = 2
+input_binding = "skill_6"
+
 [node name="SkillSwap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fb1ma")
 max_polyphony = 2
@@ -75,3 +83,5 @@ max_polyphony = 2
 [connection signal="clicked" from="Box/Skill2" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill3" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill4" to="." method="skill_used"]
+[connection signal="clicked" from="Box/Skill5" to="." method="skill_used"]
+[connection signal="clicked" from="Box/Skill6" to="." method="skill_used"]

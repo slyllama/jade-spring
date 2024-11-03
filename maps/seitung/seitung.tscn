@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=53 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -297,12 +297,6 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_yf8mi")
 size = Vector2(0.1, 0.1)
 orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkbcg"]
-albedo_color = Color(0.25, 0.25, 0.25, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qmm06"]
-material = SubResource("StandardMaterial3D_qkbcg")
 
 [node name="Seitung" type="Node3D"]
 script = ExtResource("1_uenug")
@@ -737,11 +731,3 @@ mesh = ExtResource("14_yeybn")
 
 [node name="Lantern" parent="." instance=ExtResource("24_hqlax")]
 transform = Transform3D(0.843952, -0.222231, -0.488221, 0.320263, 0.938878, 0.126252, 0.430323, -0.262909, 0.86354, -3.76709, -0.333023, 10.8995)
-
-[node name="TestBox" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81869, 0.900844, 8.38411)
-mesh = SubResource("BoxMesh_qmm06")
-
-[node name="TestBox2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.866025, 0.25, 0.433013, 0, 0.866025, -0.5, -0.5, 0.433013, 0.75, -0.33826, 0.900844, 8.38411)
-mesh = SubResource("BoxMesh_qmm06")
