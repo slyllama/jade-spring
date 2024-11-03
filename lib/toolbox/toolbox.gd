@@ -9,8 +9,14 @@ func clear_skills() -> void:
 func set_default_skills() -> void:
 	clear_skills()
 	$Box/Skill1.switch_skill("select")
+	$Box/Skill2.switch_skill("deco_test")
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.set_cursor(false)
+
+func get_button_by_id(id: String):
+	for _n in $Box.get_children():
+		if _n.id == id:
+			return(_n)
 
 func _ready() -> void:
 	$SkillSwap.volume_db = linear_to_db(0)
@@ -29,7 +35,7 @@ func skill_used(skill_id: String) -> void:
 		"select":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_SELECT
-				$Box/Skill1.set_highlight()
+				get_button_by_id("select").set_highlight()
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_SELECT:
 				Global.tool_mode = Global.TOOL_MODE_NONE
@@ -42,6 +48,9 @@ func skill_used(skill_id: String) -> void:
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_applied.emit()
 				set_default_skills()
+		"deco_test":
+			print("deco test")
+			pass
 		"transform_mode":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.toggle_transform_mode()

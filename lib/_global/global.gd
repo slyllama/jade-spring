@@ -16,13 +16,18 @@ signal jade_bot_sound
 
 ##### Decoration signals and parameters
 
-enum {TOOL_MODE_NONE, TOOL_MODE_ADJUST, TOOL_MODE_SELECT}
+enum {
+	TOOL_MODE_NONE,
+	TOOL_MODE_ADJUST,
+	TOOL_MODE_SELECT,
+	TOOL_MODE_PLACE }
 enum {TRANSFORM_MODE_OBJECT, TRANSFORM_MODE_WORLD}
 
 const tool_identities = [ # associations for debug printing
 	"TOOL_MODE_NONE",
 	"TOOL_MODE_ADJUST",
-	"TOOL_MODE_SELECT" ]
+	"TOOL_MODE_SELECT",
+	"TOOL_MODE_PLACE" ]
 
 signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended

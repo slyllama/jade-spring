@@ -4,6 +4,9 @@ class_name SkillButton extends TextureButton
 # current ID, and show the icon associated with that ID.
 
 signal clicked(id: String)
+
+const RANDOM_COLORS = [ Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.DEEP_PINK ]
+
 const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
 	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
@@ -11,6 +14,7 @@ const TEXTURES = { # associations with texture paths
 	"select": preload("res://lib/skill_button/textures/select.png"),
 	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png")
 }
+const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 
 const TOOLTIPS = {
 	"select": {
@@ -34,6 +38,7 @@ const TOOLTIPS = {
 @export var input_binding: String
 
 var binding_validated = false # is the exported input binding real?
+var RNG = RandomNumberGenerator.new()
 
 func set_highlight(state = true) -> void:
 	$ActiveOverlay.visible = state
@@ -53,7 +58,12 @@ func switch_skill(get_id: String) -> void:
 	$Animation.play("squeeze")
 	
 	id = get_id
-	$Image.texture = TEXTURES[id]
+	if id in TEXTURES:
+		$Image.texture = TEXTURES[id]
+		$Image.modulate = Color.WHITE
+	else:
+		$Image.texture = UNKNOWN_TEXTURE
+		$Image.modulate = RANDOM_COLORS[RNG.randi_range(0, RANDOM_COLORS.size() - 1)]
 	if id in TOOLTIPS:
 		set_tip_text(TOOLTIPS[id].title, TOOLTIPS[id].description)
 	else: set_tip_text(title, description)
