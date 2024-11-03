@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=56 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -21,7 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://l3ctgouysbd2" path="res://maps/seitung/sounds/mus_scratch_track.ogg" id="17_vlvv6"]
 [ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
 [ext_resource type="AudioStream" uid="uid://qs8mrppeh6he" path="res://maps/seitung/sounds/fountain.ogg" id="19_frkxa"]
+[ext_resource type="Script" path="res://lib/xray_mesh/xray_mesh.gd" id="23_x0h6x"]
+[ext_resource type="PackedScene" uid="uid://bt4skwxifwah0" path="res://decorations/lantern/lantern.glb" id="24_7o1qh"]
 [ext_resource type="PackedScene" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
+[ext_resource type="Material" uid="uid://d2qy2wq5wk0h1" path="res://lib/xray_mesh/materials/mat_xray.tres" id="25_cylx4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
 sky_top_color = Color(0.213, 0.420083, 0.71, 1)
@@ -731,3 +734,13 @@ mesh = ExtResource("14_yeybn")
 
 [node name="Lantern" parent="." instance=ExtResource("24_hqlax")]
 transform = Transform3D(0.843952, -0.222231, -0.488221, 0.320263, 0.938878, 0.126252, 0.430323, -0.262909, 0.86354, -3.76709, -0.333023, 10.8995)
+
+[node name="XRayMesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22381, -0.374286, 8.58635)
+script = ExtResource("23_x0h6x")
+
+[node name="Lantern2" parent="XRayMesh" instance=ExtResource("24_7o1qh")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="XRayMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1833, 0.89166, -0.909011)
+material = ExtResource("25_cylx4")

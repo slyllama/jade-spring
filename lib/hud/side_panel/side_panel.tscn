@@ -16,13 +16,10 @@ theme_override_constants/separation = 0
 
 [node name="TestBox" parent="." instance=ExtResource("1_ycodo")]
 layout_mode = 2
-title = "Title Test"
-description = "And a description"
+title = "Seitung Spring Clean"
+description = "Pre-Alpha"
 
 [node name="Separator" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fqi0m")
 custom_minimum_size = Vector2(0, 1)
-layout_mode = 2
-
-[node name="TestBox2" parent="." instance=ExtResource("1_ycodo")]
 layout_mode = 2

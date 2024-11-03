@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d2qy2wq5wk0h1"]
+
+[ext_resource type="Shader" path="res://lib/xray_mesh/materials/shaders/shader_xray.gdshader" id="1_3kp18"]
+
+[resource]
+render_priority = 2
+shader = ExtResource("1_3kp18")
