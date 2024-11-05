@@ -8,11 +8,11 @@ signal clicked(id: String)
 const RANDOM_COLORS = [ Color.CYAN, Color.ORANGE_RED, Color.GREEN, Color.YELLOW, Color.DEEP_PINK ]
 
 const TEXTURES = { # associations with texture paths
-	"accept": preload("res://lib/skill_button/textures/accept.png"),
-	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
+	#"accept": preload("res://lib/skill_button/textures/accept.png"),
+	#"cancel": preload("res://lib/skill_button/textures/cancel.png"),
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
-	"select": preload("res://lib/skill_button/textures/select.png"),
-	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png")
+	#"select": preload("res://lib/skill_button/textures/select.png"),
+	#"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 
@@ -21,6 +21,10 @@ const TOOLTIPS = {
 		"title": "Select Decoration",
 		"description": "Select a decoration for adjusting."
 	},
+	"deco_test": {
+		"title": "Open Decoration Pane",
+		"description": "View placeable items!"
+	},
 	"cancel": {
 		"title": "Cancel",
 		"description": "End the current action."
@@ -28,6 +32,10 @@ const TOOLTIPS = {
 	"accept": {
 		"title": "Apply Transformation",
 		"description": "Confirm and save the current transformation."
+	},
+	"transform_mode": {
+		"title": "Toggle Transformation Basis",
+		"description": "Switch between object and world space for decoration transformation."
 	}
 }
 

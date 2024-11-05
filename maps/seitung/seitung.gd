@@ -21,7 +21,7 @@ func _ready() -> void:
 				var _d = 1.0
 				if _value == "medium": _d = 0.7
 				elif _value == "low": _d = 0.3
-				for _n in $Foliage.get_children():
+				for _n in $Decoration/Foliage.get_children():
 					if _n is FoliageSpawner: _n.set_density(_d)
 			"volume": Utilities.set_master_vol()
 			"music_vol": $Music.volume_db = linear_to_db(

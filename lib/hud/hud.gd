@@ -48,6 +48,8 @@ func _process(_delta: float) -> void:
 	if Global.active_decoration != null:
 		$Debug.text += ("\n[color=yellow]Active decoration: "
 			+ str(Global.active_decoration) + "[/color]")
+	if Global.decorations != []:
+		$Debug.text += "\n" + str(Global.decorations.size()) + " decoration(s) registered."
 	
 	$Debug.text += _render_crumb_debug()
 

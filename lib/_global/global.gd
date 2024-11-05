@@ -33,7 +33,10 @@ signal adjustment_canceled # transformation discarded and adjustment ended
 signal adjustment_started
 signal deco_pane_closed
 signal deco_pane_opened
+signal decoration_placed(data)
 signal transform_mode_changed(transform_mode)
+
+var decorations = [] # references to decorations will populate here
 
 # Decoration currently being adjusted
 var active_decoration: Decoration = null

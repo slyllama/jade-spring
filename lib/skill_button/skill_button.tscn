@@ -141,7 +141,7 @@ autowrap_mode = 0
 
 [node name="Tooltip" type="RichTextLabel" parent="."]
 top_level = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 0
 offset_top = -105.0
 offset_right = 13.0

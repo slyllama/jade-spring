@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://lib/xray_mesh/xray_mesh.gd" id="23_x0h6x"]
 [ext_resource type="PackedScene" uid="uid://bt4skwxifwah0" path="res://decorations/lantern/lantern.glb" id="24_7o1qh"]
 [ext_resource type="PackedScene" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
-[ext_resource type="Material" uid="uid://d2qy2wq5wk0h1" path="res://lib/xray_mesh/materials/mat_xray.tres" id="25_cylx4"]
+[ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
 sky_top_color = Color(0.213, 0.420083, 0.71, 1)
@@ -337,12 +337,28 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_bvguu")
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_vlvv6")
+volume_db = -8.0
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_n4hoj")
+volume_db = -6.0
+autoplay = true
+
+[node name="DecoHandler" parent="." instance=ExtResource("26_of55i")]
+
+[node name="Lantern" parent="DecoHandler" instance=ExtResource("24_hqlax")]
+transform = Transform3D(0.843952, -0.222231, -0.488221, 0.320263, 0.938878, 0.126252, 0.430323, -0.262909, 0.86354, -3.76709, -0.333023, 10.8995)
+
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
-[node name="Foliage" type="Node3D" parent="."]
+[node name="Decoration" type="Node3D" parent="."]
 
-[node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="Foliage" type="Node3D" parent="Decoration"]
+
+[node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(0.998885, 0.0472111, 0, -0.0471792, 0.998212, -0.0367135, -0.00173328, 0.0366725, 0.999326, -4.96954, -0.020461, 7.78332)
 layers = 2
 cast_shadow = 0
@@ -356,7 +372,7 @@ area_scale = 0.8
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageSpawner6" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59996, -0.189252, 12.5034)
 layers = 2
 cast_shadow = 0
@@ -370,7 +386,7 @@ area_scale = 0.8
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageSpawner7" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageSpawner7" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59996, -0.168067, 16.0216)
 layers = 2
 cast_shadow = 0
@@ -384,7 +400,7 @@ area_scale = 0.8
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageCentral" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageCentral" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371539, -0.152856, 8.98791)
 layers = 2
 cast_shadow = 0
@@ -400,7 +416,7 @@ moss_scaling = 1.304
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageSpawner9" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageSpawner9" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(0.99996, 0.00891851, 0, -0.00891851, 0.99996, 0, 0, 0, 1, 3.57563, -0.0661388, 9.01727)
 layers = 2
 cast_shadow = 0
@@ -417,7 +433,7 @@ moss_scaling = 1.77
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageSpawner2" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.65857, -0.420628, 9.60638)
 layers = 2
 cast_shadow = 0
@@ -434,7 +450,7 @@ colour_1 = Color(0.240885, 0.449351, 9.62615e-08, 1)
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageSpawner4" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageSpawner4" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.00968, 0.18653, 6.17448)
 layers = 2
 cast_shadow = 0
@@ -449,7 +465,7 @@ moss_scaling = 2.0
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageSpawner3" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageSpawner3" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(0.984084, 0.177703, 0, -0.177703, 0.984084, 0, 0, 0, 1, -5.12842, -0.278279, 13.1718)
 layers = 2
 cast_shadow = 0
@@ -464,7 +480,7 @@ moss_scaling = 2.0
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FoliageSpawner5" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FoliageSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88056, -0.024754, 14.5293)
 layers = 2
 cast_shadow = 0
@@ -478,7 +494,7 @@ moss_scaling = 2.0
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="FlowerSpawner" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="FlowerSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(0.963092, 0.269001, -0.0096196, -0.264005, 0.937034, -0.228624, -0.0524862, 0.222726, 0.973467, -4.69679, 0.26176, 8.65117)
 layers = 2
 cast_shadow = 0
@@ -497,7 +513,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 8.0
 
-[node name="BambooSpawner" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="BambooSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.97285, 1.76208, 8.31631)
 layers = 2
 cast_shadow = 0
@@ -519,7 +535,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="BambooSpawner6" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="BambooSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22198, 4.21999, 16.4042)
 layers = 2
 cast_shadow = 0
@@ -539,7 +555,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="BambooSpawner2" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="BambooSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56019, 0.98701, 10.9256)
 layers = 2
 cast_shadow = 0
@@ -560,7 +576,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="BambooSpawner7" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="BambooSpawner7" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6459, 4.55828, 10.8473)
 layers = 2
 cast_shadow = 0
@@ -581,7 +597,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="BambooSpawner3" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="BambooSpawner3" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5322, -0.168332, 5.75948)
 layers = 2
 cast_shadow = 0
@@ -600,7 +616,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="BambooSpawner4" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="BambooSpawner4" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1145, 0.437153, 18.9188)
 layers = 2
 cast_shadow = 0
@@ -620,7 +636,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Foliage"]
+[node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
 transform = Transform3D(0.446666, 0, 0.894701, 0, 1, 0, -0.894701, 0, 0.446666, -3.8339, -0.305874, 18.2941)
 layers = 2
 cast_shadow = 0
@@ -641,7 +657,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="Motes" type="GPUParticles3D" parent="."]
+[node name="Motes" type="GPUParticles3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
 amount = 80
 lifetime = 2.0
@@ -650,7 +666,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_f5nkf")
 draw_pass_1 = SubResource("PlaneMesh_2fc7p")
 
-[node name="Motes2" type="GPUParticles3D" parent="."]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 9)
 amount = 80
 lifetime = 2.0
@@ -659,7 +675,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_f5nkf")
 draw_pass_1 = SubResource("PlaneMesh_2fc7p")
 
-[node name="Motes3" type="GPUParticles3D" parent="."]
+[node name="Motes3" type="GPUParticles3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 9)
 amount = 80
 lifetime = 2.0
@@ -668,10 +684,10 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_f5nkf")
 draw_pass_1 = SubResource("PlaneMesh_2fc7p")
 
-[node name="Arch" parent="." instance=ExtResource("12_4v57y")]
+[node name="Arch" parent="Decoration" instance=ExtResource("12_4v57y")]
 transform = Transform3D(0.977721, 0, 0.209909, 0, 1, 0, -0.209909, 0, 0.977721, -5.0583, -0.0138671, 14.6878)
 
-[node name="Decal" type="Decal" parent="Arch"]
+[node name="Decal" type="Decal" parent="Decoration/Arch"]
 transform = Transform3D(-0.270529, 0.65331, -0.707107, -0.923919, -0.382587, 0, -0.270529, 0.65331, 0.707107, -0.772768, 3.2238, -0.874584)
 layers = 2
 size = Vector3(3, 3, 3)
@@ -680,7 +696,7 @@ modulate = Color(0.60359, 0.78, 0.3198, 1)
 albedo_mix = 0.75
 normal_fade = 0.537
 
-[node name="Decal2" type="Decal" parent="Arch"]
+[node name="Decal2" type="Decal" parent="Decoration/Arch"]
 transform = Transform3D(0.701831, 0.70946, -0.0640143, -0.709459, 0.688089, -0.152316, -0.0640143, 0.152316, 0.986257, -0.88663, -0.398231, -1.46444)
 layers = 2
 size = Vector3(3, 3, 3)
@@ -689,34 +705,25 @@ modulate = Color(0.411681, 0.540843, 0.19953, 1)
 albedo_mix = 0.75
 normal_fade = 0.033
 
-[node name="Arch2" parent="." instance=ExtResource("12_4v57y")]
+[node name="Arch2" parent="Decoration" instance=ExtResource("12_4v57y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, -0.3, 15)
 
-[node name="Rock" parent="." instance=ExtResource("16_s2hwi")]
+[node name="Rock" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(-0.227022, 0, 0.824309, 0, 0.855, 0, -0.824309, 0, -0.227022, -8.13036, 0.391875, 13.5143)
 
-[node name="Rock3" parent="." instance=ExtResource("16_s2hwi")]
+[node name="Rock3" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(-0.516594, 0.0814945, 0.852343, 0.0705087, 0.996128, -0.0525078, -0.853322, 0.0329726, -0.52034, -7.15958, -0.0297272, 15.8665)
 
-[node name="Rock4" parent="." instance=ExtResource("16_s2hwi")]
+[node name="Rock4" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(0.717908, 0, 0.696138, 0, 1.25, 0, -0.696138, 0, 0.717908, -8.27598, -0.0452026, 4.83486)
 
-[node name="Rock2" parent="." instance=ExtResource("16_s2hwi")]
+[node name="Rock2" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(0.165852, 0.348956, 0.922346, 0.137337, 0.918012, -0.372011, -0.976541, 0.188371, 0.10433, -8.53679, 0.391876, 10.5209)
 
-[node name="Rock5" parent="." instance=ExtResource("16_s2hwi")]
+[node name="Rock5" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(0.689745, 0, 1.8773, 0, 2, 0, -1.8773, 0, 0.689745, -11.4586, 0.682719, 4.6741)
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_vlvv6")
-volume_db = -8.0
-
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_n4hoj")
-volume_db = -6.0
-autoplay = true
-
-[node name="Fountain" type="AudioStreamPlayer3D" parent="."]
+[node name="Fountain" type="AudioStreamPlayer3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 13.5781)
 stream = ExtResource("19_frkxa")
 volume_db = -4.0
@@ -724,23 +731,18 @@ unit_size = 5.0
 autoplay = true
 attenuation_filter_cutoff_hz = 10000.0
 
-[node name="Bamboo" type="MeshInstance3D" parent="."]
+[node name="Bamboo" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -8.64886, 3.31076, 4.36273)
 mesh = ExtResource("14_yeybn")
+skeleton = NodePath("../..")
 
-[node name="Bamboo2" type="MeshInstance3D" parent="."]
+[node name="Bamboo2" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(0.968556, 0, -0.790189, 0, 1.25, 0, 0.790189, 0, 0.968556, -10.9622, 3.19721, 8.15624)
 mesh = ExtResource("14_yeybn")
-
-[node name="Lantern" parent="." instance=ExtResource("24_hqlax")]
-transform = Transform3D(0.843952, -0.222231, -0.488221, 0.320263, 0.938878, 0.126252, 0.430323, -0.262909, 0.86354, -3.76709, -0.333023, 10.8995)
+skeleton = NodePath("../..")
 
 [node name="XRayMesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22381, -0.374286, 8.58635)
 script = ExtResource("23_x0h6x")
 
-[node name="Lantern2" parent="XRayMesh" instance=ExtResource("24_7o1qh")]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="XRayMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1833, 0.89166, -0.909011)
-material = ExtResource("25_cylx4")
+[node name="Lantern" parent="XRayMesh" instance=ExtResource("24_7o1qh")]

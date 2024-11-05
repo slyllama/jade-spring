@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s5dqteeuut03"]
+
+[ext_resource type="Script" path="res://lib/decoration/deco_handler/deco_handler.gd" id="1_73o41"]
+
+[node name="DecoHandler" type="Node3D"]
+script = ExtResource("1_73o41")
