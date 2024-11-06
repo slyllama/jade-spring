@@ -5,10 +5,11 @@ const CursorSphere = preload("res://lib/cursor_3d/meshes/cursor_sphere.glb")
 var current_radius := 1.0
 var cursor_sphere: Node3D = CursorSphere.instantiate()
 var cursor_area := CursorArea.new()
+var highlight_on_decoration := true
 var disabled = false
 
 func set_cursor_tint(color: Color):
-	if disabled: return
+	if disabled or !highlight_on_decoration: return
 	for _n in Utilities.get_all_children(cursor_sphere):
 		if _n is MeshInstance3D:
 			_n.get_active_material(0).set_shader_parameter("albedo", color)
@@ -17,6 +18,21 @@ func set_radius(radius: float) -> void:
 	current_radius = radius
 	cursor_area.shape.radius = radius
 	cursor_sphere.scale = Vector3(2, 2, 2) * radius
+
+func activate(data: Dictionary) -> void:
+	set_cursor_tint(Color.RED)
+	if "highlight_on_decoration" in data:
+		highlight_on_decoration = data.highlight_on_decoration
+	if "radius" in data:
+		set_radius(data.radius)
+	else:
+		set_radius(0.25)
+	
+	# Animate the cursor in
+	cursor_sphere.scale = Vector3(0.01, 0.01, 0.01)
+	var scale_tween = create_tween()
+	scale_tween.tween_property(
+		cursor_sphere, "scale", Vector3(2, 2, 2) * current_radius, 0.1)
 
 func _ready() -> void:
 	for _n in Utilities.get_all_children(cursor_sphere):
@@ -27,9 +43,6 @@ func _ready() -> void:
 	add_child(cursor_area)
 	add_child(cursor_sphere)
 	
-	set_cursor_tint(Color.RED)
-	set_radius(0.25)
-	
 	# Animate the cursor out and destroy it when it is dismissed
 	Global.cursor_disabled.connect(func():
 		disabled = true
@@ -39,12 +52,7 @@ func _ready() -> void:
 		scale_out_tween.tween_callback(queue_free))
 	
 	Global.cursor_tint_changed.connect(set_cursor_tint)
-	
-	# Animate the cursor in
-	cursor_sphere.scale = Vector3(0.01, 0.01, 0.01)
-	var scale_tween = create_tween()
-	scale_tween.tween_property(
-		cursor_sphere, "scale", Vector3(2, 2, 2) * current_radius, 0.1)
+	# Make sure to call activate() after the node is ready!
 
 var _target_normal = Vector3.ZERO
 
@@ -77,4 +85,5 @@ func _process(delta: float) -> void:
 	if !visible and !Global.camera_orbiting:
 		visible = true
 	
+	if Global.mouse_in_ui: visible = false
 	rotation = lerp(rotation, _target_normal, delta * 3)

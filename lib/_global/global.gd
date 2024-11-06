@@ -59,10 +59,10 @@ signal cursor_disabled
 signal cursor_tint_changed(color: Color)
 
 # Set the cursor on or off
-func set_cursor(state = true) -> void:
+func set_cursor(state = true, data = {}) -> void:
 	if state:
 		if cursor_active: return # don't enable twice
-		cursor_enabled.emit()
+		cursor_enabled.emit(data)
 	else:
 		if !cursor_active: return # don't disable twice
 		cursor_disabled.emit()

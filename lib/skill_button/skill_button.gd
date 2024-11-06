@@ -58,6 +58,7 @@ func set_enabled(state = true) -> void:
 
 func set_tip_text(get_title: String, get_description: String):
 	$Tooltip.text = "[font_size=19]" + get_title + "[/font_size]\n" + get_description
+	$Tooltip.size.y = 0
 
 # Flip to another skill, GW2 style - disables while animating
 func switch_skill(get_id: String) -> void:

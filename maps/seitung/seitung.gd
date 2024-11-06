@@ -29,9 +29,10 @@ func _ready() -> void:
 	)
 	SettingsHandler.refresh(["volume"])
 	
-	Global.cursor_enabled.connect(func():
-		var _cu = Cursor3D.new()
-		add_child(_cu))
+	Global.cursor_enabled.connect(func(data):
+		var _cursor = Cursor3D.new()
+		add_child(_cursor)
+		_cursor.activate(data))
 	
 	# Prevent static bodies from consuming mouse input while decoration
 	# manipulation is active (so the arrows can still be dragged even if the
