@@ -7,6 +7,7 @@ var cursor_sphere: Node3D = CursorSphere.instantiate()
 var cursor_area := CursorArea.new()
 var highlight_on_decoration := true
 var disabled = false
+var data = {}
 
 func set_cursor_tint(color: Color):
 	if disabled or !highlight_on_decoration: return
@@ -19,7 +20,8 @@ func set_radius(radius: float) -> void:
 	cursor_area.shape.radius = radius
 	cursor_sphere.scale = Vector3(2, 2, 2) * radius
 
-func activate(data: Dictionary) -> void:
+func activate(get_data: Dictionary) -> void:
+	data = get_data
 	set_cursor_tint(Color.RED)
 	if "highlight_on_decoration" in data:
 		highlight_on_decoration = data.highlight_on_decoration
@@ -28,30 +30,39 @@ func activate(data: Dictionary) -> void:
 	else:
 		set_radius(0.25)
 	
+	# Cursor tint and radius is ignored if a custom model is used
+	if "custom_model" in data:
+		var xray = XRayMesh.new()
+		var model = data.custom_model.instantiate()
+		xray.add_child(model)
+		add_child(xray)
+	else:
+		for _n in Utilities.get_all_children(cursor_sphere):
+			if _n is MeshInstance3D:
+				var _m = _n.get_active_material(0).duplicate()
+				_n.set_surface_override_material(0, _m)
+		
+		add_child(cursor_area)
+		add_child(cursor_sphere)
+		Global.cursor_tint_changed.connect(set_cursor_tint)
+	
 	# Animate the cursor in
 	cursor_sphere.scale = Vector3(0.01, 0.01, 0.01)
 	var scale_tween = create_tween()
 	scale_tween.tween_property(
 		cursor_sphere, "scale", Vector3(2, 2, 2) * current_radius, 0.1)
 
-func _ready() -> void:
-	for _n in Utilities.get_all_children(cursor_sphere):
-		if _n is MeshInstance3D:
-			var _m = _n.get_active_material(0).duplicate()
-			_n.set_surface_override_material(0, _m)
-	
-	add_child(cursor_area)
-	add_child(cursor_sphere)
-	
+# Remove cursor
+func dismiss() -> void:
 	# Animate the cursor out and destroy it when it is dismissed
-	Global.cursor_disabled.connect(func():
-		disabled = true
-		var scale_out_tween = create_tween()
-		scale_out_tween.tween_property(
-			cursor_sphere, "scale", Vector3(0.01, 0.01, 0.01), 0.12)
-		scale_out_tween.tween_callback(queue_free))
-	
-	Global.cursor_tint_changed.connect(set_cursor_tint)
+	disabled = true
+	var scale_out_tween = create_tween()
+	scale_out_tween.tween_property(
+		cursor_sphere, "scale", Vector3(0.01, 0.01, 0.01), 0.12)
+	scale_out_tween.tween_callback(queue_free)
+
+func _ready() -> void:
+	Global.cursor_disabled.connect(dismiss)
 	# Make sure to call activate() after the node is ready!
 
 var _target_normal = Vector3.ZERO
@@ -86,4 +97,5 @@ func _process(delta: float) -> void:
 		visible = true
 	
 	if Global.mouse_in_ui: visible = false
-	rotation = lerp(rotation, _target_normal, delta * 3)
+	if !"custom_model" in data:
+		rotation = lerp(rotation, _target_normal, delta * 3)

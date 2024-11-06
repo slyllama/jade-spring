@@ -24,6 +24,10 @@ func _ready() -> void:
 	await $SkillSwap.finished
 	$SkillSwap.volume_db = linear_to_db(1.0)
 	
+	Global.deco_placement_started.connect(func():
+		clear_skills()
+		$Box/Skill6.switch_skill("cancel"))
+	
 	Global.adjustment_started.connect(func():
 		clear_skills()
 		$Box/Skill1.switch_skill("accept")
@@ -43,10 +47,15 @@ func skill_used(skill_id: String) -> void:
 		"cancel":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_canceled.emit()
-				set_default_skills()
+			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
+				Global.deco_placement_canceled.emit()
+			set_default_skills()
 		"accept":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_applied.emit()
+				set_default_skills()
+			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
+				print("Decoration placed")
 				set_default_skills()
 		"deco_test":
 			Global.deco_pane_opened.emit() # open the decoration pane
