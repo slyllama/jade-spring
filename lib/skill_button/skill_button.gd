@@ -8,10 +8,11 @@ signal clicked(id: String)
 const RANDOM_COLORS = [ Color.CYAN, Color.ORANGE_RED, Color.GREEN, Color.YELLOW, Color.DEEP_PINK ]
 
 const TEXTURES = { # associations with texture paths
-	#"accept": preload("res://lib/skill_button/textures/accept.png"),
-	#"cancel": preload("res://lib/skill_button/textures/cancel.png"),
+	"accept": preload("res://lib/skill_button/textures/accept.png"),
+	"deco_test": preload("res://lib/skill_button/textures/deco.png"),
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
-	#"select": preload("res://lib/skill_button/textures/select.png"),
+	"select": preload("res://lib/skill_button/textures/select.png"),
+	"cancel": preload("res://lib/skill_button/textures/cancel.png")
 	#"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
