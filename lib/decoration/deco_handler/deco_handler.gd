@@ -8,6 +8,8 @@ func place_decoration(data: Dictionary) -> void:
 	var _d = TEST_DECORATION.instantiate()
 	add_child(_d)
 	_d.global_position = data.position
+	if "y_rotation" in data:
+		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
 
 func _ready() -> void:
@@ -17,7 +19,10 @@ func _ready() -> void:
 	
 	Global.mouse_3d_click.connect(func():
 		if Global.tool_mode == Global.TOOL_MODE_PLACE:
-			place_decoration({"position": Global.mouse_3d_position})
+			place_decoration({
+				"position": Global.mouse_3d_position,
+				"y_rotation": Global.mouse_3d_y_rotation
+			})
 			Global.deco_placed.emit()
 			Global.jade_bot_sound.emit()
 			Global.queued_decoration = "none"

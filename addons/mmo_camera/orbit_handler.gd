@@ -21,6 +21,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	get_window().focus_exited.connect(func():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		await get_tree().process_frame
 		Global.camera_orbiting = false
 		orbiting = false)
 

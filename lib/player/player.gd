@@ -89,6 +89,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	Global.player_position = global_position
+	Global.player_y_rotation = global_rotation.y
 	_fs = _query_fs
 	
 	if _direction.x > 0 or _direction.z != 0:

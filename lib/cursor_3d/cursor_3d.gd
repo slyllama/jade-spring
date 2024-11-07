@@ -66,8 +66,9 @@ func dismiss() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Global.mouse_in_ui: return
+	if Global.camera_orbiting: return
 	# Emit the 3D cursor click signal if its position is valid
-	if Input.is_action_just_pressed("left_click"):
+	if Input.is_action_just_released("left_click"):
 		if Global.mouse_3d_position != Utilities.BIGVEC3:
 			Global.mouse_3d_click.emit()
 
@@ -109,5 +110,14 @@ func _process(delta: float) -> void:
 		visible = true
 	
 	if Global.mouse_in_ui: visible = false
+	
+	# Get the facing angle (y-axis) from the player to the 3D cursor
+	var _a := Vector2(Global.player_position.x, Global.player_position.z)
+	var _b := Vector2(Global.mouse_3d_position.x, Global.mouse_3d_position.z)
+	
 	if !"custom_model" in data:
 		rotation = lerp(rotation, _target_normal, delta * 3)
+	else:
+		var _r = Global.player_y_rotation - _b.angle_to_point(_a)
+		rotation.y = _r
+		Global.mouse_3d_y_rotation = rotation.y

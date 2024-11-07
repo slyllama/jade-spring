@@ -6,9 +6,11 @@ var crumb_handler: CrumbHandler
 var foliage_count = 0
 var in_exclusive_ui = false
 var mouse_3d_position = Utilities.BIGVEC3
+var mouse_3d_y_rotation = 0.0
 var mouse_in_ui = false
 var camera_orbiting = true
 var player_position = Vector3.ZERO
+var player_y_rotation = 0.0
 var popup_open = false
 var retina_scale = 1
 
