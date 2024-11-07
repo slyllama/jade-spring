@@ -15,6 +15,7 @@ const JADE_SOUNDS = [
 var _direction := Vector3.ZERO
 var _speed := base_speed
 var _target_velocity := Vector3.ZERO
+@onready var _initial_y_rotation = global_rotation.y
 
 func play_jade_sound() -> void:
 	var rng = RandomNumberGenerator.new()
@@ -32,7 +33,7 @@ func play_jade_sound() -> void:
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
-	
+	$Camera.set_cam_rotation(Vector3(0, -180, 0))
 	Global.jade_bot_sound.connect(play_jade_sound)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
@@ -94,7 +95,9 @@ func _physics_process(delta: float) -> void:
 	
 	if _direction.x > 0 or _direction.z != 0:
 		$PlayerMesh.rotation.y = lerp(
-			$PlayerMesh.rotation.y, $Camera.rotation.y - PI, smoothing * 0.6 * delta)
+			$PlayerMesh.rotation.y, 
+			$Camera.rotation.y - PI - _initial_y_rotation,
+			smoothing * 0.6 * delta)
 	$PlayerMesh.rotation.z = lerp(
 		$PlayerMesh.rotation.z, _direction.z * 0.4, smoothing * 0.2 * delta)
 

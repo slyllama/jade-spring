@@ -311,7 +311,7 @@ transform = Transform3D(-0.34202, -0.469847, 0.813797, 0, 0.866026, 0.5, -0.9396
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -2.4026, 0.5, 10.1896)
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
 
@@ -452,6 +452,7 @@ scatter = 0.4
 min_scale = 5.0
 max_scale = 5.3
 area_scale = 0.8
+moss_cover = false
 moss_scaling = 2.0
 colour_1 = Color(0.240885, 0.449351, 9.62615e-08, 1)
 colour_2 = Color(0.504, 0.72, 0, 1)
@@ -497,6 +498,7 @@ count = 7
 min_scale = 5.0
 max_scale = 5.3
 area_scale = 0.8
+moss_cover = false
 moss_scaling = 2.0
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
