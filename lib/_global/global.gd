@@ -5,6 +5,7 @@ var crumb_handler: CrumbHandler
 
 var foliage_count = 0
 var in_exclusive_ui = false
+var mouse_3d_position = Utilities.BIGVEC3
 var mouse_in_ui = false
 var camera_orbiting = true
 var player_position = Vector3.ZERO
@@ -13,6 +14,7 @@ var retina_scale = 1
 
 signal click_sound
 signal jade_bot_sound
+signal mouse_3d_click
 
 ##### Decoration signals and parameters
 enum {
@@ -40,8 +42,8 @@ signal transform_mode_changed(transform_mode)
 
 var decorations = [] # references to decorations will populate here
 
-# Decoration currently being adjusted
-var active_decoration: Decoration = null
+var active_decoration: Decoration = null # decoration currently being adjusted
+var queued_decoration = "none" # next decoration that will be placed
 var tool_mode = TOOL_MODE_NONE
 var transform_mode = TRANSFORM_MODE_OBJECT
 

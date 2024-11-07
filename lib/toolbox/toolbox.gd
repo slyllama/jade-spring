@@ -11,6 +11,7 @@ func set_default_skills() -> void:
 	$Box/Skill1.switch_skill("select")
 	$Box/Skill2.switch_skill("deco_test")
 	Global.tool_mode = Global.TOOL_MODE_NONE
+	Global.queued_decoration = "none"
 	Global.set_cursor(false)
 
 func get_button_by_id(id: String):
@@ -27,6 +28,8 @@ func _ready() -> void:
 	Global.deco_placement_started.connect(func():
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel"))
+	
+	Global.deco_placed.connect(set_default_skills)
 	
 	Global.adjustment_started.connect(func():
 		clear_skills()

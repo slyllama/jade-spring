@@ -45,9 +45,15 @@ func _process(_delta: float) -> void:
 	$Debug.text += "\n"
 	$Debug.text += ("\nTool mode: " + str(Global.tool_identities[Global.tool_mode]))
 	$Debug.text += ("\nFoliage count: " + str(Global.foliage_count))
+	if Global.mouse_3d_position != Utilities.BIGVEC3:
+		$Debug.text += ("\n[color=yellow]Cursor 3D position: "
+			+ str(Utilities.fmt_vec3(Global.mouse_3d_position)) + "[/color]")
 	if Global.active_decoration != null:
 		$Debug.text += ("\n[color=yellow]Active decoration: "
 			+ str(Global.active_decoration) + "[/color]")
+	if Global.queued_decoration != "none":
+		$Debug.text += ("\n[color=yellow]Queued decoration: "
+			+ str(Global.queued_decoration) + "[/color]")
 	if Global.decorations != []:
 		$Debug.text += "\n" + str(Global.decorations.size()) + " decoration(s) registered."
 	

@@ -15,4 +15,10 @@ func _ready() -> void:
 		if _n is Decoration:
 			Global.decorations.append(_n)
 	
-	place_decoration({"position": Vector3.ZERO})
+	Global.mouse_3d_click.connect(func():
+		if Global.tool_mode == Global.TOOL_MODE_PLACE:
+			place_decoration({"position": Global.mouse_3d_position})
+			Global.deco_placed.emit()
+			Global.jade_bot_sound.emit()
+			Global.queued_decoration = "none"
+			Global.set_cursor(false))

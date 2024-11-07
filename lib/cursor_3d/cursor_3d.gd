@@ -20,6 +20,7 @@ func set_radius(radius: float) -> void:
 	cursor_area.shape.radius = radius
 	cursor_sphere.scale = Vector3(2, 2, 2) * radius
 
+#region Activate/Deactivate
 func activate(get_data: Dictionary) -> void:
 	data = get_data
 	set_cursor_tint(Color.RED)
@@ -56,10 +57,19 @@ func activate(get_data: Dictionary) -> void:
 func dismiss() -> void:
 	# Animate the cursor out and destroy it when it is dismissed
 	disabled = true
+	Global.mouse_3d_position = Utilities.BIGVEC3
 	var scale_out_tween = create_tween()
 	scale_out_tween.tween_property(
 		cursor_sphere, "scale", Vector3(0.01, 0.01, 0.01), 0.12)
 	scale_out_tween.tween_callback(queue_free)
+#endregion
+
+func _input(_event: InputEvent) -> void:
+	if Global.mouse_in_ui: return
+	# Emit the 3D cursor click signal if its position is valid
+	if Input.is_action_just_pressed("left_click"):
+		if Global.mouse_3d_position != Utilities.BIGVEC3:
+			Global.mouse_3d_click.emit()
 
 func _ready() -> void:
 	Global.cursor_disabled.connect(dismiss)
@@ -85,8 +95,10 @@ func _process(delta: float) -> void:
 		if !visible:
 			visible = true
 		position = intersect.position
+		Global.mouse_3d_position = intersect.position
 		_target_normal = intersect.normal
 	else:
+		Global.mouse_3d_position = Utilities.BIGVEC3 # set an impossible position
 		if visible:
 			visible = false
 	
