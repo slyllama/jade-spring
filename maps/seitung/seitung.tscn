@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=57 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bt4skwxifwah0" path="res://decorations/lantern/lantern.glb" id="24_7o1qh"]
 [ext_resource type="PackedScene" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
+[ext_resource type="PackedScene" uid="uid://dcbfj3c5m2l7k" path="res://lib/crumb/bug_swarm/bug_swarm_prop.tscn" id="27_hsr1n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
 sky_top_color = Color(0.213, 0.420083, 0.71, 1)
@@ -319,8 +320,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
 [node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
 
 [node name="BeesTest" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.287, 1, 7.872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61017, 0.667932, 8.34124)
 script = ExtResource("5_evg50")
+
+[node name="BugSwarmProp" parent="CrumbHandler/BeesTest" instance=ExtResource("27_hsr1n")]
 
 [node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest"]
 stream = ExtResource("6_beuhg")

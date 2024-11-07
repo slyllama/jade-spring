@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://pob7e6tdmrmx"]
+
+[ext_resource type="Texture2D" uid="uid://v287c4byhekm" path="res://lib/crumb/bug_swarm/materials/textures/bug_swarm_diff.png" id="1_1y7w0"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.284
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_1y7w0")

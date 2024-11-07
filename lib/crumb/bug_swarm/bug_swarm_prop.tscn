@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcbfj3c5m2l7k"]
+
+[ext_resource type="QuadMesh" uid="uid://bgwvm4k0h7jkp" path="res://lib/crumb/bug_swarm/bug_swarm_mesh.tres" id="1_mqitg"]
+[ext_resource type="Texture2D" uid="uid://dvnvfu6abgtdg" path="res://lib/crumb/bug_swarm/materials/textures/bug_particle_diff.png" id="2_1enry"]
+
+[sub_resource type="GDScript" id="GDScript_mj5b2"]
+script/source = "@tool
+extends Node3D
+
+func _process(delta: float) -> void:
+	$BugMeshX.rotation.z += delta * 3.5
+	if $BugMeshX.rotation.z > PI * 2:
+		$BugMeshX.rotation.z = 0
+	$BugMeshY.rotation.z -= delta * 3
+	if $BugMeshY.rotation.z < PI * -2:
+		$BugMeshY.rotation.z = 0
+	$BugMeshZ.rotation.y += delta * 4
+	if $BugMeshZ.rotation.y > PI * 2:
+		$BugMeshZ.rotation.y = 0
+"
+
+[sub_resource type="Gradient" id="Gradient_qxsns"]
+offsets = PackedFloat32Array(0, 0.173228, 0.669291, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssh0r"]
+gradient = SubResource("Gradient_qxsns")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1b65o"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 2
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+gravity = Vector3(0, 0.2, 0)
+scale_min = 0.06
+scale_max = 0.25
+color_ramp = SubResource("GradientTexture1D_ssh0r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1ohx"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_1enry")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gyloj"]
+material = SubResource("StandardMaterial3D_l1ohx")
+size = Vector2(0.06, 0.06)
+orientation = 2
+
+[node name="BugSwarmProp" type="Node3D"]
+script = SubResource("GDScript_mj5b2")
+
+[node name="BugMeshX" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.596727, -0.802457, 0, 0.802457, 0.596727, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_mqitg")
+
+[node name="BugMeshY" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.52657e-09, -4.33606e-08, 1, -0.991975, -0.126433, 0, 0.126433, -0.991975, -4.37114e-08, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_mqitg")
+
+[node name="BugMeshZ" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.649064, 0.760734, -3.32527e-08, 0, -4.37114e-08, -1, -0.760734, 0.649064, -2.83715e-08, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_mqitg")
+
+[node name="BugParticles" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 30
+preprocess = 2.0
+randomness = 0.5
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_1b65o")
+draw_pass_1 = SubResource("PlaneMesh_gyloj")
