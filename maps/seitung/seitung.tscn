@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=55 format=4 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
@@ -15,15 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://bw2sfi3aq2o41" path="res://maps/seitung/materials/textures/bamboo_mask.png" id="11_8i2n2"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="11_aq4pe"]
 [ext_resource type="PackedScene" uid="uid://hooieo80ip7g" path="res://maps/seitung/meshes/arch_test.glb" id="12_4v57y"]
+[ext_resource type="PackedScene" uid="uid://fdtci72jf3pk" path="res://decorations/fountain/deco_fountain.tscn" id="12_iopfa"]
 [ext_resource type="Texture2D" uid="uid://xkm0o3y7uf4i" path="res://maps/seitung/materials/textures/moss_mask.png" id="13_vc25n"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
 [ext_resource type="AudioStream" uid="uid://l3ctgouysbd2" path="res://maps/seitung/sounds/mus_scratch_track.ogg" id="17_vlvv6"]
 [ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
-[ext_resource type="AudioStream" uid="uid://qs8mrppeh6he" path="res://maps/seitung/sounds/fountain.ogg" id="19_frkxa"]
-[ext_resource type="Script" path="res://lib/xray_mesh/xray_mesh.gd" id="23_x0h6x"]
-[ext_resource type="PackedScene" uid="uid://bt4skwxifwah0" path="res://decorations/lantern/lantern.glb" id="24_7o1qh"]
-[ext_resource type="PackedScene" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
+[ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
 [ext_resource type="PackedScene" uid="uid://dcbfj3c5m2l7k" path="res://lib/crumb/bug_swarm/bug_swarm_prop.tscn" id="27_hsr1n"]
 
@@ -309,7 +307,7 @@ script = ExtResource("1_uenug")
 environment = SubResource("Environment_01xfs")
 
 [node name="Sun" type="DirectionalLight3D" parent="Sky"]
-transform = Transform3D(0.866026, -0.25, 0.433012, 0, 0.866026, 0.5, -0.5, -0.433013, 0.75, 0, 3, 0)
+transform = Transform3D(-0.34202, -0.469847, 0.813797, 0, 0.866026, 0.5, -0.939693, 0.17101, -0.296198, 0, 3, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
@@ -320,7 +318,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
 [node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
 
 [node name="BeesTest" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61017, 0.667932, 8.34124)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -5.26723, 0.903258, 14.2686)
 script = ExtResource("5_evg50")
 
 [node name="BugSwarmProp" parent="CrumbHandler/BeesTest" instance=ExtResource("27_hsr1n")]
@@ -351,8 +349,14 @@ autoplay = true
 
 [node name="DecoHandler" parent="." instance=ExtResource("26_of55i")]
 
+[node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
 [node name="Lantern" parent="DecoHandler" instance=ExtResource("24_hqlax")]
-transform = Transform3D(0.843952, -0.222231, -0.488221, 0.320263, 0.938878, 0.126252, 0.430323, -0.262909, 0.86354, -3.76709, -0.333023, 10.8995)
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, -3.2, -0.3, 13.5)
+
+[node name="Lantern2" parent="DecoHandler" instance=ExtResource("24_hqlax")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 3, -0.3, 13.5)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -726,14 +730,6 @@ transform = Transform3D(0.165852, 0.348956, 0.922346, 0.137337, 0.918012, -0.372
 [node name="Rock5" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(0.689745, 0, 1.8773, 0, 2, 0, -1.8773, 0, 0.689745, -11.4586, 0.682719, 4.6741)
 
-[node name="Fountain" type="AudioStreamPlayer3D" parent="Decoration"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 13.5781)
-stream = ExtResource("19_frkxa")
-volume_db = -4.0
-unit_size = 5.0
-autoplay = true
-attenuation_filter_cutoff_hz = 10000.0
-
 [node name="Bamboo" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -8.64886, 3.31076, 4.36273)
 mesh = ExtResource("14_yeybn")
@@ -743,9 +739,3 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.968556, 0, -0.790189, 0, 1.25, 0, 0.790189, 0, 0.968556, -10.9622, 3.19721, 8.15624)
 mesh = ExtResource("14_yeybn")
 skeleton = NodePath("../..")
-
-[node name="XRayMesh" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22381, -0.374286, 8.58635)
-script = ExtResource("23_x0h6x")
-
-[node name="Lantern" parent="XRayMesh" instance=ExtResource("24_7o1qh")]
