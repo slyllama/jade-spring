@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-const QuitConfirmation = preload("res://lib/hud/quit_confirmation/quit_confirmation.tscn")
 const FADE = 0.6 # faded buttons will have this alpha value
 
 func _render_fps() -> String: # pretty formatting of FPS values
@@ -21,6 +20,8 @@ func _render_crumb_debug() -> String:
 	return(_s)
 
 func _ready() -> void:
+	$FG.visible = true
+	$Underlay.queue_free() # clear debugging component
 	Global.deco_pane_closed.connect($DecoPane.close)
 	Global.deco_pane_opened.connect($DecoPane.open)
 	
@@ -62,8 +63,3 @@ func _process(_delta: float) -> void:
 func _on_settings_down() -> void:
 	if !$SettingsPane.is_open: $SettingsPane.open()
 	else: $SettingsPane.close()
-
-func _on_close_pressed() -> void:
-	if !Global.in_exclusive_ui:
-		var _qc = QuitConfirmation.instantiate()
-		add_child(_qc)

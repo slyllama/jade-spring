@@ -1,6 +1,11 @@
 extends "res://lib/ui_container/ui_container.gd"
 
+const QuitConfirmation = preload("res://lib/hud/quit_confirmation/quit_confirmation.tscn")
+var qc
+
 func close() -> void:
+	if qc != null:
+		qc.queue_free()
 	SettingsHandler.save_to_file()
 	super()
 
@@ -22,3 +27,10 @@ func _ready() -> void:
 
 func _on_save_press() -> void:
 	close()
+
+func _on_quit_button_down() -> void:
+	if !Global.in_exclusive_ui:
+		if qc != null:
+			qc.queue_free()
+		qc = QuitConfirmation.instantiate()
+		add_child(qc)

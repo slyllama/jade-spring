@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://qs8mrppeh6he" path="res://maps/seitung/sounds/fountain.ogg" id="3_fgfut"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5srjh"]
-size = Vector3(5.10547, 1.20051, 5.06079)
+size = Vector3(4.72266, 0.480626, 4.81616)
 
 [node name="DecoFountain" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_lcn0t")
@@ -16,7 +16,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504664, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144722, 0)
 shape = SubResource("BoxShape3D_5srjh")
 
 [node name="Fountain" parent="." instance=ExtResource("2_dheh3")]
