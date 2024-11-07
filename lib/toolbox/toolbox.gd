@@ -35,11 +35,14 @@ func _ready() -> void:
 	Global.adjustment_started.connect(func():
 		clear_skills()
 		$Box/Skill1.switch_skill("accept")
+		$Box/Skill2.switch_skill("translate")
+		$Box/Skill3.switch_skill("rotate")
 		$Box/Skill5.switch_skill("transform_mode")
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.adjustment_canceled.connect(set_default_skills)
 
+#region Skill button behaviour
 func skill_used(skill_id: String) -> void:
 	match skill_id:
 		"select":
@@ -70,3 +73,10 @@ func skill_used(skill_id: String) -> void:
 		"transform_mode":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.toggle_transform_mode()
+		"translate":
+			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
+				Global.adjustment_mode_translate.emit()
+		"rotate":
+			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
+				Global.adjustment_mode_rotation.emit()
+#endregion

@@ -86,7 +86,7 @@ func _ready() -> void:
 	if initial_override_rotation != null:
 		global_rotation_degrees = initial_override_rotation
 	
-	grabber.set_size(Vector3(0.8, 0.4, 0.4))
+	grabber.set_size(Vector3(0.8, 0.5, 0.5))
 	grabber.make_ui_component()
 	grabber.position.x = 0.45
 	add_child(grabber)
@@ -97,7 +97,7 @@ func _ready() -> void:
 	arrow_visual.set_layer_mask_value(1, 0)
 	arrow_visual.set_layer_mask_value(2, 0)
 	arrow_visual.set_layer_mask_value(3, 1)
-	arrow_visual.position.x = -0.25
+	arrow_visual.position.x = -0.45
 	arrow_visual.rotation_degrees.y = -90 # correct visual orientation
 	grabber.add_child(arrow_visual)
 	arrow_visual.scale = Vector3(0.01, 0.01, 0.01)

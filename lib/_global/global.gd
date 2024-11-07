@@ -35,6 +35,9 @@ const tool_identities = [ # associations for debug printing
 signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended
 signal adjustment_started
+signal adjustment_mode_rotation
+signal adjustment_mode_translate
+
 signal deco_pane_closed
 signal deco_pane_opened
 signal deco_placement_started

@@ -1,9 +1,11 @@
 @icon("res://lib/decoration/icon_decoration.svg")
 class_name Decoration extends Node3D
+enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 @export var collision_box: PhysicsBody3D
 var last_position: Vector3
 var arrows: Array[GizmoArrow] = []
+var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 
 func _spawn_arrows(transform_space: int):
 	_clear_arrows()
@@ -49,6 +51,7 @@ func start_adjustment() -> void:
 	Global.adjustment_started.emit()
 	_spawn_arrows(Global.transform_mode)
 	
+	transform_type = TRANSFORM_TYPE_TRANSLATE
 	last_position = position
 	collision_box.set_collision_layer_value(2, 0)
 
@@ -73,12 +76,26 @@ func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
 	
+	# Switch controls to translation mode
+	Global.adjustment_mode_translate.connect(func():
+		if Global.active_decoration == self:
+			transform_type = TRANSFORM_TYPE_TRANSLATE
+			_spawn_arrows(Global.transform_mode))
+	
+	# Switch controls to rotation mode
+	Global.adjustment_mode_rotation.connect(func():
+		if Global.active_decoration == self:
+			# TODO: add rotation controls
+			transform_type = TRANSFORM_TYPE_ROTATE
+			_clear_arrows())
+	
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
 		
 		Global.transform_mode_changed.connect(func(transform_mode):
 			if !Global.active_decoration == self: return
-			_spawn_arrows(transform_mode))
+			if transform_type == TRANSFORM_TYPE_TRANSLATE:
+				_spawn_arrows(transform_mode))
 		
 		collision_box.mouse_entered.connect(func():
 			Global.cursor_tint_changed.emit(Color.GREEN))

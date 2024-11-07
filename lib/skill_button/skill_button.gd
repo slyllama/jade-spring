@@ -36,6 +36,10 @@ const TOOLTIPS = {
 	"transform_mode": {
 		"title": "Toggle Transformation Basis",
 		"description": "Switch between object and world space for decoration transformation."
+	},
+	"rotate": {
+		"title": "Rotate",
+		"description": "Rotate the decoration."
 	}
 }
 

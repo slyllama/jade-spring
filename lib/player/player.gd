@@ -33,7 +33,7 @@ func play_jade_sound() -> void:
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
-	$Camera.set_cam_rotation(Vector3(0, -180, 0))
+	$Camera.set_cam_rotation(Vector3(-20, -180, 0))
 	Global.jade_bot_sound.connect(play_jade_sound)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
