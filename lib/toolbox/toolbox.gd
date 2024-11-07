@@ -30,12 +30,15 @@ func _ready() -> void:
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.deco_placed.connect(set_default_skills)
+	Global.deco_placement_canceled.connect(set_default_skills)
 	
 	Global.adjustment_started.connect(func():
 		clear_skills()
 		$Box/Skill1.switch_skill("accept")
 		$Box/Skill5.switch_skill("transform_mode")
 		$Box/Skill6.switch_skill("cancel"))
+	
+	Global.adjustment_canceled.connect(set_default_skills)
 
 func skill_used(skill_id: String) -> void:
 	match skill_id:
@@ -52,7 +55,6 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_canceled.emit()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
 				Global.deco_placement_canceled.emit()
-			set_default_skills()
 		"accept":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_applied.emit()

@@ -12,6 +12,11 @@ func place_decoration(data: Dictionary) -> void:
 		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
 
+func _input(_event: InputEvent) -> void:
+	if Global.tool_mode == Global.TOOL_MODE_PLACE:
+		if Input.is_action_just_pressed("right_click"):
+			Global.deco_placement_canceled.emit()
+
 func _ready() -> void:
 	for _n in get_children():
 		if _n is Decoration:

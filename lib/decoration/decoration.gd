@@ -42,9 +42,11 @@ func _clear_arrows() -> void:
 func start_adjustment() -> void:
 	Global.deco_pane_closed.emit() # decoration pane will not close until the adjustment is initiated
 	Global.active_decoration = self
-	Global.adjustment_started.emit()
-	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	
+	Global.transform_mode = Global.TRANSFORM_MODE_OBJECT
+	Global.transform_mode_changed.emit(Global.transform_mode)
+	Global.tool_mode = Global.TOOL_MODE_ADJUST
+	Global.adjustment_started.emit()
 	_spawn_arrows(Global.transform_mode)
 	
 	last_position = position
