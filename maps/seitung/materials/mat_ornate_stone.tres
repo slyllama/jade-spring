@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://2fs6tnks1hct"]
+
+[ext_resource type="Texture2D" uid="uid://el82jf7bxdah" path="res://maps/seitung/materials/textures/ornate_stone_diff.jpg" id="1_wgo5d"]
+[ext_resource type="Texture2D" uid="uid://cm2s3n8ajmom6" path="res://maps/seitung/materials/textures/ornate_stone_norm.jpg" id="2_bgc5b"]
+
+[resource]
+albedo_texture = ExtResource("1_wgo5d")
+normal_enabled = true
+normal_texture = ExtResource("2_bgc5b")
+uv1_scale = Vector3(2, 2, 2)

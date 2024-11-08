@@ -77,6 +77,7 @@ color_initial_ramp = SubResource("GradientTexture1D_ccpmc")
 alpha_curve = SubResource("CurveTexture_4dtce")
 
 [node name="Player" type="CharacterBody3D"]
+input_ray_pickable = false
 motion_mode = 1
 slide_on_ceiling = false
 floor_stop_on_slope = false
