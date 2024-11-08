@@ -226,6 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
 
 [node name="BeesTest" type="Area3D" parent="CrumbHandler"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -5.26723, 0.903258, 14.2686)
+input_ray_pickable = false
 script = ExtResource("5_evg50")
 
 [node name="BugSwarmProp" parent="CrumbHandler/BeesTest" instance=ExtResource("27_hsr1n")]
@@ -239,6 +240,7 @@ attenuation_filter_cutoff_hz = 10000.0
 
 [node name="BeesTest2" type="Area3D" parent="CrumbHandler"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.74399, 0.903258, 9.97397)
+input_ray_pickable = false
 script = ExtResource("5_evg50")
 
 [node name="BugSwarmProp" parent="CrumbHandler/BeesTest2" instance=ExtResource("27_hsr1n")]
