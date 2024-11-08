@@ -19,5 +19,13 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Fish" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_b8w4q")
+
 [node name="Player" type="Sprite2D" parent="."]
 texture = ExtResource("2_b8w4q")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
