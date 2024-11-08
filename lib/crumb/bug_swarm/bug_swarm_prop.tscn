@@ -7,16 +7,26 @@
 script/source = "@tool
 extends Node3D
 
+var rng = RandomNumberGenerator.new()
+var target_speed_basis: float = 4.0
+var speed_basis: float = target_speed_basis
+
 func _process(delta: float) -> void:
-	$BugMeshX.rotation.z += delta * 4.5
+	speed_basis = lerp(speed_basis, target_speed_basis, 5 * delta)
+	
+	$BugMeshX.rotation.z += delta * speed_basis
 	if $BugMeshX.rotation.z > PI * 2:
 		$BugMeshX.rotation.z = 0
-	$BugMeshY.rotation.z -= delta * 4.0
+	$BugMeshY.rotation.z -= delta * speed_basis * 1.2
 	if $BugMeshY.rotation.z < PI * -2:
 		$BugMeshY.rotation.z = 0
-	$BugMeshZ.rotation.y += delta * 4.2
+	$BugMeshZ.rotation.y += delta * speed_basis * 1.7
 	if $BugMeshZ.rotation.y > PI * 2:
 		$BugMeshZ.rotation.y = 0
+
+func _on_speed_change_timeout() -> void:
+	if Engine.is_editor_hint(): return
+	target_speed_basis = 4 + rng.randf() * 4
 "
 
 [sub_resource type="Gradient" id="Gradient_qxsns"]
@@ -62,17 +72,17 @@ orientation = 2
 script = SubResource("GDScript_mj5b2")
 
 [node name="BugMeshX" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0524033, 0.998636, 0, -0.998636, -0.0524033, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-0.636229, 0.771514, 0, -0.771514, -0.636229, 0, 0, 0, 1, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
 [node name="BugMeshY" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.78118e-08, -2.19306e-08, 1, -0.501714, -0.865034, 7.96408e-15, 0.865034, -0.501714, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(4.25178e-08, -1.01453e-08, 1, -0.232099, -0.972693, 3.13611e-14, 0.972693, -0.232099, -4.37114e-08, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
 [node name="BugMeshZ" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.705474, -0.708736, 3.09798e-08, 0, -4.37114e-08, -1, 0.708736, -0.705474, 3.08372e-08, 0, 0, 0)
+transform = Transform3D(-0.27699, 0.960872, -4.20011e-08, 0, -4.37114e-08, -1, -0.960872, -0.27699, 1.21076e-08, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
@@ -84,3 +94,8 @@ randomness = 0.5
 fixed_fps = 15
 process_material = SubResource("ParticleProcessMaterial_1b65o")
 draw_pass_1 = SubResource("PlaneMesh_gyloj")
+
+[node name="SpeedChange" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SpeedChange" to="." method="_on_speed_change_timeout"]
