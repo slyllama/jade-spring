@@ -9,7 +9,7 @@ extends Node3D
 
 var rng = RandomNumberGenerator.new()
 var target_speed_basis: float = 4.0
-var speed_basis: float = target_speed_basis
+var speed_basis: float = 4.0
 
 func _process(delta: float) -> void:
 	speed_basis = lerp(speed_basis, target_speed_basis, 5 * delta)
@@ -72,17 +72,17 @@ orientation = 2
 script = SubResource("GDScript_mj5b2")
 
 [node name="BugMeshX" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.636229, 0.771514, 0, -0.771514, -0.636229, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-0.122923, -0.992426, 0, 0.992426, -0.122923, 0, 0, 0, 1, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
 [node name="BugMeshY" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.25178e-08, -1.01453e-08, 1, -0.232099, -0.972693, 3.13611e-14, 0.972693, -0.232099, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-3.82827e-08, 2.10979e-08, 1, 0.482664, 0.875806, 7.65991e-14, -0.875806, 0.482664, -4.37114e-08, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
 [node name="BugMeshZ" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.27699, 0.960872, -4.20011e-08, 0, -4.37114e-08, -1, -0.960872, -0.27699, 1.21076e-08, 0, 0, 0)
+transform = Transform3D(0.636272, 0.771464, -3.37218e-08, 0, -4.37114e-08, -1, -0.771464, 0.636272, -2.78124e-08, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 

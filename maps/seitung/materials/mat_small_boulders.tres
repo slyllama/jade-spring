@@ -1,13 +1,14 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bj7jp82e64gxp"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bj7jp82e64gxp"]
 
 [ext_resource type="Shader" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_ubunt"]
 [ext_resource type="Texture2D" uid="uid://mycf4akhf2ov" path="res://decorations/lantern/materials/textures/rock_norm.jpg" id="3_0axv0"]
 [ext_resource type="Texture2D" uid="uid://loh2pi3idg3i" path="res://maps/seitung/materials/textures/rock_diff.jpg" id="3_1lg1j"]
+[ext_resource type="Texture2D" uid="uid://c2we08mbthjms" path="res://decorations/lantern/materials/textures/rock_diff.jpg" id="4_e7fk3"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_ubunt")
 shader_parameter/uv_scale = 1.5
-shader_parameter/grass_texture_base = ExtResource("3_1lg1j")
+shader_parameter/grass_texture_base = ExtResource("4_e7fk3")
 shader_parameter/grass_normal_texture = ExtResource("3_0axv0")
 shader_parameter/dirt_texture = ExtResource("3_1lg1j")

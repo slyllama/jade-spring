@@ -1,5 +1,6 @@
 extends Node3D
 
+const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 var picking_disabled_objects: Array[StaticBody3D] = []
 
 # Re-enable mouse event-disabled static bodies
