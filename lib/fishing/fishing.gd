@@ -10,6 +10,14 @@ extends CanvasLayer
 var rng = RandomNumberGenerator.new()
 var dir = 1
 
+func resize() -> void:
+	center_pos = get_window().size / 2.0
+	
+	$Player.position = center_pos
+	$Fish.position = center_pos
+	$Base.size.x = width
+	$Base.position.x = center_pos.x - width / 2.0
+
 func switch_direction() -> void:
 	fish_speed = rng.randf_range(50.0, 96.0)
 	fish_speed *= dir
@@ -19,12 +27,9 @@ func switch_direction() -> void:
 
 func _ready() -> void:
 	Global.in_exclusive_ui = true
-	$Player.position = center_pos
-	$Fish.position = center_pos
+	get_window().size_changed.connect(resize)
 	
-	$Base.size.x = width
-	$Base.position.x = center_pos.x - width / 2.0
-	
+	resize()
 	switch_direction()
 
 func _process(delta: float) -> void:

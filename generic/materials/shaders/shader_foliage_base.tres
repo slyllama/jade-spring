@@ -18,7 +18,7 @@ float get_wind(vec2 vertex, vec2 uv){
     float diff = pow(max_strength - min_strength, 2.0);
     float strength = clamp(min_strength + diff + sin(TIME / 3.5) * diff, min_strength, max_strength) * 0.7;
     float wind = (sin(TIME) + cos(TIME)) * strength * max(0.0, (1.0 - uv.y));
-    return wind; 
+    return wind;
 }
 
 void vertex() {
@@ -31,12 +31,12 @@ void fragment() {
 	vec4 albedo_tex = texture(texture_albedo, UV);
 	albedo_tex *= COLOR * 1.2;
 	ALBEDO = albedo_tex.rgb;
-	
+
 	ALPHA *= albedo_tex.a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
 	ALPHA_ANTIALIASING_EDGE = alpha_antialiasing_edge;
 	BACKLIGHT = vec3(1.0);
-	
+
 	{
 		// Distance Fade: Pixel Dither
 		float fade_distance = length(VERTEX);
