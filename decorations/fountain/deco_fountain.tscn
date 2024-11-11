@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://fdtci72jf3pk"]
+[gd_scene load_steps=6 format=3 uid="uid://fdtci72jf3pk"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_lcn0t"]
 [ext_resource type="PackedScene" uid="uid://q6ky0nyvalbl" path="res://decorations/fountain/fountain.glb" id="2_dheh3"]
 [ext_resource type="AudioStream" uid="uid://qs8mrppeh6he" path="res://maps/seitung/sounds/fountain.ogg" id="3_fgfut"]
+[ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="4_07111"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5srjh"]
 size = Vector3(4.72266, 0.480626, 4.81616)
@@ -29,3 +30,11 @@ volume_db = -4.0
 unit_size = 5.0
 autoplay = true
 attenuation_filter_cutoff_hz = 10000.0
+
+[node name="Bamboo" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.998811, 0.0487452, 0, -0.0487452, 0.998811, 0, 0, 0, 1, 1.52114, 0.290534, 1.59867)
+mesh = ExtResource("4_07111")
+
+[node name="Bamboo2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.41745, 0.031674, 0.796701, -0.0680917, 0.89742, -1.86265e-09, -0.794417, -0.0602764, 0.41865, 1.81694, 0.290534, 1.04803)
+mesh = ExtResource("4_07111")

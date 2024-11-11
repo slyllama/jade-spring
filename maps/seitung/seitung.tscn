@@ -50,6 +50,7 @@ fog_density = 1.0
 fog_sky_affect = 0.0
 fog_depth_begin = 25.0
 fog_depth_end = 30.0
+volumetric_fog_density = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvguu"]
 size = Vector3(80, 0.1, 80)
@@ -277,6 +278,12 @@ autoplay = true
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="WaterSplash" parent="DecoHandler/Fountain" instance=ExtResource("24_jrhe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251203, 1.74821, -0.884565)
+
+[node name="WaterSplash2" parent="DecoHandler/Fountain" instance=ExtResource("24_jrhe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167872, 1.04734, -1.03864)
 
 [node name="Lantern" parent="DecoHandler" instance=ExtResource("24_hqlax")]
 transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, -3.2, -0.3, 13.5)
@@ -685,9 +692,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42522, 0.0209221, 9.2753)
 layers = 2
 size = Vector3(4, 0.493359, 4)
 material = ExtResource("23_203k2")
-
-[node name="WaterSplash" parent="." instance=ExtResource("24_jrhe1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251203, 1.74821, 13.1154)
-
-[node name="WaterSplash2" parent="." instance=ExtResource("24_jrhe1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167872, 1.04734, 12.9614)

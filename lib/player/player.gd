@@ -30,6 +30,10 @@ func play_jade_sound() -> void:
 	sound.finished.connect(sound.queue_free)
 	sound.play()
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("debug_action"):
+		$PlayerMesh.visible = !$PlayerMesh.visible
+
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
