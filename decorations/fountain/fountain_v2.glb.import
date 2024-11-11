@@ -1,0 +1,67 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://vqd44whxclb3"
+path="res://.godot/imported/fountain_v2.glb-b3ca3aa4ce9dfafdcd82beeb08b4683b.scn"
+
+[deps]
+
+source_file="res://decorations/fountain/fountain_v2.glb"
+dest_files=["res://.godot/imported/fountain_v2.glb-b3ca3aa4ce9dfafdcd82beeb08b4683b.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name="FountainV2"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"mat_ornament": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/materials/mat_ornate_stone.tres"
+},
+"mat_pool_rock_lower": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/fountain/materials/mat_rock_pool_lower.tres"
+},
+"mat_pool_rock_upper": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/fountain/materials/mat_rock_pool_upper.tres"
+},
+"mat_rock": {
+"use_external/enabled": true,
+"use_external/path": "res://generic/materials/mat_rocks.tres"
+},
+"mat_water": {
+"use_external/enabled": true,
+"use_external/path": "res://generic/materials/mat_water_pond.tres"
+},
+"mat_waterfall": {
+"use_external/enabled": false,
+"use_external/path": "res://generic/materials/mat_placeholder.tres"
+},
+"mat_wood": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_columns.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

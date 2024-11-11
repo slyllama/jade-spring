@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=47 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -15,13 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="11_aq4pe"]
 [ext_resource type="PackedScene" uid="uid://hooieo80ip7g" path="res://maps/seitung/meshes/arch_test.glb" id="12_4v57y"]
 [ext_resource type="PackedScene" uid="uid://fdtci72jf3pk" path="res://decorations/fountain/deco_fountain.tscn" id="12_iopfa"]
-[ext_resource type="Texture2D" uid="uid://xkm0o3y7uf4i" path="res://maps/seitung/materials/textures/moss_mask.png" id="13_vc25n"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
 [ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
-[ext_resource type="Material" uid="uid://2fs6tnks1hct" path="res://maps/seitung/materials/mat_ornate_stone.tres" id="23_203k2"]
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
-[ext_resource type="PackedScene" uid="uid://bvsqlumwkla0v" path="res://effects/water_splash/water_splash.tscn" id="24_jrhe1"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
 [ext_resource type="PackedScene" uid="uid://dcbfj3c5m2l7k" path="res://lib/crumb/bug_swarm/bug_swarm_prop.tscn" id="27_hsr1n"]
@@ -48,8 +45,8 @@ fog_mode = 1
 fog_light_color = Color(0.43104, 0.48, 0.3936, 1)
 fog_density = 1.0
 fog_sky_affect = 0.0
-fog_depth_begin = 25.0
-fog_depth_end = 30.0
+fog_depth_begin = 20.0
+fog_depth_end = 25.0
 volumetric_fog_density = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvguu"]
@@ -141,12 +138,6 @@ instance_count = 16
 mesh = ExtResource("14_yeybn")
 buffer = PackedFloat32Array(0.837718, 0, -0.249052, -1.27841, 0, 1.09244, 0, 0, 0.249052, 0, 0.837718, -1.34069, 0.851938, 0, 0.372121, -0.493089, 0, 1.16208, 0, 0, -0.372121, 0, 0.851938, -1.55757, 0.41986, 0, 0.795255, 0.313373, 0, 1.12411, 0, 0, -0.795255, 0, 0.41986, -1.41576, -0.627255, 0, 0.399877, 0.885395, 0, 0.929844, 0, 0, -0.399877, 0, -0.627255, -1.33222, 0.169127, 0, 0.876716, -1.26823, 0, 1.1161, 0, 0, -0.876716, 0, 0.169127, -0.683267, -0.0637379, 0, -0.720839, -0.558751, 0, 0.904565, 0, 0, 0.720839, 0, -0.0637379, -0.678795, 0.392938, 0, -0.642239, 0.0598424, 0, 0.941135, 0, 0, 0.642239, 0, 0.392938, -0.552834, 0.53117, 0, -0.516398, 1.05321, 0, 0.926021, 0, 0, 0.516398, 0, 0.53117, -0.661184, -0.739508, 0, 0.115064, -1.40106, 0, 0.935508, 0, 0, -0.115064, 0, -0.739508, 0.138265, -0.35447, 0, 0.700973, -0.772427, 0, 0.981876, 0, 0, -0.700973, 0, -0.35447, 0.0700838, 0.638837, 0, 0.674942, 0.211984, 0, 1.16167, 0, 0, -0.674942, 0, 0.638837, 0.157855, -0.0427746, 0, -0.854442, 1.03546, 0, 1.06939, 0, 0, 0.854442, 0, -0.0427746, 0.188222, 0.676905, 0, -0.655699, -1.36305, 0, 1.17802, 0, 0, 0.655699, 0, 0.676905, 0.868657, -0.75095, 0, -0.564502, -0.757733, 0, 1.17433, 0, 0, 0.564502, 0, -0.75095, 1.15558, 0.465127, 0, 0.641519, 0.0560419, 0, 0.990494, 0, 0, -0.641519, 0, 0.465127, 1.09841, 0.330922, 0, 0.730398, 0.838335, 0, 1.00233, 0, 0, -0.730398, 0, 0.330922, 0.954541)
 
-[sub_resource type="MultiMesh" id="MultiMesh_pd18w"]
-transform_format = 1
-instance_count = 4
-mesh = ExtResource("14_yeybn")
-buffer = PackedFloat32Array(-0.415061, 0, -1.37181, -0.380822, 0, 1.43323, 0, 0, 1.37181, 0, -0.415061, -0.237196, 1.40179, 0, -0.512943, 0.0962477, 0, 1.49269, 0, 0, 0.512943, 0, 1.40179, -0.232463, 0.53739, 0, 1.33046, -0.324625, 0, 1.43489, 0, 0, -1.33046, 0, 0.53739, 0.0379313, 0.762101, 0, -1.18113, 0.11428, 0, 1.40566, 0, 0, 1.18113, 0, 0.762101, 0.255054)
-
 [sub_resource type="MultiMesh" id="MultiMesh_vp00f"]
 transform_format = 1
 instance_count = 4
@@ -170,12 +161,6 @@ transform_format = 1
 instance_count = 4
 mesh = ExtResource("14_yeybn")
 buffer = PackedFloat32Array(-0.00183179, 0, -1.09634, -0.730203, 0, 1.09634, 0, 0, 1.09634, 0, -0.00183179, -0.616826, 0.963839, 0, 0.0191121, 0.108435, 0, 0.964029, 0, 0, -0.0191121, 0, 0.963839, -0.545464, 0.410795, 0, -0.889437, -0.595618, 0, 0.97972, 0, 0, 0.889437, 0, 0.410795, 0.161235, -0.459997, 0, -1.06724, 0.0580583, 0, 1.16216, 0, 0, 1.06724, 0, -0.459997, 0.515886)
-
-[sub_resource type="MultiMesh" id="MultiMesh_d5aqd"]
-transform_format = 1
-instance_count = 4
-mesh = ExtResource("14_yeybn")
-buffer = PackedFloat32Array(0.957706, 0, 0.331941, -0.680807, 0, 1.0136, 0, 0, -0.331941, 0, 0.957706, -0.847573, -0.752422, 0, -0.589598, 0.373266, 0, 0.95591, 0, 0, 0.589598, 0, -0.752422, -0.616184, 0.557906, 0, -1.02394, -0.480757, 0, 1.16607, 0, 0, 1.02394, 0, 0.557906, 0.241422, 0.305953, 0, -1.10135, 0.425897, 0, 1.14306, 0, 0, 1.10135, 0, 0.305953, 0.391589)
 
 [sub_resource type="Curve" id="Curve_ai1cj"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
@@ -231,11 +216,12 @@ layer = 2
 [node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
 
 [node name="BeesTest" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -5.26723, 0.903258, 14.2686)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -5.52523, 0.778991, 12.2095)
 input_ray_pickable = false
 script = ExtResource("5_evg50")
 
 [node name="BugSwarmProp" parent="CrumbHandler/BeesTest" instance=ExtResource("27_hsr1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest"]
 stream = ExtResource("6_beuhg")
@@ -246,7 +232,7 @@ max_distance = 12.0
 attenuation_filter_cutoff_hz = 10000.0
 
 [node name="BeesTest2" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.74399, 0.903258, 9.97397)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.34795, 0.941948, 7.55819)
 input_ray_pickable = false
 script = ExtResource("5_evg50")
 
@@ -279,19 +265,10 @@ autoplay = true
 [node name="DecoHandler" parent="." instance=ExtResource("26_of55i")]
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
-
-[node name="WaterSplash" parent="DecoHandler/Fountain" instance=ExtResource("24_jrhe1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251203, 1.74821, -0.884565)
-
-[node name="WaterSplash2" parent="DecoHandler/Fountain" instance=ExtResource("24_jrhe1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167872, 1.04734, -1.03864)
-
-[node name="Lantern" parent="DecoHandler" instance=ExtResource("24_hqlax")]
-transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, -3.2, -0.3, 13.5)
+transform = Transform3D(1, 0, 0, 0, 0.999998, 0.00174533, 0, -0.00174533, 0.999998, -3.44258, 0.198773, 15.2133)
 
 [node name="Lantern2" parent="DecoHandler" instance=ExtResource("24_hqlax")]
-transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 3, -0.3, 13.5)
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -0.372806, -0.142403, 15.1038)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -419,6 +396,7 @@ size = 3.0
 min_scale = 5.0
 max_scale = 5.3
 area_scale = 0.8
+moss_cover = false
 moss_scaling = 2.0
 colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
@@ -470,26 +448,6 @@ scatter = 0.4
 min_scale = 0.9
 max_scale = 1.2
 area_scale = 0.8
-smooth = false
-ignore_density_check = true
-ignore_aliasing_check = true
-moss_albedo_mix = 0.5
-vary_colours = false
-colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
-colour_2 = Color(0.336, 0.72, 0, 1)
-render_distance = 20.0
-
-[node name="BambooSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22198, 2.41945, 16.4042)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_pd18w")
-script = ExtResource("9_7bo6h")
-custom_mesh = ExtResource("14_yeybn")
-count = 2
-size = 1.0
-min_scale = 1.3
-max_scale = 1.5
 smooth = false
 ignore_density_check = true
 ignore_aliasing_check = true
@@ -580,27 +538,6 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
-[node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
-transform = Transform3D(0.446666, 0, 0.894701, 0, 1, 0, -0.894701, 0, 0.446666, -3.8339, -0.167836, 18.2941)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_d5aqd")
-script = ExtResource("9_7bo6h")
-custom_mesh = ExtResource("14_yeybn")
-count = 2
-scatter = 0.5
-min_scale = 0.9
-max_scale = 1.2
-smooth = false
-ignore_density_check = true
-ignore_aliasing_check = true
-moss_cover = false
-moss_albedo_mix = 0.5
-vary_colours = false
-colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
-colour_2 = Color(0.336, 0.72, 0, 1)
-render_distance = 20.0
-
 [node name="Motes" type="GPUParticles3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
 amount = 80
@@ -629,25 +566,7 @@ process_material = SubResource("ParticleProcessMaterial_f5nkf")
 draw_pass_1 = SubResource("PlaneMesh_2fc7p")
 
 [node name="Arch" parent="Decoration" instance=ExtResource("12_4v57y")]
-transform = Transform3D(0.977721, 0, 0.209909, 0, 1, 0, -0.209909, 0, 0.977721, -5.0583, -0.0138671, 14.6878)
-
-[node name="Decal" type="Decal" parent="Decoration/Arch"]
-transform = Transform3D(-0.270529, 0.65331, -0.707107, -0.923919, -0.382587, 0, -0.270529, 0.65331, 0.707107, -0.772768, 3.2238, -0.874584)
-layers = 2
-size = Vector3(3, 3, 3)
-texture_albedo = ExtResource("13_vc25n")
-modulate = Color(0.60359, 0.78, 0.3198, 1)
-albedo_mix = 0.75
-normal_fade = 0.537
-
-[node name="Decal2" type="Decal" parent="Decoration/Arch"]
-transform = Transform3D(0.701831, 0.70946, -0.0640143, -0.709459, 0.688089, -0.152316, -0.0640143, 0.152316, 0.986257, -0.88663, -0.398231, -1.46444)
-layers = 2
-size = Vector3(3, 3, 3)
-texture_albedo = ExtResource("13_vc25n")
-modulate = Color(0.411681, 0.540843, 0.19953, 1)
-albedo_mix = 0.75
-normal_fade = 0.033
+transform = Transform3D(0.914027, 0, 0.405652, 0, 1, 0, -0.405652, 0, 0.914027, -7.7203, 2.55056, 15.6951)
 
 [node name="Arch2" parent="Decoration" instance=ExtResource("12_4v57y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, -0.3, 15)
@@ -689,8 +608,12 @@ transform = Transform3D(-0.451883, 0.463237, 1.06945, 0.180301, 1.161, -0.426709
 [node name="small_boulders2" parent="Decoration" instance=ExtResource("25_7asqj")]
 transform = Transform3D(1.09287, 0, 0.606737, 0, 1.25, 0, -0.606737, 0, 1.09287, -2.57208, -0.156701, 7.5282)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42522, 0.0209221, 9.2753)
-layers = 2
-size = Vector3(4, 0.493359, 4)
-material = ExtResource("23_203k2")
+[node name="small_boulders4" parent="Decoration" instance=ExtResource("25_7asqj")]
+transform = Transform3D(1.24687, 0, -0.710307, 0, 1.435, 0, 0.710307, 0, 1.24687, -5.10437, -0.156701, 11.6278)
+
+[node name="small_boulders5" parent="Decoration" instance=ExtResource("25_7asqj")]
+transform = Transform3D(-0.345455, 0, -1.3928, 0, 1.435, 0, 1.3928, 0, -0.345455, -1.01764, -0.260475, 14.0977)
+
+[node name="Bamboo" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.2807, 0, -0.959796, 0, 1, 0, 0.959796, 0, -0.2807, -6.22598, 0.500868, 13.8808)
+mesh = ExtResource("14_yeybn")

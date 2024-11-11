@@ -1,12 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://fdtci72jf3pk"]
+[gd_scene load_steps=12 format=3 uid="uid://fdtci72jf3pk"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_lcn0t"]
-[ext_resource type="PackedScene" uid="uid://q6ky0nyvalbl" path="res://decorations/fountain/fountain.glb" id="2_dheh3"]
 [ext_resource type="AudioStream" uid="uid://qs8mrppeh6he" path="res://maps/seitung/sounds/fountain.ogg" id="3_fgfut"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="4_07111"]
+[ext_resource type="PackedScene" uid="uid://vqd44whxclb3" path="res://decorations/fountain/fountain_v2.glb" id="5_volr7"]
+[ext_resource type="PackedScene" uid="uid://bt4skwxifwah0" path="res://decorations/lantern/lantern.glb" id="6_4686x"]
+[ext_resource type="PackedScene" uid="uid://bvsqlumwkla0v" path="res://effects/water_splash/water_splash.tscn" id="6_rhmsy"]
+[ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="7_8v73e"]
+[ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="8_w5pib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5srjh"]
 size = Vector3(4.72266, 0.480626, 4.81616)
+
+[sub_resource type="MultiMesh" id="MultiMesh_f5so0"]
+transform_format = 1
+instance_count = 25
+visible_instance_count = 25
+mesh = ExtResource("7_8v73e")
+buffer = PackedFloat32Array(0.647902, 0, 2.18769, -0.605455, 0, 1.14081, 0, 0, -2.18769, 0, 0.647902, -0.637039, -0.458113, 0, -2.15855, -0.417004, 0, 1.32398, 0, 0, 2.15855, 0, -0.458113, -0.460339, -2.03824, 0, -0.825764, 0.159106, 0, 1.53941, 0, 0, 0.825764, 0, -2.03824, -0.646147, -1.16075, 0, 1.85063, 0.41671, 0, 1.52917, 0, 0, -1.85063, 0, -1.16075, -0.587183, 2.18982, 0, 1.78516, 0.888463, 0, 1.69516, 0, 0, -1.78516, 0, 2.18982, -0.250801, 2.16222, 0, 2.0726, -0.281482, 0, 1.79708, 0, 0, -2.0726, 0, 2.16222, -0.378655, 0.406694, 0, 2.28402, -0.284014, 0, 1.62396, 0, 0, -2.28402, 0, 0.406694, -0.407774, -1.3843, 0, 2.24332, -0.0724379, 0, 2.10884, 0, 0, -2.24332, 0, -1.3843, -0.379476, 0.309971, 0, 2.52635, 0.589361, 0, 2.03624, 0, 0, -2.52635, 0, 0.309971, -0.0304652, -0.562526, 0, 2.80903, 0.489628, 0, 2.00536, 0, 0, -2.80903, 0, -0.562526, -0.123153, 1.4347, 0, -2.59615, -0.534423, 0, 2.07634, 0, 0, 2.59615, 0, 1.4347, -0.0263591, 1.02232, 0, -2.33583, -0.10926, 0, 2.03981, 0, 0, 2.33583, 0, 1.02232, 0.187518, -0.173155, 0, -2.25853, -0.0424706, 0, 2.03864, 0, 0, 2.25853, 0, -0.173155, 0.136238, 2.18976, 0, 0.163809, 0.239869, 0, 1.97629, 0, 0, -0.163809, 0, 2.18976, 0.104082, -1.37815, 0, -1.87547, 0.873709, 0, 1.8619, 0, 0, 1.87547, 0, -1.37815, 0.0241379, 0.0319294, 0, 2.26142, -0.698621, 0, 1.58315, 0, 0, -2.26142, 0, 0.0319294, 0.566923, 1.11881, 0, 1.88661, -0.273213, 0, 1.75473, 0, 0, -1.88661, 0, 1.11881, 0.572006, -1.55892, 0, 2.06676, -0.0679391, 0, 2.32989, 0, 0, -2.06676, 0, -1.55892, 0.508675, -1.52409, 0, 2.27138, 0.353501, 0, 2.46179, 0, 0, -2.27138, 0, -1.52409, 0.327577, -1.65135, 0, 1.15807, 0.806558, 0, 1.61356, 0, 0, -1.15807, 0, -1.65135, 0.178392, -1.08993, 0, 2.55435, -0.326149, 0, 1.6663, 0, 0, -2.55435, 0, -1.08993, 0.643193, -2.52091, 0, 1.4399, 0.0637151, 0, 2.03221, 0, 0, -1.4399, 0, -2.52091, 1.00203, 2.72829, 0, -1.08205, -0.101554, 0, 2.34802, 0, 0, 1.08205, 0, 2.72829, 0.808506, 2.18662, 0, 0.481999, 0.455138, 0, 1.79129, 0, 0, -0.481999, 0, 2.18662, 0.743978, -1.13974, 0, 2.76447, 0.494529, 0, 2.09314, 0, 0, -2.76447, 0, -1.13974, 0.798988)
+
+[sub_resource type="MultiMesh" id="MultiMesh_v7tal"]
+transform_format = 1
+instance_count = 4
+visible_instance_count = 4
+mesh = ExtResource("7_8v73e")
+buffer = PackedFloat32Array(-2.47637, 0, -0.0805561, -0.115687, 0, 1.23884, 0, 0, 0.0805561, 0, -2.47637, -0.0997544, 2.62286, 0, -1.06071, 0.177186, 0, 2.12191, 0, 0, 1.06071, 0, 2.62286, -0.398488, -1.52087, 0, 1.69395, -0.192775, 0, 1.70738, 0, 0, -1.69395, 0, -1.52087, 0.0617656, -2.04945, 0, 1.08747, 0.14266, 0, 2.3201, 0, 0, -1.08747, 0, -2.04945, 0.329843)
 
 [node name="DecoFountain" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_lcn0t")
@@ -20,9 +38,6 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144722, 0)
 shape = SubResource("BoxShape3D_5srjh")
 
-[node name="Fountain" parent="." instance=ExtResource("2_dheh3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14, 0)
-
 [node name="Water" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 stream = ExtResource("3_fgfut")
@@ -32,9 +47,48 @@ autoplay = true
 attenuation_filter_cutoff_hz = 10000.0
 
 [node name="Bamboo" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.998811, 0.0487452, 0, -0.0487452, 0.998811, 0, 0, 0, 1, 1.52114, 0.290534, 1.59867)
+transform = Transform3D(0.998811, 0.0487452, 0, -0.0487452, 0.998811, 0, 0, 0, 1, 1.74881, -0.0542937, 1.32339)
 mesh = ExtResource("4_07111")
 
 [node name="Bamboo2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.41745, 0.031674, 0.796701, -0.0680917, 0.89742, -1.86265e-09, -0.794417, -0.0602764, 0.41865, 1.81694, 0.290534, 1.04803)
+transform = Transform3D(0.41745, 0.031674, 0.796701, -0.0680917, 0.89742, -1.86265e-09, -0.794417, -0.0602764, 0.41865, 2.04461, -0.0542937, 0.772752)
 mesh = ExtResource("4_07111")
+
+[node name="FountainV2" parent="." instance=ExtResource("5_volr7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.14, 0)
+
+[node name="Lantern" parent="FountainV2" instance=ExtResource("6_4686x")]
+transform = Transform3D(-0.089016, 0, -0.99603, 0, 1, 0, 0.99603, 0, -0.089016, 1.32924, 0.0197433, -1.65728)
+
+[node name="WaterSplash" parent="FountainV2" instance=ExtResource("6_rhmsy")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.206361, 0.514633, 0.467246)
+
+[node name="WaterSplash2" parent="FountainV2" instance=ExtResource("6_rhmsy")]
+transform = Transform3D(-0.629036, 0, -0.777377, 0, 1, 0, 0.777377, 0, -0.629036, -0.116055, 1.02518, -0.768934)
+
+[node name="Flowers" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25811, 0, 1.22847)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_f5so0")
+script = ExtResource("8_w5pib")
+custom_mesh = ExtResource("7_8v73e")
+size = 1.5
+min_scale = 2.0
+max_scale = 3.0
+moss_scaling = 1.6
+vary_colours = false
+
+[node name="Flowers2" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-0.35871, 0.155799, -0.920355, 0, 0.985973, 0.166906, 0.933449, 0.059871, -0.353678, -0.942885, -0.0141281, -1.28857)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_v7tal")
+script = ExtResource("8_w5pib")
+custom_mesh = ExtResource("7_8v73e")
+count = 2
+size = 1.0
+min_scale = 2.0
+max_scale = 3.0
+moss_scaling = 1.149
+vary_colours = false
