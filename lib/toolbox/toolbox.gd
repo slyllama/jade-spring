@@ -41,6 +41,12 @@ func _ready() -> void:
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.adjustment_canceled.connect(set_default_skills)
+	
+	Global.fishing_started.connect(func():
+		clear_skills()
+		$Box/Skill6.switch_skill("cancel"))
+	
+	Global.fishing_canceled.connect(set_default_skills)
 
 #region Skill button behaviour
 func skill_used(skill_id: String) -> void:
@@ -58,6 +64,8 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_canceled.emit()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
 				Global.deco_placement_canceled.emit()
+			elif Global.tool_mode == Global.TOOL_MODE_FISH:
+				Global.fishing_canceled.emit()
 		"accept":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_applied.emit()

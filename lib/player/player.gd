@@ -79,10 +79,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Multiply inputs by the movement vector and orbit rotation
 	# This could be improved, but it works
-	_target_velocity = (Vector3.FORWARD * _camera_basis * Vector3(-1, 0, 1) * _direction.x)
-	_target_velocity += (Vector3.RIGHT * _camera_basis * Vector3(1, 0, -1) * _direction.z)
-	_target_velocity += (Vector3.UP * _camera_basis * Vector3(0, 1, 0) * _direction.y)
-	_target_velocity = _target_velocity.normalized() * Vector3(_speed, _speed * 1.5, _speed)
+	if Global.can_move:
+		_target_velocity = (Vector3.FORWARD * _camera_basis * Vector3(-1, 0, 1) * _direction.x)
+		_target_velocity += (Vector3.RIGHT * _camera_basis * Vector3(1, 0, -1) * _direction.z)
+		_target_velocity += (Vector3.UP * _camera_basis * Vector3(0, 1, 0) * _direction.y)
+		_target_velocity = _target_velocity.normalized() * Vector3(_speed, _speed * 1.5, _speed)
+	else: _target_velocity = Vector3.ZERO
 	
 	velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta)
 	velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta)

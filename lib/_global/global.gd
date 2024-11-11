@@ -3,6 +3,7 @@ extends Node
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
 
+var can_move = true
 var foliage_count = 0
 var in_exclusive_ui = false
 var mouse_3d_position = Utilities.BIGVEC3
@@ -15,6 +16,8 @@ var popup_open = false
 var retina_scale = 1
 
 signal click_sound
+signal fishing_started
+signal fishing_canceled
 signal jade_bot_sound
 signal mouse_3d_click
 
@@ -23,14 +26,16 @@ enum {
 	TOOL_MODE_NONE,
 	TOOL_MODE_ADJUST,
 	TOOL_MODE_SELECT,
-	TOOL_MODE_PLACE }
+	TOOL_MODE_PLACE,
+	TOOL_MODE_FISH }
 enum {TRANSFORM_MODE_OBJECT, TRANSFORM_MODE_WORLD}
 
 const tool_identities = [ # associations for debug printing
 	"TOOL_MODE_NONE",
 	"TOOL_MODE_ADJUST",
 	"TOOL_MODE_SELECT",
-	"TOOL_MODE_PLACE" ]
+	"TOOL_MODE_PLACE",
+	"TOOL_MODE_FISH" ]
 
 signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended

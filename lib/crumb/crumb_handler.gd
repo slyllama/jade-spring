@@ -9,3 +9,5 @@ func _ready() -> void:
 	for _n in get_children():
 		if _n is Crumb:
 			crumb_count += 1
+			_n.cleared.connect(func():
+				crumb_count -= 1)

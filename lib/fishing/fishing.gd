@@ -2,13 +2,24 @@ extends CanvasLayer
 # Fishing
 # Minigame to clear bugs, dragonvoid, etc
 
+signal completed
+
 @export var move_speed := 90.0
 @export var width := 240.0
 @export var fish_speed := 150.0
+@export var threshold := 30
 
 @onready var center_pos = get_window().size / 2.0
 var rng = RandomNumberGenerator.new()
+var progress = 50.0
 var dir = 1
+
+func end():
+	Global.jade_bot_sound.emit()
+	Global.in_exclusive_ui = false
+	Global.can_move = true
+	Global.tool_mode = Global.TOOL_MODE_NONE
+	queue_free()
 
 func resize() -> void:
 	center_pos = get_window().size / 2.0
@@ -26,11 +37,19 @@ func switch_direction() -> void:
 	$Timer.start()
 
 func _ready() -> void:
-	Global.in_exclusive_ui = true
 	get_window().size_changed.connect(resize)
+	Global.fishing_canceled.connect(end)
+	
+	Global.fishing_started.emit()
+	Global.jade_bot_sound.emit()
+	Global.in_exclusive_ui = true
+	Global.can_move = false
+	Global.tool_mode = Global.TOOL_MODE_FISH
+	Global.set_cursor(false)
 	
 	resize()
 	switch_direction()
+	$Progress.value = progress
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_left"):
@@ -50,6 +69,20 @@ func _process(delta: float) -> void:
 		$Player.position.x,
 		get_window().size.x / 2.0 - width / 2.0,
 		get_window().size.x / 2.0 + width / 2.0)
+	
+	var diff = abs($Player.position.x - $Fish.position.x)
+	if diff < threshold:
+		progress += delta * 18
+	else:
+		progress -= delta * 10
+	if progress > 99:
+		completed.emit()
+	progress = clamp(progress, 0.0, 100.0)
+	
+	$Progress.value = lerp($Progress.value, float(progress), delta * 10)
 
 func _on_timer_timeout() -> void:
 	switch_direction()
+
+func _on_completed() -> void:
+	Global.fishing_canceled.emit()
