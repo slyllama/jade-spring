@@ -1,6 +1,7 @@
-[gd_scene load_steps=50 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=52 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
+[ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_6ilxl"]
 [ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_fqdye"]
@@ -20,32 +21,35 @@
 [ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
 [ext_resource type="Material" uid="uid://2fs6tnks1hct" path="res://maps/seitung/materials/mat_ornate_stone.tres" id="23_203k2"]
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
+[ext_resource type="PackedScene" uid="uid://bvsqlumwkla0v" path="res://effects/water_splash/water_splash.tscn" id="24_jrhe1"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
 [ext_resource type="PackedScene" uid="uid://dcbfj3c5m2l7k" path="res://lib/crumb/bug_swarm/bug_swarm_prop.tscn" id="27_hsr1n"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55gw"]
-sky_top_color = Color(0.213, 0.420083, 0.71, 1)
-sky_curve = 0.1
-ground_bottom_color = Color(0.643137, 0.666667, 0.678431, 1)
-ground_horizon_color = Color(0.643137, 0.666667, 0.678431, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_krpi4"]
+panorama = ExtResource("2_lnf6c")
 
 [sub_resource type="Sky" id="Sky_1mh13"]
-sky_material = SubResource("ProceduralSkyMaterial_r55gw")
+sky_material = SubResource("PanoramaSkyMaterial_krpi4")
 
 [sub_resource type="Environment" id="Environment_01xfs"]
 background_mode = 2
 sky = SubResource("Sky_1mh13")
 ambient_light_source = 2
-ambient_light_color = Color(0.35, 0.35, 0.35, 1)
+ambient_light_color = Color(0.346494, 0.408971, 0.244555, 1)
+ambient_light_sky_contribution = 0.29
 tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.5
+glow_bloom = 0.5
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.407351, 0.432856, 0.442802, 1)
+fog_light_color = Color(0.43104, 0.48, 0.3936, 1)
 fog_density = 1.0
 fog_sky_affect = 0.0
-fog_depth_begin = 14.0
-fog_depth_end = 20.0
+fog_depth_begin = 25.0
+fog_depth_end = 30.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvguu"]
 size = Vector3(80, 0.1, 80)
@@ -176,7 +180,7 @@ buffer = PackedFloat32Array(0.957706, 0, 0.331941, -0.680807, 0, 1.0136, 0, 0, -
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_22nej"]
+[sub_resource type="CurveTexture" id="CurveTexture_arxqv"]
 curve = SubResource("Curve_ai1cj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f5nkf"]
@@ -186,9 +190,9 @@ emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0.1, 0)
 scale_min = 0.2
 scale_max = 0.4
-alpha_curve = SubResource("CurveTexture_22nej")
+alpha_curve = SubResource("CurveTexture_arxqv")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf8mi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08ijc"]
 transparency = 1
 shading_mode = 0
 specular_mode = 2
@@ -203,7 +207,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2fc7p"]
-material = SubResource("StandardMaterial3D_yf8mi")
+material = SubResource("StandardMaterial3D_08ijc")
 size = Vector2(0.1, 0.1)
 orientation = 2
 
@@ -214,7 +218,7 @@ script = ExtResource("1_uenug")
 environment = SubResource("Environment_01xfs")
 
 [node name="Sun" type="DirectionalLight3D" parent="Sky"]
-transform = Transform3D(-0.34202, -0.469847, 0.813797, 0, 0.866026, 0.5, -0.939693, 0.17101, -0.296198, 0, 3, 0)
+transform = Transform3D(-0.4825, -0.383621, 0.78742, -0.281046, 0.919259, 0.275637, -0.829583, -0.0883059, -0.551357, 0, 3, 8.9857)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
@@ -654,6 +658,9 @@ transform = Transform3D(0.165852, 0.348956, 0.922346, 0.137337, 0.918012, -0.372
 [node name="Rock5" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(0.689745, 0, 1.8773, 0, 2, 0, -1.8773, 0, 0.689745, -11.4586, 0.682719, 4.6741)
 
+[node name="Rock6" parent="Decoration" instance=ExtResource("16_s2hwi")]
+transform = Transform3D(0.0215164, 0, -0.999894, 0, 1.445, 0, 1.47984, 0, 0.0145381, -8.97314, 0.682719, 0.527388)
+
 [node name="Bamboo" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -8.64886, 3.31076, 4.36273)
 mesh = ExtResource("14_yeybn")
@@ -678,3 +685,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42522, 0.0209221, 9.2753)
 layers = 2
 size = Vector3(4, 0.493359, 4)
 material = ExtResource("23_203k2")
+
+[node name="WaterSplash" parent="." instance=ExtResource("24_jrhe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251203, 1.74821, 13.1154)
+
+[node name="WaterSplash2" parent="." instance=ExtResource("24_jrhe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167872, 1.04734, 12.9614)

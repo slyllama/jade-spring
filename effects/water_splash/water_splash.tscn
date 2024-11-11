@@ -1,0 +1,121 @@
+[gd_scene load_steps=19 format=3 uid="uid://bvsqlumwkla0v"]
+
+[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://effects/water_splash/textures/splash_mask.png" id="1_ddafp"]
+[ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="2_1n8vu"]
+
+[sub_resource type="Curve" id="Curve_exrsw"]
+_data = [Vector2(0, 0.835052), 0.0, 0.0, 0, 0, Vector2(0.1625, 0.824742), -1.877, -1.877, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4dtce"]
+curve = SubResource("Curve_exrsw")
+
+[sub_resource type="Curve" id="Curve_6qce0"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 233.814), 0.0, 0.0, 0, 0, Vector2(1, 18.5567), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o0npx"]
+curve = SubResource("Curve_6qce0")
+
+[sub_resource type="Gradient" id="Gradient_p6gj1"]
+colors = PackedColorArray(0.0744, 0.19032, 0.24, 1, 0.5, 1, 0.933333, 0.627451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kaixa"]
+gradient = SubResource("Gradient_p6gj1")
+
+[sub_resource type="Curve" id="Curve_4q54y"]
+_data = [Vector2(0, 1), 0.0, 0.718324, 0, 0, Vector2(1, 0.587629), -0.922926, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ux0j0"]
+curve = SubResource("Curve_4q54y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ppkgk"]
+emission_shape_scale = Vector3(0.12, 0.12, 0.12)
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 1.00001
+angle_curve = SubResource("CurveTexture_o0npx")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.3
+gravity = Vector3(0, -0.3, 0)
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_ux0j0")
+color_initial_ramp = SubResource("GradientTexture1D_kaixa")
+alpha_curve = SubResource("CurveTexture_4dtce")
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1j83"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ddafp")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_n5h2l"]
+material = SubResource("StandardMaterial3D_x1j83")
+size = Vector2(0.45, 0.45)
+
+[sub_resource type="Curve" id="Curve_rk320"]
+_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_22nej"]
+curve = SubResource("Curve_rk320")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m35d3"]
+emission_shape_scale = Vector3(0.3, 0.3, 0.3)
+emission_shape = 2
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.3
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.2
+scale_max = 0.4
+alpha_curve = SubResource("CurveTexture_22nej")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf8mi"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_1n8vu")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rf4ct"]
+material = SubResource("StandardMaterial3D_yf8mi")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[node name="WaterSplash" type="Node3D"]
+
+[node name="Foam" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_ppkgk")
+draw_pass_1 = SubResource("QuadMesh_n5h2l")
+
+[node name="Sparkles" type="GPUParticles3D" parent="."]
+amount = 20
+preprocess = 5.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_m35d3")
+draw_pass_1 = SubResource("PlaneMesh_rf4ct")

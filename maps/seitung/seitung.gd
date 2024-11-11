@@ -27,6 +27,11 @@ func _ready() -> void:
 			"volume": Utilities.set_master_vol()
 			"music_vol": $Music.volume_db = linear_to_db(
 				clamp(float(_value) * 0.55, 0.0, 1.0))
+			"bloom":
+				if _value == "on":
+					$Sky.environment.glow_enabled = true
+				elif _value == "off":
+					$Sky.environment.glow_enabled = false
 	)
 	SettingsHandler.refresh(["volume"])
 	
