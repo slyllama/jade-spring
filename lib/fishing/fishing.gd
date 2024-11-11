@@ -14,6 +14,12 @@ var rng = RandomNumberGenerator.new()
 var progress = 50.0
 var dir = 1
 
+func _get_x_left() -> float: # get the position of the left end of the bar
+	return(get_window().size.x / 2.0 / Global.retina_scale - width / 2.0)
+
+func _get_x_right() -> float: # get the position of the right end of the bar
+	return(get_window().size.x / 2.0 / Global.retina_scale + width / 2.0)
+
 func end():
 	Global.jade_bot_sound.emit()
 	Global.in_exclusive_ui = false
@@ -22,7 +28,7 @@ func end():
 	queue_free()
 
 func resize() -> void:
-	center_pos = get_window().size / 2.0
+	center_pos = get_window().size / 2.0 / Global.retina_scale
 	
 	$Player.position = center_pos
 	$Fish.position = center_pos
@@ -58,17 +64,15 @@ func _process(delta: float) -> void:
 		$Player.position.x += move_speed * delta
 	
 	$Fish.position.x += fish_speed * delta
-	if $Fish.position.x < get_window().size.x / 2.0 - width / 2.0:
+	if $Fish.position.x < _get_x_left():
 		$Fish.position.x += 3
 		switch_direction()
-	elif $Fish.position.x > get_window().size.x / 2.0 + width / 2.0:
+	elif $Fish.position.x > _get_x_right():
 		$Fish.position.x -= 3
 		switch_direction()
 	
 	$Player.position.x = clamp(
-		$Player.position.x,
-		get_window().size.x / 2.0 - width / 2.0,
-		get_window().size.x / 2.0 + width / 2.0)
+		$Player.position.x, _get_x_left(), _get_x_right())
 	
 	var diff = abs($Player.position.x - $Fish.position.x)
 	if diff < threshold:

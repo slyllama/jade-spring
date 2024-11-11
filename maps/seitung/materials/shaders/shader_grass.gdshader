@@ -15,24 +15,23 @@ vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
 	uv -= pivot;
 	return vec2(
 		cosa * uv.x - sina * uv.y,
-		cosa * uv.y + sina * uv.x 
+		cosa * uv.y + sina * uv.x
 	) + pivot;
 }
 
 void fragment() {
 	float blend_noise = texture(blend_noise_texture, UV).r;
 	float dirt_blend = texture(dirt_mask_texture, UV).b;
-	
+
 	vec3 grass_base = texture(grass_texture_base, UV * uv_scale).rgb;
 	vec3 grass_add = texture(grass_texture_add, rotate_uv(UV, vec2(0.5), PI / 2.0) * uv_scale * 0.5).rgb;
 	vec3 grass_normal = texture(grass_normal_texture, UV * uv_scale).rgb;
-	
+
 	vec3 dirt = texture(dirt_texture, UV * uv_scale * 0.75).rgb * 1.2;
-	
+
 	ALBEDO = mix(grass_base * 0.6, grass_add * 0.9, blend_noise);
 	ALBEDO = mix(ALBEDO, dirt, dirt_blend);
 	NORMAL_MAP = grass_normal;
 	NORMAL_MAP_DEPTH = 1.0;
 	SPECULAR = 0.2;
 }
-

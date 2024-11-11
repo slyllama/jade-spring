@@ -106,6 +106,7 @@ func _ready() -> void:
 	scale_in_tween.tween_property(arrow_visual, "scale", Vector3(1.35, 1.35, 1.35), 0.15)
 	
 	mat.shader = load("res://generic/materials/shaders/shader_color.gdshader")
+	mat.render_priority = 3
 	arrow_visual.set_surface_override_material(0, mat)
 	
 	grabber.mouse_entered.connect(func():

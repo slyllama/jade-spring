@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="8_67fdu"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="9_7bo6h"]
+[ext_resource type="AudioStream" uid="uid://bgajrg2kgqtxq" path="res://maps/seitung/sounds/mus_haiju.ogg" id="9_mig3c"]
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="10_bm5ul"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="11_aq4pe"]
 [ext_resource type="PackedScene" uid="uid://hooieo80ip7g" path="res://maps/seitung/meshes/arch_test.glb" id="12_4v57y"]
@@ -17,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://xkm0o3y7uf4i" path="res://maps/seitung/materials/textures/moss_mask.png" id="13_vc25n"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
-[ext_resource type="AudioStream" uid="uid://l3ctgouysbd2" path="res://maps/seitung/sounds/mus_scratch_track.ogg" id="17_vlvv6"]
 [ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
 [ext_resource type="Material" uid="uid://2fs6tnks1hct" path="res://maps/seitung/materials/mat_ornate_stone.tres" id="23_203k2"]
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
@@ -226,6 +226,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4026, 0.5, 10.1896)
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
+layer = 2
 
 [node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
 
@@ -238,9 +239,10 @@ script = ExtResource("5_evg50")
 
 [node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest"]
 stream = ExtResource("6_beuhg")
-volume_db = -4.0
 unit_size = 5.0
+pitch_scale = 1.1
 autoplay = true
+max_distance = 12.0
 attenuation_filter_cutoff_hz = 10000.0
 
 [node name="BeesTest2" type="Area3D" parent="CrumbHandler"]
@@ -252,9 +254,9 @@ script = ExtResource("5_evg50")
 
 [node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest2"]
 stream = ExtResource("6_beuhg")
-volume_db = -4.0
 unit_size = 5.0
 autoplay = true
+max_distance = 12.0
 attenuation_filter_cutoff_hz = 10000.0
 
 [node name="Floor" type="StaticBody3D" parent="."]
@@ -266,7 +268,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_bvguu")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_vlvv6")
+stream = ExtResource("9_mig3c")
 volume_db = -8.0
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
