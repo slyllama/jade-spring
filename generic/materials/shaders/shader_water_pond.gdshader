@@ -27,4 +27,3 @@ void fragment() {
 	ROUGHNESS = roughness;
 	ALPHA = alpha;
 }
-

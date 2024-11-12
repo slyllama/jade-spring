@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=7 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="3_kxuya"]
+[ext_resource type="PackedScene" uid="uid://c4hdvgok1lsmq" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.tscn" id="4_xgg1s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -13,6 +14,8 @@ border_width_bottom = 1
 border_color = Color(0.5, 0.5, 0.5, 1)
 border_blend = true
 
+[sub_resource type="World3D" id="World3D_cxjm1"]
+
 [node name="DecorationPane" instance=ExtResource("1_t77x7")]
 custom_minimum_size = Vector2(250, 500)
 offset_right = 270.0
@@ -20,8 +23,10 @@ offset_bottom = 500.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_77fve")
 script = ExtResource("2_f5xt2")
 title = "Place Decoration"
+metadata/_edit_vertical_guides_ = [283.0]
 
 [node name="Base" type="TextureRect" parent="." index="0"]
+clip_children = 2
 z_index = -1
 layout_mode = 0
 offset_left = -38.0
@@ -31,6 +36,25 @@ offset_bottom = 548.0
 texture = ExtResource("3_kxuya")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="0"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 10.0
+offset_right = 913.0
+offset_bottom = 582.0
+stretch = true
+
+[node name="PreviewViewport" type="SubViewport" parent="Base/PreviewContainer" index="0"]
+own_world_3d = true
+world_3d = SubResource("World3D_cxjm1")
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 2
+size = Vector2i(598, 572)
+render_target_update_mode = 4
+
+[node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]
 
 [node name="Corner" parent="." index="1"]
 visible = false

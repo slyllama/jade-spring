@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4hdvgok1lsmq"]
+
+[ext_resource type="Texture2D" uid="uid://el82jf7bxdah" path="res://maps/seitung/materials/textures/ornate_stone_diff.jpg" id="1_v8ljf"]
+[ext_resource type="Script" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.gd" id="1_ylfot"]
+[ext_resource type="Texture2D" uid="uid://cm2s3n8ajmom6" path="res://maps/seitung/materials/textures/ornate_stone_norm.jpg" id="2_68mq8"]
+[ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="3_eagrv"]
+
+[sub_resource type="Environment" id="Environment_hq0yq"]
+ambient_light_source = 2
+ambient_light_color = Color(0.35, 0.35, 0.35, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jar0u"]
+albedo_texture = ExtResource("1_v8ljf")
+normal_enabled = true
+normal_texture = ExtResource("2_68mq8")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uh8ht"]
+material = SubResource("StandardMaterial3D_jar0u")
+size = Vector2(10, 10)
+
+[node name="DecoPreview" type="Node3D"]
+script = ExtResource("1_ylfot")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.981467, 0.191631, 0, -0.191631, 0.981467, 0, 1.3714, 3)
+fov = 55.0
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hq0yq")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_uh8ht")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.294958, 0.477755, -0.827496, 0, 0.866025, 0.5, 0.95551, -0.147479, 0.255441, 0, 2, 0)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="DecoLantern" parent="." instance=ExtResource("3_eagrv")]
