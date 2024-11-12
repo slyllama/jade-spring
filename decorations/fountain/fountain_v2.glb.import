@@ -54,8 +54,8 @@ _subresources={
 "use_external/path": "res://generic/materials/mat_water_pond.tres"
 },
 "mat_waterfall": {
-"use_external/enabled": false,
-"use_external/path": "res://generic/materials/mat_placeholder.tres"
+"use_external/enabled": true,
+"use_external/path": "res://generic/materials/mat_waterfall.tres"
 },
 "mat_wood": {
 "use_external/enabled": true,

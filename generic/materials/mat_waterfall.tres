@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://bd3wl2evbk1hm"]
+[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://crolvcueyf5kj"]
 
-[ext_resource type="Shader" path="res://generic/materials/shaders/shader_water_pond.gdshader" id="1_w5mqd"]
+[ext_resource type="Shader" path="res://generic/materials/shaders/shader_water_pond.gdshader" id="1_i77mk"]
 
 [sub_resource type="Gradient" id="Gradient_11rlf"]
 
@@ -38,10 +38,14 @@ noise = SubResource("FastNoiseLite_57d6i")
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_w5mqd")
-shader_parameter/primary_color = Color(0.3776, 0.5546, 0.59, 1)
-shader_parameter/roughness = 0.2
-shader_parameter/uv_scale = Vector2(1, 1)
+shader = ExtResource("1_i77mk")
+shader_parameter/primary_color = Color(0.714673, 0.851921, 0.953168, 1)
+shader_parameter/roughness = 0.3
+shader_parameter/uv_scale = Vector2(0.2, 0.05)
+shader_parameter/alpha = 0.745
+shader_parameter/speed_scale = 7.0
+shader_parameter/normal_strength = 2.0
+shader_parameter/foam_exponent = 1.5
 shader_parameter/normal_a = SubResource("NoiseTexture2D_hy3yl")
 shader_parameter/normal_b = SubResource("NoiseTexture2D_0e2gk")
 shader_parameter/light_foam = SubResource("NoiseTexture2D_2533m")

@@ -25,6 +25,7 @@ func end():
 	Global.in_exclusive_ui = false
 	Global.can_move = true
 	Global.tool_mode = Global.TOOL_MODE_NONE
+	Global.adjustment_canceled.emit() # just in case
 	queue_free()
 
 func resize() -> void:

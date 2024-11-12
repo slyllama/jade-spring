@@ -262,7 +262,7 @@ autoplay = true
 transform = Transform3D(1.27989, 0, -0.227753, 0, 1.3, 0, 0.227753, 0, 1.27989, -5.22888, -0.172754, 14.1604)
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(0.99711, -0.000132594, 0.0759706, -2.01502e-12, 0.999998, 0.00174533, -0.0759708, -0.00174029, 0.997108, 1.28435, -0.0065321, 16.5752)
+transform = Transform3D(0.99711, -0.000132594, 0.0759706, -2.01502e-12, 0.999998, 0.00174533, -0.0759708, -0.00174029, 0.997108, 1.28435, 0.468062, 16.5752)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)

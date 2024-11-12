@@ -61,7 +61,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.
 transform = Transform3D(-0.089016, 0, -0.99603, 0, 1, 0, 0.99603, 0, -0.089016, 1.32924, 0.0197433, -1.65728)
 
 [node name="WaterSplash" parent="FountainV2" instance=ExtResource("6_rhmsy")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.206361, 0.514633, 0.467246)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.174874, 0.308005, 0.396458)
 
 [node name="WaterSplash2" parent="FountainV2" instance=ExtResource("6_rhmsy")]
 transform = Transform3D(-0.629036, 0, -0.777377, 0, 1, 0, 0.777377, 0, -0.629036, -0.116055, 1.02518, -0.768934)
