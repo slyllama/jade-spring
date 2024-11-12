@@ -49,6 +49,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://generic/materials/mat_rocks.tres"
 },
+"mat_roof_tiles": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/fountain/materials/mat_roof.tres"
+},
 "mat_water": {
 "use_external/enabled": true,
 "use_external/path": "res://generic/materials/mat_water_pond.tres"

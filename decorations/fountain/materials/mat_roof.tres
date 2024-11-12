@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://de750ee26n3f6"]
+
+[ext_resource type="Shader" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_roof.gdshader" id="1_ry3ry"]
+[ext_resource type="Texture2D" uid="uid://d2t2v3ybsrvjx" path="res://decorations/fountain/materials/textures/roof_tiles_mask.jpg" id="2_fg74l"]
+[ext_resource type="Texture2D" uid="uid://b2fu2iskwm7ij" path="res://maps/seitung/materials/mat_arch/textures/arch_roof_diff.jpg" id="3_v085l"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ry3ry")
+shader_parameter/colour_1 = Color(0.452384, 0.611433, 0.760958, 1)
+shader_parameter/colour_2 = Color(0.0838215, 0.0421156, 0.146077, 1)
+shader_parameter/uv_scale = 1.0
+shader_parameter/ao_mask_texture = ExtResource("2_fg74l")
+shader_parameter/stain_texture = ExtResource("3_v085l")

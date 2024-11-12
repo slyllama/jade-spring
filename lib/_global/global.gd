@@ -32,7 +32,8 @@ const DecoData = {
 	"fountain": {
 		"name": "Waterfall Fountain",
 		"scene": "res://decorations/fountain/deco_fountain.tscn",
-		"cursor_model": "res://decorations/fountain/fountain.glb"
+		"cursor_model": "res://decorations/fountain/fountain.glb",
+		"y_rotation": 180
 	}
 }
 

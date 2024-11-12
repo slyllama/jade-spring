@@ -6,6 +6,7 @@ var current_radius := 1.0
 var cursor_sphere: Node3D = CursorSphere.instantiate()
 var cursor_area := CursorArea.new()
 var highlight_on_decoration := true
+var y_rotation := 0.0 # this will be added to the rotation
 var disabled = false
 var data = {}
 
@@ -37,6 +38,8 @@ func activate(get_data: Dictionary) -> void:
 		var model = data.custom_model.instantiate()
 		xray.add_child(model)
 		add_child(xray)
+		if "y_rotation" in data:
+			y_rotation = data.y_rotation
 	else:
 		for _n in Utilities.get_all_children(cursor_sphere):
 			if _n is MeshInstance3D:
@@ -120,4 +123,5 @@ func _process(delta: float) -> void:
 	else:
 		var _r = Global.player_y_rotation - _b.angle_to_point(_a) - deg_to_rad(180)
 		rotation.y = _r
+		global_rotation.y += y_rotation
 		Global.mouse_3d_y_rotation = rotation.y

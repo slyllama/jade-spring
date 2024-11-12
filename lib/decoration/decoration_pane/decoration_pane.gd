@@ -4,10 +4,16 @@ func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE
 	Global.queued_decoration = id
 	Global.deco_placement_started.emit()
+	
+	var _y_rotation = 0.0
+	if "y_rotation" in Global.DecoData[id]:
+		_y_rotation = Global.DecoData[id].y_rotation
+	
 	if "cursor_model" in Global.DecoData[id]:
 		Global.set_cursor(true, {
 			"highlight_on_decoration": false,
-			"custom_model": load(Global.DecoData[id].cursor_model)})
+			"custom_model": load(Global.DecoData[id].cursor_model),
+			"y_rotation": _y_rotation})
 	else:
 		Global.set_cursor(true, {
 			"highlight_on_decoration": false})

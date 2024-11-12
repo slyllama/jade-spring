@@ -28,6 +28,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_mouse_delta = event.relative
 
+func _ready() -> void:
+	#TODO: work this out properly (i.e., with parameters, ResourceLoader)
+	pass
+	#$DecoFountain.global_rotation_degrees.y = Global.DecoData["fountain"].y_rotation
+
 func _process(delta: float) -> void:
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
 	if (!orbiting and _clicked_in_ui and Input.is_action_pressed("left_click")):
