@@ -14,12 +14,14 @@ func start_decoration_placement(id: String) -> void:
 
 func _ready() -> void:
 	super()
+	Global.deco_placement_started.connect(close)
 	
 	# Get decoration data from Global.DecoData and use it to make buttons
 	for _d in Global.DecoData:
 		var _item = Button.new()
 		var _data = Global.DecoData[_d]
 		_item.text = _data.name
+		_item.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_item.mouse_filter = Control.MOUSE_FILTER_PASS
 		
 		$Container.add_child(_item)

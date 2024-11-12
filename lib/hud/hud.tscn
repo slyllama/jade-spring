@@ -15,6 +15,7 @@
 script = ExtResource("1_ryxhn")
 
 [node name="Underlay" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -142,15 +143,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
-custom_minimum_size = Vector2(300, 500)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -332.0
-offset_top = 32.0
-offset_right = -32.0
-offset_bottom = 532.0
-grow_horizontal = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = -275.0
+offset_right = 293.0
+offset_bottom = 225.0
+grow_vertical = 2
 title = "Decorations"
 
 [node name="FG" type="ColorRect" parent="."]
