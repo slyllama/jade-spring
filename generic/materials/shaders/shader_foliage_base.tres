@@ -2,7 +2,7 @@
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx, alpha_to_coverage;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx, alpha_to_coverage, shadows_disabled;
 
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
@@ -27,15 +27,22 @@ void vertex() {
     VERTEX.x += get_wind(VERTEX.xy, UV);
 }
 
+vec3 screen(vec3 base, vec3 blend){
+	return 1.0 - (1.0 - base) * (1.0 - blend);
+}
+
+
 void fragment() {
 	vec4 albedo_tex = texture(texture_albedo, UV);
-	albedo_tex *= COLOR * 1.2;
-	ALBEDO = albedo_tex.rgb;
+	//albedo_tex *= COLOR * 1.2;
+	//ALBEDO = albedo_tex.rgb;
+	ALBEDO = COLOR.rgb * 1.25 * albedo_tex.rgb;
 
 	ALPHA *= albedo_tex.a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
 	ALPHA_ANTIALIASING_EDGE = alpha_antialiasing_edge;
-	BACKLIGHT = vec3(1.0);
+	BACKLIGHT = vec3(0.5);
+	SPECULAR = 0.2;
 
 	{
 		// Distance Fade: Pixel Dither

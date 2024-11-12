@@ -22,6 +22,7 @@ shape = SubResource("BoxShape3D_k7cxx")
 
 [node name="Lamp" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.5)
+visible = false
 light_color = Color(1, 0.75, 0, 1)
 light_energy = 2.0
 distance_fade_enabled = true
