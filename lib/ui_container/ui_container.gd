@@ -3,6 +3,7 @@ extends Panel
 # A general UI container
 const TRANS_TIME = 0.11
 var rng = RandomNumberGenerator.new()
+var mouse_in_ui = false
 signal opened
 signal closed
 
@@ -65,8 +66,12 @@ func _input(_event: InputEvent) -> void:
 		current_position = position
 
 # Keep track of what the mouse is over at the moment
-func _on_mouse_entered() -> void: Global.mouse_in_ui = true
-func _on_mouse_exited() -> void: Global.mouse_in_ui = false
+func _on_mouse_entered() -> void:
+	mouse_in_ui = true
+	Global.mouse_in_ui = true
+func _on_mouse_exited() -> void:
+	mouse_in_ui = false
+	Global.mouse_in_ui = false
 func _on_title_mouse_entered() -> void: mouse_in_title = true
 func _on_title_mouse_exited() -> void: mouse_in_title = false
 

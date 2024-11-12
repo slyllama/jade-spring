@@ -26,3 +26,7 @@ func _ready() -> void:
 		
 		$Container.add_child(_item)
 		_item.button_down.connect(start_decoration_placement.bind(_d))
+
+func _process(delta: float) -> void:
+	super(delta)
+	Global.mouse_in_deco_pane = mouse_in_ui

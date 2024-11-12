@@ -8,6 +8,12 @@
 [sub_resource type="Environment" id="Environment_hq0yq"]
 ambient_light_source = 2
 ambient_light_color = Color(0.35, 0.35, 0.35, 1)
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.05, 0.05, 0.05, 1)
+fog_density = 1.0
+fog_depth_begin = 5.0
+fog_depth_end = 7.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jar0u"]
 albedo_texture = ExtResource("1_v8ljf")
@@ -22,10 +28,6 @@ size = Vector2(10, 10)
 [node name="DecoPreview" type="Node3D"]
 script = ExtResource("1_ylfot")
 
-[node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.981467, 0.191631, 0, -0.191631, 0.981467, 0, 1.3714, 3)
-fov = 55.0
-
 [node name="Sky" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hq0yq")
 
@@ -38,3 +40,9 @@ light_energy = 1.5
 shadow_enabled = true
 
 [node name="DecoLantern" parent="." instance=ExtResource("3_eagrv")]
+
+[node name="Orbit" type="Node3D" parent="."]
+
+[node name="Camera" type="Camera3D" parent="Orbit"]
+transform = Transform3D(1, 0, 0, 0, 0.981467, 0.191631, 0, -0.191631, 0.981467, 0, 1.3714, 3)
+fov = 55.0
