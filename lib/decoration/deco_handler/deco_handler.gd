@@ -5,7 +5,13 @@ extends Node3D
 const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
 
 func place_decoration(data: Dictionary) -> void:
-	var _d = TEST_DECORATION.instantiate()
+	#var _d = TEST_DECORATION.instantiate()
+	# For now, if no scene is specified for the decoration, nothing will happen
+	if !Global.queued_decoration in Global.DecoData: return
+	var _data = Global.DecoData[Global.queued_decoration]
+	if !"scene" in _data: return
+	
+	var _d = load(_data.scene).instantiate()
 	add_child(_d)
 	_d.global_position = data.position
 	if "y_rotation" in data:

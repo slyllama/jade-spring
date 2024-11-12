@@ -5,9 +5,4 @@
 
 [node name="DecorationPane" instance=ExtResource("1_t77x7")]
 script = ExtResource("2_f5xt2")
-
-[node name="TestDeco" type="Button" parent="Container" index="3"]
-layout_mode = 2
-text = "PlaceTestDecoration"
-
-[connection signal="button_down" from="Container/TestDeco" to="." method="_on_test_deco_button_down"]
+title = "Place Decoration"

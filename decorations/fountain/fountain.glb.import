@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://vqd44whxclb3"
-path="res://.godot/imported/fountain_v2.glb-b3ca3aa4ce9dfafdcd82beeb08b4683b.scn"
+path="res://.godot/imported/fountain.glb-450f929f7de60d5b9e1faa793baef104.scn"
 
 [deps]
 
-source_file="res://decorations/fountain/fountain_v2.glb"
-dest_files=["res://.godot/imported/fountain_v2.glb-b3ca3aa4ce9dfafdcd82beeb08b4683b.scn"]
+source_file="res://decorations/fountain/fountain.glb"
+dest_files=["res://.godot/imported/fountain.glb-450f929f7de60d5b9e1faa793baef104.scn"]
 
 [params]
 

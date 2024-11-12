@@ -22,6 +22,19 @@ signal jade_bot_sound
 signal mouse_3d_click
 
 ##### Decoration signals and parameters
+const DecoData = {
+	"lantern": {
+		"name": "Lantern",
+		"scene": "res://decorations/lantern/deco_lantern.tscn",
+		"cursor_model": "res://decorations/lantern/lantern.glb"
+	},
+	"fountain": {
+		"name": "Waterfall Fountain",
+		"scene": "res://decorations/fountain/deco_fountain.tscn",
+		"cursor_model": "res://decorations/fountain/fountain.glb"
+	}
+}
+
 enum {
 	TOOL_MODE_NONE,
 	TOOL_MODE_ADJUST,
