@@ -52,6 +52,7 @@ hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1j83"]
+render_priority = 1
 transparency = 1
 cull_mode = 2
 shading_mode = 0

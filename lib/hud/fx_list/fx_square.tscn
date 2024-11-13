@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhchag2gp2u2f"]
+
+[sub_resource type="GDScript" id="GDScript_r0by1"]
+script/source = "extends ColorRect
+
+var mouse_in_square = false
+var text_is_set = false # has text been assigned?
+
+func set_tip_text(get_title: String, get_description: String):
+	text_is_set = true
+	$Tooltip.visible = true
+	$Tooltip.text = \"[font_size=19]\" + get_title + \"[/font_size]\\n\" + get_description
+	$Tooltip.size.y = 0
+
+func _ready() -> void:
+	$Tooltip.visible = false
+
+func _process(_delta: float) -> void:
+	if !text_is_set: return
+	
+	if mouse_in_square and !$Tooltip.visible:
+		$Tooltip.visible = true
+	if !mouse_in_square and $Tooltip.visible:
+		$Tooltip.visible = false
+	
+	if $Tooltip.visible:
+		$Tooltip.global_position = get_global_mouse_position()
+		$Tooltip.global_position.y -= $Tooltip.size.y
+
+func _on_mouse_entered() -> void:
+	mouse_in_square = true
+
+func _on_mouse_exited() -> void:
+	mouse_in_square = false
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3ena"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.823529)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.568973, 0.568973, 0.568973, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="FXSquare" type="ColorRect"]
+custom_minimum_size = Vector2(24, 24)
+script = SubResource("GDScript_r0by1")
+
+[node name="Tooltip" type="RichTextLabel" parent="."]
+top_level = true
+custom_minimum_size = Vector2(260, 0)
+offset_top = -100.0
+offset_right = 260.0
+offset_bottom = -42.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3ena")
+bbcode_enabled = true
+text = "((Title))
+[i]Description.[/i]"
+fit_content = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
