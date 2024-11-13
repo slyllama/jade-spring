@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=12 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://df53qugtj3cxj" path="res://generic/textures/ui_corner.png" id="3_ump44"]
 [ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="4_r77lv"]
 [ext_resource type="Texture2D" uid="uid://couvfdq0mtm6p" path="res://lib/hud/textures/settings_icon.png" id="6_n0v1s"]
+[ext_resource type="PackedScene" uid="uid://7s701kqjqy22" path="res://lib/hud/fx_list/fx_list.tscn" id="7_5oqpl"]
 [ext_resource type="PackedScene" uid="uid://gokqv1eo16nh" path="res://lib/hud/side_panel/side_panel.tscn" id="7_6qwis"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="7_w7sr0"]
 [ext_resource type="PackedScene" uid="uid://bvh87e5dxhdg8" path="res://lib/decoration/decoration_pane/decoration_pane.tscn" id="9_qacaq"]
@@ -104,6 +105,19 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
+
+[node name="FXList" parent="Toolbox" instance=ExtResource("7_5oqpl")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -102.0
+offset_right = 105.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="CornerButtons" type="HBoxContainer" parent="."]
 offset_left = 8.0

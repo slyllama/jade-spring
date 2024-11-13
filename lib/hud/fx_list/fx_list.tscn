@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7s701kqjqy22"]
+
+[ext_resource type="Script" path="res://lib/hud/fx_list/fx_list.gd" id="1_p5mv1"]
+
+[node name="FXList" type="HBoxContainer"]
+offset_right = 300.0
+offset_bottom = 18.0
+theme_override_constants/separation = 4
+script = ExtResource("1_p5mv1")
