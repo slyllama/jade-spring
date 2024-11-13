@@ -18,7 +18,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://generic/textures/splash.png"
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 boot_splash/minimum_display_time=1500
 
 [autoload]

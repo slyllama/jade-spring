@@ -8,7 +8,7 @@ const FXSquare = preload("res://lib/hud/fx_list/fx_square.tscn")
 
 const EFFECTS_LIST = { # TODO: use images instead
 	"immobile": {
-		"color": "red",
+		"texture": "immobile",
 		"title": "Immobile",
 		"description": "You are unable to move."
 	},
@@ -19,13 +19,17 @@ const EFFECTS_LIST = { # TODO: use images instead
 
 var current_effects = [ ]
 
+func _get_texture(get_name) -> Texture2D:
+	return(load("res://lib/hud/fx_list/textures/fx_" + get_name + ".png"))
+
 func update() -> void:
 	for _n in get_children():
 		_n.queue_free()
 	for _f in current_effects:
 		var _data = EFFECTS_LIST[_f]
 		var _n = FXSquare.instantiate()
-		_n.color = _data.color
+		if "texture" in _data:
+			_n.texture = _get_texture(_data.texture)
 		
 		if "title" in _data and "description" in _data:
 			_n.set_tip_text(_data.title, _data.description)

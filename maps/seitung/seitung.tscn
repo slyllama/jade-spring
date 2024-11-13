@@ -211,7 +211,7 @@ transform = Transform3D(-0.4825, -0.383621, 0.78742, -0.281046, 0.919259, 0.2756
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125875, 0.5, 10.1896)
+transform = Transform3D(-0.338721, 0, 0.940887, 0, 1, 0, -0.940887, 0, -0.338721, -0.125875, 1.17893, 10.1896)
 
 [node name="HUD" parent="." instance=ExtResource("4_6ilxl")]
 layer = 2

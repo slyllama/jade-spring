@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhchag2gp2u2f"]
+[gd_scene load_steps=4 format=3 uid="uid://dhchag2gp2u2f"]
+
+[ext_resource type="Texture2D" uid="uid://cn3kubvy6lfnd" path="res://lib/hud/fx_list/textures/fx_immobile.png" id="1_vgnib"]
 
 [sub_resource type="GDScript" id="GDScript_r0by1"]
-script/source = "extends ColorRect
+script/source = "extends TextureRect
 
 var mouse_in_square = false
 var text_is_set = false # has text been assigned?
@@ -50,13 +52,19 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="FXSquare" type="ColorRect"]
-custom_minimum_size = Vector2(24, 24)
+[node name="FXSquare" type="TextureRect"]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 24.0
+offset_bottom = 24.0
+texture = ExtResource("1_vgnib")
+expand_mode = 1
+stretch_mode = 6
 script = SubResource("GDScript_r0by1")
 
 [node name="Tooltip" type="RichTextLabel" parent="."]
 top_level = true
 custom_minimum_size = Vector2(260, 0)
+layout_mode = 0
 offset_top = -100.0
 offset_right = 260.0
 offset_bottom = -42.0

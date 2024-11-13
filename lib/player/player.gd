@@ -37,7 +37,7 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	$Camera.top_level = true
-	$Camera.set_cam_rotation(Vector3(-20, -180, 0))
+	$Camera.set_cam_rotation(Vector3(-20, 0, 0))
 	Global.jade_bot_sound.connect(play_jade_sound)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
@@ -108,7 +108,7 @@ func _physics_process(delta: float) -> void:
 		$PlayerMesh.rotation.z, _direction.z * 0.4, smoothing * 0.2 * delta)
 
 func _process(delta: float) -> void:
-	$Stars.global_position = engine_bone.global_position
+	$PlayerMesh/Stars.global_position = engine_bone.global_position
 	$Camera.global_position.x = global_position.x
 	$Camera.global_position.z = global_position.z
 	$Camera.global_position.y = lerp(
