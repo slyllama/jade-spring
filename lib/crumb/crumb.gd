@@ -12,9 +12,10 @@ func clear() -> void:
 func _input(_event: InputEvent) -> void:
 	if Global.current_crumb != self or Global.in_exclusive_ui: return
 	if Input.is_action_just_pressed("interact"):
-		var _f = FishingInstance.instantiate()
-		_f.completed.connect(clear)
-		add_child(_f)
+		if Global.tool_mode == Global.TOOL_MODE_NONE:
+			var _f = FishingInstance.instantiate()
+			_f.completed.connect(clear)
+			add_child(_f)
 
 func _ready() -> void:
 	var collision = CollisionShape3D.new()

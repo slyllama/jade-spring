@@ -14,11 +14,10 @@ func _render_fps() -> String: # pretty formatting of FPS values
 # Print information about crumbs spawned into the map
 func _render_crumb_debug() -> String:
 	if Global.crumb_handler == null:
-		return("\n\n*** CRUMB HANDLER DISCONNECTED ***")
-	var _s = ("\n\n*** CRUMB HANDLER CONNECTED ("
-		+ str(Global.crumb_handler.crumb_count) + ") ***")
+		return("")
+	var _s = "\n" + str(Global.crumb_handler.crumb_count) + " crumb(s)"
 	if Global.current_crumb != null:
-		_s += ("\n[color=yellow]Proximal crumb: " + str(Global.current_crumb))
+		_s += ("\n[color=yellow]Proximal crumb: " + str(Global.current_crumb) + "[/color]")
 	return(_s)
 
 func _ready() -> void:
@@ -42,7 +41,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Debug stuff
-	$Debug.text = _render_fps()
+	$Debug.text = "[right]"
+	$Debug.text += _render_fps()
 	$Debug.text += ("\nPrimitives: "
 		+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)))
 	$Debug.text += "\n"
@@ -51,16 +51,19 @@ func _process(_delta: float) -> void:
 	if Global.mouse_3d_position != Utilities.BIGVEC3:
 		$Debug.text += ("\n[color=yellow]Cursor 3D position: "
 			+ str(Utilities.fmt_vec3(Global.mouse_3d_position)) + "[/color]")
+	$Debug.text += "\n"
+	if Global.decorations != []:
+		$Debug.text += "\n" + str(Global.decorations.size()) + " decoration(s)"
 	if Global.active_decoration != null:
 		$Debug.text += ("\n[color=yellow]Active decoration: "
 			+ str(Global.active_decoration) + "[/color]")
 	if Global.queued_decoration != "none":
 		$Debug.text += ("\n[color=yellow]Queued decoration: "
 			+ str(Global.queued_decoration) + "[/color]")
-	if Global.decorations != []:
-		$Debug.text += "\n" + str(Global.decorations.size()) + " decoration(s) registered."
+	
 	
 	$Debug.text += _render_crumb_debug()
+	$Debug.text += "[/right]"
 
 func _on_settings_down() -> void:
 	if !$SettingsPane.is_open: $SettingsPane.open()

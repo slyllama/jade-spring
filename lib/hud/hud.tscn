@@ -27,9 +27,9 @@ stretch_mode = 1
 
 [node name="CornerNW" type="TextureRect" parent="."]
 offset_left = 260.0
-offset_top = -3.0
+offset_top = -8.0
 offset_right = 284.0
-offset_bottom = 259.0
+offset_bottom = 254.0
 rotation = 1.57079
 texture = ExtResource("3_ump44")
 expand_mode = 1
@@ -82,10 +82,14 @@ flip_v = true
 
 [node name="Debug" type="RichTextLabel" parent="."]
 clip_contents = false
-offset_left = 64.0
-offset_top = 72.0
-offset_right = 664.0
-offset_bottom = 272.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -632.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 232.0
+grow_horizontal = 0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
@@ -95,7 +99,7 @@ theme_override_constants/line_separation = -2
 theme_override_fonts/normal_font = ExtResource("2_yply7")
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-text = "[Debug]"
+text = "[right][Debug][/right]"
 scroll_active = false
 autowrap_mode = 0
 

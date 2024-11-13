@@ -22,30 +22,19 @@ func _transition():
 	
 	var fade = create_tween()
 	fade.tween_property(fg, "self_modulate:a", 1.0, TIME)
-	var scale_spinner = create_tween()
-	scale_spinner.tween_property($Spinner, "scale", Vector2(2.0, 2.0), TIME)
-	
+
 	fade.tween_callback(func():
 		get_tree().change_scene_to_packed(
 			ResourceLoader.load_threaded_get(TARGET_SCENE)))
 
-func _center_cog() -> void:
-	# Centralise the spinner (which is a sprite, and not a control node)
-	$Spinner.position = get_window().size / Global.retina_scale / 2.0 + Vector2(0, -50.0)
-
 func _ready() -> void:
-	$Spinner.visible = true
 	AudioServer.set_bus_volume_db(0, -80)
 	
 	_reset_map()
-	get_window().size_changed.connect(_center_cog)
-	_center_cog()
 	ResourceLoader.load_threaded_request(TARGET_SCENE)
 
-func _process(delta: float) -> void:
-	$Spinner.rotation_degrees += delta * 360.0 # continuous spinning of cog
+func _process(_delta: float) -> void:
 	loading_status = ResourceLoader.load_threaded_get_status(TARGET_SCENE, progress)
-	
 	match loading_status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			$Bar.value = lerp(
