@@ -219,12 +219,11 @@ layer = 2
 [node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
 
 [node name="BeesTest" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.73082, 1.23471, 13.8916)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -3.05683, 1.23471, 12.455)
 input_ray_pickable = false
 script = ExtResource("5_evg50")
 
 [node name="BugSwarmProp" parent="CrumbHandler/BeesTest" instance=ExtResource("27_hsr1n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.836234, -1.19209e-07, -1.36149)
 
 [node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest"]
 stream = ExtResource("6_beuhg")
@@ -271,7 +270,7 @@ autoplay = true
 transform = Transform3D(1.27989, 0, -0.227753, 0, 1.3, 0, 0.227753, 0, 1.27989, -5.22888, -0.172754, 14.1604)
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(-0.101647, -0.00173629, 0.994818, -7.25823e-12, 0.999998, 0.00174533, -0.994821, 0.000177407, -0.101646, 0.763718, 0.468062, 16.5752)
+transform = Transform3D(-0.101647, -0.00173629, 0.994818, -7.25823e-12, 0.999998, 0.00174533, -0.994821, 0.000177407, -0.101646, 0.763718, 0.00256428, 16.5752)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)

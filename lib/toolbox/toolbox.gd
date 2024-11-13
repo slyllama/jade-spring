@@ -19,6 +19,13 @@ func get_button_by_id(id: String):
 		if _n.id == id:
 			return(_n)
 
+func _input(_event: InputEvent) -> void:
+	# Abort certain actions by right-clicking
+	if Input.is_action_just_pressed("right_click"):
+		if Global.tool_mode == Global.TOOL_MODE_SELECT:
+			Global.tool_mode = Global.TOOL_MODE_NONE
+			set_default_skills()
+
 func _ready() -> void:
 	$SkillSwap.volume_db = linear_to_db(0)
 	set_default_skills()

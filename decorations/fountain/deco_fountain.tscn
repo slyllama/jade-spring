@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fdtci72jf3pk"]
+[gd_scene load_steps=13 format=3 uid="uid://fdtci72jf3pk"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_lcn0t"]
 [ext_resource type="AudioStream" uid="uid://qs8mrppeh6he" path="res://maps/seitung/sounds/fountain.ogg" id="3_fgfut"]
@@ -9,8 +9,11 @@
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="7_8v73e"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="8_w5pib"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2dfd"]
+size = Vector3(5.03882, 1.21259, 5.14551)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5srjh"]
-size = Vector3(4.72266, 0.480626, 4.81616)
+size = Vector3(2.87407, 3.67933, 3.18188)
 
 [sub_resource type="MultiMesh" id="MultiMesh_f5so0"]
 transform_format = 1
@@ -35,7 +38,11 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144722, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.360781, 0)
+shape = SubResource("BoxShape3D_r2dfd")
+
+[node name="Collision2" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.970543, 1.83327, -0.440796)
 shape = SubResource("BoxShape3D_5srjh")
 
 [node name="FountainModel" parent="." instance=ExtResource("5_volr7")]

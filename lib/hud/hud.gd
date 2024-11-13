@@ -17,6 +17,8 @@ func _render_crumb_debug() -> String:
 		return("\n\n*** CRUMB HANDLER DISCONNECTED ***")
 	var _s = ("\n\n*** CRUMB HANDLER CONNECTED ("
 		+ str(Global.crumb_handler.crumb_count) + ") ***")
+	if Global.current_crumb != null:
+		_s += ("\n[color=yellow]Proximal crumb: " + str(Global.current_crumb))
 	return(_s)
 
 func _ready() -> void:

@@ -81,7 +81,6 @@ expand_mode = 1
 flip_v = true
 
 [node name="Debug" type="RichTextLabel" parent="."]
-visible = false
 clip_contents = false
 offset_left = 64.0
 offset_top = 72.0
