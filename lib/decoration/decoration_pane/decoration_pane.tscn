@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=8 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="3_kxuya"]
 [ext_resource type="PackedScene" uid="uid://c4hdvgok1lsmq" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.tscn" id="4_xgg1s"]
+[ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="5_12xux"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -55,6 +56,20 @@ size = Vector2i(598, 572)
 render_target_update_mode = 4
 
 [node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]
+
+[node name="Corner" type="TextureRect" parent="Base" index="1"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 314.0
+offset_top = -555.0
+offset_right = 854.0
+offset_bottom = -203.0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("5_12xux")
+expand_mode = 1
 
 [node name="Corner" parent="." index="1"]
 visible = false
