@@ -4,6 +4,6 @@
 
 [node name="FXList" type="HBoxContainer"]
 offset_right = 300.0
-offset_bottom = 18.0
+offset_bottom = 32.0
 theme_override_constants/separation = 4
 script = ExtResource("1_p5mv1")

@@ -13,14 +13,16 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"description": "You are unable to move."
 	},
 	"decorating": {
-		"color": "green"
+		"texture": "decorating",
+		"title": "Decorating",
+		"description": "You are currently modifying an existing decoration."
 	}
 }
 
 var current_effects = [ ]
 
-func _get_texture(get_name) -> Texture2D:
-	return(load("res://lib/hud/fx_list/textures/fx_" + get_name + ".png"))
+func _get_texture(tex_id) -> Texture2D:
+	return(load("res://lib/hud/fx_list/textures/fx_" + tex_id + ".png"))
 
 func update() -> void:
 	for _n in get_children():

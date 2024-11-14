@@ -53,7 +53,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="FXSquare" type="TextureRect"]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(32, 32)
 offset_right = 24.0
 offset_bottom = 24.0
 texture = ExtResource("1_vgnib")

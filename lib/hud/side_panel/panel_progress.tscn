@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://yrtnqwevr314"]
+
+[ext_resource type="Texture2D" uid="uid://dd8ram7ugtnj6" path="res://lib/hud/side_panel/textures/progress_base.png" id="1_b8ikf"]
+[ext_resource type="Texture2D" uid="uid://cmq3a01pn8uh1" path="res://lib/hud/side_panel/materials/textures/side_panel_gradient.tres" id="1_c71ft"]
+[ext_resource type="Texture2D" uid="uid://t0j0j5r2tqrb" path="res://lib/hud/side_panel/textures/progress_filled.png" id="2_610wi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7rca"]
+content_margin_left = 20.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_c71ft")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6oeo0"]
+texture = ExtResource("1_b8ikf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0ou2"]
+texture = ExtResource("2_610wi")
+
+[node name="PanelProgress" type="Panel"]
+custom_minimum_size = Vector2(310, 18)
+offset_right = 282.0
+offset_bottom = 14.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_r7rca")
+
+[node name="Panel" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(282, 14)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Padding" type="ColorRect" parent="Panel"]
+custom_minimum_size = Vector2(20, 14)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Bar" type="ProgressBar" parent="Panel"]
+custom_minimum_size = Vector2(262, 14)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_6oeo0")
+theme_override_styles/fill = SubResource("StyleBoxTexture_s0ou2")
+step = 0.0
+value = 50.0
+show_percentage = false
