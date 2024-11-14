@@ -16,6 +16,8 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	# Apply settings
+	Global.debug_toggled.emit()
+	
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:

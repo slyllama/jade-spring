@@ -104,7 +104,6 @@ func set_cursor(state = true, data = {}) -> void:
 
 func _ready() -> void:
 	Utilities.set_master_vol(0.0)
-	debug_toggled.emit()
 	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:
