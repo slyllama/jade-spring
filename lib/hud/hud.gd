@@ -26,6 +26,9 @@ func _ready() -> void:
 	Global.deco_pane_closed.connect($DecoPane.close)
 	Global.deco_pane_opened.connect($DecoPane.open)
 	
+	Global.debug_toggled.connect(func():
+		$Debug.visible = Global.debug_enabled)
+	
 	# Configure corner buttons to light up when hovered over
 	for _n in $CornerButtons.get_children():
 		if _n is TextureButton:

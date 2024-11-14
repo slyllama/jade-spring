@@ -5,6 +5,7 @@ var crumb_handler: CrumbHandler
 
 var can_move = true
 var current_crumb = null
+var debug_enabled = false
 var foliage_count = 0
 var in_exclusive_ui = false
 var mouse_3d_position = Utilities.BIGVEC3
@@ -18,6 +19,7 @@ var popup_open = false
 var retina_scale = 1
 
 signal click_sound
+signal debug_toggled
 signal fishing_started
 signal fishing_canceled
 signal jade_bot_sound
@@ -102,6 +104,7 @@ func set_cursor(state = true, data = {}) -> void:
 
 func _ready() -> void:
 	Utilities.set_master_vol(0.0)
+	debug_toggled.emit()
 	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:

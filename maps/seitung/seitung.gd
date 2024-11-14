@@ -9,6 +9,11 @@ func reset_picking_disabled_objects() -> void:
 		_n.input_ray_pickable = true
 	picking_disabled_objects = []
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("toggle_debug"):
+		Global.debug_enabled = !Global.debug_enabled
+		Global.debug_toggled.emit()
+
 func _ready() -> void:
 	# Apply settings
 	SettingsHandler.setting_changed.connect(func(parameter):
