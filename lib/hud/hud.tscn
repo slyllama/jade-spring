@@ -141,8 +141,8 @@ stretch_mode = 0
 
 [node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
 visible = false
-offset_top = -79.0
-offset_bottom = -29.0
+offset_top = -191.0
+offset_bottom = -141.0
 
 [node name="SidePanel" parent="." instance=ExtResource("7_6qwis")]
 anchors_preset = 1
