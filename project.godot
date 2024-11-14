@@ -36,7 +36,6 @@ gdscript/warnings/unused_signal=0
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
-window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="res://generic/textures/cursor.png"
 
 [editor_plugins]

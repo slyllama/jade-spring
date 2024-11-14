@@ -111,7 +111,7 @@ func _ready() -> void:
 	if DisplayServer.screen_get_size().x > 2000:
 		retina_scale = 2
 		get_window().size *= retina_scale
-		get_window().content_scale_factor = retina_scale
+		get_window().content_scale_factor = 1.75
 		# macOS already configures the cursor for retina
 		if OS.get_name() != "macOS":
 			DisplayServer.cursor_set_custom_image(
