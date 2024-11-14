@@ -18,6 +18,7 @@ var player_y_rotation = 0.0
 var popup_open = false
 var retina_scale = 1
 
+signal announcement_sent(get_text)
 signal click_sound
 signal debug_toggled
 signal fishing_started
