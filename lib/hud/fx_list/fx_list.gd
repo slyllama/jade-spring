@@ -19,15 +19,13 @@ const EFFECTS_LIST = { # TODO: use images instead
 	}
 }
 
-var current_effects = [ ]
-
 func _get_texture(tex_id) -> Texture2D:
 	return(load("res://lib/hud/fx_list/textures/fx_" + tex_id + ".png"))
 
 func update() -> void:
 	for _n in get_children():
 		_n.queue_free()
-	for _f in current_effects:
+	for _f in Global.current_effects:
 		var _data = EFFECTS_LIST[_f]
 		var _n = FXSquare.instantiate()
 		if "texture" in _data:
@@ -38,13 +36,13 @@ func update() -> void:
 		add_child(_n)
 
 func add_effect(id) -> void:
-	if !id in current_effects:
-		current_effects.append(id)
+	if !id in Global.current_effects:
+		Global.current_effects.append(id)
 		update()
 
 func remove_effect(id) -> void:
-	if id in current_effects:
-		current_effects.erase(id)
+	if id in Global.current_effects:
+		Global.current_effects.erase(id)
 		update()
 
 func _ready() -> void:

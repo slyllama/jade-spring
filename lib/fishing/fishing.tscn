@@ -30,6 +30,7 @@ offset_right = 427.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 texture = ExtResource("3_h1eu4")
 expand_mode = 1
 stretch_mode = 6

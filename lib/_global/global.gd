@@ -6,6 +6,7 @@ var crumb_handler: CrumbHandler
 var can_move = true
 var current_crumb = null
 var debug_enabled = false
+var current_effects = [ ]
 var foliage_count = 0
 var in_exclusive_ui = false
 var mouse_3d_position = Utilities.BIGVEC3

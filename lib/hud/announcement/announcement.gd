@@ -2,8 +2,8 @@ extends RichTextLabel
 
 var active = false
 
-func play(get_text: String) -> void:
-	text = "[center]" + get_text + "[/center]"
+func play(announcement: String) -> void:
+	text = "[center]" + announcement + "[/center]"
 	visible = true
 	
 	if !active:

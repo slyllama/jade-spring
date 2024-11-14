@@ -2,6 +2,8 @@
 class_name Crumb extends Area3D
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 
+@export var type = "bug"
+
 var cursor_in_crumb = false
 signal cleared
 

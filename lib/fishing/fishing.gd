@@ -13,6 +13,7 @@ signal completed
 var rng = RandomNumberGenerator.new()
 var progress = 50.0
 var dir = 1
+var has_completed = false
 
 func _get_x_left() -> float: # get the position of the left end of the bar
 	return(get_window().size.x / 2.0 / Global.retina_scale - width / 2.0)
@@ -26,16 +27,18 @@ func _get_center() -> Vector2:
 		$BG/CenterMarker.global_position.y))
 
 func end():
+	if has_completed: return
+	has_completed = true
+	Global.jade_bot_sound.emit()
+	Global.tool_mode = Global.TOOL_MODE_NONE
+	
 	await get_tree().create_timer(0.2).timeout
 	var fade_out = create_tween()
 	fade_out.tween_property($BG, "modulate:a", 0.0, 0.4)
 	await fade_out.finished
 	
-	Global.jade_bot_sound.emit()
 	Global.in_exclusive_ui = false
 	Global.can_move = true
-	Global.tool_mode = Global.TOOL_MODE_NONE
-	Global.adjustment_canceled.emit() # just in case
 	completed.emit()
 	queue_free()
 
@@ -72,6 +75,7 @@ func _ready() -> void:
 	$BG/Progress.value = progress
 
 func _process(delta: float) -> void:
+	if has_completed: return
 	if Input.is_action_pressed("move_left"):
 		$BG/Player.global_position.x -= move_speed * delta
 	elif Input.is_action_pressed("move_right"):
