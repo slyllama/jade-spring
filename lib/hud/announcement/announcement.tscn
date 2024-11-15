@@ -61,14 +61,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -342.0
-offset_top = 35.0
+offset_top = 38.0
 offset_right = -269.0
-offset_bottom = 717.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
 texture = ExtResource("3_3vnm2")
 expand_mode = 1
 flip_v = true
+
+[node name="UICornerRight" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = 38.0
+offset_right = -269.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+texture = ExtResource("3_3vnm2")
+expand_mode = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
