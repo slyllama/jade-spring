@@ -1,5 +1,6 @@
 @tool
 extends Crumb
+var rng = RandomNumberGenerator.new()
 
 func clear() -> void:
 	Global.bug_crumb_left.emit()
@@ -9,6 +10,9 @@ func _ready() -> void:
 	super()
 	body_entered.connect(func(body):
 		if body is CharacterBody3D:
+			if !$BugEntry.playing:
+				$BugEntry.pitch_scale = 0.9 + rng.randf() * 0.2
+				$BugEntry.play()
 			Global.bug_crumb_entered.emit())
 	
 	body_exited.connect(func(body):

@@ -3,6 +3,7 @@ extends CanvasLayer
 # Minigame to clear bugs, dragonvoid, etc
 
 signal completed
+signal canceled
 
 @export var move_speed := 90.0
 @export var width := 240.0
@@ -14,6 +15,7 @@ var rng = RandomNumberGenerator.new()
 var progress = 50.0
 var dir = 1
 var has_completed = false
+var has_succeeded = false
 
 func _get_x_left() -> float: # get the position of the left end of the bar
 	return(get_window().size.x / 2.0 / Global.retina_scale - width / 2.0)
@@ -39,7 +41,10 @@ func end():
 	
 	Global.in_exclusive_ui = false
 	Global.can_move = true
-	completed.emit()
+	if has_succeeded:
+		completed.emit()
+	else:
+		canceled.emit()
 	queue_free()
 
 func resize() -> void:
@@ -98,6 +103,7 @@ func _process(delta: float) -> void:
 	else:
 		progress -= delta * 10
 	if progress > 99:
+		has_succeeded = true
 		end()
 	progress = clamp(progress, 0.0, 100.0)
 	
