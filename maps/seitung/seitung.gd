@@ -16,8 +16,6 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	# Apply settings
-	Global.debug_toggled.connect(func():
-		Global.announcement_sent.emit("Debug toggled"))
 	Global.debug_toggled.emit()
 	
 	SettingsHandler.setting_changed.connect(func(parameter):

@@ -12,4 +12,3 @@ normal_enabled = true
 normal_texture = ExtResource("2_6yemw")
 uv1_scale = Vector3(4, 4, 4)
 uv1_triplanar = true
-uv1_world_triplanar = true
