@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://gokqv1eo16nh"]
+[gd_scene load_steps=8 format=3 uid="uid://gokqv1eo16nh"]
 
+[ext_resource type="Script" path="res://lib/hud/side_panel/side_panel.gd" id="1_xy7kn"]
 [ext_resource type="PackedScene" uid="uid://d0nttru1cd431" path="res://lib/hud/side_panel/side_panel_box.tscn" id="1_ycodo"]
 [ext_resource type="Shader" path="res://lib/hud/side_panel/materials/shaders/shader_panel_gradient.gdshader" id="2_xwfhn"]
 [ext_resource type="Texture2D" uid="uid://cmq3a01pn8uh1" path="res://lib/hud/side_panel/materials/textures/side_panel_gradient.tres" id="3_0npe3"]
@@ -19,6 +20,7 @@ custom_minimum_size = Vector2(310, 0)
 offset_right = 200.0
 offset_bottom = 200.0
 theme_override_constants/separation = 0
+script = ExtResource("1_xy7kn")
 
 [node name="TestBox" parent="." instance=ExtResource("1_ycodo")]
 layout_mode = 2

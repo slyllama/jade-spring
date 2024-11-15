@@ -15,7 +15,7 @@ func _render_fps() -> String: # pretty formatting of FPS values
 func _render_crumb_debug() -> String:
 	if Global.crumb_handler == null:
 		return("")
-	var _s = "\n" + str(Global.crumb_handler.crumb_count) + " crumb(s)"
+	var _s = "\n" + str(Global.crumb_data)
 	if Global.current_crumb != null:
 		_s += ("\n[color=yellow]Proximal crumb: " + str(Global.current_crumb) + "[/color]")
 	return(_s)

@@ -2,12 +2,14 @@ class_name CrumbHandler extends Node
 # CrumbHandler
 # Handles crumbs - bug clouds, dirt, and so on
 
-var crumb_count = 0
-
 func _ready() -> void:
 	Global.crumb_handler = self # reference
 	for _n in get_children():
 		if _n is Crumb:
-			crumb_count += 1
-			_n.cleared.connect(func():
-				crumb_count -= 1)
+			if !_n.type in Global.crumb_data:
+				Global.crumb_data[_n.type] = { "total": 1, "count": 1 }
+			else:
+				Global.crumb_data[_n.type].count += 1
+				Global.crumb_data[_n.type].total += 1
+	
+	Global.crumbs_updated.emit()

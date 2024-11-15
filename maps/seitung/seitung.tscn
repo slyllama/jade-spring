@@ -1,12 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=47 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_p3dp3"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_6ilxl"]
 [ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_fqdye"]
-[ext_resource type="Script" path="res://lib/crumb/crumb.gd" id="5_evg50"]
-[ext_resource type="AudioStream" uid="uid://c1ird7hemm8dx" path="res://generic/sounds/bees.ogg" id="6_beuhg"]
 [ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="8_67fdu"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="9_7bo6h"]
@@ -20,9 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
 [ext_resource type="Texture2D" uid="uid://crd06m4fc15fh" path="res://maps/seitung/textures/moss_decal.png" id="23_byk4r"]
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
+[ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="24_lh7v3"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
-[ext_resource type="PackedScene" uid="uid://dcbfj3c5m2l7k" path="res://lib/crumb/bug_swarm/bug_swarm_prop.tscn" id="27_hsr1n"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_krpi4"]
 panorama = ExtResource("2_lnf6c")
@@ -227,36 +225,14 @@ layer = 2
 
 [node name="CrumbHandler" parent="." instance=ExtResource("4_fqdye")]
 
-[node name="BeesTest" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -3.05683, 1.23471, 12.455)
-input_ray_pickable = false
-script = ExtResource("5_evg50")
-type = null
+[node name="BugSwarm" parent="CrumbHandler" instance=ExtResource("24_lh7v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61855, 1, 11.3199)
 
-[node name="BugSwarmProp" parent="CrumbHandler/BeesTest" instance=ExtResource("27_hsr1n")]
+[node name="BugSwarm2" parent="CrumbHandler" instance=ExtResource("24_lh7v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32113, 1, 12.5615)
 
-[node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest"]
-stream = ExtResource("6_beuhg")
-unit_size = 5.0
-pitch_scale = 1.1
-autoplay = true
-max_distance = 12.0
-attenuation_filter_cutoff_hz = 10000.0
-
-[node name="BeesTest2" type="Area3D" parent="CrumbHandler"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.34795, 0.941948, 7.55819)
-input_ray_pickable = false
-script = ExtResource("5_evg50")
-type = null
-
-[node name="BugSwarmProp" parent="CrumbHandler/BeesTest2" instance=ExtResource("27_hsr1n")]
-
-[node name="Bees" type="AudioStreamPlayer3D" parent="CrumbHandler/BeesTest2"]
-stream = ExtResource("6_beuhg")
-unit_size = 5.0
-autoplay = true
-max_distance = 12.0
-attenuation_filter_cutoff_hz = 10000.0
+[node name="BugSwarm3" parent="CrumbHandler" instance=ExtResource("24_lh7v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82132, 1, 7.83363)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 3

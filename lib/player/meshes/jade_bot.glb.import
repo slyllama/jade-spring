@@ -5454,6 +5454,10 @@ _subresources={
 }
 },
 "nodes": {
+"PATH:JadeArmature/Skeleton3D/EngineGlowCard/EngineGlowCard": {
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
+},
 "PATH:JadeArmature/Skeleton3D/EngineRing2/EngineRing2": {
 "mesh_instance/layers": 0
 }

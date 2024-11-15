@@ -2,27 +2,35 @@
 class_name Crumb extends Area3D
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 
-@export var type = "bug"
+@export var type := "bug"
+@export var area_radius := 1.2
+@export var interact_when_proximal := true
+@export var can_click := false
 
 var cursor_in_crumb = false
 signal cleared
+signal interacted
 
 func clear() -> void:
+	if type in Global.crumb_data:
+		Global.crumb_data[type].count -= 1
+	
+	Global.current_crumb = null
+	Global.crumbs_updated.emit()
 	cleared.emit()
 	queue_free()
 
 func _input(_event: InputEvent) -> void:
+	if !interact_when_proximal: return
 	if Global.current_crumb != self or Global.in_exclusive_ui: return
 	if Input.is_action_just_pressed("interact"):
 		if Global.tool_mode == Global.TOOL_MODE_NONE:
-			var _f = FishingInstance.instantiate()
-			_f.completed.connect(clear)
-			add_child(_f)
+			interacted.emit()
 
 func _ready() -> void:
 	var collision = CollisionShape3D.new()
 	var shape = SphereShape3D.new()
-	shape.radius *= 2.0
+	shape.radius = area_radius
 	collision.shape = shape
 	add_child(collision)
 	
@@ -43,9 +51,7 @@ func _ready() -> void:
 		if area is CursorArea:
 			cursor_in_crumb = false)
 
-#func _process(_delta: float) -> void:
-	#if cursor_in_crumb:
-		#if Input.is_action_just_pressed("left_click"):
-			#var _f = FishingInstance.instantiate()
-			#_f.completed.connect(clear)
-			#add_child(_f)
+func _process(_delta: float) -> void:
+	if can_click and cursor_in_crumb:
+		if Input.is_action_just_pressed("left_click"):
+			interacted.emit()

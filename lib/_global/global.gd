@@ -5,6 +5,7 @@ var crumb_handler: CrumbHandler
 
 var can_move = true
 var current_crumb = null
+var crumb_data = { } # reports both total counts and progress
 var debug_enabled = false
 var current_effects = [ ]
 var foliage_count = 0
@@ -21,6 +22,7 @@ var retina_scale = 1
 
 signal announcement_sent(get_text)
 signal click_sound
+signal crumbs_updated
 signal debug_toggled
 signal fishing_started
 signal fishing_canceled
