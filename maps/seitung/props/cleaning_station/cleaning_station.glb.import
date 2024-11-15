@@ -37,6 +37,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_column.tres"
 },
+"mat_grey": {
+"use_external/enabled": true,
+"use_external/path": "res://generic/materials/mat_placeholder.tres"
+},
 "mat_rafter_wood": {
 "use_external/enabled": true,
 "use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_rafter_piece.tres"

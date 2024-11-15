@@ -21,6 +21,8 @@ var popup_open = false
 var retina_scale = 1
 
 signal announcement_sent(get_text)
+signal bug_crumb_entered
+signal bug_crumb_left
 signal click_sound
 signal crumbs_updated
 signal debug_toggled

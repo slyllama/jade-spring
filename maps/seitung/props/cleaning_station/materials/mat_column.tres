@@ -8,7 +8,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_prgwd")
-shader_parameter/occlusion_intensity = 0.35
+shader_parameter/occlusion_intensity = 0.2
 shader_parameter/uv_scale = 2.0
 shader_parameter/saturation = 1.3
 shader_parameter/multiplier = 0.45
