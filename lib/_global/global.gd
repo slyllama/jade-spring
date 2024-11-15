@@ -31,6 +31,9 @@ signal fishing_canceled
 signal jade_bot_sound
 signal mouse_3d_click
 
+signal add_effect(id) # more of a function signal - a shortcut to FXList
+signal remove_effect(id)
+
 ##### Decoration signals and parameters
 const DecoData = {
 	"lantern": {

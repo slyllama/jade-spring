@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx0omalga0s0k"]
+[gd_scene load_steps=4 format=3 uid="uid://bx0omalga0s0k"]
 
 [ext_resource type="Script" path="res://lib/hud/announcement/announcement.gd" id="1_k270b"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_3o001"]
+[ext_resource type="Texture2D" uid="uid://df53qugtj3cxj" path="res://generic/textures/ui_corner.png" id="3_3vnm2"]
 
 [node name="Announcement" type="RichTextLabel"]
+clip_contents = false
 custom_minimum_size = Vector2(1080, 50)
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,5 +33,42 @@ script = ExtResource("1_k270b")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Underlay" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.25, 0.25, 0.25, 1)
+z_index = -4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = -453.0
+offset_right = 259.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3o001")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="UICorner" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = 35.0
+offset_right = -269.0
+offset_bottom = 717.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+texture = ExtResource("3_3vnm2")
+expand_mode = 1
+flip_v = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

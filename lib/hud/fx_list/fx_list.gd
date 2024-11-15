@@ -5,6 +5,7 @@ extends HBoxContainer
 # display them.
 
 const FXSquare = preload("res://lib/hud/fx_list/fx_square.tscn")
+const UNKNOWN_TEX = preload("res://lib/hud/fx_list/textures/fx_unknown.png")
 
 const EFFECTS_LIST = { # TODO: use images instead
 	"immobile": {
@@ -16,6 +17,10 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"texture": "decorating",
 		"title": "Decorating",
 		"description": "You are currently modifying an existing decoration."
+	},
+	"discombobulator": {
+		"title": "Pest Discombobulator",
+		"description": "Go forth, Wayfinder; disperse those locusts!"
 	}
 }
 
@@ -30,6 +35,8 @@ func update() -> void:
 		var _n = FXSquare.instantiate()
 		if "texture" in _data:
 			_n.texture = _get_texture(_data.texture)
+		else:
+			_n.texture = UNKNOWN_TEX
 		
 		if "title" in _data and "description" in _data:
 			_n.set_tip_text(_data.title, _data.description)
@@ -46,12 +53,14 @@ func remove_effect(id) -> void:
 		update()
 
 func _ready() -> void:
-	Global.adjustment_started.connect(func():
-		add_effect("decorating"))
-	Global.adjustment_canceled.connect(func():
-		remove_effect("decorating"))
-	Global.adjustment_applied.connect(func():
-		remove_effect("decorating"))
+	# Connections from Global
+	Global.add_effect.connect(add_effect)
+	Global.remove_effect.connect(remove_effect)
+	
+	# Respond to adjustment events/signals
+	Global.adjustment_started.connect(func(): add_effect("decorating"))
+	Global.adjustment_canceled.connect(func(): remove_effect("decorating"))
+	Global.adjustment_applied.connect(func(): remove_effect("decorating"))
 	
 	update()
 

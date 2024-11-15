@@ -31,6 +31,8 @@ func _get_center() -> Vector2:
 func end():
 	if has_completed: return
 	has_completed = true
+	
+	Global.remove_effect.emit("discombobulator")
 	Global.jade_bot_sound.emit()
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	
