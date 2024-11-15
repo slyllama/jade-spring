@@ -11,4 +11,5 @@ void fragment() {
 	ALBEDO *= 1.0 + pow(texture(lighten_texture, UV).rgb, vec3(1.5)) * 3.0;
 	NORMAL_MAP = mix(texture(normal_multires_texture, UV).rgb, texture(normal_rock_texture, UV).rgb, 0.5);
 	NORMAL_MAP_DEPTH = 4.0;
+	SPECULAR = 0.0;
 }

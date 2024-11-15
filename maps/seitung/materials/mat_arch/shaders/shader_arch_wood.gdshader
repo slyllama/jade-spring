@@ -7,12 +7,14 @@ uniform float occlusion_intensity = 1.0;
 uniform float uv_scale = 1.0;
 uniform float saturation = 1.0;
 uniform float multiplier = 1.0;
+uniform float exponent = 1.0;
 
 void fragment() {
 	NORMAL_MAP = texture(wood_normal_texture, UV * uv_scale).rgb;
 	ALBEDO = texture(wood_texture, UV * uv_scale).rgb;
-	ALBEDO += texture(occlusion_mask, UV).rgb * occlusion_intensity;
+	ALBEDO += pow(texture(occlusion_mask, UV).rgb, vec3(exponent)) * occlusion_intensity;
 	ALBEDO = mix(vec3(dot(ALBEDO.rgb, vec3(0.299, 0.587, 0.114))), ALBEDO.rgb, saturation);
 	ALBEDO *= multiplier;
+	SPECULAR = 0.2;
 }
 

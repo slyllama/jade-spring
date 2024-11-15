@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://jnjwj0lesi8"]
+
+[ext_resource type="Shader" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_wood.gdshader" id="1_8hbwx"]
+[ext_resource type="Texture2D" uid="uid://buoxk1sfc2khu" path="res://maps/seitung/props/cleaning_station/materials/textures/rafter_piece_stain.jpg" id="2_bq73f"]
+[ext_resource type="Texture2D" uid="uid://briwh7nndqy32" path="res://maps/seitung/materials/mat_arch/textures/wood_dark_norm.jpg" id="3_ey0f5"]
+[ext_resource type="Texture2D" uid="uid://bkhyxloxjwoau" path="res://maps/seitung/materials/mat_arch/textures/wood_dark_diffuse.jpg" id="4_bydna"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8hbwx")
+shader_parameter/occlusion_intensity = 0.5
+shader_parameter/uv_scale = 2.0
+shader_parameter/saturation = 1.3
+shader_parameter/multiplier = 0.45
+shader_parameter/exponent = 3.0
+shader_parameter/wood_texture = ExtResource("4_bydna")
+shader_parameter/wood_normal_texture = ExtResource("3_ey0f5")
+shader_parameter/occlusion_mask = ExtResource("2_bq73f")
