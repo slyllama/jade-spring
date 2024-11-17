@@ -11,6 +11,47 @@ var _mouse_delta = Vector2.ZERO # event.relative
 var _clicked_in_ui = false
 var _last_click_position = Vector2.ZERO
 
+var current_model_path := ""
+var current_preview_scale := 1.0
+var current_y_rotation := 0.0 # degrees
+var loaded = false
+var loading_status: int
+
+var progress: Array[float]
+
+func _update_resource_loader() -> void:
+	if current_model_path == "": return
+	loading_status = ResourceLoader.load_threaded_get_status(current_model_path, progress)
+	match loading_status:
+		#ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			#pass
+		ResourceLoader.THREAD_LOAD_LOADED:
+			if !loaded:
+				var loaded_scene = ResourceLoader.load_threaded_get(current_model_path)
+				var scene_instance = loaded_scene.instantiate()
+				$ModelBase.add_child(scene_instance)
+				scene_instance.scale = Vector3(
+					current_preview_scale, current_preview_scale, current_preview_scale)
+			loaded = true
+		ResourceLoader.THREAD_LOAD_FAILED: pass
+
+func clear_model() -> void:
+	target_rotation = Vector3.ZERO
+	$Orbit.rotation = Vector3.ZERO
+	loaded = false
+	for _n in $ModelBase.get_children():
+		_n.queue_free()
+
+func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
+	clear_model()
+	
+	current_y_rotation = y_rotation
+	current_model_path = path
+	current_preview_scale = preview_scale
+	
+	$ModelBase.rotation_degrees.y = current_y_rotation
+	ResourceLoader.load_threaded_request(path)
+
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
 	if Input.is_action_just_pressed("left_click"):
@@ -28,13 +69,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_mouse_delta = event.relative
 
-func _ready() -> void:
-	#TODO: work this out properly (i.e., with parameters, ResourceLoader)
-	pass
-	#$DecoFountain.global_rotation_degrees.y = Global.DecoData["fountain"].y_rotation
-	$DecoFountain.scale = Vector3(0.37, 0.37, 0.37)
-
 func _process(delta: float) -> void:
+	_update_resource_loader()
+	
+	# Handle orbiting
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
 	if (!orbiting and _clicked_in_ui and Input.is_action_pressed("left_click")):
 		var _mouse_offset = get_window().get_mouse_position() - _last_click_position

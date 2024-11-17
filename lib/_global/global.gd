@@ -39,13 +39,22 @@ const DecoData = {
 	"lantern": {
 		"name": "Lantern",
 		"scene": "res://decorations/lantern/deco_lantern.tscn",
-		"cursor_model": "res://decorations/lantern/lantern.glb"
+		"cursor_model": "res://decorations/lantern/lantern.glb",
+		"preview_scale": 0.9
 	},
 	"fountain": {
 		"name": "Waterfall Fountain",
 		"scene": "res://decorations/fountain/deco_fountain.tscn",
 		"cursor_model": "res://decorations/fountain/fountain.glb",
-		"y_rotation": 180
+		"y_rotation": 90,
+		"preview_scale": 0.37
+	},
+	"shing_jea_arch": {
+		"name": "Shing Jea Arch",
+		"scene": "res://decorations/shing_jea_arch/deco_shing_jea_arch.tscn",
+		"cursor_model": "res://maps/seitung/meshes/arch_test.glb",
+		"y_rotation": 115,
+		"preview_scale": 0.42
 	}
 }
 

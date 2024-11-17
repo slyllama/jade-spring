@@ -177,7 +177,7 @@ buffer = PackedFloat32Array(-0.00183179, 0, -1.09634, -0.730203, 0, 1.09634, 0, 
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_arxqv"]
+[sub_resource type="CurveTexture" id="CurveTexture_useom"]
 curve = SubResource("Curve_ai1cj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f5nkf"]
@@ -187,9 +187,9 @@ emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0.1, 0)
 scale_min = 0.2
 scale_max = 0.4
-alpha_curve = SubResource("CurveTexture_arxqv")
+alpha_curve = SubResource("CurveTexture_useom")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08ijc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ta0p3"]
 transparency = 1
 shading_mode = 0
 specular_mode = 2
@@ -204,7 +204,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2fc7p"]
-material = SubResource("StandardMaterial3D_08ijc")
+material = SubResource("StandardMaterial3D_ta0p3")
 size = Vector2(0.1, 0.1)
 orientation = 2
 

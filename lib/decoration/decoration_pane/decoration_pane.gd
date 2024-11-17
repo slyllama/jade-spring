@@ -1,5 +1,15 @@
 extends "res://lib/ui_container/ui_container.gd"
 
+@onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
+@onready var debug = get_node("Base/Debug")
+
+var current_id
+
+func open(silent = false) -> void:
+	$PlaceDecoration.visible = false
+	super(silent)
+	preview.clear_model()
+
 func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE
 	Global.queued_decoration = id
@@ -31,8 +41,25 @@ func _ready() -> void:
 		_item.mouse_filter = Control.MOUSE_FILTER_PASS
 		
 		$Container.add_child(_item)
-		_item.button_down.connect(start_decoration_placement.bind(_d))
+		_item.button_down.connect(func():
+			$PlaceDecoration.visible = false
+			current_id = _d
+			
+			# Get the custom y-rotation, if one exists
+			var _y_rotation = 135.0
+			if "y_rotation" in _data:
+				_y_rotation += _data.y_rotation
+			
+			preview.load_model(_data.scene, _data.preview_scale, _y_rotation)
+			$PlaceDecoration.visible = true)
 
 func _process(delta: float) -> void:
 	super(delta)
+	# Report details about the 3D async loader
+	debug.text = "[right]Current path: '" + str(preview.current_model_path) + "'[/right]"
 	Global.mouse_in_deco_pane = mouse_in_ui
+
+func _on_place_decoration_button_down() -> void:
+	if current_id != null:
+		await get_tree().process_frame
+		start_decoration_placement(current_id)
