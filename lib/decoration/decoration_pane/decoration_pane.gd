@@ -6,9 +6,14 @@ extends "res://lib/ui_container/ui_container.gd"
 var current_id
 
 func open(silent = false) -> void:
-	$PlaceDecoration.visible = false
 	super(silent)
 	preview.clear_model()
+	
+	current_id = "fountain"
+	preview.load_model(
+		Global.DecoData["fountain"].scene,
+		Global.DecoData["fountain"].preview_scale,
+		Global.DecoData["fountain"].y_rotation + 135)
 
 func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE
@@ -42,7 +47,6 @@ func _ready() -> void:
 		
 		$Container.add_child(_item)
 		_item.button_down.connect(func():
-			$PlaceDecoration.visible = false
 			current_id = _d
 			
 			# Get the custom y-rotation, if one exists
@@ -50,8 +54,7 @@ func _ready() -> void:
 			if "y_rotation" in _data:
 				_y_rotation += _data.y_rotation
 			
-			preview.load_model(_data.scene, _data.preview_scale, _y_rotation)
-			$PlaceDecoration.visible = true)
+			preview.load_model(_data.scene, _data.preview_scale, _y_rotation))
 
 func _process(delta: float) -> void:
 	super(delta)
@@ -60,6 +63,7 @@ func _process(delta: float) -> void:
 	Global.mouse_in_deco_pane = mouse_in_ui
 
 func _on_place_decoration_button_down() -> void:
+	Global.deco_button_pressed = true
 	if current_id != null:
 		await get_tree().process_frame
 		start_decoration_placement(current_id)

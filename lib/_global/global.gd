@@ -7,6 +7,7 @@ var can_move = true
 var current_crumb = null
 var crumb_data = { } # reports both total counts and progress
 var debug_enabled = false
+var deco_button_pressed = false # this will become true on mouse down - decoration placement will not happen until it has been cleared
 var current_effects = [ ]
 var foliage_count = 0
 var in_exclusive_ui = false

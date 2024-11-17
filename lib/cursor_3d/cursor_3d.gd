@@ -71,9 +71,16 @@ func _input(_event: InputEvent) -> void:
 	if Global.mouse_in_ui: return
 	if Global.camera_orbiting: return
 	# Emit the 3D cursor click signal if its position is valid
+	
 	if Input.is_action_just_released("left_click"):
+		if Global.deco_button_pressed: return
 		if Global.mouse_3d_position != Utilities.BIGVEC3:
 			Global.mouse_3d_click.emit()
+			visible = false
+	
+	if Input.is_action_just_pressed("left_click"):
+		if Global.deco_button_pressed:
+			Global.deco_button_pressed = false
 
 func _ready() -> void:
 	Global.cursor_disabled.connect(dismiss)
