@@ -11,9 +11,11 @@ texture = ExtResource("1_c71ft")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6oeo0"]
 texture = ExtResource("1_b8ikf")
+axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0ou2"]
 texture = ExtResource("2_610wi")
+axis_stretch_horizontal = 1
 
 [node name="PanelProgress" type="Panel"]
 custom_minimum_size = Vector2(310, 18)

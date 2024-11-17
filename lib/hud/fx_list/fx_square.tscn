@@ -63,6 +63,8 @@ script = SubResource("GDScript_r0by1")
 
 [node name="Tooltip" type="RichTextLabel" parent="."]
 top_level = true
+z_index = 99
+z_as_relative = false
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 0
 offset_top = -100.0

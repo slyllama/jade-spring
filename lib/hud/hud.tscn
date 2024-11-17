@@ -66,46 +66,6 @@ texture = ExtResource("1_8jsj4")
 expand_mode = 1
 flip_v = true
 
-[node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
-
-[node name="Debug" type="RichTextLabel" parent="."]
-clip_contents = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -909.0
-offset_top = 32.0
-offset_right = -309.0
-offset_bottom = 232.0
-grow_horizontal = 0
-mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 1
-theme_override_constants/line_separation = -2
-theme_override_fonts/normal_font = ExtResource("2_yply7")
-theme_override_font_sizes/normal_font_size = 12
-bbcode_enabled = true
-text = "[right][Debug][/right]"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
-
-[node name="FXList" parent="Toolbox" instance=ExtResource("7_5oqpl")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -195.0
-offset_top = -111.0
-offset_right = 105.0
-offset_bottom = -79.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="VignetteNW" type="TextureRect" parent="."]
 offset_right = 281.0
 offset_bottom = 157.0
@@ -118,6 +78,7 @@ offset_top = -8.0
 offset_right = 284.0
 offset_bottom = 254.0
 rotation = 1.57079
+mouse_filter = 2
 texture = ExtResource("3_ump44")
 expand_mode = 1
 flip_h = true
@@ -131,6 +92,7 @@ offset_bottom = 28.0
 [node name="Padding" type="ColorRect" parent="CornerButtons"]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="SettingsButton" type="TextureButton" parent="CornerButtons"]
@@ -141,10 +103,7 @@ texture_normal = ExtResource("6_n0v1s")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
-visible = false
-offset_top = -191.0
-offset_bottom = -141.0
+[node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
 
 [node name="SidePanel" parent="." instance=ExtResource("7_6qwis")]
 anchors_preset = 1
@@ -154,6 +113,22 @@ offset_left = -310.0
 offset_right = 0.0
 offset_bottom = 300.0
 grow_horizontal = 0
+
+[node name="FXList" parent="." instance=ExtResource("7_5oqpl")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -111.0
+offset_right = 105.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
+layer = 2
 
 [node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
 z_index = 1
@@ -169,6 +144,11 @@ offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
 title = "Decorations"
+
+[node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
+visible = false
+offset_top = -191.0
+offset_bottom = -141.0
 
 [node name="SettingsPane" parent="." instance=ExtResource("7_w7sr0")]
 z_index = 1
@@ -192,5 +172,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Debug" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -909.0
+offset_top = 32.0
+offset_right = -309.0
+offset_bottom = 232.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/line_separation = -2
+theme_override_fonts/normal_font = ExtResource("2_yply7")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[right][Debug][/right]"
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]

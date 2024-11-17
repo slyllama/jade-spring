@@ -141,8 +141,8 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Tooltip" type="RichTextLabel" parent="."]
-top_level = true
-z_index = 10
+z_index = 99
+z_as_relative = false
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 0
 offset_top = -105.0
