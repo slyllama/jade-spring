@@ -113,5 +113,7 @@ parameters/test_blend/blend_position = 0.5
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_ao383")
-volume_db = 3.0
+volume_db = -8.0
+unit_size = 5.0
+max_db = 0.0
 autoplay = true

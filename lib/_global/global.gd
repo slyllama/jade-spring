@@ -116,15 +116,16 @@ func _ready() -> void:
 	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:
-		retina_scale = 2
-		get_window().size *= retina_scale
 		# macOS already configures the cursor for retina
 		if OS.get_name() != "macOS":
 			get_window().content_scale_factor = 1.75
+			retina_scale = 1.75
 			DisplayServer.cursor_set_custom_image(
 				load("res://generic/textures/cursor_2x.png"))
 		else:
 			get_window().content_scale_factor = 2.0
+			retina_scale = 2
+		get_window().size *= retina_scale
 
 func _on_click_sound() -> void:
 	$Click.play()

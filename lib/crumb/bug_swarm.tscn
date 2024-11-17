@@ -8,13 +8,14 @@
 [node name="BugSwarm" type="Area3D"]
 input_ray_pickable = false
 script = ExtResource("1_5hoe5")
+area_radius = 0.9
 
 [node name="BugSwarmProp" parent="." instance=ExtResource("2_y2aqg")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="Bees" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_xdlj6")
-unit_size = 5.0
+unit_size = 2.2
 pitch_scale = 1.1
 autoplay = true
 max_distance = 12.0

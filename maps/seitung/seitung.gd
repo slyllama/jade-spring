@@ -39,7 +39,7 @@ func _ready() -> void:
 				elif _value == "off":
 					$Sky.environment.glow_enabled = false
 	)
-	SettingsHandler.refresh(["volume"])
+	SettingsHandler.refresh(["volume", "window_mode"])
 	
 	Global.cursor_enabled.connect(func(data):
 		var _cursor = Cursor3D.new()

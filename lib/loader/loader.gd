@@ -30,6 +30,16 @@ func _transition():
 func _ready() -> void:
 	AudioServer.set_bus_volume_db(0, -80)
 	
+	SettingsHandler.setting_changed.connect(func(parameter):
+		var _value = SettingsHandler.settings[parameter]
+		match parameter:
+			"window_mode":
+				if _value == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
+				elif _value == "maximized": get_window().mode = Window.MODE_MAXIMIZED
+				else: get_window().mode = Window.MODE_WINDOWED
+	)
+	SettingsHandler.refresh(["volume"])
+	
 	_reset_map()
 	ResourceLoader.load_threaded_request(TARGET_SCENE)
 
