@@ -26,7 +26,7 @@ func _ready() -> void:
 	for _d in Global.DecoData:
 		var _item = Button.new()
 		var _data = Global.DecoData[_d]
-		_item.text = _data.name
+		_item.text = "  " + _data.name
 		_item.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_item.mouse_filter = Control.MOUSE_FILTER_PASS
 		

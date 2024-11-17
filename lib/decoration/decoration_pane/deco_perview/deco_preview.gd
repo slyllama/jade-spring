@@ -32,6 +32,7 @@ func _ready() -> void:
 	#TODO: work this out properly (i.e., with parameters, ResourceLoader)
 	pass
 	#$DecoFountain.global_rotation_degrees.y = Global.DecoData["fountain"].y_rotation
+	$DecoFountain.scale = Vector3(0.37, 0.37, 0.37)
 
 func _process(delta: float) -> void:
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly

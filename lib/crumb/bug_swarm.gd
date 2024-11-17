@@ -3,6 +3,7 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 
 func clear() -> void:
+	Global.announcement_sent.emit("[color=yellow]The Discombobulator scatters these pests to the Four Winds![/color]")
 	Global.bug_crumb_left.emit()
 	super()
 
@@ -26,4 +27,4 @@ func interact() -> void:
 		add_child(_f)
 	else:
 		Global.announcement_sent.emit(
-			"You need a Discombobulator to clear these pests.")
+			"[color=#ff6746]You need a Discombobulator to clear these pests.[/color]")

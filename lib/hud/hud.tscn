@@ -150,12 +150,28 @@ offset_bottom = -141.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -248.0
+offset_left = -310.0
 offset_right = 0.0
 offset_bottom = 300.0
 grow_horizontal = 0
 
+[node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = -279.0
+offset_right = -164.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+title = "Decorations"
+
 [node name="SettingsPane" parent="." instance=ExtResource("7_w7sr0")]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -167,17 +183,6 @@ offset_right = 200.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 43.0
-offset_top = -275.0
-offset_right = 293.0
-offset_bottom = 225.0
-grow_vertical = 2
-title = "Decorations"
 
 [node name="FG" type="ColorRect" parent="."]
 visible = false

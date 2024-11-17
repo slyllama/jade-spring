@@ -18,8 +18,9 @@ border_blend = true
 [sub_resource type="World3D" id="World3D_cxjm1"]
 
 [node name="DecorationPane" instance=ExtResource("1_t77x7")]
-custom_minimum_size = Vector2(250, 500)
-offset_right = 270.0
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(280, 500)
+offset_right = 280.0
 offset_bottom = 500.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_77fve")
 script = ExtResource("2_f5xt2")
@@ -30,15 +31,15 @@ metadata/_edit_vertical_guides_ = [283.0]
 clip_children = 2
 z_index = -1
 layout_mode = 0
-offset_left = -38.0
+offset_left = -34.0
 offset_top = -16.0
-offset_right = 886.0
+offset_right = 890.0
 offset_bottom = 548.0
 texture = ExtResource("3_kxuya")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Corner" type="TextureRect" parent="Base" index="0"]
+[node name="CornerNW" type="TextureRect" parent="Base" index="0"]
 z_index = 1
 layout_mode = 2
 anchor_top = 1.0
@@ -51,12 +52,27 @@ grow_vertical = 0
 texture = ExtResource("5_12xux")
 expand_mode = 1
 
-[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="1"]
+[node name="CornerSE" type="TextureRect" parent="Base" index="1"]
+z_index = 1
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 325.0
+offset_top = -473.0
+offset_right = 907.0
+offset_bottom = 4.0
+grow_vertical = 0
+texture = ExtResource("5_12xux")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="2"]
 layout_mode = 0
-offset_left = 315.0
-offset_top = 10.0
-offset_right = 913.0
-offset_bottom = 582.0
+offset_left = 325.0
+offset_top = 29.0
+offset_right = 896.0
+offset_bottom = 544.0
 stretch = true
 
 [node name="PreviewViewport" type="SubViewport" parent="Base/PreviewContainer" index="0"]
@@ -65,7 +81,7 @@ world_3d = SubResource("World3D_cxjm1")
 transparent_bg = true
 handle_input_locally = false
 msaa_3d = 2
-size = Vector2i(598, 572)
+size = Vector2i(571, 515)
 render_target_update_mode = 4
 
 [node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]

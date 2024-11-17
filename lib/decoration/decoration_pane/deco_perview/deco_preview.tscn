@@ -16,7 +16,7 @@ fog_depth_begin = 5.0
 fog_depth_end = 7.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jar0u"]
-albedo_color = Color(0.712129, 0.712129, 0.712129, 1)
+albedo_color = Color(0.5, 0.5, 0.5, 1)
 albedo_texture = ExtResource("2_lpak0")
 normal_enabled = true
 normal_texture = ExtResource("2_68mq8")
@@ -36,7 +36,7 @@ environment = SubResource("Environment_hq0yq")
 mesh = SubResource("PlaneMesh_uh8ht")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.294958, 0.477755, -0.827496, 0, 0.866025, 0.5, 0.95551, -0.147479, 0.255441, 0, 2, 0)
+transform = Transform3D(0.422618, -0.453154, 0.784885, 0, 0.866025, 0.5, -0.906308, -0.211309, 0.365998, 0, 2, 0)
 light_energy = 1.5
 shadow_enabled = true
 
@@ -47,4 +47,4 @@ transform = Transform3D(1, 0, 0, 0, 0.96363, 0.267238, 0, -0.267238, 0.96363, 0,
 fov = 55.0
 
 [node name="DecoFountain" parent="." instance=ExtResource("5_414rf")]
-transform = Transform3D(0.34641, 0, -0.2, 0, 0.4, 0, 0.2, 0, 0.34641, 0, 0.158514, 0)
+transform = Transform3D(0.34641, 0, -0.2, 0, 0.4, 0, 0.2, 0, 0.34641, 0, 0, 0)
