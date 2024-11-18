@@ -1,6 +1,7 @@
 extends "res://lib/ui_container/ui_container.gd"
 
-@onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
+@onready var preview = get_node(
+	"Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
 @onready var debug = get_node("Base/Debug")
 
 var current_id

@@ -20,7 +20,16 @@ func _render_crumb_debug() -> String:
 		_s += ("\n[color=yellow]Proximal crumb: " + str(Global.current_crumb) + "[/color]")
 	return(_s)
 
+func _show_int() -> void: # show the interaction indicator
+	$InteractIndicator.visible = true
+func _hide_int() -> void: # hide the interaction indicator
+	$InteractIndicator.visible = false
+
 func _ready() -> void:
+	Global.bug_crumb_entered.connect(_show_int)
+	Global.bug_crumb_left.connect(_hide_int)
+	Global.fishing_started.connect(_hide_int)
+	
 	$FG.visible = true
 	$Underlay.queue_free() # clear debugging component
 	Global.deco_pane_closed.connect($DecoPane.close)
