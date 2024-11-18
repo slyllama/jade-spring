@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://cy25tuewwcvyu" path="res://lib/player/materials/textures/gold_norm.jpg" id="2_m6i1q"]
 
 [resource]
-albedo_color = Color(0.581787, 0.459457, 0.403109, 1)
+albedo_color = Color(0.883643, 0.742259, 0.369258, 1)
 albedo_texture = ExtResource("1_jju8p")
 metallic = 0.4
-roughness = 0.35
+roughness = 0.2
 normal_enabled = true
-normal_scale = 0.25
+normal_scale = 0.04
 normal_texture = ExtResource("2_m6i1q")
 rim_tint = 0.1
+uv2_scale = Vector3(2, 2, 2)
 distance_fade_mode = 2
 distance_fade_min_distance = 0.2
 distance_fade_max_distance = 0.4

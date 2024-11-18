@@ -5,12 +5,14 @@
 
 [resource]
 albedo_texture = ExtResource("1_6kqc3")
-metallic = 0.4
-roughness = 0.35
+metallic = 0.65
+metallic_specular = 0.35
+roughness = 0.05
 normal_enabled = true
-normal_scale = 0.25
+normal_scale = 0.1
 normal_texture = ExtResource("2_5rboi")
 rim_tint = 0.1
+uv1_scale = Vector3(2, 2, 2)
 distance_fade_mode = 2
 distance_fade_min_distance = 0.2
 distance_fade_max_distance = 0.4
