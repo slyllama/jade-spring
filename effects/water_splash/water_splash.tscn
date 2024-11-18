@@ -20,7 +20,7 @@ point_count = 2
 curve = SubResource("Curve_6qce0")
 
 [sub_resource type="Gradient" id="Gradient_p6gj1"]
-colors = PackedColorArray(0.0744, 0.19032, 0.24, 1, 0.5, 1, 0.933333, 0.627451)
+colors = PackedColorArray(0.7505, 0.8835, 0.95, 0.705882, 0.5, 1, 0.933333, 0.509804)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kaixa"]
 gradient = SubResource("Gradient_p6gj1")
@@ -44,7 +44,7 @@ spread = 180.0
 initial_velocity_min = 0.2
 initial_velocity_max = 0.3
 gravity = Vector3(0, -0.3, 0)
-scale_max = 1.1
+scale_min = 0.8
 scale_curve = SubResource("CurveTexture_ux0j0")
 color_initial_ramp = SubResource("GradientTexture1D_kaixa")
 alpha_curve = SubResource("CurveTexture_4dtce")
@@ -83,8 +83,8 @@ spread = 180.0
 initial_velocity_min = 0.2
 initial_velocity_max = 0.3
 gravity = Vector3(0, 0.1, 0)
-scale_min = 0.2
-scale_max = 0.4
+scale_min = 0.35
+scale_max = 0.55
 alpha_curve = SubResource("CurveTexture_22nej")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf8mi"]
@@ -115,8 +115,9 @@ process_material = SubResource("ParticleProcessMaterial_ppkgk")
 draw_pass_1 = SubResource("QuadMesh_n5h2l")
 
 [node name="Sparkles" type="GPUParticles3D" parent="."]
-amount = 20
+amount = 35
 preprocess = 5.0
 speed_scale = 0.5
+fixed_fps = 15
 process_material = SubResource("ParticleProcessMaterial_m35d3")
 draw_pass_1 = SubResource("PlaneMesh_rf4ct")

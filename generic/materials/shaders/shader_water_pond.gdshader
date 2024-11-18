@@ -21,7 +21,7 @@ void fragment() {
 	vec3 normal_map = texture(normal_a, uv + TIME * 0.01 * speed_scale).rgb * 0.4;
 	normal_map += texture(normal_b, uv - TIME * 0.005 * speed_scale).rgb * 0.7;
 	
-	ALBEDO = primary_color.rgb * pow(texture(light_foam, uv - TIME * 0.012 * speed_scale).rgb, vec3(foam_exponent)) + 0.5 * vec3(fresnel(2.0, NORMAL, VIEW));
+	ALBEDO = primary_color.rgb * pow(texture(light_foam, uv - TIME * 0.012 * speed_scale).rgb, vec3(foam_exponent)) + 0.5 * vec3(fresnel(3.0, NORMAL, VIEW));
 	NORMAL_MAP = normal_map;
 	NORMAL_MAP_DEPTH = normal_strength;
 	ROUGHNESS = roughness;

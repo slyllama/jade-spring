@@ -101,9 +101,9 @@ func _process(delta: float) -> void:
 	
 	var diff = abs($BG/Player.global_position.x - $BG/Fish.global_position.x)
 	if diff < threshold:
-		progress += delta * 18
+		progress += delta * 10
 	else:
-		progress -= delta * 10
+		progress -= delta * 10.6
 	if progress > 99:
 		has_succeeded = true
 		end()

@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"mat_emission": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_jade.tres"
+},
 "mat_rock_base": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/lantern/materials/mat_rock_base.tres"

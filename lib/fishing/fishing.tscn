@@ -52,7 +52,7 @@ grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxTexture_q4ydp")
 theme_override_styles/fill = SubResource("StyleBoxTexture_fqhv7")
 step = 0.0
-value = 50.0
+value = 35.0
 show_percentage = false
 
 [node name="Fish" type="Sprite2D" parent="BG"]

@@ -50,7 +50,7 @@ const DecoData = {
 		"scene": "res://decorations/fountain/deco_fountain.tscn",
 		"cursor_model": "res://decorations/fountain/fountain.glb",
 		"y_rotation": 90,
-		"preview_scale": 0.37
+		"preview_scale": 0.34
 	},
 	"shing_jea_arch": {
 		"name": "Shing Jea Arch",

@@ -7,6 +7,9 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_3au0y")
+shader_parameter/overlay_color = null
+shader_parameter/overlay_exponent = 1.0
+shader_parameter/overlay_uv_scale = 1.0
 shader_parameter/uv_scale = 2.1
 shader_parameter/rock_texture = ExtResource("4_v1t8j")
 shader_parameter/normal_rock_texture = ExtResource("3_e2pe3")

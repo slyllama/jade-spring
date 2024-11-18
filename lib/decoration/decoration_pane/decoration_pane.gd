@@ -8,6 +8,7 @@ func open(silent = false) -> void:
 	preview.clear_model()
 	
 	current_id = "fountain"
+	preview.current_id = "fountain"
 	preview.load_model(
 		Global.DecoData["fountain"].scene,
 		Global.DecoData["fountain"].preview_scale,
@@ -52,6 +53,7 @@ func _ready() -> void:
 			if "y_rotation" in _data:
 				_y_rotation += _data.y_rotation
 			
+			preview.current_id = current_id
 			preview.load_model(_data.scene, _data.preview_scale, _y_rotation))
 
 func _process(delta: float) -> void:

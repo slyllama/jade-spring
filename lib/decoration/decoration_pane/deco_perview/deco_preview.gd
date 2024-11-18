@@ -1,5 +1,10 @@
 extends Node3D
 
+const Offsets = {
+	"shing_jea_arch": -0.4,
+	"fountain": 0.2
+}
+
 var orbiting = false
 var target_rotation = Vector3.ZERO
 var smooth_rotation = Vector3.ZERO
@@ -11,6 +16,7 @@ var _mouse_delta = Vector2.ZERO # event.relative
 var _clicked_in_ui = false
 var _last_click_position = Vector2.ZERO
 
+var current_id := "" # same as top-level (DecorationPane)
 var current_model_path := ""
 var current_preview_scale := 1.0
 var current_y_rotation := 0.0 # degrees
@@ -48,6 +54,10 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 	current_y_rotation = y_rotation
 	current_model_path = path
 	current_preview_scale = preview_scale
+	
+	if current_id in Offsets:
+		$ModelBase.position.y = Offsets[current_id]
+	else:$ModelBase.position.y = 0.0
 	
 	$ModelBase.rotation_degrees.y = current_y_rotation
 	ResourceLoader.load_threaded_request(path)
