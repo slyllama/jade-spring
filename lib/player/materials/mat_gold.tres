@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cy25tuewwcvyu" path="res://lib/player/materials/textures/gold_norm.jpg" id="2_5rboi"]
 
 [resource]
+albedo_color = Color(0.77, 0.651548, 0.2233, 1)
 albedo_texture = ExtResource("1_6kqc3")
 metallic = 0.65
 metallic_specular = 0.35
