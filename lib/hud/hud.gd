@@ -21,15 +21,20 @@ func _render_crumb_debug() -> String:
 	return(_s)
 
 func _show_int() -> void: # show the interaction indicator
-	$InteractIndicator.visible = true
+	var fade_tween = create_tween()
+	fade_tween.tween_property($InteractIndicator, "modulate:a", 1.0, 0.1)
 func _hide_int() -> void: # hide the interaction indicator
-	$InteractIndicator.visible = false
+	var fade_tween = create_tween()
+	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.0, 0.1)
 
 func _ready() -> void:
 	Global.bug_crumb_entered.connect(_show_int)
 	Global.bug_crumb_left.connect(_hide_int)
 	Global.fishing_started.connect(_hide_int)
+	Global.generic_area_entered.connect(_show_int)
+	Global.generic_area_left.connect(_hide_int)
 	
+	$InteractIndicator.modulate.a = 0.0
 	$FG.visible = true
 	$Underlay.queue_free() # clear debugging component
 	Global.deco_pane_closed.connect($DecoPane.close)

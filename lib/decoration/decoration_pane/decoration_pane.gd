@@ -1,9 +1,6 @@
 extends "res://lib/ui_container/ui_container.gd"
 
-@onready var preview = get_node(
-	"Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
-@onready var debug = get_node("Base/Debug")
-
+@onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
 var current_id
 
 func open(silent = false) -> void:
@@ -59,8 +56,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	super(delta)
-	# Report details about the 3D async loader
-	debug.text = "[right]Current path: '" + str(preview.current_model_path) + "'[/right]"
 	Global.mouse_in_deco_pane = mouse_in_ui
 
 func _on_place_decoration_button_down() -> void:

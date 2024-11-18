@@ -106,6 +106,11 @@ stretch_mode = 0
 
 [node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
 
+[node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
+visible = false
+offset_top = -191.0
+offset_bottom = -141.0
+
 [node name="SidePanel" parent="." instance=ExtResource("7_6qwis")]
 anchors_preset = 1
 anchor_left = 1.0
@@ -131,6 +136,22 @@ grow_vertical = 0
 [node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
 layer = 2
 
+[node name="InteractIndicator" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = 38.0
+offset_right = 296.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_dlrg2")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
 z_index = 1
 anchors_preset = 8
@@ -145,11 +166,6 @@ offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
 title = "Decorations"
-
-[node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
-visible = false
-offset_top = -191.0
-offset_bottom = -141.0
 
 [node name="SettingsPane" parent="." instance=ExtResource("7_w7sr0")]
 z_index = 1
@@ -196,22 +212,5 @@ bbcode_enabled = true
 text = "[right][Debug][/right]"
 scroll_active = false
 autowrap_mode = 0
-
-[node name="InteractIndicator" type="TextureRect" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 92.0
-offset_top = 20.0
-offset_right = 320.0
-offset_bottom = 82.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("14_dlrg2")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]

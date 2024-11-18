@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=8 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="3_kxuya"]
 [ext_resource type="PackedScene" uid="uid://c4hdvgok1lsmq" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.tscn" id="4_xgg1s"]
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="5_12xux"]
-[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="6_ac26r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -68,30 +67,7 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="Debug" type="RichTextLabel" parent="Base" index="2"]
-clip_contents = false
-layout_mode = 2
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -584.0
-offset_top = 25.0
-offset_right = -48.0
-offset_bottom = 225.0
-grow_horizontal = 0
-mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 1
-theme_override_constants/line_separation = -2
-theme_override_fonts/normal_font = ExtResource("6_ac26r")
-theme_override_font_sizes/normal_font_size = 12
-bbcode_enabled = true
-text = "[right][Debug][/right]"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="3"]
+[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="2"]
 layout_mode = 0
 offset_left = 325.0
 offset_top = 29.0

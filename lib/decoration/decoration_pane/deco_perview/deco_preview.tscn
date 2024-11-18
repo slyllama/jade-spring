@@ -11,7 +11,6 @@
 ambient_light_source = 2
 ambient_light_color = Color(0.5, 0.5, 0.5, 1)
 tonemap_mode = 2
-fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.05, 0.05, 0.05, 1)
 fog_density = 1.0
@@ -49,8 +48,7 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_arxqv"]
 curve = SubResource("Curve_iv3k0")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t61he"]
-emission_shape_scale = Vector3(3, 1, 3)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cl58p"]
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0.1, 0)
@@ -84,6 +82,7 @@ script = ExtResource("1_ylfot")
 environment = SubResource("Environment_hq0yq")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("PlaneMesh_uh8ht")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
@@ -94,8 +93,8 @@ shadow_enabled = true
 [node name="Orbit" type="Node3D" parent="."]
 
 [node name="Camera" type="Camera3D" parent="Orbit"]
-transform = Transform3D(1, 0, 0, 0, 0.96363, 0.267238, 0, -0.267238, 0.96363, 0, 1.456, 3)
-fov = 55.0
+transform = Transform3D(1, 0, 0, 0, 0.96363, 0.267238, 0, -0.267238, 0.96363, 0, 2.30899, 6.07577)
+fov = 25.0
 
 [node name="ModelBase" type="Node3D" parent="."]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
@@ -106,5 +105,5 @@ amount = 20
 lifetime = 2.0
 preprocess = 5.0
 speed_scale = 0.5
-process_material = SubResource("ParticleProcessMaterial_t61he")
+process_material = SubResource("ParticleProcessMaterial_cl58p")
 draw_pass_1 = SubResource("PlaneMesh_b55oj")

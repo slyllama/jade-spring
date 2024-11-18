@@ -29,6 +29,8 @@ signal crumbs_updated
 signal debug_toggled
 signal fishing_started
 signal fishing_canceled
+signal generic_area_entered
+signal generic_area_left
 signal jade_bot_sound
 signal mouse_3d_click
 

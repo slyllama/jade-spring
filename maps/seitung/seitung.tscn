@@ -216,15 +216,18 @@ var player_in_range = false
 func _input(_event: InputEvent) -> void:
 	if !player_in_range: return
 	if Input.is_action_just_pressed(\"interact\"):
+		Global.generic_area_left.emit()
 		Global.add_effect.emit(\"discombobulator\")
 
 func _ready() -> void:
 	body_entered.connect(func(body):
 		if body is CharacterBody3D:
-			player_in_range =  true)
+			Global.generic_area_entered.emit()
+			player_in_range = true)
 	
 	body_exited.connect(func(body):
 		if body is CharacterBody3D:
+			Global.generic_area_left.emit()
 			player_in_range = false)
 "
 
