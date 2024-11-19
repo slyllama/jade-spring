@@ -39,6 +39,10 @@ const TOOLTIPS = {
 		"title": "Toggle Transformation Basis",
 		"description": "Switch between object and world space for decoration transformation."
 	},
+	"translate": {
+		"title": "Move/Scale",
+		"description": "Move and uniformly scale the decoration."
+	},
 	"rotate": {
 		"title": "Rotate",
 		"description": "Rotate the decoration."

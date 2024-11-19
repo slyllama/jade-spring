@@ -17,4 +17,3 @@ void fragment() {
 	ALBEDO *= multiplier;
 	SPECULAR = 0.2;
 }
-

@@ -47,7 +47,7 @@ _subresources={
 },
 "mat_rock": {
 "use_external/enabled": true,
-"use_external/path": "res://generic/materials/mat_rocks.tres"
+"use_external/path": "res://decorations/fountain/materials/mat_rocks.tres"
 },
 "mat_roof_tiles": {
 "use_external/enabled": true,
