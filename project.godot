@@ -38,6 +38,10 @@ window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 mouse_cursor/custom_image="res://generic/textures/cursor.png"
 
+[editor]
+
+movie_writer/movie_file="D:/Repos/seitung-spring-clean/build/out.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/mmo_camera/plugin.cfg")

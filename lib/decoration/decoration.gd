@@ -38,7 +38,6 @@ func _spawn_arrows(transform_space: int):
 	arrows.append(_arr_z)
 	
 	var _scale_gizmo = GizmoScale.new()
-	_scale_gizmo.position.y = 5.0
 	add_child(_scale_gizmo)
 
 func _clear_arrows() -> void:

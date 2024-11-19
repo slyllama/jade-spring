@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://fqasq1ggshha"]
+[gd_scene load_steps=5 format=3 uid="uid://fqasq1ggshha"]
 
 [ext_resource type="Script" path="res://lib/loader/loader.gd" id="1_kyod5"]
+[ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_stjvc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83o4o"]
 
@@ -17,6 +18,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="DecorationNE" type="TextureRect" parent="BG"]
+modulate = Color(0.1, 0.1, 0.1, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 9.0
+offset_top = 282.0
+offset_right = 295.0
+offset_bottom = 620.0
+grow_horizontal = 0
+rotation = 3.14159
+texture = ExtResource("2_stjvc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DecorationSW" type="TextureRect" parent="BG"]
+modulate = Color(0.1, 0.1, 0.1, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -281.0
+offset_right = 274.0
+offset_bottom = 57.0
+grow_vertical = 0
+texture = ExtResource("2_stjvc")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Bar" type="ProgressBar" parent="."]
 anchors_preset = 12

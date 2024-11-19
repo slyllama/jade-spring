@@ -57,6 +57,13 @@ func _ready() -> void:
 	_fade_tween.tween_callback($FG.queue_free)
 
 func _process(_delta: float) -> void:
+	if Global.tool_mode != Global.TOOL_MODE_NONE:
+		if $InteractIndicator.visible:
+			$InteractIndicator.visible = false
+	else:
+		if !$InteractIndicator.visible:
+			$InteractIndicator.visible = true
+	
 	# Debug stuff
 	$Debug.text = "[right]"
 	$Debug.text += _render_fps()
@@ -77,7 +84,6 @@ func _process(_delta: float) -> void:
 	if Global.queued_decoration != "none":
 		$Debug.text += ("\n[color=yellow]Queued decoration: "
 			+ str(Global.queued_decoration) + "[/color]")
-	
 	
 	$Debug.text += _render_crumb_debug()
 	$Debug.text += "[/right]"

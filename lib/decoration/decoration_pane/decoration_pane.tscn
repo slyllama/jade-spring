@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=9 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="3_kxuya"]
 [ext_resource type="PackedScene" uid="uid://c4hdvgok1lsmq" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.tscn" id="4_xgg1s"]
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="5_12xux"]
+[ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="6_cqq78"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -67,7 +68,35 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="2"]
+[node name="DecorationSW" type="TextureRect" parent="Base" index="2"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 307.0
+offset_right = 278.0
+offset_bottom = 602.0
+mouse_filter = 2
+texture = ExtResource("6_cqq78")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DecorationNE" type="TextureRect" parent="Base" index="3"]
+modulate = Color(0.25, 0.25, 0.25, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -17.0
+offset_top = 259.0
+offset_right = 233.0
+offset_bottom = 554.0
+grow_horizontal = 0
+rotation = 3.14159
+texture = ExtResource("6_cqq78")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="4"]
 layout_mode = 0
 offset_left = 325.0
 offset_top = 29.0
