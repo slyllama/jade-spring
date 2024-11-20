@@ -9,11 +9,6 @@ func reset_picking_disabled_objects() -> void:
 	picking_disabled_objects = []
 
 func _input(_event: InputEvent) -> void:
-	# TODO: testing out the dragger
-	#if Input.is_action_just_pressed("left_click"):
-		#var _dragger = load("res://lib/dragger/dragger.tscn").instantiate()
-		#add_child(_dragger)
-	
 	if Input.is_action_just_pressed("toggle_debug"):
 		Global.debug_enabled = !Global.debug_enabled
 		Global.debug_toggled.emit()

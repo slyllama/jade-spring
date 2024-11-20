@@ -4,7 +4,7 @@ enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 @export var collision_box: PhysicsBody3D
 var last_position: Vector3
-var arrows: Array[GizmoArrow] = []
+var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 
 func _spawn_arrows(transform_space: int):
@@ -39,6 +39,7 @@ func _spawn_arrows(transform_space: int):
 	
 	var _scale_gizmo = GizmoScale.new()
 	add_child(_scale_gizmo)
+	arrows.append(_scale_gizmo)
 
 func _clear_arrows() -> void:
 	for _a in arrows: _a.destroy()

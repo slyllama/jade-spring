@@ -2,6 +2,7 @@
 class_name GizmoScale extends Node3D
 
 const ScaleMesh = preload("res://lib/gizmo/meshes/gizmo_scale.res")
+const Dragger = preload("res://lib/dragger/dragger.tscn")
 
 var enabled = false
 var active = false
@@ -13,6 +14,12 @@ var color: Color
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
 	mat.set_shader_parameter("color", get_color * dim)
+
+func destroy() -> void:
+	enabled = false
+	var scale_out_tween = create_tween()
+	scale_out_tween.tween_property(scale_visual, "scale", Vector3(0.01, 0.01, 0.01), 0.15)
+	scale_out_tween.tween_callback(queue_free)
 
 func _ready() -> void:
 	enabled = true
@@ -48,4 +55,17 @@ func _ready() -> void:
 		if active: return
 		set_color(color, 0.5))
 	
-	position.y = 2.5
+	grabber.drag_started.connect(func():
+		if !enabled: return
+		
+		var _d = Dragger.instantiate()
+		_d.axis = _d.Axis.Y
+		add_child(_d)
+		
+		_d.ratio_changed.connect(func(ratio):
+			var _new_scale = clamp(get_parent().scale.x + ratio * -0.1, 0.5, 2.5)
+			get_parent().scale = Vector3(_new_scale, _new_scale, _new_scale)
+		)
+	)
+	
+	position.y = 1.9
