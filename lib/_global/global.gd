@@ -72,6 +72,7 @@ enum {
 	TOOL_MODE_NONE,
 	TOOL_MODE_ADJUST,
 	TOOL_MODE_SELECT,
+	TOOL_MODE_DELETE,
 	TOOL_MODE_PLACE,
 	TOOL_MODE_FISH }
 enum {TRANSFORM_MODE_OBJECT, TRANSFORM_MODE_WORLD}
@@ -80,6 +81,7 @@ const tool_identities = [ # associations for debug printing
 	"TOOL_MODE_NONE",
 	"TOOL_MODE_ADJUST",
 	"TOOL_MODE_SELECT",
+	"TOOL_MODE_DELETE",
 	"TOOL_MODE_PLACE",
 	"TOOL_MODE_FISH" ]
 
@@ -94,6 +96,7 @@ signal deco_pane_opened
 signal deco_placement_started
 signal deco_placement_canceled
 signal deco_placed(data)
+signal deco_deleted
 signal transform_mode_changed(transform_mode)
 
 var decorations = [] # references to decorations will populate here

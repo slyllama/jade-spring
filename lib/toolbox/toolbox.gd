@@ -10,6 +10,7 @@ func set_default_skills() -> void:
 	clear_skills()
 	$Box/Skill1.switch_skill("select")
 	$Box/Skill2.switch_skill("deco_test")
+	$Box/Skill3.switch_skill("delete")
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.queued_decoration = "none"
 	Global.set_cursor(false)
@@ -37,6 +38,7 @@ func _ready() -> void:
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.deco_placed.connect(set_default_skills)
+	Global.deco_deleted.connect(set_default_skills)
 	Global.deco_placement_canceled.connect(set_default_skills)
 	
 	Global.adjustment_started.connect(func():
@@ -58,10 +60,26 @@ func _ready() -> void:
 #region Skill button behaviour
 func skill_used(skill_id: String) -> void:
 	match skill_id:
+		"delete": # delete a decoration - uses similar logic to 'select'
+			if Global.tool_mode == Global.TOOL_MODE_NONE:
+				Global.tool_mode = Global.TOOL_MODE_DELETE
+				
+				clear_skills()
+				$Box/Skill3.switch_skill("delete")
+				get_button_by_id("delete").set_highlight()
+				
+				Global.set_cursor()
+			elif Global.tool_mode == Global.TOOL_MODE_DELETE:
+				Global.tool_mode = Global.TOOL_MODE_NONE
+				set_default_skills()
 		"select":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_SELECT
+				
+				clear_skills()
+				$Box/Skill1.switch_skill("select")
 				get_button_by_id("select").set_highlight()
+				
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_SELECT:
 				Global.tool_mode = Global.TOOL_MODE_NONE

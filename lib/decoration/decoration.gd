@@ -107,8 +107,17 @@ func _ready() -> void:
 			Global.cursor_tint_changed.emit(Color.RED))
 		
 		collision_box.input_event.connect(func(_c, _e, _p, _n, _i):
-			if (Global.tool_mode != Global.TOOL_MODE_SELECT
-				or Global.active_decoration != null): return
+			if Global.active_decoration != null: return
+			
 			if Input.is_action_just_pressed("left_click"):
-				Global.set_cursor(false)
-				start_adjustment())
+				if Global.tool_mode == Global.TOOL_MODE_SELECT:
+					Global.set_cursor(false)
+					start_adjustment()
+				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
+					Global.set_cursor(false)
+					
+					Global.tool_mode = Global.TOOL_MODE_NONE
+					Global.deco_deleted.emit()
+					
+					queue_free() # TODO: better delete communication?
+			)

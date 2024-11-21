@@ -9,6 +9,7 @@ const RANDOM_COLORS = [ Color.CYAN, Color.ORANGE_RED, Color.GREEN, Color.YELLOW,
 
 const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
+	"delete": preload("res://lib/skill_button/textures/cancel.png"),
 	"deco_test": preload("res://lib/skill_button/textures/deco.png"),
 	"rotate": preload("res://lib/skill_button/textures/rotate.png"),
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
@@ -22,6 +23,10 @@ const TOOLTIPS = {
 	"select": {
 		"title": "Select Decoration",
 		"description": "Select a decoration for adjusting."
+	},
+	"delete": {
+		"title": "Delete Decoration",
+		"description": "Clear the selected decoration."
 	},
 	"deco_test": {
 		"title": "Open Decoration Pane",
