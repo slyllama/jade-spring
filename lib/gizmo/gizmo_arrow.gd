@@ -122,6 +122,7 @@ func _ready() -> void:
 	tangent_cast.top_level = true
 	
 	position.y = 1.0
+	set_disable_scale(true)
 
 var last_collision = null
 @onready var last_position = get_parent().global_position
