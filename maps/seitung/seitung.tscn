@@ -255,6 +255,7 @@ layer = 2
 
 [node name="BugSwarm" parent="CrumbHandler" instance=ExtResource("24_lh7v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61855, 1, 11.3199)
+visible = false
 
 [node name="BugSwarm2" parent="CrumbHandler" instance=ExtResource("24_lh7v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32113, 1, 12.5615)

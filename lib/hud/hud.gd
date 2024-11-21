@@ -27,6 +27,14 @@ func _hide_int() -> void: # hide the interaction indicator
 	var fade_tween = create_tween()
 	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.0, 0.1)
 
+func _input(_event: InputEvent) -> void:
+	# Toggle HUD visibility (good for promotional screenshots)
+	if Input.is_action_just_pressed("toggle_hud"):
+		if visible:
+			visible = false
+		else:
+			visible = true
+
 func _ready() -> void:
 	Global.bug_crumb_entered.connect(_show_int)
 	Global.bug_crumb_left.connect(_hide_int)

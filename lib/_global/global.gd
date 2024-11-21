@@ -58,6 +58,13 @@ const DecoData = {
 		"cursor_model": "res://maps/seitung/meshes/arch_test.glb",
 		"y_rotation": 115,
 		"preview_scale": 0.42
+	},
+	"bloodstone_impacted_pillar": {
+		"name": "Bloodstone-Impacted Pillar",
+		"scene": "res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn",
+		"cursor_model": "res://decorations/bloodstone_impacted_pillar/bloodstone_impacted_pillar.glb",
+		#"y_rotation": 115,
+		"preview_scale": 0.73
 	}
 }
 
