@@ -39,6 +39,10 @@ func _ready() -> void:
 	$Camera.top_level = true
 	$Camera.set_cam_rotation(Vector3(-20, 0, 0))
 	Global.jade_bot_sound.connect(play_jade_sound)
+	
+	# Move the player to a new location using global signals
+	Global.move_player.connect(func(_pos: Vector3):
+		global_position = _pos)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
 var _blend_target = 1.0

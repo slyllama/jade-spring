@@ -32,8 +32,7 @@ signal fishing_canceled
 signal generic_area_entered
 signal generic_area_left
 signal jade_bot_sound
-signal mouse_3d_click
-
+signal move_player(new_position: Vector3) # function - moves the player
 signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
 
@@ -116,6 +115,7 @@ func toggle_transform_mode() -> void:
 ##### Cursor signals and parameters
 
 var cursor_active = false
+signal mouse_3d_click
 
 signal cursor_enabled(data: Dictionary)
 signal cursor_disabled

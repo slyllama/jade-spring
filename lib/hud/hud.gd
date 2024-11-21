@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@export var safe_point: Marker3D
+
 const FADE = 0.6 # faded buttons will have this alpha value
 
 func _render_fps() -> String: # pretty formatting of FPS values
@@ -99,3 +101,9 @@ func _process(_delta: float) -> void:
 func _on_settings_down() -> void:
 	if !$SettingsPane.is_open: $SettingsPane.open()
 	else: $SettingsPane.close()
+
+func _on_wp_button_down() -> void:
+	if safe_point != null:
+		Global.move_player.emit(safe_point.global_position)
+	else:
+		Global.announcement_sent.emit("((No safe point to teleport to!))")
