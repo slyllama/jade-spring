@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"mat_bloodstone": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/bloodstone_impacted_pillar/materials/mat_bloodstone.tres"
+},
 "mat_column": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/bloodstone_impacted_pillar/materials/mat_temp_rock.tres"

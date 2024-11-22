@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ib2x4vv4mu02" path="res://decorations/bloodstone_impacted_pillar/materials/textures/column_mutires.jpg" id="1_yhcct"]
 
 [resource]
-albedo_color = Color(0.5, 0.5, 0.5, 1)
+albedo_color = Color(0.35, 0.35, 0.35, 1)
 normal_enabled = true
 normal_scale = 2.0
 normal_texture = ExtResource("1_yhcct")
