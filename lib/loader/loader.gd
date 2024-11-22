@@ -29,7 +29,6 @@ func _transition():
 
 func _ready() -> void:
 	AudioServer.set_bus_volume_db(0, -80)
-	
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:
