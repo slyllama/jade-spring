@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=12 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_g05lm"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="5_pvsjo"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
 [ext_resource type="AudioStream" uid="uid://b8wxknu7hkm2f" path="res://lib/main_menu/sounds/mus_daffodils.mp3" id="7_uttei"]
+[ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
+[ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="8_rr48m"]
+[ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="10_cqy1t"]
+[ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="11_ctlnu"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_jagjv")
@@ -103,6 +107,74 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("7_uttei")
 volume_db = -6.0
 
+[node name="Blur" type="TextureRect" parent="."]
+z_as_relative = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -622.0
+offset_top = -97.0
+offset_right = -231.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("8_2jq05")
+expand_mode = 1
+
+[node name="Disclaimer" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -43.0
+offset_right = -36.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.27, 0.27, 0.27, 1)
+theme_override_constants/line_separation = -4
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
+scroll_active = false
+
+[node name="Logo" type="TextureRect" parent="."]
+modulate = Color(0.5, 0.5, 0.5, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -88.0
+offset_right = 144.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("8_rr48m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CloseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 52.0
+grow_horizontal = 0
+texture_normal = ExtResource("10_cqy1t")
+texture_hover = ExtResource("11_ctlnu")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="button_down" from="Container/PlayButton" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Container/SettingsButton" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="Container/QuitButton" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="CloseButton" to="." method="_on_quit_button_down"]

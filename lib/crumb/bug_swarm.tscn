@@ -17,7 +17,7 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 stream = ExtResource("3_xdlj6")
 pitch_scale = 1.1
 autoplay = true
-max_distance = 3.5
+max_distance = 3.1
 attenuation_filter_cutoff_hz = 10000.0
 
 [node name="BugEntry" type="AudioStreamPlayer" parent="."]
