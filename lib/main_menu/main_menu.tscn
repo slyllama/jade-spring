@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=7 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_g05lm"]
 [ext_resource type="PackedScene" uid="uid://col3bfw2kkxf0" path="res://lib/main_menu/mm_button.tscn" id="3_v0okn"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
 [ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="5_pvsjo"]
+[ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_jagjv")
@@ -42,13 +43,18 @@ stretch_mode = 5
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 208.0
+offset_left = 250.0
 offset_top = -205.5
-offset_right = 481.0
+offset_right = 523.0
 offset_bottom = 205.5
 grow_vertical = 2
 theme_override_constants/separation = 12
 alignment = 1
+
+[node name="Padding" type="ColorRect" parent="Container"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]
 modulate = Color(1, 1, 1, 0.6)
@@ -81,6 +87,9 @@ grow_vertical = 2
 
 [node name="Nodule" type="Sprite2D" parent="."]
 texture = ExtResource("5_pvsjo")
+
+[node name="TitleCard" parent="." instance=ExtResource("6_aye18")]
+scale = Vector2(0.5, 0.5)
 
 [connection signal="button_down" from="Container/PlayButton" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Container/SettingsButton" to="." method="_on_settings_button_down"]

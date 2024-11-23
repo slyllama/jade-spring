@@ -1,0 +1,74 @@
+[gd_scene load_steps=17 format=3 uid="uid://d2xtvgd1tw1q7"]
+
+[ext_resource type="Texture2D" uid="uid://cmnhxqkvi57nc" path="res://lib/main_menu/title_card/textures/glow.png" id="1_c5txy"]
+[ext_resource type="Texture2D" uid="uid://b7l3eth5h0rp" path="res://lib/main_menu/title_card/textures/words_1.png" id="1_hvfn3"]
+[ext_resource type="Script" path="res://lib/main_menu/title_card/title_card.gd" id="1_syrn8"]
+[ext_resource type="Shader" path="res://lib/main_menu/title_card/shaders/shader_title_dissolve.gdshader" id="2_41jbb"]
+[ext_resource type="Texture2D" uid="uid://djs263p87x1p5" path="res://lib/main_menu/title_card/textures/words_2.png" id="2_jb415"]
+[ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="3_ha0jo"]
+[ext_resource type="Texture2D" uid="uid://bppqnvia18t4x" path="res://lib/main_menu/title_card/textures/jade_1.png" id="6_hgbpr"]
+[ext_resource type="Texture2D" uid="uid://bmmeod7qm0tym" path="res://lib/main_menu/title_card/textures/jade_2.png" id="7_n8y6u"]
+[ext_resource type="Texture2D" uid="uid://d2dqd7dkg5uu3" path="res://lib/main_menu/title_card/textures/jade_3.png" id="8_nhqii"]
+[ext_resource type="Texture2D" uid="uid://70cjpay7fib4" path="res://lib/main_menu/title_card/textures/jade_4.png" id="9_cpqck"]
+
+[sub_resource type="Gradient" id="Gradient_5ksc3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v2cij"]
+gradient = SubResource("Gradient_5ksc3")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0jlg"]
+shader = ExtResource("2_41jbb")
+shader_parameter/paint_mask_exponent = 1.0
+shader_parameter/paint_mask_texture = ExtResource("3_ha0jo")
+shader_parameter/paint_mask_gradient = SubResource("GradientTexture2D_v2cij")
+
+[sub_resource type="Gradient" id="Gradient_h6n1f"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ajm1b"]
+gradient = SubResource("Gradient_h6n1f")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm66m"]
+shader = ExtResource("2_41jbb")
+shader_parameter/paint_mask_exponent = 1.0
+shader_parameter/paint_mask_texture = ExtResource("3_ha0jo")
+shader_parameter/paint_mask_gradient = SubResource("GradientTexture2D_ajm1b")
+
+[node name="TitleCard" type="Node2D"]
+script = ExtResource("1_syrn8")
+
+[node name="Glow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(53, 0)
+texture = ExtResource("1_c5txy")
+
+[node name="Words1" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r0jlg")
+texture = ExtResource("1_hvfn3")
+
+[node name="Words2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hm66m")
+position = Vector2(61, 51)
+texture = ExtResource("2_jb415")
+
+[node name="JadeBotRoot" type="Node2D" parent="."]
+position = Vector2(-508, 26)
+
+[node name="Jade1" type="Sprite2D" parent="JadeBotRoot"]
+texture = ExtResource("6_hgbpr")
+
+[node name="Jade2" type="Sprite2D" parent="JadeBotRoot"]
+texture = ExtResource("7_n8y6u")
+
+[node name="Jade3" type="Sprite2D" parent="JadeBotRoot"]
+texture = ExtResource("8_nhqii")
+
+[node name="Jade4" type="Sprite2D" parent="JadeBotRoot"]
+texture = ExtResource("9_cpqck")
+
+[node name="StartDelay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
