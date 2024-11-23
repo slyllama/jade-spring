@@ -23,6 +23,9 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_pressed("right_click"):
 			Global.deco_placement_canceled.emit()
 
+func get_decorations() -> void:
+	pass
+
 func _ready() -> void:
 	for _n in get_children():
 		if _n is Decoration:

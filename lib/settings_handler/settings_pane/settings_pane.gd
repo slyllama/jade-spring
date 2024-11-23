@@ -13,6 +13,7 @@ func _input(event: InputEvent) -> void:
 	super(event)
 	if Input.is_action_just_pressed("ui_cancel"):
 		if !is_open:
+			if Global.popup_open: return # avoid opening the pane when leaving the command line
 			await get_tree().process_frame
 			open()
 		else:

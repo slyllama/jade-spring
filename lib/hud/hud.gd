@@ -29,7 +29,44 @@ func _hide_int() -> void: # hide the interaction indicator
 	var fade_tween = create_tween()
 	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.0, 0.1)
 
+func _debug_cmd_gain_focus() -> void:
+	$TopLevel/DebugEntry.text = ""
+	$TopLevel/DebugEntry.grab_focus() 
+	$TopLevel/DebugEntry.modulate.a = 1.0
+	Global.popup_open = true
+	Global.can_move = false
+
+func _debug_cmd_lose_focus() -> void:
+	$TopLevel/DebugEntry.text = ""
+	$TopLevel/DebugEntry.release_focus()
+	$TopLevel/DebugEntry.modulate.a = (200.0/255.0)
+	
+	await get_tree().process_frame
+	Global.popup_open = false
+	# Only allow movement if it wasn't forbidden prior
+	if !Global.tool_mode == Global.TOOL_MODE_FISH:
+		Global.can_move = true
+
 func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_click"):
+		_debug_cmd_lose_focus()
+	if Input.is_action_just_pressed("ui_cancel"):
+		_debug_cmd_lose_focus()
+	
+	if Input.is_action_just_pressed("debug_cmd"):
+		if !Global.debug_enabled: return
+		if !$TopLevel/DebugEntry.has_focus():
+			# Select the command line for entry
+			_debug_cmd_gain_focus()
+		else:
+			# Send text and clear the command line
+			Global.command_sent.emit($TopLevel/DebugEntry.text)
+			_debug_cmd_lose_focus()
+	
+	if Input.is_action_just_pressed("debug_cmd_slash"):
+		if !$TopLevel/DebugEntry.has_focus():
+			_debug_cmd_gain_focus()
+	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
 		if visible:
@@ -51,6 +88,7 @@ func _ready() -> void:
 	Global.deco_pane_opened.connect($DecoPane.open)
 	
 	Global.debug_toggled.connect(func():
+		$TopLevel/DebugEntry.visible = Global.debug_enabled
 		$Debug.visible = Global.debug_enabled)
 	
 	# Configure corner buttons to light up when hovered over
@@ -65,6 +103,9 @@ func _ready() -> void:
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($FG, "modulate:a", 0.0, 0.5)
 	_fade_tween.tween_callback($FG.queue_free)
+	
+	Global.debug_enabled = true
+	Global.debug_toggled.emit()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:

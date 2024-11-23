@@ -97,6 +97,7 @@ func switch_skill(get_id: String) -> void:
 	set_enabled()
 
 func _input(_event: InputEvent) -> void:
+	if Global.popup_open: return
 	if !binding_validated: return
 	if Input.is_action_just_pressed(input_binding):
 		_on_button_down()
