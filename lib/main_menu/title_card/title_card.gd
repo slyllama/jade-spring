@@ -17,6 +17,9 @@ func _ready() -> void:
 	$Words2.material = $Words2.material.duplicate(true)
 	$Words1.visible = false
 	$Words2.visible = false
+	
+	$JadeBotRoot/Anim.play("RESET")
+	
 	_set_val(0.0, $Words1)
 	_set_val(0.0, $Words2)
 	
@@ -29,8 +32,15 @@ func _ready() -> void:
 	# Handle animations
 	var words_1_tween = create_tween()
 	words_1_tween.tween_method(
-		_set_val.bind($Words1), 0.0, 0.99, 0.9).set_ease(Tween.EASE_OUT)
+		_set_val.bind($Words1), 0.0, 0.99, 0.9
+	).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(0.25).timeout
+	
+	$Dust.emitting = true
+	$ClipBase/ClipMotes.emitting = true
+	$JadeBotRoot/Anim.play("Float")
+	
 	var words_2_tween = create_tween()
 	words_2_tween.tween_method(
-		_set_val.bind($Words2), 0.0, 0.99, 0.94).set_ease(Tween.EASE_OUT)
+		_set_val.bind($Words2), 0.0, 0.99, 0.94
+	).set_ease(Tween.EASE_OUT)

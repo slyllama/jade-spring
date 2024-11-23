@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_fqdye"]
 [ext_resource type="PackedScene" uid="uid://b084hpd2lh2nd" path="res://maps/seitung/meshes/house_greybox.glb" id="7_61cdb"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="8_67fdu"]
+[ext_resource type="AudioStream" uid="uid://bxsbnw48fh4vy" path="res://maps/seitung/sounds/ambience.ogg" id="8_7867x"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="9_7bo6h"]
 [ext_resource type="AudioStream" uid="uid://bgajrg2kgqtxq" path="res://maps/seitung/sounds/mus_haiju.ogg" id="9_mig3c"]
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="10_bm5ul"]
@@ -15,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://fdtci72jf3pk" path="res://decorations/fountain/deco_fountain.tscn" id="12_iopfa"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
-[ext_resource type="AudioStream" uid="uid://ba6mg0vkquuyp" path="res://maps/seitung/sounds/rain.ogg" id="18_n4hoj"]
 [ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="22_wkmls"]
 [ext_resource type="Texture2D" uid="uid://crd06m4fc15fh" path="res://maps/seitung/textures/moss_decal.png" id="23_byk4r"]
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
@@ -276,8 +276,7 @@ stream = ExtResource("9_mig3c")
 volume_db = -8.0
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_n4hoj")
-volume_db = -6.0
+stream = ExtResource("8_7867x")
 autoplay = true
 
 [node name="DecoHandler" parent="." instance=ExtResource("26_of55i")]

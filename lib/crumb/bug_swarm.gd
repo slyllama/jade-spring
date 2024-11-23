@@ -27,4 +27,4 @@ func interact() -> void:
 		add_child(_f)
 	else:
 		Global.announcement_sent.emit(
-			"[color=#ff6746]You need a Discombobulator to clear these pests.[/color]")
+			"You need a Discombobulator to clear these pests.")

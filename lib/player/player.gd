@@ -121,6 +121,8 @@ func _process(delta: float) -> void:
 	$Camera.popup_open = Global.popup_open
 	$Camera.mouse_in_ui = Global.mouse_in_ui
 	
+	#$PlayerMesh/Listener.rotation_degrees.y = $Camera.global_rotation_degrees.y - 180.0
+	
 	# TODO: animation tests
 	_blend_state = lerp(_blend_state, _blend_target, 2.0 * delta)
 	$PlayerMesh/Tree.set("parameters/test_blend/blend_position", _blend_state)

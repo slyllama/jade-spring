@@ -67,9 +67,9 @@ func _ready() -> void:
 	add_child(orbit_handler)
 	axis.add_child(target)
 	
-	var listener = AudioListener3D.new()
-	camera.add_child(listener)
-	listener.make_current()
+	#var listener = AudioListener3D.new()
+	#camera.add_child(listener)
+	#listener.make_current()
 	
 	for _n in excluded_collision_objects:
 		axis.add_excluded_object(_n)

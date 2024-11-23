@@ -97,6 +97,10 @@ v_offset = 0.8
 excluded_collision_objects = [NodePath("..")]
 clamp_x_upper = 30.0
 
+[node name="Listener" type="AudioListener3D" parent="Camera"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.0263149, 0)
+current = true
+
 [node name="PlayerMesh" parent="." instance=ExtResource("4_0sx7s")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0263149, 0)
 
@@ -115,7 +119,6 @@ parameters/test_blend/blend_position = -0.876693
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_ao383")
-volume_db = -8.0
-unit_size = 5.0
-max_db = 0.0
+attenuation_model = 1
+max_db = -5.5
 autoplay = true

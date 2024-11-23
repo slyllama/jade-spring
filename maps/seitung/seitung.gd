@@ -32,7 +32,7 @@ func _ready() -> void:
 					if _n is FoliageSpawner: _n.set_density(_d)
 			"volume": Utilities.set_master_vol()
 			"music_vol": $Music.volume_db = linear_to_db(
-				clamp(float(_value) * 0.55, 0.0, 1.0))
+				clamp(float(_value) * 0.48, 0.0, 0.48))
 			"bloom":
 				if _value == "on":
 					$Sky.environment.glow_enabled = true
