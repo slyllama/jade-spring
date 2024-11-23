@@ -106,4 +106,8 @@ func _on_wp_button_down() -> void:
 	if safe_point != null:
 		Global.move_player.emit(safe_point.global_position)
 	else:
-		Global.announcement_sent.emit("((No safe point to teleport to!))")
+		Global.announcement_sent.emit(
+			"((No safe point to teleport to!))")
+
+func _on_close_button_down() -> void:
+	get_tree().quit() # TODO: temporary?

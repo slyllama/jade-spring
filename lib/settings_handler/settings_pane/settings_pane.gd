@@ -30,6 +30,7 @@ func _on_save_press() -> void:
 
 func _on_quit_button_down() -> void:
 	if !Global.in_exclusive_ui:
+		close()
 		get_tree().quit() # TODO: temporarily allowing for instant closing
 		#if qc != null:
 			#qc.queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=18 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://7s701kqjqy22" path="res://lib/hud/fx_list/fx_list.tscn" id="7_5oqpl"]
 [ext_resource type="PackedScene" uid="uid://gokqv1eo16nh" path="res://lib/hud/side_panel/side_panel.tscn" id="7_6qwis"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="7_w7sr0"]
+[ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="8_ncgg6"]
 [ext_resource type="PackedScene" uid="uid://bx0omalga0s0k" path="res://lib/hud/announcement/announcement.tscn" id="9_6p63t"]
+[ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="9_a86pb"]
 [ext_resource type="PackedScene" uid="uid://bvh87e5dxhdg8" path="res://lib/decoration/decoration_pane/decoration_pane.tscn" id="9_qacaq"]
 [ext_resource type="Texture2D" uid="uid://dlff8ygba3xfx" path="res://lib/hud/textures/interact_indicator.png" id="14_dlrg2"]
 
@@ -240,5 +242,24 @@ text = "[right][Debug][/right]"
 scroll_active = false
 autowrap_mode = 0
 
+[node name="TopLevel" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="CloseButton" type="TextureButton" parent="TopLevel"]
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 36.0
+grow_horizontal = 0
+texture_normal = ExtResource("8_ncgg6")
+texture_hover = ExtResource("9_a86pb")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]
 [connection signal="button_down" from="CornerButtons/WPButton" to="." method="_on_wp_button_down"]
+[connection signal="button_down" from="TopLevel/CloseButton" to="." method="_on_close_button_down"]

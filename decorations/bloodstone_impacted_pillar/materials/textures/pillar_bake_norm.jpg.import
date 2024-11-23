@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ib2x4vv4mu02"
-path.s3tc="res://.godot/imported/column_mutires.jpg-125038d73c73911461a0d4d71869df7e.s3tc.ctex"
+uid="uid://27n57j4jil07"
+path.s3tc="res://.godot/imported/pillar_bake_norm.jpg-98e590b773212921e5a154e65ddb5aff.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://decorations/bloodstone_impacted_pillar/materials/textures/column_mutires.jpg"
-dest_files=["res://.godot/imported/column_mutires.jpg-125038d73c73911461a0d4d71869df7e.s3tc.ctex"]
+source_file="res://decorations/bloodstone_impacted_pillar/materials/textures/pillar_bake_norm.jpg"
+dest_files=["res://.godot/imported/pillar_bake_norm.jpg-98e590b773212921e5a154e65ddb5aff.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://decorations/bloodstone_impacted_pillar/materials/textures/column_mutires.jpg"
+roughness/src_normal="res://decorations/bloodstone_impacted_pillar/materials/textures/pillar_bake_norm.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

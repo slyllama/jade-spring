@@ -36,6 +36,7 @@ func _ready() -> void:
 	scale_visual.set_layer_mask_value(2, 0)
 	scale_visual.set_layer_mask_value(3, 1)
 	grabber.add_child(scale_visual)
+	scale_visual.position.y = -0.25
 	scale_visual.scale = Vector3(0.01, 0.01, 0.01)
 	
 	var scale_in_tween = create_tween()
@@ -66,5 +67,5 @@ func _ready() -> void:
 		)
 	)
 	
-	position.y = 1.9
+	position.y = 2.5
 	set_disable_scale(true)

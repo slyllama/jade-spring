@@ -1,9 +1,11 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ck0x4pgksn0db"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ck0x4pgksn0db"]
 
-[ext_resource type="Texture2D" uid="uid://ib2x4vv4mu02" path="res://decorations/bloodstone_impacted_pillar/materials/textures/column_mutires.jpg" id="1_yhcct"]
+[ext_resource type="Texture2D" uid="uid://d2omhox2heyca" path="res://decorations/bloodstone_impacted_pillar/materials/textures/pillar_bake_diffuse_indirect.jpg" id="1_dwv5v"]
+[ext_resource type="Texture2D" uid="uid://27n57j4jil07" path="res://decorations/bloodstone_impacted_pillar/materials/textures/pillar_bake_norm.jpg" id="2_syfg8"]
 
 [resource]
-albedo_color = Color(0.35, 0.35, 0.35, 1)
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("1_dwv5v")
+metallic_specular = 0.0
 normal_enabled = true
-normal_scale = 2.0
-normal_texture = ExtResource("1_yhcct")
+normal_texture = ExtResource("2_syfg8")

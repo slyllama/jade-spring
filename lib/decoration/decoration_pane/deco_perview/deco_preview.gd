@@ -2,7 +2,7 @@ extends Node3D
 
 const Offsets = {
 	"shing_jea_arch": -0.4,
-	"bloodstone_impacted_pillar": -0.3,
+	"bloodstone_impacted_pillar": -0.6,
 	"fountain": 0.2
 }
 

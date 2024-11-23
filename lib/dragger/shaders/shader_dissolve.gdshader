@@ -15,4 +15,6 @@ void fragment() {
 	if (paint_exponent >= 10.0) {
 		COLOR.a = 0.0;
 	}
+	
+	COLOR.a *= 0.67; // reduce alpha (so you can see behind the arrows
 }

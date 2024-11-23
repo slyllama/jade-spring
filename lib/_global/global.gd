@@ -63,7 +63,7 @@ const DecoData = {
 		"scene": "res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn",
 		"cursor_model": "res://decorations/bloodstone_impacted_pillar/bloodstone_impacted_pillar.glb",
 		#"y_rotation": 115,
-		"preview_scale": 0.73
+		"preview_scale": 0.78
 	}
 }
 
