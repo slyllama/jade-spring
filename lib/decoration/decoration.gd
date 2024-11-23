@@ -5,6 +5,7 @@ enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 @export var collision_box: PhysicsBody3D
 var last_position: Vector3
 var last_scale: Vector3
+var last_rotation: Vector3
 var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 
@@ -59,6 +60,7 @@ func start_adjustment() -> void:
 	transform_type = TRANSFORM_TYPE_TRANSLATE
 	last_position = position
 	last_scale = scale
+	last_rotation = rotation
 	collision_box.set_collision_layer_value(2, 0)
 
 func apply_adjustment() -> void:
@@ -78,6 +80,7 @@ func cancel_adjustment() -> void:
 		collision_box.set_collision_layer_value(2, 1)
 		position = last_position
 		scale = last_scale
+		rotation = last_rotation
 
 func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
@@ -94,7 +97,22 @@ func _ready() -> void:
 		if Global.active_decoration == self:
 			# TODO: add rotation controls
 			transform_type = TRANSFORM_TYPE_ROTATE
-			_clear_arrows())
+			_clear_arrows()
+			
+			var _arr_rotate_x = GizmoRotation.new()
+			_arr_rotate_x.rotation_vector = Vector3(1, 0, 0)
+			_arr_rotate_x.dragger_axis = "Y"
+			add_child(_arr_rotate_x)
+			arrows.append(_arr_rotate_x)
+			_arr_rotate_x.set_color(Color.RED)
+			
+			var _arr_rotate_y = GizmoRotation.new()
+			_arr_rotate_y.rotation_vector = Vector3(0, 1, 0)
+			_arr_rotate_y.dragger_axis = "X"
+			add_child(_arr_rotate_y)
+			arrows.append(_arr_rotate_y)
+			_arr_rotate_y.set_color(Color.BLUE)
+			)
 	
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
