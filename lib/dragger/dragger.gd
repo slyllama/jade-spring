@@ -7,7 +7,11 @@ enum Axis { X, Y }
 var last_mouse_click = Vector2.ZERO
 
 var active = true
-var ratio:= 0.0 # ratio between _dist and half the length of the window along that axis
+
+var last_event_relative = Vector2.ZERO
+var event_relative = Vector2.ZERO
+
+var ratio := 0.0 # ratio between _dist and half the length of the window along that axis
 signal ratio_changed(new_ratio)
 
 func _set_shader_val(val: float) -> void:
@@ -27,15 +31,7 @@ func destroy() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var _mouse_pos = get_window().get_mouse_position()
-		var _dist := 0.0 # distance between mouse position and last mouse down along an axis
-		
-		if axis == Axis.X:
-			_dist = _mouse_pos.x - last_mouse_click.x
-			ratio = _dist / win.x
-		elif axis == Axis.Y:
-			_dist = _mouse_pos.y - last_mouse_click.y
-			ratio = _dist / win.y
+		event_relative = event.relative
 	
 	if Input.is_action_just_released("left_click"):
 		destroy()
@@ -56,8 +52,22 @@ func _ready() -> void:
 
 var last_ratio = ratio
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	# Prevent scale continuously changing when the mouse isn't moving
+	if event_relative.x == last_event_relative.x:
+		event_relative.x = 0
+	if event_relative.y == last_event_relative.y:
+		event_relative.y = 0
+	
 	if !active: return
+	
+	# Process event relative movement and smooth out
+	if axis == Axis.X:
+		ratio = lerp(
+			ratio, event_relative.x * 0.06, delta * 20)
+	elif axis == Axis.Y:
+		ratio = lerp(
+			ratio, event_relative.y * 0.06, delta * 20)
 	
 	$Debug.position = get_window().get_mouse_position() + Vector2(80, 0)
 	$Debug.text = str(snapped(ratio, 0.01))
@@ -65,3 +75,5 @@ func _process(_delta: float) -> void:
 	if ratio != last_ratio:
 		ratio_changed.emit(ratio)
 		last_ratio = ratio
+	
+	last_event_relative = event_relative

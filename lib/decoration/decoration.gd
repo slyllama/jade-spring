@@ -4,6 +4,7 @@ enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 @export var collision_box: PhysicsBody3D
 var last_position: Vector3
+var last_scale: Vector3
 var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 
@@ -57,6 +58,7 @@ func start_adjustment() -> void:
 	
 	transform_type = TRANSFORM_TYPE_TRANSLATE
 	last_position = position
+	last_scale = scale
 	collision_box.set_collision_layer_value(2, 0)
 
 func apply_adjustment() -> void:
@@ -75,6 +77,7 @@ func cancel_adjustment() -> void:
 		_clear_arrows() 
 		collision_box.set_collision_layer_value(2, 1)
 		position = last_position
+		scale = last_scale
 
 func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
