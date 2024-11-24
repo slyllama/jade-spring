@@ -140,8 +140,8 @@ func _process(_delta: float) -> void:
 	$Debug.text += "[/right]"
 
 func _on_settings_down() -> void:
-	if !$SettingsPane.is_open: $SettingsPane.open()
-	else: $SettingsPane.close()
+	if !$TopLevel/SettingsPane.is_open: $TopLevel/SettingsPane.open()
+	else: $TopLevel/SettingsPane.close()
 
 func _on_wp_button_down() -> void:
 	if safe_point != null:

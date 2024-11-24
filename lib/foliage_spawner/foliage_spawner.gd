@@ -48,6 +48,12 @@ var foliage_count = 0
 		_render_moss()
 	get: return(moss_scaling)
 
+@export var moss_color := Color("1b3800"):
+	set(_value):
+		moss_color = _value
+		_render_moss()
+	get: return(moss_color)
+
 @export_category("Shader Configuration")
 @export var vary_colours := true
 @export var colour_1 := Color("1b3800")
@@ -68,7 +74,7 @@ func _set_display_distance() -> void:
 		elif multimesh.mesh.surface_get_material(i) is ShaderMaterial:
 			var mat: ShaderMaterial = multimesh.mesh.surface_get_material(i).duplicate()
 			multimesh.mesh.surface_set_material(i, mat)
-			mat.set_shader_parameter("distance_fade_min", render_distance+ render_fade_spread)
+			mat.set_shader_parameter("distance_fade_min", render_distance + render_fade_spread)
 			mat.set_shader_parameter("distance_fade_max", render_distance)
 
 # Moss functions are separated as to allow live undergrowh updating without
@@ -83,7 +89,8 @@ func _render_moss() -> void:
 		moss_decal.texture_albedo = MOSS_MASK
 		moss_decal.normal_fade = 0.9
 		moss_decal.albedo_mix = moss_albedo_mix
-		moss_decal.modulate = lerp(colour_1, colour_2, 0.65)
+		#moss_decal.modulate = lerp(colour_1, colour_2, 0.65)
+		moss_decal.modulate = moss_color
 		moss_decal.size = Vector3(
 			size * moss_scaling, 2.5, size * moss_scaling)
 		moss_decal.cull_mask = 1
