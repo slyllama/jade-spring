@@ -36,7 +36,7 @@ sky_material = SubResource("PanoramaSkyMaterial_krpi4")
 background_mode = 2
 sky = SubResource("Sky_1mh13")
 ambient_light_source = 2
-ambient_light_color = Color(0.346494, 0.408971, 0.244555, 1)
+ambient_light_color = Color(0.304708, 0.361277, 0.212145, 1)
 ambient_light_sky_contribution = 0.29
 tonemap_mode = 2
 tonemap_exposure = 0.9
@@ -271,11 +271,11 @@ script = ExtResource("1_uenug")
 environment = SubResource("Environment_01xfs")
 
 [node name="Sun" type="DirectionalLight3D" parent="Sky"]
-transform = Transform3D(-0.263533, -0.407186, 0.8745, -0.293983, 0.897323, 0.32922, -0.918762, -0.170328, -0.35618, 0, 3, 8.9857)
+transform = Transform3D(-0.275341, -0.370129, 0.887238, -0.282954, 0.913232, 0.293162, -0.918762, -0.170328, -0.35618, 0, 3, 8.9857)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
-transform = Transform3D(-0.518817, 0, 0.854885, 0, 1, 0, -0.854885, 0, -0.518817, 0.482627, 1.17893, 10.3098)
+transform = Transform3D(-0.518817, 0, 0.854885, 0, 1, 0, -0.854885, 0, -0.518817, -0.662941, 1.17893, 11.0051)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("safe_point") instance=ExtResource("4_6ilxl")]
 layer = 2
@@ -320,10 +320,10 @@ autoplay = true
 transform = Transform3D(1.08581, 0, 0.714846, 0, 1.3, 0, -0.714846, 0, 1.08581, -5.24975, 0.0174669, 8.95736)
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(-0.223947, -0.001701, 0.9746, -1.47902e-11, 0.999999, 0.00174533, -0.974601, 0.000390861, -0.223947, 1.45617, 0.0228245, 18.624)
+transform = Transform3D(-0.223947, -0.001701, 0.9746, -1.47902e-11, 0.999999, 0.00174533, -0.974601, 0.000390861, -0.223947, 0.771826, 0.278887, 17.2517)
 
 [node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" instance=ExtResource("12_i2o4n")]
-transform = Transform3D(-0.273882, 0.0703149, -1.42216, -0.248585, 1.42363, 0.11826, 1.40203, 0.26615, -0.256846, -5.45696, -0.0474628, 13.3419)
+transform = Transform3D(-0.29277, 0.0751642, -1.52024, -0.265729, 1.52181, 0.126416, 1.49872, 0.284505, -0.274559, -5.45696, -0.0474628, 13.3419)
 
 [node name="DecoBloodstoneImpactedPillar2" parent="DecoHandler" instance=ExtResource("12_i2o4n")]
 transform = Transform3D(-1.48839, -0.229423, -0.366809, -0.153109, 1.5084, -0.322172, 0.40465, -0.273134, -1.47111, -8.00323, 2.55213, 16.3682)
@@ -806,7 +806,7 @@ transform = Transform3D(1.56327, -0.875887, -0.34965, 0.651493, 2.13654, -0.0916
 transform = Transform3D(1.35183, -0.640419, -0.981148, 0.578226, 2.17715, -0.000380889, 0.911653, -0.431247, 1.45512, 8.99203, 2.33587, -3.98862)
 
 [node name="Rock15" parent="Decoration" instance=ExtResource("16_s2hwi")]
-transform = Transform3D(1.67056, -0.591306, 0.0786537, 0.443573, 2.23276, -0.00681272, -0.0732219, 0.0352036, 1.75322, -10.2229, 0.821634, -1.48506)
+transform = Transform3D(1.67056, -0.591307, 0.0786539, 0.443573, 2.23276, -0.00681271, -0.0732219, 0.0352037, 1.75322, -10.2229, 0.821634, -1.48506)
 
 [node name="Rock10" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(1.04706, 0, -0.770495, 0, 1.325, 0, 0.770495, 0, 1.04706, 12.0697, 0.833199, 9.47869)
@@ -827,10 +827,10 @@ transform = Transform3D(0.892472, -0.026348, -0.2384, 0.0714079, 0.506404, 0.083
 transform = Transform3D(0.689745, 0, 1.8773, 0, 2, 0, -1.8773, 0, 0.689745, -11.3581, 0.682719, 4.27276)
 
 [node name="Rock7" parent="Decoration" instance=ExtResource("16_s2hwi")]
-transform = Transform3D(-0.591997, 0, 2.94101, 0, 3, 0, -2.94101, 0, -0.591997, -17.1138, 0.375082, 21.7324)
+transform = Transform3D(-0.591997, 0, 2.94101, 0, 3.995, 0, -2.94101, 0, -0.591997, -14.4255, -0.361011, 20.7169)
 
 [node name="Rock8" parent="Decoration" instance=ExtResource("16_s2hwi")]
-transform = Transform3D(1.48988, 0, 3.05619, 1.4982, 2.96344, -0.730366, -2.66377, 1.66675, 1.29857, -20.0914, 0.875342, 10.1565)
+transform = Transform3D(1.48988, 0, 3.05619, 1.4982, 2.96344, -0.730366, -2.66377, 1.66675, 1.29857, -17.4031, 0.875342, 9.14101)
 
 [node name="Bamboo" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -8.64886, 3.31076, 4.36273)
