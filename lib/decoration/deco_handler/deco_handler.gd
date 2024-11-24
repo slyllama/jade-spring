@@ -23,9 +23,6 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_pressed("right_click"):
 			Global.deco_placement_canceled.emit()
 
-func get_decorations() -> void:
-	pass
-
 func _ready() -> void:
 	for _n in get_children():
 		if _n is Decoration:
@@ -41,3 +38,10 @@ func _ready() -> void:
 			Global.jade_bot_sound.emit()
 			Global.queued_decoration = "none"
 			Global.set_cursor(false))
+	
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/cleardeco":
+			for _n in get_children():
+				if _n is Decoration:
+					_n.queue_free()
+			Global.decorations = [])

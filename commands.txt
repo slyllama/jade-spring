@@ -1,0 +1,4 @@
+/cleardeco		Clear all decorations
+
+/showplayer		Show the player mesh
+/hideplayer		Hide the player mesh

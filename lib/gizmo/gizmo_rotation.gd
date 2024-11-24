@@ -68,7 +68,6 @@ func _ready() -> void:
 	add_child(rotate_visual)
 	if rotation_vector == Vector3(1, 0, 0):
 		rotate_visual.rotation_degrees.z = 90
-		print("doing this")
 		rotate_visual.position.y += 0.05
 	
 	rotation_degrees = rotation_vector * Vector3(90, 90, 90)

@@ -43,6 +43,12 @@ func _ready() -> void:
 	# Move the player to a new location using global signals
 	Global.move_player.connect(func(_pos: Vector3):
 		global_position = _pos)
+	
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/hideplayer":
+			$PlayerMesh.visible = false
+		elif _cmd == "/showplayer":
+			$PlayerMesh.visible = true)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
 var _blend_target = 1.0
