@@ -49,7 +49,8 @@ func _debug_cmd_lose_focus() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
-		_debug_cmd_lose_focus()
+		if $TopLevel/DebugEntry.has_focus():
+			_debug_cmd_lose_focus()
 	if Input.is_action_just_pressed("ui_cancel"):
 		_debug_cmd_lose_focus()
 	
@@ -86,6 +87,10 @@ func _ready() -> void:
 	$Underlay.queue_free() # clear debugging component
 	Global.deco_pane_closed.connect($DecoPane.close)
 	Global.deco_pane_opened.connect($DecoPane.open)
+	
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/quit":
+			get_tree().quit())
 	
 	Global.debug_toggled.connect(func():
 		$TopLevel/DebugEntry.visible = Global.debug_enabled

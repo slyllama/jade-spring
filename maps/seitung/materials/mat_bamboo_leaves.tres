@@ -4,10 +4,10 @@
 
 [resource]
 transparency = 2
-alpha_scissor_threshold = 0.72
+alpha_scissor_threshold = 0.7
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_color = Color(0.574328, 0.574328, 0.574328, 1)
+albedo_color = Color(0.58, 0.6, 0.36, 1)
 albedo_texture = ExtResource("1_vuic1")
 metallic_specular = 0.0
 emission = Color(0.118581, 0.118581, 0.118581, 1)

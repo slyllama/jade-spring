@@ -6,11 +6,12 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_lefjk")
-shader_parameter/base_color = Color(0, 0.200369, 0, 1)
-shader_parameter/swirl_color = Color(0.354054, 0.675271, 0.114283, 1)
-shader_parameter/cloud_color = Color(0.73, 1, 0.8335, 1)
+shader_parameter/base_color = Color(0, 0.0881887, 0, 1)
+shader_parameter/swirl_color = Color(0.196007, 0.388333, 0.0570402, 1)
+shader_parameter/cloud_color = Color(0, 0.922064, 0.570271, 1)
 shader_parameter/fresnel_color = Color(0.82752, 0.96, 0.2976, 1)
 shader_parameter/cloud_scale = 1.0
 shader_parameter/speed_scale = 0.05
 shader_parameter/emission_color = Color(0, 0, 0, 1)
+shader_parameter/clear_coat = false
 shader_parameter/mask = ExtResource("2_d4reu")

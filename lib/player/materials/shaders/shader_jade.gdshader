@@ -22,7 +22,7 @@ void fragment() {
 	vec3 swirl_texture = swirl_color.rgb * texture(mask, (UV + wobble * 0.3) * 0.3 + TIME * speed_scale).r;
 	
 	ALBEDO = mix(base_texture, swirl_texture, 0.5);
-	ALBEDO += fresnel(2.7, NORMAL, VIEW) * fresnel_color.rgb;
+	ALBEDO += fresnel(3.4, NORMAL, VIEW) * fresnel_color.rgb;
 	
 	vec3 cloud_texture = cloud_color.rgb * texture(mask, (SCREEN_UV + wobble * 0.1) * cloud_scale + TIME * speed_scale).r;
 	cloud_texture = pow(cloud_texture, vec3(4.0));
