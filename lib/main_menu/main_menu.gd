@@ -31,6 +31,7 @@ func _set_title_card_pos() -> void:
 
 func _ready() -> void:
 	set_up_nodule()
+	$SettingsPane/Container/Quit.queue_free()
 	
 	AudioServer.set_bus_volume_db(0, -80)
 	SettingsHandler.setting_changed.connect(func(parameter):

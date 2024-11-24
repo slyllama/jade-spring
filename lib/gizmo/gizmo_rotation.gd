@@ -81,6 +81,7 @@ func _ready() -> void:
 		elif _n is StaticBody3D:
 			_configure_grabber(_n)
 	
+	set_disable_scale(true)
 	set_color(Color.WHITE)
 	var scale_in_tween = create_tween()
 	scale_in_tween.tween_property(rotate_visual, "scale", Vector3(1.5, 1.5, 1.5), 0.15)

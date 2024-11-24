@@ -18,6 +18,10 @@ func place_decoration(data: Dictionary) -> void:
 		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
 
+func _load_decorations() -> void:
+	# TODO: loading decorations
+	pass
+
 func _save_decorations() -> void:
 	var _decoration_save_data = {}
 	for _n in get_children():
@@ -27,7 +31,9 @@ func _save_decorations() -> void:
 				"rotation": _n.global_rotation,
 				"scale": _n.scale
 			}
-	print(_decoration_save_data)
+	var _file = FileAccess.open("user://deco.dat", FileAccess.WRITE)
+	_file.store_var(_decoration_save_data)
+	_file.close()
 
 func _input(_event: InputEvent) -> void:
 	if Global.tool_mode == Global.TOOL_MODE_PLACE:

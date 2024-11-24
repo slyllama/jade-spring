@@ -11,9 +11,11 @@ uniform vec3 overlay_color: source_color;
 uniform float overlay_exponent = 1.0;
 uniform float overlay_uv_scale = 1.0;
 uniform float uv_scale = 2.0;
+uniform float darken = 1.0;
 
 void fragment() {
 	ALBEDO = texture(rock_texture, UV * uv_scale).rgb * 0.55;
+	ALBEDO *= darken;
 	ALBEDO *= 1.0 + pow(texture(lighten_texture, UV).rgb, vec3(1.5)) * 3.0;
 	ALBEDO = mix(ALBEDO, texture(overlay_texture, UV * overlay_uv_scale).rgb
 		* overlay_color, pow(texture(overlay_mask, UV).g, overlay_exponent));

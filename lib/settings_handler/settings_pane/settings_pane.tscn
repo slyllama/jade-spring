@@ -63,9 +63,8 @@ layout_mode = 2
 text = "Done"
 
 [node name="Quit" type="Button" parent="Container" index="10"]
-modulate = Color(1, 0.293333, 0.2, 1)
 layout_mode = 2
-text = "Quit Game"
+text = "Return To Menu"
 
 [connection signal="button_down" from="Container/Done" to="." method="_on_save_press"]
 [connection signal="button_down" from="Container/Quit" to="." method="_on_quit_button_down"]

@@ -68,9 +68,8 @@ func _input(_event: InputEvent) -> void:
 	
 	# Fill the command line with the last-used command
 	if Input.is_action_just_pressed("ui_up"):
-		if $TopLevel/DebugEntry.has_focus():
-			_debug_cmd_gain_focus()
-			$TopLevel/DebugEntry.text = Global.last_command
+		_debug_cmd_gain_focus()
+		$TopLevel/DebugEntry.text = Global.last_command
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
