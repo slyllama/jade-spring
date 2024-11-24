@@ -3,6 +3,7 @@ extends Node3D
 # Manages the placing and removal of decorations
 
 const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
+const FILE_PATH = "user://deco.dat"
 
 func place_decoration(data: Dictionary) -> void:
 	#var _d = TEST_DECORATION.instantiate()
@@ -18,9 +19,30 @@ func place_decoration(data: Dictionary) -> void:
 		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
 
+func _clear_decorations() -> void:
+	for _n in get_children():
+		if _n is Decoration:
+			_n.queue_free()
+	Global.decorations = []
+
 func _load_decorations() -> void:
 	# TODO: loading decorations
-	pass
+	_clear_decorations()
+	if FileAccess.file_exists(FILE_PATH):
+		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
+		var _file_decos = file.get_var()
+		file.close()
+		
+		for _d in _file_decos:
+			if !_d in Global.DecoData: continue
+			var _transform = _file_decos[_d]
+			var _decoration = load(Global.DecoData[_d].scene).instantiate()
+			
+			add_child(_decoration)
+			_decoration.position = _transform.position
+			_decoration.rotation = _transform.rotation
+			_decoration.scale = _transform.scale
+			Global.decorations.append(_decoration)
 
 func _save_decorations() -> void:
 	var _decoration_save_data = {}
@@ -31,7 +53,7 @@ func _save_decorations() -> void:
 				"rotation": _n.global_rotation,
 				"scale": _n.scale
 			}
-	var _file = FileAccess.open("user://deco.dat", FileAccess.WRITE)
+	var _file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	_file.store_var(_decoration_save_data)
 	_file.close()
 
@@ -62,7 +84,6 @@ func _ready() -> void:
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/cleardeco":
-			for _n in get_children():
-				if _n is Decoration:
-					_n.queue_free()
-			Global.decorations = [])
+			_clear_decorations()
+		elif _cmd == "/loaddeco":
+			_load_decorations())

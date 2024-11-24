@@ -22,12 +22,14 @@ func load_from_file() -> void:
 		for f in _file_settings:
 			if f in settings:
 				settings[f] = _file_settings[f]
+		file.close()
 	else:
 		save_to_file()
 
 func save_to_file() -> void:
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	file.store_var(settings)
+	file.close()
 
 func reset() -> void:
 	settings = DEFAULT_SETTINGS.duplicate()

@@ -20,17 +20,17 @@ void fragment() {
 	vec2 wobble = texture(mask, UV * 0.1 + TIME * speed_scale).rg;
 	vec3 base_texture = base_color.rgb;
 	vec3 swirl_texture = swirl_color.rgb * texture(mask, (UV + wobble * 0.3) * 0.3 + TIME * speed_scale).r;
-	
+
 	ALBEDO = mix(base_texture, swirl_texture, 0.5);
 	ALBEDO += fresnel(3.4, NORMAL, VIEW) * fresnel_color.rgb;
-	
+
 	vec3 cloud_texture = cloud_color.rgb * texture(mask, (SCREEN_UV + wobble * 0.1) * cloud_scale + TIME * speed_scale).r;
 	cloud_texture = pow(cloud_texture, vec3(4.0));
 	ALBEDO += cloud_texture * 0.5;
-	
+
 	METALLIC = 0.5;
 	SPECULAR = 0.0;
-	
+
 	if (clear_coat == true) {
 		SPECULAR = pow(texture(mask, UV * 1.1).r, 2.0);
 		ROUGHNESS = texture(mask, UV * 1.1).r;
