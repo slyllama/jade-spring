@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=54 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -17,6 +17,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
 [ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="22_wkmls"]
+[ext_resource type="PackedScene" uid="uid://b80ggoq0wp4ms" path="res://maps/seitung/meshes/house.glb" id="23_53tlw"]
 [ext_resource type="Texture2D" uid="uid://crd06m4fc15fh" path="res://maps/seitung/textures/moss_decal.png" id="23_byk4r"]
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="24_lh7v3"]
@@ -182,6 +183,18 @@ instance_count = 4
 mesh = ExtResource("14_yeybn")
 buffer = PackedFloat32Array(-0.00183179, 0, -1.09634, -0.730203, 0, 1.09634, 0, 0, 1.09634, 0, -0.00183179, -0.616826, 0.963839, 0, 0.0191121, 0.108435, 0, 0.964029, 0, 0, -0.0191121, 0, 0.963839, -0.545464, 0.410795, 0, -0.889437, -0.595618, 0, 0.97972, 0, 0, 0.889437, 0, 0.410795, 0.161235, -0.459997, 0, -1.06724, 0.0580583, 0, 1.16216, 0, 0, 1.06724, 0, -0.459997, 0.515886)
 
+[sub_resource type="MultiMesh" id="MultiMesh_a8qf4"]
+transform_format = 1
+instance_count = 4
+mesh = ExtResource("14_yeybn")
+buffer = PackedFloat32Array(0.943657, 0, -0.162781, -0.979147, 0, 0.957594, 0, 0, 0.162781, 0, 0.943657, -0.917729, 1.0828, 0, -0.305441, 0.164301, 0, 1.12506, 0, 0, 0.305441, 0, 1.0828, -0.611279, -0.279873, 0, 0.86715, -0.848058, 0, 0.911196, 0, 0, -0.86715, 0, -0.279873, 0.34112, -0.264241, 0, 1.04267, 0.108902, 0, 1.07563, 0, 0, -1.04267, 0, -0.264241, 0.323043)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ycisp"]
+transform_format = 1
+instance_count = 4
+mesh = ExtResource("14_yeybn")
+buffer = PackedFloat32Array(0.47634, 0, 0.828243, -0.656276, 0, 0.955451, 0, 0, -0.828243, 0, 0.47634, -0.90318, -0.982267, 0, -0.620808, 0.0234515, 0, 1.162, 0, 0, 0.620808, 0, -0.982267, -0.906908, 0.973933, 0, 0.0384342, -0.751688, 0, 0.974691, 0, 0, -0.0384342, 0, 0.973933, 0.227544, -0.261567, 0, 1.09567, 0.229267, 0, 1.12645, 0, 0, -1.09567, 0, -0.261567, 0.539162)
+
 [sub_resource type="Curve" id="Curve_ai1cj"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
 point_count = 3
@@ -250,7 +263,7 @@ script = ExtResource("1_uenug")
 environment = SubResource("Environment_01xfs")
 
 [node name="Sun" type="DirectionalLight3D" parent="Sky"]
-transform = Transform3D(-0.4825, -0.383621, 0.78742, -0.281046, 0.919259, 0.275637, -0.829583, -0.0883059, -0.551357, 0, 3, 8.9857)
+transform = Transform3D(-0.4825, -0.454964, 0.748468, -0.281046, 0.889749, 0.359666, -0.829583, -0.0368144, -0.557169, 0, 3, 8.9857)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
@@ -290,10 +303,13 @@ autoplay = true
 [node name="DecoHandler" parent="." instance=ExtResource("26_of55i")]
 
 [node name="DecoLantern" parent="DecoHandler" instance=ExtResource("24_hqlax")]
-transform = Transform3D(1.27989, 0, -0.227753, 0, 1.3, 0, 0.227753, 0, 1.27989, -5.22888, -0.172754, 14.1604)
+transform = Transform3D(1.24005, 0, 0.390224, 0, 1.3, 0, -0.390224, 0, 1.24005, -5.8649, -0.0395252, 9.47157)
+
+[node name="DecoLantern2" parent="DecoHandler" instance=ExtResource("24_hqlax")]
+transform = Transform3D(1.26101, 0, 0.315994, 0, 1.3, 0, -0.315994, 0, 1.26101, 3.82651, -0.193428, 5.75103)
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(-0.183309, -0.00198147, 1.13529, -5.30718e-12, 1.15, 0.00200713, -1.1353, 0.000319935, -0.183309, 1.4985, 0.599628, 17.7478)
+transform = Transform3D(-0.159399, -0.00172301, 0.987213, -4.61492e-12, 0.999998, 0.00174533, -0.987214, 0.000278203, -0.159398, 0.827481, 0.0338966, 18.104)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -361,7 +377,7 @@ colour_2 = Color(0.504, 0.72, 0, 1)
 render_distance = 8.0
 
 [node name="FoliageSpawner9" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
-transform = Transform3D(0.99996, 0.00891851, 0, -0.00891851, 0.99996, 0, 0, 0, 1, 3.57563, -0.0661388, 9.01727)
+transform = Transform3D(0.99996, 0.00891851, 0, -0.00891851, 0.99996, 0, 0, 0, 1, 2.97903, -0.0608173, 10.3761)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_741o5")
@@ -592,6 +608,50 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 20.0
 
+[node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46764, 3.09861, 6.71728)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_a8qf4")
+script = ExtResource("9_7bo6h")
+custom_mesh = ExtResource("14_yeybn")
+count = 2
+scatter = 0.5
+min_scale = 0.9
+max_scale = 1.2
+smooth = false
+ignore_density_check = true
+ignore_aliasing_check = true
+moss_albedo_mix = 0.5
+vary_colours = false
+colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
+colour_2 = Color(0.336, 0.72, 0, 1)
+render_distance = 20.0
+
+[node name="BambooSpawner8" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
+transform = Transform3D(0.831373, 0, -0.555715, 0, 1, 0, 0.555715, 0, 0.831373, 7.51074, -0.158827, 11.8415)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_ycisp")
+script = ExtResource("9_7bo6h")
+custom_mesh = ExtResource("14_yeybn")
+count = 2
+scatter = 0.5
+min_scale = 0.9
+max_scale = 1.2
+smooth = false
+ignore_density_check = true
+ignore_aliasing_check = true
+moss_albedo_mix = 0.5
+vary_colours = false
+colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
+colour_2 = Color(0.336, 0.72, 0, 1)
+render_distance = 20.0
+
+[node name="Bamboo" type="MeshInstance3D" parent="Decoration/Foliage"]
+transform = Transform3D(-0.28175, -0.343592, -0.895858, -0.178143, 0.936182, -0.303031, 0.942806, 0.0742119, -0.324978, 8.09836, 2.04616, 8.24018)
+mesh = ExtResource("14_yeybn")
+
 [node name="Motes" type="GPUParticles3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
 amount = 80
@@ -640,6 +700,18 @@ transform = Transform3D(0.717908, 0, 0.696138, 0, 1.25, 0, -0.696138, 0, 0.71790
 [node name="Rock2" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(0.165852, 0.348956, 0.922346, 0.137337, 0.918012, -0.372011, -0.976541, 0.188371, 0.10433, -8.53679, 0.391876, 10.5209)
 
+[node name="Rock6" parent="Decoration" instance=ExtResource("16_s2hwi")]
+transform = Transform3D(0.449952, 0, -1.21965, 0, 1.3, 0, 1.21965, 0, 0.449952, 8.00192, 0.188799, 7.04321)
+
+[node name="Rock11" parent="Decoration" instance=ExtResource("16_s2hwi")]
+transform = Transform3D(1.67739, -0.305374, -0.361469, 0.233711, 2.28882, -1.14425e-08, 0.353053, -0.0642745, 1.71737, 11.741, 0.159366, 2.44389)
+
+[node name="Rock10" parent="Decoration" instance=ExtResource("16_s2hwi")]
+transform = Transform3D(1.04706, 0, -0.770495, 0, 1.325, 0, 0.770495, 0, 1.04706, 12.0697, 0.833199, 9.47869)
+
+[node name="Rock9" parent="Decoration" instance=ExtResource("16_s2hwi")]
+transform = Transform3D(0.103309, 0, -1.29589, 0.402043, 1.23585, 0.032051, 1.23194, -0.403319, 0.0982111, 9.83152, -0.672462, 11.5595)
+
 [node name="Rock5" parent="Decoration" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(0.689745, 0, 1.8773, 0, 2, 0, -1.8773, 0, 0.689745, -11.3581, 0.682719, 4.27276)
 
@@ -656,6 +728,11 @@ skeleton = NodePath("../..")
 
 [node name="Bamboo2" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(0.968556, 0, -0.790189, 0, 1.25, 0, 0.790189, 0, 0.968556, -10.9622, 3.19721, 8.15624)
+mesh = ExtResource("14_yeybn")
+skeleton = NodePath("../..")
+
+[node name="Bamboo3" type="MeshInstance3D" parent="Decoration"]
+transform = Transform3D(-0.2807, 0, -0.959796, 0, 1, 0, 0.959796, 0, -0.2807, -6.22598, 0.500868, 13.8808)
 mesh = ExtResource("14_yeybn")
 skeleton = NodePath("../..")
 
@@ -707,12 +784,8 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="Bamboo" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.2807, 0, -0.959796, 0, 1, 0, 0.959796, 0, -0.2807, -6.22598, 0.500868, 13.8808)
-mesh = ExtResource("14_yeybn")
-
 [node name="CleaningStation" parent="." instance=ExtResource("22_wkmls")]
-transform = Transform3D(0.573004, 0, -0.819552, 0, 1, 0, 0.819552, 0, 0.573004, 5.37617, 0.302652, 10.1382)
+transform = Transform3D(0.320728, 0, -0.947171, 0, 1, 0, 0.947171, 0, 0.320728, 5.69548, 0.302652, 8.81625)
 
 [node name="Lamp" type="OmniLight3D" parent="CleaningStation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.943346, 1.94474, 1.52712)
@@ -733,3 +806,16 @@ shape = SubResource("SphereShape3D_kdsv3")
 
 [node name="SafePoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61923, 1, 7.56866)
+
+[node name="House2" parent="." instance=ExtResource("23_53tlw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0487338, 1)
+
+[node name="Bamboo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.081, 7.49416, -0.176718)
+mesh = ExtResource("14_yeybn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12459, 2.11144, 7.9999)
+light_color = Color(1, 0.926333, 0.66, 1)
+omni_range = 3.5
+omni_attenuation = 0.0

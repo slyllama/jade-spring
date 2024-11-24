@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b084hpd2lh2nd"
-path="res://.godot/imported/house_greybox.glb-571d18efac992c3d50fc8042a08adee8.scn"
+uid="uid://b80ggoq0wp4ms"
+path="res://.godot/imported/house.glb-c81e989351ec7d5c53e0ae3fa1b543eb.scn"
 
 [deps]
 
-source_file="res://maps/seitung/meshes/house_greybox.glb"
-dest_files=["res://.godot/imported/house_greybox.glb-571d18efac992c3d50fc8042a08adee8.scn"]
+source_file="res://maps/seitung/meshes/house.glb"
+dest_files=["res://.godot/imported/house.glb-c81e989351ec7d5c53e0ae3fa1b543eb.scn"]
 
 [params]
 
@@ -33,13 +33,17 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"mat_grass": {
+"mat_ornament": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_grass.tres"
+"use_external/path": "res://maps/seitung/materials/mat_ornate_stone.tres"
 },
 "mat_placeholder": {
 "use_external/enabled": true,
 "use_external/path": "res://generic/materials/mat_placeholder.tres"
+},
+"mat_rock": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/fountain/materials/mat_rocks.tres"
 }
 }
 }
