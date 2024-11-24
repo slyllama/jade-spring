@@ -51,8 +51,9 @@ material = SubResource("StandardMaterial3D_ta0p3")
 size = Vector2(0.1, 0.1)
 orientation = 2
 
-[node name="DecoFountain" type="Node3D" node_paths=PackedStringArray("collision_box")]
+[node name="DecoBloodstoneImpactedPillar" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_d21cx")
+id = "bloodstone_impacted_pillar"
 collision_box = NodePath("Body")
 
 [node name="Body" type="StaticBody3D" parent="."]

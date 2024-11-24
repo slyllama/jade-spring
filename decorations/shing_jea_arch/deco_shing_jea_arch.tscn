@@ -8,6 +8,7 @@ size = Vector3(0.960938, 4.64852, 4.97559)
 
 [node name="DecoShingJeaArch" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_8s7lr")
+id = "shing_jea_arch"
 collision_box = NodePath("Body")
 
 [node name="Body" type="StaticBody3D" parent="."]

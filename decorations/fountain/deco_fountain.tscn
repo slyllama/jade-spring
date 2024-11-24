@@ -31,6 +31,7 @@ buffer = PackedFloat32Array(0.383466, 0, -3.04896, 0.140423, 0, 1.53649, 0, 0, 3
 
 [node name="DecoFountain" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_lcn0t")
+id = "fountain"
 collision_box = NodePath("Body")
 
 [node name="Body" type="StaticBody3D" parent="."]

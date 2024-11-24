@@ -18,6 +18,17 @@ func place_decoration(data: Dictionary) -> void:
 		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
 
+func _save_decorations() -> void:
+	var _decoration_save_data = {}
+	for _n in get_children():
+		if _n is Decoration:
+			_decoration_save_data[_n.id] = {
+				"position": _n.global_position,
+				"rotation": _n.global_rotation,
+				"scale": _n.scale
+			}
+	print(_decoration_save_data)
+
 func _input(_event: InputEvent) -> void:
 	if Global.tool_mode == Global.TOOL_MODE_PLACE:
 		if Input.is_action_just_pressed("right_click"):
@@ -27,6 +38,10 @@ func _ready() -> void:
 	for _n in get_children():
 		if _n is Decoration:
 			Global.decorations.append(_n)
+	
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/savedeco":
+			_save_decorations())
 	
 	Global.mouse_3d_click.connect(func():
 		if Global.tool_mode == Global.TOOL_MODE_PLACE:

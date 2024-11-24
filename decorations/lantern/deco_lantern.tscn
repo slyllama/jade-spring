@@ -8,6 +8,7 @@ size = Vector3(0.732178, 1.23415, 0.879883)
 
 [node name="DecoLantern" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_ky7hk")
+id = "lantern"
 collision_box = NodePath("Body")
 
 [node name="Body" type="StaticBody3D" parent="."]

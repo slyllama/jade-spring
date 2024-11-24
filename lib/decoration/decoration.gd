@@ -2,6 +2,7 @@
 class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
+@export var id = ""
 @export var collision_box: PhysicsBody3D
 var last_position: Vector3
 var last_scale: Vector3

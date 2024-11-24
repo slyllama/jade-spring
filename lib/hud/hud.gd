@@ -30,14 +30,14 @@ func _hide_int() -> void: # hide the interaction indicator
 	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.0, 0.1)
 
 func _debug_cmd_gain_focus() -> void:
-	$TopLevel/DebugEntry.text = ""
 	$TopLevel/DebugEntry.grab_focus() 
 	$TopLevel/DebugEntry.modulate.a = 1.0
 	Global.popup_open = true
 	Global.can_move = false
 
-func _debug_cmd_lose_focus() -> void:
-	$TopLevel/DebugEntry.text = ""
+func _debug_cmd_lose_focus(clear = false) -> void:
+	if clear:
+		$TopLevel/DebugEntry.text = ""
 	$TopLevel/DebugEntry.release_focus()
 	$TopLevel/DebugEntry.modulate.a = (200.0/255.0)
 	
@@ -48,11 +48,8 @@ func _debug_cmd_lose_focus() -> void:
 		Global.can_move = true
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("left_click"):
-		if $TopLevel/DebugEntry.has_focus():
-			_debug_cmd_lose_focus()
 	if Input.is_action_just_pressed("ui_cancel"):
-		_debug_cmd_lose_focus()
+		_debug_cmd_lose_focus(true)
 	
 	if Input.is_action_just_pressed("debug_cmd"):
 		if !Global.debug_enabled: return
@@ -61,12 +58,19 @@ func _input(_event: InputEvent) -> void:
 			_debug_cmd_gain_focus()
 		else:
 			# Send text and clear the command line
+			Global.last_command = $TopLevel/DebugEntry.text
 			Global.command_sent.emit($TopLevel/DebugEntry.text)
-			_debug_cmd_lose_focus()
+			_debug_cmd_lose_focus(true)
 	
 	if Input.is_action_just_pressed("debug_cmd_slash"):
 		if !$TopLevel/DebugEntry.has_focus():
 			_debug_cmd_gain_focus()
+	
+	# Fill the command line with the last-used command
+	if Input.is_action_just_pressed("ui_up"):
+		if $TopLevel/DebugEntry.has_focus():
+			_debug_cmd_gain_focus()
+			$TopLevel/DebugEntry.text = Global.last_command
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
@@ -157,3 +161,9 @@ func _on_wp_button_down() -> void:
 
 func _on_close_button_down() -> void:
 	get_tree().quit() # TODO: temporary?
+
+func _on_debug_entry_focus_exited() -> void:
+	_debug_cmd_lose_focus()
+
+func _on_debug_entry_focus_entered() -> void:
+	_debug_cmd_gain_focus()

@@ -279,3 +279,5 @@ placeholder_text = "Enter command:"
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]
 [connection signal="button_down" from="CornerButtons/WPButton" to="." method="_on_wp_button_down"]
 [connection signal="button_down" from="TopLevel/CloseButton" to="." method="_on_close_button_down"]
+[connection signal="focus_entered" from="TopLevel/DebugEntry" to="." method="_on_debug_entry_focus_entered"]
+[connection signal="focus_exited" from="TopLevel/DebugEntry" to="." method="_on_debug_entry_focus_exited"]
