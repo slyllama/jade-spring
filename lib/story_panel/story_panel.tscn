@@ -1,0 +1,126 @@
+[gd_scene load_steps=12 format=3 uid="uid://cn2qyrv6nlm14"]
+
+[ext_resource type="Texture2D" uid="uid://4n7lm0nhmyrh" path="res://lib/story_panel/textures/base.png" id="1_08h36"]
+[ext_resource type="Script" path="res://lib/story_panel/story_panel.gd" id="1_b7ku0"]
+[ext_resource type="Shader" path="res://lib/main_menu/title_card/shaders/shader_logo.gdshader" id="2_krwrs"]
+[ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="3_5bs7w"]
+[ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="3_rw3lo"]
+[ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="4_7s6xp"]
+[ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="7_p10w8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ysri0"]
+shader = ExtResource("2_krwrs")
+shader_parameter/paint_mask_exponent = 10.0
+shader_parameter/paint_mask_texture = ExtResource("3_5bs7w")
+
+[sub_resource type="Animation" id="Animation_v7lo3"]
+resource_name = "float"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("JadeWings:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JadeWings:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sptak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("JadeWings:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JadeWings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tuv2v"]
+_data = {
+"RESET": SubResource("Animation_sptak"),
+"float": SubResource("Animation_v7lo3")
+}
+
+[node name="StoryPanel" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_b7ku0")
+
+[node name="Base" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ysri0")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -356.0
+offset_right = 466.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_08h36")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="JadeWingsBase" type="Node2D" parent="."]
+
+[node name="JadeWings" type="Sprite2D" parent="JadeWingsBase"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_p10w8")
+
+[node name="JadeAnim" type="AnimationPlayer" parent="JadeWingsBase"]
+libraries = {
+"": SubResource("AnimationLibrary_tuv2v")
+}
+
+[node name="CloseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -461.5
+offset_top = 187.0
+offset_right = -441.5
+offset_bottom = 207.0
+grow_horizontal = 0
+mouse_filter = 1
+texture_normal = ExtResource("3_rw3lo")
+texture_hover = ExtResource("4_7s6xp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="button_down" from="CloseButton" to="." method="close"]

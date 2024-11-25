@@ -271,7 +271,7 @@ script = ExtResource("1_uenug")
 environment = SubResource("Environment_01xfs")
 
 [node name="Sun" type="DirectionalLight3D" parent="Sky"]
-transform = Transform3D(-0.275341, -0.370129, 0.887238, -0.282954, 0.913232, 0.293162, -0.918762, -0.170328, -0.35618, 0, 3, 8.9857)
+transform = Transform3D(-0.0538179, -0.360148, 0.931341, -0.294181, 0.897017, 0.329876, -0.954233, -0.25623, -0.154224, 0, 3, 8.9857)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]

@@ -17,9 +17,10 @@ func _render_fps() -> String: # pretty formatting of FPS values
 func _render_crumb_debug() -> String:
 	if Global.crumb_handler == null:
 		return("")
-	var _s = "\n" + str(Global.crumb_data)
+	var _s = ""
 	if Global.current_crumb != null:
-		_s += ("\n[color=yellow]Proximal crumb: " + str(Global.current_crumb) + "[/color]")
+		_s += ("\n[color=yellow]Proximal crumb: "
+			+ str(Global.current_crumb) + "[/color]")
 	return(_s)
 
 func _show_int() -> void: # show the interaction indicator
@@ -93,7 +94,12 @@ func _ready() -> void:
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
-			get_tree().quit())
+			get_tree().quit()
+		elif _cmd == "/storypanel":
+			var _sp = load("res://lib/story_panel/story_panel.tscn").instantiate()
+			add_child(_sp)
+			_sp.open()
+	)
 	
 	Global.debug_toggled.connect(func():
 		$TopLevel/DebugEntry.visible = Global.debug_enabled

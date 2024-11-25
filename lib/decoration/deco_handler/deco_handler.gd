@@ -5,6 +5,8 @@ extends Node3D
 const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
 const FILE_PATH = "user://deco.dat"
 
+var default_deco_data = {}
+
 func place_decoration(data: Dictionary) -> void:
 	#var _d = TEST_DECORATION.instantiate()
 	# For now, if no scene is specified for the decoration, nothing will happen
@@ -19,32 +21,39 @@ func place_decoration(data: Dictionary) -> void:
 		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
 
+# Clear all decorations from the world
 func _clear_decorations() -> void:
 	for _n in get_children():
 		if _n is Decoration:
 			_n.queue_free()
 	Global.decorations = []
 
-func _load_decorations() -> void:
-	# TODO: loading decorations
+# Load decorations into the world from a dataset
+# TODO: it might be best to perform this asynchronously
+func _load_decorations(data = {}) -> void:
 	_clear_decorations()
+	for _d in data:
+		if !_d in Global.DecoData: continue
+		var _transform = data[_d]
+		var _decoration = load(Global.DecoData[_d].scene).instantiate()
+		
+		add_child(_decoration)
+		_decoration.position = _transform.position
+		_decoration.rotation = _transform.rotation
+		_decoration.scale = _transform.scale
+		Global.decorations.append(_decoration)
+
+# Load decorations from a file as a dictionary to use with other functions
+func _load_decoration_file() -> Dictionary:
 	if FileAccess.file_exists(FILE_PATH):
 		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
 		var _file_decos = file.get_var()
 		file.close()
-		
-		for _d in _file_decos:
-			if !_d in Global.DecoData: continue
-			var _transform = _file_decos[_d]
-			var _decoration = load(Global.DecoData[_d].scene).instantiate()
-			
-			add_child(_decoration)
-			_decoration.position = _transform.position
-			_decoration.rotation = _transform.rotation
-			_decoration.scale = _transform.scale
-			Global.decorations.append(_decoration)
+		return(_file_decos)
+	else:
+		return({})
 
-func _save_decorations() -> void:
+func _get_decoration_list() -> Dictionary:
 	var _decoration_save_data = {}
 	for _n in get_children():
 		if _n is Decoration:
@@ -53,6 +62,10 @@ func _save_decorations() -> void:
 				"rotation": _n.global_rotation,
 				"scale": _n.scale
 			}
+	return(_decoration_save_data)
+
+func _save_decorations() -> void:
+	var _decoration_save_data = _get_decoration_list()
 	var _file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	_file.store_var(_decoration_save_data)
 	_file.close()
@@ -66,6 +79,7 @@ func _ready() -> void:
 	for _n in get_children():
 		if _n is Decoration:
 			Global.decorations.append(_n)
+	default_deco_data = _get_decoration_list()
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/savedeco":
@@ -86,4 +100,7 @@ func _ready() -> void:
 		if _cmd == "/cleardeco":
 			_clear_decorations()
 		elif _cmd == "/loaddeco":
-			_load_decorations())
+			_load_decorations(_load_decoration_file())
+		elif _cmd == "/resetdeco":
+			_load_decorations(default_deco_data)
+	)

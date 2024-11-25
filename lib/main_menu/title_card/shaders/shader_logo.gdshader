@@ -7,5 +7,7 @@ uniform float paint_mask_exponent: hint_range(0.01, 10.0) = 1.0;
 void fragment() {
 	float paint_mask = texture(paint_mask_texture, UV).r;
 	paint_mask = pow(paint_mask, paint_mask_exponent / texture(paint_mask_gradient, UV).r);
-	COLOR.a *= paint_mask;
+	if (paint_mask_exponent > 0.01) {
+		COLOR.a *= paint_mask;
+	}
 }

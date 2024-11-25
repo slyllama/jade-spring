@@ -1,4 +1,9 @@
 /cleardeco		Clear all decorations
+/loaddeco		Load decorations from file
+/resetdeco		Reset decorations for defaults
+/savedeco		Save decorations to file
 
 /showplayer		Show the player mesh
 /hideplayer		Hide the player mesh
+
+/storypanel		Debug the story panel
