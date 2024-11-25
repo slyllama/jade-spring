@@ -14,6 +14,8 @@ func set_up_nodule() -> void:
 		focus = $Container/SettingsButton)
 	$Container/QuitButton.focus_entered.connect(func():
 		focus = $Container/QuitButton)
+	$Container/ContinueButton.focus_entered.connect(func():
+		focus = $Container/ContinueButton)
 	
 	$Container/PlayButton.mouse_entered.connect(func():
 		focus = $Container/PlayButton)
@@ -21,13 +23,15 @@ func set_up_nodule() -> void:
 		focus = $Container/SettingsButton)
 	$Container/QuitButton.mouse_entered.connect(func():
 		focus = $Container/QuitButton)
+	$Container/ContinueButton.mouse_entered.connect(func():
+		focus = $Container/ContinueButton)
 	
 	await get_tree().create_timer(0.55).timeout
 	var _f = create_tween()
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
 func _set_title_card_pos() -> void:
-	$TitleCard.global_position = $Container/PlayButton.global_position + Vector2(165, -140)
+	$TitleCard.global_position = $Container/Padding.global_position + Vector2(165, -40)
 
 func _ready() -> void:
 	set_up_nodule()
@@ -51,7 +55,7 @@ func _ready() -> void:
 	SettingsHandler.refresh(["volume"])
 	await get_tree().process_frame
 	_set_title_card_pos()
-	$Container/PlayButton.grab_focus()
+	$Container/ContinueButton.grab_focus()
 	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
@@ -61,9 +65,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if focus == null: return
 	$Nodule.global_position = lerp(
-		$Nodule.position, focus.global_position + Vector2(-12, 16), delta * 22)
+		$Nodule.position, focus.global_position + Vector2(-17, 16), delta * 22)
 
 func _on_play_button_down() -> void:
+	Global.start_params.new_save = true
 	get_tree().change_scene_to_file(LOADER_SCENE)
 
 func _on_quit_button_down() -> void:
@@ -72,3 +77,7 @@ func _on_quit_button_down() -> void:
 func _on_settings_button_down() -> void:
 	if !$SettingsPane.is_open:
 		$SettingsPane.open()
+
+func _on_continue_button_down() -> void:
+	Global.start_params.new_save = false
+	get_tree().change_scene_to_file(LOADER_SCENE)

@@ -30,38 +30,38 @@ func _clear_decorations() -> void:
 
 # Load decorations into the world from a dataset
 # TODO: it might be best to perform this asynchronously
-func _load_decorations(data = {}) -> void:
+func _load_decorations(data = []) -> void:
 	_clear_decorations()
 	for _d in data:
-		if !_d in Global.DecoData: continue
-		var _transform = data[_d]
-		var _decoration = load(Global.DecoData[_d].scene).instantiate()
+		if !_d.id in Global.DecoData: continue
+		var _decoration = load(Global.DecoData[_d.id].scene).instantiate()
 		
 		add_child(_decoration)
-		_decoration.position = _transform.position
-		_decoration.rotation = _transform.rotation
-		_decoration.scale = _transform.scale
+		_decoration.position = _d.position
+		_decoration.rotation = _d.rotation
+		_decoration.scale = _d.scale
 		Global.decorations.append(_decoration)
 
 # Load decorations from a file as a dictionary to use with other functions
-func _load_decoration_file() -> Dictionary:
+func _load_decoration_file() -> Array:
 	if FileAccess.file_exists(FILE_PATH):
 		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
 		var _file_decos = file.get_var()
 		file.close()
 		return(_file_decos)
 	else:
-		return({})
+		return([])
 
-func _get_decoration_list() -> Dictionary:
-	var _decoration_save_data = {}
+func _get_decoration_list() -> Array:
+	var _decoration_save_data = []
 	for _n in get_children():
 		if _n is Decoration:
-			_decoration_save_data[_n.id] = {
+			_decoration_save_data.append({
+				"id": _n.id,
 				"position": _n.global_position,
 				"rotation": _n.global_rotation,
 				"scale": _n.scale
-			}
+			})
 	return(_decoration_save_data)
 
 func _save_decorations() -> void:
@@ -81,9 +81,11 @@ func _ready() -> void:
 			Global.decorations.append(_n)
 	default_deco_data = _get_decoration_list()
 	
-	Global.command_sent.connect(func(_cmd):
-		if _cmd == "/savedeco":
-			_save_decorations())
+	# Load saved decorations or reset them depending on parameters passed from the main menu
+	if Global.start_params.new_save:
+		_load_decorations(default_deco_data)
+	else:
+		_load_decorations(_load_decoration_file())
 	
 	Global.mouse_3d_click.connect(func():
 		if Global.tool_mode == Global.TOOL_MODE_PLACE:
@@ -103,4 +105,8 @@ func _ready() -> void:
 			_load_decorations(_load_decoration_file())
 		elif _cmd == "/resetdeco":
 			_load_decorations(default_deco_data)
+		elif _cmd == "/savedeco":
+			_save_decorations()
+		elif _cmd == "/getdecolist":
+			_get_decoration_list()
 	)

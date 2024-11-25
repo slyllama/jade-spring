@@ -1,5 +1,9 @@
 extends Node
 
+var start_params = {
+	"new_save" = false
+}
+
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
 

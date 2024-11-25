@@ -64,6 +64,12 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
+[node name="ContinueButton" parent="Container" instance=ExtResource("3_v0okn")]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 2
+text = "Continue Game"
+alignment = 1
+
 [node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
@@ -175,6 +181,7 @@ texture_hover = ExtResource("11_ctlnu")
 ignore_texture_size = true
 stretch_mode = 0
 
+[connection signal="button_down" from="Container/ContinueButton" to="." method="_on_continue_button_down"]
 [connection signal="button_down" from="Container/PlayButton" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Container/SettingsButton" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="Container/QuitButton" to="." method="_on_quit_button_down"]
