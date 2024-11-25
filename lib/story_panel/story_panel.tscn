@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysri0"]
 shader = ExtResource("2_krwrs")
-shader_parameter/paint_mask_exponent = 10.0
+shader_parameter/paint_mask_exponent = 0.01
 shader_parameter/paint_mask_texture = ExtResource("3_5bs7w")
 
 [sub_resource type="Animation" id="Animation_v7lo3"]
@@ -96,6 +96,48 @@ texture = ExtResource("1_08h36")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Content" type="Control" parent="Base"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Base/Content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -98.0
+offset_right = 175.5
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]1. A Helping Hand[/center]"
+
+[node name="Description" type="RichTextLabel" parent="Base/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 289.0
+offset_top = 280.0
+offset_right = -289.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.617455, 0.617455, 0.617455, 1)
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "Lorem ipsum"
+scroll_active = false
+
 [node name="JadeWingsBase" type="Node2D" parent="."]
 
 [node name="JadeWings" type="Sprite2D" parent="JadeWingsBase"]
@@ -109,14 +151,17 @@ libraries = {
 
 [node name="CloseButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(20, 20)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -461.5
-offset_top = 187.0
-offset_right = -441.5
-offset_bottom = 207.0
-grow_horizontal = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 177.0
+offset_top = -184.0
+offset_right = 197.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 texture_normal = ExtResource("3_rw3lo")
 texture_hover = ExtResource("4_7s6xp")

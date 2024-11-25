@@ -4,9 +4,15 @@ func _set_shader_value(val: float) -> void: # 0-1
 	var _e = ease(val, 0.2)
 	$Base.material.set_shader_parameter("paint_mask_exponent", (1 - _e) * 10)
 
-func open():
+func open(title = "((Title))", description = "((Description))"):
+	$Base/Content/Title.text = "[center]" + title + "[/center]"
+	$Base/Content/Description.text = description
+	
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_shader_value, 0.0, 1.0, 0.27)
+	var content_fade_tween = create_tween()
+	content_fade_tween.tween_property($Base/Content, "modulate:a", 1.0, 0.27)
+	content_fade_tween.set_parallel()
 	
 	await get_tree().process_frame
 	await get_tree().process_frame # wait for command line to process
@@ -24,12 +30,16 @@ func close():
 	# Do closing stuff
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_shader_value, 1.0, 0.0, 0.27)
+	var content_fade_tween = create_tween()
+	content_fade_tween.tween_property($Base/Content, "modulate:a", 0.0, 0.27)
+	content_fade_tween.set_parallel()
 	$JadeWingsBase/JadeAnim.play_backwards("float")
 	
 	await fade_tween.finished
 	queue_free()
 
 func _ready() -> void:
+	$Base/Content.modulate.a = 0.0
 	$JadeWingsBase/JadeWings.modulate.a = 0.0
 	$JadeWingsBase/JadeWings.position.y = 10.0
 
