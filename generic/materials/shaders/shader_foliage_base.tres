@@ -6,11 +6,14 @@ render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specula
 
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D texture_normal : hint_normal;
 
 uniform float distance_fade_min : hint_range(0.0, 4096.0, 0.01);
 uniform float distance_fade_max : hint_range(0.0, 4096.0, 0.01);
 uniform float alpha_scissor_threshold : hint_range(0.0, 1.0, 0.001);
 uniform float alpha_antialiasing_edge : hint_range(0.0, 1.0, 0.01);
+uniform float backlight = 0.5;
+uniform float specularity = 0.2;
 
 float get_wind(vec2 vertex, vec2 uv){
 	float min_strength = 0.05;
@@ -37,12 +40,14 @@ void fragment() {
 	//albedo_tex *= COLOR * 1.2;
 	//ALBEDO = albedo_tex.rgb;
 	ALBEDO = COLOR.rgb * 1.5 * pow(albedo_tex.rgb, vec3(0.9));
+	ALBEDO *= albedo.rgb;
+	NORMAL = texture(texture_normal, UV).rgb;
 
 	ALPHA *= albedo_tex.a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
 	ALPHA_ANTIALIASING_EDGE = alpha_antialiasing_edge;
-	BACKLIGHT = vec3(0.5);
-	SPECULAR = 0.2;
+	BACKLIGHT = vec3(backlight);
+	SPECULAR = specularity;
 
 	{
 		// Distance Fade: Pixel Dither

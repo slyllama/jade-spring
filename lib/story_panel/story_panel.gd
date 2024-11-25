@@ -17,15 +17,15 @@ func open(title = "((Title))", description = "((Description))"):
 	await get_tree().process_frame
 	await get_tree().process_frame # wait for command line to process
 	Global.in_exclusive_ui = true
-	Global.can_move = false
+	#Global.can_move = false
 	
 	await get_tree().create_timer(0.1).timeout
 	$JadeWingsBase/JadeAnim.play("float")
 
 func close():
 	Global.in_exclusive_ui = false
-	if Global.tool_mode != Global.TOOL_MODE_FISH:
-		Global.can_move = true
+	#if Global.tool_mode != Global.TOOL_MODE_FISH:
+		#Global.can_move = true
 	
 	# Do closing stuff
 	var fade_tween = create_tween()

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dfxdee8xwpfpq"]
+
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_vlr6l"]
+[ext_resource type="Texture2D" uid="uid://j7x8ngd264h2" path="res://decorations/eepy_fence/materials/textures/fenceleaves_alpha.png" id="2_sgck5"]
+[ext_resource type="Texture2D" uid="uid://bw0ttwgu6jfu5" path="res://decorations/eepy_fence/materials/textures/fenceleaves_norm.jpg" id="3_ts56q"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vlr6l")
+shader_parameter/albedo = Color(0.65, 0.65, 0.65, 1)
+shader_parameter/distance_fade_min = 10.5
+shader_parameter/distance_fade_max = 10.0
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/alpha_antialiasing_edge = 0.35
+shader_parameter/backlight = 0.5
+shader_parameter/specularity = 0.0
+shader_parameter/texture_albedo = ExtResource("2_sgck5")
+shader_parameter/texture_normal = ExtResource("3_ts56q")

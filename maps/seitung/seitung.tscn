@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=58 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://hooieo80ip7g" path="res://maps/seitung/meshes/arch_test.glb" id="12_4v57y"]
 [ext_resource type="PackedScene" uid="uid://5lfgl1gtq08p" path="res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn" id="12_i2o4n"]
 [ext_resource type="PackedScene" uid="uid://fdtci72jf3pk" path="res://decorations/fountain/deco_fountain.tscn" id="12_iopfa"]
+[ext_resource type="PackedScene" uid="uid://cw22jtaf0fhxj" path="res://decorations/eepy_fence/deco_eepy_fence.tscn" id="13_bp3pr"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
 [ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="22_wkmls"]
@@ -271,7 +272,7 @@ script = ExtResource("1_uenug")
 environment = SubResource("Environment_01xfs")
 
 [node name="Sun" type="DirectionalLight3D" parent="Sky"]
-transform = Transform3D(-0.0538179, -0.360148, 0.931341, -0.294181, 0.897017, 0.329876, -0.954233, -0.25623, -0.154224, 0, 3, 8.9857)
+transform = Transform3D(-0.314094, -0.416715, 0.85305, -0.294181, 0.897017, 0.329875, -0.902664, -0.147339, -0.404337, 0, 3, 8.9857)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p3dp3")]
@@ -320,13 +321,16 @@ autoplay = true
 transform = Transform3D(1.08581, 0, 0.714846, 0, 1.3, 0, -0.714846, 0, 1.08581, -5.24975, 0.0174669, 8.95736)
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(-0.223947, -0.001701, 0.9746, -1.47902e-11, 0.999999, 0.00174533, -0.974601, 0.000390861, -0.223947, 0.771826, 0.278887, 17.2517)
+transform = Transform3D(-0.223947, -0.001701, 0.9746, -1.47902e-11, 0.999999, 0.00174533, -0.974601, 0.000390861, -0.223947, -0.829077, 0.259156, 17.5676)
 
 [node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" instance=ExtResource("12_i2o4n")]
-transform = Transform3D(-0.29277, 0.0751642, -1.52024, -0.265729, 1.52181, 0.126416, 1.49872, 0.284505, -0.274559, -5.45696, -0.0474628, 13.3419)
+transform = Transform3D(-0.321103, 0.082438, -1.66736, -0.291445, 1.66908, 0.13865, 1.64376, 0.312039, -0.301131, -5.10854, -0.246228, 13.6499)
 
-[node name="DecoBloodstoneImpactedPillar2" parent="DecoHandler" instance=ExtResource("12_i2o4n")]
-transform = Transform3D(-1.48839, -0.229423, -0.366809, -0.153109, 1.5084, -0.322172, 0.40465, -0.273134, -1.47111, -8.00323, 2.55213, 16.3682)
+[node name="DecoEepyFence" parent="DecoHandler" instance=ExtResource("13_bp3pr")]
+transform = Transform3D(1.27369, 0.0787069, 0.248033, -0.0770925, 1.29761, -0.0158821, -0.24854, 0.000851813, 1.27602, -3.19197, -0.378025, 14.3212)
+
+[node name="DecoEepyFence2" parent="DecoHandler" instance=ExtResource("13_bp3pr")]
+transform = Transform3D(1.29928, 0.00453535, 0.0431017, -0.00453785, 1.29999, 0, -0.0431015, -0.000150453, 1.29929, 5.98735, -0.345517, 13.3504)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -559,7 +563,7 @@ colour_2 = Color(0.896879, 0, 0.331197, 1)
 render_distance = 11.0
 
 [node name="FlowerSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
-transform = Transform3D(-0.18845, 0.182449, 0.964986, -0.0722143, 0.977358, -0.19889, -0.979424, -0.107167, -0.171007, -4.72214, 0.0955406, 14.6343)
+transform = Transform3D(-0.18845, 0.182449, 0.964986, -0.0722143, 0.977358, -0.19889, -0.979424, -0.107167, -0.171007, -4.70658, -0.136551, 12.3859)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5v28c")
@@ -904,7 +908,7 @@ distance_fade_length = 0.5
 cull_mask = 1048573
 
 [node name="RockDecal3" type="Decal" parent="Decoration"]
-transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, 3.30962, 0.246711, 14.2753)
+transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, 0.65435, 0.246711, 12.7721)
 size = Vector3(2.935, 2.408, 3.85)
 texture_albedo = ExtResource("22_y7vyt")
 normal_fade = 0.5

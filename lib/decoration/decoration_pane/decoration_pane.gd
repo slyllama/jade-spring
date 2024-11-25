@@ -50,7 +50,9 @@ func _ready() -> void:
 			
 			# Get the custom y-rotation, if one exists
 			var _y_rotation = 135.0
-			if "y_rotation" in _data:
+			if "preview_y_rotation" in _data:
+				_y_rotation += _data.preview_y_rotation
+			elif "y_rotation" in _data: # fallback
 				_y_rotation += _data.y_rotation
 			
 			preview.current_id = current_id

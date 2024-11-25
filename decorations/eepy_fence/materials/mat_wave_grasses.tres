@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://clj0ogt7s3yd4"]
+
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_hf5lq"]
+[ext_resource type="Texture2D" uid="uid://bykxnj4srlqf1" path="res://decorations/eepy_fence/materials/textures/wave_grasses.png" id="2_o3wv0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hf5lq")
+shader_parameter/albedo = Color(0.6, 0.6, 0.6, 1)
+shader_parameter/distance_fade_min = 10.5
+shader_parameter/distance_fade_max = 10.0
+shader_parameter/alpha_scissor_threshold = 0.4
+shader_parameter/alpha_antialiasing_edge = 0.1
+shader_parameter/texture_albedo = ExtResource("2_o3wv0")
