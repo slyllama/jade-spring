@@ -321,16 +321,16 @@ autoplay = true
 transform = Transform3D(1.08581, 0, 0.714846, 0, 1.3, 0, -0.714846, 0, 1.08581, -5.24975, 0.0174669, 8.95736)
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(-0.223947, -0.001701, 0.9746, -1.47902e-11, 0.999999, 0.00174533, -0.974601, 0.000390861, -0.223947, -0.829077, 0.259156, 17.5676)
+transform = Transform3D(-0.0997707, -0.00173662, 0.995009, 3.96453e-11, 0.999999, 0.00174533, -0.99501, 0.000174132, -0.0997709, -1.12614, 0.259156, 18.9145)
 
 [node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" instance=ExtResource("12_i2o4n")]
-transform = Transform3D(-0.321103, 0.082438, -1.66736, -0.291445, 1.66908, 0.13865, 1.64376, 0.312039, -0.301131, -5.10854, -0.246228, 13.6499)
+transform = Transform3D(1.32247, 0.142984, 1.0586, -0.291445, 1.66908, 0.13865, -1.02769, -0.289344, 1.32293, 7.49766, 0.204448, 14.6447)
 
 [node name="DecoEepyFence" parent="DecoHandler" instance=ExtResource("13_bp3pr")]
-transform = Transform3D(1.27369, 0.0787069, 0.248033, -0.0770925, 1.29761, -0.0158821, -0.24854, 0.000851813, 1.27602, -3.19197, -0.378025, 14.3212)
+transform = Transform3D(-1.27369, -0.0787069, -0.248033, -0.0770925, 1.29761, -0.0158821, 0.24854, -0.000851816, -1.27602, -3.19197, -0.530099, 14.3212)
 
 [node name="DecoEepyFence2" parent="DecoHandler" instance=ExtResource("13_bp3pr")]
-transform = Transform3D(1.29928, 0.00453535, 0.0431017, -0.00453785, 1.29999, 0, -0.0431015, -0.000150453, 1.29929, 5.98735, -0.345517, 13.3504)
+transform = Transform3D(-1.29928, -0.00453535, -0.0431017, -0.00453785, 1.29999, 0, 0.0431015, 0.000150453, -1.29929, 5.98735, -0.454539, 13.3504)
 
 [node name="House" parent="." instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -910,6 +910,16 @@ cull_mask = 1048573
 [node name="RockDecal3" type="Decal" parent="Decoration"]
 transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, 0.65435, 0.246711, 12.7721)
 size = Vector3(2.935, 2.408, 3.85)
+texture_albedo = ExtResource("22_y7vyt")
+normal_fade = 0.5
+distance_fade_enabled = true
+distance_fade_begin = 9.0
+distance_fade_length = 0.5
+cull_mask = 1048573
+
+[node name="RockDecal4" type="Decal" parent="Decoration"]
+transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -0.507606, 0.246711, 15.1153)
+size = Vector3(2.3, 2.408, 2.3)
 texture_albedo = ExtResource("22_y7vyt")
 normal_fade = 0.5
 distance_fade_enabled = true
