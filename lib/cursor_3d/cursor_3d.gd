@@ -128,7 +128,6 @@ func _process(delta: float) -> void:
 	if !"custom_model" in data:
 		rotation = lerp(rotation, _target_normal, delta * 3)
 	else:
-		var _r = Global.player_y_rotation - _b.angle_to_point(_a) - deg_to_rad(180)
-		rotation.y = _r
-		global_rotation.y += y_rotation
+		global_rotation.y = (_b.angle_to_point(_a)
+			+ (Global.camera.global_rotation.y * 2.0) - deg_to_rad(90))
 		Global.mouse_3d_y_rotation = rotation.y

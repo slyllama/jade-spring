@@ -70,10 +70,10 @@ func _save_decorations() -> void:
 	_file.store_var(_decoration_save_data)
 	_file.close()
 
-func _input(_event: InputEvent) -> void:
-	if Global.tool_mode == Global.TOOL_MODE_PLACE:
-		if Input.is_action_just_pressed("right_click"):
-			Global.deco_placement_canceled.emit()
+#func _input(_event: InputEvent) -> void:
+	#if Global.tool_mode == Global.TOOL_MODE_PLACE:
+		#if Input.is_action_just_pressed("right_click"):
+			#Global.deco_placement_canceled.emit()
 
 func _ready() -> void:
 	for _n in get_children():
@@ -101,11 +101,15 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/cleardeco":
 			_clear_decorations()
+			Global.announcement_sent.emit("((Decorations cleared))")
 		elif _cmd == "/loaddeco":
 			_load_decorations(_load_decoration_file())
+			Global.announcement_sent.emit("((Decorations loaded))")
 		elif _cmd == "/resetdeco":
 			_load_decorations(default_deco_data)
+			Global.announcement_sent.emit("((Decorations reset))")
 		elif _cmd == "/savedeco":
+			Global.announcement_sent.emit("((Decorations saved))")
 			_save_decorations()
 		elif _cmd == "/getdecolist":
 			_get_decoration_list()
