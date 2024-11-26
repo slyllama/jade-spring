@@ -26,7 +26,7 @@ func set_up_nodule() -> void:
 	$Container/ContinueButton.mouse_entered.connect(func():
 		focus = $Container/ContinueButton)
 	
-	await get_tree().create_timer(0.55).timeout
+	await get_tree().create_timer(0.12).timeout
 	var _f = create_tween()
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
@@ -56,6 +56,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_set_title_card_pos()
 	$Container/ContinueButton.grab_focus()
+	
+	$Nodule.global_position = focus.global_position + Vector2(-17, 16)
 	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)

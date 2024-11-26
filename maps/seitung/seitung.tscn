@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=66 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -33,7 +33,6 @@
 [ext_resource type="AudioStream" uid="uid://h4dsr4ca4uk3" path="res://maps/seitung/sounds/mus_roselund.ogg" id="31_sb537"]
 [ext_resource type="AudioStream" uid="uid://d0igr2vb2cp8w" path="res://maps/seitung/sounds/mus_scruffy.ogg" id="32_o7ipo"]
 [ext_resource type="AudioStream" uid="uid://b3hjfp8w7fvna" path="res://maps/seitung/sounds/mus_dove.ogg" id="33_x8jee"]
-[ext_resource type="AudioStream" uid="uid://ca33ift3s5lbw" path="res://maps/seitung/sounds/mus_socks.ogg" id="34_fhvwn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_krpi4"]
 panorama = ExtResource("2_lnf6c")
@@ -281,7 +280,7 @@ script/source = "extends AudioStreamPlayer
 @export var track_list: Array[AudioStreamOggVorbis]
 @export var start_muted := false
 @export var music_enabled := true
-@export var delay := 5.0
+@export var delay := 24.0
 
 var rng = RandomNumberGenerator.new()
 var tracks: Array[AudioStreamOggVorbis] = []
@@ -373,7 +372,7 @@ shape = SubResource("BoxShape3D_bvguu")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7867x")
-volume_db = 3.5
+volume_db = 5.0
 autoplay = true
 
 [node name="DecoHandler" parent="." instance=ExtResource("26_of55i")]
@@ -1029,4 +1028,5 @@ omni_attenuation = 0.0
 
 [node name="Jukebox" type="AudioStreamPlayer" parent="."]
 script = SubResource("GDScript_mi48u")
-track_list = Array[AudioStreamOggVorbis]([ExtResource("9_mig3c"), ExtResource("27_mcoi8"), ExtResource("28_i3rac"), ExtResource("29_r2s4g"), ExtResource("30_riv34"), ExtResource("31_sb537"), ExtResource("32_o7ipo"), ExtResource("33_x8jee"), ExtResource("34_fhvwn")])
+track_list = Array[AudioStreamOggVorbis]([ExtResource("9_mig3c"), ExtResource("27_mcoi8"), ExtResource("28_i3rac"), ExtResource("29_r2s4g"), ExtResource("30_riv34"), ExtResource("31_sb537"), ExtResource("32_o7ipo"), ExtResource("33_x8jee")])
+delay = 48.0

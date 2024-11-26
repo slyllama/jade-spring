@@ -9,13 +9,16 @@
 
 [sub_resource type="Environment" id="Environment_hq0yq"]
 ambient_light_source = 2
-ambient_light_color = Color(0.5, 0.5, 0.5, 1)
-tonemap_mode = 2
+ambient_light_color = Color(0.4, 0.4, 0.4, 1)
 fog_mode = 1
 fog_light_color = Color(0.05, 0.05, 0.05, 1)
 fog_density = 1.0
 fog_depth_begin = 5.0
 fog_depth_end = 7.0
+adjustment_enabled = true
+adjustment_brightness = 0.96
+adjustment_contrast = 1.03
+adjustment_saturation = 1.2
 
 [sub_resource type="Gradient" id="Gradient_qv4sk"]
 offsets = PackedFloat32Array(0.0710383, 0.491803, 0.983607, 1)
