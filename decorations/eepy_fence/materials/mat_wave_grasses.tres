@@ -11,4 +11,6 @@ shader_parameter/distance_fade_min = 10.5
 shader_parameter/distance_fade_max = 10.0
 shader_parameter/alpha_scissor_threshold = 0.4
 shader_parameter/alpha_antialiasing_edge = 0.1
+shader_parameter/backlight = 0.5
+shader_parameter/specularity = 0.2
 shader_parameter/texture_albedo = ExtResource("2_o3wv0")

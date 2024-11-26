@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://d0m8idfvk4l2s"]
+
+[ext_resource type="Shader" path="res://lib/crumb/dragonvoid/materials/shaders/shader_dragonvoid.gdshader" id="1_jdvhu"]
+
+[sub_resource type="Gradient" id="Gradient_tl57f"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_32l0i"]
+gradient = SubResource("Gradient_tl57f")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_7xuxb"]
+offsets = PackedFloat32Array(0, 0.73)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2lmyh"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v784o"]
+seamless = true
+color_ramp = SubResource("Gradient_7xuxb")
+noise = SubResource("FastNoiseLite_2lmyh")
+
+[sub_resource type="Gradient" id="Gradient_qnsu5"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vsucu"]
+gradient = SubResource("Gradient_qnsu5")
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_jdvhu")
+shader_parameter/v_gradient_texture = SubResource("GradientTexture2D_vsucu")
+shader_parameter/h_gradient_texture = SubResource("GradientTexture2D_32l0i")
+shader_parameter/smoke_texture = SubResource("NoiseTexture2D_v784o")
