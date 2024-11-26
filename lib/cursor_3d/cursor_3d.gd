@@ -130,4 +130,6 @@ func _process(delta: float) -> void:
 	else:
 		global_rotation.y = (_b.angle_to_point(_a)
 			+ (Global.camera.global_rotation.y * 2.0) - deg_to_rad(90))
+		if "y_rotation" in data:
+			global_rotation.y += deg_to_rad(data.y_rotation)
 		Global.mouse_3d_y_rotation = rotation.y
