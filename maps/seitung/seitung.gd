@@ -58,6 +58,8 @@ func _ready() -> void:
 	Global.adjustment_applied.connect(reset_picking_disabled_objects)
 	Global.adjustment_canceled.connect(reset_picking_disabled_objects)
 	
+	Global.add_effect.emit("discombobulator")
+	
 	# Fade volume in and play music after a short delay
 	await get_tree().create_timer(0.5).timeout
 	var vol_tween = create_tween()
