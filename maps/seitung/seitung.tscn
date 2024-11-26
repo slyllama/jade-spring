@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=67 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -26,6 +26,14 @@
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="24_lh7v3"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
+[ext_resource type="AudioStream" uid="uid://l3ctgouysbd2" path="res://maps/seitung/sounds/mus_scratch_track.ogg" id="27_mcoi8"]
+[ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_i3rac"]
+[ext_resource type="AudioStream" uid="uid://cskyyn6utl6ec" path="res://maps/seitung/sounds/mus_lyllian.ogg" id="29_r2s4g"]
+[ext_resource type="AudioStream" uid="uid://csypa1rwjv28y" path="res://maps/seitung/sounds/mus_orrery.ogg" id="30_riv34"]
+[ext_resource type="AudioStream" uid="uid://h4dsr4ca4uk3" path="res://maps/seitung/sounds/mus_roselund.ogg" id="31_sb537"]
+[ext_resource type="AudioStream" uid="uid://d0igr2vb2cp8w" path="res://maps/seitung/sounds/mus_scruffy.ogg" id="32_o7ipo"]
+[ext_resource type="AudioStream" uid="uid://b3hjfp8w7fvna" path="res://maps/seitung/sounds/mus_dove.ogg" id="33_x8jee"]
+[ext_resource type="AudioStream" uid="uid://ca33ift3s5lbw" path="res://maps/seitung/sounds/mus_socks.ogg" id="34_fhvwn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_krpi4"]
 panorama = ExtResource("2_lnf6c")
@@ -265,6 +273,62 @@ func _ready() -> void:
 [sub_resource type="SphereShape3D" id="SphereShape3D_kdsv3"]
 radius = 2.3
 
+[sub_resource type="GDScript" id="GDScript_mi48u"]
+script/source = "extends AudioStreamPlayer
+# Jukebox
+# The jukebox makes sure that music is always playing appropriately
+
+@export var track_list: Array[AudioStreamOggVorbis]
+@export var start_muted := false
+@export var music_enabled := true
+@export var delay := 5.0
+
+var rng = RandomNumberGenerator.new()
+var tracks: Array[AudioStreamOggVorbis] = []
+var tracks_alt: Array[AudioStreamOggVorbis] = []
+var using_alt = false
+
+var space_timer = Timer.new()
+
+# Will randomly select tracks from `tracks` and swap them over to `tracks_alt`
+# until they have all been used up, and then do the same from `tracks_alt`;
+# `using_alt` is used to keep track of this
+func load_track() -> void:
+	if !using_alt:
+		var selected_id = rng.randi_range(0, tracks.size() - 1)
+		set_stream(tracks[selected_id])
+		play()
+		tracks_alt.append(tracks[selected_id])
+		tracks.remove_at(selected_id)
+		if tracks == []: using_alt = true
+		return
+	else:
+		var selected_id = rng.randi_range(0, tracks_alt.size() - 1)
+		set_stream(tracks_alt[selected_id])
+		play()
+		tracks.append(tracks_alt[selected_id])
+		tracks_alt.remove_at(selected_id)
+		if tracks_alt == []: using_alt = false
+		return
+
+func _ready() -> void:
+	space_timer.one_shot = true
+	add_child(space_timer)
+	
+	space_timer.timeout.connect(load_track)
+	finished.connect(func():
+		space_timer.wait_time = delay
+		space_timer.start())
+	
+	# `enabled` only disables music, not sound effects
+	if !music_enabled: return
+	if track_list == []: return
+	tracks = track_list.duplicate()
+	
+	await get_tree().create_timer(2.0).timeout
+	load_track()
+"
+
 [node name="Seitung" type="Node3D"]
 script = ExtResource("1_uenug")
 
@@ -307,12 +371,9 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_bvguu")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_mig3c")
-volume_db = -8.0
-
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7867x")
+volume_db = 3.5
 autoplay = true
 
 [node name="DecoHandler" parent="." instance=ExtResource("26_of55i")]
@@ -965,3 +1026,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34504, 1.84915, 8.96742)
 light_color = Color(1, 0.926333, 0.66, 1)
 omni_range = 3.5
 omni_attenuation = 0.0
+
+[node name="Jukebox" type="AudioStreamPlayer" parent="."]
+script = SubResource("GDScript_mi48u")
+track_list = Array[AudioStreamOggVorbis]([ExtResource("9_mig3c"), ExtResource("27_mcoi8"), ExtResource("28_i3rac"), ExtResource("29_r2s4g"), ExtResource("30_riv34"), ExtResource("31_sb537"), ExtResource("32_o7ipo"), ExtResource("33_x8jee"), ExtResource("34_fhvwn")])

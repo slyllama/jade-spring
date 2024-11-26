@@ -31,8 +31,8 @@ func _ready() -> void:
 				for _n in $Decoration/Foliage.get_children():
 					if _n is FoliageSpawner: _n.set_density(_d)
 			"volume": Utilities.set_master_vol()
-			"music_vol": $Music.volume_db = linear_to_db(
-				clamp(float(_value) * 0.48, 0.0, 0.48))
+			"music_vol": $Jukebox.volume_db = linear_to_db(
+				clamp(float(_value) * 0.34, 0.0, 0.34))
 			"bloom":
 				if _value == "on":
 					$Sky.environment.glow_enabled = true
@@ -65,4 +65,3 @@ func _ready() -> void:
 	var vol_tween = create_tween()
 	vol_tween.tween_method(Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
 	await get_tree().create_timer(4.0).timeout
-	$Music.play()
