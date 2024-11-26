@@ -19,6 +19,7 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"description": "You are currently modifying an existing decoration."
 	},
 	"discombobulator": {
+		"texture": "discombobulator",
 		"title": "Pest Discombobulator",
 		"description": "Go forth, Wayfinder; disperse those locusts!"
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=69 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -213,7 +213,7 @@ mesh = ExtResource("14_yeybn")
 buffer = PackedFloat32Array(0.47634, 0, 0.828243, -0.656276, 0, 0.955451, 0, 0, -0.828243, 0, 0.47634, -0.90318, -0.982267, 0, -0.620808, 0.0234515, 0, 1.162, 0, 0, 0.620808, 0, -0.982267, -0.906908, 0.973933, 0, 0.0384342, -0.751688, 0, 0.974691, 0, 0, -0.0384342, 0, 0.973933, 0.227544, -0.261567, 0, 1.09567, 0.229267, 0, 1.12645, 0, 0, -1.09567, 0, -0.261567, 0.539162)
 
 [sub_resource type="Curve" id="Curve_ai1cj"]
-_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_useom"]
@@ -328,6 +328,20 @@ func _ready() -> void:
 	await get_tree().create_timer(2.0).timeout
 	load_track()
 "
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ovh2i"]
+emission_shape = 3
+emission_box_extents = Vector3(1.9, 0.9, 1.9)
+gravity = Vector3(0, 0.24, 0)
+scale_min = 0.5
+scale_max = 0.9
+color = Color(0, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_useom")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u26eb"]
+material = SubResource("StandardMaterial3D_ta0p3")
+size = Vector2(0.1, 0.23)
+orientation = 2
 
 [node name="Seitung" type="Node3D"]
 script = ExtResource("1_uenug")
@@ -1034,3 +1048,24 @@ delay = 48.0
 
 [node name="DragonvoidArc" parent="." instance=ExtResource("34_xk86d")]
 transform = Transform3D(0.718812, 0.670826, -0.182484, -0.67088, 0.738166, 0.0709343, 0.182288, 0.0714364, 0.980647, -6.44174, 1.02951, 15.0584)
+
+[node name="Motes" type="GPUParticles3D" parent="DragonvoidArc"]
+transform = Transform3D(1, 3.07336e-08, 0, 1.86265e-09, 1, 0, 2.98023e-08, 3.72529e-08, 1, 1.30803, 1.22071, -0.33207)
+amount = 55
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_ovh2i")
+draw_pass_1 = SubResource("PlaneMesh_u26eb")
+
+[node name="DragonvoidArc2" parent="." instance=ExtResource("34_xk86d")]
+transform = Transform3D(0.730559, 0.641472, 0.234087, -0.67088, 0.738166, 0.0709343, -0.127293, -0.208866, 0.969625, -7.0524, 1.02951, 9.74152)
+
+[node name="Motes" type="GPUParticles3D" parent="DragonvoidArc2"]
+transform = Transform3D(1, 3.07336e-08, 0, 1.86265e-09, 1, 0, 2.98023e-08, 3.72529e-08, 1, 1.30803, 1.22071, -0.33207)
+amount = 55
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_ovh2i")
+draw_pass_1 = SubResource("PlaneMesh_u26eb")

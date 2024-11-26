@@ -1,6 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://d0m8idfvk4l2s"]
+[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://dvqr8ygkly1kc"]
 
 [ext_resource type="Shader" path="res://lib/crumb/dragonvoid/materials/shaders/shader_dragonvoid.gdshader" id="1_jdvhu"]
+[ext_resource type="Texture2D" uid="uid://dk0ymwv1mxvmv" path="res://lib/crumb/dragonvoid/materials/textures/iridescent_diff.jpg" id="2_8igsk"]
 
 [sub_resource type="Gradient" id="Gradient_tl57f"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -10,15 +11,16 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_tl57f")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="Gradient" id="Gradient_7xuxb"]
-offsets = PackedFloat32Array(0, 0.73)
+[sub_resource type="Gradient" id="Gradient_387x2"]
+offsets = PackedFloat32Array(0.597561, 1)
+colors = PackedColorArray(0.0487805, 0.0487805, 0.0487805, 1, 1, 1, 1, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2lmyh"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dn25e"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v784o"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_axcn4"]
 seamless = true
-color_ramp = SubResource("Gradient_7xuxb")
-noise = SubResource("FastNoiseLite_2lmyh")
+color_ramp = SubResource("Gradient_387x2")
+noise = SubResource("FastNoiseLite_dn25e")
 
 [sub_resource type="Gradient" id="Gradient_qnsu5"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
@@ -28,8 +30,11 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_qnsu5")
 
 [resource]
-render_priority = 1
+render_priority = 2
 shader = ExtResource("1_jdvhu")
+shader_parameter/speed = 0.21
+shader_parameter/exponent = 1.0
 shader_parameter/v_gradient_texture = SubResource("GradientTexture2D_vsucu")
 shader_parameter/h_gradient_texture = SubResource("GradientTexture2D_32l0i")
-shader_parameter/smoke_texture = SubResource("NoiseTexture2D_v784o")
+shader_parameter/smoke_texture = SubResource("NoiseTexture2D_axcn4")
+shader_parameter/albedo_texture = ExtResource("2_8igsk")

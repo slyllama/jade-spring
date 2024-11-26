@@ -35,6 +35,10 @@ _subresources={
 "materials": {
 "mat_temp": {
 "use_external/enabled": true,
+"use_external/path": "res://lib/crumb/dragonvoid/materials/mat_dragonvoid_black.tres"
+},
+"mat_temp2": {
+"use_external/enabled": true,
 "use_external/path": "res://lib/crumb/dragonvoid/materials/mat_dragonvoid_prismatic.tres"
 }
 },
@@ -46,6 +50,10 @@ _subresources={
 "PATH:VoidArmature/Skeleton3D/Strand_001": {
 "mesh_instance/cast_shadow": 0,
 "mesh_instance/layers": 2
+},
+"PATH:VoidArmature/Skeleton3D/Strand_002": {
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 3
 }
 }
 }
