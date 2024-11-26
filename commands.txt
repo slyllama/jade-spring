@@ -1,9 +1,13 @@
+### Decorations
 /cleardeco		Clear all decorations
 /loaddeco		Load decorations from file
 /resetdeco		Reset decorations for defaults
 /savedeco		Save decorations to file
 
+### Show/hide
 /showplayer		Show the player mesh
 /hideplayer		Hide the player mesh
 
+### Generic utilities
+/crumbdata		Show crumb data
 /storypanel		Debug the story panel

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=4 uid="uid://dm88qsqr4e6bj"]
+
+[ext_resource type="Script" path="res://lib/crumb/weed.gd" id="1_lklqf"]
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="2_5nw6f"]
+[ext_resource type="Texture2D" uid="uid://butxx6fv7oeaf" path="res://lib/crumb/weed/materials/textures/weed_alpha.png" id="3_xjqgm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7hru"]
+render_priority = 0
+shader = ExtResource("2_5nw6f")
+shader_parameter/albedo = Color(0.86, 0.86, 0.86, 1)
+shader_parameter/distance_fade_min = 15.0
+shader_parameter/distance_fade_max = 13.0
+shader_parameter/alpha_scissor_threshold = 0.6
+shader_parameter/alpha_antialiasing_edge = 0.2
+shader_parameter/backlight = 0.3
+shader_parameter/specularity = 0.0
+shader_parameter/texture_albedo = ExtResource("3_xjqgm")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sajdi"]
+_surfaces = [{
+"aabb": AABB(-0.1, -2.23517e-08, -0.1, 0.2, 0.2, 0.2),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcA"),
+"name": "mat_grass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP9/AAD//wAA/38AAAAA////fwAA//////9/AAD/fwAA//8AAP9/AAAAAAAA/3//////AAD/f///AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nf87d"]
+resource_name = "grass_Plane"
+_surfaces = [{
+"aabb": AABB(-0.1, -2.23517e-08, -0.1, 0.2, 0.2, 0.2),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA////////AAAAAP//AAA="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcA"),
+"material": SubResource("ShaderMaterial_x7hru"),
+"name": "mat_grass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP9/AID//wAA/38AgAAA////fwCA//////9/AID/fwAA////v/9/AAAAAP+//3///////7//f///AAD/v/9/////f////3////9/////fwAA/38AAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_sajdi")
+
+[node name="Weed" type="Area3D"]
+script = ExtResource("1_lklqf")
+type = "weed"
+
+[node name="WeedMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.1, 0)
+mesh = SubResource("ArrayMesh_nf87d")
+
+[connection signal="interacted" from="." to="." method="interact"]

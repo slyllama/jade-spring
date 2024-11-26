@@ -41,6 +41,8 @@ signal jade_bot_sound
 signal move_player(new_position: Vector3) # function - moves the player
 signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
+signal weed_crumb_entered
+signal weed_crumb_left
 
 ##### Decoration signals and parameters
 const DecoData = {

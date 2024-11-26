@@ -13,3 +13,7 @@ func _ready() -> void:
 				Global.crumb_data[_n.type].total += 1
 	
 	Global.crumbs_updated.emit()
+	
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/crumbdata":
+			print(Global.crumb_data))

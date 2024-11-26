@@ -74,17 +74,19 @@ func _input(_event: InputEvent) -> void:
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
-		if visible:
-			visible = false
-		else:
-			visible = true
+		if visible: visible = false
+		else: visible = true
 
 func _ready() -> void:
+	# Interaction connections
 	Global.bug_crumb_entered.connect(_show_int)
 	Global.bug_crumb_left.connect(_hide_int)
-	Global.fishing_started.connect(_hide_int)
+	Global.weed_crumb_entered.connect(_show_int)
+	Global.weed_crumb_left.connect(_hide_int)
 	Global.generic_area_entered.connect(_show_int)
 	Global.generic_area_left.connect(_hide_int)
+	
+	Global.fishing_started.connect(_hide_int)
 	
 	$InteractIndicator.modulate.a = 0.0
 	$FG.visible = true
