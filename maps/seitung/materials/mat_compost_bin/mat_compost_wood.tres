@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://f0tshnn2vagd"]
+
+[ext_resource type="Texture2D" uid="uid://c5fyutmmgn60b" path="res://maps/seitung/materials/mat_compost_bin/textures/compost_plank_diff.jpg" id="1_fulf4"]
+
+[resource]
+albedo_texture = ExtResource("1_fulf4")
+metallic_specular = 0.0

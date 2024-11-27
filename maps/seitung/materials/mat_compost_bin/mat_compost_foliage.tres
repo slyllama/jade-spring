@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://yyklje3keocf"]
+
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_2da1r"]
+[ext_resource type="Texture2D" uid="uid://b7f4nlrr3h2qi" path="res://maps/seitung/materials/mat_compost_bin/textures/compost_weed_mask.png" id="2_fmjel"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2da1r")
+shader_parameter/albedo = Color(0.9, 0.8535, 0.81, 1)
+shader_parameter/distance_fade_min = 10.5
+shader_parameter/distance_fade_max = 10.0
+shader_parameter/alpha_scissor_threshold = 0.47
+shader_parameter/alpha_antialiasing_edge = 0.45
+shader_parameter/backlight = 0.5
+shader_parameter/specularity = 0.0
+shader_parameter/texture_albedo = ExtResource("2_fmjel")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=72 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://d0igr2vb2cp8w" path="res://maps/seitung/sounds/mus_scruffy.ogg" id="32_o7ipo"]
 [ext_resource type="AudioStream" uid="uid://b3hjfp8w7fvna" path="res://maps/seitung/sounds/mus_dove.ogg" id="33_x8jee"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="34_xk86d"]
+[ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_krpi4"]
 panorama = ExtResource("2_lnf6c")
@@ -163,6 +164,14 @@ instance_count = 16
 visible_instance_count = 16
 mesh = ExtResource("10_bm5ul")
 buffer = PackedFloat32Array(1.48102, 0, 2.26328, -1.11839, 0, 2.70479, 0, 0, -2.26328, 0, 1.48102, -1.01093, 0.74278, 0.0104444, 0.517066, 1, -1.88134, 0, -0.8048, -0.445551, 0, 2.04625, 0, 0, 0.8048, 0, -1.88134, -0.905823, 0.858034, 0.00263284, 0.378051, 1, -1.56595, 0, 2.2641, 0.482364, 0, 2.75288, 0, 0, -2.2641, 0, -1.56595, -1.14995, 0.774226, 0.00831313, 0.479137, 1, 2.09626, 0, -0.348399, 0.98153, 0, 2.12502, 0, 0, 0.348399, 0, 2.09626, -0.948494, 0.831178, 0.00445307, 0.410444, 1, 1.73497, 0, 1.06917, -0.816338, 0, 2.03795, 0, 0, -1.06917, 0, 1.73497, -0.573884, 0.849841, 0.00318814, 0.387933, 1, 0.0566033, 0, -2.98918, -0.0806177, 0, 2.98972, 0, 0, 2.98918, 0, 0.0566033, -0.293528, 0.809811, 0.00590121, 0.436215, 1, -2.33405, 0, 1.53391, 0.186359, 0, 2.79297, 0, 0, -1.53391, 0, -2.33405, -0.267596, 0.853329, 0.00295167, 0.383725, 1, 1.05428, 0, 1.9943, 0.970376, 0, 2.25583, 0, 0, -1.9943, 0, 1.05428, -0.413582, 0.844756, 0.00353278, 0.394066, 1, -0.157607, 0, -2.51374, -0.65049, 0, 2.51868, 0, 0, 2.51374, 0, -0.157607, 0.486332, 0.8911, 0.000391654, 0.338166, 1, -1.39622, 0, -2.06378, -0.285252, 0, 2.49171, 0, 0, 2.06378, 0, -1.39622, 0.170898, 0.716261, 0.0122418, 0.549052, 1, -2.95084, 0, -0.214604, 0.472008, 0, 2.95863, 0, 0, 0.214604, 0, -2.95084, 0.564542, 0.872686, 0.00163976, 0.360378, 1, 1.67582, 0, -2.26641, 0.769859, 0, 2.81869, 0, 0, 2.26641, 0, 1.67582, 0.499101, 0.8356, 0.00415335, 0.40511, 1, 1.99467, 0, -1.98358, -0.889802, 0, 2.81306, 0, 0, 1.98358, 0, 1.99467, 1.08618, 0.887369, 0.000644535, 0.342667, 1, 2.84977, 0, -0.798761, -0.369757, 0, 2.95959, 0, 0, 0.798761, 0, 2.84977, 0.601989, 0.834857, 0.00420371, 0.406006, 1, -0.111137, 0, -2.86415, 0.0235221, 0, 2.8663, 0, 0, 2.86415, 0, -0.111137, 0.629543, 0.714142, 0.0123854, 0.551608, 1, 1.64969, 0, -2.38417, 0.771732, 0, 2.89926, 0, 0, 2.38417, 0, 1.64969, 0.708349, 0.774078, 0.00832313, 0.479315, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_mxdxo"]
+transform_format = 1
+use_colors = true
+instance_count = 9
+visible_instance_count = 9
+mesh = ExtResource("10_bm5ul")
+buffer = PackedFloat32Array(0.348566, 0, 2.94607, -0.511615, 0, 2.96662, 0, 0, -2.94607, 0, 0.348566, -0.36167, 0.747482, 0.0465597, 0.496138, 1, 1.05113, 0, 2.67555, -0.189738, 0, 2.87462, 0, 0, -2.67555, 0, 1.05113, -0.54926, 0.805522, 0.0983755, 0.40279, 1, 2.08712, 0, 0.223168, 0.302524, 0, 2.09902, 0, 0, -0.223168, 0, 2.08712, -0.560252, 0.744881, 0.0442372, 0.500322, 1, -1.68022, 0, 1.30324, -0.579367, 0, 2.1264, 0, 0, -1.30324, 0, -1.68022, -0.113659, 0.934445, 0.213474, 0.195436, 1, 0.845371, 0, 1.92404, -0.0729877, 0, 2.10157, 0, 0, -1.92404, 0, 0.845371, 0.0564594, 0.937884, 0.216545, 0.189904, 1, -0.599889, 0, -2.90107, 0.733301, 0, 2.96244, 0, 0, 2.90107, 0, -0.599889, 0.0966195, 0.767065, 0.0640423, 0.464643, 1, -0.0525498, 0, 2.14973, -0.6356, 0, 2.15037, 0, 0, -2.14973, 0, -0.0525498, 0.433284, 0.752948, 0.0514387, 0.487349, 1, 1.91564, 0, 1.84369, -0.273816, 0, 2.65874, 0, 0, -1.84369, 0, 1.91564, 0.558877, 0.877022, 0.162209, 0.287793, 1, -0.562062, 0, 1.95262, 0.348629, 0, 2.0319, 0, 0, -1.95262, 0, -0.562062, 0.677837, 0.904629, 0.186855, 0.243391, 1)
 
 [sub_resource type="MultiMesh" id="MultiMesh_5v28c"]
 transform_format = 1
@@ -401,7 +410,7 @@ autoplay = true
 transform = Transform3D(1.08581, 0, 0.714846, 0, 1.3, 0, -0.714846, 0, 1.08581, -5.24975, 0.0174669, 8.95736)
 
 [node name="Fountain" parent="DecoHandler" instance=ExtResource("12_iopfa")]
-transform = Transform3D(-0.0997707, -0.00173662, 0.995009, 3.96453e-11, 0.999999, 0.00174533, -0.99501, 0.000174132, -0.0997709, -1.12614, 0.259156, 18.9145)
+transform = Transform3D(-0.0997707, -0.00173662, 0.995009, 3.96453e-11, 0.999999, 0.00174533, -0.99501, 0.000174132, -0.0997709, -1.12614, 0.259156, 21.3698)
 
 [node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" instance=ExtResource("12_i2o4n")]
 transform = Transform3D(1.32247, 0.142984, 1.0586, -0.291445, 1.66908, 0.13865, -1.02769, -0.289344, 1.32293, 7.49766, 0.204448, 14.6447)
@@ -587,7 +596,7 @@ colour_2 = Color(0.326001, 0.369617, 0, 1)
 render_distance = 13.0
 
 [node name="FoliageSpawner8" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82587, -0.141414, 18.3187)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43184, -0.16349, 16.8121)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_vf0fp")
@@ -597,6 +606,7 @@ size = 3.7
 min_scale = 5.0
 max_scale = 5.3
 area_scale = 0.8
+moss_cover = false
 moss_albedo_mix = 0.268
 moss_scaling = 1.681
 moss_color = Color(0.45, 0.6, 0, 1)
@@ -640,6 +650,26 @@ moss_scaling = 2.0
 moss_color = Color(0.45, 0.6, 0, 1)
 colour_1 = Color(0.709552, 0.0126965, 0.557144, 1)
 colour_2 = Color(0.896879, 0, 0.331197, 1)
+render_distance = 11.0
+
+[node name="FlowerSpawner3" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
+transform = Transform3D(0.999155, -0.041091, 0, 0.0410909, 0.999156, 0, 0, 0, 1, -2.35988, -0.168328, 15.3178)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_mxdxo")
+script = ExtResource("9_7bo6h")
+custom_mesh = ExtResource("10_bm5ul")
+count = 3
+size = 1.7
+min_scale = 2.0
+max_scale = 3.0
+smooth = false
+moss_cover = false
+moss_albedo_mix = 0.268
+moss_scaling = 2.0
+moss_color = Color(0.45, 0.6, 0, 1)
+colour_1 = Color(0.709552, 0.0126965, 0.557144, 1)
+colour_2 = Color(1, 0.272, 0.09, 1)
 render_distance = 11.0
 
 [node name="FlowerSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage"]
@@ -953,11 +983,11 @@ transform = Transform3D(0.606459, 0, -1.6087, 0, 1.895, 0, 1.30055, 0, 0.750149,
 transform = Transform3D(0.688746, 0, -1.2589, 0, 1.435, 0, 1.2589, 0, 0.688746, -6.27994, 0.358768, 14.6905)
 
 [node name="MossDecal" type="Decal" parent="Decoration"]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, -3.28419, -4.76838e-07, 15.299)
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 2.31179, -4.76838e-07, 16.7261)
 size = Vector3(3.4, 2, 3.4)
 texture_albedo = ExtResource("23_byk4r")
 modulate = Color(0.837469, 0.837469, 0.837469, 1)
-albedo_mix = 0.7
+albedo_mix = 0.95
 normal_fade = 0.56
 distance_fade_enabled = true
 distance_fade_begin = 9.0
@@ -998,7 +1028,7 @@ distance_fade_length = 0.5
 cull_mask = 1048573
 
 [node name="RockDecal4" type="Decal" parent="Decoration"]
-transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -0.507606, 0.246711, 15.1153)
+transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -2.38528, 0.246711, 17.3086)
 size = Vector3(2.3, 2.408, 2.3)
 texture_albedo = ExtResource("22_y7vyt")
 normal_fade = 0.5
@@ -1052,7 +1082,7 @@ track_list = Array[AudioStreamOggVorbis]([ExtResource("9_mig3c"), ExtResource("2
 delay = 48.0
 
 [node name="DragonvoidArc" parent="." instance=ExtResource("34_xk86d")]
-transform = Transform3D(0.718812, 0.670826, -0.182484, -0.67088, 0.738166, 0.0709343, 0.182288, 0.0714364, 0.980647, -6.44174, 1.02951, 15.0584)
+transform = Transform3D(0.634315, 0.620771, -0.460745, -0.67088, 0.738166, 0.0709343, 0.38414, 0.26411, 0.884694, -5.88334, 1.02951, 16.9245)
 
 [node name="Motes" type="GPUParticles3D" parent="DragonvoidArc"]
 transform = Transform3D(1, 3.07336e-08, 0, 1.86265e-09, 1, 0, 2.98023e-08, 3.72529e-08, 1, 1.30803, 1.22071, -0.33207)
@@ -1074,3 +1104,6 @@ preprocess = 5.0
 speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_ovh2i")
 draw_pass_1 = SubResource("PlaneMesh_u26eb")
+
+[node name="WeedBin" parent="." instance=ExtResource("36_pj8da")]
+transform = Transform3D(-0.99518, 0, -0.0980693, 0, 1, 0, 0.0980693, 0, -0.99518, -4.42869, -0.229125, 16.0129)
