@@ -5,6 +5,14 @@ var current_id = "fountain" # default
 
 var buttons = {} # associate buttons with IDs
 
+func _get_y_rotation(data: Dictionary) -> float:
+	var _custom_y_rotation = 135.0
+	if "preview_y_rotation" in data:
+		_custom_y_rotation += data.preview_y_rotation
+	elif "y_rotation" in data:
+		_custom_y_rotation += data.y_rotation
+	return(_custom_y_rotation)
+
 func open(silent = false) -> void:
 	super(silent)
 	preview.clear_model()
@@ -12,16 +20,10 @@ func open(silent = false) -> void:
 	preview.current_id = current_id
 	var _data = Global.DecoData[current_id]
 	
-	var _custom_y_rotation = 135.0
-	if "preview_y_rotation" in _data:
-		_custom_y_rotation += _data.preview_y_rotation
-	elif "y_rotation" in _data:
-		_custom_y_rotation += _data.y_rotation
-	
 	preview.load_model(
 		_data.scene,
 		_data.preview_scale,
-		_custom_y_rotation)
+		_get_y_rotation(_data))
 	
 	# Grab focus on the last selected decoration type
 	buttons[current_id].grab_focus()
@@ -61,16 +63,9 @@ func _ready() -> void:
 		
 		_item.button_down.connect(func():
 			current_id = _d
-			
-			# Get the custom y-rotation, if one exists
-			var _y_rotation = 135.0
-			if "preview_y_rotation" in _data:
-				_y_rotation += _data.preview_y_rotation
-			elif "y_rotation" in _data: # fallback
-				_y_rotation += _data.y_rotation
-			
 			preview.current_id = current_id
-			preview.load_model(_data.scene, _data.preview_scale, _y_rotation))
+			preview.load_model(
+				_data.scene, _data.preview_scale, _get_y_rotation(_data)))
 
 func _process(delta: float) -> void:
 	super(delta)

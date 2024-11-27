@@ -29,8 +29,8 @@ const TOOLTIPS = {
 		"description": "Clear the selected decoration."
 	},
 	"deco_test": {
-		"title": "Open Decoration Pane",
-		"description": "View placeable items!"
+		"title": "Decoration Pane",
+		"description": "A comprehensive catalogue of placeable items!"
 	},
 	"cancel": {
 		"title": "Cancel",

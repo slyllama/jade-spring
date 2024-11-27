@@ -15,6 +15,7 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	$DragonvoidArc/AnimationPlayer.play("Wobble")
+	$DragonvoidArc2/AnimationPlayer.play("Wobble")
 	
 	# Apply settings
 	Global.debug_toggled.emit()

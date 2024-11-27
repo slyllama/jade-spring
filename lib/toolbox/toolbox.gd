@@ -99,7 +99,10 @@ func skill_used(skill_id: String) -> void:
 				print("Decoration placed")
 				set_default_skills()
 		"deco_test":
-			Global.deco_pane_opened.emit() # open the decoration pane
+			if !Global.deco_pane_open:
+				Global.deco_pane_opened.emit() # open the decoration pane
+			else:
+				Global.deco_pane_closed.emit()
 			if Global.tool_mode == Global.TOOL_MODE_SELECT: # clear the cursor if it is active
 				Global.tool_mode = Global.TOOL_MODE_NONE
 				set_default_skills()
