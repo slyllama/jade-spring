@@ -20,13 +20,6 @@ func get_button_by_id(id: String):
 		if _n.id == id:
 			return(_n)
 
-#func _input(_event: InputEvent) -> void:
-	## Abort certain actions by right-clicking
-	#if Input.is_action_just_pressed("right_click"):
-		#if Global.tool_mode == Global.TOOL_MODE_SELECT:
-			#Global.tool_mode = Global.TOOL_MODE_NONE
-			#set_default_skills()
-
 func _ready() -> void:
 	$SkillSwap.volume_db = linear_to_db(0)
 	set_default_skills()
@@ -43,14 +36,12 @@ func _ready() -> void:
 	
 	Global.adjustment_started.connect(func():
 		clear_skills()
+		Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 		$Box/Skill1.switch_skill("accept")
-		$Box/Skill2.switch_skill("translate")
-		$Box/Skill3.switch_skill("rotate")
-		if !Global.snapping:
-			$Box/Skill4.switch_skill("snap_enable")
-		else:
-			$Box/Skill4.switch_skill("snap_disable")
-		$Box/Skill5.switch_skill("transform_mode")
+		$Box/Skill2.switch_skill("adjust_mode_rotate")
+		if !Global.snapping: $Box/Skill3.switch_skill("snap_enable")
+		else: $Box/Skill3.switch_skill("snap_disable")
+		$Box/Skill4.switch_skill("transform_mode")
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.adjustment_canceled.connect(set_default_skills)
@@ -113,18 +104,22 @@ func skill_used(skill_id: String) -> void:
 		"transform_mode":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.toggle_transform_mode()
-		"translate":
+		"adjust_mode_translate":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
+				Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 				Global.adjustment_mode_translate.emit()
-		"rotate":
+			$Box/Skill2.switch_skill("adjust_mode_rotate")
+		"adjust_mode_rotate":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
+				Global.adjustment_mode = Global.ADJUSTMENT_MODE_ROTATE
 				Global.adjustment_mode_rotation.emit()
+			$Box/Skill2.switch_skill("adjust_mode_translate")
 		"snap_enable":
-			$Box/Skill4.switch_skill("snap_disable")
+			$Box/Skill3.switch_skill("snap_disable")
 			Global.snapping = true
 			Global.announcement_sent.emit("((Snap Enabled))")
 		"snap_disable":
-			$Box/Skill4.switch_skill("snap_enable")
+			$Box/Skill3.switch_skill("snap_enable")
 			Global.snapping = false
 			Global.announcement_sent.emit("((Snap Disabled))")
 #endregion

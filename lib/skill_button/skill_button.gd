@@ -11,7 +11,7 @@ const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
 	"delete": preload("res://lib/skill_button/textures/cancel.png"),
 	"deco_test": preload("res://lib/skill_button/textures/deco.png"),
-	"rotate": preload("res://lib/skill_button/textures/rotate.png"),
+	"adjust_mode_rotate": preload("res://lib/skill_button/textures/rotate.png"),
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
 	"select": preload("res://lib/skill_button/textures/select.png"),
 	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
@@ -44,11 +44,11 @@ const TOOLTIPS = {
 		"title": "Toggle Transformation Basis",
 		"description": "Switch between object and world space for decoration transformation."
 	},
-	"translate": {
+	"adjust_mode_translate": {
 		"title": "Move/Scale",
 		"description": "Move and uniformly scale the decoration."
 	},
-	"rotate": {
+	"adjust_mode_rotate": {
 		"title": "Rotate",
 		"description": "Rotate the decoration."
 	}

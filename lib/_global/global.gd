@@ -93,7 +93,12 @@ enum {
 	TOOL_MODE_DELETE,
 	TOOL_MODE_PLACE,
 	TOOL_MODE_FISH }
-enum {TRANSFORM_MODE_OBJECT, TRANSFORM_MODE_WORLD}
+enum {
+	TRANSFORM_MODE_OBJECT,
+	TRANSFORM_MODE_WORLD }
+enum {
+	ADJUSTMENT_MODE_TRANSLATE,
+	ADJUSTMENT_MODE_ROTATE }
 
 const tool_identities = [ # associations for debug printing
 	"TOOL_MODE_NONE",
@@ -123,6 +128,7 @@ var active_decoration: Decoration = null # decoration currently being adjusted
 var queued_decoration = "none" # next decoration that will be placed
 var tool_mode = TOOL_MODE_NONE
 var transform_mode = TRANSFORM_MODE_OBJECT
+var adjustment_mode = ADJUSTMENT_MODE_TRANSLATE
 
 func toggle_transform_mode() -> void:
 	if transform_mode == TRANSFORM_MODE_WORLD:
