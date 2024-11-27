@@ -30,7 +30,7 @@ func activate(get_data: Dictionary) -> void:
 	if "radius" in data:
 		set_radius(data.radius)
 	else:
-		set_radius(0.25)
+		set_radius(0.47)
 	
 	# Cursor tint and radius is ignored if a custom model is used
 	if "custom_model" in data:
@@ -88,7 +88,7 @@ func _ready() -> void:
 
 var _target_normal = Vector3.ZERO
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if disabled: return
 	
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -114,10 +114,8 @@ func _process(delta: float) -> void:
 			visible = false
 	
 	# Hide the cursor while panning with the mouse
-	if visible and Global.camera_orbiting:
-		visible = false
-	if !visible and !Global.camera_orbiting:
-		visible = true
+	if visible and Global.camera_orbiting: visible = false
+	if !visible and !Global.camera_orbiting: visible = true
 	
 	if Global.mouse_in_ui: visible = false
 	
@@ -125,11 +123,15 @@ func _process(delta: float) -> void:
 	var _a := Vector2(Global.player_position.x, Global.player_position.z)
 	var _b := Vector2(Global.mouse_3d_position.x, Global.mouse_3d_position.z)
 	
-	if !"custom_model" in data:
-		rotation = lerp(rotation, _target_normal, delta * 3)
-	else:
-		global_rotation.y = (_b.angle_to_point(_a)
-			+ (Global.camera.global_rotation.y * 2.0) - deg_to_rad(90))
-		if "y_rotation" in data:
-			global_rotation.y += deg_to_rad(data.y_rotation)
-		Global.mouse_3d_y_rotation = rotation.y
+	# TODO: currently disabled camera orientation-bases rotation. We might
+	# bring this back in the future but it's feeling more sensible like this
+	# for the moment.
+	
+	#if !"custom_model" in data:
+		#rotation = lerp(rotation, _target_normal, delta * 3)
+	#else:
+		#global_rotation.y = (_b.angle_to_point(_a)
+			#+ (Global.camera.global_rotation.y * 2.0) - deg_to_rad(90))
+		#if "y_rotation" in data:
+			#global_rotation.y += deg_to_rad(data.y_rotation)
+		#Global.mouse_3d_y_rotation = rotation.y

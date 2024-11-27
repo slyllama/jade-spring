@@ -34,12 +34,12 @@ func _configure_grabber(grabber: StaticBody3D) -> void:
 				_d.axis = _d.Axis.X
 			elif dragger_axis == "Y":
 				_d.axis = _d.Axis.Y
+			elif dragger_axis == "Z":
+				_d.axis = _d.Axis.X
 			add_child(_d)
 			
 			_d.ratio_changed.connect(func(ratio):
 				if !is_global:
-					#var _new_rotation = get_parent().rotation_degrees + ratio * 10.0 * rotation_vector
-					#get_parent().rotation_degrees = _new_rotation
 					get_parent().rotate_object_local(rotation_vector, ratio * 0.5)
 				else:
 					var _new_rotation = get_parent().global_rotation_degrees + ratio * 10.0 * rotation_vector
@@ -68,6 +68,9 @@ func _ready() -> void:
 	add_child(rotate_visual)
 	if rotation_vector == Vector3(1, 0, 0):
 		rotate_visual.rotation_degrees.z = 90
+		rotate_visual.position.y += 0.05
+	elif rotation_vector == Vector3(0, 0, 1):
+		rotate_visual.rotation_degrees.x = 90
 		rotate_visual.position.y += 0.05
 	
 	rotation_degrees = rotation_vector * Vector3(90, 90, 90)

@@ -88,6 +88,27 @@ func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
 	
+	Global.snapping_enabled.connect(func():
+		if Global.active_decoration == self:
+			var _new_snapped_pos = Vector3(
+				snapped(global_position.x, 0.25),
+				snapped(global_position.y, 0.25),
+				snapped(global_position.z, 0.25))
+			global_position = _new_snapped_pos)
+	
+	# Reset decoration orientation and scale
+	Global.adjustment_reset.connect(func():
+		if Global.active_decoration == self:
+			last_rotation = Vector3.ZERO
+			global_rotation = Vector3.ZERO
+			last_scale = Vector3(1, 1, 1)
+			scale = Vector3(1, 1, 1)
+			
+			# Remake gizmos to suit the new transformation
+			if Global.adjustment_mode == Global.ADJUSTMENT_MODE_ROTATE:
+				Global.adjustment_mode_rotation.emit()
+			else: Global.adjustment_mode_translate.emit())
+	
 	# Switch controls to translation mode
 	Global.adjustment_mode_translate.connect(func():
 		if Global.active_decoration == self:
@@ -114,6 +135,13 @@ func _ready() -> void:
 			add_child(_arr_rotate_y)
 			arrows.append(_arr_rotate_y)
 			_arr_rotate_y.set_color(Color.BLUE)
+			
+			var _arr_rotate_z = GizmoRotation.new()
+			_arr_rotate_z.rotation_vector = Vector3(0, 0, 1)
+			_arr_rotate_z.dragger_axis = "Z"
+			add_child(_arr_rotate_z)
+			arrows.append(_arr_rotate_z)
+			_arr_rotate_z.set_color(Color.GREEN)
 	)
 	
 	if collision_box != null:
@@ -138,7 +166,6 @@ func _ready() -> void:
 					start_adjustment()
 				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 					Global.set_cursor(false)
-					
 					Global.tool_mode = Global.TOOL_MODE_NONE
 					Global.deco_deleted.emit()
 					

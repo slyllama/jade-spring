@@ -51,6 +51,18 @@ const TOOLTIPS = {
 	"adjust_mode_rotate": {
 		"title": "Rotate",
 		"description": "Rotate the decoration."
+	},
+	"snap_enable": {
+		"title": "Enable Snapping",
+		"description": "Constrain all transformations to stepped values."
+	},
+	"snap_disable": {
+		"title": "Disable Snapping",
+		"description": "Switch to smooth and free transformation."
+	},
+	"reset_adjustment": {
+		"title": "Reset Decoration",
+		"description": "Reset the orientation and scale of the decoration."
 	}
 }
 

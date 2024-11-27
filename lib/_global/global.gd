@@ -111,6 +111,7 @@ const tool_identities = [ # associations for debug printing
 signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended
 signal adjustment_started
+signal adjustment_reset # reset to default orientation and scale
 signal adjustment_mode_rotation
 signal adjustment_mode_translate
 
@@ -121,9 +122,11 @@ signal deco_placement_canceled
 signal deco_placed(data)
 signal deco_deleted
 signal transform_mode_changed(transform_mode)
+signal snapping_enabled
+
+const SNAP_INCREMENT = 0.25
 
 var decorations = [] # references to decorations will populate here
-
 var active_decoration: Decoration = null # decoration currently being adjusted
 var queued_decoration = "none" # next decoration that will be placed
 var tool_mode = TOOL_MODE_NONE

@@ -39,9 +39,14 @@ func _ready() -> void:
 		Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 		$Box/Skill1.switch_skill("accept")
 		$Box/Skill2.switch_skill("adjust_mode_rotate")
-		if !Global.snapping: $Box/Skill3.switch_skill("snap_enable")
-		else: $Box/Skill3.switch_skill("snap_disable")
+		
+		#if !Global.snapping: $Box/Skill3.switch_skill("snap_enable")
+		#else: $Box/Skill3.switch_skill("snap_disable")
+		Global.snapping = false
+		$Box/Skill3.switch_skill("snap_enable")
+		
 		$Box/Skill4.switch_skill("transform_mode")
+		$Box/Skill5.switch_skill("reset_adjustment")
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.adjustment_canceled.connect(set_default_skills)
@@ -117,9 +122,12 @@ func skill_used(skill_id: String) -> void:
 		"snap_enable":
 			$Box/Skill3.switch_skill("snap_disable")
 			Global.snapping = true
+			Global.snapping_enabled.emit()
 			Global.announcement_sent.emit("((Snap Enabled))")
 		"snap_disable":
 			$Box/Skill3.switch_skill("snap_enable")
 			Global.snapping = false
 			Global.announcement_sent.emit("((Snap Disabled))")
+		"reset_adjustment":
+			Global.adjustment_reset.emit()
 #endregion

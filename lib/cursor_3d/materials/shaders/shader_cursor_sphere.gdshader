@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode blend_mix, unshaded, shadows_disabled, ambient_light_disabled,
 	fog_disabled, alpha_to_coverage, cull_disabled;
 
-uniform float fresnel_amount = 3.0;
+uniform float fresnel_amount = 4.3;
 uniform vec4 albedo: source_color;
 uniform sampler2D gradient_texture: hint_default_white;
 
@@ -16,4 +16,3 @@ void fragment() {
 	ALPHA = fresnel(fresnel_amount, NORMAL, VIEW);
 	ALPHA += texture(gradient_texture, UV).r;
 }
-
