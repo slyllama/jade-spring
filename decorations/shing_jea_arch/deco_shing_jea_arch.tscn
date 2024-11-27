@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkxgbow5m2nww"]
+[gd_scene load_steps=6 format=3 uid="uid://dkxgbow5m2nww"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_8s7lr"]
 [ext_resource type="PackedScene" uid="uid://hooieo80ip7g" path="res://maps/seitung/meshes/arch_test.glb" id="2_bu874"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fdssu"]
-size = Vector3(0.960938, 4.64852, 4.97559)
+[sub_resource type="BoxShape3D" id="BoxShape3D_lurg8"]
+size = Vector3(0.490234, 2.81616, 1.30371)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lh3id"]
+size = Vector3(0.960938, 0.91126, 2.83813)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggt2s"]
+size = Vector3(0.960938, 0.787661, 5.40454)
 
 [node name="DecoShingJeaArch" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_8s7lr")
@@ -16,7 +22,19 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40545, 0)
-shape = SubResource("BoxShape3D_fdssu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44139, 1.50283)
+shape = SubResource("BoxShape3D_lurg8")
+
+[node name="Collision2" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44139, -1.47745)
+shape = SubResource("BoxShape3D_lurg8")
+
+[node name="Collision3" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3862, 0)
+shape = SubResource("BoxShape3D_lh3id")
+
+[node name="Collision4" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.16569, 0)
+shape = SubResource("BoxShape3D_ggt2s")
 
 [node name="Arch" parent="." instance=ExtResource("2_bu874")]

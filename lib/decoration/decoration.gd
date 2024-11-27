@@ -49,13 +49,14 @@ func _clear_arrows() -> void:
 	arrows = []
 
 func start_adjustment() -> void:
-	Global.deco_pane_closed.emit() # decoration pane will not close until the adjustment is initiated
+	Global.deco_pane_closed.emit()
 	Global.active_decoration = self
 	
-	Global.transform_mode = Global.TRANSFORM_MODE_OBJECT
+	#Global.transform_mode = Global.TRANSFORM_MODE_OBJECT
 	Global.transform_mode_changed.emit(Global.transform_mode)
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	Global.adjustment_started.emit()
+	
 	_spawn_arrows(Global.transform_mode)
 	
 	transform_type = TRANSFORM_TYPE_TRANSLATE
@@ -113,7 +114,7 @@ func _ready() -> void:
 			add_child(_arr_rotate_y)
 			arrows.append(_arr_rotate_y)
 			_arr_rotate_y.set_color(Color.BLUE)
-			)
+	)
 	
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
