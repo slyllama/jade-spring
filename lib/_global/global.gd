@@ -26,6 +26,7 @@ var player_position = Vector3.ZERO
 var player_y_rotation = 0.0
 var popup_open = false
 var retina_scale = 1
+var snapping = false # don't snap by default
 
 signal announcement_sent(get_text)
 signal bug_crumb_entered

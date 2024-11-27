@@ -149,10 +149,16 @@ func _process(delta: float) -> void:
 				var _new_pos
 				if single_axis: _new_pos = last_position + tangent_cast.get_collision_point() - last_collision
 				else: _new_pos = last_position + get_drag_collision() - last_collision
-				get_parent().global_position = lerp(get_parent().global_position, _new_pos, 14 * delta)
 				
-				#TODO: snapping test
-				#get_parent().global_position.y = snapped(get_parent().global_position.y, 0.25)
+				if !Global.snapping:
+					get_parent().global_position = lerp(
+						get_parent().global_position, _new_pos, 14 * delta)
+				else:
+					var _new_snapped_pos = Vector3(
+						snapped(_new_pos.x, 0.25),
+						snapped(_new_pos.y, 0.25),
+						snapped(_new_pos.z, 0.25))
+					get_parent().global_position = _new_snapped_pos
 		else:
 			drag_plane.global_position = global_position
 			last_collision = null
