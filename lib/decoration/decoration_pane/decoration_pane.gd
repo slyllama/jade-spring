@@ -1,18 +1,30 @@
 extends "res://lib/ui_container/ui_container.gd"
 
 @onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
-var current_id
+var current_id = "fountain" # default
+
+var buttons = {} # associate buttons with IDs
 
 func open(silent = false) -> void:
 	super(silent)
 	preview.clear_model()
 	
-	current_id = "fountain"
-	preview.current_id = "fountain"
+	preview.current_id = current_id
+	var _data = Global.DecoData[current_id]
+	
+	var _custom_y_rotation = 135.0
+	if "preview_y_rotation" in _data:
+		_custom_y_rotation += _data.preview_y_rotation
+	elif "y_rotation" in _data:
+		_custom_y_rotation += _data.y_rotation
+	
 	preview.load_model(
-		Global.DecoData["fountain"].scene,
-		Global.DecoData["fountain"].preview_scale,
-		Global.DecoData["fountain"].y_rotation + 135)
+		_data.scene,
+		_data.preview_scale,
+		_custom_y_rotation)
+	
+	# Grab focus on the last selected decoration type
+	buttons[current_id].grab_focus()
 
 func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE
@@ -43,8 +55,10 @@ func _ready() -> void:
 		_item.text = "  " + _data.name
 		_item.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_item.mouse_filter = Control.MOUSE_FILTER_PASS
+		buttons[_d] = _item
 		
 		$Container.add_child(_item)
+		
 		_item.button_down.connect(func():
 			current_id = _d
 			

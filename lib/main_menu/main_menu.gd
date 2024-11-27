@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const LOADER_SCENE = "res://lib/loader/loader.tscn"
+const DECO_DATA_PATH = "user://deco.dat"
 
 @onready var focus: Button
 
@@ -55,7 +56,13 @@ func _ready() -> void:
 	SettingsHandler.refresh(["volume"])
 	await get_tree().process_frame
 	_set_title_card_pos()
-	$Container/ContinueButton.grab_focus()
+	
+	# Only show the 'continue' button if a save exists
+	if FileAccess.file_exists(DECO_DATA_PATH):
+		$Container/ContinueButton.grab_focus()
+	else:
+		$Container/ContinueButton.visible = false
+		$Container/PlayButton.grab_focus()
 	
 	$Nodule.global_position = focus.global_position + Vector2(-17, 16)
 	
