@@ -14,6 +14,7 @@ func _get_y_rotation(data: Dictionary) -> float:
 	return(_custom_y_rotation)
 
 func open(silent = false) -> void:
+	Global.deco_pane_open = true
 	super(silent)
 	preview.clear_model()
 	
@@ -27,6 +28,10 @@ func open(silent = false) -> void:
 	
 	# Grab focus on the last selected decoration type
 	buttons[current_id].grab_focus()
+
+func close():
+	Global.deco_pane_open = false
+	super()
 
 func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE

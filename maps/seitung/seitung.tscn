@@ -992,7 +992,7 @@ normal_fade = 0.56
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 1048569
 
 [node name="MossDecal2" type="Decal" parent="Decoration"]
 transform = Transform3D(0.555079, 0, -0.555079, 0, 0.785, 0, 0.555079, 0, 0.555079, 5.41272, 0.227478, 11.8669)
@@ -1003,7 +1003,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 1048569
 
 [node name="RockDecal" type="Decal" parent="Decoration"]
 transform = Transform3D(0.636396, 0, -0.636396, 0, 0.9, 0, 0.636396, 0, 0.636396, 3.58307, 0.246711, 8.61036)
@@ -1015,7 +1015,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 1048569
 
 [node name="RockDecal3" type="Decal" parent="Decoration"]
 transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, 0.65435, 0.246711, 12.7721)
@@ -1025,7 +1025,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 1048569
 
 [node name="RockDecal4" type="Decal" parent="Decoration"]
 transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -2.38528, 0.246711, 17.3086)
@@ -1035,7 +1035,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 1048569
 
 [node name="RockDecal2" type="Decal" parent="Decoration"]
 transform = Transform3D(-0.256156, 0, -0.862777, 0, 0.9, 0, 0.862777, 0, -0.256156, 4.28, 0.24671, 10.0037)

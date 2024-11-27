@@ -91,12 +91,8 @@ func _ready() -> void:
 	$InteractIndicator.modulate.a = 0.0
 	$FG.visible = true
 	$Underlay.queue_free() # clear debugging component
-	Global.deco_pane_closed.connect(func():
-		Global.deco_pane_open = false
-		$DecoPane.close())
-	Global.deco_pane_opened.connect(func():
-		Global.deco_pane_open = true
-		$DecoPane.open())
+	Global.deco_pane_closed.connect($DecoPane.close)
+	Global.deco_pane_opened.connect($DecoPane.open)
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":

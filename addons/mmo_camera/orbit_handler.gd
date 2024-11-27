@@ -51,9 +51,15 @@ func _process(delta: float) -> void:
 	if get_parent().in_exclusive_ui and !get_parent().ignore_exclusive_ui:
 		return
 	
+	# Determine if either mouse button is currently down
+	var _mouse_button_down = false
+	if (Input.is_action_pressed("left_click")
+		or Input.is_action_pressed("right_click")):
+		_mouse_button_down = true
+	
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
-	if (!orbiting and !_clicked_in_ui and Input.is_action_pressed(get_parent().left_click)
-		or Input.is_action_pressed("right_click") and !get_parent().popup_open and !Global.in_exclusive_ui):
+	if (!orbiting and !_clicked_in_ui and _mouse_button_down
+		and !get_parent().popup_open and !Global.in_exclusive_ui):
 		var _mouse_offset = get_window().get_mouse_position() - _last_click_position
 		if abs(_mouse_offset.x) > 5 or abs(_mouse_offset.y) > 5:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
