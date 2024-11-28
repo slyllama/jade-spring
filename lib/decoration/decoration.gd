@@ -99,8 +99,10 @@ func _ready() -> void:
 	# Reset decoration orientation and scale
 	Global.adjustment_reset.connect(func():
 		if Global.active_decoration == self:
-			last_rotation = Vector3.ZERO
 			global_rotation = Vector3.ZERO
+			if "y_rotation" in Global.DecoData[id]:
+				rotation_degrees.y = Global.DecoData[id].y_rotation
+			last_rotation = global_rotation
 			last_scale = Vector3(1, 1, 1)
 			scale = Vector3(1, 1, 1)
 			

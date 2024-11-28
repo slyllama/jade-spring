@@ -32,14 +32,14 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="DecorationNE" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 0.588235)
+modulate = Color(0, 0, 0, 0.188235)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 7.0
-offset_top = 296.0
-offset_right = 293.0
-offset_bottom = 634.0
+offset_left = 18.0
+offset_top = 277.0
+offset_right = 304.0
+offset_bottom = 615.0
 grow_horizontal = 0
 rotation = 3.14159
 texture = ExtResource("2_e6y1d")

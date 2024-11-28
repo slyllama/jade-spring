@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://ct8pbsfvaht25"]
+[gd_scene load_steps=66 format=3 uid="uid://ct8pbsfvaht25"]
 
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_lnf6c"]
@@ -27,13 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="24_lh7v3"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="26_of55i"]
-[ext_resource type="AudioStream" uid="uid://l3ctgouysbd2" path="res://maps/seitung/sounds/mus_scratch_track.ogg" id="27_mcoi8"]
 [ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_i3rac"]
-[ext_resource type="AudioStream" uid="uid://cskyyn6utl6ec" path="res://maps/seitung/sounds/mus_lyllian.ogg" id="29_r2s4g"]
-[ext_resource type="AudioStream" uid="uid://csypa1rwjv28y" path="res://maps/seitung/sounds/mus_orrery.ogg" id="30_riv34"]
-[ext_resource type="AudioStream" uid="uid://h4dsr4ca4uk3" path="res://maps/seitung/sounds/mus_roselund.ogg" id="31_sb537"]
-[ext_resource type="AudioStream" uid="uid://d0igr2vb2cp8w" path="res://maps/seitung/sounds/mus_scruffy.ogg" id="32_o7ipo"]
-[ext_resource type="AudioStream" uid="uid://b3hjfp8w7fvna" path="res://maps/seitung/sounds/mus_dove.ogg" id="33_x8jee"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="34_xk86d"]
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
 
@@ -1078,7 +1072,7 @@ omni_attenuation = 0.0
 
 [node name="Jukebox" type="AudioStreamPlayer" parent="."]
 script = SubResource("GDScript_mi48u")
-track_list = Array[AudioStreamOggVorbis]([ExtResource("9_mig3c"), ExtResource("27_mcoi8"), ExtResource("28_i3rac"), ExtResource("29_r2s4g"), ExtResource("30_riv34"), ExtResource("31_sb537"), ExtResource("32_o7ipo"), ExtResource("33_x8jee")])
+track_list = Array[AudioStreamOggVorbis]([ExtResource("9_mig3c"), ExtResource("28_i3rac")])
 delay = 48.0
 
 [node name="DragonvoidArc" parent="." instance=ExtResource("34_xk86d")]

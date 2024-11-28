@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
 [ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="5_pvsjo"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
-[ext_resource type="AudioStream" uid="uid://b8wxknu7hkm2f" path="res://lib/main_menu/sounds/mus_daffodils.mp3" id="7_uttei"]
+[ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
 [ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="8_rr48m"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="10_cqy1t"]
@@ -110,7 +110,7 @@ texture = ExtResource("5_pvsjo")
 scale = Vector2(0.5, 0.5)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_uttei")
+stream = ExtResource("7_or2me")
 volume_db = -6.0
 
 [node name="Blur" type="TextureRect" parent="."]
@@ -180,6 +180,15 @@ texture_normal = ExtResource("10_cqy1t")
 texture_hover = ExtResource("11_ctlnu")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="FG" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="button_down" from="Container/ContinueButton" to="." method="_on_continue_button_down"]
 [connection signal="button_down" from="Container/PlayButton" to="." method="_on_play_button_down"]

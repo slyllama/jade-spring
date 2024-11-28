@@ -128,7 +128,7 @@ func _process(_delta: float) -> void:
 	# for the moment.
 	
 	if "custom_model" in data:
-		global_rotation.y = data.y_rotation
+		global_rotation_degrees.y = data.y_rotation
 		Global.mouse_3d_y_rotation = rotation.y
 	
 	#if !"custom_model" in data:

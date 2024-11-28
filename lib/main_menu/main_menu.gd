@@ -4,6 +4,7 @@ const LOADER_SCENE = "res://lib/loader/loader.tscn"
 const DECO_DATA_PATH = "user://deco.dat"
 
 @onready var focus: Button
+var can_interact = true
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -34,7 +35,32 @@ func set_up_nodule() -> void:
 func _set_title_card_pos() -> void:
 	$TitleCard.global_position = $Container/Padding.global_position + Vector2(165, -40)
 
+func play() -> void:
+	$FG.visible = true
+	$FG.modulate.a = 0.0
+	can_interact = false
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_property($FG, "modulate:a", 1.0, 0.35)
+	var music_tween = create_tween()
+	music_tween.tween_property(
+		$Music, "volume_db", -80.0, 0.55).set_ease(Tween.EASE_OUT)
+	music_tween.set_parallel()
+	
+	fade_tween.tween_callback(func():
+		get_tree().change_scene_to_file(LOADER_SCENE))
+
 func _ready() -> void:
+	$FG.visible = true
+	$FG.modulate.a = 1.0
+	await get_tree().process_frame
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_property($FG, "modulate:a", 0.0, 0.55)
+	fade_tween.tween_callback(func():
+		if can_interact:
+			$FG.visible = false)
+	
 	set_up_nodule()
 	$SettingsPane/Container/Quit.queue_free()
 	
@@ -67,26 +93,32 @@ func _ready() -> void:
 	$Nodule.global_position = focus.global_position + Vector2(-17, 16)
 	
 	var vol_tween = create_tween()
-	vol_tween.tween_method(Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
+	vol_tween.tween_method(
+		Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
 	await vol_tween.finished
 	$Music.play()
 
 func _process(delta: float) -> void:
+	if !can_interact: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
 		$Nodule.position, focus.global_position + Vector2(-17, 16), delta * 22)
 
 func _on_play_button_down() -> void:
+	if !can_interact: return
 	Global.start_params.new_save = true
-	get_tree().change_scene_to_file(LOADER_SCENE)
+	play()
 
 func _on_quit_button_down() -> void:
+	if !can_interact: return
 	get_tree().quit()
 
 func _on_settings_button_down() -> void:
+	if !can_interact: return
 	if !$SettingsPane.is_open:
 		$SettingsPane.open()
 
 func _on_continue_button_down() -> void:
+	if !can_interact: return
 	Global.start_params.new_save = false
-	get_tree().change_scene_to_file(LOADER_SCENE)
+	play()

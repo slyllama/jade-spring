@@ -44,13 +44,24 @@ func _ready() -> void:
 		#if !Global.snapping: $Box/Skill3.switch_skill("snap_enable")
 		#else: $Box/Skill3.switch_skill("snap_disable")
 		Global.snapping = false
-		$Box/Skill3.switch_skill("snap_enable")
+		if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
+			$Box/Skill3.switch_skill("snap_enable")
+		else:
+			$Box/Skill3.switch_skill("snap_forbidden")
 		
 		$Box/Skill4.switch_skill("transform_mode")
 		$Box/Skill5.switch_skill("reset_adjustment")
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.adjustment_canceled.connect(set_default_skills)
+	
+	Global.transform_mode_changed.connect(func(mode):
+		Global.snapping = false # TODO: check
+		if Global.tool_mode == Global.TOOL_MODE_ADJUST:
+			if mode == Global.TRANSFORM_MODE_OBJECT:
+				$Box/Skill3.switch_skill("snap_forbidden")
+			elif mode == Global.TRANSFORM_MODE_WORLD:
+				$Box/Skill3.switch_skill("snap_enable"))
 	
 	Global.fishing_started.connect(func():
 		clear_skills()

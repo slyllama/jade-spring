@@ -11,6 +11,8 @@ var grabber = PickBox.new()
 var mat = ShaderMaterial.new()
 var color: Color
 
+@onready var fluid_scale = get_parent().scale.x
+
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
 	mat.set_shader_parameter("color", get_color * dim)
@@ -62,8 +64,15 @@ func _ready() -> void:
 		add_child(_d)
 		
 		_d.ratio_changed.connect(func(ratio):
-			var _new_scale = clamp(get_parent().scale.x + ratio * -0.1, 0.5, 2.5)
-			get_parent().scale = Vector3(_new_scale, _new_scale, _new_scale)
+			var _new_scale = clamp(fluid_scale + ratio * -0.1, 0.5, 2.5)
+			fluid_scale = _new_scale
+			var snapped_scale = snapped(fluid_scale, Global.SNAP_INCREMENT)
+			if Global.snapping:
+				get_parent().scale = Vector3(
+				snapped_scale, snapped_scale, snapped_scale)
+			else:
+				get_parent().scale = Vector3(
+					fluid_scale, fluid_scale, fluid_scale)
 		)
 	)
 	

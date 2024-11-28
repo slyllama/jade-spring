@@ -17,6 +17,7 @@ const TEXTURES = { # associations with texture paths
 	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
 	"snap_enable": preload("res://lib/skill_button/textures/snap_enable.png"),
 	"snap_disable": preload("res://lib/skill_button/textures/snap_disable.png"),
+	"snap_forbidden": preload("res://lib/skill_button/textures/snap_forbidden.png"),
 	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png"),
 	"reset_adjustment": preload("res://lib/skill_button/textures/reset_adjustment.png"),
 	"safe_point": preload("res://lib/skill_button/textures/safe_point.png")
@@ -63,6 +64,10 @@ const TOOLTIPS = {
 	"snap_disable": {
 		"title": "Disable Snapping",
 		"description": "Switch to smooth and free transformation."
+	},
+	"snap_forbidden": {
+		"title": "Snapping Disabled",
+		"description": "Snapping works while in world Transform mode."
 	},
 	"reset_adjustment": {
 		"title": "Reset Decoration",
