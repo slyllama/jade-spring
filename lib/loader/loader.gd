@@ -3,6 +3,7 @@ extends CanvasLayer
 # Facilitates in loading scenes
 const TIME = 0.9
 const TARGET_SCENE = "res://maps/seitung/seitung.tscn"
+var target_scene = TARGET_SCENE
 
 var loading_status: int
 var progress: Array[float]
@@ -25,9 +26,12 @@ func _transition():
 
 	fade.tween_callback(func():
 		get_tree().change_scene_to_packed(
-			ResourceLoader.load_threaded_get(TARGET_SCENE)))
+			ResourceLoader.load_threaded_get(target_scene)))
 
 func _ready() -> void:
+	if Global.custom_target_scene != "":
+		target_scene = Global.custom_target_scene
+	
 	AudioServer.set_bus_volume_db(0, -80)
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
@@ -40,10 +44,10 @@ func _ready() -> void:
 	SettingsHandler.refresh(["volume"])
 	
 	_reset_map()
-	ResourceLoader.load_threaded_request(TARGET_SCENE)
+	ResourceLoader.load_threaded_request(target_scene)
 
 func _process(_delta: float) -> void:
-	loading_status = ResourceLoader.load_threaded_get_status(TARGET_SCENE, progress)
+	loading_status = ResourceLoader.load_threaded_get_status(target_scene, progress)
 	match loading_status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			$Bar.value = lerp(

@@ -35,6 +35,7 @@ func set_up_nodule() -> void:
 func _set_title_card_pos() -> void:
 	$TitleCard.global_position = $Container/Padding.global_position + Vector2(165, -40)
 
+# Fade and transition into loader scene or custom scene (if it is set)
 func play() -> void:
 	$FG.visible = true
 	$FG.modulate.a = 0.0
@@ -50,7 +51,17 @@ func play() -> void:
 	fade_tween.tween_callback(func():
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
+func _input(_event: InputEvent) -> void:
+	# Go to the debug scene if the debug kep is pressed
+	if Input.is_action_just_pressed("debug_action"):
+		Global.start_params.new_save = true
+		Global.custom_target_scene = "res://maps/debug/debug_map.tscn"
+		play()
+
 func _ready() -> void:
+	# Ensure that the loader goes to its default scene
+	Global.custom_target_scene = ""
+	
 	$FG.visible = true
 	$FG.modulate.a = 1.0
 	await get_tree().process_frame

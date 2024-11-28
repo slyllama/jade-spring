@@ -1,0 +1,212 @@
+[gd_scene load_steps=26 format=3 uid="uid://dlksvm3e2g5qq"]
+
+[ext_resource type="Script" path="res://maps/debug/debug_map.gd" id="1_68luo"]
+[ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_hviwj"]
+[ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="3_l1mpf"]
+[ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="4_li35t"]
+[ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="5_g76vt"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="6_76bl8"]
+[ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="7_576st"]
+[ext_resource type="AudioStream" uid="uid://bxsbnw48fh4vy" path="res://maps/seitung/sounds/ambience.ogg" id="8_7neme"]
+[ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="9_7a3wp"]
+[ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="19_rjgkc"]
+[ext_resource type="AudioStream" uid="uid://bgajrg2kgqtxq" path="res://maps/seitung/sounds/mus_haiju.ogg" id="27_cw1ux"]
+[ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_qeyqe"]
+[ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="29_dsjwf"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_krpi4"]
+panorama = ExtResource("2_hviwj")
+
+[sub_resource type="Sky" id="Sky_1mh13"]
+sky_material = SubResource("PanoramaSkyMaterial_krpi4")
+
+[sub_resource type="Environment" id="Environment_1i51c"]
+background_mode = 2
+sky = SubResource("Sky_1mh13")
+ambient_light_source = 2
+ambient_light_color = Color(0.304708, 0.361277, 0.212145, 1)
+ambient_light_sky_contribution = 0.29
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.1
+glow_enabled = true
+glow_intensity = 0.65
+glow_strength = 0.45
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.7482, 0.87, 0.84767, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 20.0
+fog_depth_end = 30.0
+volumetric_fog_density = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bvguu"]
+size = Vector3(80, 0.1, 80)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vscmd"]
+albedo_color = Color(0.25, 0.25, 0.25, 1)
+albedo_texture = ExtResource("6_76bl8")
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("7_576st")
+uv1_scale = Vector3(64, 64, 64)
+uv2_scale = Vector3(0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4vyyo"]
+material = SubResource("StandardMaterial3D_vscmd")
+size = Vector2(80, 80)
+
+[sub_resource type="GDScript" id="GDScript_mi48u"]
+script/source = "extends AudioStreamPlayer
+# Jukebox
+# The jukebox makes sure that music is always playing appropriately
+
+@export var track_list: Array[AudioStreamOggVorbis]
+@export var start_muted := false
+@export var music_enabled := true
+@export var delay := 24.0
+
+var rng = RandomNumberGenerator.new()
+var tracks: Array[AudioStreamOggVorbis] = []
+var tracks_alt: Array[AudioStreamOggVorbis] = []
+var using_alt = false
+
+var space_timer = Timer.new()
+
+# Will randomly select tracks from `tracks` and swap them over to `tracks_alt`
+# until they have all been used up, and then do the same from `tracks_alt`;
+# `using_alt` is used to keep track of this
+func load_track() -> void:
+	if !using_alt:
+		var selected_id = rng.randi_range(0, tracks.size() - 1)
+		set_stream(tracks[selected_id])
+		play()
+		tracks_alt.append(tracks[selected_id])
+		tracks.remove_at(selected_id)
+		if tracks == []: using_alt = true
+		return
+	else:
+		var selected_id = rng.randi_range(0, tracks_alt.size() - 1)
+		set_stream(tracks_alt[selected_id])
+		play()
+		tracks.append(tracks_alt[selected_id])
+		tracks_alt.remove_at(selected_id)
+		if tracks_alt == []: using_alt = false
+		return
+
+func _ready() -> void:
+	space_timer.one_shot = true
+	add_child(space_timer)
+	
+	space_timer.timeout.connect(load_track)
+	finished.connect(func():
+		space_timer.wait_time = delay
+		space_timer.start())
+	
+	# `enabled` only disables music, not sound effects
+	if !music_enabled: return
+	if track_list == []: return
+	tracks = track_list.duplicate()
+	
+	await get_tree().create_timer(2.0).timeout
+	load_track()
+"
+
+[sub_resource type="Curve" id="Curve_ai1cj"]
+_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_useom"]
+curve = SubResource("Curve_ai1cj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ovh2i"]
+emission_shape = 3
+emission_box_extents = Vector3(1.9, 0.9, 1.9)
+gravity = Vector3(0, 0.24, 0)
+scale_min = 0.5
+scale_max = 0.9
+color = Color(0, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_useom")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ta0p3"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("19_rjgkc")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u26eb"]
+material = SubResource("StandardMaterial3D_ta0p3")
+size = Vector2(0.1, 0.23)
+orientation = 2
+
+[node name="DebugMap" type="Node3D"]
+script = ExtResource("1_68luo")
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1i51c")
+
+[node name="Sun" type="DirectionalLight3D" parent="Sky"]
+transform = Transform3D(-0.314094, -0.416715, 0.85305, -0.294181, 0.897017, 0.329875, -0.902664, -0.147339, -0.404337, 0, 3, 8.9857)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_l1mpf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="HUD" parent="." node_paths=PackedStringArray("safe_point") instance=ExtResource("4_li35t")]
+layer = 2
+safe_point = NodePath("../SafePoint")
+
+[node name="CrumbHandler" parent="." instance=ExtResource("5_g76vt")]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_bvguu")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_4vyyo")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7neme")
+volume_db = 5.0
+autoplay = true
+
+[node name="Jukebox" type="AudioStreamPlayer" parent="."]
+script = SubResource("GDScript_mi48u")
+track_list = Array[AudioStreamOggVorbis]([ExtResource("27_cw1ux"), ExtResource("28_qeyqe")])
+delay = 48.0
+
+[node name="DecoHandler" parent="." instance=ExtResource("9_7a3wp")]
+
+[node name="SafePoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61923, 1, 7.56866)
+
+[node name="DragonvoidArc" parent="." instance=ExtResource("29_dsjwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Motes" type="GPUParticles3D" parent="DragonvoidArc"]
+transform = Transform3D(1, 3.07336e-08, 0, 1.86265e-09, 1, 0, 2.98023e-08, 3.72529e-08, 1, 1.30803, 1.22071, -0.33207)
+amount = 55
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_ovh2i")
+draw_pass_1 = SubResource("PlaneMesh_u26eb")
+
+[node name="Decoration" type="Node3D" parent="."]
+
+[node name="Foliage" type="Node3D" parent="Decoration"]
