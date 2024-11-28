@@ -9,13 +9,17 @@ const RANDOM_COLORS = [ Color.CYAN, Color.ORANGE_RED, Color.GREEN, Color.YELLOW,
 
 const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
-	"delete": preload("res://lib/skill_button/textures/cancel.png"),
+	"delete": preload("res://lib/skill_button/textures/delete.png"),
 	"deco_test": preload("res://lib/skill_button/textures/deco.png"),
 	"adjust_mode_rotate": preload("res://lib/skill_button/textures/rotate.png"),
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
 	"select": preload("res://lib/skill_button/textures/select.png"),
 	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
-	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png")
+	"snap_enable": preload("res://lib/skill_button/textures/snap_enable.png"),
+	"snap_disable": preload("res://lib/skill_button/textures/snap_disable.png"),
+	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png"),
+	"reset_adjustment": preload("res://lib/skill_button/textures/reset_adjustment.png"),
+	"safe_point": preload("res://lib/skill_button/textures/safe_point.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 
@@ -63,6 +67,10 @@ const TOOLTIPS = {
 	"reset_adjustment": {
 		"title": "Reset Decoration",
 		"description": "Reset the orientation and scale of the decoration."
+	},
+	"safe_point": {
+		"title": "I'm Stuck!",
+		"description": "Teleports you back to a safe point."
 	}
 }
 

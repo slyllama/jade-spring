@@ -127,6 +127,10 @@ func _process(_delta: float) -> void:
 	# bring this back in the future but it's feeling more sensible like this
 	# for the moment.
 	
+	if "custom_model" in data:
+		global_rotation.y = data.y_rotation
+		Global.mouse_3d_y_rotation = rotation.y
+	
 	#if !"custom_model" in data:
 		#rotation = lerp(rotation, _target_normal, delta * 3)
 	#else:
