@@ -126,7 +126,6 @@ signal snapping_enabled
 
 const SNAP_INCREMENT = 0.25
 
-var custom_target_scene = ""
 var decorations = [] # references to decorations will populate here
 var active_decoration: Decoration = null # decoration currently being adjusted
 var queued_decoration = "none" # next decoration that will be placed

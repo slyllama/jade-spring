@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/small_boulders.glb-3cf0564d20bbb4c4c844cb8b18
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="SmallBoulder"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

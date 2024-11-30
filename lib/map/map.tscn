@@ -1,0 +1,158 @@
+[gd_scene load_steps=17 format=3 uid="uid://djua7a6d1wk2x"]
+
+[ext_resource type="Script" path="res://lib/map/map.gd" id="1_juxxi"]
+[ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_twsw1"]
+[ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="2_dib65"]
+[ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="3_d4nbx"]
+[ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_2klpx"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="5_47c3a"]
+[ext_resource type="AudioStream" uid="uid://bxsbnw48fh4vy" path="res://maps/seitung/sounds/ambience.ogg" id="5_uggpi"]
+[ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="6_fmnwt"]
+[ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="6_p5ee1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
+panorama = ExtResource("1_twsw1")
+
+[sub_resource type="Sky" id="Sky_1mh13"]
+sky_material = SubResource("PanoramaSkyMaterial_3jmvg")
+
+[sub_resource type="Environment" id="Environment_a76kq"]
+background_mode = 2
+sky = SubResource("Sky_1mh13")
+ambient_light_source = 2
+ambient_light_color = Color(0.304708, 0.361277, 0.212145, 1)
+ambient_light_sky_contribution = 0.29
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.1
+glow_enabled = true
+glow_intensity = 0.65
+glow_strength = 0.45
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.43104, 0.48, 0.3936, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 20.0
+fog_depth_end = 25.0
+volumetric_fog_density = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g86cy"]
+size = Vector3(80, 0.1, 80)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11m6v"]
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+albedo_texture = ExtResource("5_47c3a")
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("6_fmnwt")
+uv1_scale = Vector3(80, 80, 80)
+
+[sub_resource type="QuadMesh" id="QuadMesh_kt5au"]
+material = SubResource("StandardMaterial3D_11m6v")
+size = Vector2(80, 80)
+orientation = 1
+
+[sub_resource type="GDScript" id="GDScript_kjg48"]
+script/source = "extends AudioStreamPlayer
+# Jukebox
+# The jukebox makes sure that music is always playing appropriately
+
+@export var track_list: Array[AudioStreamOggVorbis]
+@export var start_muted := false
+@export var music_enabled := true
+@export var delay := 24.0
+
+var rng = RandomNumberGenerator.new()
+var tracks: Array[AudioStreamOggVorbis] = []
+var tracks_alt: Array[AudioStreamOggVorbis] = []
+var using_alt = false
+
+var space_timer = Timer.new()
+
+# Will randomly select tracks from `tracks` and swap them over to `tracks_alt`
+# until they have all been used up, and then do the same from `tracks_alt`;
+# `using_alt` is used to keep track of this
+func load_track() -> void:
+	if !using_alt:
+		var selected_id = rng.randi_range(0, tracks.size() - 1)
+		set_stream(tracks[selected_id])
+		play()
+		tracks_alt.append(tracks[selected_id])
+		tracks.remove_at(selected_id)
+		if tracks == []: using_alt = true
+		return
+	else:
+		var selected_id = rng.randi_range(0, tracks_alt.size() - 1)
+		set_stream(tracks_alt[selected_id])
+		play()
+		tracks.append(tracks_alt[selected_id])
+		tracks_alt.remove_at(selected_id)
+		if tracks_alt == []: using_alt = false
+		return
+
+func _ready() -> void:
+	space_timer.one_shot = true
+	add_child(space_timer)
+	
+	space_timer.timeout.connect(load_track)
+	finished.connect(func():
+		space_timer.wait_time = delay
+		space_timer.start())
+	
+	# `enabled` only disables music, not sound effects
+	if !music_enabled: return
+	if track_list == []: return
+	tracks = track_list.duplicate()
+	
+	await get_tree().create_timer(2.0).timeout
+	load_track()
+"
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_juxxi")
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a76kq")
+
+[node name="Sun" type="DirectionalLight3D" parent="Sky"]
+transform = Transform3D(-0.306146, -0.4254, 0.851651, -0.290381, 0.893701, 0.34202, -0.906616, -0.142595, -0.397131, 0, 3, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_dib65")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 1, 0)
+
+[node name="HUD" parent="." instance=ExtResource("3_d4nbx")]
+layer = 2
+
+[node name="CrumbHandler" parent="." instance=ExtResource("4_2klpx")]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_g86cy")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("QuadMesh_kt5au")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uggpi")
+volume_db = 5.0
+autoplay = true
+
+[node name="DecoHandler" parent="." instance=ExtResource("6_p5ee1")]
+
+[node name="Decoration" type="Node3D" parent="."]
+
+[node name="Foliage" type="Node3D" parent="Decoration"]
+
+[node name="SafePoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61923, 1, 7.56866)
+
+[node name="Jukebox" type="AudioStreamPlayer" parent="."]
+script = SubResource("GDScript_kjg48")

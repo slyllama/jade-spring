@@ -1,4 +1,6 @@
 extends Node3D
+# Map
+# Base class for map functionalirt
 
 var picking_disabled_objects: Array[StaticBody3D] = []
 
@@ -14,8 +16,6 @@ func _input(_event: InputEvent) -> void:
 		Global.debug_toggled.emit()
 
 func _ready() -> void:
-	$DragonvoidArc/AnimationPlayer.play("Wobble")
-
 	# Apply settings
 	Global.debug_toggled.emit()
 	
@@ -36,10 +36,8 @@ func _ready() -> void:
 			"music_vol": $Jukebox.volume_db = linear_to_db(
 				clamp(float(_value) * 0.34, 0.0, 0.34))
 			"bloom":
-				if _value == "on":
-					$Sky.environment.glow_enabled = true
-				elif _value == "off":
-					$Sky.environment.glow_enabled = false
+				if _value == "on": $Sky.environment.glow_enabled = true
+				elif _value == "off": $Sky.environment.glow_enabled = false
 	)
 	SettingsHandler.refresh(["volume"])
 	
@@ -60,10 +58,9 @@ func _ready() -> void:
 	Global.adjustment_applied.connect(reset_picking_disabled_objects)
 	Global.adjustment_canceled.connect(reset_picking_disabled_objects)
 	
-	Global.add_effect.emit("discombobulator")
-	
 	# Fade volume in and play music after a short delay
 	await get_tree().create_timer(0.5).timeout
 	var vol_tween = create_tween()
-	vol_tween.tween_method(Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
+	vol_tween.tween_method(
+		Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
 	await get_tree().create_timer(4.0).timeout

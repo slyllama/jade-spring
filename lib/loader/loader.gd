@@ -29,9 +29,6 @@ func _transition():
 			ResourceLoader.load_threaded_get(target_scene)))
 
 func _ready() -> void:
-	if Global.custom_target_scene != "":
-		target_scene = Global.custom_target_scene
-	
 	AudioServer.set_bus_volume_db(0, -80)
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
