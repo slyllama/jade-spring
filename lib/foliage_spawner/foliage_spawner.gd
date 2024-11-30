@@ -152,6 +152,18 @@ func set_density(get_density) -> void:
 	multimesh.visible_instance_count = floor(count * count * density)
 
 func _ready() -> void:
+	for _n in get_children():
+		if _n is Label3D: _n.queue_free()
+	if Engine.is_editor_hint():
+		var label = Label3D.new()
+		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		label.no_depth_test = true
+		label.render_priority = 9
+		label.text = str(name)
+		
+		add_child(label)
+		label.position.y = 0.5
+		
 	cast_shadow = SHADOW_CASTING_SETTING_OFF
 	# Prevent moss decals painting onto grass
 	set_layer_mask_value(1, 0)

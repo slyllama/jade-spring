@@ -11,5 +11,6 @@ shader_parameter/occlusion_intensity = 1.0
 shader_parameter/uv_scale = 1.0
 shader_parameter/saturation = 1.0
 shader_parameter/multiplier = 1.0
+shader_parameter/exponent = 1.0
 shader_parameter/wood_texture = ExtResource("3_q1t07")
 shader_parameter/wood_normal_texture = ExtResource("2_c612i")

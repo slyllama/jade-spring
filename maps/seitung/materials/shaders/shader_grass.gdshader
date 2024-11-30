@@ -10,6 +10,7 @@ uniform sampler2D dirt_texture: source_color, filter_linear_mipmap, repeat_enabl
 uniform sampler2D dirt_mask_texture: filter_linear_mipmap, hint_default_black;
 
 uniform float grass_base_multiplier = 0.45;
+uniform float normal_strength = 1.0;
 uniform float grass_add_multiplier = 0.7;
 
 vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
@@ -37,6 +38,6 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, dirt, dirt_blend);
 	ALBEDO *= (1.0 + light_blend);
 	NORMAL_MAP = grass_normal;
-	NORMAL_MAP_DEPTH = 1.0;
-	SPECULAR = 0.2;
+	NORMAL_MAP_DEPTH = normal_strength;
+	SPECULAR = 0.0;
 }
