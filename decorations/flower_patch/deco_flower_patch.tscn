@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5a3jblx82jr5"]
+
+[ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="1_bwc4e"]
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_vtcx4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6vxse"]
+size = Vector3(0.776367, 0.443787, 0.728516)
+
+[node name="DecoFlowerPatch" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_vtcx4")
+id = "flower_patch"
+collision_box = NodePath("SelectArea")
+
+[node name="Flower1" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.2, 0, 0, 0, 3.2, 0, 0, 0, 3.2, -0.225453, 0, 0.0268517)
+mesh = ExtResource("1_bwc4e")
+
+[node name="Flower2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.38173, 0.266004, -2.12052, 0.693991, 2.90678, 1.14411, 2.02132, -1.31143, 2.1058, 0.00183257, 0.108228, -0.213363)
+mesh = ExtResource("1_bwc4e")
+
+[node name="Flower3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.51774, 0, 1.97509, 0, 3.2, 0, -1.97509, 0, 2.51774, 0.140025, 0, 0.10245)
+mesh = ExtResource("1_bwc4e")
+
+[node name="SelectArea" type="Area3D" parent="."]
+
+[node name="Box" type="CollisionShape3D" parent="SelectArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231781, -0.0263672)
+shape = SubResource("BoxShape3D_6vxse")

@@ -81,8 +81,13 @@ const DecoData = {
 		"name": "Bloodstone-Impacted Pillar",
 		"scene": "res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn",
 		"cursor_model": "res://decorations/bloodstone_impacted_pillar/bloodstone_impacted_pillar.glb",
-		#"y_rotation": 115,
 		"preview_scale": 0.78
+	},
+	"flower_patch": {
+		"name": "Flower Patch",
+		"scene": "res://decorations/flower_patch/deco_flower_patch.tscn",
+		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
+		"preview_scale": 1.75
 	}
 }
 

@@ -3,7 +3,7 @@ class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 @export var id = ""
-@export var collision_box: PhysicsBody3D
+@export var collision_box: CollisionObject3D
 var last_position: Vector3
 var last_scale: Vector3
 var last_rotation: Vector3
@@ -102,8 +102,8 @@ func _ready() -> void:
 			global_rotation = Vector3.ZERO
 			if "y_rotation" in Global.DecoData[id]:
 				rotation_degrees.y = Global.DecoData[id].y_rotation
-			last_rotation = global_rotation
-			last_scale = Vector3(1, 1, 1)
+			#last_rotation = global_rotation
+			#last_scale = Vector3(1, 1, 1)
 			scale = Vector3(1, 1, 1)
 			
 			# Remake gizmos to suit the new transformation

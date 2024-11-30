@@ -28,6 +28,9 @@ func _input(_event: InputEvent) -> void:
 			interacted.emit()
 
 func _ready() -> void:
+	if !can_click:
+		input_ray_pickable = false
+	
 	var collision = CollisionShape3D.new()
 	var shape = SphereShape3D.new()
 	shape.radius = area_radius
