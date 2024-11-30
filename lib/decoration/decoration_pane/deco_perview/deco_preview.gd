@@ -3,7 +3,8 @@ extends Node3D
 const Offsets = {
 	"shing_jea_arch": -0.4,
 	"bloodstone_impacted_pillar": -0.6,
-	"fountain": 0.2
+	"fountain": 0.2,
+	"bamboo_cluster": -0.5
 }
 
 var orbiting = false

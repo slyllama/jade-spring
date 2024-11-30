@@ -57,6 +57,7 @@ func start_adjustment() -> void:
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	Global.adjustment_started.emit()
 	
+	collision_box.input_ray_pickable = false # occludes gizmos otherwise
 	_spawn_arrows(Global.transform_mode)
 	
 	transform_type = TRANSFORM_TYPE_TRANSLATE
@@ -67,6 +68,7 @@ func start_adjustment() -> void:
 
 func apply_adjustment() -> void:
 	if Global.active_decoration == self:
+		collision_box.input_ray_pickable = true
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
@@ -75,6 +77,7 @@ func apply_adjustment() -> void:
 
 func cancel_adjustment() -> void:
 	if Global.active_decoration == self:
+		collision_box.input_ray_pickable = true
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		

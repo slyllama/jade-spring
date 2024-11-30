@@ -88,6 +88,12 @@ const DecoData = {
 		"scene": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"preview_scale": 1.75
+	},
+	"bamboo_cluster": {
+		"name": "Bamboo Cluster",
+		"scene": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
+		"cursor_model": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
+		"preview_scale": 0.4
 	}
 }
 

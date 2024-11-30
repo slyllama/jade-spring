@@ -21,5 +21,7 @@ autowrap_mode = 0
 [node name="Slider" type="HSlider" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+min_value = 0.1
+value = 0.1
 
 [connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]
