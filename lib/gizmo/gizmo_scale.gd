@@ -76,5 +76,5 @@ func _ready() -> void:
 		)
 	)
 	
-	position.y = 2.5
+	#position.y = 2.5
 	set_disable_scale(true)

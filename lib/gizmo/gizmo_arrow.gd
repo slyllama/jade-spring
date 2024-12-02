@@ -18,6 +18,8 @@ var adjacent_plane = PickBox.new()
 var tangent_cast = RayCast3D.new()
 var mat = ShaderMaterial.new()
 
+signal drag_complete
+
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
 	mat.set_shader_parameter("color", get_color * dim)
@@ -51,7 +53,7 @@ func _ready() -> void:
 	
 	grabber.set_size(Vector3(0.8, 0.5, 0.5))
 	grabber.make_ui_component()
-	grabber.position.x = 0.45
+	grabber.position.x = 1.0
 	add_child(grabber)
 	
 	# Visual arrow display
@@ -91,7 +93,9 @@ func _ready() -> void:
 		drag_plane.set_collision_layer_value(2, 0)
 		adjacent_plane.set_collision_layer_value(3, 0)
 		set_color(color, 1.0)
-		active = false)
+		active = false
+		
+		drag_complete.emit())
 	
 	drag_plane.input_ray_pickable = false
 	drag_plane.set_collision_layer_value(1, 0)

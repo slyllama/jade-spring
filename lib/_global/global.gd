@@ -59,7 +59,7 @@ const DecoData = {
 		"scene": "res://decorations/eepy_fence/deco_eepy_fence.tscn",
 		"cursor_model": "res://decorations/eepy_fence/warped_fence.glb",
 		"preview_scale": 0.76,
-		"y_rotation": 90,
+		#"y_rotation": 90,
 		"preview_y_rotation": 180
 	},
 	"fountain": {

@@ -10,35 +10,58 @@ var last_rotation: Vector3
 var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 
-func _spawn_arrows(transform_space: int):
+func _spawn_rotators() -> void:
+	_clear_arrows()
+	
+	var _arr_rotate_x = GizmoRotation.new()
+	_arr_rotate_x.rotation_vector = Vector3(1, 0, 0)
+	_arr_rotate_x.dragger_axis = "Y"
+	add_child(_arr_rotate_x)
+	arrows.append(_arr_rotate_x)
+	_arr_rotate_x.set_color(Color.RED)
+	
+	var _arr_rotate_y = GizmoRotation.new()
+	_arr_rotate_y.rotation_vector = Vector3(0, 1, 0)
+	_arr_rotate_y.dragger_axis = "X"
+	add_child(_arr_rotate_y)
+	arrows.append(_arr_rotate_y)
+	_arr_rotate_y.set_color(Color.BLUE)
+	
+	var _arr_rotate_z = GizmoRotation.new()
+	_arr_rotate_z.rotation_vector = Vector3(0, 0, 1)
+	_arr_rotate_z.dragger_axis = "Z"
+	add_child(_arr_rotate_z)
+	arrows.append(_arr_rotate_z)
+	_arr_rotate_z.set_color(Color.GREEN)
+
+func _spawn_arrows() -> void:
 	_clear_arrows()
 	
 	var _arr_x = GizmoArrow.new()
-	if transform_space == Global.TRANSFORM_MODE_WORLD:
+	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
 		_arr_x.initial_override_rotation = Vector3(0, 0, 0)
-	
 	_arr_x.set_color(Color.RED)
 	add_child(_arr_x)
 	arrows.append(_arr_x)
+	_arr_x.drag_complete.connect(_spawn_arrows)
 	
 	var _arr_y = GizmoArrow.new()
-	if transform_space == Global.TRANSFORM_MODE_WORLD:
+	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
 		_arr_y.initial_override_rotation = Vector3(0, 0, 90)
-	else:
-		_arr_y.initial_rotation = Vector3(0, 0, 90)
-	
+	else: _arr_y.initial_rotation = Vector3(0, 0, 90)
 	_arr_y.set_color(Color.BLUE)
 	add_child(_arr_y)
 	arrows.append(_arr_y)
+	_arr_y.drag_complete.connect(_spawn_arrows)
 	
 	var _arr_z = GizmoArrow.new()
-	if transform_space == Global.TRANSFORM_MODE_WORLD:
+	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
 		_arr_z.initial_override_rotation = Vector3(0, 90, 0)
-	else:
-		_arr_z.initial_rotation = Vector3(0, 90, 0)
+	else: _arr_z.initial_rotation = Vector3(0, 90, 0)
 	_arr_z.set_color(Color.GREEN)
 	add_child(_arr_z)
 	arrows.append(_arr_z)
+	_arr_z.drag_complete.connect(_spawn_arrows)
 	
 	var _scale_gizmo = GizmoScale.new()
 	add_child(_scale_gizmo)
@@ -58,7 +81,7 @@ func start_adjustment() -> void:
 	Global.adjustment_started.emit()
 	
 	collision_box.input_ray_pickable = false # occludes gizmos otherwise
-	_spawn_arrows(Global.transform_mode)
+	_spawn_arrows()
 	
 	transform_type = TRANSFORM_TYPE_TRANSLATE
 	last_position = position
@@ -118,7 +141,7 @@ func _ready() -> void:
 	Global.adjustment_mode_translate.connect(func():
 		if Global.active_decoration == self:
 			transform_type = TRANSFORM_TYPE_TRANSLATE
-			_spawn_arrows(Global.transform_mode))
+			_spawn_arrows())
 	
 	# Switch controls to rotation mode
 	Global.adjustment_mode_rotation.connect(func():
@@ -126,27 +149,7 @@ func _ready() -> void:
 			# TODO: add rotation controls
 			transform_type = TRANSFORM_TYPE_ROTATE
 			_clear_arrows()
-			
-			var _arr_rotate_x = GizmoRotation.new()
-			_arr_rotate_x.rotation_vector = Vector3(1, 0, 0)
-			_arr_rotate_x.dragger_axis = "Y"
-			add_child(_arr_rotate_x)
-			arrows.append(_arr_rotate_x)
-			_arr_rotate_x.set_color(Color.RED)
-			
-			var _arr_rotate_y = GizmoRotation.new()
-			_arr_rotate_y.rotation_vector = Vector3(0, 1, 0)
-			_arr_rotate_y.dragger_axis = "X"
-			add_child(_arr_rotate_y)
-			arrows.append(_arr_rotate_y)
-			_arr_rotate_y.set_color(Color.BLUE)
-			
-			var _arr_rotate_z = GizmoRotation.new()
-			_arr_rotate_z.rotation_vector = Vector3(0, 0, 1)
-			_arr_rotate_z.dragger_axis = "Z"
-			add_child(_arr_rotate_z)
-			arrows.append(_arr_rotate_z)
-			_arr_rotate_z.set_color(Color.GREEN)
+			_spawn_rotators()
 	)
 	
 	if collision_box != null:
@@ -155,7 +158,7 @@ func _ready() -> void:
 		Global.transform_mode_changed.connect(func(transform_mode):
 			if !Global.active_decoration == self: return
 			if transform_type == TRANSFORM_TYPE_TRANSLATE:
-				_spawn_arrows(transform_mode))
+				_spawn_arrows())
 		
 		collision_box.mouse_entered.connect(func():
 			Global.cursor_tint_changed.emit(Color.GREEN))
@@ -173,6 +176,5 @@ func _ready() -> void:
 					Global.set_cursor(false)
 					Global.tool_mode = Global.TOOL_MODE_NONE
 					Global.deco_deleted.emit()
-					
 					queue_free() # TODO: better delete communication?
 			)

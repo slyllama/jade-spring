@@ -108,7 +108,6 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_applied.emit()
 				set_default_skills()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
-				print("Decoration placed")
 				set_default_skills()
 		"deco_test":
 			if !Global.deco_pane_open:
@@ -126,11 +125,17 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 				Global.adjustment_mode_translate.emit()
 			$Box/Skill2.switch_skill("adjust_mode_rotate")
+			if Global.snapping: $Box/Skill3.switch_skill("snap_disable")
+			else: $Box/Skill3.switch_skill("snap_enable")
+			$Box/Skill4.switch_skill("transform_mode")
 		"adjust_mode_rotate":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_ROTATE
 				Global.adjustment_mode_rotation.emit()
 			$Box/Skill2.switch_skill("adjust_mode_translate")
+			$Box/Skill3.switch_skill("empty")
+			$Box/Skill4.switch_skill("empty")
+			
 		"snap_enable":
 			$Box/Skill3.switch_skill("snap_disable")
 			Global.snapping = true
