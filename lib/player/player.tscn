@@ -78,6 +78,8 @@ nodes/test_blend/position = Vector2(-13.3333, 146.667)
 node_connections = [&"output", 0, &"test_blend"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 9
+collision_mask = 9
 input_ray_pickable = false
 motion_mode = 1
 slide_on_ceiling = false

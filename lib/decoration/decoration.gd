@@ -74,8 +74,6 @@ func _clear_arrows() -> void:
 func start_adjustment() -> void:
 	Global.deco_pane_closed.emit()
 	Global.active_decoration = self
-	
-	#Global.transform_mode = Global.TRANSFORM_MODE_OBJECT
 	Global.transform_mode_changed.emit(Global.transform_mode)
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	Global.adjustment_started.emit()
@@ -114,7 +112,7 @@ func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
 	
-	Global.snapping_enabled.connect(func():
+	Global.snapping_enabled.connect(func(_mode):
 		if Global.active_decoration == self:
 			var _new_snapped_pos = Vector3(
 				snapped(global_position.x, 0.25),
@@ -155,7 +153,7 @@ func _ready() -> void:
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
 		
-		Global.transform_mode_changed.connect(func(transform_mode):
+		Global.transform_mode_changed.connect(func(_mode):
 			if !Global.active_decoration == self: return
 			if transform_type == TRANSFORM_TYPE_TRANSLATE:
 				_spawn_arrows())
