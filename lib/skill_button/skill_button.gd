@@ -102,7 +102,7 @@ func set_tip_text(get_title: String, get_description: String):
 
 # Flip to another skill, GW2 style - disables while animating
 func switch_skill(get_id: String) -> void:
-	set_enabled(false)
+	#set_enabled(false)
 	set_highlight(false)
 	$Animation.play("squeeze")
 	
@@ -119,7 +119,7 @@ func switch_skill(get_id: String) -> void:
 	
 	await $Animation.animation_finished
 	$Animation.play_backwards("squeeze")
-	set_enabled()
+	#set_enabled()
 
 func _input(_event: InputEvent) -> void:
 	if Global.popup_open: return

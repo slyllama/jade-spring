@@ -28,6 +28,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 4.0
 offset_bottom = 4.0
+scale = Vector2(0.65, 0.65)
 
 [node name="ArrowLeft" type="TextureRect" parent="ArrowRoot"]
 material = ExtResource("4_ofanv")
@@ -51,6 +52,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Debug" type="RichTextLabel" parent="."]
+visible = false
 z_index = 1
 clip_contents = false
 offset_left = 32.0

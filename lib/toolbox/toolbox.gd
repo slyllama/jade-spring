@@ -22,11 +22,6 @@ func get_button_by_id(id: String):
 			return(_n)
 
 func _ready() -> void:
-	$SkillSwap.volume_db = linear_to_db(0)
-	set_default_skills()
-	await $SkillSwap.finished
-	$SkillSwap.volume_db = linear_to_db(1.0)
-	
 	Global.deco_placement_started.connect(func():
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel"))
@@ -68,6 +63,11 @@ func _ready() -> void:
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.fishing_canceled.connect(set_default_skills)
+	
+	$SkillSwap.volume_db = linear_to_db(0)
+	set_default_skills()
+	await $SkillSwap.finished
+	$SkillSwap.volume_db = linear_to_db(1.0)
 
 #region Skill button behaviour
 func skill_used(skill_id: String) -> void:

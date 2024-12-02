@@ -39,10 +39,14 @@ func _configure_grabber(grabber: StaticBody3D) -> void:
 			add_child(_d)
 			
 			_d.ratio_changed.connect(func(ratio):
+				var _r = ratio # invert rotation for one axis (feels better)
+				if _d.axis == _d.Axis.Y:
+					_r = -ratio
+				
 				if !is_global:
-					get_parent().rotate_object_local(rotation_vector, ratio * 0.5)
+					get_parent().rotate_object_local(rotation_vector, _r * 0.1)
 				else:
-					var _new_rotation = get_parent().global_rotation_degrees + ratio * 10.0 * rotation_vector
+					var _new_rotation = get_parent().global_rotation_degrees + _r * 10.0 * rotation_vector
 					get_parent().global_rotation_degrees = _new_rotation
 			)
 		)
