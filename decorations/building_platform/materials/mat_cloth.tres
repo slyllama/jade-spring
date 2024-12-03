@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bdir63l3spsx7"]
+
+[ext_resource type="Texture2D" uid="uid://b2ipu0rr4rp74" path="res://decorations/building_platform/materials/textures/cloth_diff.jpg" id="1_3vbx2"]
+[ext_resource type="Texture2D" uid="uid://cy2pjl86vrsk3" path="res://decorations/building_platform/materials/textures/cloth_norm.jpg" id="2_bnorl"]
+
+[resource]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+albedo_texture = ExtResource("1_3vbx2")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_bnorl")

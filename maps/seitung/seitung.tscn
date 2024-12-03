@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=62 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cw22jtaf0fhxj" path="res://decorations/eepy_fence/deco_eepy_fence.tscn" id="13_bp3pr"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
+[ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="21_u002t"]
+[ext_resource type="AudioStream" uid="uid://bgajrg2kgqtxq" path="res://maps/seitung/sounds/mus_haiju.ogg" id="22_tefod"]
 [ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="22_wkmls"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="22_y7vyt"]
 [ext_resource type="PackedScene" uid="uid://d2a2ptt0rqp1i" path="res://maps/seitung/props/stucco_wall/plaster_wall.glb" id="23_0gdwd"]
@@ -1114,6 +1116,9 @@ cull_mask = 1048573
 
 [node name="House2" parent="Decoration" index="45" instance=ExtResource("23_53tlw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0487338, 1)
+
+[node name="Jukebox" parent="." index="9"]
+track_list = Array[AudioStreamOggVorbis]([ExtResource("21_u002t"), ExtResource("22_tefod")])
 
 [node name="DragonvoidArc" parent="." index="10" instance=ExtResource("34_xk86d")]
 transform = Transform3D(0.634315, 0.620771, -0.460745, -0.67088, 0.738166, 0.0709343, 0.38414, 0.26411, 0.884694, -5.88334, 1.02951, 16.9245)

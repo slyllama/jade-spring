@@ -31,6 +31,21 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"cable": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/building_platform/materials/mat_cloth.tres"
+},
+"mat_planks": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/building_platform/materials/mat_planks.tres"
+},
+"mat_wood": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_frame.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

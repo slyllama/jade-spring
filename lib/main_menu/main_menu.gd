@@ -110,8 +110,6 @@ func _on_play_button_down() -> void:
 	if !can_interact or ngc_open: return
 	$NewGameContainer.open()
 	ngc_open = true
-	#Global.start_params.new_save = true
-	#play()
 
 func _on_quit_button_down() -> void:
 	if !can_interact or ngc_open: return
@@ -129,3 +127,11 @@ func _on_continue_button_down() -> void:
 
 func _on_ngc_closed() -> void:
 	ngc_open = false
+
+func _on_new_game_button_pressed() -> void:
+	Save.reset()
+	
+	ngc_open = false
+	$NewGameContainer.close()
+	Global.start_params.new_save = true
+	play()

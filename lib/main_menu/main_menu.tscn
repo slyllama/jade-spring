@@ -210,3 +210,4 @@ grow_vertical = 2
 [connection signal="button_down" from="Container/QuitButton" to="." method="_on_quit_button_down"]
 [connection signal="button_down" from="CloseButton" to="." method="_on_quit_button_down"]
 [connection signal="closed" from="NewGameContainer" to="." method="_on_ngc_closed"]
+[connection signal="new_game_button_pressed" from="NewGameContainer" to="." method="_on_new_game_button_pressed"]
