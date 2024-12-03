@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c3mjqqk5pin5v"]
+
+[ext_resource type="Texture2D" uid="uid://ocxkfieeywag" path="res://decorations/rusted_ac_unit/materials/textures/ac_body_diff.jpg" id="1_0tnls"]
+[ext_resource type="Texture2D" uid="uid://gogpbpb0d1jb" path="res://decorations/rusted_ac_unit/materials/textures/ac_body_norm.jpg" id="2_twcbr"]
+
+[resource]
+albedo_texture = ExtResource("1_0tnls")
+metallic = 0.45
+metallic_specular = 0.35
+roughness = 0.4
+normal_enabled = true
+normal_texture = ExtResource("2_twcbr")

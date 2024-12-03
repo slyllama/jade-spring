@@ -101,6 +101,14 @@ const DecoData = {
 		"cursor_model": "res://decorations/building_platform/meshes/building_platform.glb",
 		"preview_scale": 0.4,
 		"preview_y_rotation": 35
+	},
+	"rusted_ac_unit": {
+		"name": "Cobble Ward AC Unit",
+		"scene": "res://decorations/rusted_ac_unit/deco_rusted_ac_unit.tscn",
+		"cursor_model": "res://decorations/rusted_ac_unit/rusted_ac_unit.glb",
+		"preview_scale": 1.2,
+		"y_rotation": 90,
+		"preview_y_rotation": 35
 	}
 }
 
