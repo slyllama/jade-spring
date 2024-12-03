@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://d33ilqq0c1mwg"]
+
+[ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_lk5ru"]
+[ext_resource type="Script" path="res://lib/main_menu/new_game_container.gd" id="2_cge2a"]
+
+[node name="NewGameContainer" instance=ExtResource("1_lk5ru")]
+script = ExtResource("2_cge2a")
+title = "Start New Game"
+
+[node name="Warning" type="RichTextLabel" parent="Container" index="3"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Starting a new game will reset any existing save.[/center]"
+fit_content = true
+
+[node name="Separator2" type="ColorRect" parent="Container" index="4"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="NewGameButton" type="Button" parent="Container" index="5"]
+layout_mode = 2
+text = "Start New Game"
+
+[node name="CancelButton" type="Button" parent="Container" index="6"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Cancel"
+
+[connection signal="button_down" from="Container/NewGameButton" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_button_down"]
+[connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_down"]

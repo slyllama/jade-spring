@@ -94,6 +94,13 @@ const DecoData = {
 		"scene": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
 		"cursor_model": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
 		"preview_scale": 0.4
+	},
+	"building_platform": {
+		"name": "Building Platform",
+		"scene": "res://decorations/building_platform/deco_building_platform.tscn",
+		"cursor_model": "res://decorations/building_platform/meshes/building_platform.glb",
+		"preview_scale": 0.4,
+		"preview_y_rotation": 35
 	}
 }
 

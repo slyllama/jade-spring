@@ -5,6 +5,7 @@ const DECO_DATA_PATH = "user://deco.dat"
 
 @onready var focus: Button
 var can_interact = true
+var ngc_open = false # new game container open
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -100,26 +101,31 @@ func _ready() -> void:
 	$Music.play()
 
 func _process(delta: float) -> void:
-	if !can_interact: return
+	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
 		$Nodule.position, focus.global_position + Vector2(-17, 16), delta * 22)
 
 func _on_play_button_down() -> void:
-	if !can_interact: return
-	Global.start_params.new_save = true
-	play()
+	if !can_interact or ngc_open: return
+	$NewGameContainer.open()
+	ngc_open = true
+	#Global.start_params.new_save = true
+	#play()
 
 func _on_quit_button_down() -> void:
-	if !can_interact: return
+	if !can_interact or ngc_open: return
 	get_tree().quit()
 
 func _on_settings_button_down() -> void:
-	if !can_interact: return
+	if !can_interact or ngc_open: return
 	if !$SettingsPane.is_open:
 		$SettingsPane.open()
 
 func _on_continue_button_down() -> void:
-	if !can_interact: return
+	if !can_interact or ngc_open: return
 	Global.start_params.new_save = false
 	play()
+
+func _on_ngc_closed() -> void:
+	ngc_open = false
