@@ -95,6 +95,7 @@ func apply_adjustment() -> void:
 		
 		_clear_arrows() 
 		collision_box.set_collision_layer_value(2, 1)
+		Global.command_sent.emit("/savedeco")
 
 func cancel_adjustment() -> void:
 	if Global.active_decoration == self:

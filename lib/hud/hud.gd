@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var safe_point: Marker3D
 
 const FADE = 0.6 # faded buttons will have this alpha value
+const StoryPanel = preload("res://lib/story_panel/story_panel.tscn")
 
 func _render_fps() -> String: # pretty formatting of FPS values
 	var color = "green"
@@ -85,27 +86,31 @@ func _ready() -> void:
 	Global.weed_crumb_left.connect(_hide_int)
 	Global.generic_area_entered.connect(_show_int)
 	Global.generic_area_left.connect(_hide_int)
-	
-	Global.fishing_started.connect(_hide_int)
-	
-	$InteractIndicator.modulate.a = 0.0
-	$FG.visible = true
-	$Underlay.queue_free() # clear debugging component
 	Global.deco_pane_closed.connect($DecoPane.close)
 	Global.deco_pane_opened.connect($DecoPane.open)
+	Global.fishing_started.connect(_hide_int)
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()
 		elif _cmd == "/storypanel":
-			var _sp = load("res://lib/story_panel/story_panel.tscn").instantiate()
+			var _sp = StoryPanel.instantiate()
 			add_child(_sp)
 			_sp.open()
-	)
+		elif _cmd == "/savedata":
+			print(Save.data))
 	
 	Global.debug_toggled.connect(func():
 		$TopLevel/DebugEntry.visible = Global.debug_enabled
 		$Debug.visible = Global.debug_enabled)
+	
+	Global.summon_story_panel.connect(func(data):
+		if !"description" in data or !"title" in data:
+			print("[ERROR] bad story panel invocation.")
+			return
+		var _sp = StoryPanel.instantiate()
+		add_child(_sp)
+		_sp.open(data.title, data.description))
 	
 	# Configure corner buttons to light up when hovered over
 	for _n in $CornerButtons.get_children():
@@ -115,13 +120,24 @@ func _ready() -> void:
 			_n.mouse_exited.connect(func(): _n.modulate.a = FADE)
 			_n.button_down.connect(Global.click_sound.emit)
 	
+	$InteractIndicator.modulate.a = 0.0
+	$FG.visible = true
+	$Underlay.queue_free()
+	
 	await get_tree().process_frame
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($FG, "modulate:a", 0.0, 0.5)
 	_fade_tween.tween_callback($FG.queue_free)
 	
-	Global.debug_enabled = true
-	Global.debug_toggled.emit()
+	# Opening story panel (if the story hasn't been advanced)
+	if Save.data.story_point == "game_start":
+		Global.summon_story_panel.emit({
+			"title": "1. A Helping Hand",
+			"description": "Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending to your new Canthan home.[/color]"
+		})
+	
+	#Global.debug_enabled = true
+	#Global.debug_toggled.emit()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:
@@ -131,7 +147,7 @@ func _process(_delta: float) -> void:
 		if !$InteractIndicator.visible:
 			$InteractIndicator.visible = true
 	
-	# Debug stuff
+	#region Debug printing
 	$Debug.text = "[right]"
 	$Debug.text += _render_fps()
 	$Debug.text += ("\nPrimitives: "
@@ -155,6 +171,7 @@ func _process(_delta: float) -> void:
 	
 	$Debug.text += _render_crumb_debug()
 	$Debug.text += "[/right]"
+	#endregion
 
 func _on_settings_down() -> void:
 	if !$TopLevel/SettingsPane.is_open: $TopLevel/SettingsPane.open()

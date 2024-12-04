@@ -20,6 +20,8 @@ func place_decoration(data: Dictionary) -> void:
 	if "y_rotation" in data:
 		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
+	
+	Global.command_sent.emit("/savedeco")
 
 # Clear all decorations from the world
 func _clear_decorations() -> void:

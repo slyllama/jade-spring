@@ -27,7 +27,10 @@ func _ready() -> void:
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.deco_placed.connect(set_default_skills)
-	Global.deco_deleted.connect(set_default_skills)
+	Global.deco_deleted.connect(func():
+		set_default_skills()
+		await get_tree().process_frame
+		Global.command_sent.emit("/savedeco"))
 	Global.deco_placement_canceled.connect(set_default_skills)
 	
 	Global.adjustment_started.connect(func():

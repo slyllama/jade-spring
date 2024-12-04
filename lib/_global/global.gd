@@ -45,8 +45,10 @@ signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
 signal weed_crumb_entered
 signal weed_crumb_left
+signal summon_story_panel(data: Dictionary)
 
 ##### Decoration signals and parameters
+#region Decoration data
 const DecoData = {
 	"lantern": {
 		"name": "Lantern",
@@ -111,6 +113,7 @@ const DecoData = {
 		"preview_y_rotation": 35
 	}
 }
+#endregion
 
 enum {
 	TOOL_MODE_NONE,

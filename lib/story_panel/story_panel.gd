@@ -4,7 +4,7 @@ func _set_shader_value(val: float) -> void: # 0-1
 	var _e = ease(val, 0.2)
 	$Base.material.set_shader_parameter("paint_mask_exponent", (1 - _e) * 10)
 
-func open(title = "1. A Helping Hand", description = "Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Mr. Scruff about tending to your new Canthan home.[/color]"):
+func open(title = "((Title))", description = "((Description))"):
 	$Base/Content/Title.text = "[center]" + title + "[/center]"
 	$Base/Content/Description.text = description
 	
@@ -14,8 +14,8 @@ func open(title = "1. A Helping Hand", description = "Nayos was not easy on us; 
 	content_fade_tween.tween_property($Base/Content, "modulate:a", 1.0, 0.27)
 	content_fade_tween.set_parallel()
 	
-	await get_tree().process_frame
-	await get_tree().process_frame # wait for command line to process
+	for _i in 2: # wait for command line to process
+		await get_tree().process_frame
 	Global.in_exclusive_ui = true
 	
 	await get_tree().create_timer(0.1).timeout
