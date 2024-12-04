@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cio2740qbc0cs"]
+
+[ext_resource type="Shader" path="res://decorations/materials/shaders/shader_multires_rock.gdshader" id="1_hgqk8"]
+[ext_resource type="Texture2D" uid="uid://df0ncv0qe7pum" path="res://maps/seitung/props/cleaning_station/materials/textures/roof_tiles_lighten.jpg" id="2_exmy2"]
+[ext_resource type="Texture2D" uid="uid://brqv0ny8l0706" path="res://maps/seitung/props/cleaning_station/materials/textures/terracotta_diff.jpg" id="4_cfewo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hgqk8")
+shader_parameter/overlay_color = null
+shader_parameter/overlay_exponent = 1.0
+shader_parameter/overlay_uv_scale = 1.0
+shader_parameter/uv_scale = 2.0
+shader_parameter/darken = 1.0
+shader_parameter/rock_texture = ExtResource("4_cfewo")
+shader_parameter/lighten_texture = ExtResource("2_exmy2")

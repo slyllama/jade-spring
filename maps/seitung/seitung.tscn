@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=64 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dm88qsqr4e6bj" path="res://lib/crumb/weed.tscn" id="7_p2o6w"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="8_67fdu"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="9_7bo6h"]
+[ext_resource type="PackedScene" uid="uid://1ma6van4rays" path="res://decorations/building_platform/deco_building_platform.tscn" id="9_pvwy6"]
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="10_bm5ul"]
+[ext_resource type="PackedScene" uid="uid://bngsvcump0aee" path="res://decorations/test_wall/deco_test_wall.tscn" id="10_n3lc6"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="11_aq4pe"]
 [ext_resource type="PackedScene" uid="uid://hooieo80ip7g" path="res://maps/seitung/meshes/arch_test.glb" id="12_4v57y"]
-[ext_resource type="PackedScene" uid="uid://5lfgl1gtq08p" path="res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn" id="12_i2o4n"]
 [ext_resource type="PackedScene" uid="uid://fdtci72jf3pk" path="res://decorations/fountain/deco_fountain.tscn" id="12_iopfa"]
 [ext_resource type="PackedScene" uid="uid://cw22jtaf0fhxj" path="res://decorations/eepy_fence/deco_eepy_fence.tscn" id="13_bp3pr"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
@@ -211,6 +212,12 @@ instance_count = 4
 mesh = ExtResource("14_yeybn")
 buffer = PackedFloat32Array(-0.224568, 0, 1.0885, -0.73248, 0, 1.11142, 0, 0, -1.0885, 0, -0.224568, -0.52122, -0.273203, 0, 0.862251, 0.122307, 0, 0.904498, 0, 0, -0.862251, 0, -0.273203, -0.883651, 1.0527, 0, 0.182191, -0.604561, 0, 1.06835, 0, 0, -0.182191, 0, 1.0527, 0.196016, 0.408954, 0, 0.95365, 0.328186, 0, 1.03764, 0, 0, -0.95365, 0, 0.408954, 0.43156)
 
+[sub_resource type="MultiMesh" id="MultiMesh_sbawc"]
+transform_format = 1
+instance_count = 9
+mesh = ExtResource("14_yeybn")
+buffer = PackedFloat32Array(0.864697, 0, -0.982476, -2.31875, 0, 1.45422, 0, 0, 0.982476, 0, 0.864697, -2.78079, -0.96608, 0, -0.722141, -0.913644, 0, 1.34017, 0, 0, 0.722141, 0, -0.96608, -2.61285, -0.91825, 0, -0.673544, 1.84411, 0, 1.26532, 0, 0, 0.673544, 0, -0.91825, -2.06692, -0.947277, 0, 0.748878, -2.684, 0, 1.34171, 0, 0, -0.748878, 0, -0.947277, -0.872014, 0.232022, 0, 1.24923, -0.661625, 0, 1.41178, 0, 0, -1.24923, 0, 0.232022, -0.18277, -1.11791, 0, 0.684855, 1.31579, 0, 1.45668, 0, 0, -0.684855, 0, -1.11791, -0.516839, 0.522191, 0, -0.950967, -2.10711, 0, 1.20545, 0, 0, 0.950967, 0, 0.522191, 1.47623, -0.266113, 0, 1.05767, -0.300907, 0, 1.21181, 0, 0, -1.05767, 0, -0.266113, 1.50321, -0.124891, 0, 1.22849, 1.62412, 0, 1.37202, 0, 0, -1.22849, 0, -0.124891, 1.16632)
+
 [sub_resource type="MultiMesh" id="MultiMesh_hacfr"]
 transform_format = 1
 instance_count = 4
@@ -285,7 +292,7 @@ script = ExtResource("1_uenug")
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 1, 11)
 
 [node name="BugSwarm" parent="CrumbHandler" index="0" instance=ExtResource("24_lh7v3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30736, 1.21973, 6.97074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00333, 1.21973, 5.22406)
 
 [node name="BugSwarm4" parent="CrumbHandler" index="1" instance=ExtResource("24_lh7v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76498, 1.50367, 13.0711)
@@ -299,8 +306,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17812, 0.759452, 12.3269)
 [node name="BugSwarm3" parent="CrumbHandler" index="4" instance=ExtResource("24_lh7v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82132, 1, 7.83363)
 
-[node name="Weed" parent="CrumbHandler" index="5" instance=ExtResource("7_p2o6w")]
+[node name="BugSwarm6" parent="CrumbHandler" index="5" instance=ExtResource("24_lh7v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13055, 0.778726, 5.07015)
+
+[node name="Weed" parent="CrumbHandler" index="6" instance=ExtResource("7_p2o6w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73766, -0.0245499, 13.3512)
+input_ray_pickable = false
+area_radius = 0.9
+
+[node name="Weed2" parent="CrumbHandler" index="7" instance=ExtResource("7_p2o6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.938809, -0.0245497, 14.1893)
+input_ray_pickable = false
+area_radius = 0.9
+
+[node name="Weed3" parent="CrumbHandler" index="8" instance=ExtResource("7_p2o6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74511, -0.0245494, 13.8072)
 input_ray_pickable = false
 area_radius = 0.9
 
@@ -316,13 +336,46 @@ visible = false
 transform = Transform3D(1.08581, 0, 0.714846, 0, 1.3, 0, -0.714846, 0, 1.08581, -5.24975, 0.0174669, 8.95736)
 
 [node name="Fountain" parent="DecoHandler" index="1" instance=ExtResource("12_iopfa")]
-transform = Transform3D(-0.0389983, -0.001744, 0.999238, 1.52579e-11, 0.999999, 0.00174533, -0.999239, 6.80652e-05, -0.0389982, -1.90221, 0.00176375, 21.9753)
+transform = Transform3D(-0.066988, -0.00174141, 0.997753, 7.98748e-12, 0.999999, 0.00174533, -0.997754, 0.000116916, -0.0669878, 1.01172, 0.00176375, 23.0902)
 
-[node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" index="2" instance=ExtResource("12_i2o4n")]
-transform = Transform3D(1.32247, 0.142984, 1.0586, -0.291445, 1.66908, 0.13865, -1.02769, -0.289344, 1.32293, 7.49766, 0.204448, 14.6447)
+[node name="DecoEepyFence" parent="DecoHandler" index="2" instance=ExtResource("13_bp3pr")]
+transform = Transform3D(-1.27369, -0.0787069, -0.248033, -0.0770925, 1.29761, -0.0158821, 0.24854, -0.000851816, -1.27602, -3.88983, -0.530099, 14.3212)
 
-[node name="DecoEepyFence" parent="DecoHandler" index="3" instance=ExtResource("13_bp3pr")]
-transform = Transform3D(-1.27369, -0.0787069, -0.248033, -0.0770925, 1.29761, -0.0158821, 0.24854, -0.000851816, -1.27602, -3.19197, -0.530099, 14.3212)
+[node name="DecoEepyFence2" parent="DecoHandler" index="3" instance=ExtResource("13_bp3pr")]
+transform = Transform3D(-1.25966, -0.207666, -0.245214, -0.203676, 1.2833, -0.040528, 0.24854, -0.000851817, -1.27602, 6.11017, -0.216901, 14.3212)
+
+[node name="DecoBuildingPlatform" parent="DecoHandler" index="4" instance=ExtResource("9_pvwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="DecoBuildingPlatform4" parent="DecoHandler" index="5" instance=ExtResource("9_pvwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 5)
+
+[node name="DecoBuildingPlatform2" parent="DecoHandler" index="6" instance=ExtResource("9_pvwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.25, 0)
+
+[node name="DecoBuildingPlatform3" parent="DecoHandler" index="7" instance=ExtResource("9_pvwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.25, 0)
+
+[node name="DecoBuildingPlatform5" parent="DecoHandler" index="8" instance=ExtResource("9_pvwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -5)
+
+[node name="DecoBuildingPlatform6" parent="DecoHandler" index="9" instance=ExtResource("9_pvwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.25, -5)
+
+[node name="DecoBuildingPlatform7" parent="DecoHandler" index="10" instance=ExtResource("9_pvwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.25, -5)
+
+[node name="DecoTestWall" parent="DecoHandler" index="11" instance=ExtResource("10_n3lc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.75, 2.25)
+
+[node name="DecoTestWall2" parent="DecoHandler" index="12" instance=ExtResource("10_n3lc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.75, 2.25)
+
+[node name="DecoTestWall3" parent="DecoHandler" index="13" instance=ExtResource("10_n3lc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.75, 2.25)
+
+[node name="DecoTestWall4" parent="DecoHandler" index="14" instance=ExtResource("10_n3lc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.75, 2.25)
 
 [node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="0"]
 transform = Transform3D(0.998885, 0.0472111, 0, -0.0471792, 0.998212, -0.0367135, -0.00173328, 0.0366725, 0.999326, -4.96954, -0.020461, 7.78332)
@@ -549,7 +602,7 @@ colour_2 = Color(0.326001, 0.369617, 0, 1)
 render_distance = 13.0
 
 [node name="FoliageSpawner13" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="12"]
-transform = Transform3D(0.992514, -0.122129, 0, 0.122129, 0.992514, 0, 0, 0, 1, 4.03263, 0.135293, 20.3614)
+transform = Transform3D(0.992514, -0.122129, 0, 0.122129, 0.992514, 0, 0, 0, 1, 5.45203, 0.311144, 20.3614)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_6khx3")
@@ -817,7 +870,31 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 26.0
 
-[node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="25"]
+[node name="BambooSpawner12" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="25"]
+transform = Transform3D(0.998178, 0, 0.0603343, 0, 1, 0, -0.0603343, 0, 0.998178, -6.66111, -0.516214, 25.1306)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_sbawc")
+script = ExtResource("9_7bo6h")
+custom_mesh = ExtResource("14_yeybn")
+count = 3
+size = 6.0
+scatter = 0.9
+min_scale = 1.2
+max_scale = 1.6
+area_scale = 0.9
+smooth = false
+ignore_density_check = true
+ignore_aliasing_check = true
+moss_cover = false
+moss_albedo_mix = 0.268
+moss_color = Color(0.45, 0.6, 0, 1)
+vary_colours = false
+colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
+colour_2 = Color(0.336, 0.72, 0, 1)
+render_distance = 26.0
+
+[node name="BambooSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46764, 3.09861, 6.71728)
 layers = 2
 cast_shadow = 0
@@ -838,7 +915,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 26.0
 
-[node name="BambooSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="26"]
+[node name="BambooSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="27"]
 transform = Transform3D(0.55184, 0.0197148, 0.833717, 0.0799963, 0.993859, -0.0764515, -0.830104, 0.108883, 0.546874, 4.94832, -1.87955, 5.17655)
 layers = 2
 cast_shadow = 0
@@ -860,7 +937,7 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 26.0
 
-[node name="BambooSpawner8" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="27"]
+[node name="BambooSpawner8" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="28"]
 transform = Transform3D(0.831373, 0, -0.555715, 0, 1, 0, 0.555715, 0, 0.831373, 7.51074, -0.158827, 11.8415)
 layers = 2
 cast_shadow = 0
@@ -881,20 +958,20 @@ colour_1 = Color(0.200548, 0.380593, 9.62615e-08, 1)
 colour_2 = Color(0.336, 0.72, 0, 1)
 render_distance = 26.0
 
-[node name="Bamboo2" type="MeshInstance3D" parent="Decoration/Foliage" index="28"]
+[node name="Bamboo2" type="MeshInstance3D" parent="Decoration/Foliage" index="29"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.90287, 6.28723, -0.331304)
 mesh = ExtResource("14_yeybn")
 skeleton = NodePath("../../..")
 
-[node name="Bamboo" type="MeshInstance3D" parent="Decoration/Foliage" index="29"]
+[node name="Bamboo" type="MeshInstance3D" parent="Decoration/Foliage" index="30"]
 transform = Transform3D(-0.28175, -0.343592, -0.895858, -0.178143, 0.936182, -0.303031, 0.942806, 0.0742119, -0.324978, 8.09836, 2.04616, 8.24018)
 mesh = ExtResource("14_yeybn")
 
-[node name="Bamboo3" type="MeshInstance3D" parent="Decoration/Foliage" index="30"]
+[node name="Bamboo3" type="MeshInstance3D" parent="Decoration/Foliage" index="31"]
 transform = Transform3D(0.581001, 0, -0.813903, 0, 1, 0, 0.813903, 0, 0.581001, 7.36814, -0.188304, 15.8551)
 mesh = ExtResource("14_yeybn")
 
-[node name="Bamboo4" type="MeshInstance3D" parent="Decoration/Foliage" index="31"]
+[node name="Bamboo4" type="MeshInstance3D" parent="Decoration/Foliage" index="32"]
 transform = Transform3D(0.298246, 0.142834, 0.879914, -0.0458511, 0.929085, -0.135274, -0.890251, 0, 0.301749, -5.52515, 0.753834, 17.4853)
 mesh = ExtResource("14_yeybn")
 
@@ -902,7 +979,7 @@ mesh = ExtResource("14_yeybn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="Motes" type="GPUParticles3D" parent="Decoration" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 14)
 amount = 80
 lifetime = 2.0
 preprocess = 5.0
@@ -956,13 +1033,13 @@ transform = Transform3D(0.165852, 0.348956, 0.922346, 0.137337, 0.918012, -0.372
 transform = Transform3D(0.449952, 0, -1.21965, 0, 1.3, 0, 1.21965, 0, 0.449952, 8.00192, 0.188799, 7.04321)
 
 [node name="Rock11" parent="Decoration" index="14" instance=ExtResource("16_s2hwi")]
-transform = Transform3D(1.56327, -0.875887, -0.34965, 0.651493, 2.13654, -0.0916767, 0.353053, -0.0642745, 1.71737, 12.397, 0.159366, 2.44389)
+transform = Transform3D(1.56327, -0.875887, -0.34965, 0.651493, 2.13654, -0.0916767, 0.353053, -0.0642745, 1.71737, 12.9194, 0.159366, 2.44389)
 
 [node name="Rock12" parent="Decoration" index="15" instance=ExtResource("16_s2hwi")]
-transform = Transform3D(1.35183, -0.640419, -0.981148, 0.578226, 2.17715, -0.000380889, 0.911653, -0.431247, 1.45512, 8.99203, 2.33587, -3.98862)
+transform = Transform3D(-0.3699, 0, -1.71441, 0, 2.31, 0, 1.68999, 0, -0.375245, 10.6785, 0.159955, -3.98862)
 
 [node name="Rock15" parent="Decoration" index="16" instance=ExtResource("16_s2hwi")]
-transform = Transform3D(1.67056, -0.591307, 0.0786539, 0.443573, 2.23276, -0.00681271, -0.0732219, 0.0352037, 1.75322, -10.2229, 0.821634, -1.48506)
+transform = Transform3D(1.72822, 0, 0.0796119, 0, 2.31, 0, -0.0784778, 0, 1.75319, -10.9724, 0.118341, -1.48506)
 
 [node name="Rock10" parent="Decoration" index="17" instance=ExtResource("16_s2hwi")]
 transform = Transform3D(1.04706, 0, -0.770495, 0, 1.325, 0, 0.770495, 0, 1.04706, 12.0697, 0.833199, 9.47869)
@@ -1010,27 +1087,30 @@ transform = Transform3D(-0.640267, 0, 1.51528, 0, 1.645, 0, -1.51528, 0, -0.6402
 transform = Transform3D(-0.451883, 0.463237, 1.06945, 0.180301, 1.161, -0.426709, -1.15143, 0, -0.486525, -7.97659, 2.71926, 10.8319)
 
 [node name="SmallBoulder3" parent="Decoration" index="30" instance=ExtResource("25_7asqj")]
-transform = Transform3D(1.09287, 0, 0.606737, 0, 1.25, 0, -0.606737, 0, 1.09287, -2.57208, -0.156701, 7.5282)
+transform = Transform3D(1.6, 0, 0, 0, 2.3, 0, 0, 0, 1.6, -4.01931, -0.156701, 3.4588)
 
-[node name="SmallBoulder4" parent="Decoration" index="31" instance=ExtResource("25_7asqj")]
+[node name="SmallBoulder10" parent="Decoration" index="31" instance=ExtResource("25_7asqj")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -2.76232, -0.741166, 7.92768)
+
+[node name="SmallBoulder4" parent="Decoration" index="32" instance=ExtResource("25_7asqj")]
 transform = Transform3D(0.792509, 0, -0.109222, 0, 0.8, 0, 0.109222, 0, 0.792509, 5.91756, 0.252018, 10.4079)
 
-[node name="SmallBoulder9" parent="Decoration" index="32" instance=ExtResource("25_7asqj")]
-transform = Transform3D(-1.20889, 0, 0.0517239, 0, 1.05, 0, -0.0517239, 0, -1.20889, -2.67313, -0.681528, 19.4588)
+[node name="SmallBoulder9" parent="Decoration" index="33" instance=ExtResource("25_7asqj")]
+transform = Transform3D(-1.12029, 0, -0.457206, 0, 1.05, 0, 0.457206, 0, -1.12029, -1.56455, -0.202646, 20.4317)
 
-[node name="SmallBoulder8" parent="Decoration" index="33" instance=ExtResource("25_7asqj")]
+[node name="SmallBoulder8" parent="Decoration" index="34" instance=ExtResource("25_7asqj")]
 transform = Transform3D(0.870894, 0, -0.910574, 0, 1.26, 0, 0.910574, 0, 0.870894, 6.68848, 0.0696276, 9.19104)
 
-[node name="SmallBoulder5" parent="Decoration" index="34" instance=ExtResource("25_7asqj")]
+[node name="SmallBoulder5" parent="Decoration" index="35" instance=ExtResource("25_7asqj")]
 transform = Transform3D(0.53481, 0, -1.12981, 0, 1.875, 0, 1.12981, 0, 0.53481, 8.08621, -0.0496655, 16.1523)
 
-[node name="SmallBoulder6" parent="Decoration" index="35" instance=ExtResource("25_7asqj")]
+[node name="SmallBoulder6" parent="Decoration" index="36" instance=ExtResource("25_7asqj")]
 transform = Transform3D(0.606459, 0, -1.6087, 0, 1.895, 0, 1.30055, 0, 0.750149, -6.43982, -0.730904, 11.6446)
 
-[node name="SmallBoulder7" parent="Decoration" index="36" instance=ExtResource("25_7asqj")]
+[node name="SmallBoulder7" parent="Decoration" index="37" instance=ExtResource("25_7asqj")]
 transform = Transform3D(0.688746, 0, -1.2589, 0, 1.435, 0, 1.2589, 0, 0.688746, -6.27994, 0.358768, 14.6905)
 
-[node name="MossDecal" type="Decal" parent="Decoration" index="37"]
+[node name="MossDecal" type="Decal" parent="Decoration" index="38"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 4.6305, -4.76838e-07, 15.9413)
 size = Vector3(3.4, 2, 3.4)
 texture_albedo = ExtResource("23_byk4r")
@@ -1042,7 +1122,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="MossDecal3" type="Decal" parent="Decoration" index="38"]
+[node name="MossDecal3" type="Decal" parent="Decoration" index="39"]
 transform = Transform3D(0.97046, -0.279834, 0, 0.279834, 0.97046, 0, 0, 0, 1.01, 8.1138, -7.15257e-07, 18.8084)
 size = Vector3(3, 2, 3)
 texture_albedo = ExtResource("23_byk4r")
@@ -1051,7 +1131,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="MossDecal2" type="Decal" parent="Decoration" index="39"]
+[node name="MossDecal2" type="Decal" parent="Decoration" index="40"]
 transform = Transform3D(0.555079, 0, -0.555079, 0, 0.785, 0, 0.555079, 0, 0.555079, 5.41272, 0.227478, 11.8669)
 size = Vector3(4, 2.45496, 4)
 texture_albedo = ExtResource("23_byk4r")
@@ -1062,7 +1142,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal" type="Decal" parent="Decoration" index="40"]
+[node name="RockDecal" type="Decal" parent="Decoration" index="41"]
 transform = Transform3D(0.636396, 0, -0.636396, 0, 0.9, 0, 0.636396, 0, 0.636396, 1.69346, -0.436207, 8.73782)
 size = Vector3(2.7, 2.2627, 2.7)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1072,7 +1152,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal3" type="Decal" parent="Decoration" index="41"]
+[node name="RockDecal3" type="Decal" parent="Decoration" index="42"]
 transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -0.391117, 0.246711, 15.9236)
 size = Vector3(2.4, 2.408, 2.4)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1082,8 +1162,8 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal5" type="Decal" parent="Decoration" index="42"]
-transform = Transform3D(-0.426209, 0, -0.792682, 0, 0.9, 0, 0.792682, 0, -0.426209, 4.3026, 0.246711, 17.9127)
+[node name="RockDecal5" type="Decal" parent="Decoration" index="43"]
+transform = Transform3D(-0.426209, 0, -0.792682, 0, 0.9, 0, 0.792682, 0, -0.426209, 2.60765, 0.246711, 15.7825)
 size = Vector3(2, 2.408, 2)
 texture_albedo = ExtResource("22_y7vyt")
 normal_fade = 0.5
@@ -1092,7 +1172,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal4" type="Decal" parent="Decoration" index="43"]
+[node name="RockDecal4" type="Decal" parent="Decoration" index="44"]
 transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -2.38528, 0.246711, 17.3086)
 size = Vector3(2.3, 2.408, 2.3)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1102,7 +1182,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal2" type="Decal" parent="Decoration" index="44"]
+[node name="RockDecal2" type="Decal" parent="Decoration" index="45"]
 transform = Transform3D(-0.256156, 0, -0.862777, 0, 0.9, 0, 0.862777, 0, -0.256156, 4.28, 0.24671, 10.0037)
 size = Vector3(2.7, 2.2627, 2.7)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1114,8 +1194,9 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="House2" parent="Decoration" index="45" instance=ExtResource("23_53tlw")]
+[node name="House2" parent="Decoration" index="46" instance=ExtResource("23_53tlw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0487338, 1)
+visible = false
 
 [node name="Jukebox" parent="." index="9"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("21_u002t"), ExtResource("22_tefod")])
@@ -1154,9 +1235,9 @@ omni_range = 3.5
 omni_attenuation = 0.0
 
 [node name="Lamp2" type="OmniLight3D" parent="." index="14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34504, 1.84915, 8.96742)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33224, 1.84915, 7.83142)
 light_color = Color(1, 0.926333, 0.66, 1)
-omni_range = 3.5
+omni_range = 3.75
 omni_attenuation = 0.0
 
 [node name="StuccoWall" parent="." index="15" instance=ExtResource("23_0gdwd")]
@@ -1166,4 +1247,4 @@ transform = Transform3D(0.976623, 0.20509, -0.14601, -0.156028, 1.28372, 0.02332
 transform = Transform3D(0.994538, -0.135684, 0, 0.104372, 1.2929, 0, 0, 0, 1, 10.1216, -0.366151, 29.5911)
 
 [node name="CleaningStation" parent="." index="17" instance=ExtResource("22_wkmls")]
-transform = Transform3D(0.705637, 0, -0.708574, 0, 1, 0, 0.708574, 0, 0.705637, 4.87714, 0.135534, 7.96508)
+transform = Transform3D(0.385827, 0, -1.13628, 0, 1.2, 0, 1.13628, 0, 0.385827, 4.82568, 0.135534, 7.81527)

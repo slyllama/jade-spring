@@ -111,7 +111,15 @@ const DecoData = {
 		"preview_scale": 1.2,
 		"y_rotation": 90,
 		"preview_y_rotation": 35
-	}
+	},
+	"test_wall": {
+		"name": "Test Wall",
+		"scene": "res://decorations/test_wall/deco_test_wall.tscn",
+		"cursor_model": "res://decorations/test_wall/meshes/test_wall.glb",
+		#"y_rotation": 90,
+		"preview_y_rotation": 35,
+		"preview_scale": 0.42
+	},
 }
 #endregion
 

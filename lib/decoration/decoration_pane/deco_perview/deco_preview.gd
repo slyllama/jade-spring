@@ -3,8 +3,12 @@ extends Node3D
 const Offsets = {
 	"shing_jea_arch": -0.4,
 	"bloodstone_impacted_pillar": -0.6,
-	"fountain": 0.2,
+	"fountain": 0.29,
 	"bamboo_cluster": -0.5
+}
+
+const HOffsets = {
+	"test_wall": 0.3
 }
 
 var orbiting = false
@@ -59,7 +63,10 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 	
 	if current_id in Offsets:
 		$ModelBase.position.y = Offsets[current_id]
-	else:$ModelBase.position.y = 0.0
+	else: $ModelBase.position.y = 0.0
+	if current_id in HOffsets:
+		$ModelBase.position.x = HOffsets[current_id]
+	else: $ModelBase.position.x = 0.0
 	
 	$ModelBase.rotation_degrees.y = current_y_rotation
 	ResourceLoader.load_threaded_request(path)
