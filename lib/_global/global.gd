@@ -105,6 +105,13 @@ const DecoData = {
 		"preview_scale": 0.4,
 		"preview_y_rotation": 35
 	},
+	"platform_stairs": {
+		"name": "Platform Stairs",
+		"scene": "res://decorations/platform_stairs/deco_platform_stairs.tscn",
+		"cursor_model": "res://decorations/platform_stairs/meshes/platform_stairs.glb",
+		"preview_scale": 0.4,
+		"preview_y_rotation": 215
+	},
 	"rusted_ac_unit": {
 		"name": "Cobble Ward AC Unit",
 		"scene": "res://decorations/rusted_ac_unit/deco_rusted_ac_unit.tscn",

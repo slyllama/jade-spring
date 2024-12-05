@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://gum06jfkpxrp"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_253kp"]
+[ext_resource type="PackedScene" uid="uid://bjfajwi55p07t" path="res://decorations/platform_stairs/meshes/platform_stairs.glb" id="2_312t6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_esvfa"]
+size = Vector3(5, 1, 1.92029)
+
+[node name="DecoPlatformStairs" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_253kp")
+id = "platform_stairs"
+collision_box = NodePath("Body")
+
+[node name="platform_stairs" parent="." instance=ExtResource("2_312t6")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Shape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 0.846128, -0.53298, 0, 0.53298, 0.846128, 0, 0.142312, 0.878601)
+shape = SubResource("BoxShape3D_esvfa")

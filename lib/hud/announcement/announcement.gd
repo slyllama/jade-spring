@@ -5,6 +5,7 @@ var active = false
 func play(announcement: String) -> void:
 	text = "[center]" + announcement + "[/center]"
 	visible = true
+	$Timer.stop()
 	
 	if !active:
 		modulate.a = 0

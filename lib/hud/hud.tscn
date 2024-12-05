@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=17 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_e6y1d"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_lglf3"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="2_yply7"]
-[ext_resource type="Texture2D" uid="uid://df53qugtj3cxj" path="res://generic/textures/ui_corner.png" id="3_ump44"]
 [ext_resource type="PackedScene" uid="uid://c6kvxy3mhfso3" path="res://lib/hud/screen_effects/screen_effects.tscn" id="4_m3be7"]
 [ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="4_r77lv"]
 [ext_resource type="Texture2D" uid="uid://couvfdq0mtm6p" path="res://lib/hud/textures/settings_icon.png" id="6_n0v1s"]
@@ -56,6 +55,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="CornerNW" type="TextureRect" parent="Vignette"]
+layout_mode = 0
+offset_right = 233.0
+offset_bottom = 281.0
+texture = ExtResource("1_8jsj4")
+expand_mode = 1
+
 [node name="CornerSE" type="TextureRect" parent="Vignette"]
 layout_mode = 1
 anchors_preset = 3
@@ -83,23 +89,6 @@ grow_vertical = 0
 texture = ExtResource("1_8jsj4")
 expand_mode = 1
 flip_v = true
-
-[node name="VignetteNW" type="TextureRect" parent="."]
-offset_right = 281.0
-offset_bottom = 157.0
-texture = ExtResource("1_8jsj4")
-expand_mode = 1
-
-[node name="CornerNW" type="TextureRect" parent="."]
-offset_left = 260.0
-offset_top = -8.0
-offset_right = 284.0
-offset_bottom = 254.0
-rotation = 1.57079
-mouse_filter = 2
-texture = ExtResource("3_ump44")
-expand_mode = 1
-flip_h = true
 
 [node name="CornerButtons" type="HBoxContainer" parent="."]
 offset_left = 8.0

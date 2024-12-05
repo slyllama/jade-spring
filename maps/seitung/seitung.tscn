@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=67 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="24_lh7v3"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
+[ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="30_a1hev"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="34_xk86d"]
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
 
@@ -328,7 +329,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68296, 0.237063, 9.6616)
 area_radius = 0.9
 
 [node name="Weed3" parent="CrumbHandler" index="10" instance=ExtResource("7_p2o6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74511, -0.0245494, 13.8072)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74511, -0.272735, 14.224)
 area_radius = 0.9
 
 [node name="Floor" parent="." index="4"]
@@ -1276,3 +1277,8 @@ transform = Transform3D(0.994538, -0.135684, 0, 0.104372, 1.2929, 0, 0, 0, 1, 10
 
 [node name="CleaningStation" parent="." index="18" instance=ExtResource("22_wkmls")]
 transform = Transform3D(0.385827, 0, -1.13628, 0, 1.2, 0, 1.13628, 0, 0.385827, 4.82568, 0.135534, 7.81527)
+
+[node name="Discombobulator" parent="." index="19" instance=ExtResource("30_a1hev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49011, 0.28488, 8.54879)
+
+[connection signal="interacted" from="Discombobulator" to="." method="_on_discombobulator_interacted"]
