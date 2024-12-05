@@ -3,12 +3,13 @@ extends Node3D
 const Offsets = {
 	"shing_jea_arch": -0.4,
 	"bloodstone_impacted_pillar": -0.6,
-	"fountain": 0.29,
+	"waterfall_fountain": 0.29,
 	"bamboo_cluster": -0.5
 }
 
 const HOffsets = {
-	"test_wall": 0.3
+	"test_wall": 0.3,
+	"eepy_fence": -0.1
 }
 
 var orbiting = false

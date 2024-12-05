@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=10 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -18,6 +18,9 @@ border_blend = true
 
 [sub_resource type="World3D" id="World3D_cxjm1"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vf0qw"]
+content_margin_right = 8.0
+
 [node name="DecorationPane" instance=ExtResource("1_t77x7")]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(280, 500)
@@ -25,6 +28,7 @@ offset_right = 280.0
 offset_bottom = 500.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_77fve")
 script = ExtResource("2_f5xt2")
+default_tag = "None"
 title = "Place Decoration"
 metadata/_edit_vertical_guides_ = [283.0]
 
@@ -121,6 +125,43 @@ visible = false
 [node name="Container" parent="." index="2"]
 theme_override_constants/separation = 0
 
+[node name="TagContainer" type="HBoxContainer" parent="Container" index="3"]
+layout_mode = 2
+
+[node name="TagTitle" type="RichTextLabel" parent="Container/TagContainer" index="0"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vf0qw")
+text = "Filter Tags:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TagMenu" type="MenuButton" parent="Container/TagContainer" index="1"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 1
+flat = false
+alignment = 0
+
+[node name="TitleSeparator2" type="ColorRect" parent="Container" index="4"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="Separator2" type="ColorRect" parent="Container" index="5"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.235294)
+
+[node name="SmallGap" type="ColorRect" parent="Container" index="6"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
 [node name="PlaceDecoration" type="Button" parent="." index="4"]
 layout_mode = 1
 anchors_preset = 3
@@ -137,4 +178,5 @@ grow_vertical = 0
 mouse_filter = 1
 text = "Place Decoration"
 
+[connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
 [connection signal="button_down" from="PlaceDecoration" to="." method="_on_place_decoration_button_down"]

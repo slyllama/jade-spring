@@ -50,27 +50,31 @@ signal summon_story_panel(data: Dictionary)
 
 ##### Decoration signals and parameters
 #region Decoration data
+const DecoTags = [ "None", "Architecture", "Foliage", "Cantha" ]
+
 const DecoData = {
 	"lantern": {
 		"name": "Lantern",
 		"scene": "res://decorations/lantern/deco_lantern.tscn",
 		"cursor_model": "res://decorations/lantern/lantern.glb",
 		"preview_scale": 0.9,
+		"tags": ["Architecture", "Cantha"]
 	},
 	"eepy_fence": {
 		"name": "Eepy Fence",
 		"scene": "res://decorations/eepy_fence/deco_eepy_fence.tscn",
 		"cursor_model": "res://decorations/eepy_fence/warped_fence.glb",
 		"preview_scale": 0.76,
-		#"y_rotation": 90,
-		"preview_y_rotation": 180
+		"preview_y_rotation": 180,
+		"tags": ["Architecture"]
 	},
-	"fountain": {
+	"waterfall_fountain": {
 		"name": "Waterfall Fountain",
 		"scene": "res://decorations/fountain/deco_fountain.tscn",
 		"cursor_model": "res://decorations/fountain/fountain.glb",
 		"y_rotation": 90,
-		"preview_scale": 0.34
+		"preview_scale": 0.34,
+		"tags": ["Architecture", "Cantha"]
 	},
 	"shing_jea_arch": {
 		"name": "Shing Jea Arch",
@@ -78,39 +82,45 @@ const DecoData = {
 		"cursor_model": "res://maps/seitung/meshes/arch_test.glb",
 		"y_rotation": 90,
 		"preview_y_rotation": 115,
-		"preview_scale": 0.42
+		"preview_scale": 0.42,
+		"tags": ["Architecture", "Cantha"]
 	},
 	"bloodstone_impacted_pillar": {
 		"name": "Bloodstone-Impacted Pillar",
 		"scene": "res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn",
 		"cursor_model": "res://decorations/bloodstone_impacted_pillar/bloodstone_impacted_pillar.glb",
-		"preview_scale": 0.78
+		"preview_scale": 0.78,
+		"tags": ["Architecture"]
 	},
 	"flower_patch": {
 		"name": "Flower Patch",
 		"scene": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
-		"preview_scale": 1.75
+		"preview_scale": 1.75,
+		"tags": [ "Foliage" ]
 	},
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
 		"scene": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
 		"cursor_model": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
-		"preview_scale": 0.4
+		"preview_scale": 0.4,
+		"tags": ["Foliage", "Cantha"]
 	},
 	"building_platform": {
 		"name": "Building Platform",
 		"scene": "res://decorations/building_platform/deco_building_platform.tscn",
 		"cursor_model": "res://decorations/building_platform/meshes/building_platform.glb",
 		"preview_scale": 0.4,
-		"preview_y_rotation": 35
+		"preview_y_rotation": 35,
+		"tags": ["Architecture"]
 	},
 	"platform_stairs": {
 		"name": "Platform Stairs",
 		"scene": "res://decorations/platform_stairs/deco_platform_stairs.tscn",
 		"cursor_model": "res://decorations/platform_stairs/meshes/platform_stairs.glb",
 		"preview_scale": 0.4,
-		"preview_y_rotation": 215
+		"preview_y_rotation": 215,
+		"tags": ["Architecture"]
 	},
 	"rusted_ac_unit": {
 		"name": "Cobble Ward AC Unit",
@@ -118,15 +128,16 @@ const DecoData = {
 		"cursor_model": "res://decorations/rusted_ac_unit/rusted_ac_unit.glb",
 		"preview_scale": 1.2,
 		"y_rotation": 90,
-		"preview_y_rotation": 35
+		"preview_y_rotation": 35,
+		"tags": ["Cantha"]
 	},
 	"test_wall": {
 		"name": "Test Wall",
 		"scene": "res://decorations/test_wall/deco_test_wall.tscn",
 		"cursor_model": "res://decorations/test_wall/meshes/test_wall.glb",
-		#"y_rotation": 90,
 		"preview_y_rotation": 35,
-		"preview_scale": 0.42
+		"preview_scale": 0.42,
+		"tags": ["Architecture"]
 	},
 }
 #endregion
