@@ -22,6 +22,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Blur" type="TextureRect" parent="UI"]
+visible = false
 modulate = Color(0, 0, 0, 0.784314)
 z_index = -1
 layout_mode = 1

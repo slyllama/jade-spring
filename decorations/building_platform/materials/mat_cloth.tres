@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cy2pjl86vrsk3" path="res://decorations/building_platform/materials/textures/cloth_norm.jpg" id="2_bnorl"]
 
 [resource]
-albedo_color = Color(0.6, 0.6, 0.6, 1)
 albedo_texture = ExtResource("1_3vbx2")
 metallic_specular = 0.0
 normal_enabled = true

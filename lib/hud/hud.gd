@@ -175,9 +175,6 @@ func _on_settings_down() -> void:
 	if !$TopLevel/SettingsPane.is_open: $TopLevel/SettingsPane.open()
 	else: $TopLevel/SettingsPane.close()
 
-func _on_wp_button_down() -> void:
-	Global.go_to_safe_point()
-
 func _on_close_button_down() -> void:
 	get_tree().quit() # TODO: temporary?
 

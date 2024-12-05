@@ -11,7 +11,7 @@ func set_default_skills() -> void:
 	$Box/Skill1.switch_skill("select")
 	$Box/Skill2.switch_skill("deco_test")
 	$Box/Skill3.switch_skill("delete")
-	#$Box/Skill4.switch_skill("safe_point")
+	$Box/Skill4.switch_skill("safe_point")
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.queued_decoration = "none"
 	Global.set_cursor(false)
@@ -138,7 +138,8 @@ func skill_used(skill_id: String) -> void:
 			$Box/Skill2.switch_skill("adjust_mode_translate")
 			$Box/Skill3.switch_skill("empty")
 			$Box/Skill4.switch_skill("empty")
-			
+		"safe_point":
+			Global.go_to_safe_point()
 		"snap_enable":
 			$Box/Skill3.switch_skill("snap_disable")
 			Global.snapping = true

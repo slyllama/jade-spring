@@ -4,3 +4,4 @@ func _ready() -> void:
 	super()
 	$DragonvoidArc/AnimationPlayer.play("Wobble")
 	$DragonvoidArc2/AnimationPlayer.play("Wobble")
+	$DragonvoidArc3/AnimationPlayer.play("Wobble")
