@@ -35,8 +35,8 @@ fog_mode = 1
 fog_light_color = Color(0.43104, 0.48, 0.3936, 1)
 fog_density = 1.0
 fog_sky_affect = 0.0
-fog_depth_begin = 20.0
-fog_depth_end = 25.0
+fog_depth_begin = 18.0
+fog_depth_end = 22.0
 volumetric_fog_density = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g86cy"]
@@ -124,9 +124,8 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_dib65")]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 1, 0)
 
-[node name="HUD" parent="." node_paths=PackedStringArray("safe_point") instance=ExtResource("3_d4nbx")]
+[node name="HUD" parent="." instance=ExtResource("3_d4nbx")]
 layer = 2
-safe_point = NodePath("../SafePoint")
 
 [node name="CrumbHandler" parent="." instance=ExtResource("4_2klpx")]
 

@@ -122,5 +122,5 @@ parameters/test_blend/blend_position = -0.876693
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_ao383")
 attenuation_model = 1
-max_db = -5.5
+max_db = -3.7
 autoplay = true

@@ -125,7 +125,7 @@ func _ready() -> void:
 	tangent_cast.target_position = Vector3(0, 0, EXTENTS)
 	tangent_cast.top_level = true
 	
-	position.y = 1.0
+	position.y = 0.1
 	set_disable_scale(true)
 
 var last_collision = null

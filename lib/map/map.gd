@@ -17,6 +17,7 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	# Apply settings
+	Global.safe_point = $SafePoint
 	Global.debug_toggled.emit()
 	
 	SettingsHandler.setting_changed.connect(func(parameter):

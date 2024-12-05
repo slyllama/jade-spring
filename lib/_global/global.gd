@@ -26,6 +26,7 @@ var player_position = Vector3.ZERO
 var player_y_rotation = 0.0
 var popup_open = false
 var retina_scale = 1
+var safe_point: Marker3D
 var snapping = false # don't snap by default
 
 signal announcement_sent(get_text)
@@ -195,6 +196,10 @@ func set_cursor(state = true, data = {}) -> void:
 		if !cursor_active: return # don't disable twice
 		cursor_disabled.emit()
 	cursor_active = state
+
+func go_to_safe_point() -> void:
+	if safe_point:
+		move_player.emit(safe_point.global_position)
 
 ##### Execution
 

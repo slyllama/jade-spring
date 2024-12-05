@@ -29,5 +29,5 @@ size_flags_vertical = 10
 text = "Cancel"
 
 [connection signal="button_down" from="Container/NewGameButton" to="." method="_on_new_game_button_down"]
-[connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_button_down"]
 [connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_down"]
+[connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_button_down"]

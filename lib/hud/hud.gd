@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@export var safe_point: Marker3D
-
 const FADE = 0.6 # faded buttons will have this alpha value
 const StoryPanel = preload("res://lib/story_panel/story_panel.tscn")
 
@@ -178,11 +176,7 @@ func _on_settings_down() -> void:
 	else: $TopLevel/SettingsPane.close()
 
 func _on_wp_button_down() -> void:
-	if safe_point != null:
-		Global.move_player.emit(safe_point.global_position)
-	else:
-		Global.announcement_sent.emit(
-			"((No safe point to teleport to!))")
+	Global.go_to_safe_point()
 
 func _on_close_button_down() -> void:
 	get_tree().quit() # TODO: temporary?
