@@ -8,11 +8,11 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_eg6ok")
-shader_parameter/overlay_color = null
+shader_parameter/overlay_color = Color(0, 0, 0, 1)
 shader_parameter/overlay_exponent = 1.0
 shader_parameter/overlay_uv_scale = 1.0
 shader_parameter/uv_scale = 2.0
-shader_parameter/darken = 1.0
+shader_parameter/darken = 1.2
 shader_parameter/rock_texture = ExtResource("3_y81kf")
 shader_parameter/normal_multires_texture = ExtResource("3_b8ra3")
 shader_parameter/lighten_texture = ExtResource("2_ow2o0")

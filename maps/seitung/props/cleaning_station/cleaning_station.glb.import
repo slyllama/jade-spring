@@ -39,7 +39,15 @@ _subresources={
 },
 "mat_grey": {
 "use_external/enabled": true,
-"use_external/path": "res://generic/materials/mat_placeholder.tres"
+"use_external/path": "res://generic/materials/mat_rocks.tres"
+},
+"mat_parts": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/rusted_ac_unit/materials/mat_ac_parts.tres"
+},
+"mat_rafter_generic": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_roof_tiles_generic.tres"
 },
 "mat_rafter_wood": {
 "use_external/enabled": true,
@@ -48,6 +56,14 @@ _subresources={
 "mat_roof_tiles": {
 "use_external/enabled": true,
 "use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_roof_tiles.tres"
+},
+"mat_rough_planks": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/materials/mat_rough_planks.tres"
+},
+"mat_rust": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/rusted_ac_unit/materials/mat_ac_body.tres"
 },
 "mat_wood": {
 "use_external/enabled": true,

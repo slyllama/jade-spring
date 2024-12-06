@@ -24,6 +24,8 @@ transform = Transform3D(-0.115307, -0.113984, 0.885275, -0.0147221, 0.892753, 0.
 mesh = ExtResource("2_ys530")
 
 [node name="SelectArea" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Box" type="CollisionShape3D" parent="SelectArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.53398, -0.0263672)

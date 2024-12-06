@@ -54,20 +54,21 @@ var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
 var _ss = 0 # strafe state
 var _blend_target = 1.0
 var _strafe_target = 0.0
+var _elongate_target = 0.0
 var _blend_state = _blend_target
 func _physics_process(delta: float) -> void:
 	# Handle animations
 	var _query_fs = _fs
 	var _query_ss = _ss # query strafe state
 	if Input.is_action_just_pressed("move_forward"): _query_fs += 1
-	if Input.is_action_just_pressed("move_up"): _query_fs += 1
-	if Input.is_action_just_pressed("move_left"): _query_fs += 1
-	if Input.is_action_just_pressed("move_right"): _query_fs += 1
+	#if Input.is_action_just_pressed("move_up"): _query_fs += 1
+	#if Input.is_action_just_pressed("move_left"): _query_fs += 1
+	#if Input.is_action_just_pressed("move_right"): _query_fs += 1
 	
 	if Input.is_action_just_released("move_forward"): _query_fs -= 1
-	if Input.is_action_just_released("move_up"): _query_fs -= 1
-	if Input.is_action_just_released("move_left"): _query_fs -= 1
-	if Input.is_action_just_released("move_right"): _query_fs -= 1
+	#if Input.is_action_just_released("move_up"): _query_fs -= 1
+	#if Input.is_action_just_released("move_left"): _query_fs -= 1
+	#if Input.is_action_just_released("move_right"): _query_fs -= 1
 	
 	if _query_fs > 0 and _fs == 0:
 		_blend_target = -1.0
@@ -112,13 +113,14 @@ func _physics_process(delta: float) -> void:
 	Global.player_y_rotation = global_rotation.y
 	_fs = _query_fs
 	
-	if _direction.x > 0 or _direction.z != 0:
-		$PlayerMesh.rotation.y = lerp(
-			$PlayerMesh.rotation.y, 
-			$Camera.rotation.y - PI - _initial_y_rotation,
-			smoothing * 0.6 * delta)
-	$PlayerMesh.rotation.z = lerp(
-		$PlayerMesh.rotation.z, _direction.z * 0.4, smoothing * 0.2 * delta)
+	if Global.can_move:
+		if _direction.x > 0 or _direction.z != 0:
+			$PlayerMesh.rotation.y = lerp(
+				$PlayerMesh.rotation.y, 
+				$Camera.rotation.y - PI - _initial_y_rotation,
+				smoothing * 0.6 * delta)
+		$PlayerMesh.rotation.z = lerp(
+			$PlayerMesh.rotation.z, _direction.z * 0.4, smoothing * 0.2 * delta)
 
 func _process(delta: float) -> void:
 	$PlayerMesh/Stars.global_position = engine_bone.global_position
@@ -130,13 +132,17 @@ func _process(delta: float) -> void:
 	$Camera.popup_open = Global.popup_open
 	$Camera.mouse_in_ui = Global.mouse_in_ui
 	
-	#$PlayerMesh/Listener.rotation_degrees.y = $Camera.global_rotation_degrees.y - 180.0
-	
-	# TODO: animation tests
-	_blend_state = lerp(_blend_state, _blend_target, 3.7 * delta)
+	if Global.can_move:
+		_blend_state = lerp(_blend_state, _blend_target, 3.7 * delta)
+		_strafe_target = lerp(_strafe_target, -_direction.z, 5.2 * delta)
+		_elongate_target = lerp(_elongate_target, _direction.y * 1.2, 3.7 * delta)
+	else: # gently reset when locking position
+		_blend_state = lerp(_blend_state, 0.0, 2.0 * delta)
+		_strafe_target = lerp(_strafe_target, 0.0, 2.0 * delta)
+		_elongate_target = lerp(_elongate_target, 0.0, 2.0 * delta)
 	$PlayerMesh/Tree.set("parameters/test_blend/blend_position", _blend_state)
-	_strafe_target = lerp(_strafe_target, -_direction.z, 4.5 * delta)
 	$PlayerMesh/Tree.set("parameters/strafe/add_amount", _strafe_target)
+	$PlayerMesh/Tree.set("parameters/set_elongate/add_amount", _elongate_target)
 	
 	var _target_pitch_scale: float = (1.0
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)

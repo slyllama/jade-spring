@@ -6,6 +6,7 @@
 radius = 0.6
 
 [node name="Gadget" type="Area3D"]
+input_ray_pickable = false
 script = ExtResource("1_0bylg")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
