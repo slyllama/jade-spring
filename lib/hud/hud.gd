@@ -103,12 +103,20 @@ func _ready() -> void:
 		$Debug.visible = Global.debug_enabled)
 	
 	Global.summon_story_panel.connect(func(data):
+		# data = {
+		# 	"title": <title>,
+		# 	"description": <description>,
+		#	"objective": <string which displays on sidebar>
+		# }
 		if !"description" in data or !"title" in data:
 			print("[ERROR] bad story panel invocation.")
 			return
 		var _sp = StoryPanel.instantiate()
 		add_child(_sp)
-		_sp.open(data.title, data.description))
+		_sp.open(data.title, data.description)
+		
+		if "objective" in data: # set sidebar text
+			$SidePanel/StoryText.text = data.objective)
 	
 	# Configure corner buttons to light up when hovered over
 	for _n in $CornerButtons.get_children():
@@ -131,7 +139,8 @@ func _ready() -> void:
 	if Save.data.story_point == "game_start":
 		Global.summon_story_panel.emit({
 			"title": "1. A Helping Hand",
-			"description": "Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending to your new Canthan home.[/color]"
+			"description": "Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending the garden![/color]",
+			"objective": "Talk to Pulley-4 about tending the garden."
 		})
 	
 	#Global.debug_enabled = true

@@ -30,7 +30,7 @@ void fragment() {
 	vec2 wobble = texture(noise, UV * wobble_size + TIME * speed_scale).rg * wobble_intensity;
 	vec3 screen_wobble = texture(screen_texture, SCREEN_UV + wobble).rgb;
 	ALBEDO = mix(screen_wobble, texture(screen_texture, SCREEN_UV).rgb, circle(UV, 0.25, 0.25));
-	ALPHA = 0.75;
-	ALBEDO += (1.0 - circle(UV, 0.05, 0.35)) * glow_color.rgb;
+	ALPHA = 0.9;
+	ALBEDO += (1.0 - circle(UV, 0.01, 0.3)) * glow_color.rgb * 0.5;
 }
 "

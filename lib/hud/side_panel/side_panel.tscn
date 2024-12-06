@@ -59,6 +59,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_fceqx")
+bbcode_enabled = true
 text = "((Story comments))"
 fit_content = true
 scroll_active = false

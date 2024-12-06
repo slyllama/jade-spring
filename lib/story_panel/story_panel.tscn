@@ -76,7 +76,6 @@ _data = {
 }
 
 [node name="StoryPanel" type="CanvasLayer"]
-layer = 2
 script = ExtResource("1_b7ku0")
 
 [node name="Base" type="TextureRect" parent="."]

@@ -51,11 +51,14 @@ func _ready() -> void:
 			$PlayerMesh.visible = true)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
+var _ss = 0 # strafe state
 var _blend_target = 1.0
+var _strafe_target = 0.0
 var _blend_state = _blend_target
 func _physics_process(delta: float) -> void:
 	# Handle animations
 	var _query_fs = _fs
+	var _query_ss = _ss # query strafe state
 	if Input.is_action_just_pressed("move_forward"): _query_fs += 1
 	if Input.is_action_just_pressed("move_up"): _query_fs += 1
 	if Input.is_action_just_pressed("move_left"): _query_fs += 1
@@ -130,8 +133,10 @@ func _process(delta: float) -> void:
 	#$PlayerMesh/Listener.rotation_degrees.y = $Camera.global_rotation_degrees.y - 180.0
 	
 	# TODO: animation tests
-	_blend_state = lerp(_blend_state, _blend_target, 2.0 * delta)
+	_blend_state = lerp(_blend_state, _blend_target, 3.7 * delta)
 	$PlayerMesh/Tree.set("parameters/test_blend/blend_position", _blend_state)
+	_strafe_target = lerp(_strafe_target, -_direction.z, 4.5 * delta)
+	$PlayerMesh/Tree.set("parameters/strafe/add_amount", _strafe_target)
 	
 	var _target_pitch_scale: float = (1.0
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)
