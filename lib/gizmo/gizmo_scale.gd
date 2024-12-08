@@ -32,13 +32,14 @@ func _ready() -> void:
 	add_child(grabber)
 	
 	# Set up visible mesh
-	scale_visual.mesh = ScaleMesh
+	scale_visual.mesh = BoxMesh.new()
+	scale_visual.mesh.size = Vector3(0.14, 0.14, 0.14)
 	scale_visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	scale_visual.set_layer_mask_value(1, 0)
 	scale_visual.set_layer_mask_value(2, 0)
 	scale_visual.set_layer_mask_value(3, 1)
 	grabber.add_child(scale_visual)
-	scale_visual.position.y = -0.25
+	#scale_visual.position.y = -0.25
 	scale_visual.scale = Vector3(0.01, 0.01, 0.01)
 	
 	var scale_in_tween = create_tween()

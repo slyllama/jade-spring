@@ -62,7 +62,7 @@ func _ready() -> void:
 	arrow_visual.set_layer_mask_value(1, 0)
 	arrow_visual.set_layer_mask_value(2, 0)
 	arrow_visual.set_layer_mask_value(3, 1)
-	arrow_visual.position.x = -0.45
+	arrow_visual.position.x = -0.75
 	arrow_visual.rotation_degrees.y = -90 # correct visual orientation
 	grabber.add_child(arrow_visual)
 	arrow_visual.scale = Vector3(0.01, 0.01, 0.01)
@@ -132,6 +132,8 @@ var last_collision = null
 @onready var last_position = get_parent().global_position
 
 func _process(delta: float) -> void:
+	scale = Vector3(1.0, 1.0, 1.0)
+	
 	if !enabled: return
 	
 	adjacent_plane.global_position = global_position

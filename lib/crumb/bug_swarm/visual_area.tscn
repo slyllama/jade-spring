@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgr6iytjeuj80"]
+
+[ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="1_0crl3"]
+[ext_resource type="Texture2D" uid="uid://bdl3ocb44powe" path="res://lib/hud/screen_effects/textures/splatter_mask.jpg" id="2_qx0md"]
+
+[sub_resource type="Gradient" id="Gradient_pqiau"]
+offsets = PackedFloat32Array(0.0116959, 0.163743, 0.321637)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e28v7"]
+gradient = SubResource("Gradient_pqiau")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcdkn"]
+render_priority = 2
+shader = ExtResource("1_0crl3")
+shader_parameter/uv_scale = 3.7
+shader_parameter/exponent = 3.6
+shader_parameter/time_scale = 0.07
+shader_parameter/mask_texture = ExtResource("2_qx0md")
+shader_parameter/vertical_mask = SubResource("GradientTexture2D_e28v7")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f8np1"]
+material = SubResource("ShaderMaterial_bcdkn")
+top_radius = 0.9
+bottom_radius = 0.9
+radial_segments = 16
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[node name="VisualArea" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_f8np1")

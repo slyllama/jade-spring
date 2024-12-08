@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdl3ocb44powe"
-path.s3tc="res://.godot/imported/splatter_mask.jpg-38b7342b0ad8d7b2949827236843c36e.s3tc.ctex"
+uid="uid://tofc8p3cnl3c"
+path.s3tc="res://.godot/imported/floor_insignia.png-c56fbdb271dff163c21e1ffdbbadf07f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://lib/hud/screen_effects/textures/splatter_mask.jpg"
-dest_files=["res://.godot/imported/splatter_mask.jpg-38b7342b0ad8d7b2949827236843c36e.s3tc.ctex"]
+source_file="res://lib/player/textures/floor_insignia.png"
+dest_files=["res://.godot/imported/floor_insignia.png-c56fbdb271dff163c21e1ffdbbadf07f.s3tc.ctex"]
 
 [params]
 

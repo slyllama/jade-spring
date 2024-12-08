@@ -156,12 +156,14 @@ func _ready() -> void:
 		if !Global.active_decoration == self: return
 		var _cr = global_rotation_degrees.y # current rotation
 		var _nr = round(_cr / 90.0) * 90.0 # new rounded rotation
+		global_rotation_degrees = Vector3.ZERO
 		global_rotation_degrees.y = _nr - 90.0)
 	
 	Global.rotate_right_90.connect(func():
 		if !Global.active_decoration == self: return
 		var _cr = global_rotation_degrees.y # current rotation
 		var _nr = round(_cr / 90.0) * 90.0 # new rounded rotation
+		global_rotation_degrees = Vector3.ZERO
 		global_rotation_degrees.y = _nr + 90.0)
 	
 	if collision_box != null:
