@@ -166,7 +166,7 @@ const tool_identities = [ # associations for debug printing
 
 signal adjustment_applied # transformation applied and adjustment ended
 signal adjustment_canceled # transformation discarded and adjustment ended
-signal adjustment_started
+signal adjustment_started # transformation started
 signal adjustment_reset # reset to default orientation and scale
 signal adjustment_mode_rotation
 signal adjustment_mode_translate
@@ -177,8 +177,10 @@ signal deco_placement_started
 signal deco_placement_canceled
 signal deco_placed(data)
 signal deco_deleted
-signal transform_mode_changed(transform_mode)
 signal snapping_enabled
+signal rotate_left_90 # rotate global position to the next nearest 90deg
+signal rotate_right_90 # rotate global position to the last nearest 90deg
+signal transform_mode_changed(transform_mode)
 
 const SNAP_INCREMENT = 0.25
 

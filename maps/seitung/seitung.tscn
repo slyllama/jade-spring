@@ -321,7 +321,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.938809, -0.0245497, 14.189
 area_radius = 0.9
 
 [node name="Weed4" parent="CrumbHandler" index="8" instance=ExtResource("7_p2o6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4273, -0.103381, 8.15199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9068, -0.103381, 7.84589)
 area_radius = 0.9
 
 [node name="Weed5" parent="CrumbHandler" index="9" instance=ExtResource("7_p2o6w")]
@@ -1213,7 +1213,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44624, 0.880119, 17.2716)
 
 [node name="WPBase" parent="SafePoint" index="0" instance=ExtResource("22_r7xru")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -1.1055, 0)
 
 [node name="Jukebox" parent="." index="9"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("21_u002t"), ExtResource("22_tefod")])

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi0vh5e03n4ri"]
+
+[ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
+[ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_mxrbu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
+panorama = ExtResource("2_mxrbu")
+
+[sub_resource type="Sky" id="Sky_1mh13"]
+sky_material = SubResource("PanoramaSkyMaterial_3jmvg")
+
+[sub_resource type="Environment" id="Environment_0d0ns"]
+background_mode = 2
+sky = SubResource("Sky_1mh13")
+ambient_light_source = 2
+ambient_light_color = Color(0.304708, 0.361277, 0.212145, 1)
+ambient_light_sky_contribution = 0.29
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.1
+glow_enabled = true
+glow_intensity = 0.65
+glow_strength = 0.45
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.6525, 0.7175, 0.75, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 14.0
+fog_depth_end = 27.0
+volumetric_fog_density = 0.01
+
+[node name="Map" instance=ExtResource("1_uym6y")]
+
+[node name="Sky" parent="." index="0"]
+environment = SubResource("Environment_0d0ns")

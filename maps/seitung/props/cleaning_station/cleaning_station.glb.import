@@ -45,6 +45,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://decorations/rusted_ac_unit/materials/mat_ac_parts.tres"
 },
+"mat_pipe": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/materials/mat_rubber.tres"
+},
 "mat_rafter_generic": {
 "use_external/enabled": true,
 "use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_roof_tiles_generic.tres"

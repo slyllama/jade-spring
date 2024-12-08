@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=22 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -15,7 +15,29 @@
 [ext_resource type="PackedScene" uid="uid://bx0omalga0s0k" path="res://lib/hud/announcement/announcement.tscn" id="9_6p63t"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="9_a86pb"]
 [ext_resource type="PackedScene" uid="uid://bvh87e5dxhdg8" path="res://lib/decoration/decoration_pane/decoration_pane.tscn" id="9_qacaq"]
+[ext_resource type="Texture2D" uid="uid://cmpc3fsyimm38" path="res://lib/hud/textures/button_rotate.png" id="14_0nyww"]
 [ext_resource type="Texture2D" uid="uid://dlff8ygba3xfx" path="res://lib/hud/textures/interact_indicator.png" id="14_dlrg2"]
+[ext_resource type="Texture2D" uid="uid://fok8uup5fsm0" path="res://lib/hud/textures/button_rotate_hover.png" id="15_u4uwf"]
+[ext_resource type="Texture2D" uid="uid://cdr5fjfkma6nx" path="res://lib/hud/textures/button_rotate_click.png" id="15_yogb0"]
+
+[sub_resource type="GDScript" id="GDScript_c5f52"]
+script/source = "extends HBoxContainer
+# RotateButtons
+
+func _ready() -> void:
+	# Show/hide rotation buttons depending on decoration adjustment state
+	Global.adjustment_started.connect(func(): visible = true)
+	Global.adjustment_canceled.connect(func(): visible = false)
+	Global.adjustment_applied.connect(func(): visible = false)
+
+func _on_rotate_left_button_down() -> void:
+	Global.rotate_left_90.emit()
+
+func _on_rotate_right_button_down() -> void:
+	Global.rotate_right_90.emit()
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8ca3"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ryxhn")
@@ -209,6 +231,46 @@ text = "[right][Debug][/right]"
 scroll_active = false
 autowrap_mode = 0
 
+[node name="RotateButtons" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.5
+offset_top = -237.0
+offset_right = 193.5
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = SubResource("GDScript_c5f52")
+
+[node name="RotateLeft" type="TextureButton" parent="RotateButtons"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+texture_normal = ExtResource("14_0nyww")
+texture_pressed = ExtResource("15_yogb0")
+texture_hover = ExtResource("15_u4uwf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CenterPanel" type="Panel" parent="RotateButtons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f8ca3")
+
+[node name="RotateRight" type="TextureButton" parent="RotateButtons"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+texture_normal = ExtResource("14_0nyww")
+texture_pressed = ExtResource("15_yogb0")
+texture_hover = ExtResource("15_u4uwf")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
 [node name="TopLevel" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -258,6 +320,8 @@ theme_override_font_sizes/font_size = 12
 placeholder_text = "Enter command:"
 
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]
+[connection signal="button_down" from="RotateButtons/RotateLeft" to="RotateButtons" method="_on_rotate_left_button_down"]
+[connection signal="button_down" from="RotateButtons/RotateRight" to="RotateButtons" method="_on_rotate_right_button_down"]
 [connection signal="button_down" from="TopLevel/CloseButton" to="." method="_on_close_button_down"]
 [connection signal="focus_entered" from="TopLevel/DebugEntry" to="." method="_on_debug_entry_focus_entered"]
 [connection signal="focus_exited" from="TopLevel/DebugEntry" to="." method="_on_debug_entry_focus_exited"]

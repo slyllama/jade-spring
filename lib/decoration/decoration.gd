@@ -140,6 +140,7 @@ func _ready() -> void:
 	Global.adjustment_mode_translate.connect(func():
 		if Global.active_decoration == self:
 			transform_type = TRANSFORM_TYPE_TRANSLATE
+			_clear_arrows()
 			_spawn_arrows())
 	
 	# Switch controls to rotation mode
@@ -148,8 +149,20 @@ func _ready() -> void:
 			# TODO: add rotation controls
 			transform_type = TRANSFORM_TYPE_ROTATE
 			_clear_arrows()
-			_spawn_rotators()
-	)
+			_spawn_rotators())
+	
+	# Snapping rotations from HUD -> Global
+	Global.rotate_left_90.connect(func():
+		if !Global.active_decoration == self: return
+		var _cr = global_rotation_degrees.y # current rotation
+		var _nr = round(_cr / 90.0) * 90.0 # new rounded rotation
+		global_rotation_degrees.y = _nr - 90.0)
+	
+	Global.rotate_right_90.connect(func():
+		if !Global.active_decoration == self: return
+		var _cr = global_rotation_degrees.y # current rotation
+		var _nr = round(_cr / 90.0) * 90.0 # new rounded rotation
+		global_rotation_degrees.y = _nr + 90.0)
 	
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
