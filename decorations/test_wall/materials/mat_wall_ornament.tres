@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://s0mdpaql2iqj"]
+
+[ext_resource type="Texture2D" uid="uid://dpfj32cmcs1hi" path="res://decorations/test_wall/materials/textures/wall_ornament_diff.jpg" id="1_tbwgt"]
+[ext_resource type="Texture2D" uid="uid://w7h0taa0hvfs" path="res://decorations/test_wall/materials/textures/wall_ornament_norm.jpg" id="2_hui35"]
+
+[resource]
+albedo_texture = ExtResource("1_tbwgt")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_hui35")

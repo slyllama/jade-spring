@@ -8,7 +8,7 @@ signal interacted
 ## If true, the 'interact' label disappears on use and the player must enter
 ## the gadget's area to use it again.
 @export var reset_on_interact = true
-var in_range = true
+var in_range = false
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):

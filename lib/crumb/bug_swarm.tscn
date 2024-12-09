@@ -31,5 +31,6 @@ volume_db = -9.0
 [node name="SpatialText" parent="." instance=ExtResource("6_oqvb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 spatial_string = "Bug Swarm"
+color = "yellow"
 
 [connection signal="interacted" from="." to="." method="interact"]

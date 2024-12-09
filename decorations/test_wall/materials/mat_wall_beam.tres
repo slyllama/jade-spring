@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bf4e6kuiowdy0"]
+
+[ext_resource type="Texture2D" uid="uid://cuhkvrm5iwl1v" path="res://decorations/test_wall/materials/textures/wall_beam_diff.jpg" id="1_13yve"]
+[ext_resource type="Texture2D" uid="uid://chd7wbb48o84b" path="res://decorations/test_wall/materials/textures/wall_beam_norm.jpg" id="2_2737k"]
+
+[resource]
+albedo_texture = ExtResource("1_13yve")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_2737k")

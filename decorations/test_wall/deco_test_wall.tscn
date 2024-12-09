@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bngsvcump0aee"]
+[gd_scene load_steps=5 format=3 uid="uid://bngsvcump0aee"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_fgi72"]
 [ext_resource type="PackedScene" uid="uid://b6q7ogfsln8vr" path="res://decorations/test_wall/meshes/test_wall.glb" id="2_xjmfu"]
+[ext_resource type="PackedScene" uid="uid://bcdukpdiq4241" path="res://decorations/test_wall/meshes/wall.glb" id="3_egx3r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rp7by"]
 size = Vector3(2.5, 4, 0.2)
@@ -11,12 +12,15 @@ script = ExtResource("1_fgi72")
 id = "test_wall"
 collision_box = NodePath("Body")
 
+[node name="Wall" parent="." instance=ExtResource("3_egx3r")]
+
 [node name="TestWall" parent="." instance=ExtResource("2_xjmfu")]
+visible = false
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_rp7by")

@@ -8,9 +8,10 @@ extends VisibleOnScreenNotifier3D
 	set(_val):
 		spatial_string = _val
 		_set_title(_val)
+@export var color = "white"
 
 func _set_title(title: String) -> void:
-	$FG/Title.text = "[center]" + title + "[/center]"
+	$FG/Title.text = "[center][color=" + color + "]" + title + "[/color][/center]"
 
 func _get_in_bounds(_pos: Vector2) -> bool:
 	var _in_bounds = true
