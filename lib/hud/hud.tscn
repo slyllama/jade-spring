@@ -26,7 +26,8 @@ script/source = "extends HBoxContainer
 
 func _ready() -> void:
 	# Show/hide rotation buttons depending on decoration adjustment state
-	Global.adjustment_started.connect(func(): visible = true)
+	Global.adjustment_mode_rotation.connect(func(): visible = true)
+	Global.adjustment_mode_translate.connect(func(): visible = false)
 	Global.adjustment_canceled.connect(func(): visible = false)
 	Global.adjustment_applied.connect(func(): visible = false)
 

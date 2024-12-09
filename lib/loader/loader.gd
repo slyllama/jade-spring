@@ -29,6 +29,10 @@ func _transition():
 			ResourceLoader.load_threaded_get(target_scene)))
 
 func _ready() -> void:
+	$Decorations.modulate.a = 0.0
+	var _deco_fade_in = create_tween()
+	_deco_fade_in.tween_property($Decorations, "modulate:a", 1.0, 0.2)
+	
 	AudioServer.set_bus_volume_db(0, -80)
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]

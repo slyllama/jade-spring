@@ -50,6 +50,10 @@ func _debug_cmd_lose_focus(clear = false) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		_debug_cmd_lose_focus(true)
+		#await get_tree().process_frame
+		if (!Global.in_exclusive_ui and !Global.deco_pane_open
+			and !$TopLevel/SettingsPane.is_open):
+			$TopLevel/SettingsPane.open()
 	
 	if Input.is_action_just_pressed("debug_cmd"):
 		if !Global.debug_enabled: return

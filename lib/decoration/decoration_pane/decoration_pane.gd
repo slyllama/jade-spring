@@ -91,6 +91,11 @@ func render(tag = "None") -> void:
 func _refresh() -> void:
 	tag_list.text = str(selected_tag).capitalize()
 
+func _input(_event) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		await get_tree().process_frame
+		close()
+
 func _ready() -> void:
 	super()
 	Global.deco_placement_started.connect(close)
