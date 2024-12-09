@@ -61,6 +61,7 @@ func _ready() -> void:
 	
 	# Fade volume in and play music after a short delay
 	await get_tree().create_timer(0.5).timeout
+	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(
 		Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)

@@ -12,10 +12,6 @@ func close() -> void:
 func _input(event: InputEvent) -> void:
 	super(event)
 	if Input.is_action_just_pressed("ui_cancel"):
-		#if !is_open:
-			#if Global.popup_open: return # avoid opening the pane when leaving the command line
-			#await get_tree().process_frame
-			#open()
 		if is_open:
 			await get_tree().process_frame
 			close()
@@ -33,8 +29,3 @@ func _on_quit_button_down() -> void:
 	if !Global.in_exclusive_ui:
 		close()
 		get_tree().change_scene_to_file("res://lib/main_menu/main_menu.tscn")
-		#get_tree().quit() # TODO: temporarily allowing for instant closing
-		#if qc != null:
-			#qc.queue_free()
-		#qc = QuitConfirmation.instantiate()
-		#add_child(qc)

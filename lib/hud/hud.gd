@@ -147,8 +147,8 @@ func _ready() -> void:
 			"objective": "Talk to Pulley-4 about tending the garden."
 		})
 	
-	#Global.debug_enabled = true
-	#Global.debug_toggled.emit()
+	Global.debug_enabled = true
+	Global.debug_toggled.emit()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:

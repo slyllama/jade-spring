@@ -27,3 +27,5 @@ material = ExtResource("4_cuapp")
 
 [node name="PulleyMesh" parent="." index="3" instance=ExtResource("5_p28vv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]
