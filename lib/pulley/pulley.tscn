@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxj3pc7r8l63r"]
+
+[ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_7ikog"]
+[ext_resource type="Script" path="res://lib/pulley/pulley.gd" id="2_8d48b"]
+
+[node name="Pulley" instance=ExtResource("1_7ikog")]
+script = ExtResource("2_8d48b")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radius = 0.25

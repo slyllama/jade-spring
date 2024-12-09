@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=69 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://fdtci72jf3pk" path="res://decorations/fountain/deco_fountain.tscn" id="12_iopfa"]
 [ext_resource type="PackedScene" uid="uid://cw22jtaf0fhxj" path="res://decorations/eepy_fence/deco_eepy_fence.tscn" id="13_bp3pr"]
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="14_yeybn"]
+[ext_resource type="PackedScene" uid="uid://bxj3pc7r8l63r" path="res://lib/pulley/pulley.tscn" id="15_p8dtp"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="16_s2hwi"]
 [ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="21_u002t"]
 [ext_resource type="PackedScene" uid="uid://bp20w7u5bdeoa" path="res://maps/seitung/meshes/wp_base.glb" id="22_r7xru"]
@@ -27,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="24_hqlax"]
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="24_lh7v3"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="25_or3n7"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="30_a1hev"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="34_xk86d"]
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
@@ -986,6 +988,9 @@ mesh = ExtResource("14_yeybn")
 transform = Transform3D(0.298246, 0.142834, 0.879914, -0.0458511, 0.929085, -0.135274, -0.890251, 0, 0.301749, -5.52515, 0.753834, 17.4853)
 mesh = ExtResource("14_yeybn")
 
+[node name="Pulley" parent="Decoration/Foliage" index="33" instance=ExtResource("15_p8dtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0514278, 0.75, 6.35001)
+
 [node name="House" parent="Decoration" index="1" instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
@@ -1214,6 +1219,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44624, 0.880119, 17.2716)
 
 [node name="WPBase" parent="SafePoint" index="0" instance=ExtResource("22_r7xru")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -1.1055, 0)
+
+[node name="TestSpatial" parent="SafePoint/WPBase" index="3" instance=ExtResource("25_or3n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+spatial_string = "((Test))"
 
 [node name="Jukebox" parent="." index="9"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("21_u002t"), ExtResource("22_tefod")])

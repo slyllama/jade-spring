@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1u7ykm887ak1"]
+
+[ext_resource type="Script" path="res://lib/spatial_text/spatial_text.gd" id="1_f6yik"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_pqkr1"]
+
+[node name="SpatialText" type="VisibleOnScreenNotifier3D"]
+aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+script = ExtResource("1_f6yik")
+
+[node name="FG" type="CanvasLayer" parent="."]
+
+[node name="Underlay" type="TextureRect" parent="FG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pqkr1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="FG"]
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[center]((Text))[/center]"

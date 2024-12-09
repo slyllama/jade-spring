@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://1f5jt3pugxvq"]
+[gd_scene load_steps=7 format=3 uid="uid://1f5jt3pugxvq"]
 
 [ext_resource type="Script" path="res://lib/crumb/bug_swarm.gd" id="1_5hoe5"]
 [ext_resource type="PackedScene" uid="uid://dcbfj3c5m2l7k" path="res://lib/crumb/bug_swarm/bug_swarm_prop.tscn" id="2_y2aqg"]
 [ext_resource type="AudioStream" uid="uid://c1ird7hemm8dx" path="res://generic/sounds/bees.ogg" id="3_xdlj6"]
 [ext_resource type="AudioStream" uid="uid://dkwmkdrs70047" path="res://lib/crumb/bug_swarm/sounds/bug_sounds.ogg" id="4_1u0f8"]
 [ext_resource type="PackedScene" uid="uid://cgr6iytjeuj80" path="res://lib/crumb/bug_swarm/visual_area.tscn" id="5_43y53"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="6_oqvb8"]
 
 [node name="BugSwarm" type="Area3D"]
 input_ray_pickable = false
@@ -26,5 +27,9 @@ stream = ExtResource("4_1u0f8")
 volume_db = -9.0
 
 [node name="VisualArea" parent="." instance=ExtResource("5_43y53")]
+
+[node name="SpatialText" parent="." instance=ExtResource("6_oqvb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+spatial_string = "Bug Swarm"
 
 [connection signal="interacted" from="." to="." method="interact"]
