@@ -16,7 +16,7 @@ const STORY_POINT_SCRIPT = {
 		"objective": "Talk to Pulley-4 about tending the garden."
 	},
 	"bulwark_gyro": {
-		"objective": "Clear 5 weeds (5 remaining)."
+		"objective": "Pick 10 weeds and deposit them at the compost bin."
 	}
 }
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=8 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
+[ext_resource type="Script" path="res://maps/debug_map/debug_map.gd" id="2_7lwj0"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="2_mxrbu"]
+[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="4_fjmue"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -33,6 +35,44 @@ fog_depth_end = 27.0
 volumetric_fog_density = 0.01
 
 [node name="Map" instance=ExtResource("1_uym6y")]
+script = ExtResource("2_7lwj0")
 
 [node name="Sky" parent="." index="0"]
 environment = SubResource("Environment_0d0ns")
+
+[node name="DebugTL" type="CanvasLayer" parent="HUD" index="15"]
+layer = 10
+
+[node name="DebugButtons" type="VBoxContainer" parent="HUD/DebugTL" index="0"]
+offset_left = 16.0
+offset_top = 39.0
+offset_right = 269.0
+offset_bottom = 481.0
+
+[node name="AddWeed" type="Button" parent="HUD/DebugTL/DebugButtons" index="0"]
+layout_mode = 2
+text = "Add Weed"
+
+[node name="ClearWeeds" type="Button" parent="HUD/DebugTL/DebugButtons" index="1"]
+layout_mode = 2
+text = "Clear Weeds"
+
+[node name="FXDebug" type="RichTextLabel" parent="HUD/DebugTL/DebugButtons" index="2"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/line_separation = -2
+theme_override_fonts/normal_font = ExtResource("4_fjmue")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "((Debug))"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="button_down" from="HUD/DebugTL/DebugButtons/AddWeed" to="." method="_on_add_weed_button_down"]
+[connection signal="button_down" from="HUD/DebugTL/DebugButtons/ClearWeeds" to="." method="_on_clear_weeds_button_down"]

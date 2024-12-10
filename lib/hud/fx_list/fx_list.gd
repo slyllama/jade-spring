@@ -22,6 +22,10 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"texture": "discombobulator",
 		"title": "Pest Discombobulator",
 		"description": "Go forth, Wayfinder; disperse those locusts!"
+	},
+	"weed": {
+		"title": "Picked Weed",
+		"description": "((Description))"
 	}
 }
 
@@ -32,6 +36,7 @@ func update() -> void:
 	for _n in get_children():
 		_n.queue_free()
 	for _f in Global.current_effects:
+		if "=" in _f: _f = _f.split("=")[0] # for quantitative effects
 		var _data = EFFECTS_LIST[_f]
 		var _n = FXSquare.instantiate()
 		if "texture" in _data:
@@ -49,9 +54,10 @@ func add_effect(id) -> void:
 		update()
 
 func remove_effect(id) -> void:
-	if id in Global.current_effects:
-		Global.current_effects.erase(id)
-		update()
+	for _fx in Global.current_effects:
+		if _fx.contains(id):
+			Global.current_effects.erase(_fx)
+			update()
 
 func _ready() -> void:
 	# Connections from Global
@@ -72,5 +78,8 @@ func _process(delta: float) -> void:
 		_time = 0
 		# do periodic stuff
 		
-		if !Global.can_move: add_effect("immobile")
-		else: remove_effect("immobile")
+		if !Global.can_move:
+			add_effect("immobile")
+		else:
+			if "immobile" in Global.current_effects:
+				remove_effect("immobile")

@@ -48,6 +48,16 @@ signal weed_crumb_entered
 signal weed_crumb_left
 signal summon_story_panel(data: Dictionary)
 
+func add_qty_effect(id: String, amount = 1) -> void:
+	var _new_amount = amount
+	for _fx in current_effects:
+		if "=" in _fx: # if is a quantitative effect
+			if _fx.split("=")[0] == id:
+				_new_amount += int(_fx.split("=")[1])
+				remove_effect.emit(_fx)
+				#current_effects.erase(_fx)
+	add_effect.emit(id + "=" + str(_new_amount))
+
 ##### Decoration signals and parameters
 #region Decoration data
 const DecoTags = [ "None", "Architecture", "Foliage", "Cantha" ]
