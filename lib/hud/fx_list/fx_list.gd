@@ -33,32 +33,33 @@ const EFFECTS_LIST = { # TODO: use images instead
 func _get_texture(tex_id) -> Texture2D:
 	return(load("res://lib/hud/fx_list/textures/fx_" + tex_id + ".png"))
 
-func update(qty: int = 0) -> void:
+func update() -> void:
+	var _qty = 0
 	for _n in get_children():
 		_n.queue_free()
 	for _f in Global.current_effects:
-		if "=" in _f: _f = _f.split("=")[0] # for quantitative effects
+		if "=" in _f:
+			_qty = int(_f.split("=")[1])
+			_f = _f.split("=")[0] # for quantitative effects
 		var _data = EFFECTS_LIST[_f]
 		var _n = FXSquare.instantiate()
-		if "texture" in _data:
-			_n.texture = _get_texture(_data.texture)
-		else:
-			_n.texture = UNKNOWN_TEX
+		
+		# Load textures
+		if "texture" in _data: _n.texture = _get_texture(_data.texture)
+		else: _n.texture = UNKNOWN_TEX
 		
 		if "title" in _data and "description" in _data:
 			var _desc = _data.description
-			if qty > 0:
-				_desc = "[color=yellow](" + str(qty) + ")[/color] " + _data.description
+			if _qty > 0:
+				_desc = "[color=yellow](" + str(_qty) + ")[/color] " + _data.description
 			_n.set_tip_text(_data.title, _desc)
 		add_child(_n)
 
 func add_effect(id) -> void:
 	if !id in Global.current_effects:
 		Global.current_effects.append(id)
-		if "=" in id:
-			update(int(id.split("=")[1]))
-		else:
-			update()
+		if "=" in id: update()
+		else: update()
 
 func remove_effect(id) -> void:
 	for _fx in Global.current_effects:

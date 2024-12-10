@@ -62,8 +62,9 @@ func _ready() -> void:
 	# Add some effects (like weeds)
 	Global.current_effects = [] # reset (if coming from main menu after a previous session)
 	await get_tree().process_frame
-	for _w in Save.data.weeds:
-		Global.add_qty_effect("weed")
+	if "weeds" in Save.data: # protection for older dev saves
+		for _w in Save.data.weeds:
+			Global.add_qty_effect("weed")
 	
 	# Fade volume in and play music after a short delay
 	await get_tree().create_timer(0.5).timeout
