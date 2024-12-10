@@ -47,10 +47,12 @@ func _debug_cmd_lose_focus(clear = false) -> void:
 	if !Global.tool_mode == Global.TOOL_MODE_FISH:
 		Global.can_move = true
 
+func proc_story() -> void:
+	pass
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		_debug_cmd_lose_focus(true)
-		#await get_tree().process_frame
 		if (!Global.in_exclusive_ui and !Global.deco_pane_open
 			and !$TopLevel/SettingsPane.is_open):
 			$TopLevel/SettingsPane.open()
@@ -141,14 +143,13 @@ func _ready() -> void:
 	
 	# Opening story panel (if the story hasn't been advanced)
 	if Save.data.story_point == "game_start":
-		Global.summon_story_panel.emit({
-			"title": "1. A Helping Hand",
-			"description": "Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending the garden![/color]",
-			"objective": "Talk to Pulley-4 about tending the garden."
-		})
+		Global.summon_story_panel.emit(Save.STORY_POINT_SCRIPT["game_start"])
 	
-	Global.debug_enabled = true
-	Global.debug_toggled.emit()
+	Save.story_advanced.connect(proc_story)
+	proc_story()
+	
+	#Global.debug_enabled = true
+	#Global.debug_toggled.emit()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:

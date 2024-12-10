@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://hftuu4wr17do"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="1_ljonw"]
+
+[node name="Bamboo" type="MeshInstance3D"]
+
+[node name="Bamboo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268744, 0, -0.141392)
+mesh = ExtResource("1_ljonw")
+
+[node name="Bamboo3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.269931, 0, -1.03539, 0, 1.07, 0, 1.03539, 0, 0.269931, -0.241229, 0, 0.0263915)
+mesh = ExtResource("1_ljonw")
+
+[node name="Bamboo2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.115307, -0.113984, 0.885275, -0.0147221, 0.892753, 0.113029, -0.892461, 6.70552e-09, -0.116243, -0.372949, 0, -0.21625)
+mesh = ExtResource("1_ljonw")

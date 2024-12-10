@@ -102,7 +102,7 @@ const DecoData = {
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
 		"scene": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
-		"cursor_model": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",
+		"cursor_model": "res://decorations/bamboo_cluster/bamboo_cursor.tscn",
 		"preview_scale": 0.4,
 		"tags": ["Foliage", "Cantha"]
 	},

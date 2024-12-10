@@ -86,6 +86,7 @@ func _ready() -> void:
 	# Load saved decorations or reset them depending on parameters passed from the main menu
 	if Global.start_params.new_save:
 		_load_decorations(default_deco_data)
+		_save_decorations()
 	else:
 		_load_decorations(_load_decoration_file())
 	

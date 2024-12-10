@@ -9,6 +9,17 @@ const STORY_POINTS = [
 	"bulwark_gyro"
 ]
 
+const STORY_POINT_SCRIPT = {
+	"game_start": {
+		"title": "1. A Helping Hand",
+		"description": "Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending the garden![/color]",
+		"objective": "Talk to Pulley-4 about tending the garden."
+	},
+	"bulwark_gyro": {
+		"objective": "Clear 5 weeds (5 remaining)."
+	}
+}
+
 const FILE_PATH = "user://save.dat"
 const DEFAULT_DATA = {
 	"story_point": "game_start"
