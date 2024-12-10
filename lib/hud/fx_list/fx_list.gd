@@ -24,6 +24,7 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"description": "Go forth, Wayfinder; disperse those locusts!"
 	},
 	"weed": {
+		"texture": "weed",
 		"title": "Picked Weed",
 		"description": "these belong in the compost bin!"
 	}

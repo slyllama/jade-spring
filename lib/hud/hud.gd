@@ -100,9 +100,7 @@ func _ready() -> void:
 		elif _cmd == "/storypanel":
 			var _sp = StoryPanel.instantiate()
 			add_child(_sp)
-			_sp.open()
-		elif _cmd == "/savedata":
-			print(Save.data))
+			_sp.open())
 	
 	Global.debug_toggled.connect(func():
 		$TopLevel/DebugEntry.visible = Global.debug_enabled

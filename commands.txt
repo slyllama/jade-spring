@@ -10,5 +10,5 @@
 
 ### Generic utilities
 /crumbdata		Show crumb data
-/savedata		Show save data
+/savedata		Save data to file
 /storypanel		Debug the story panel

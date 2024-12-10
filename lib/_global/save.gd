@@ -22,7 +22,8 @@ const STORY_POINT_SCRIPT = {
 
 const FILE_PATH = "user://save.dat"
 const DEFAULT_DATA = {
-	"story_point": "game_start"
+	"story_point": "game_start",
+	"weeds": 0 # weeds in inventory
 }
 var data = {}
 
@@ -48,6 +49,10 @@ func reset() -> void:
 	save_to_file()
 
 func save_to_file() -> void:
+	for _fx in Global.current_effects:
+		if _fx.contains("weed"):
+			Save.data.weeds = int(_fx.split("=")[1])
+	
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	file.store_var(data)
 	file.close()
@@ -58,3 +63,11 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	load_from_file()
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/savedata":
+			save_to_file())
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_to_file()
+		get_tree().quit() # default behavior
