@@ -12,4 +12,6 @@ func _ready() -> void:
 			Global.weed_crumb_left.emit())
 
 func interact() -> void:
+	Global.add_qty_effect("weed")
 	Global.announcement_sent.emit("((Weed picked))")
+	queue_free()

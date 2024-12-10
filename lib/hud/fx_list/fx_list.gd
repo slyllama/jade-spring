@@ -25,14 +25,14 @@ const EFFECTS_LIST = { # TODO: use images instead
 	},
 	"weed": {
 		"title": "Picked Weed",
-		"description": "((Description))"
+		"description": "these belong in the compost bin!"
 	}
 }
 
 func _get_texture(tex_id) -> Texture2D:
 	return(load("res://lib/hud/fx_list/textures/fx_" + tex_id + ".png"))
 
-func update() -> void:
+func update(qty: int = 0) -> void:
 	for _n in get_children():
 		_n.queue_free()
 	for _f in Global.current_effects:
@@ -45,13 +45,19 @@ func update() -> void:
 			_n.texture = UNKNOWN_TEX
 		
 		if "title" in _data and "description" in _data:
-			_n.set_tip_text(_data.title, _data.description)
+			var _desc = _data.description
+			if qty > 0:
+				_desc = "[color=yellow](" + str(qty) + ")[/color] " + _data.description
+			_n.set_tip_text(_data.title, _desc)
 		add_child(_n)
 
 func add_effect(id) -> void:
 	if !id in Global.current_effects:
 		Global.current_effects.append(id)
-		update()
+		if "=" in id:
+			update(int(id.split("=")[1]))
+		else:
+			update()
 
 func remove_effect(id) -> void:
 	for _fx in Global.current_effects:
