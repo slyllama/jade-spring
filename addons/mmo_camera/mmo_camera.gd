@@ -3,7 +3,6 @@ class_name MMOCamera extends Node3D
 const MMOOrbitHandler = preload("res://addons/mmo_camera/orbit_handler.gd")
 
 @export var orbit_disabled := false
-@export var orbit_sensitivity := 0.15
 @export var orbit_smoothing := 12.0
 @export_range(-180, 180, 0.1, "degrees", "hide_slider") var fov := 85.0
 @export_range(0, 100, 0.01, "suffix:m", "hide_slider") var zoom_increment = 0.25
@@ -30,10 +29,7 @@ const MMOOrbitHandler = preload("res://addons/mmo_camera/orbit_handler.gd")
 var in_exclusive_ui = false
 var mouse_in_ui = false
 var popup_open = false
-@onready var calculated_sensitivity = orbit_sensitivity
-
 var _target_zoom = max_zoom_out
-#var _target_zoom = max_zoom_in + 0.5 * (max_zoom_out - max_zoom_in)
 
 var axis = SpringArm3D.new()
 var camera = Camera3D.new()

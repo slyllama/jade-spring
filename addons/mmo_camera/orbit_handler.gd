@@ -70,10 +70,10 @@ func _process(delta: float) -> void:
 	# This is handled here instead of _input() because handling without delta
 	# causes strange behaviour at low frame rates
 	if orbiting:
-		target_rotation.x -= _mouse_delta.y * get_parent().calculated_sensitivity * delta * 100.0
+		target_rotation.x -= _mouse_delta.y * Global.orbit_sensitivity_multiplier * delta * 60.0
 		if get_parent().clamp_x: target_rotation.x = clamp(
 			target_rotation.x, get_parent().clamp_x_lower, get_parent().clamp_x_upper)
-		target_rotation.y -= _mouse_delta.x * get_parent().calculated_sensitivity * delta * 100.0
+		target_rotation.y -= _mouse_delta.x * Global.orbit_sensitivity_multiplier * delta * 60.0
 		if get_parent().clamp_y: target_rotation.y = clamp(
 			target_rotation.y, get_parent().clamp_y_lower, get_parent().clamp_y_upper)
 	smooth_rotation = lerp(smooth_rotation, target_rotation, delta * get_parent().orbit_smoothing)

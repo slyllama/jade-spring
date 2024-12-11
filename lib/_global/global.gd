@@ -7,6 +7,7 @@ var start_params = {
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
 
+var camera_orbiting = false
 var can_move = true
 var crumb_data = { } # reports both total counts and progress
 var current_crumb = null
@@ -21,7 +22,7 @@ var mouse_3d_position = Utilities.BIGVEC3
 var mouse_3d_y_rotation = 0.0
 var mouse_in_ui = false
 var mouse_in_deco_pane = false
-var camera_orbiting = false
+var orbit_sensitivity_multiplier = 1.0
 var player_position = Vector3.ZERO
 var player_y_rotation = 0.0
 var popup_open = false

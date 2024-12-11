@@ -39,6 +39,8 @@ func _ready() -> void:
 			"bloom":
 				if _value == "on": $Sky.environment.glow_enabled = true
 				elif _value == "off": $Sky.environment.glow_enabled = false
+			"orbit_sensitivity":
+				Global.orbit_sensitivity_multiplier = 0.15 + (_value / 2.0)
 	)
 	SettingsHandler.refresh(["volume"])
 	

@@ -7,7 +7,8 @@ const DEFAULT_SETTINGS = {
 	"volume": 1.0,
 	"window_mode": "full_screen",
 	"foliage_density": "high",
-	"bloom": "on"
+	"bloom": "on",
+	"orbit_sensitivity": 0.5
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

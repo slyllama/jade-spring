@@ -43,26 +43,31 @@ id = "bloom"
 options = Array[String](["on", "off"])
 default_option = "on"
 
-[node name="Volume" parent="Container" index="6" instance=ExtResource("4_q7g3p")]
+[node name="OrbitSensitivity" parent="Container" index="6" instance=ExtResource("4_q7g3p")]
+layout_mode = 2
+title = "Orbit Sensitivity"
+id = "orbit_sensitivity"
+
+[node name="Volume" parent="Container" index="7" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Volume"
 id = "volume"
 
-[node name="MusicVol" parent="Container" index="7" instance=ExtResource("4_q7g3p")]
+[node name="MusicVol" parent="Container" index="8" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Music volume"
 id = "music_vol"
 
-[node name="Fill" type="ColorRect" parent="Container" index="8"]
+[node name="Fill" type="ColorRect" parent="Container" index="9"]
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
 
-[node name="Done" type="Button" parent="Container" index="9"]
+[node name="Done" type="Button" parent="Container" index="10"]
 layout_mode = 2
 text = "Done"
 
-[node name="Quit" type="Button" parent="Container" index="10"]
+[node name="Quit" type="Button" parent="Container" index="11"]
 layout_mode = 2
 text = "Return To Menu"
 
