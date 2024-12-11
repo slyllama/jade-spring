@@ -145,7 +145,7 @@ const DecoData = {
 	"test_wall": {
 		"name": "Test Wall",
 		"scene": "res://decorations/test_wall/deco_test_wall.tscn",
-		"cursor_model": "res://decorations/test_wall/meshes/test_wall.glb",
+		"cursor_model": "res://decorations/test_wall/meshes/wall.glb",
 		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
 		"tags": ["Architecture"]

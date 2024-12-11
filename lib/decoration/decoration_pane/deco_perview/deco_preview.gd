@@ -8,7 +8,6 @@ const Offsets = {
 }
 
 const HOffsets = {
-	"test_wall": 0.3,
 	"eepy_fence": -0.1
 }
 
