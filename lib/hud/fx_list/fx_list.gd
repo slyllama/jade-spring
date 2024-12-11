@@ -34,10 +34,10 @@ func _get_texture(tex_id) -> Texture2D:
 	return(load("res://lib/hud/fx_list/textures/fx_" + tex_id + ".png"))
 
 func update() -> void:
-	var _qty = 0
 	for _n in get_children():
 		_n.queue_free()
 	for _f in Global.current_effects:
+		var _qty = 0
 		if "=" in _f:
 			_qty = int(_f.split("=")[1])
 			_f = _f.split("=")[0] # for quantitative effects

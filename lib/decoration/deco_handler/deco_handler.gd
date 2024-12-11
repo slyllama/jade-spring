@@ -25,6 +25,7 @@ func place_decoration(data: Dictionary) -> void:
 
 # Clear all decorations from the world
 func _clear_decorations() -> void:
+	print("clearing decorations")
 	for _n in get_children():
 		if _n is Decoration:
 			_n.queue_free()

@@ -9,7 +9,6 @@ var totals = {}
 
 # Save crumb types and positions to file
 func save_crumbs() -> void:
-	print("Saving crumbs")
 	Save.data.crumbs = []
 	for _n in get_children():
 		if _n is Crumb:
@@ -20,7 +19,6 @@ func save_crumbs() -> void:
 
 # Load crumbs from save file
 func load_crumbs() -> void:
-	print("Loading crumbs")
 	for _n in get_children(): # clear
 		_n.queue_free()
 	
@@ -48,7 +46,6 @@ func _ready() -> void:
 				totals[_n.type] = 0
 			totals[_n.type] += 1
 	
-	print(totals)
 	Global.crumb_handler = self # reference
 	Global.crumbs_updated.emit()
 	
