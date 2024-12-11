@@ -12,8 +12,8 @@ signal cleared
 signal interacted
 
 func clear() -> void:
-	if type in Global.crumb_data:
-		Global.crumb_data[type].count -= 1
+	#if type in Save.data.crumb_data:
+		#Save.data.crumb_data[type].count -= 1
 	
 	Global.current_crumb = null
 	Global.crumbs_updated.emit()

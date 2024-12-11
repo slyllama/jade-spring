@@ -9,6 +9,6 @@
 /hideplayer		Hide the player mesh
 
 ### Generic utilities
-/crumbdata		Show crumb data
 /savedata		Save data to file
+/printsavedata	Print all save data
 /storypanel		Debug the story panel

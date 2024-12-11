@@ -6,6 +6,7 @@ var start_params = {
 
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
+var save_handler: SaveHandler
 
 var camera_orbiting = false
 var can_move = true

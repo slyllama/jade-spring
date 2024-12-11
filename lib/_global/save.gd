@@ -1,4 +1,4 @@
-extends Node
+class_name SaveHandler extends Node
 # Save - handles saving and loading all player information EXCEPT
 # settings and decorations
 
@@ -23,6 +23,8 @@ const STORY_POINT_SCRIPT = {
 const FILE_PATH = "user://save.dat"
 const DEFAULT_DATA = {
 	"story_point": "game_start",
+	"crumbs": [],
+	"crumb_count": {},
 	"weeds": 0 # weeds in inventory
 }
 var data = {}
@@ -45,7 +47,7 @@ func load_from_file() -> void:
 	else: reset()
 
 func reset() -> void:
-	data = DEFAULT_DATA.duplicate()
+	data = DEFAULT_DATA.duplicate(true)
 	save_to_file()
 
 func save_to_file() -> void:
@@ -62,10 +64,14 @@ func _input(_event: InputEvent) -> void:
 		advance_story()
 
 func _ready() -> void:
+	Global.save_handler = self # reference
+	
 	load_from_file()
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/savedata":
-			save_to_file())
+			save_to_file()
+		elif _cmd == "/printsavedata":
+			print(Save.data))
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
