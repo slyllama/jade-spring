@@ -7,7 +7,7 @@
 _data = [Vector2(0, 0.835052), 0.0, 0.0, 0, 0, Vector2(0.1625, 0.824742), -1.877, -1.877, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_4dtce"]
+[sub_resource type="CurveTexture" id="CurveTexture_tngcs"]
 curve = SubResource("Curve_exrsw")
 
 [sub_resource type="Curve" id="Curve_6qce0"]
@@ -16,20 +16,20 @@ max_value = 360.0
 _data = [Vector2(0, 233.814), 0.0, 0.0, 0, 0, Vector2(1, 18.5567), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_o0npx"]
+[sub_resource type="CurveTexture" id="CurveTexture_3tmw0"]
 curve = SubResource("Curve_6qce0")
 
 [sub_resource type="Gradient" id="Gradient_p6gj1"]
 colors = PackedColorArray(0.7505, 0.8835, 0.95, 0.705882, 0.5, 1, 0.933333, 0.509804)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kaixa"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3kjrr"]
 gradient = SubResource("Gradient_p6gj1")
 
 [sub_resource type="Curve" id="Curve_4q54y"]
 _data = [Vector2(0, 1), 0.0, 0.718324, 0, 0, Vector2(1, 0.587629), -0.922926, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ux0j0"]
+[sub_resource type="CurveTexture" id="CurveTexture_4swfl"]
 curve = SubResource("Curve_4q54y")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ppkgk"]
@@ -38,20 +38,20 @@ emission_shape = 3
 emission_box_extents = Vector3(5, 1, 1)
 angle_min = 1.07288e-05
 angle_max = 1.00001
-angle_curve = SubResource("CurveTexture_o0npx")
+angle_curve = SubResource("CurveTexture_3tmw0")
 direction = Vector3(0, 0, 0)
 spread = 180.0
 initial_velocity_min = 0.2
 initial_velocity_max = 0.3
 gravity = Vector3(0, -0.3, 0)
 scale_min = 0.8
-scale_curve = SubResource("CurveTexture_ux0j0")
-color_initial_ramp = SubResource("GradientTexture1D_kaixa")
-alpha_curve = SubResource("CurveTexture_4dtce")
+scale_curve = SubResource("CurveTexture_4swfl")
+color_initial_ramp = SubResource("GradientTexture1D_3kjrr")
+alpha_curve = SubResource("CurveTexture_tngcs")
 hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1j83"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ued2b"]
 render_priority = 1
 transparency = 1
 cull_mode = 2
@@ -65,7 +65,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_n5h2l"]
-material = SubResource("StandardMaterial3D_x1j83")
+material = SubResource("StandardMaterial3D_ued2b")
 size = Vector2(0.45, 0.45)
 
 [sub_resource type="Curve" id="Curve_rk320"]
