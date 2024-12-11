@@ -46,14 +46,15 @@ func _ready() -> void:
 				totals[_n.type] = 0
 			totals[_n.type] += 1
 	
-	Global.crumb_handler = self # reference
+	Global.crumb_handler = self
 	Global.crumbs_updated.emit()
 	
 	await get_tree().process_frame
-	if Save.data.crumbs != []: load_crumbs() # if not empty
+	if Save.data.crumbs != []: load_crumbs()
 	else: update_crumb_count()
 	
 	Global.crumbs_updated.connect(func():
-		for _i in 2: await get_tree().process_frame # wait for the node to be freed
+		# Wait for the node to be freed
+		for _i in 2: await get_tree().process_frame
 		update_crumb_count()
 		save_crumbs())

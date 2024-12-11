@@ -4,12 +4,9 @@ extends Node3D
 
 const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
 const FILE_PATH = "user://deco.dat"
-
 var default_deco_data = {}
 
 func place_decoration(data: Dictionary) -> void:
-	#var _d = TEST_DECORATION.instantiate()
-	# For now, if no scene is specified for the decoration, nothing will happen
 	if !Global.queued_decoration in Global.DecoData: return
 	var _data = Global.DecoData[Global.queued_decoration]
 	if !"scene" in _data: return
@@ -71,11 +68,6 @@ func _save_decorations() -> void:
 	_file.store_var(_decoration_save_data)
 	_file.close()
 
-#func _input(_event: InputEvent) -> void:
-	#if Global.tool_mode == Global.TOOL_MODE_PLACE:
-		#if Input.is_action_just_pressed("right_click"):
-			#Global.deco_placement_canceled.emit()
-
 func _ready() -> void:
 	for _n in get_children():
 		if _n is Decoration:
@@ -83,10 +75,8 @@ func _ready() -> void:
 	default_deco_data = _get_decoration_list()
 	
 	# Load saved decorations or reset them depending on parameters passed from the main menu
-	if Global.start_params.new_save:
-		_load_decorations(default_deco_data)
-	else:
-		_load_decorations(_load_decoration_file())
+	if Global.start_params.new_save: _load_decorations(default_deco_data)
+	else: _load_decorations(_load_decoration_file())
 	
 	Global.mouse_3d_click.connect(func():
 		if Global.tool_mode == Global.TOOL_MODE_PLACE:
@@ -99,22 +89,13 @@ func _ready() -> void:
 			Global.queued_decoration = "none"
 			Global.set_cursor(false))
 	
+	# Commands (useful for debugging)
 	Global.command_sent.connect(func(_cmd):
-		if _cmd == "/cleardeco":
-			_clear_decorations()
-			#Global.announcement_sent.emit("((Decorations cleared))")
-		elif _cmd == "/loaddeco":
-			_load_decorations(_load_decoration_file())
-			#Global.announcement_sent.emit("((Decorations loaded))")
-		elif _cmd == "/resetdeco":
-			_load_decorations(default_deco_data)
-			#Global.announcement_sent.emit("((Decorations reset))")
-		elif _cmd == "/savedeco":
-			#Global.announcement_sent.emit("((Decorations saved))")
-			_save_decorations()
-		elif _cmd == "/getdecolist":
-			_get_decoration_list()
-	)
+		if _cmd == "/cleardeco": _clear_decorations()
+		elif _cmd == "/loaddeco": _load_decorations(_load_decoration_file())
+		elif _cmd == "/resetdeco": _load_decorations(default_deco_data)
+		elif _cmd == "/savedeco": _save_decorations()
+		elif _cmd == "/getdecolist": _get_decoration_list())
 	
-	await get_tree().process_frame
+	await get_tree().process_frame # needs a frame to avoid duplication
 	Global.command_sent.emit("/savedeco")

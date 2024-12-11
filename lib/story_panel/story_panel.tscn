@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn2qyrv6nlm14"]
+[gd_scene load_steps=13 format=3 uid="uid://cn2qyrv6nlm14"]
 
 [ext_resource type="Texture2D" uid="uid://4n7lm0nhmyrh" path="res://lib/story_panel/textures/base.png" id="1_08h36"]
 [ext_resource type="Script" path="res://lib/story_panel/story_panel.gd" id="1_b7ku0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="3_rw3lo"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="4_7s6xp"]
 [ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="7_p10w8"]
+[ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="8_e0q63"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysri0"]
 shader = ExtResource("2_krwrs")
@@ -137,6 +138,21 @@ bbcode_enabled = true
 text = "Lorem ipsum"
 scroll_active = false
 
+[node name="Done" type="Button" parent="Base/Content"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.5
+offset_top = -83.0
+offset_right = 68.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Done"
+
 [node name="JadeWingsBase" type="Node2D" parent="."]
 
 [node name="JadeWings" type="Sprite2D" parent="JadeWingsBase"]
@@ -167,4 +183,8 @@ texture_hover = ExtResource("4_7s6xp")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Paper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_e0q63")
+
+[connection signal="button_down" from="Base/Content/Done" to="." method="close"]
 [connection signal="button_down" from="CloseButton" to="." method="close"]
