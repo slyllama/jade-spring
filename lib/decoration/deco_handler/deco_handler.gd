@@ -20,12 +20,10 @@ func place_decoration(data: Dictionary) -> void:
 	if "y_rotation" in data:
 		_d.global_rotation.y = data.y_rotation
 	Global.decorations.append(_d)
-	
 	Global.command_sent.emit("/savedeco")
 
 # Clear all decorations from the world
 func _clear_decorations() -> void:
-	print("clearing decorations")
 	for _n in get_children():
 		if _n is Decoration:
 			_n.queue_free()
@@ -87,7 +85,6 @@ func _ready() -> void:
 	# Load saved decorations or reset them depending on parameters passed from the main menu
 	if Global.start_params.new_save:
 		_load_decorations(default_deco_data)
-		_save_decorations()
 	else:
 		_load_decorations(_load_decoration_file())
 	
@@ -105,16 +102,19 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/cleardeco":
 			_clear_decorations()
-			Global.announcement_sent.emit("((Decorations cleared))")
+			#Global.announcement_sent.emit("((Decorations cleared))")
 		elif _cmd == "/loaddeco":
 			_load_decorations(_load_decoration_file())
-			Global.announcement_sent.emit("((Decorations loaded))")
+			#Global.announcement_sent.emit("((Decorations loaded))")
 		elif _cmd == "/resetdeco":
 			_load_decorations(default_deco_data)
-			Global.announcement_sent.emit("((Decorations reset))")
+			#Global.announcement_sent.emit("((Decorations reset))")
 		elif _cmd == "/savedeco":
-			Global.announcement_sent.emit("((Decorations saved))")
+			#Global.announcement_sent.emit("((Decorations saved))")
 			_save_decorations()
 		elif _cmd == "/getdecolist":
 			_get_decoration_list()
 	)
+	
+	await get_tree().process_frame
+	Global.command_sent.emit("/savedeco")
