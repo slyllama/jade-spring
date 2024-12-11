@@ -93,11 +93,11 @@ func _process(delta: float) -> void:
 	if has_completed: return
 	
 	if Input.is_action_pressed("move_left"):
-		$BG/Player.global_position.x -= move_speed
+		$BG/Player.global_position.x -= move_speed * delta * 60.0
 	elif Input.is_action_pressed("move_right"):
-		$BG/Player.global_position.x += move_speed
+		$BG/Player.global_position.x += move_speed * delta * 60.0
 	
-	$BG/Fish.global_position.x += fish_speed
+	$BG/Fish.global_position.x += fish_speed * delta * 60.0
 	if $BG/Fish.global_position.x < _get_x_left():
 		$BG/Fish.global_position.x += 3.0
 		switch_direction()
