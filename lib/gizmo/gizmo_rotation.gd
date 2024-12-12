@@ -93,4 +93,4 @@ func _ready() -> void:
 	var scale_in_tween = create_tween()
 	scale_in_tween.tween_property(rotate_visual, "scale", Vector3(1.5, 1.5, 1.5), 0.15)
 	
-	position.y = 1.0
+	#position.y = 1.0

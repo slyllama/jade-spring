@@ -16,6 +16,7 @@ var deco_button_pressed = false # this will become true on mouse down - decorati
 var deco_pane_open = false
 var current_effects = [ ]
 var foliage_count = 0
+var gizmo_debug_text = "((Gizmo debug))" # because I'm losing my mind
 var in_exclusive_ui = false
 var last_command = ""
 var mouse_3d_position = Utilities.BIGVEC3
@@ -138,7 +139,7 @@ const DecoData = {
 		"scene": "res://decorations/rusted_ac_unit/deco_rusted_ac_unit.tscn",
 		"cursor_model": "res://decorations/rusted_ac_unit/rusted_ac_unit.glb",
 		"preview_scale": 1.2,
-		"y_rotation": 90,
+		#"y_rotation": 90,
 		"preview_y_rotation": 35,
 		"tags": ["Cantha"]
 	},

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cn2qyrv6nlm14"]
+[gd_scene load_steps=14 format=3 uid="uid://cn2qyrv6nlm14"]
 
 [ext_resource type="Texture2D" uid="uid://4n7lm0nhmyrh" path="res://lib/story_panel/textures/base.png" id="1_08h36"]
 [ext_resource type="Script" path="res://lib/story_panel/story_panel.gd" id="1_b7ku0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="3_5bs7w"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="3_rw3lo"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="4_7s6xp"]
+[ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="5_0s6ph"]
 [ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="7_p10w8"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="8_e0q63"]
 
@@ -152,6 +153,20 @@ offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Done"
+
+[node name="Sticker" type="TextureRect" parent="Base/Content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 58.0
+offset_right = 64.0
+offset_bottom = 186.0
+grow_horizontal = 2
+texture = ExtResource("5_0s6ph")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="JadeWingsBase" type="Node2D" parent="."]
 

@@ -36,7 +36,9 @@ func get_drag_collision():
 	mesh_query.collision_mask = 0b0010
 	
 	var intersect = space_state.intersect_ray(mesh_query)
-	if intersect != {}: return(intersect.position)
+	if intersect != {}:
+		Global.gizmo_debug_text = str(intersect.collider)
+		return(intersect.position)
 	else: return(null)
 
 func destroy() -> void:
@@ -129,7 +131,7 @@ func _ready() -> void:
 	set_disable_scale(true)
 	
 	# This is extremely cursed, but it works
-	get_parent().position += Vector3(0.001, 0.001, 0.001)
+	get_parent().position += Vector3(0.0001, 0.0001, 0.0001)
 
 var last_collision = null
 @onready var last_position = get_parent().global_position
@@ -142,7 +144,9 @@ func _process(delta: float) -> void:
 	adjacent_plane.global_position = global_position
 	drag_plane.global_position = global_position
 	
-	if !active or !get_drag_collision(): return
+	if !active or !get_drag_collision():
+		return
+	
 	tangent_cast.global_position = get_drag_collision()
 	tangent_cast.global_rotation = global_rotation
 	tangent_cast.global_position -= EXTENTS / 2 * global_transform.basis.z
