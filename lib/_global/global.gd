@@ -10,7 +10,6 @@ var save_handler: SaveHandler
 
 var camera_orbiting = false
 var can_move = true
-var crumb_data = { } # reports both total counts and progress
 var current_crumb = null
 var debug_enabled = false
 var deco_button_pressed = false # this will become true on mouse down - decoration placement will not happen until it has been cleared

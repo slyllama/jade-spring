@@ -16,6 +16,11 @@ func _ready() -> void:
 			Global.weed_crumb_left.emit())
 
 func interact() -> void:
+	if Save.data.story_point == "game_start":
+		Global.announcement_sent.emit("((Comment about weeds))")
+		Global.weed_crumb_left.emit()
+		return
+	
 	if !pickable: return
 	pickable = false
 	Global.add_qty_effect("weed")

@@ -108,6 +108,8 @@ func _process(_delta: float) -> void:
 		position = intersect.position
 		Global.mouse_3d_position = intersect.position
 		_target_normal = intersect.normal
+		if intersect.collider.get_parent() is Decoration:
+			set_cursor_tint(Color.GREEN)
 	else:
 		Global.mouse_3d_position = Utilities.BIGVEC3 # set an impossible position
 		if visible:

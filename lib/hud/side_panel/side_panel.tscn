@@ -107,7 +107,6 @@ visible = false
 layout_mode = 2
 
 [node name="Blank" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4

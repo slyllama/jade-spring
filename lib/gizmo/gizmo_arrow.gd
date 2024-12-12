@@ -127,6 +127,9 @@ func _ready() -> void:
 	
 	position.y = 0.1
 	set_disable_scale(true)
+	
+	# This is extremely cursed, but it works
+	get_parent().position += Vector3(0.001, 0.001, 0.001)
 
 var last_collision = null
 @onready var last_position = get_parent().global_position

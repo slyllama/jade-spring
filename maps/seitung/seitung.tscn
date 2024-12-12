@@ -318,11 +318,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82132, 1, 7.83363)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13055, 0.778726, 5.07015)
 
 [node name="Weed" parent="CrumbHandler" index="6" instance=ExtResource("7_p2o6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73766, 0.47545, 13.3512)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42135, 0.47545, 13.251)
 area_radius = 0.9
 
 [node name="Weed2" parent="CrumbHandler" index="7" instance=ExtResource("7_p2o6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.938809, 0.47545, 14.1893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.895246, 0.47545, 14.5673)
 area_radius = 0.9
 
 [node name="Weed4" parent="CrumbHandler" index="8" instance=ExtResource("7_p2o6w")]

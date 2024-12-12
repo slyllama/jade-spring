@@ -26,23 +26,28 @@ func proc_story() -> void:
 		var _d = Save.STORY_POINT_SCRIPT[_p] # data shorthand
 		if "objective" in Save.STORY_POINT_SCRIPT[_p]:
 			$StoryText.text = _d.objective
+			if Save.data.story_point == "bulwark_gyro":
+				$StoryText.text += " (" + str(10 - (Global.crumb_handler.totals.weed
+					- Save.data.crumb_count.weed)) + " remaining)"
 
 func _ready() -> void:
 	Global.crumbs_updated.connect(func():
 		for _i in 3: await get_tree().process_frame
-		if "bug" in Save.data.crumb_count:
+		if "bug" in Save.data.crumb_count and "bug" in Global.crumb_handler.totals:
 			_target_bug_ratio = _get_bug_ratio()
 			if !first_load:
 				$BugsBar/Panel/Bar.value = _get_bug_ratio()
 				first_load = true
-		if "weed" in Save.data.crumb_count:
+		if "weed" in Save.data.crumb_count and "weed" in Global.crumb_handler.totals:
 			_target_weed_ratio = _get_weed_ratio()
 			if !first_load:
 				$WeedsBar/Panel/Bar.value = _get_weed_ratio()
-				first_load = true)
+				first_load = true
+			
+			proc_story())
 	
 	Save.story_advanced.connect(proc_story)
-	proc_story()
+	#proc_story()
 
 func _process(delta: float) -> void:
 	$BugsBar/Panel/Bar.value = lerp(
