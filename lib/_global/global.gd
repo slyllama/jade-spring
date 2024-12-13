@@ -152,6 +152,13 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"tags": ["Architecture"]
 	},
+	"weeping_willow": {
+		"name": "Weeping Willow",
+		"scene": "res://decorations/weeping_willow/deco_weeping_willow.tscn",
+		"cursor_model": "res://decorations/weeping_willow/meshes/weeping_willow.glb",
+		"preview_scale": 0.38,
+		"tags": ["Foliage"]
+	},
 }
 #endregion
 

@@ -4,11 +4,13 @@ const Offsets = {
 	"shing_jea_arch": -0.4,
 	"bloodstone_impacted_pillar": -0.6,
 	"waterfall_fountain": 0.29,
-	"bamboo_cluster": -0.5
+	"bamboo_cluster": -0.5,
+	"weeping_willow": -0.5
 }
 
 const HOffsets = {
-	"eepy_fence": -0.1
+	"eepy_fence": -0.1,
+	"weeping_willow": -0.1
 }
 
 var orbiting = false

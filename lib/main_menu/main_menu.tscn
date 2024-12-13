@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=19 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
+[ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_g05lm"]
+[ext_resource type="Texture2D" uid="uid://di4tqbaloy431" path="res://generic/textures/light_ray.png" id="3_nclce"]
 [ext_resource type="PackedScene" uid="uid://col3bfw2kkxf0" path="res://lib/main_menu/mm_button.tscn" id="3_v0okn"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
 [ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="5_pvsjo"]
@@ -9,12 +11,60 @@
 [ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
 [ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="8_rr48m"]
+[ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="9_g8hmh"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="10_cqy1t"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="11_ctlnu"]
 [ext_resource type="PackedScene" uid="uid://d33ilqq0c1mwg" path="res://lib/main_menu/new_game_container.tscn" id="12_0oh4d"]
 
+[sub_resource type="Curve" id="Curve_2imnw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c2dw2"]
+curve = SubResource("Curve_2imnw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0vfhr"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(960, 540, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(4, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.3
+scale_max = 0.4
+alpha_curve = SubResource("CurveTexture_c2dw2")
+
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_jagjv")
+
+[node name="Base" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_8eqi1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LightRay" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.0784314)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_nclce")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Timer" type="Timer" parent="LightRay"]
+wait_time = 0.7
+autostart = true
 
 [node name="DecorationNE" type="TextureRect" parent="."]
 modulate = Color(0.1, 0.1, 0.1, 1)
@@ -110,6 +160,13 @@ texture = ExtResource("5_pvsjo")
 [node name="TitleCard" parent="." instance=ExtResource("6_aye18")]
 scale = Vector2(0.5, 0.5)
 
+[node name="Motes" type="GPUParticles2D" parent="TitleCard"]
+position = Vector2(0, 416)
+process_material = SubResource("ParticleProcessMaterial_0vfhr")
+texture = ExtResource("9_g8hmh")
+lifetime = 2.0
+preprocess = 5.0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_or2me")
 volume_db = -6.0
@@ -204,6 +261,7 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[connection signal="timeout" from="LightRay/Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_down" from="Container/ContinueButton" to="." method="_on_continue_button_down"]
 [connection signal="button_down" from="Container/PlayButton" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Container/SettingsButton" to="." method="_on_settings_button_down"]

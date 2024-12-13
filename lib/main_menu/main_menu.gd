@@ -2,10 +2,12 @@ extends CanvasLayer
 
 const LOADER_SCENE = "res://lib/loader/loader.tscn"
 const DECO_DATA_PATH = "user://deco.dat"
+var rng = RandomNumberGenerator.new()
 
 @onready var focus: Button
 var can_interact = true
 var ngc_open = false # new game container open
+var _light_ray_target_alpha = 0.01
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -53,6 +55,7 @@ func play() -> void:
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
 func _ready() -> void:
+	$LightRay.modulate.a = 0.01
 	$FG.visible = true
 	$FG.modulate.a = 1.0
 	await get_tree().process_frame
@@ -101,6 +104,8 @@ func _ready() -> void:
 	$Music.play()
 
 func _process(delta: float) -> void:
+	$LightRay.modulate.a = lerp($LightRay.modulate.a, _light_ray_target_alpha, delta * 6.0)
+	
 	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
@@ -135,3 +140,6 @@ func _on_new_game_button_pressed() -> void:
 	$NewGameContainer.close()
 	Global.start_params.new_save = true
 	play()
+
+func _on_timer_timeout() -> void:
+	_light_ray_target_alpha = 0.02 + 0.03 * rng.randf()

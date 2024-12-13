@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://blrcrw8wkf6uu"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_kgk8g"]
+[ext_resource type="PackedScene" uid="uid://cnpky1n1tfjhj" path="res://decorations/weeping_willow/meshes/weeping_willow.glb" id="2_5e5s2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfu0k"]
+size = Vector3(1.84668, 4.56934, 2.10327)
+
+[node name="WeepingWillow" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_kgk8g")
+id = "weeping_willow"
+collision_box = NodePath("Body")
+
+[node name="WeepingWillow" parent="." instance=ExtResource("2_5e5s2")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Shape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338492, 1.96684, 0)
+shape = SubResource("BoxShape3D_xfu0k")
