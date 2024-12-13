@@ -7,6 +7,7 @@ var start_params = {
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
 var save_handler: SaveHandler
+var hud: CanvasLayer
 
 var camera_orbiting = false
 var can_move = true
@@ -232,6 +233,12 @@ func set_cursor(state = true, data = {}) -> void:
 func go_to_safe_point() -> void:
 	if safe_point:
 		move_player.emit(safe_point.global_position)
+
+const Flash = preload("res://lib/flash/flash.tscn")
+func play_flash(screen_position: Vector2) -> void:
+	var _f = Flash.instantiate()
+	_f.global_position = screen_position
+	hud.add_child(_f)
 
 ##### Execution
 

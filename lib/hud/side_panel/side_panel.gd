@@ -1,7 +1,9 @@
 extends VBoxContainer
 
 var _target_bug_ratio := 0.0
+var _last_bug_ratio = _target_bug_ratio
 var _target_weed_ratio := 0.0
+var _last_weed_ratio = _target_weed_ratio
 var first_load = false
 
 func _get_bug_ratio() -> float:
@@ -50,7 +52,15 @@ func _ready() -> void:
 	#proc_story()
 
 func _process(delta: float) -> void:
+	if _last_bug_ratio != _target_bug_ratio:
+		Global.play_flash($BugsBar.global_position + Vector2(20, 7))
+	if _last_weed_ratio != _target_weed_ratio:
+		Global.play_flash($WeedsBar.global_position + Vector2(20, 7))
+	
 	$BugsBar/Panel/Bar.value = lerp(
 		$BugsBar/Panel/Bar.value, _target_bug_ratio, delta * 9)
 	$WeedsBar/Panel/Bar.value = lerp(
 		$WeedsBar/Panel/Bar.value, _target_weed_ratio, delta * 9)
+	
+	_last_bug_ratio = _target_bug_ratio
+	_last_weed_ratio = _target_weed_ratio

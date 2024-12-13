@@ -59,6 +59,7 @@ func _input(_event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("debug_cmd"):
 		if !Global.debug_enabled: return
+		
 		if !$TopLevel/DebugEntry.has_focus():
 			# Select the command line for entry
 			_debug_cmd_gain_focus()
@@ -89,6 +90,8 @@ func _input(_event: InputEvent) -> void:
 			$TopLevel/CloseButton.visible = true
 
 func _ready() -> void:
+	Global.hud = self # reference
+	
 	# Interaction connections
 	Global.bug_crumb_entered.connect(_show_int)
 	Global.bug_crumb_left.connect(_hide_int)
@@ -103,6 +106,8 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()
+		elif _cmd == "/playflash":
+			Global.play_flash($TopLevel/CloseButton.global_position)
 		elif _cmd == "/storypanel":
 			var _sp = StoryPanel.instantiate()
 			add_child(_sp)
