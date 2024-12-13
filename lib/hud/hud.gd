@@ -79,8 +79,14 @@ func _input(_event: InputEvent) -> void:
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
-		if visible: visible = false
-		else: visible = true
+		if visible:
+			$Toolbox.visible = false
+			visible = false
+			$TopLevel/CloseButton.visible = false
+		else:
+			$Toolbox.visible = true
+			visible = true
+			$TopLevel/CloseButton.visible = true
 
 func _ready() -> void:
 	# Interaction connections
