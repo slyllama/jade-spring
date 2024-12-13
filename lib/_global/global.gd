@@ -17,7 +17,6 @@ var deco_button_pressed = false # this will become true on mouse down - decorati
 var deco_pane_open = false
 var current_effects = [ ]
 var foliage_count = 0
-var gizmo_debug_text = "((Gizmo debug))" # because I'm losing my mind
 var in_exclusive_ui = false
 var last_command = ""
 var mouse_3d_position = Utilities.BIGVEC3

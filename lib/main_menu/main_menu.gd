@@ -58,6 +58,8 @@ func _ready() -> void:
 	$LightRay.modulate.a = 0.01
 	$FG.visible = true
 	$FG.modulate.a = 1.0
+	$SettingsPane/Container/Quit.queue_free()
+	set_up_nodule()
 	await get_tree().process_frame
 	
 	var fade_tween = create_tween()
@@ -65,9 +67,6 @@ func _ready() -> void:
 	fade_tween.tween_callback(func():
 		if can_interact:
 			$FG.visible = false)
-	
-	set_up_nodule()
-	$SettingsPane/Container/Quit.queue_free()
 	
 	AudioServer.set_bus_volume_db(0, -80)
 	SettingsHandler.setting_changed.connect(func(parameter):
@@ -143,3 +142,6 @@ func _on_new_game_button_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	_light_ray_target_alpha = 0.02 + 0.03 * rng.randf()
+
+func _on_settings_pane_closed() -> void:
+	$Container/SettingsButton.grab_focus()

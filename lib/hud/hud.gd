@@ -191,7 +191,6 @@ func _process(_delta: float) -> void:
 			+ str(Global.queued_decoration) + "[/color]")
 	
 	$Debug.text += _render_crumb_debug()
-	$Debug.text += "\n\n" + Global.gizmo_debug_text
 	$Debug.text += "[/right]"
 	#endregion
 

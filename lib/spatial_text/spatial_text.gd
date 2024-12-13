@@ -2,6 +2,9 @@ extends VisibleOnScreenNotifier3D
 # SpatialText
 # Shows text (and other things) attached to a gizmo or crumb
 
+const TRANS_TIME = 0.2
+var in_range = true
+
 @export var spatial_string = "((Untitled))":
 	get:
 		return(spatial_string)
@@ -36,6 +39,12 @@ func _process(_delta: float) -> void:
 			$FG/Title.visible = false
 	
 	if global_position.distance_to(Global.player_position) > 5.8:
-		visible = false
+		if in_range:
+			in_range = false
+			var _ft = create_tween() # fade tween
+			_ft.tween_property($FG/Title, "modulate:a", 0.0, TRANS_TIME)
 	else:
-		visible = true
+		if !in_range:
+			in_range = true
+			var _ft = create_tween() # fade tween
+			_ft.tween_property($FG/Title, "modulate:a", 1.0, TRANS_TIME)

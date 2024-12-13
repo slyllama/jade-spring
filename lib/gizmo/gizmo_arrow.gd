@@ -36,9 +36,7 @@ func get_drag_collision():
 	mesh_query.collision_mask = 0b0010
 	
 	var intersect = space_state.intersect_ray(mesh_query)
-	if intersect != {}:
-		Global.gizmo_debug_text = str(intersect.collider)
-		return(intersect.position)
+	if intersect != {}: return(intersect.position)
 	else: return(null)
 
 func destroy() -> void:

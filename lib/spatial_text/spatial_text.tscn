@@ -26,5 +26,6 @@ offset_bottom = 40.0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "[center]((Text))[/center]"

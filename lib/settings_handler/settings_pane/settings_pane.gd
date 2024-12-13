@@ -3,6 +3,10 @@ extends "res://lib/ui_container/ui_container.gd"
 const QuitConfirmation = preload("res://lib/hud/quit_confirmation/quit_confirmation.tscn")
 var qc
 
+func open(silent = false) -> void:
+	super(silent)
+	$Container/Done.grab_focus()
+
 func close() -> void:
 	if qc != null:
 		qc.queue_free()
