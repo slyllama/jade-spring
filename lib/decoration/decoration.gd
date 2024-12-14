@@ -77,8 +77,6 @@ func start_adjustment() -> void:
 	Global.transform_mode_changed.emit(Global.transform_mode)
 	Global.tool_mode = Global.TOOL_MODE_ADJUST
 	Global.adjustment_started.emit()
-	
-	collision_box.input_ray_pickable = false # occludes gizmos otherwise
 	_spawn_arrows()
 	
 	transform_type = TRANSFORM_TYPE_TRANSLATE
@@ -88,8 +86,10 @@ func start_adjustment() -> void:
 	collision_box.set_collision_layer_value(2, 0)
 
 func apply_adjustment() -> void:
+	collision_box.input_ray_pickable = true
+	collision_box.set_collision_layer_value(1, true)
+	collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
-		collision_box.input_ray_pickable = true
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
@@ -98,8 +98,10 @@ func apply_adjustment() -> void:
 		Global.command_sent.emit("/savedeco")
 
 func cancel_adjustment() -> void:
+	collision_box.input_ray_pickable = true
+	collision_box.set_collision_layer_value(1, true)
+	collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
-		collision_box.input_ray_pickable = true
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
@@ -110,6 +112,11 @@ func cancel_adjustment() -> void:
 		rotation = last_rotation
 
 func _ready() -> void:
+	Global.adjustment_started.connect(func(): # disable input picking for ALL decorations
+		collision_box.set_collision_layer_value(1, false)
+		collision_box.set_collision_layer_value(2, false)
+		collision_box.input_ray_pickable = false)
+	
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
 	
@@ -167,8 +174,6 @@ func _ready() -> void:
 		global_rotation_degrees.y = _nr + 90.0)
 	
 	if collision_box != null:
-		collision_box.input_ray_pickable = true
-		
 		Global.transform_mode_changed.connect(func(_mode):
 			if !Global.active_decoration == self: return
 			if transform_type == TRANSFORM_TYPE_TRANSLATE:

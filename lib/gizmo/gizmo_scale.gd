@@ -26,6 +26,9 @@ func destroy() -> void:
 func _ready() -> void:
 	enabled = true
 	
+	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
+		global_rotation = Vector3.ZERO
+	
 	# Set up grabber from PickBox
 	grabber.set_size(Vector3(0.8, 0.5, 0.5))
 	grabber.make_ui_component()

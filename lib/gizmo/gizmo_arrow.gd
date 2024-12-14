@@ -83,6 +83,7 @@ func _ready() -> void:
 	
 	grabber.drag_started.connect(func():
 		if !enabled: return
+		grabber.set_collision_layer_value(1, 0)
 		tangent_cast.visible = true
 		drag_plane.set_collision_layer_value(2, 1)
 		adjacent_plane.set_collision_layer_value(3, 1)
@@ -106,7 +107,7 @@ func _ready() -> void:
 	adjacent_plane.input_ray_pickable = false
 	adjacent_plane.set_collision_layer_value(1, 0)
 	adjacent_plane.set_collision_layer_value(3, 0)
-	adjacent_plane.set_size(Vector3(0.2, 0.01, EXTENTS))
+	adjacent_plane.set_size(Vector3(0.2, 0.2, EXTENTS))
 	grabber.add_child(adjacent_plane)
 	adjacent_plane.rotation_degrees = Vector3(0, 90, 90)
 	
@@ -162,8 +163,7 @@ func _process(delta: float) -> void:
 				else: _new_pos = last_position + get_drag_collision() - last_collision
 				
 				if !Global.snapping:
-					get_parent().global_position = lerp(
-						get_parent().global_position, _new_pos, 14 * delta)
+					get_parent().global_position = _new_pos
 				else:
 					var _new_snapped_pos = Vector3(
 						snapped(_new_pos.x, 0.25),
