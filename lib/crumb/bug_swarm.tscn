@@ -27,6 +27,7 @@ stream = ExtResource("4_1u0f8")
 volume_db = -9.0
 
 [node name="VisualArea" parent="." instance=ExtResource("5_43y53")]
+visible = false
 
 [node name="SpatialText" parent="." instance=ExtResource("6_oqvb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -17,5 +17,5 @@ backlight = Color(1, 1, 1, 1)
 uv1_scale = Vector3(32, 32, 32)
 uv1_offset = Vector3(0, 0.05, 0)
 distance_fade_mode = 2
-distance_fade_min_distance = 20.5
-distance_fade_max_distance = 20.0
+distance_fade_min_distance = 16.5
+distance_fade_max_distance = 16.0

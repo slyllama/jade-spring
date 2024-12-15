@@ -28,9 +28,10 @@ func _ready() -> void:
 				elif _value == "maximized": get_window().mode = Window.MODE_MAXIMIZED
 				else: get_window().mode = Window.MODE_WINDOWED
 			"foliage_density":
-				var _d = 1.0
-				if _value == "medium": _d = 0.7
-				elif _value == "low": _d = 0.3
+				var _d = 1.0 # uldra
+				if _value == "high": _d = 0.8
+				elif _value == "medium": _d = 0.6
+				elif _value == "low": _d = 0.4
 				for _n in $Decoration/Foliage.get_children():
 					if _n is FoliageSpawner: _n.set_density(_d)
 			"volume": Utilities.set_master_vol()
