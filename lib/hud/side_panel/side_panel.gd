@@ -11,8 +11,10 @@ func _get_bug_ratio() -> float:
 		/ float(Global.crumb_handler.totals.bug) * 100))
 
 func _get_weed_ratio () -> float:
-	return((100 - Save.data.crumb_count.weed
-		/ float(Global.crumb_handler.totals.weed) * 100))
+	var _ratio = (Save.data.deposited_weeds
+		/ float(Global.crumb_handler.totals.weed) * 100)
+	print(_ratio)
+	return(_ratio)
 
 func proc_story() -> void:
 	# TODO: show different depending on where we are at in the story.
@@ -29,8 +31,8 @@ func proc_story() -> void:
 		if "objective" in Save.STORY_POINT_SCRIPT[_p]:
 			$StoryText.text = _d.objective
 			if Save.data.story_point == "bulwark_gyro":
-				$StoryText.text += " (" + str(10 - (Global.crumb_handler.totals.weed
-					- Save.data.crumb_count.weed)) + " remaining)"
+				$StoryText.text += " (" + str(10 - Save.data.deposited_weeds) + " remaining)"
+				print("Save.data.deposited_weeds = " + str(Save.data.deposited_weeds))
 
 func _ready() -> void:
 	Global.crumbs_updated.connect(func():
@@ -40,7 +42,7 @@ func _ready() -> void:
 			if !first_load:
 				$BugsBar/Panel/Bar.value = _get_bug_ratio()
 				first_load = true
-		if "weed" in Save.data.crumb_count and "weed" in Global.crumb_handler.totals:
+		if "deposited_weeds" in Save.data and "weed" in Global.crumb_handler.totals:
 			_target_weed_ratio = _get_weed_ratio()
 			if !first_load:
 				$WeedsBar/Panel/Bar.value = _get_weed_ratio()

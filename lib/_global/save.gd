@@ -25,7 +25,8 @@ const DEFAULT_DATA = {
 	"story_point": "game_start",
 	"crumbs": [],
 	"crumb_count": {},
-	"weeds": 0 # weeds in inventory
+	"weeds": 0, # weeds in inventory
+	"deposited_weeds": 0
 }
 var data = {}
 
@@ -48,6 +49,7 @@ func load_from_file() -> void:
 
 func reset() -> void:
 	data = DEFAULT_DATA.duplicate(true)
+	Global.current_effects = []
 	save_to_file()
 
 func save_to_file() -> void:

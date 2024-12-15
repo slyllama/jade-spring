@@ -60,6 +60,15 @@ func add_qty_effect(id: String, amount = 1) -> void:
 				#current_effects.erase(_fx)
 	add_effect.emit(id + "=" + str(_new_amount))
 
+# Return the quantity of an effect (if it has one, or zero if it doesn't)
+func get_effect_qty(effect: String) -> int:
+	var _qty = 0
+	var _d = effect.split("=") # effect data
+	for _fx in Global.current_effects:
+		if _d[0] in _fx:
+			_qty = int(_fx.split("=")[1])
+	return(_qty)
+
 ##### Decoration signals and parameters
 #region Decoration data
 const DecoTags = [ "None", "Architecture", "Foliage", "Cantha" ]

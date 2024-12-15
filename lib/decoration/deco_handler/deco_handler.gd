@@ -35,8 +35,8 @@ func _load_decorations(data = []) -> void:
 		var _decoration = load(Global.DecoData[_d.id].scene).instantiate()
 		
 		add_child(_decoration)
-		_decoration.position = _d.position
-		_decoration.rotation = _d.rotation
+		_decoration.global_position = _d.position
+		_decoration.global_rotation_degrees = _d.rotation
 		_decoration.scale = _d.scale
 		Global.decorations.append(_decoration)
 
@@ -57,7 +57,11 @@ func _get_decoration_list() -> Array:
 			_decoration_save_data.append({
 				"id": _n.id,
 				"position": _n.global_position,
-				"rotation": _n.global_rotation,
+				"rotation": Vector3(
+					snapped(_n.global_rotation_degrees.x, 0.01),
+					snapped(_n.global_rotation_degrees.y, 0.01),
+					snapped(_n.global_rotation_degrees.z, 0.01)
+				),
 				"scale": _n.scale
 			})
 	return(_decoration_save_data)
