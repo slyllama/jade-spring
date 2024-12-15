@@ -38,6 +38,8 @@ fog_sky_affect = 0.0
 fog_depth_begin = 18.0
 fog_depth_end = 22.0
 volumetric_fog_density = 0.01
+adjustment_enabled = true
+adjustment_saturation = 1.09
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g86cy"]
 size = Vector3(80, 0.1, 80)

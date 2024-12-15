@@ -23,6 +23,10 @@ func _get_in_bounds(_pos: Vector2) -> bool:
 		_in_bounds = false
 	return(_in_bounds)
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("toggle_hud"):
+		$FG.visible = !$FG.visible
+
 func _ready() -> void:
 	$FG/Underlay.queue_free()
 	_set_title(spatial_string)

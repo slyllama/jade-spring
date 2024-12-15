@@ -167,6 +167,14 @@ const DecoData = {
 		"preview_scale": 0.38,
 		"tags": ["Foliage"]
 	},
+	"roof_piece": {
+		"name": "Roof Piece",
+		"scene": "res://decorations/roof_piece/deco_roof_piece.tscn",
+		"cursor_model": "res://decorations/roof_piece/roof_piece.glb",
+		"preview_scale": 1.2,
+		"preview_y_rotation": 35,
+		"tags": ["Architecture", "Cantha"]
+	},
 }
 #endregion
 
