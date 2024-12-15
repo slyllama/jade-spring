@@ -1269,6 +1269,10 @@ draw_pass_1 = SubResource("PlaneMesh_herhu")
 [node name="WeedBin" parent="." index="13" instance=ExtResource("36_pj8da")]
 transform = Transform3D(-0.99518, 0, -0.0980693, 0, 1, 0, 0.0980693, 0, -0.99518, -4.42869, -0.229125, 16.0129)
 
+[node name="SpatialText" parent="WeedBin" index="18" instance=ExtResource("25_or3n7")]
+transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 1, 0)
+spatial_string = "Compost Bin"
+
 [node name="Lamp" type="OmniLight3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66611, 2.70211, 9.04827)
 light_color = Color(1, 0.926333, 0.66, 1)
@@ -1289,6 +1293,10 @@ transform = Transform3D(0.994538, -0.135684, 0, 0.104372, 1.2929, 0, 0, 0, 1, 10
 
 [node name="CleaningStation" parent="." index="18" instance=ExtResource("22_wkmls")]
 transform = Transform3D(0.434056, 0, -1.27832, 0, 1.35, 0, 1.27832, 0, 0.434056, 5.22151, 0.403454, 7.60442)
+
+[node name="SpatialText2" parent="CleaningStation" index="37" instance=ExtResource("25_or3n7")]
+transform = Transform3D(0.238164, 0, 0.701408, 0, 0.740741, 0, -0.701408, 0, 0.238164, 0, 1, 0)
+spatial_string = "Discombobulation Station"
 
 [node name="Discombobulator" parent="." index="19" instance=ExtResource("30_a1hev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99646, 0.28488, 8.15605)

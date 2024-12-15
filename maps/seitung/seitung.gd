@@ -12,4 +12,5 @@ func _on_discombobulator_interacted() -> void:
 func _on_bin_interacted() -> void:
 	Save.data.deposited_weeds += Global.get_effect_qty("weed")
 	Global.crumbs_updated.emit()
+	Save.data.weeds = 0
 	Global.remove_effect.emit("weed")
