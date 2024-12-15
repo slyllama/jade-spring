@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var closed = false # prevent double interactions
+
 func _set_shader_value(val: float) -> void: # 0-1
 	var _e = ease(val, 0.2)
 	$Base.material.set_shader_parameter("paint_mask_exponent", (1 - _e) * 10)
@@ -23,6 +25,9 @@ func open(title = "((Title))", description = "((Description))"):
 	$JadeWingsBase/JadeAnim.play("float")
 
 func close():
+	if closed: return # should only happen once
+	closed = true
+	
 	# Do closing stuff
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_shader_value, 1.0, 0.0, 0.27)

@@ -55,7 +55,8 @@ material = SubResource("ShaderMaterial_fqi0m")
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
-[node name="Blank2" type="RichTextLabel" parent="."]
+[node name="B_U" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -66,6 +67,7 @@ fit_content = true
 scroll_active = false
 
 [node name="BugsText" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -76,9 +78,11 @@ fit_content = true
 scroll_active = false
 
 [node name="BugsBar" parent="." instance=ExtResource("4_7d8f4")]
+visible = false
 layout_mode = 2
 
 [node name="WeedsText" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -89,6 +93,7 @@ fit_content = true
 scroll_active = false
 
 [node name="WeedsBar" parent="." instance=ExtResource("4_7d8f4")]
+visible = false
 layout_mode = 2
 
 [node name="DragonvoidText" type="RichTextLabel" parent="."]
@@ -106,7 +111,8 @@ scroll_active = false
 visible = false
 layout_mode = 2
 
-[node name="Blank" type="RichTextLabel" parent="."]
+[node name="B_L" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4

@@ -13,16 +13,24 @@ func _get_bug_ratio() -> float:
 func _get_weed_ratio () -> float:
 	var _ratio = (Save.data.deposited_weeds
 		/ float(Global.crumb_handler.totals.weed) * 100)
-	print(_ratio)
 	return(_ratio)
 
 func proc_story() -> void:
 	# TODO: show different depending on where we are at in the story.
-	#if Save.data.story_point == "bulwark_gyro":
-		#$Blank2.visible = true
-		#$WeedsText.visible = true
-		#$WeedsBar.visible = true
-		#$Blank.visible = true
+	if Save.data.story_point == "pick_weeds":
+		$B_U.visible = true
+		$B_L.visible = true
+		
+		$WeedsText.visible = true
+		$WeedsBar.visible = true
+	if Save.data.story_point == "clear_bugs":
+		$B_U.visible = true
+		$B_L.visible = true
+		
+		$BugsText.visible = true
+		$BugsBar.visible = true
+		$WeedsText.visible = true
+		$WeedsBar.visible = true
 	
 	# Update sidebar with story contents when the story is advanced
 	var _p = Save.data.story_point # story point shorthand
@@ -30,9 +38,8 @@ func proc_story() -> void:
 		var _d = Save.STORY_POINT_SCRIPT[_p] # data shorthand
 		if "objective" in Save.STORY_POINT_SCRIPT[_p]:
 			$StoryText.text = _d.objective
-			if Save.data.story_point == "bulwark_gyro":
-				$StoryText.text += " (" + str(10 - Save.data.deposited_weeds) + " remaining)"
-				print("Save.data.deposited_weeds = " + str(Save.data.deposited_weeds))
+			if Save.data.story_point == "pick_weeds":
+				$StoryText.text += " (" + str(Save.OBJECTIVE_WEED_COUNT - Save.data.deposited_weeds) + " remaining)"
 
 func _ready() -> void:
 	Global.crumbs_updated.connect(func():
@@ -47,11 +54,11 @@ func _ready() -> void:
 			if !first_load:
 				$WeedsBar/Panel/Bar.value = _get_weed_ratio()
 				first_load = true
-			
 			proc_story())
 	
-	Save.story_advanced.connect(proc_story)
-	#proc_story()
+	Save.story_advanced.connect(func():
+		Global.play_flash($StoryText.global_position + Vector2(40, 14))
+		proc_story())
 
 func _process(delta: float) -> void:
 	if _last_bug_ratio != _target_bug_ratio:

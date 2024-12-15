@@ -4,19 +4,27 @@ class_name SaveHandler extends Node
 
 signal story_advanced
 
+const OBJECTIVE_WEED_COUNT = 3
+
 const STORY_POINTS = [
 	"game_start",
-	"bulwark_gyro"
+	"pick_weeds",
+	"clear_bugs"
 ]
 
-const STORY_POINT_SCRIPT = {
+var STORY_POINT_SCRIPT = {
 	"game_start": {
 		"title": "1. A Helping Hand",
 		"description": "Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending the garden![/color]",
 		"objective": "Talk to Pulley-4 about tending the garden."
 	},
-	"bulwark_gyro": {
-		"objective": "Pick 10 weeds and deposit them at the compost bin."
+	"pick_weeds": {
+		"objective": "Pick " + str(OBJECTIVE_WEED_COUNT) + " weeds and deposit them at the compost bin."
+	},
+	"clear_bugs": {
+		"title": "((Bug-clearing))",
+		"description": "((Bug-clearing))",
+		"objective": "((((Bug-clearing))))"
 	}
 }
 
@@ -68,12 +76,19 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	Global.save_handler = self # reference
 	
-	load_from_file()
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/savedata":
 			save_to_file()
 		elif _cmd == "/printsavedata":
 			print(Save.data))
+	
+	Global.crumbs_updated.connect(func():
+		if (Save.data.story_point == "pick_weeds"
+			and Save.data.deposited_weeds >= OBJECTIVE_WEED_COUNT):
+			advance_story()
+			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["clear_bugs"]))
+	
+	load_from_file()
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

@@ -135,7 +135,7 @@ func _ready() -> void:
 var last_collision = null
 @onready var last_position = get_parent().global_position
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	scale = Vector3(1.0, 1.0, 1.0)
 	
 	if !enabled: return
