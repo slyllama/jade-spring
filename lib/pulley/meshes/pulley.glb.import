@@ -33,10 +33,6 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"mat_eye": {
-"use_external/enabled": true,
-"use_external/path": "res://lib/pulley/materials/mat_eye.tres"
-},
 "mat_gold": {
 "use_external/enabled": true,
 "use_external/path": "res://lib/pulley/materials/mat_pulley.tres"
@@ -44,6 +40,10 @@ _subresources={
 "mat_hexagons": {
 "use_external/enabled": true,
 "use_external/path": "res://lib/pulley/materials/mat_pulley.tres"
+},
+"mat_placeholder": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/pulley/materials/mat_eye.tres"
 }
 }
 }

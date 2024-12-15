@@ -992,7 +992,7 @@ transform = Transform3D(0.298246, 0.142834, 0.879914, -0.0458511, 0.929085, -0.1
 mesh = ExtResource("14_yeybn")
 
 [node name="Pulley" parent="Decoration/Foliage" index="33" instance=ExtResource("15_p8dtp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0514278, 0.75, 6.35001)
+transform = Transform3D(-0.525828, 0, 0.850591, 0, 1, 0, -0.850591, 0, -0.525828, 1.02047, 0.00974998, 17.6871)
 
 [node name="House" parent="Decoration" index="1" instance=ExtResource("7_61cdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
