@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ihnnrs54ttba" path="res://lib/pulley/meshes/pulley.glb" id="5_p28vv"]
 
 [node name="Pulley" instance=ExtResource("1_7ikog")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 script = ExtResource("2_8d48b")
 
 [node name="Collision" parent="." index="0"]

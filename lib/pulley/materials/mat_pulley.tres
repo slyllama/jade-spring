@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://inf5de3sfymk"]
+
+[ext_resource type="Texture2D" uid="uid://bhmy6i3gockm8" path="res://lib/pulley/materials/textures/pulley_diff.jpg" id="1_cb5b1"]
+[ext_resource type="Texture2D" uid="uid://ckae3f5hylfab" path="res://lib/pulley/materials/textures/pulley_norm.jpg" id="2_exwml"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_cb5b1")
+metallic = 0.5
+metallic_specular = 0.0
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_exwml")
+backlight_enabled = true
+backlight = Color(0.25, 0.25, 0.25, 1)
