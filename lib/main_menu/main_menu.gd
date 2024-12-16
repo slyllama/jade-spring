@@ -72,10 +72,7 @@ func _ready() -> void:
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:
-			"window_mode":
-				if _value == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
-				elif _value == "maximized": get_window().mode = Window.MODE_MAXIMIZED
-				else: get_window().mode = Window.MODE_WINDOWED
+			"window_mode": Utilities.set_window_mode(_value)
 			"volume": Utilities.set_master_vol()
 			"music_vol": $Music.volume_db = linear_to_db(
 				clamp(float(_value) * 0.55, 0.0, 1.0))

@@ -7,6 +7,12 @@ const TICK = "[char=0x00002713]"
 const BIGNUM = -9999
 const BIGVEC3 = Vector3(BIGNUM, BIGNUM, BIGNUM)
 
+func set_window_mode(window_mode: String) -> void:
+		if window_mode == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
+		elif window_mode == "maximized": get_window().mode = Window.MODE_MAXIMIZED
+		elif window_mode == "exclusive_full_screen": get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+		else: get_window().mode = Window.MODE_WINDOWED
+
 func get_user_vol() -> float:
 	if "volume" in SettingsHandler.settings:
 		return(clamp(float(SettingsHandler.settings.volume), 0.0, 1.0))

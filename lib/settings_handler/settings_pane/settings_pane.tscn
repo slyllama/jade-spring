@@ -26,7 +26,7 @@ stretch_mode = 5
 layout_mode = 2
 title = "Window mode"
 id = "window_mode"
-options = Array[String](["windowed", "maximized", "full_screen"])
+options = Array[String](["windowed", "maximized", "full_screen", "exclusive_full_screen"])
 default_option = "windowed"
 
 [node name="FoliageDensity" parent="Container" index="4" instance=ExtResource("3_b7vwo")]
