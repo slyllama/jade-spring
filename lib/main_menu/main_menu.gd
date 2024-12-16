@@ -36,7 +36,7 @@ func set_up_nodule() -> void:
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
 func _set_title_card_pos() -> void:
-	$TitleCard.global_position = $Container/Padding.global_position + Vector2(165, -20)
+	$TitleCard.global_position = $Container/Padding.global_position + Vector2(230, -20)
 
 # Fade and transition into loader scene or custom scene (if it is set)
 func play() -> void:

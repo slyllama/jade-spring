@@ -57,7 +57,7 @@ func _ready() -> void:
 			proc_story())
 	
 	Save.story_advanced.connect(func():
-		Global.play_flash($StoryText.global_position + Vector2(40, 14))
+		Global.play_flash($StoryText.global_position + Vector2(40, 30))
 		proc_story())
 
 func _process(delta: float) -> void:

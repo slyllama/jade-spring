@@ -13,6 +13,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysri0"]
 shader = ExtResource("2_krwrs")
 shader_parameter/paint_mask_exponent = 0.01
+shader_parameter/value = 0.0
 shader_parameter/paint_mask_texture = ExtResource("3_5bs7w")
 
 [sub_resource type="Animation" id="Animation_sptak"]

@@ -1,41 +1,163 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=8 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
+[ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
+[ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="3_k2g0f"]
+[ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="4_mtkmt"]
+
+[sub_resource type="Animation" id="Animation_umuac"]
+resource_name = "Enter"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Base:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Base/JadeWings:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 0.4),
+"update": 0,
+"values": [Vector2(25.5, 88), Vector2(25.5, 70)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Base/Sticker:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(276.5, 58), Vector2(276.5, 43)]
+}
+
+[sub_resource type="Animation" id="Animation_uu45f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Base:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Base/JadeWings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25.5, 88)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Base/Sticker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(276.5, 58)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyjes"]
+_data = {
+"Enter": SubResource("Animation_umuac"),
+"RESET": SubResource("Animation_uu45f")
+}
 
 [node name="Dialogue" type="CanvasLayer"]
 script = ExtResource("1_pyvfo")
 
-[node name="PlaceholderText" type="RichTextLabel" parent="."]
+[node name="Base" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(681, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -197.0
-offset_top = -18.5
-offset_right = 197.0
-offset_bottom = 18.5
+offset_left = -340.5
+offset_top = -307.0
+offset_right = 340.5
+offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "[center]Dialogue[/center]"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+texture = ExtResource("2_jry7x")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Done" type="Button" parent="."]
+[node name="Done" type="Button" parent="Base"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 22.0
-offset_right = 20.0
-offset_bottom = 49.0
+offset_left = -73.5
+offset_top = 186.0
+offset_right = 72.5
+offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Done"
 
-[connection signal="button_down" from="Done" to="." method="_on_done_button_down"]
+[node name="JadeWings" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -315.0
+offset_top = 70.0
+offset_right = 315.0
+offset_bottom = 196.0
+grow_horizontal = 2
+texture = ExtResource("3_k2g0f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sticker" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 43.0
+offset_right = 64.0
+offset_bottom = 171.0
+grow_horizontal = 2
+texture = ExtResource("4_mtkmt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gyjes")
+}
+
+[connection signal="button_down" from="Base/Done" to="." method="_on_done_button_down"]
