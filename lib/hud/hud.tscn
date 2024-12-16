@@ -290,6 +290,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CloseButton" type="TextureButton" parent="TopLevel"]
+visible = false
 custom_minimum_size = Vector2(20, 20)
 anchors_preset = 1
 anchor_left = 1.0

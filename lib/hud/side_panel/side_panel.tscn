@@ -30,6 +30,7 @@ theme_override_constants/separation = 0
 script = ExtResource("1_xy7kn")
 
 [node name="TestBox" parent="." instance=ExtResource("1_ycodo")]
+visible = false
 layout_mode = 2
 title = "Seitung Spring Clean"
 description = "1.0.0a"

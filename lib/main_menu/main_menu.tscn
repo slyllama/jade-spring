@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=22 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
 [ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="5_pvsjo"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
+[ext_resource type="Texture2D" uid="uid://b14riwre77y4l" path="res://lib/main_menu/title_card/textures/h_sep.png" id="6_b4g4g"]
 [ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
 [ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="8_rr48m"]
@@ -23,6 +24,12 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_c2dw2"]
 curve = SubResource("Curve_2imnw")
 
+[sub_resource type="Gradient" id="Gradient_rq8mr"]
+colors = PackedColorArray(0.1305, 0.87, 0.463275, 1, 0.564963, 0.789489, 1.54018e-06, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_13has"]
+gradient = SubResource("Gradient_rq8mr")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0vfhr"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(960, 540, 1)
@@ -34,7 +41,9 @@ initial_velocity_max = 40.0
 gravity = Vector3(0, -20, 0)
 scale_min = 0.3
 scale_max = 0.4
+color_ramp = SubResource("GradientTexture1D_13has")
 alpha_curve = SubResource("CurveTexture_c2dw2")
+turbulence_enabled = true
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_jagjv")
@@ -107,7 +116,7 @@ offset_right = 79.0
 offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 6
 alignment = 1
 
 [node name="Padding" type="ColorRect" parent="Container"]
@@ -115,16 +124,40 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
+[node name="Separator5" type="TextureRect" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.352941)
+custom_minimum_size = Vector2(350, 4)
+layout_mode = 2
+texture = ExtResource("6_b4g4g")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="ContinueButton" parent="Container" instance=ExtResource("3_v0okn")]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 text = "Continue Game"
 alignment = 1
 
+[node name="Separator4" type="TextureRect" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.352941)
+custom_minimum_size = Vector2(350, 4)
+layout_mode = 2
+texture = ExtResource("6_b4g4g")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 alignment = 1
+
+[node name="Separator3" type="TextureRect" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.352941)
+custom_minimum_size = Vector2(350, 4)
+layout_mode = 2
+texture = ExtResource("6_b4g4g")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SettingsButton" parent="Container" instance=ExtResource("3_v0okn")]
 modulate = Color(1, 1, 1, 0.6)
@@ -132,11 +165,27 @@ layout_mode = 2
 text = "Settings"
 alignment = 1
 
+[node name="Separator2" type="TextureRect" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.352941)
+custom_minimum_size = Vector2(350, 4)
+layout_mode = 2
+texture = ExtResource("6_b4g4g")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="QuitButton" parent="Container" instance=ExtResource("3_v0okn")]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 text = "Quit"
 alignment = 1
+
+[node name="Separator" type="TextureRect" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.352941)
+custom_minimum_size = Vector2(350, 4)
+layout_mode = 2
+texture = ExtResource("6_b4g4g")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SettingsPane" parent="." instance=ExtResource("4_swp2s")]
 visible = false
@@ -158,13 +207,14 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_pvsjo")
 
 [node name="TitleCard" parent="." instance=ExtResource("6_aye18")]
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, 48)
+scale = Vector2(0.57, 0.57)
 
 [node name="Motes" type="GPUParticles2D" parent="TitleCard"]
 position = Vector2(0, 416)
 process_material = SubResource("ParticleProcessMaterial_0vfhr")
 texture = ExtResource("9_g8hmh")
-lifetime = 2.0
+lifetime = 4.0
 preprocess = 5.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
@@ -200,7 +250,7 @@ offset_right = 580.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/default_color = Color(0.27, 0.27, 0.27, 1)
+theme_override_colors/default_color = Color(0.37, 0.37, 0.37, 1)
 theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
@@ -249,6 +299,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="NewGameContainer" parent="." instance=ExtResource("12_0oh4d")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

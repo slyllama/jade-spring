@@ -1,16 +1,16 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2xtvgd1tw1q7"]
+[gd_scene load_steps=36 format=3 uid="uid://d2xtvgd1tw1q7"]
 
-[ext_resource type="Texture2D" uid="uid://b7l3eth5h0rp" path="res://lib/main_menu/title_card/textures/words_1.png" id="1_hvfn3"]
 [ext_resource type="Script" path="res://lib/main_menu/title_card/title_card.gd" id="1_syrn8"]
 [ext_resource type="Shader" path="res://lib/main_menu/title_card/shaders/shader_logo.gdshader" id="2_41jbb"]
-[ext_resource type="Texture2D" uid="uid://djs263p87x1p5" path="res://lib/main_menu/title_card/textures/words_2.png" id="2_jb415"]
 [ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="3_ha0jo"]
+[ext_resource type="Texture2D" uid="uid://cg2gi43kvjm2t" path="res://lib/main_menu/title_card/textures/words_b_1.png" id="4_0n7jl"]
+[ext_resource type="Texture2D" uid="uid://b8cdl6c84bmik" path="res://lib/main_menu/title_card/textures/words_b_2.png" id="5_6mvx8"]
 [ext_resource type="Texture2D" uid="uid://bppqnvia18t4x" path="res://lib/main_menu/title_card/textures/jade_1.png" id="6_hgbpr"]
 [ext_resource type="Texture2D" uid="uid://bmmeod7qm0tym" path="res://lib/main_menu/title_card/textures/jade_2.png" id="7_n8y6u"]
 [ext_resource type="Texture2D" uid="uid://d2dqd7dkg5uu3" path="res://lib/main_menu/title_card/textures/jade_3.png" id="8_nhqii"]
 [ext_resource type="Texture2D" uid="uid://70cjpay7fib4" path="res://lib/main_menu/title_card/textures/jade_4.png" id="9_cpqck"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="11_jbnao"]
-[ext_resource type="Texture2D" uid="uid://bk4351hcov8ci" path="res://lib/main_menu/title_card/textures/base.png" id="12_g64g4"]
+[ext_resource type="Texture2D" uid="uid://dar3m8o4bfln6" path="res://lib/main_menu/title_card/textures/base_b.png" id="11_xo7qj"]
 
 [sub_resource type="Gradient" id="Gradient_5ksc3"]
 
@@ -22,6 +22,7 @@ fill_to = Vector2(0, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r0jlg"]
 shader = ExtResource("2_41jbb")
 shader_parameter/paint_mask_exponent = 1.0
+shader_parameter/value = 0.0
 shader_parameter/paint_mask_texture = ExtResource("3_ha0jo")
 shader_parameter/paint_mask_gradient = SubResource("GradientTexture2D_v2cij")
 
@@ -35,6 +36,7 @@ fill_to = Vector2(0, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm66m"]
 shader = ExtResource("2_41jbb")
 shader_parameter/paint_mask_exponent = 1.0
+shader_parameter/value = 0.0
 shader_parameter/paint_mask_texture = ExtResource("3_ha0jo")
 shader_parameter/paint_mask_gradient = SubResource("GradientTexture2D_ajm1b")
 
@@ -244,6 +246,45 @@ _data = {
 "RESET": SubResource("Animation_il5cn")
 }
 
+[sub_resource type="Animation" id="Animation_b1qnh"]
+resource_name = "float"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-491, -84), Vector2(-491, -95), Vector2(-491, -84)]
+}
+
+[sub_resource type="Animation" id="Animation_3fwjh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-491, -84)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gq085"]
+_data = {
+"RESET": SubResource("Animation_3fwjh"),
+"float": SubResource("Animation_b1qnh")
+}
+
 [sub_resource type="Curve" id="Curve_5f0s8"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.203488, 1), 0.0, 0.0, 0, 0, Vector2(0.581395, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
@@ -314,15 +355,16 @@ script = ExtResource("1_syrn8")
 
 [node name="Words1" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_r0jlg")
-texture = ExtResource("1_hvfn3")
+texture = ExtResource("4_0n7jl")
 
 [node name="Words2" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hm66m")
-position = Vector2(61, 43)
-texture = ExtResource("2_jb415")
+position = Vector2(67, -80)
+texture = ExtResource("5_6mvx8")
 
 [node name="JadeBotRoot" type="Node2D" parent="."]
-position = Vector2(-508, 26)
+position = Vector2(-491, -84)
+scale = Vector2(0.785, 0.785)
 
 [node name="Jade1" type="Sprite2D" parent="JadeBotRoot"]
 modulate = Color(1, 1, 1, 0)
@@ -348,6 +390,12 @@ libraries = {
 "": SubResource("AnimationLibrary_es33u")
 }
 
+[node name="FloatPlayer" type="AnimationPlayer" parent="JadeBotRoot"]
+libraries = {
+"": SubResource("AnimationLibrary_gq085")
+}
+autoplay = "float"
+
 [node name="StartDelay" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
@@ -365,8 +413,8 @@ fixed_fps = 60
 
 [node name="ClipBase" type="Sprite2D" parent="."]
 clip_children = 1
-position = Vector2(-163, 31)
-texture = ExtResource("12_g64g4")
+position = Vector2(-1, 1)
+texture = ExtResource("11_xo7qj")
 
 [node name="ClipMotes" type="GPUParticles2D" parent="ClipBase"]
 position = Vector2(12, 17)

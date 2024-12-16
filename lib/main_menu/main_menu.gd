@@ -36,7 +36,7 @@ func set_up_nodule() -> void:
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
 func _set_title_card_pos() -> void:
-	$TitleCard.global_position = $Container/Padding.global_position + Vector2(165, -40)
+	$TitleCard.global_position = $Container/Padding.global_position + Vector2(165, -20)
 
 # Fade and transition into loader scene or custom scene (if it is set)
 func play() -> void:
@@ -91,7 +91,7 @@ func _ready() -> void:
 		$Container/ContinueButton.visible = false
 		$Container/PlayButton.grab_focus()
 	
-	$Nodule.global_position = focus.global_position + Vector2(-17, 16)
+	$Nodule.global_position = focus.global_position + Vector2(0, 16)
 	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(
@@ -105,7 +105,7 @@ func _process(delta: float) -> void:
 	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
-		$Nodule.position, focus.global_position + Vector2(-17, 16), delta * 22)
+		$Nodule.position, focus.global_position + Vector2(0, 16), delta * 22)
 
 func _on_play_button_down() -> void:
 	if !can_interact or ngc_open: return
