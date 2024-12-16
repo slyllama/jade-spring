@@ -133,9 +133,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -315.0
-offset_top = 70.0
+offset_top = 88.0
 offset_right = 315.0
-offset_bottom = 196.0
+offset_bottom = 214.0
 grow_horizontal = 2
 texture = ExtResource("3_k2g0f")
 expand_mode = 1
@@ -147,13 +147,36 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -64.0
-offset_top = 43.0
+offset_top = 58.0
 offset_right = 64.0
-offset_bottom = 171.0
+offset_bottom = 186.0
 grow_horizontal = 2
 texture = ExtResource("4_mtkmt")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Box" type="VBoxContainer" parent="Base"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = 230.0
+offset_right = -46.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Base/Box"]
+layout_mode = 2
+text = "((Dialogue text))"
+fit_content = true
+scroll_active = false
+
+[node name="TemplateButton" type="Button" parent="Base/Box"]
+layout_mode = 2
+text = "((Option))"
+alignment = 0
 
 [node name="Player" type="AnimationPlayer" parent="."]
 libraries = {

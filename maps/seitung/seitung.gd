@@ -1,5 +1,7 @@
 extends "res://lib/map/map.gd"
 
+const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
+
 func _ready() -> void:
 	super()
 	$DragonvoidArc/AnimationPlayer.play("Wobble")
@@ -21,3 +23,8 @@ func _on_bin_interacted() -> void:
 	Global.crumbs_updated.emit()
 	Save.data.weeds = 0
 	Global.remove_effect.emit("weed")
+
+func _on_dialogue_test_interacted() -> void:
+	var _d = Dialogue.instantiate()
+	add_child(_d)
+	_d.open()
