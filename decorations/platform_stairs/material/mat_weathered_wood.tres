@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cyd3o2mj33m7h"]
+
+[ext_resource type="Shader" path="res://generic/materials/shaders/shader_wood_twotone.gdshader" id="1_fy1gc"]
+[ext_resource type="Texture2D" uid="uid://dm226iooejw7u" path="res://decorations/platform_stairs/material/textures/stairs_stain_mask.jpg" id="2_h48mx"]
+[ext_resource type="Texture2D" uid="uid://b0k6k5mw0pvd2" path="res://maps/seitung/materials/textures/weathered_wood_norm.jpg" id="2_oj8jy"]
+[ext_resource type="Texture2D" uid="uid://b0mdc72lwfjl2" path="res://maps/seitung/materials/textures/weathered_wood_diff.jpg" id="3_rtxln"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fy1gc")
+shader_parameter/base_brightness = 0.4
+shader_parameter/uv_scale = 5.5
+shader_parameter/saturation_value = 2.0
+shader_parameter/wood_texture = ExtResource("3_rtxln")
+shader_parameter/wood_normal_texture = ExtResource("2_oj8jy")
+shader_parameter/stain_mask_texture = ExtResource("2_h48mx")

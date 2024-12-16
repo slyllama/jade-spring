@@ -31,6 +31,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"mat_stairs_wood": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/platform_stairs/material/mat_weathered_wood.tres"
+},
+"mat_support": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_columns.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
