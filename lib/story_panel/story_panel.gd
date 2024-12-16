@@ -6,9 +6,13 @@ func _set_shader_value(val: float) -> void: # 0-1
 	var _e = ease(val, 0.2)
 	$Base.material.set_shader_parameter("paint_mask_exponent", (1 - _e) * 10)
 
-func open(title = "((Title))", description = "((Description))"):
+func open(
+	title = "((Title))",
+	description = "((Description))",
+	sticker = load("res://generic/textures/stickers/sticker_placeholder.png")):
 	$Base/Content/Title.text = "[center]" + title + "[/center]"
 	$Base/Content/Description.text = description
+	$Base/Content/Sticker.texture = sticker
 	$Paper.play()
 	
 	var fade_tween = create_tween()

@@ -55,7 +55,7 @@ shadow_mesh = SubResource("ArrayMesh_sajdi")
 _data = [Vector2(0, 0.835052), 0.0, 0.0, 0, 0, Vector2(0.1625, 0.824742), -1.877, -1.877, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_4dtce"]
+[sub_resource type="CurveTexture" id="CurveTexture_s6sgv"]
 curve = SubResource("Curve_gc8mo")
 
 [sub_resource type="Curve" id="Curve_4qnk2"]
@@ -64,20 +64,20 @@ max_value = 360.0
 _data = [Vector2(0, 233.814), 0.0, 0.0, 0, 0, Vector2(1, 18.5567), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_o0npx"]
+[sub_resource type="CurveTexture" id="CurveTexture_wncda"]
 curve = SubResource("Curve_4qnk2")
 
 [sub_resource type="Gradient" id="Gradient_7c35v"]
 colors = PackedColorArray(0.96, 0.86016, 0.4992, 1, 0.62, 0.38285, 0.093, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kaixa"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2oqmv"]
 gradient = SubResource("Gradient_7c35v")
 
 [sub_resource type="Curve" id="Curve_vbx6g"]
 _data = [Vector2(0, 1), 0.0, 0.718324, 0, 0, Vector2(1, 0.587629), -0.922926, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ux0j0"]
+[sub_resource type="CurveTexture" id="CurveTexture_f5jrc"]
 curve = SubResource("Curve_vbx6g")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_atedg"]
@@ -86,21 +86,21 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 angle_min = 1.07288e-05
 angle_max = 1.00001
-angle_curve = SubResource("CurveTexture_o0npx")
+angle_curve = SubResource("CurveTexture_wncda")
 direction = Vector3(0, 0, 0)
 spread = 180.0
 initial_velocity_min = 0.2
 initial_velocity_max = 0.3
 gravity = Vector3(0, -0.3, 0)
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_ux0j0")
+scale_curve = SubResource("CurveTexture_f5jrc")
 color = Color(0.7, 0.7, 0.7, 1)
-color_initial_ramp = SubResource("GradientTexture1D_kaixa")
-alpha_curve = SubResource("CurveTexture_4dtce")
+color_initial_ramp = SubResource("GradientTexture1D_2oqmv")
+alpha_curve = SubResource("CurveTexture_s6sgv")
 hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1j83"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtobu"]
 render_priority = 1
 transparency = 1
 cull_mode = 2
@@ -114,7 +114,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_rdugy"]
-material = SubResource("StandardMaterial3D_x1j83")
+material = SubResource("StandardMaterial3D_xtobu")
 size = Vector2(0.45, 0.45)
 
 [sub_resource type="Animation" id="Animation_l2u7q"]

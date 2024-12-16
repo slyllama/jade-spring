@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=81 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="25_or3n7"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="30_a1hev"]
+[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://effects/water_splash/textures/splash_mask.png" id="30_q7ciy"]
+[ext_resource type="AudioStream" uid="uid://rdru5wa16llr" path="res://lib/crumb/weed/sounds/weed_clear.ogg" id="31_rwmbn"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="34_xk86d"]
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
 
@@ -283,6 +285,72 @@ alpha_curve = SubResource("CurveTexture_r1sh7")
 material = SubResource("StandardMaterial3D_tdk7r")
 size = Vector2(0.1, 0.23)
 orientation = 2
+
+[sub_resource type="Curve" id="Curve_vnr53"]
+_data = [Vector2(0, 0.835052), 0.0, 0.0, 0, 0, Vector2(0.1625, 0.824742), -1.877, -1.877, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4dtce"]
+curve = SubResource("Curve_vnr53")
+
+[sub_resource type="Curve" id="Curve_jsipx"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 233.814), 0.0, 0.0, 0, 0, Vector2(1, 18.5567), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o0npx"]
+curve = SubResource("Curve_jsipx")
+
+[sub_resource type="Gradient" id="Gradient_ordus"]
+colors = PackedColorArray(0.96, 0.86016, 0.4992, 1, 0.62, 0.38285, 0.093, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kaixa"]
+gradient = SubResource("Gradient_ordus")
+
+[sub_resource type="Curve" id="Curve_muqtt"]
+_data = [Vector2(0, 1), 0.0, 0.718324, 0, 0, Vector2(1, 0.587629), -0.922926, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ux0j0"]
+curve = SubResource("Curve_muqtt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y7akg"]
+emission_shape_scale = Vector3(0.3, 0.5, 0.3)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 1.00001
+angle_curve = SubResource("CurveTexture_o0npx")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.3
+gravity = Vector3(0, -0.3, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_ux0j0")
+color = Color(0.7, 0.7, 0.7, 1)
+color_initial_ramp = SubResource("GradientTexture1D_kaixa")
+alpha_curve = SubResource("CurveTexture_4dtce")
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1j83"]
+render_priority = 1
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("30_q7ciy")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_fng5m"]
+material = SubResource("StandardMaterial3D_x1j83")
+size = Vector2(0.45, 0.45)
 
 [node name="Seitung" instance=ExtResource("1_bxd0c")]
 script = ExtResource("1_uenug")
@@ -1260,6 +1328,22 @@ transform = Transform3D(-0.99518, 0, -0.0980693, 0, 1, 0, 0.0980693, 0, -0.99518
 [node name="SpatialText" parent="WeedBin" index="18" instance=ExtResource("25_or3n7")]
 transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 1, 0)
 spatial_string = "Compost Bin"
+
+[node name="Foam" type="GPUParticles3D" parent="WeedBin" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+cast_shadow = 0
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_y7akg")
+draw_pass_1 = SubResource("QuadMesh_fng5m")
+
+[node name="LeafSound" type="AudioStreamPlayer3D" parent="WeedBin" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+stream = ExtResource("31_rwmbn")
+volume_db = -9.0
+autoplay = true
+max_distance = 5.0
+attenuation_filter_cutoff_hz = 10000.0
 
 [node name="Lamp" type="OmniLight3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66611, 2.70211, 9.04827)

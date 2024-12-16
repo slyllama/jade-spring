@@ -128,7 +128,10 @@ func _ready() -> void:
 			return
 		var _sp = StoryPanel.instantiate()
 		add_child(_sp)
-		_sp.open(data.title, data.description)
+		if "sticker" in data:
+			_sp.open(data.title, data.description, data.sticker)
+		else:
+			_sp.open(data.title, data.description)
 		
 		if "objective" in data: # set sidebar text
 			$SidePanel/StoryText.text = data.objective)
