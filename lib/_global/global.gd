@@ -160,6 +160,14 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"tags": ["Architecture"]
 	},
+	"test_door": {
+		"name": "Test Door",
+		"scene": "res://decorations/test_door/deco_test_door.tscn",
+		"cursor_model": "res://decorations/test_door/mesh/test_door.glb",
+		"preview_y_rotation": 35,
+		"preview_scale": 0.42,
+		"tags": ["Architecture"]
+	},
 	"weeping_willow": {
 		"name": "Weeping Willow",
 		"scene": "res://decorations/weeping_willow/deco_weeping_willow.tscn",
