@@ -1217,7 +1217,19 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal" type="Decal" parent="Decoration" index="41"]
+[node name="MossDecal4" type="Decal" parent="Decoration" index="41"]
+transform = Transform3D(0.555079, 0, -0.555079, 0, 0.785, 0, 0.555079, 0, 0.555079, 2.46191, 0.227478, 11.202)
+size = Vector3(5, 2.455, 5)
+texture_albedo = ExtResource("23_byk4r")
+modulate = Color(0.737193, 0.737193, 0.737193, 1)
+albedo_mix = 0.75
+normal_fade = 0.5
+distance_fade_enabled = true
+distance_fade_begin = 9.0
+distance_fade_length = 0.5
+cull_mask = 1048569
+
+[node name="RockDecal" type="Decal" parent="Decoration" index="42"]
 transform = Transform3D(0.636396, 0, -0.636396, 0, 0.9, 0, 0.636396, 0, 0.636396, 1.69346, -0.436207, 8.73782)
 size = Vector3(2.7, 2.2627, 2.7)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1227,7 +1239,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal3" type="Decal" parent="Decoration" index="42"]
+[node name="RockDecal3" type="Decal" parent="Decoration" index="43"]
 transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -0.391117, 0.246711, 15.9236)
 size = Vector3(2.4, 2.408, 2.4)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1237,7 +1249,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal5" type="Decal" parent="Decoration" index="43"]
+[node name="RockDecal5" type="Decal" parent="Decoration" index="44"]
 transform = Transform3D(-0.426209, 0, -0.792682, 0, 0.9, 0, 0.792682, 0, -0.426209, 2.60765, 0.246711, 15.7825)
 size = Vector3(2, 2.408, 2)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1247,7 +1259,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal4" type="Decal" parent="Decoration" index="44"]
+[node name="RockDecal4" type="Decal" parent="Decoration" index="45"]
 transform = Transform3D(0.319229, 0, -0.841482, 0, 0.9, 0, 0.841482, 0, 0.319229, -2.38528, 0.246711, 17.3086)
 size = Vector3(2.3, 2.408, 2.3)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1257,7 +1269,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048569
 
-[node name="RockDecal2" type="Decal" parent="Decoration" index="45"]
+[node name="RockDecal2" type="Decal" parent="Decoration" index="46"]
 transform = Transform3D(-0.256156, 0, -0.862777, 0, 0.9, 0, 0.862777, 0, -0.256156, 4.28, 0.24671, 10.0037)
 size = Vector3(2.7, 2.2627, 2.7)
 texture_albedo = ExtResource("22_y7vyt")
@@ -1269,7 +1281,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="House2" parent="Decoration" index="46" instance=ExtResource("23_53tlw")]
+[node name="House2" parent="Decoration" index="47" instance=ExtResource("23_53tlw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0487338, 1)
 visible = false
 

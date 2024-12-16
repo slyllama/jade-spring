@@ -15,9 +15,8 @@ func _on_bin_interacted() -> void:
 		$WeedBin/LeafSound.play()
 		await get_tree().create_timer(0.3).timeout
 		$WeedBin/Foam.emitting = false
-	else:
+	else: # do weed stuff
 		Global.announcement_sent.emit("((Comment about no weeds))")
-		pass # do weed stuff
 	Save.data.deposited_weeds += Global.get_effect_qty("weed")
 	Global.crumbs_updated.emit()
 	Save.data.weeds = 0
