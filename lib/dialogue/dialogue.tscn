@@ -1,9 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=11 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
 [ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="3_k2g0f"]
 [ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="4_mtkmt"]
+[ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="5_flg4a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcyqg"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taymh"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("5_flg4a")
+region_rect = Rect2(781.5, 623, 573, 176)
+modulate_color = Color(0.581033, 0.581033, 0.581033, 1)
 
 [sub_resource type="Animation" id="Animation_umuac"]
 resource_name = "Enter"
@@ -155,6 +177,19 @@ texture = ExtResource("4_mtkmt")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="TemplateButton" type="Button" parent="Base"]
+visible = false
+layout_mode = 2
+offset_left = 47.0
+offset_top = 273.0
+offset_right = 635.0
+offset_bottom = 342.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_mcyqg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_taymh")
+text = "A man has fallen into the river in Lego City! Start the new rescue helicopter. HEY! Build the helicopter and off to the rescue. Prepare the lifeline, lower the stretcher, and make the rescue. The new Emergency Collection from Lego City!"
+alignment = 0
+autowrap_mode = 2
+
 [node name="Box" type="VBoxContainer" parent="Base"]
 layout_mode = 1
 anchors_preset = 15
@@ -166,6 +201,7 @@ offset_right = -46.0
 offset_bottom = -126.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="Text" type="RichTextLabel" parent="Base/Box"]
 layout_mode = 2
@@ -173,10 +209,9 @@ text = "((Dialogue text))"
 fit_content = true
 scroll_active = false
 
-[node name="TemplateButton" type="Button" parent="Base/Box"]
+[node name="Padding" type="Control" parent="Base/Box"]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
-text = "((Option))"
-alignment = 0
 
 [node name="Player" type="AnimationPlayer" parent="."]
 libraries = {
