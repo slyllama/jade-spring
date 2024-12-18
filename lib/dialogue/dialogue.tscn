@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="5_flg4a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcyqg"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
 bg_color = Color(0.158472, 0.158472, 0.158472, 1)
 border_width_left = 1
 border_width_top = 1
@@ -19,10 +19,10 @@ border_width_bottom = 1
 border_color = Color(0.621524, 0.621524, 0.621524, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taymh"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
 texture = ExtResource("5_flg4a")
 region_rect = Rect2(781.5, 623, 573, 176)
 modulate_color = Color(0.581033, 0.581033, 0.581033, 1)
@@ -184,6 +184,7 @@ offset_left = 47.0
 offset_top = 273.0
 offset_right = 635.0
 offset_bottom = 342.0
+theme_override_font_sizes/font_size = 18
 theme_override_styles/hover = SubResource("StyleBoxFlat_mcyqg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_taymh")
 text = "A man has fallen into the river in Lego City! Start the new rescue helicopter. HEY! Build the helicopter and off to the rescue. Prepare the lifeline, lower the stretcher, and make the rescue. The new Emergency Collection from Lego City!"
@@ -195,9 +196,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 47.0
-offset_top = 230.0
-offset_right = -46.0
+offset_left = 59.0
+offset_top = 239.0
+offset_right = -55.0
 offset_bottom = -126.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -205,12 +206,13 @@ theme_override_constants/separation = 4
 
 [node name="Text" type="RichTextLabel" parent="Base/Box"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
 text = "((Dialogue text))"
 fit_content = true
 scroll_active = false
 
 [node name="Padding" type="Control" parent="Base/Box"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 
 [node name="Player" type="AnimationPlayer" parent="."]

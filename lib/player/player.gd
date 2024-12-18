@@ -36,6 +36,7 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
+	
 	$Camera.top_level = true
 	$Camera.set_cam_rotation(Vector3(-20, 0, 0))
 	Global.jade_bot_sound.connect(play_jade_sound)
@@ -94,6 +95,8 @@ func _physics_process(delta: float) -> void:
 	
 	var _camera_direction = $Camera.rotation_degrees.y
 	var _camera_basis = $Camera.global_transform.basis
+	Global.camera_basis = _camera_basis
+	Global.camera_pivot_rotation_degrees = $Camera.rotation_degrees
 	
 	# Multiply inputs by the movement vector and orbit rotation
 	# This could be improved, but it works
@@ -108,13 +111,17 @@ func _physics_process(delta: float) -> void:
 	velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta)
 	velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta)
 	
-	move_and_slide()
+	if !Global.in_walk_mode:
+		move_and_slide()
+	else:
+		if Global.walk_mode_target != null:
+			global_position = Global.walk_mode_target.global_position + Vector3(0, 1, 0)
 	Global.player_position = global_position
 	Global.player_y_rotation = global_rotation.y
 	_fs = _query_fs
 	
 	if Global.can_move:
-		if _direction.x > 0 or _direction.z != 0:
+		if _direction.x > 0 or _direction.z != 0 or Global.in_walk_mode:
 			$PlayerMesh.rotation.y = lerp(
 				$PlayerMesh.rotation.y, 
 				$Camera.rotation.y - PI - _initial_y_rotation,

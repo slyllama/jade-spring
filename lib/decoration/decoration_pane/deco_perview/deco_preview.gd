@@ -64,8 +64,8 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 	current_preview_scale = preview_scale
 	
 	if current_id in Offsets:
-		$ModelBase.position.y = Offsets[current_id]
-	else: $ModelBase.position.y = 0.0
+		$Orbit.position.y = -Offsets[current_id]
+	else: $Orbit.position.y = 0.0
 	if current_id in HOffsets:
 		$ModelBase.position.x = HOffsets[current_id]
 	else: $ModelBase.position.x = 0.0

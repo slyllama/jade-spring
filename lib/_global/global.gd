@@ -1,15 +1,15 @@
 extends Node
 
-var start_params = {
-	"new_save" = false
-}
+var start_params = { "new_save" = false }
 
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
 var save_handler: SaveHandler
 var hud: CanvasLayer
 
+var camera_basis: Basis
 var camera_orbiting = false
+var camera_pivot_rotation_degrees = Vector3.ZERO
 var can_move = true
 var current_crumb = null
 var debug_enabled = false
@@ -49,6 +49,12 @@ signal remove_effect(id)
 signal weed_crumb_entered
 signal weed_crumb_left
 signal summon_story_panel(data: Dictionary)
+
+# Walk mode
+signal walk_mode_entered
+signal walk_mode_left
+var in_walk_mode = false
+var walk_mode_target: CharacterBody3D
 
 func add_qty_effect(id: String, amount = 1) -> void:
 	var _new_amount = amount
@@ -274,6 +280,9 @@ func play_flash(screen_position: Vector2) -> void:
 ##### Execution
 
 func _ready() -> void:
+	walk_mode_entered.connect(func(): in_walk_mode = true)
+	walk_mode_left.connect(func(): in_walk_mode = false)
+	
 	Utilities.set_master_vol(0.0)
 	
 	# Set up retina

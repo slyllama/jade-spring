@@ -4,25 +4,24 @@ signal closed
 
 const TEST_DATA = {
 	"_entry": {
-		"string": "Opening string.",
+		"string": "F-f-friend, good morning! Thirty-three, seven. The magnetic realignment h-h-helped overnight, it did, twelve?",
 		"options": {
-			"opening_1": "((Opening option 1.))",
-			"opening_2": "((Opening option 2.))",
-			"opening_3": "((Dismiss.))"
+			"new_bot": "All three rods seem to be floating just right, P-4; I feel like a new bot."
 		}
 	},
-	"opening_1": {
-		"string": "Opening option 1",
+	"new_bot": {
+		"string": "Four, four, four! Magnificent! So uh (ahem, twenty-three)... want to t-t-take them for a spin?",
 		"options": {
-			"s_opening_1": "((Secondary option 1.))",
-			"s_opening_2": "((Secondary option 2.))",
-			"s_opening_return": "((Return to opening.))"
+			"icky": "Sounds like someone has an icky job lined up for an idle set of jade rods, huh."
 		}
 	},
-	"s_opening_return": {
-		"reference": "_entry" # 'reference' will override everything, playing that block
+	"icky": {
+		"string": "I just... These rotten weeds and b-b-bugs, one, one, one! I can't. The static! Swooping and d-d-diving. Worse than the Unchained.",
+		"options": {
+			"handle": "It's okay, Pull. I'll handle it, starting with the weeds."
+		}
 	},
-	"opening_3": {
+	"handle": {
 		"reference": "_exit"
 	}
 }

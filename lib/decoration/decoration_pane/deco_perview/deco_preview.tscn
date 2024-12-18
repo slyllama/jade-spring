@@ -1,51 +1,37 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4hdvgok1lsmq"]
+[gd_scene load_steps=14 format=3 uid="uid://c4hdvgok1lsmq"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.gd" id="1_ylfot"]
-[ext_resource type="Shader" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="2_yedoq"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_yecia"]
+[ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="3_hnsbx"]
+[ext_resource type="Texture2D" uid="uid://cmjr446mnahyf" path="res://generic/materials/textures/tile_64px_rough.png" id="4_hfgkj"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="5_m0vr7"]
-[ext_resource type="Texture2D" uid="uid://cuw5jbeuqm6uo" path="res://maps/seitung/materials/textures/grass_norm.jpg" id="5_u1rqg"]
-[ext_resource type="Texture2D" uid="uid://coytnfhpqhb7s" path="res://maps/seitung/materials/textures/grass_add_diff.jpg" id="6_7dmfg"]
-[ext_resource type="Texture2D" uid="uid://cejwijfwr6xsg" path="res://maps/seitung/materials/textures/grass_base_diff.jpg" id="7_0tmov"]
 
 [sub_resource type="Environment" id="Environment_hq0yq"]
 ambient_light_source = 2
-ambient_light_color = Color(0.4, 0.4, 0.4, 1)
+ambient_light_color = Color(0.65, 0.65, 0.65, 1)
+fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.05, 0.05, 0.05, 1)
+fog_light_color = Color(0.09, 0.09, 0.09, 1)
 fog_density = 1.0
-fog_depth_begin = 5.0
-fog_depth_end = 7.0
+fog_depth_end = 13.0
 adjustment_enabled = true
 adjustment_brightness = 0.96
 adjustment_contrast = 1.03
 adjustment_saturation = 1.2
 
-[sub_resource type="Gradient" id="Gradient_qv4sk"]
-offsets = PackedFloat32Array(0.0710383, 0.491803, 0.983607, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.0722085, 0.0722085, 0.0722085, 1, 0.964706, 0.964706, 0.964706, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_csnh3"]
-frequency = 0.02
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x871w"]
-color_ramp = SubResource("Gradient_qv4sk")
-noise = SubResource("FastNoiseLite_csnh3")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sv8bk"]
-render_priority = 0
-shader = ExtResource("2_yedoq")
-shader_parameter/uv_scale = 4.0
-shader_parameter/grass_base_multiplier = 0.45
-shader_parameter/normal_strength = 1.0
-shader_parameter/grass_add_multiplier = 0.7
-shader_parameter/grass_texture_base = ExtResource("7_0tmov")
-shader_parameter/grass_texture_add = ExtResource("6_7dmfg")
-shader_parameter/grass_normal_texture = ExtResource("5_u1rqg")
-shader_parameter/blend_noise_texture = SubResource("NoiseTexture2D_x871w")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgu6q"]
+albedo_color = Color(0.25, 0.25, 0.25, 1)
+albedo_texture = ExtResource("2_yecia")
+metallic_specular = 0.0
+roughness_texture = ExtResource("4_hfgkj")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("3_hnsbx")
+uv1_scale = Vector3(64, 64, 64)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uh8ht"]
-material = SubResource("ShaderMaterial_sv8bk")
-size = Vector2(10, 10)
+material = SubResource("StandardMaterial3D_mgu6q")
+size = Vector2(20, 20)
 
 [sub_resource type="Curve" id="Curve_iv3k0"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
@@ -88,10 +74,7 @@ script = ExtResource("1_ylfot")
 environment = SubResource("Environment_hq0yq")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("PlaneMesh_uh8ht")
-
-[node name="TestBox" type="CSGBox3D" parent="Floor"]
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866026, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, 0, 2, 0)

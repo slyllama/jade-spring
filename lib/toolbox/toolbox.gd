@@ -12,6 +12,7 @@ func set_default_skills() -> void:
 	$Box/Skill2.switch_skill("deco_test")
 	$Box/Skill3.switch_skill("delete")
 	$Box/Skill4.switch_skill("safe_point")
+	$Box/Skill5.switch_skill("toggle_walk_mode")
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.queued_decoration = "none"
 	Global.set_cursor(false)
@@ -151,4 +152,7 @@ func skill_used(skill_id: String) -> void:
 			Global.announcement_sent.emit("((Snap Disabled))")
 		"reset_adjustment":
 			Global.adjustment_reset.emit()
+		"toggle_walk_mode":
+			if Global.in_walk_mode: Global.walk_mode_left.emit()
+			else: Global.walk_mode_entered.emit()
 #endregion

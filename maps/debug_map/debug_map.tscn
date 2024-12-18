@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=14 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/debug_map/debug_map.gd" id="2_7lwj0"]
@@ -8,6 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="5_srhrw"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="6_jt5mw"]
 [ext_resource type="PackedScene" uid="uid://dkxgbow5m2nww" path="res://decorations/shing_jea_arch/deco_shing_jea_arch.tscn" id="8_py1nr"]
+[ext_resource type="PackedScene" uid="uid://bb7twv1jkyqfa" path="res://lib/spider/spider.tscn" id="9_gmbwi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -51,6 +52,12 @@ script = ExtResource("2_7lwj0")
 
 [node name="Sky" parent="." index="0"]
 environment = SubResource("Environment_0d0ns")
+
+[node name="YCast" type="RayCast3D" parent="Player" index="5"]
+target_position = Vector3(0, -5, 0)
+
+[node name="Spider" parent="Player" index="6" instance=ExtResource("9_gmbwi")]
+transform = Transform3D(-0.500001, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.500001, -4.00834, -0.303342, 0.87547)
 
 [node name="DebugTL" type="CanvasLayer" parent="HUD" index="15"]
 visible = false
