@@ -29,9 +29,15 @@ const TEST_DATA = {
 func _set_paint_val(val: float) -> void:
 	$Base.material.set_shader_parameter("value", val)
 
+func _set_exposure_val(val: float) -> void:
+	$Base.material.set_shader_parameter("exposure", val)
+
 func render_block(block_data: Dictionary) -> void:
 	for _n in $Base/Box.get_children():
 		if _n is Button: _n.queue_free() # clear out previous buttons
+	
+	var _exp_tween = create_tween() # exposure flash
+	_exp_tween.tween_method(_set_exposure_val, 2.0, 1.0, 0.31).set_ease(Tween.EASE_IN_OUT)
 	
 	if "string" in block_data:
 		$Base/Box/Text.text = block_data.string

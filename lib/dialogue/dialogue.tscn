@@ -11,8 +11,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xmdcj"]
 shader = ExtResource("2_kddfe")
 shader_parameter/paint_mask_exponent = 1.65
-shader_parameter/value = 0.0
+shader_parameter/value = 1.0
 shader_parameter/mask_scale = 1.6
+shader_parameter/exposure = 1.0
 shader_parameter/paint_mask_texture = ExtResource("3_k137k")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcyqg"]

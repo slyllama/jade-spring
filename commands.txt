@@ -11,4 +11,5 @@
 ### Generic utilities
 /savedata		Save data to file
 /printsavedata	Print all save data
+/printsettings	Print user settings
 /storypanel		Debug the story panel

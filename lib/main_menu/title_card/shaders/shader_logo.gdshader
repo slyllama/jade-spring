@@ -5,6 +5,7 @@ uniform sampler2D paint_mask_gradient: hint_default_white, repeat_disable, filte
 uniform float paint_mask_exponent: hint_range(0.01, 10.0) = 1.0;
 uniform float value = 0.0;
 uniform float mask_scale = 1.0;
+uniform float exposure = 1.0;
 
 void fragment() {
 	float original_alpha = texture(TEXTURE, UV).a;
@@ -16,4 +17,6 @@ void fragment() {
 	if (value >= 1.0) {
 		COLOR.a = original_alpha;
 	}
+	
+	COLOR *= exposure; // simple exposure for flashing dialogue changes
 }

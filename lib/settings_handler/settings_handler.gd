@@ -51,3 +51,7 @@ func update(parameter, value) -> void:
 
 func _ready() -> void:
 	load_from_file()
+	
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/printsettings":
+			print(settings))
