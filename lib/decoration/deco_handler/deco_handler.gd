@@ -33,10 +33,11 @@ func _load_decorations(data = []) -> void:
 	for _d in data:
 		if !_d.id in Global.DecoData: continue
 		var _decoration = load(Global.DecoData[_d.id].scene).instantiate()
+		print("Loading decoration '" + str(_d.id) + "' with rotation.x " + str(_d.rotation.x))
 		
 		add_child(_decoration)
 		_decoration.global_position = _d.position
-		_decoration.global_rotation_degrees = _d.rotation
+		_decoration.rotation = _d.rotation
 		_decoration.scale = _d.scale
 		Global.decorations.append(_decoration)
 
@@ -57,17 +58,15 @@ func _get_decoration_list() -> Array:
 			_decoration_save_data.append({
 				"id": _n.id,
 				"position": _n.global_position,
-				"rotation": Vector3(
-					snapped(_n.global_rotation_degrees.x, 0.01),
-					snapped(_n.global_rotation_degrees.y, 0.01),
-					snapped(_n.global_rotation_degrees.z, 0.01)
-				),
+				"rotation": _n.rotation,
 				"scale": _n.scale
 			})
 	return(_decoration_save_data)
 
 func _save_decorations() -> void:
 	var _decoration_save_data = _get_decoration_list()
+	for _n in _decoration_save_data:
+		print("saving " + _n.id + " w rotation.x " + str(_n.rotation.x))
 	var _file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	_file.store_var(_decoration_save_data)
 	_file.close()
@@ -79,7 +78,8 @@ func _ready() -> void:
 	default_deco_data = _get_decoration_list()
 	
 	# Load saved decorations or reset them depending on parameters passed from the main menu
-	if Global.start_params.new_save: _load_decorations(default_deco_data)
+	if Global.start_params.new_save:
+		_load_decorations(default_deco_data)
 	else: _load_decorations(_load_decoration_file())
 	
 	Global.mouse_3d_click.connect(func():
