@@ -26,6 +26,9 @@ const TEST_DATA = {
 	}
 }
 
+func _set_paint_val(val: float) -> void:
+	$Base.material.set_shader_parameter("value", val)
+
 func render_block(block_data: Dictionary) -> void:
 	for _n in $Base/Box.get_children():
 		if _n is Button: _n.queue_free() # clear out previous buttons
@@ -57,15 +60,23 @@ func open() -> void:
 		render_block(TEST_DATA._entry)
 	
 	$Player.play("Enter")
+	var fade_tween = create_tween()
+	fade_tween.tween_method(_set_paint_val, -1.0, 1.0, 0.3)
 
 func close() -> void:
 	closed.emit()
+	var fade_tween = create_tween()
+	fade_tween.tween_method(_set_paint_val, 1.0, -1.0, 0.3)
+	
+	await fade_tween.finished
+	await get_tree().process_frame
 	Global.in_exclusive_ui = false
 	Global.can_move = true
 	queue_free()
 
 func _ready() -> void:
-	$Player.play("RESET")
+	#$Player.play("RESET")
+	$Base.modulate.a = 1.0
 
 func _on_done_button_down() -> void:
 	close()

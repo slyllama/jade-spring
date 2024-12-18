@@ -190,6 +190,11 @@ area_radius = 0.6
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.6, 0)
 mesh = SubResource("ArrayMesh_nf87d")
 
+[node name="WeedMeshBase" type="MeshInstance3D" parent="WeedMesh"]
+transform = Transform3D(1.36284, 0, 0.885038, 0, 0.416667, 0, -0.885038, 0, 1.36284, 0, 0, 0)
+mesh = SubResource("ArrayMesh_nf87d")
+skeleton = NodePath("../..")
+
 [node name="SpatialText" parent="." instance=ExtResource("4_rqa4i")]
 spatial_string = "Rotting Shrub"
 color = "yellow"

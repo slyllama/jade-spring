@@ -6,6 +6,14 @@ var pickable = true
 
 func _ready() -> void:
 	super()
+	
+	# Make a bit more organic-feeling
+	$WeedMesh.rotation_degrees.y = rng.randf() * 360.0
+	$WeedMesh.rotation_degrees.x = rng.randf() * 10.0 - 5.0
+	$WeedMesh.rotation_degrees.z = rng.randf() * 10.0 - 5.0
+	var _scale_factor = rng.randf_range(1.0, 1.3)
+	$WeedMesh.scale *= _scale_factor
+	
 	$Foam.emitting = false
 	body_entered.connect(func(body):
 		if pickable and body is CharacterBody3D:

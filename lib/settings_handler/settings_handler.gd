@@ -8,7 +8,8 @@ const DEFAULT_SETTINGS = {
 	"window_mode": "full_screen",
 	"foliage_density": "high",
 	"bloom": "on",
-	"orbit_sensitivity": 0.5
+	"orbit_sensitivity": 0.5,
+	"labels": "hide"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)
