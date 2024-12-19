@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3wugehbw6ms1"]
+
+[ext_resource type="Material" uid="uid://dmrper60d0rrx" path="res://maps/seitung/props/foliage_test/materials/mat_autumn_test.tres" id="1_h521e"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_lkioe"]
+material = ExtResource("1_h521e")
+size = Vector2(3, 3)
+
+[node name="AutumnalShrub" type="Node3D"]
+
+[node name="FoliageTest" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.864063, -0.269109, 7.45058e-09, 0.252072, 0.80936, -0.316893, 0.0942308, 0.302559, 0.847705, 0, 1.117, 0.735152)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_lkioe")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.295974, 0.334531, 0.72318, -0.155369, 0.78088, -0.297635, -0.781511, -0.0285505, 0.333054, 0.788226, 1.117, 0.1962)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_lkioe")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.869974, 0.283185, 0.439518, 0.127139, 0.942202, -0.355411, -0.507155, -0.249574, -0.843049, 0.484211, 1.117, -0.5044)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_lkioe")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.624126, -0.463981, -0.70547, -0.284352, 0.941523, -0.367666, 0.795054, -0.0274934, -0.685298, -0.192668, 1.117, -0.0512984)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_lkioe")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.943684, 0.296072, 0.352566, 0.367477, -3.72529e-08, -0.983596, -0.277347, 1.00739, -0.103619, 0.00837696, 1.53051, 0.113651)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_lkioe")
+skeleton = NodePath("../..")

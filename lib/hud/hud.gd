@@ -70,6 +70,9 @@ func _input(_event: InputEvent) -> void:
 			_debug_cmd_lose_focus(true)
 	
 	if Input.is_action_just_pressed("debug_cmd_slash"):
+		if !Global.debug_enabled: # enable debug first, if it hasn't been already
+			Global.debug_enabled = true
+			Global.debug_toggled.emit()
 		if !$TopLevel/DebugEntry.has_focus():
 			_debug_cmd_gain_focus()
 	

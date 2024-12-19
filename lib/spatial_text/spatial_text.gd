@@ -4,7 +4,6 @@ extends VisibleOnScreenNotifier3D
 
 const TRANS_TIME = 0.2
 var in_range = true
-var active = true
 
 @export var spatial_string = "((Untitled))":
 	get:
@@ -35,15 +34,10 @@ func _ready() -> void:
 	SettingsHandler.setting_changed.connect(func(parameter):
 		if parameter == "labels":
 			var _value = SettingsHandler.settings[parameter]
-			if _value == "show":
-				active = true
-			elif _value == "hide":
-				active = false
-				$FG/Title.visible = false)
+			if _value == "show": $FG.visible = true
+			elif _value == "hide": $FG.visible = false)
 
 func _process(_delta: float) -> void:
-	if !active: return
-	
 	var _unp = Global.camera.unproject_position(global_position)
 	if visible and is_on_screen() and _get_in_bounds(_unp):
 		if !$FG/Title.visible:

@@ -33,7 +33,6 @@ func _load_decorations(data = []) -> void:
 	for _d in data:
 		if !_d.id in Global.DecoData: continue
 		var _decoration = load(Global.DecoData[_d.id].scene).instantiate()
-		print("Loading decoration '" + str(_d.id) + "' with rotation.x " + str(_d.rotation.x))
 		
 		add_child(_decoration)
 		_decoration.global_position = _d.position
@@ -65,8 +64,6 @@ func _get_decoration_list() -> Array:
 
 func _save_decorations() -> void:
 	var _decoration_save_data = _get_decoration_list()
-	for _n in _decoration_save_data:
-		print("Saving decoration'" + _n.id + "' with rotation.x " + str(_n.rotation.x))
 	var _file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	_file.store_var(_decoration_save_data)
 	_file.close()
