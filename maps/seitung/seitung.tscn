@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=88 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="34_xk86d"]
 [ext_resource type="PackedScene" uid="uid://ctgvkdlwgvjk2" path="res://decorations/rusted_ac_unit/deco_rusted_ac_unit.tscn" id="36_d7fdh"]
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
+[ext_resource type="PackedScene" uid="uid://12h1x7xjn8c2" path="res://lib/story_marker/story_marker.tscn" id="39_170jb"]
 [ext_resource type="PackedScene" uid="uid://d3wugehbw6ms1" path="res://maps/seitung/props/foliage_test/materials/autumnal_shrub.tscn" id="39_w76ch"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_gsijq"]
@@ -1492,6 +1493,9 @@ transform = Transform3D(-0.615882, 3.72529e-09, 0.787839, 2.09208e-08, 1, -1.783
 
 [node name="AutumnalShrub2" parent="." index="25" instance=ExtResource("39_w76ch")]
 transform = Transform3D(0.21248, -1.2926e-09, 1.07419, 2.29083e-08, 1.095, -3.21375e-09, -1.07419, 2.30964e-08, 0.21248, -7.65554, 1.86821, 10.4915)
+
+[node name="StoryMarker" parent="." index="26" instance=ExtResource("39_170jb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 
 [connection signal="interacted" from="Discombobulator" to="." method="_on_discombobulator_interacted"]
 [connection signal="interacted" from="WeedBin2" to="." method="_on_bin_interacted"]

@@ -1,0 +1,36 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://dmk1xs34qj55k"]
+
+[ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="1_slrvx"]
+
+[sub_resource type="Gradient" id="Gradient_ab0nn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqkxy"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_77j05"]
+seamless = true
+color_ramp = SubResource("Gradient_ab0nn")
+noise = SubResource("FastNoiseLite_oqkxy")
+
+[sub_resource type="Gradient" id="Gradient_ajv0q"]
+offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vc8yf"]
+gradient = SubResource("Gradient_ajv0q")
+
+[sub_resource type="Gradient" id="Gradient_acgf2"]
+offsets = PackedFloat32Array(0.0601093, 0.448087, 0.625683, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ijhh"]
+gradient = SubResource("Gradient_acgf2")
+fill_from = Vector2(1, 1)
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_slrvx")
+shader_parameter/uv_scale = Vector2(1, 0.5)
+shader_parameter/ray_mask_texture = SubResource("NoiseTexture2D_77j05")
+shader_parameter/x_gradient_texture = SubResource("GradientTexture2D_vc8yf")
+shader_parameter/y_gradient_texture = SubResource("GradientTexture2D_1ijhh")

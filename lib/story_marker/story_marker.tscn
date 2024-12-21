@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://12h1x7xjn8c2"]
+
+[ext_resource type="Material" uid="uid://dmk1xs34qj55k" path="res://lib/story_marker/materials/mat_story_ray.tres" id="1_tl07w"]
+[ext_resource type="Texture2D" uid="uid://cpf10m5c4bipy" path="res://lib/story_marker/textures/story_marker.png" id="2_dreid"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b841u"]
+material = ExtResource("1_tl07w")
+size = Vector2(0.66, 4.5)
+orientation = 2
+
+[node name="StoryMarker" type="Node3D"]
+
+[node name="Ray" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_b841u")
+
+[node name="Marker" type="Sprite3D" parent="."]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 2.6, 0)
+modulate = Color(0.65, 0.65, 0.65, 1)
+billboard = 1
+render_priority = 1
+texture = ExtResource("2_dreid")

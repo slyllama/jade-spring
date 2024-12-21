@@ -2,8 +2,20 @@ extends "res://lib/map/map.gd"
 
 const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 
+func set_marker_pos() -> void: # set the position of the story marker
+	match Save.data.story_point:
+		"game_start": $StoryMarker.position = $Decoration/Foliage/Pulley.position
+		"pick_weeds": $StoryMarker.position = $WeedBin.position
+		"clear_bugs": $StoryMarker.position = $Discombobulator.position + Vector3(-0.5, 0, 0)
+		"_": $StoryMarker.position = Vector3(0, -10, 0) # hide under map
+
 func _ready() -> void:
 	super()
+	
+	Save.story_advanced.connect(set_marker_pos)
+	
+	await get_tree().process_frame
+	set_marker_pos()
 	$DragonvoidArc/AnimationPlayer.play("Wobble")
 	$DragonvoidArc2/AnimationPlayer.play("Wobble")
 	$DragonvoidArc3/AnimationPlayer.play("Wobble")
