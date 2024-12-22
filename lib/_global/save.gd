@@ -70,9 +70,9 @@ func save_to_file() -> void:
 	file.store_var(data)
 	file.close()
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("debug_action"):
-		advance_story()
+#func _input(_event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("debug_action"):
+		#advance_story()
 
 func _ready() -> void:
 	Global.save_handler = self # reference
