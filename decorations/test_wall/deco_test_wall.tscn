@@ -8,7 +8,7 @@ size = Vector3(2.5, 4, 0.2)
 
 [node name="DecoTestWall" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_fgi72")
-id = "test_wall"
+id = "simple_wall"
 collision_box = NodePath("Body")
 
 [node name="Wall" parent="." instance=ExtResource("3_egx3r")]

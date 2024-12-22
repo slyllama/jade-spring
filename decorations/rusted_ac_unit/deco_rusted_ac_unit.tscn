@@ -8,7 +8,7 @@ size = Vector3(1.37988, 0.766724, 0.5979)
 
 [node name="DecoRustedACUnit" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_0ftgp")
-id = "rusted_ac_unit"
+id = "cobble_ward_ac_unit"
 collision_box = NodePath("Body")
 
 [node name="RustedACUnit" parent="." instance=ExtResource("2_nmcvy")]

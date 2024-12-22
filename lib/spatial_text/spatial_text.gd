@@ -5,6 +5,9 @@ extends VisibleOnScreenNotifier3D
 const TRANS_TIME = 0.2
 var in_range = true
 
+var hud_visible = true # is the HUD display toggled (F4)?
+var settings_visibility = true # are the labels enabled in settins?
+
 @export var spatial_string = "((Untitled))":
 	get:
 		return(spatial_string)
@@ -23,6 +26,14 @@ func _get_in_bounds(_pos: Vector2) -> bool:
 		_in_bounds = false
 	return(_in_bounds)
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("toggle_hud"):
+		hud_visible = !hud_visible
+		if hud_visible and settings_visibility:
+			visible = true
+		if !hud_visible:
+			visible = false
+
 func _ready() -> void:
 	$FG/Underlay.queue_free()
 	_set_title(spatial_string)
@@ -30,8 +41,13 @@ func _ready() -> void:
 	SettingsHandler.setting_changed.connect(func(parameter):
 		if parameter == "labels":
 			var _value = SettingsHandler.settings[parameter]
-			if _value == "show": $FG.visible = true
-			elif _value == "hide": $FG.visible = false)
+			if _value == "show":
+				settings_visibility = true
+				if hud_visible:
+					visible = true
+			elif _value == "hide":
+				settings_visibility = false
+				visible = false)
 
 func _process(_delta: float) -> void:
 	var _unp = Global.camera.unproject_position(global_position)

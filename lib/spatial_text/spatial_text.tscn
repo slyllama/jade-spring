@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_pqkr1"]
 
 [node name="SpatialText" type="VisibleOnScreenNotifier3D"]
-visible = false
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 script = ExtResource("1_f6yik")
 

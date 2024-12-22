@@ -133,23 +133,23 @@ const DecoData = {
 		"preview_scale": 0.4,
 		"tags": ["Foliage", "Cantha"]
 	},
-	"building_platform": {
-		"name": "Building Platform",
+	"simple_sub_frame": {
+		"name": "Simple Sub-Frame",
 		"scene": "res://decorations/building_platform/deco_building_platform.tscn",
 		"cursor_model": "res://decorations/building_platform/meshes/building_platform.glb",
 		"preview_scale": 0.4,
 		"preview_y_rotation": 35,
 		"tags": ["Architecture"]
 	},
-	"platform_stairs": {
-		"name": "Platform Stairs",
+	"simple_stairs": {
+		"name": "Simple Stairs",
 		"scene": "res://decorations/platform_stairs/deco_platform_stairs.tscn",
 		"cursor_model": "res://decorations/platform_stairs/meshes/platform_stairs.glb",
 		"preview_scale": 0.4,
 		"preview_y_rotation": 215,
 		"tags": ["Architecture"]
 	},
-	"rusted_ac_unit": {
+	"cobble_ward_ac_unit": {
 		"name": "Cobble Ward AC Unit",
 		"scene": "res://decorations/rusted_ac_unit/deco_rusted_ac_unit.tscn",
 		"cursor_model": "res://decorations/rusted_ac_unit/rusted_ac_unit.glb",
@@ -158,16 +158,16 @@ const DecoData = {
 		"preview_y_rotation": 35,
 		"tags": ["Cantha"]
 	},
-	"test_wall": {
-		"name": "Test Wall",
+	"simple_wall": {
+		"name": "Simple Wall",
 		"scene": "res://decorations/test_wall/deco_test_wall.tscn",
 		"cursor_model": "res://decorations/test_wall/meshes/wall.glb",
 		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
 		"tags": ["Architecture"]
 	},
-	"test_door": {
-		"name": "Test Door",
+	"simple_door": {
+		"name": "Simple Door",
 		"scene": "res://decorations/test_door/deco_test_door.tscn",
 		"cursor_model": "res://decorations/test_door/mesh/test_door.glb",
 		"preview_y_rotation": 35,
@@ -181,8 +181,8 @@ const DecoData = {
 		"preview_scale": 0.38,
 		"tags": ["Foliage"]
 	},
-	"roof_piece": {
-		"name": "Roof Piece",
+	"simple_roof_piece": {
+		"name": "Simple Roof Piece",
 		"scene": "res://decorations/roof_piece/deco_roof_piece.tscn",
 		"cursor_model": "res://decorations/roof_piece/roof_piece.glb",
 		"preview_scale": 0.9,
