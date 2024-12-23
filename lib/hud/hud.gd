@@ -86,12 +86,9 @@ func _input(_event: InputEvent) -> void:
 		if visible:
 			$Toolbox.visible = false
 			visible = false
-			$TopLevel/CloseButton.visible = false
 		else:
 			$Toolbox.visible = true
 			visible = true
-			$TopLevel/CloseButton.visible = true
-
 func _ready() -> void:
 	Global.hud = self # reference
 	
@@ -109,8 +106,6 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()
-		elif _cmd == "/playflash":
-			Global.play_flash($TopLevel/CloseButton.global_position)
 		elif _cmd == "/storypanel":
 			var _sp = StoryPanel.instantiate()
 			add_child(_sp)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=95 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -39,6 +39,22 @@
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
 [ext_resource type="PackedScene" uid="uid://12h1x7xjn8c2" path="res://lib/story_marker/story_marker.tscn" id="39_170jb"]
 [ext_resource type="PackedScene" uid="uid://d3wugehbw6ms1" path="res://maps/seitung/props/foliage_test/materials/autumnal_shrub.tscn" id="39_w76ch"]
+[ext_resource type="Material" uid="uid://bd3wl2evbk1hm" path="res://generic/materials/mat_water_pond.tres" id="40_udm06"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8ekbe"]
+plane = Plane(0, 0, 1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qxwnk"]
+plane = Plane(0, 0, -1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0yebn"]
+plane = Plane(-1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b6ruw"]
+plane = Plane(1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vfwjc"]
+plane = Plane(0, -1, 0, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_gsijq"]
 transform_format = 1
@@ -375,14 +391,41 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_x1j83")
 size = Vector2(0.45, 0.45)
 
+[sub_resource type="QuadMesh" id="QuadMesh_0uu05"]
+material = ExtResource("40_udm06")
+size = Vector2(50, 50)
+orientation = 1
+
 [node name="Seitung" instance=ExtResource("1_bxd0c")]
 script = ExtResource("1_uenug")
+
+[node name="_Boundary" type="StaticBody3D" parent="." index="0"]
+
+[node name="WBounds" type="CollisionShape3D" parent="_Boundary" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83724, -8.06932)
+shape = SubResource("WorldBoundaryShape3D_8ekbe")
+
+[node name="WBounds4" type="CollisionShape3D" parent="_Boundary" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83724, 28.5062)
+shape = SubResource("WorldBoundaryShape3D_qxwnk")
+
+[node name="WBounds2" type="CollisionShape3D" parent="_Boundary" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45203, 4.83724, 12.1782)
+shape = SubResource("WorldBoundaryShape3D_0yebn")
+
+[node name="WBounds3" type="CollisionShape3D" parent="_Boundary" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4325, 4.83724, 12.1782)
+shape = SubResource("WorldBoundaryShape3D_b6ruw")
+
+[node name="WBounds5" type="CollisionShape3D" parent="_Boundary" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4325, 15.5016, 12.1782)
+shape = SubResource("WorldBoundaryShape3D_vfwjc")
 
 [node name="Sun" parent="Sky" index="0"]
 transform = Transform3D(0.213438, -0.287925, 0.933565, -0.290381, 0.893701, 0.34202, -0.932804, -0.34409, 0.107142, 0, 3, 0)
 directional_shadow_blend_splits = true
 
-[node name="Player" parent="." index="1"]
+[node name="Player" parent="." index="2"]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 1, 11)
 
 [node name="BugSwarm" parent="CrumbHandler" index="0" instance=ExtResource("24_lh7v3")]
@@ -431,7 +474,7 @@ area_radius = 0.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74511, 0.227265, 14.224)
 area_radius = 0.9
 
-[node name="Floor" parent="." index="4"]
+[node name="Floor" parent="." index="5"]
 collision_layer = 8
 collision_mask = 8
 input_ray_pickable = false
@@ -960,7 +1003,7 @@ ignore_aliasing_check = true
 moss_albedo_mix = 0.268
 moss_color = Color(0.45, 0.6, 0, 1)
 vary_colours = false
-render_distance = 19.0
+render_distance = 21.0
 render_fade_spread = 1.0
 
 [node name="BambooSpawner7" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="23"]
@@ -1375,16 +1418,16 @@ cull_mask = 1048573
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0487338, 1)
 visible = false
 
-[node name="SafePoint" parent="." index="8"]
+[node name="SafePoint" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44624, 0.880119, 17.2716)
 
 [node name="WPBase" parent="SafePoint" index="0" instance=ExtResource("22_r7xru")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -1.1055, 0)
 
-[node name="Jukebox" parent="." index="9"]
+[node name="Jukebox" parent="." index="10"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("21_u002t"), ExtResource("22_tefod")])
 
-[node name="DragonvoidArc" parent="." index="10" instance=ExtResource("34_xk86d")]
+[node name="DragonvoidArc" parent="." index="11" instance=ExtResource("34_xk86d")]
 transform = Transform3D(0.634315, 0.620771, -0.460745, -0.67088, 0.738166, 0.0709343, 0.38414, 0.26411, 0.884694, -5.88334, 1.02951, 16.9245)
 
 [node name="Motes" type="GPUParticles3D" parent="DragonvoidArc" index="4"]
@@ -1396,7 +1439,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_x0yy0")
 draw_pass_1 = SubResource("PlaneMesh_herhu")
 
-[node name="DragonvoidArc3" parent="." index="11" instance=ExtResource("34_xk86d")]
+[node name="DragonvoidArc3" parent="." index="12" instance=ExtResource("34_xk86d")]
 transform = Transform3D(0.475839, 0, -0.879533, 0, 1, 0, 0.879532, 0, 0.475839, 5.0689, -0.175569, 14.0293)
 
 [node name="Motes" type="GPUParticles3D" parent="DragonvoidArc3" index="4"]
@@ -1408,7 +1451,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_x0yy0")
 draw_pass_1 = SubResource("PlaneMesh_herhu")
 
-[node name="DragonvoidArc2" parent="." index="12" instance=ExtResource("34_xk86d")]
+[node name="DragonvoidArc2" parent="." index="13" instance=ExtResource("34_xk86d")]
 transform = Transform3D(0.730559, 0.641472, 0.234087, -0.67088, 0.738166, 0.0709343, -0.127293, -0.208866, 0.969625, -7.0524, 1.02951, 9.74152)
 
 [node name="Motes" type="GPUParticles3D" parent="DragonvoidArc2" index="4"]
@@ -1420,7 +1463,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_x0yy0")
 draw_pass_1 = SubResource("PlaneMesh_herhu")
 
-[node name="WeedBin" parent="." index="13" instance=ExtResource("36_pj8da")]
+[node name="WeedBin" parent="." index="14" instance=ExtResource("36_pj8da")]
 transform = Transform3D(-0.99518, 0, -0.0980693, 0, 1, 0, 0.0980693, 0, -0.99518, -4.42869, -0.229125, 16.0129)
 
 [node name="SpatialText" parent="WeedBin" index="18" instance=ExtResource("25_or3n7")]
@@ -1443,59 +1486,69 @@ autoplay = true
 max_distance = 5.0
 attenuation_filter_cutoff_hz = 10000.0
 
-[node name="Lamp" type="OmniLight3D" parent="." index="14"]
+[node name="Lamp" type="OmniLight3D" parent="." index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66611, 2.70211, 9.04827)
 light_color = Color(1, 0.926333, 0.66, 1)
 omni_range = 3.0
 omni_attenuation = 0.0
 
-[node name="Lamp2" type="OmniLight3D" parent="." index="15"]
+[node name="Lamp2" type="OmniLight3D" parent="." index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33224, 1.84915, 7.83142)
 visible = false
 light_color = Color(1, 0.926333, 0.66, 1)
 omni_range = 3.75
 omni_attenuation = 0.0
 
-[node name="StuccoWall" parent="." index="16" instance=ExtResource("23_0gdwd")]
+[node name="StuccoWall" parent="." index="17" instance=ExtResource("23_0gdwd")]
 transform = Transform3D(0.976623, 0.20509, -0.14601, -0.156028, 1.28372, 0.0233268, 0.147861, 4.58504e-09, 0.989008, -8.26422, -0.832272, 28.6265)
 
-[node name="StuccoWall2" parent="." index="17" instance=ExtResource("23_0gdwd")]
+[node name="StuccoWall2" parent="." index="18" instance=ExtResource("23_0gdwd")]
 transform = Transform3D(0.994538, -0.135684, 0, 0.104372, 1.2929, 0, 0, 0, 1, 10.1216, -0.366151, 29.5911)
 
-[node name="CleaningStation" parent="." index="18" instance=ExtResource("22_wkmls")]
+[node name="CleaningStation" parent="." index="19" instance=ExtResource("22_wkmls")]
 transform = Transform3D(0.434056, 0, -1.27832, 0, 1.35, 0, 1.27832, 0, 0.434056, 5.22151, 0.403454, 7.60442)
 
 [node name="SpatialText2" parent="CleaningStation" index="37" instance=ExtResource("25_or3n7")]
 transform = Transform3D(0.238164, 0, 0.701408, 0, 0.740741, 0, -0.701408, 0, 0.238164, 0, 1, 0)
 spatial_string = "Discombobulation Station"
 
-[node name="Discombobulator" parent="." index="19" instance=ExtResource("30_a1hev")]
+[node name="Discombobulator" parent="." index="20" instance=ExtResource("30_a1hev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99646, 0.28488, 8.15605)
 
-[node name="WeedBin2" parent="." index="20" instance=ExtResource("30_a1hev")]
+[node name="WeedBin2" parent="." index="21" instance=ExtResource("30_a1hev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00279, 0.273946, 15.9227)
 
-[node name="DialogueTest" parent="." index="21" instance=ExtResource("30_a1hev")]
+[node name="DialogueTest" parent="." index="22" instance=ExtResource("30_a1hev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 1, 12.8)
 
 [node name="Title" parent="DialogueTest" index="1" instance=ExtResource("25_or3n7")]
 spatial_string = "((Dialogue Test))"
 color = "cyan"
 
-[node name="AutumnalShrub" parent="." index="22" instance=ExtResource("39_w76ch")]
+[node name="AutumnalShrub" parent="." index="23" instance=ExtResource("39_w76ch")]
 transform = Transform3D(-0.615882, 3.72529e-09, 0.787839, 2.09208e-08, 1, -1.78361e-08, -0.787839, 0, -0.615881, -5.32243, -0.485521, 13.2916)
 
-[node name="AutumnalShrub3" parent="." index="23" instance=ExtResource("39_w76ch")]
+[node name="AutumnalShrub5" parent="." index="24" instance=ExtResource("39_w76ch")]
+transform = Transform3D(-0.409064, 3.61667e-09, 0.912506, 2.09208e-08, 1, -1.78361e-08, -0.912506, 8.93026e-10, -0.409063, 14.1547, 0.391406, 18.1893)
+
+[node name="AutumnalShrub6" parent="." index="25" instance=ExtResource("39_w76ch")]
+transform = Transform3D(0.884676, 0, 0.81077, 0, 1.2, 0, -0.81077, 0, 0.884676, 11.8377, -0.822046, 19.9486)
+
+[node name="AutumnalShrub3" parent="." index="26" instance=ExtResource("39_w76ch")]
 transform = Transform3D(-0.615882, 3.72529e-09, 0.787839, 2.09208e-08, 1, -1.78361e-08, -0.787839, 0, -0.615881, -6.16757, -0.0682136, 7.88247)
 
-[node name="AutumnalShrub4" parent="." index="24" instance=ExtResource("39_w76ch")]
+[node name="AutumnalShrub4" parent="." index="27" instance=ExtResource("39_w76ch")]
 transform = Transform3D(-0.615882, 3.72529e-09, 0.787839, 2.09208e-08, 1, -1.78361e-08, -0.787839, 0, -0.615881, -5.61604, -0.880452, 4.08898)
 
-[node name="AutumnalShrub2" parent="." index="25" instance=ExtResource("39_w76ch")]
+[node name="AutumnalShrub2" parent="." index="28" instance=ExtResource("39_w76ch")]
 transform = Transform3D(0.21248, -1.2926e-09, 1.07419, 2.29083e-08, 1.095, -3.21375e-09, -1.07419, 2.30964e-08, 0.21248, -7.65554, 1.86821, 10.4915)
 
-[node name="StoryMarker" parent="." index="26" instance=ExtResource("39_170jb")]
+[node name="StoryMarker" parent="." index="29" instance=ExtResource("39_170jb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.785966, 57.2386)
+mesh = SubResource("QuadMesh_0uu05")
 
 [connection signal="interacted" from="Discombobulator" to="." method="_on_discombobulator_interacted"]
 [connection signal="interacted" from="WeedBin2" to="." method="_on_bin_interacted"]
