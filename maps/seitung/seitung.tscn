@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=98 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://cnpky1n1tfjhj" path="res://decorations/weeping_willow/meshes/weeping_willow.glb" id="18_jfm6m"]
 [ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="21_u002t"]
 [ext_resource type="PackedScene" uid="uid://bp20w7u5bdeoa" path="res://maps/seitung/meshes/wp_base.glb" id="22_r7xru"]
-[ext_resource type="AudioStream" uid="uid://bgajrg2kgqtxq" path="res://maps/seitung/sounds/mus_haiju.ogg" id="22_tefod"]
 [ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="22_wkmls"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="22_y7vyt"]
 [ext_resource type="PackedScene" uid="uid://d2a2ptt0rqp1i" path="res://maps/seitung/props/stucco_wall/plaster_wall.glb" id="23_0gdwd"]
@@ -31,9 +30,13 @@
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="24_lh7v3"]
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="25_7asqj"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="25_or3n7"]
+[ext_resource type="AudioStream" uid="uid://2a40t0ubngvq" path="res://maps/seitung/sounds/mus_haiju_full.ogg" id="29_5e7o6"]
+[ext_resource type="AudioStream" uid="uid://dfuppoomsjr3p" path="res://maps/seitung/sounds/mus_haiju_percussion.ogg" id="30_3xvqq"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="30_a1hev"]
 [ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://effects/water_splash/textures/splash_mask.png" id="30_q7ciy"]
+[ext_resource type="AudioStream" uid="uid://ccvkcu4u1iay5" path="res://maps/seitung/sounds/mus_haiju_strings.ogg" id="31_68bg8"]
 [ext_resource type="AudioStream" uid="uid://rdru5wa16llr" path="res://lib/crumb/weed/sounds/weed_clear.ogg" id="31_rwmbn"]
+[ext_resource type="AudioStream" uid="uid://dcj26t2q5jq5n" path="res://maps/seitung/sounds/mus_shadows.ogg" id="32_sr487"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="34_xk86d"]
 [ext_resource type="PackedScene" uid="uid://ctgvkdlwgvjk2" path="res://decorations/rusted_ac_unit/deco_rusted_ac_unit.tscn" id="36_d7fdh"]
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="36_pj8da"]
@@ -1425,7 +1428,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44624, 0.880119, 17.2716)
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -1.1055, 0)
 
 [node name="Jukebox" parent="." index="10"]
-track_list = Array[AudioStreamOggVorbis]([ExtResource("21_u002t"), ExtResource("22_tefod")])
+track_list = Array[AudioStreamOggVorbis]([ExtResource("21_u002t"), ExtResource("29_5e7o6"), ExtResource("30_3xvqq"), ExtResource("31_68bg8"), ExtResource("32_sr487")])
 
 [node name="DragonvoidArc" parent="." index="11" instance=ExtResource("34_xk86d")]
 transform = Transform3D(0.634315, 0.620771, -0.460745, -0.67088, 0.738166, 0.0709343, 0.38414, 0.26411, 0.884694, -5.88334, 1.02951, 16.9245)
