@@ -5,7 +5,8 @@ const Offsets = {
 	"bloodstone_impacted_pillar": -0.6,
 	"waterfall_fountain": 0.29,
 	"bamboo_cluster": -0.5,
-	"weeping_willow": -0.5
+	"weeping_willow": -0.5,
+	"autumnal_shrub": -0.2
 }
 
 const HOffsets = {

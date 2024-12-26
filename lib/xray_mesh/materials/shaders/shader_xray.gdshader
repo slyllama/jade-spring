@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_add, alpha_to_coverage, unshaded;
+render_mode blend_add, alpha_to_coverage, unshaded, cull_disabled;
 
 float fresnel(float amount, vec3 normal, vec3 view) {
 	return pow((1.0 - clamp(dot(normalize(normal),

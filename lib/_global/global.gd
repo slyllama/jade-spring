@@ -189,6 +189,13 @@ const DecoData = {
 		"preview_y_rotation": 215,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"autumnal_shrub": {
+		"name": "Autumnal Shrub",
+		"scene": "res://decorations/autumnal_shrub/deco_autumnal_shrub.tscn",
+		"cursor_model": "res://maps/seitung/props/foliage_test/materials/autumnal_shrub.tscn",
+		"preview_scale": 0.65,
+		"tags": ["Foliage"]
+	}
 }
 #endregion
 

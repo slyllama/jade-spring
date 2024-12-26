@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b863y1yeckqfh"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_ax1it"]
+[ext_resource type="PackedScene" uid="uid://d3wugehbw6ms1" path="res://maps/seitung/props/foliage_test/materials/autumnal_shrub.tscn" id="2_feypr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k4f5o"]
+size = Vector3(1.69727, 2.1248, 1.97656)
+
+[node name="DecoAutumnalShrub" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_ax1it")
+id = "autumnal_shrub"
+collision_box = NodePath("Body")
+
+[node name="AutumnalShrub" parent="." instance=ExtResource("2_feypr")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2376, 0)
+shape = SubResource("BoxShape3D_k4f5o")
