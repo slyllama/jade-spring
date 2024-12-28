@@ -1,4 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://c521u7d0r3sk1"]
+[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://c521u7d0r3sk1"]
+
+[ext_resource type="Texture2D" uid="uid://c5sldoo7exwou" path="res://maps/debug_map/materials/textures/landscape_mask.jpg" id="1_dmdua"]
 
 [sub_resource type="Shader" id="Shader_e2vv8"]
 code = "shader_type spatial;
@@ -35,7 +37,7 @@ void fragment() {
 	vec3 grass_add = texture(grass_texture_add, rotate_uv(UV, vec2(0.5), PI / 2.0) * uv_scale * 0.5).rgb;
 	vec3 grass_normal = texture(grass_normal_texture, UV * uv_scale).rgb;
 
-	vec3 dirt = texture(dirt_texture, UV * uv_scale * 0.75).rgb * 1.2;
+	vec3 dirt = texture(dirt_texture, UV * uv_scale * 1.55).rgb;
 
 	ALBEDO = mix(grass_base * grass_base_multiplier, grass_add * grass_add_multiplier, blend_noise);
 	ALBEDO = mix(ALBEDO, dirt, dirt_blend);
@@ -80,3 +82,4 @@ shader_parameter/grass_texture_add = SubResource("CompressedTexture2D_f68cj")
 shader_parameter/grass_normal_texture = SubResource("CompressedTexture2D_t6j0b")
 shader_parameter/blend_noise_texture = SubResource("NoiseTexture2D_fjivs")
 shader_parameter/dirt_texture = SubResource("CompressedTexture2D_0rf7j")
+shader_parameter/dirt_mask_texture = ExtResource("1_dmdua")

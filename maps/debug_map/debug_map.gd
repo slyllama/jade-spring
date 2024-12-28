@@ -30,9 +30,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	y_target = $Player/YCast.get_collision_point().y
-	
-	$HUD/DebugTL/DebugButtons/FXDebug.text = str(Global.current_effects)
-	$HUD/DebugTL/DebugButtons/FXDebug.text += "\n" + str(Save.data)
 
 func _on_add_weed_button_down() -> void:
 	Global.add_qty_effect("weed")
