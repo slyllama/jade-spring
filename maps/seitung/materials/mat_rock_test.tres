@@ -21,7 +21,7 @@ noise = SubResource("FastNoiseLite_csnh3")
 [resource]
 render_priority = 0
 shader = ExtResource("1_eyvj3")
-shader_parameter/uv_scale = 7.0
+shader_parameter/uv_scale = 12.0
 shader_parameter/grass_base_multiplier = 0.5
 shader_parameter/normal_strength = 1.0
 shader_parameter/grass_add_multiplier = 0.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://b0bj2tw5upqwd"]
+[gd_scene load_steps=102 format=3 uid="uid://b0bj2tw5upqwd"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_bxd0c"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="1_uenug"]
@@ -284,7 +284,7 @@ buffer = PackedFloat32Array(-0.838088, 0, -0.356382, -0.785137, 0, 0.910714, 0, 
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_r1sh7"]
+[sub_resource type="CurveTexture" id="CurveTexture_bwlpu"]
 curve = SubResource("Curve_v3sd8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iys52"]
@@ -294,6 +294,41 @@ emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0.1, 0)
 scale_min = 0.2
 scale_max = 0.4
+alpha_curve = SubResource("CurveTexture_bwlpu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlsc0"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_aq4pe")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_flja0"]
+material = SubResource("StandardMaterial3D_jlsc0")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[sub_resource type="Curve" id="Curve_qjpf4"]
+_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_r1sh7"]
+curve = SubResource("Curve_qjpf4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x0yy0"]
+emission_shape = 3
+emission_box_extents = Vector3(1.9, 0.9, 1.9)
+gravity = Vector3(0, 0.24, 0)
+scale_min = 0.5
+scale_max = 0.9
+color = Color(0, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_r1sh7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdk7r"]
@@ -309,20 +344,6 @@ billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_flja0"]
-material = SubResource("StandardMaterial3D_tdk7r")
-size = Vector2(0.1, 0.1)
-orientation = 2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x0yy0"]
-emission_shape = 3
-emission_box_extents = Vector3(1.9, 0.9, 1.9)
-gravity = Vector3(0, 0.24, 0)
-scale_min = 0.5
-scale_max = 0.9
-color = Color(0, 0, 0, 1)
-alpha_curve = SubResource("CurveTexture_r1sh7")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_herhu"]
 material = SubResource("StandardMaterial3D_tdk7r")
