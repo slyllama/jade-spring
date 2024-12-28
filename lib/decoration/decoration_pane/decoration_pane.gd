@@ -92,6 +92,7 @@ func _refresh() -> void:
 	tag_list.text = str(selected_tag).capitalize()
 
 func _input(_event) -> void:
+	super(_event)
 	if Input.is_action_just_pressed("ui_cancel"):
 		await get_tree().process_frame
 		close()
