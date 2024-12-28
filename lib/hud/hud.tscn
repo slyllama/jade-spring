@@ -52,6 +52,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="DecorationNE" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 0.188235)
 anchors_preset = 1
 anchor_left = 1.0
@@ -146,9 +147,8 @@ grow_vertical = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -310.0
+offset_left = -290.0
 offset_right = 0.0
-offset_bottom = 300.0
 grow_horizontal = 0
 
 [node name="FXList" parent="." instance=ExtResource("7_5oqpl")]

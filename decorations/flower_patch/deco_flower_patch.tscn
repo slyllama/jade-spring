@@ -12,7 +12,23 @@ id = "flower_patch"
 collision_box = NodePath("SelectArea")
 
 [node name="Flower1" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.2, 0, 0, 0, 3.2, 0, 0, 0, 3.2, -0.225453, 0, 0.0268517)
+transform = Transform3D(3.75, 0, 0, 0, 3.75, 0, 0, 0, 3.75, -0.225453, 0, 0.0268517)
+mesh = ExtResource("1_bwc4e")
+
+[node name="Flower4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.98374, -0.332274, -2.27946, 0.218131, 3.02179, -0.250648, 2.2932, 0, 1.9957, -0.396779, 0, 0.420251)
+mesh = ExtResource("1_bwc4e")
+
+[node name="Flower5" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.17723, 0, -0.381056, -0.0264351, 3.19229, -0.220415, 0.380137, 0.221995, 3.16958, 0.560306, 0.0103824, 0.303891)
+mesh = ExtResource("1_bwc4e")
+
+[node name="Flower6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.638292, 0, -2.77247, 0.113295, 2.84262, -0.0260833, 2.77016, -0.116259, -0.637759, 0.524089, 0.0103824, -0.509451)
+mesh = ExtResource("1_bwc4e")
+
+[node name="Flower7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.53488, 0, -1.95304, 0.170049, 3.18785, -0.220709, 1.94562, -0.27862, -2.52526, -0.453936, 0.0103824, -0.513018)
 mesh = ExtResource("1_bwc4e")
 
 [node name="Flower2" type="MeshInstance3D" parent="."]

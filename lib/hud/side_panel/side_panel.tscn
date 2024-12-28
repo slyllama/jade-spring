@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://gokqv1eo16nh"]
 
 [ext_resource type="Script" path="res://lib/hud/side_panel/side_panel.gd" id="1_xy7kn"]
-[ext_resource type="PackedScene" uid="uid://d0nttru1cd431" path="res://lib/hud/side_panel/side_panel_box.tscn" id="1_ycodo"]
 [ext_resource type="Shader" path="res://lib/hud/side_panel/materials/shaders/shader_panel_gradient.gdshader" id="2_xwfhn"]
 [ext_resource type="Texture2D" uid="uid://cmq3a01pn8uh1" path="res://lib/hud/side_panel/materials/textures/side_panel_gradient.tres" id="3_0npe3"]
 [ext_resource type="PackedScene" uid="uid://yrtnqwevr314" path="res://lib/hud/side_panel/panel_progress.tscn" id="4_7d8f4"]
 [ext_resource type="Texture2D" uid="uid://dkitt5cq2opmq" path="res://lib/hud/side_panel/materials/textures/story_sidebar_gradient.tres" id="5_qmfye"]
+[ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="7_excbr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fqi0m"]
 shader = ExtResource("2_xwfhn")
@@ -13,27 +13,22 @@ shader_parameter/gradient = ExtResource("3_0npe3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fceqx"]
 content_margin_left = 20.0
-content_margin_top = 10.0
-content_margin_bottom = 10.0
+content_margin_top = 24.0
+content_margin_bottom = 16.0
 texture = ExtResource("5_qmfye")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83i4h"]
-content_margin_left = 20.0
-content_margin_top = 0.0
+content_margin_left = 24.0
+content_margin_top = 2.0
+content_margin_bottom = 3.0
 texture = ExtResource("3_0npe3")
 
 [node name="SidePanel" type="VBoxContainer"]
-custom_minimum_size = Vector2(310, 0)
-offset_right = 200.0
-offset_bottom = 200.0
+custom_minimum_size = Vector2(290, 0)
+offset_right = 290.0
+offset_bottom = 264.0
 theme_override_constants/separation = 0
 script = ExtResource("1_xy7kn")
-
-[node name="TestBox" parent="." instance=ExtResource("1_ycodo")]
-visible = false
-layout_mode = 2
-title = "Seitung Spring Clean"
-description = "1.0.0a"
 
 [node name="Separator" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fqi0m")
@@ -42,9 +37,9 @@ layout_mode = 2
 
 [node name="StoryText" type="RichTextLabel" parent="."]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxTexture_fceqx")
 bbcode_enabled = true
 text = "((Story comments))"
@@ -57,68 +52,58 @@ custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
 [node name="B_U" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/normal_font_size = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
 text = " "
 fit_content = true
 scroll_active = false
 
 [node name="BugsText" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
 text = "Clear invasive bugs"
 fit_content = true
 scroll_active = false
 
 [node name="BugsBar" parent="." instance=ExtResource("4_7d8f4")]
-visible = false
 layout_mode = 2
 
 [node name="WeedsText" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
 text = "Pick weeds"
 fit_content = true
 scroll_active = false
 
 [node name="WeedsBar" parent="." instance=ExtResource("4_7d8f4")]
-visible = false
-layout_mode = 2
-
-[node name="DragonvoidText" type="RichTextLabel" parent="."]
-visible = false
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
-text = "Dispel Dragonvoid"
-fit_content = true
-scroll_active = false
-
-[node name="DragonvoidBar" parent="." instance=ExtResource("4_7d8f4")]
-visible = false
 layout_mode = 2
 
 [node name="B_L" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/normal_font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
 text = " "
 fit_content = true
 scroll_active = false
+
+[node name="Separator3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fqi0m")
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="Lower" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_excbr")
+expand_mode = 1
+flip_h = true

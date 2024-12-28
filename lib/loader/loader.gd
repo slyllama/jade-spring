@@ -2,7 +2,7 @@ extends CanvasLayer
 # Loader
 # Facilitates in loading scenes
 const TIME = 0.9
-const TARGET_SCENE = "res://maps/seitung/seitung.tscn"
+const TARGET_SCENE = "res://maps/debug_map/debug_map.tscn"
 var target_scene = TARGET_SCENE
 
 var loading_status: int
