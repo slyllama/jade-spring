@@ -24,7 +24,7 @@ func _ready() -> void:
 	Global.walk_mode_entered.connect(spawn_spider)
 	Global.walk_mode_left.connect(func():
 		Global.walk_mode_target.queue_free())
-	Global.command_sent.emit("/cleardeco")
+	#Global.command_sent.emit("/cleardeco")
 	
 	$LandscapeTest/LandscapeCol.set_collision_layer_value(2, true)
 
