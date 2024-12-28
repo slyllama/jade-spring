@@ -25,6 +25,8 @@ func _ready() -> void:
 	Global.walk_mode_left.connect(func():
 		Global.walk_mode_target.queue_free())
 	Global.command_sent.emit("/cleardeco")
+	
+	$LandscapeTest/LandscapeCol.set_collision_layer_value(2, true)
 
 func _process(_delta: float) -> void:
 	y_target = $Player/YCast.get_collision_point().y

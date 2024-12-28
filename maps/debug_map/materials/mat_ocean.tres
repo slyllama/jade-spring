@@ -1,0 +1,82 @@
+[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://bjvh70xfkt3wx"]
+
+[sub_resource type="Shader" id="Shader_nlaf5"]
+code = "shader_type spatial;
+
+uniform vec4 primary_color: source_color;
+uniform float roughness = 0.2;
+uniform sampler2D normal_a: hint_normal;
+uniform sampler2D normal_b: hint_normal;
+uniform sampler2D light_foam: filter_linear_mipmap, repeat_enable;
+uniform vec2 uv_scale = vec2(1.0);
+uniform float alpha = 1.0;
+uniform float speed_scale = 1.0;
+uniform float normal_strength = 1.0;
+uniform float foam_exponent = 3.0;
+
+float fresnel(float amount, vec3 normal, vec3 view) {
+	return pow((1.0 - clamp(
+		dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+}
+
+void fragment() {
+	vec2 uv = UV * uv_scale;
+	vec3 normal_map = texture(normal_a, uv + TIME * 0.01 * speed_scale).rgb * 0.4;
+	normal_map += texture(normal_b, uv - TIME * 0.005 * speed_scale).rgb * 0.7;
+	
+	ALBEDO = primary_color.rgb * pow(texture(light_foam, uv - TIME * 0.012 * speed_scale).rgb, vec3(foam_exponent)) + 0.5 * vec3(fresnel(3.0, NORMAL, VIEW));
+	NORMAL_MAP = normal_map;
+	NORMAL_MAP_DEPTH = normal_strength;
+	ROUGHNESS = roughness;
+	ALPHA = alpha;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_11rlf"]
+offsets = PackedFloat32Array(0, 0.699454)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0lw0v"]
+noise_type = 2
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xhx5w"]
+seamless = true
+color_ramp = SubResource("Gradient_11rlf")
+noise = SubResource("FastNoiseLite_0lw0v")
+
+[sub_resource type="Gradient" id="Gradient_dijhg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1sfa5"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l83jr"]
+seamless = true
+as_normal_map = true
+color_ramp = SubResource("Gradient_dijhg")
+noise = SubResource("FastNoiseLite_1sfa5")
+
+[sub_resource type="Gradient" id="Gradient_2mtd6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_57d6i"]
+noise_type = 2
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eakwi"]
+seamless = true
+as_normal_map = true
+color_ramp = SubResource("Gradient_2mtd6")
+noise = SubResource("FastNoiseLite_57d6i")
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_nlaf5")
+shader_parameter/primary_color = Color(0.258311, 0.264998, 0.308729, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/uv_scale = Vector2(20, 20)
+shader_parameter/alpha = 1.0
+shader_parameter/speed_scale = 0.5
+shader_parameter/normal_strength = 8.6
+shader_parameter/foam_exponent = 4.0
+shader_parameter/normal_a = SubResource("NoiseTexture2D_l83jr")
+shader_parameter/normal_b = SubResource("NoiseTexture2D_eakwi")
+shader_parameter/light_foam = SubResource("NoiseTexture2D_xhx5w")
