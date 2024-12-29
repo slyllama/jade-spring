@@ -49,7 +49,11 @@ func _ready() -> void:
 		if _cmd == "/hideplayer":
 			$PlayerMesh.visible = false
 		elif _cmd == "/showplayer":
-			$PlayerMesh.visible = true)
+			$PlayerMesh.visible = true
+		elif "/speedratio=" in _cmd:
+			var _speed_ratio = float(_cmd.replace("/speedratio=", ""))
+			_speed = base_speed * clamp(_speed_ratio, 0.0, 2.0)
+	)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
 var _ss = 0 # strafe state

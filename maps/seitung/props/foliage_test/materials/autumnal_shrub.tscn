@@ -7,6 +7,7 @@ material = ExtResource("1_h521e")
 size = Vector2(3, 3)
 
 [node name="AutumnalShrub" type="Node3D"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="FoliageTest" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.864063, -0.269109, 7.45058e-09, 0.252072, 0.80936, -0.316893, 0.0942308, 0.302559, 0.847705, 0, 1.117, 0.735152)

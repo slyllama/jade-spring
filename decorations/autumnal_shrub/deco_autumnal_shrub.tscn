@@ -12,7 +12,6 @@ id = "autumnal_shrub"
 collision_box = NodePath("Body")
 
 [node name="AutumnalShrub" parent="." instance=ExtResource("2_feypr")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="Body" type="Area3D" parent="."]
 collision_layer = 3

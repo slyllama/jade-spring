@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=45 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/debug_map/debug_map.gd" id="2_7lwj0"]
@@ -114,6 +114,14 @@ visible_instance_count = 16
 mesh = ExtResource("18_rj2gh")
 buffer = PackedFloat32Array(-1.59483, 0, 1.84393, -0.869591, 0, 2.43794, 0, 0, -1.84393, 0, -1.59483, -0.81895, 0.0413276, 0.26709, 0.63266, 1, -1.77009, 0, -1.52063, -0.268752, 0, 2.33357, 0, 0, 1.52063, 0, -1.77009, -0.845236, 0.021883, 0.224232, 0.542014, 1, 2.65314, 0, 0.769055, 0.123707, 0, 2.76235, 0, 0, -0.769055, 0, 2.65314, -0.976529, 0.0524394, 0.291582, 0.68446, 1, 1.97728, 0, -0.533597, 0.653764, 0, 2.04801, 0, 0, 0.533597, 0, 1.97728, -0.883467, 0.00747185, 0.192469, 0.474832, 1, 2.31334, 0, -0.969074, -0.982424, 0, 2.50812, 0, 0, 0.969074, 0, 2.31334, -0.293137, 0.09051, 0.375493, 0.861937, 1, -1.13821, 0, -2.03699, -0.13424, 0, 2.33342, 0, 0, 2.03699, 0, -1.13821, -0.171944, 0.0465734, 0.278653, 0.657115, 1, 2.49606, 0, 0.908091, 0.0538427, 0, 2.65611, 0, 0, -0.908091, 0, 2.49606, -0.0770481, 0.0588698, 0.305755, 0.714437, 1, 1.49248, 0, -2.32674, 1.12179, 0, 2.76427, 0, 0, 2.32674, 0, 1.49248, -0.0362678, 0.0973215, 0.390506, 0.89369, 1, -2.7655, 0, 0.805316, -0.575638, 0, 2.88037, 0, 0, -0.805316, 0, -2.7655, 0.0646814, 0.0864298, 0.3665, 0.842916, 1, 0.44501, 0, 2.5114, -0.546391, 0, 2.55052, 0, 0, -2.5114, 0, 0.44501, 0.408176, 0.0234974, 0.227791, 0.549539, 1, -1.47979, 0, -1.49251, 0.315314, 0, 2.10176, 0, 0, 1.49251, 0, -1.47979, 0.0430445, 0.119987, 0.440463, 0.999352, 1, 1.80662, 0, -1.28672, 0.976476, 0, 2.218, 0, 0, 1.28672, 0, 1.80662, 0.397157, 0.00864181, 0.195047, 0.480286, 1, 0.451666, 0, 2.38211, -0.856695, 0, 2.42455, 0, 0, -2.38211, 0, 0.451666, 0.892507, 0.0620117, 0.31268, 0.729084, 1, 2.13721, 0, 0.772261, -0.31573, 0, 2.27245, 0, 0, -0.772261, 0, 2.13721, 0.993995, 0.0277875, 0.237246, 0.569539, 1, -2.18732, 0, -1.10012, 0.296405, 0, 2.44839, 0, 0, 1.10012, 0, -2.18732, 0.860184, 0.0411039, 0.266597, 0.631617, 1, 1.38468, 0, 2.40998, 0.833567, 0, 2.77945, 0, 0, -2.40998, 0, 1.38468, 0.911059, 0.0827638, 0.35842, 0.825826, 1)
 
+[sub_resource type="MultiMesh" id="MultiMesh_hwpvx"]
+transform_format = 1
+use_colors = true
+instance_count = 16
+visible_instance_count = 16
+mesh = ExtResource("18_rj2gh")
+buffer = PackedFloat32Array(-0.745942, 0, 2.75122, -0.747602, 0, 2.85055, 0, 0, -2.75122, 0, -0.745942, -1.0046, 0.0706923, 0.331813, 0.769551, 1, -0.61382, 0, -2.56859, -0.418124, 0, 2.64092, 0, 0, 2.56859, 0, -0.61382, -0.955977, 0.108489, 0.415121, 0.945751, 1, 0.593706, 0, -2.41078, 0.231928, 0, 2.48281, 0, 0, 2.41078, 0, 0.593706, -1.12682, 0.00955957, 0.19707, 0.484565, 1, -1.07367, 0, 2.46828, 0.785704, 0, 2.69168, 0, 0, -2.46828, 0, -1.07367, -0.701782, 0.0894433, 0.373142, 0.856964, 1, 0.27709, 0, 2.66218, -0.769914, 0, 2.67656, 0, 0, -2.66218, 0, 0.27709, -0.511274, 0.0368122, 0.257138, 0.61161, 1, -0.989592, 0, -1.81224, -0.315187, 0, 2.06483, 0, 0, 1.81224, 0, -0.989592, -0.290807, 0.0359091, 0.255147, 0.6074, 1, -0.366817, 0, -2.40231, 0.382105, 0, 2.43015, 0, 0, 2.40231, 0, -0.366817, -0.164639, 0.0699185, 0.330107, 0.765944, 1, 2.78022, 0, -0.0389899, 0.909003, 0, 2.78049, 0, 0, 0.0389899, 0, 2.78022, -0.0397488, 0.0811693, 0.354905, 0.818393, 1, -1.85499, 0, 2.1685, -0.604973, 0, 2.85366, 0, 0, -2.1685, 0, -1.85499, 0.208237, 0.0763215, 0.34422, 0.795793, 1, 2.54887, 0, 0.498724, -0.135156, 0, 2.5972, 0, 0, -0.498724, 0, 2.54887, 0.249403, 0.0074199, 0.192354, 0.47459, 1, -2.89259, 0, 0.751441, 0.530654, 0, 2.9886, 0, 0, -0.751441, 0, -2.89259, 0.259599, 0.0564385, 0.300396, 0.703103, 1, -1.31516, 0, -2.40626, 0.818355, 0, 2.74222, 0, 0, 2.40626, 0, -1.31516, 0.184135, 0.0630504, 0.31497, 0.733927, 1, -0.271198, 0, 2.21131, -1.1188, 0, 2.22788, 0, 0, -2.21131, 0, -0.271198, 0.75417, 0.104153, 0.405565, 0.925539, 1, -0.974205, 0, -2.60442, -0.417864, 0, 2.78066, 0, 0, 2.60442, 0, -0.974205, 0.60056, 0.0074083, 0.192329, 0.474536, 1, 2.44421, 0, -1.35804, 0.48445, 0, 2.79615, 0, 0, 1.35804, 0, 2.44421, 0.769616, 0.0381668, 0.260123, 0.617925, 1, 1.82171, 0, 1.11883, 0.805039, 0, 2.13785, 0, 0, -1.11883, 0, 1.82171, 0.671702, 0.0973719, 0.390617, 0.893925, 1)
+
 [sub_resource type="Curve" id="Curve_qjpf4"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
 point_count = 3
@@ -169,16 +177,19 @@ target_position = Vector3(0, -5, 0)
 [node name="Weed" parent="CrumbHandler" index="0" instance=ExtResource("5_e2aho")]
 transform = Transform3D(0.478508, 0, 0.878083, 0, 1, 0, -0.878083, 0, 0.478508, -7.91137, 1.02412, -0.870027)
 
-[node name="Weed2" parent="CrumbHandler" index="1" instance=ExtResource("5_e2aho")]
+[node name="Weed5" parent="CrumbHandler" index="1" instance=ExtResource("5_e2aho")]
+transform = Transform3D(0.98899, 0, -0.147982, 0, 1, 0, 0.147982, 0, 0.98899, -5.56696, 1.02412, -4.45075)
+
+[node name="Weed2" parent="CrumbHandler" index="2" instance=ExtResource("5_e2aho")]
 transform = Transform3D(-0.437273, 0, -0.899329, 0, 1, 0, 0.899329, 0, -0.437273, -10.0037, 1.0178, 1.40742)
 
-[node name="Weed3" parent="CrumbHandler" index="2" instance=ExtResource("5_e2aho")]
+[node name="Weed3" parent="CrumbHandler" index="3" instance=ExtResource("5_e2aho")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -8.05982, 0.702664, 3.49156)
 
-[node name="Weed4" parent="CrumbHandler" index="3" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -5.69069, 0.736776, 7.50462)
+[node name="Weed4" parent="CrumbHandler" index="4" instance=ExtResource("5_e2aho")]
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -5.82848, 0.736776, 7.36174)
 
-[node name="BugSwarm" parent="CrumbHandler" index="4" instance=ExtResource("7_gcgfd")]
+[node name="BugSwarm" parent="CrumbHandler" index="5" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1758, 0.859013, 8.27941)
 
 [node name="FloorMesh" parent="Floor" index="1"]
@@ -283,31 +294,34 @@ transform = Transform3D(0.339477, 0, -0.940615, 0, 1, 0, 0.940615, 0, 0.339477, 
 [node name="pine_simple3" parent="Decoration" index="4" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.967533, 0, -0.252745, 0, 1, 0, 0.252745, 0, 0.967533, -17.5972, 4.62384, -2.31978)
 
-[node name="pine_simple5" parent="Decoration" index="5" instance=ExtResource("15_larjc")]
+[node name="pine_simple8" parent="Decoration" index="5" instance=ExtResource("15_larjc")]
+transform = Transform3D(0.537968, 0.0402015, -0.842006, -0.0216446, 0.999192, 0.0338773, 0.842687, 0, 0.538403, -12.5391, 2.33477, -3.23455)
+
+[node name="pine_simple5" parent="Decoration" index="6" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.685641, 0, -0.72794, 0, 1, 0, 0.72794, 0, 0.685641, -13.3228, 1.06455, -10.3142)
 
-[node name="pine_simple7" parent="Decoration" index="6" instance=ExtResource("15_larjc")]
+[node name="pine_simple7" parent="Decoration" index="7" instance=ExtResource("15_larjc")]
 transform = Transform3D(-0.214565, 0, -0.97671, 0, 1, 0, 0.97671, 0, -0.214565, -11.7659, 3.66327, -14.2751)
 
-[node name="Rock3" parent="Decoration" index="7" instance=ExtResource("14_fuojk")]
+[node name="Rock3" parent="Decoration" index="8" instance=ExtResource("14_fuojk")]
 transform = Transform3D(0.992064, -0.23209, 0.182116, 0.238243, 1.0071, -0.0143488, -0.17399, 0.0556743, 1.01875, -3.19976, 1.72742, -14.9386)
 
-[node name="Rock2" parent="Decoration" index="8" instance=ExtResource("14_fuojk")]
+[node name="Rock2" parent="Decoration" index="9" instance=ExtResource("14_fuojk")]
 transform = Transform3D(1.72582, -0.287558, 0.0367045, 0.272242, 1.68384, 0.391238, -0.0996047, -0.380123, 1.70531, 1.77444, -0.70097, -13.0909)
 
-[node name="SmallBoulder" parent="Decoration" index="9" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder" parent="Decoration" index="10" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(-0.999691, 0, -0.0248508, 0, 1, 0, 0.0248508, 0, -0.999691, -9.51969, -0.306166, 8.48266)
 
-[node name="SmallBoulder2" parent="Decoration" index="10" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder2" parent="Decoration" index="11" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(0.658904, 0, -1.03863, 0, 1.54, 0, 1.03863, 0, 0.658904, -11.9682, -0.367718, 6.83031)
 
-[node name="SmallBoulder3" parent="Decoration" index="11" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder3" parent="Decoration" index="12" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.72817, -0.979063, 0.234261, 0.882062, 1.24833, -1.28982, 0.48519, 1.21783, 1.51046, -6.20262, -0.39578, -12.0408)
 
-[node name="SmallBoulder4" parent="Decoration" index="12" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder4" parent="Decoration" index="13" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.460502, -0.324509, -9.84375)
 
-[node name="SmallBoulder5" parent="Decoration" index="13" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder5" parent="Decoration" index="14" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.39185, 0, 1.43623, 0, 2, 0, -1.43623, 0, 1.39185, -9.66382, -0.198896, -10.7931)
 
 [node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="0"]
@@ -435,7 +449,27 @@ colour_1 = Color(0, 0.176, 0.44, 1)
 colour_2 = Color(0.120126, 0.44077, 1, 1)
 render_distance = 11.0
 
-[node name="Decals" type="Node3D" parent="Decoration" index="15"]
+[node name="FlowerSpawner4" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.13653, 0.229607, 7.70476)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_hwpvx")
+script = ExtResource("6_jt5mw")
+custom_mesh = ExtResource("18_rj2gh")
+count = 4
+size = 2.3
+min_scale = 2.0
+max_scale = 3.0
+smooth = false
+moss_cover = false
+moss_albedo_mix = 0.268
+moss_scaling = 2.0
+moss_color = Color(0.45, 0.6, 0, 1)
+colour_1 = Color(0, 0.176, 0.44, 1)
+colour_2 = Color(0.120126, 0.44077, 1, 1)
+render_distance = 11.0
+
+[node name="Decals" type="Node3D" parent="Decoration" index="16"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
@@ -481,7 +515,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="16"]
+[node name="Motes" type="GPUParticles3D" parent="Decoration" index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
 amount = 120
 lifetime = 2.0
@@ -490,7 +524,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="17"]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
 amount = 120
 lifetime = 2.0
