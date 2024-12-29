@@ -33,7 +33,7 @@ func load_crumbs() -> void:
 			_n.global_position = _c.position
 
 func update_crumb_count() -> void:
-	var _get_crumb_count = {"bug": 0, "weed": 0}
+	var _get_crumb_count = {"bug": 0, "weed": 0, "dragonvoid": 0}
 	for _n in get_children():
 		if _n is Crumb:
 			_get_crumb_count[_n.type] += 1

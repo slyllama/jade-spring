@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=52 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/debug_map/debug_map.gd" id="2_7lwj0"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://bh3h8snrh07d5" path="res://lib/gadget/weed_bin.tscn" id="28_m4ym0"]
 [ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_wohrl"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
+[ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -198,6 +199,12 @@ transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052
 [node name="BugSwarm" parent="CrumbHandler" index="5" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1758, 0.859013, 8.27941)
 
+[node name="Dragonvoid" parent="CrumbHandler" index="6" instance=ExtResource("35_f6q0j")]
+transform = Transform3D(-0.93045, 0, 0.36642, 0, 1, 0, -0.36642, 0, -0.93045, -8.15533, 0.323193, 0.753177)
+
+[node name="Dragonvoid2" parent="CrumbHandler" index="7" instance=ExtResource("35_f6q0j")]
+transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.999029, -6.82926, 0.323193, -10.3567)
+
 [node name="FloorMesh" parent="Floor" index="1"]
 visible = false
 
@@ -315,25 +322,28 @@ transform = Transform3D(0.155846, -1.14087e-09, -1.21505, 0.0951412, 1.22124, 0.
 [node name="pine_simple7" parent="Decoration" index="8" instance=ExtResource("15_larjc")]
 transform = Transform3D(-0.203837, 0, -0.927874, 0, 0.95, 0, 0.927874, 0, -0.203837, -11.7659, 3.66327, -14.2751)
 
-[node name="Rock3" parent="Decoration" index="9" instance=ExtResource("14_fuojk")]
+[node name="pine_simple10" parent="Decoration" index="9" instance=ExtResource("15_larjc")]
+transform = Transform3D(1.00362, 0, -0.59158, 0, 1.165, 0, 0.59158, 0, 1.00362, -9.00861, 4.13325, -16.8797)
+
+[node name="Rock3" parent="Decoration" index="10" instance=ExtResource("14_fuojk")]
 transform = Transform3D(0.992064, -0.23209, 0.182116, 0.238243, 1.0071, -0.0143488, -0.17399, 0.0556743, 1.01875, -3.19976, 1.72742, -14.9386)
 
-[node name="Rock2" parent="Decoration" index="10" instance=ExtResource("14_fuojk")]
+[node name="Rock2" parent="Decoration" index="11" instance=ExtResource("14_fuojk")]
 transform = Transform3D(1.72582, -0.287558, 0.0367045, 0.272242, 1.68384, 0.391238, -0.0996047, -0.380123, 1.70531, 1.77444, -0.70097, -13.0909)
 
-[node name="SmallBoulder" parent="Decoration" index="11" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder" parent="Decoration" index="12" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(-0.999691, 0, -0.0248508, 0, 1, 0, 0.0248508, 0, -0.999691, -9.51969, -0.306166, 8.48266)
 
-[node name="SmallBoulder2" parent="Decoration" index="12" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder2" parent="Decoration" index="13" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(0.658904, 0, -1.03863, 0, 1.54, 0, 1.03863, 0, 0.658904, -11.9682, -0.367718, 6.83031)
 
-[node name="SmallBoulder3" parent="Decoration" index="13" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder3" parent="Decoration" index="14" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.72817, -0.979063, 0.234261, 0.882062, 1.24833, -1.28982, 0.48519, 1.21783, 1.51046, -6.20262, -0.39578, -12.0408)
 
-[node name="SmallBoulder4" parent="Decoration" index="14" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder4" parent="Decoration" index="15" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.460502, -0.324509, -9.84375)
 
-[node name="SmallBoulder5" parent="Decoration" index="15" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder5" parent="Decoration" index="16" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.39185, 0, 1.43623, 0, 2, 0, -1.43623, 0, 1.39185, -9.66382, -0.198896, -10.7931)
 
 [node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="0"]
@@ -481,7 +491,7 @@ colour_1 = Color(0, 0.176, 0.44, 1)
 colour_2 = Color(0.120126, 0.44077, 1, 1)
 render_distance = 11.0
 
-[node name="Decals" type="Node3D" parent="Decoration" index="17"]
+[node name="Decals" type="Node3D" parent="Decoration" index="18"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
@@ -527,7 +537,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="18"]
+[node name="Motes" type="GPUParticles3D" parent="Decoration" index="19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
 amount = 120
 lifetime = 2.0
@@ -536,7 +546,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="19"]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
 amount = 120
 lifetime = 2.0

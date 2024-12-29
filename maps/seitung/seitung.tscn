@@ -319,7 +319,7 @@ orientation = 2
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_r1sh7"]
+[sub_resource type="CurveTexture" id="CurveTexture_ckmt2"]
 curve = SubResource("Curve_qjpf4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x0yy0"]
@@ -329,9 +329,9 @@ gravity = Vector3(0, 0.24, 0)
 scale_min = 0.5
 scale_max = 0.9
 color = Color(0, 0, 0, 1)
-alpha_curve = SubResource("CurveTexture_r1sh7")
+alpha_curve = SubResource("CurveTexture_ckmt2")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdk7r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2thmo"]
 transparency = 1
 shading_mode = 0
 specular_mode = 2
@@ -346,7 +346,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_herhu"]
-material = SubResource("StandardMaterial3D_tdk7r")
+material = SubResource("StandardMaterial3D_2thmo")
 size = Vector2(0.1, 0.23)
 orientation = 2
 
