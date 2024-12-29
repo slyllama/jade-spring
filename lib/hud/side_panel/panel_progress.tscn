@@ -20,7 +20,7 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bnm0"]
-bg_color = Color(0.188235, 0.4, 0, 0.784314)
+bg_color = Color(0.405, 0.54, 0, 0.960784)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -32,13 +32,13 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [node name="PanelProgress" type="Panel"]
-custom_minimum_size = Vector2(100, 24)
+custom_minimum_size = Vector2(100, 20)
 offset_right = 282.0
-offset_bottom = 14.0
+offset_bottom = 20.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_r7rca")
 
 [node name="Panel" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(282, 24)
+custom_minimum_size = Vector2(282, 20)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +52,7 @@ layout_mode = 2
 color = Color(1, 1, 1, 0)
 
 [node name="Bar" type="ProgressBar" parent="Panel"]
-custom_minimum_size = Vector2(210, 11)
+custom_minimum_size = Vector2(230, 11)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_gpru7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1bnm0")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtruhlhnlaq7g"
-path="res://.godot/imported/fx_discombobulator.png-30264fb9bc679b05dae764acd0e24f52.ctex"
+uid="uid://cfb7i61lbowa0"
+path="res://.godot/imported/side_panel_separator.png-ea47a499cc3e5d047fdb3716796642dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/hud/fx_list/textures/fx_discombobulator.png"
-dest_files=["res://.godot/imported/fx_discombobulator.png-30264fb9bc679b05dae764acd0e24f52.ctex"]
+source_file="res://lib/hud/side_panel/textures/side_panel_separator.png"
+dest_files=["res://.godot/imported/side_panel_separator.png-ea47a499cc3e5d047fdb3716796642dc.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func interact() -> void:
 	if Save.data.story_point == "game_start":
-		Global.announcement_sent.emit("((Comment about weeds))")
+		Global.announcement_sent.emit("Your air purifiers cower at the pungence of these rotting weeds.")
 		Global.weed_crumb_left.emit()
 		return
 	

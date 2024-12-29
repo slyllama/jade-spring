@@ -75,7 +75,7 @@ fill_from = Vector2(0, 0.0830861)
 fill_to = Vector2(0.00890208, 0.391691)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxcv8"]
-render_priority = 2
+render_priority = 4
 shader = ExtResource("4_05r8m")
 shader_parameter/color = null
 shader_parameter/uv_scale = 1.0

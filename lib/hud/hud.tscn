@@ -52,8 +52,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="DecorationNE" type="TextureRect" parent="."]
-visible = false
-modulate = Color(0, 0, 0, 0.188235)
+modulate = Color(0, 0, 0, 0.12549)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

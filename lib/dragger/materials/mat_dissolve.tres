@@ -1,10 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://wv0q1g0bmi10"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://wv0q1g0bmi10"]
 
 [ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_7bkyk"]
-[ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="2_6pjde"]
 
 [resource]
 shader = ExtResource("1_7bkyk")
 shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 1.0
-shader_parameter/paint_mask = ExtResource("2_6pjde")
