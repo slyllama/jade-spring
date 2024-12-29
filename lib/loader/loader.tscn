@@ -103,3 +103,21 @@ grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxEmpty_83o4o")
 theme_override_styles/fill = SubResource("StyleBoxFlat_x53ic")
 show_percentage = false
+
+[node name="ContinueButton" type="Button" parent="Bar"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -49.0
+offset_right = 62.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+
+[connection signal="button_down" from="Bar/ContinueButton" to="." method="_on_continue_button_down"]

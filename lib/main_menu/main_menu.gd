@@ -59,6 +59,7 @@ func _ready() -> void:
 	$FG.visible = true
 	$FG.modulate.a = 1.0
 	$SettingsPane/Container/Quit.queue_free()
+	
 	set_up_nodule()
 	await get_tree().process_frame
 	
@@ -85,9 +86,10 @@ func _ready() -> void:
 	_set_title_card_pos()
 	
 	# Only show the 'continue' button if a save exists
-	if FileAccess.file_exists(DECO_DATA_PATH):
+	if FileAccess.file_exists(Save.FILE_PATH):
 		$Container/ContinueButton.grab_focus()
 	else:
+		$Container/Separator5.visible = false
 		$Container/ContinueButton.visible = false
 		$Container/PlayButton.grab_focus()
 	

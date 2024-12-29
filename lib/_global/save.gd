@@ -5,6 +5,7 @@ class_name SaveHandler extends Node
 signal story_advanced
 
 const OBJECTIVE_WEED_COUNT = 3
+var first_run = true
 
 const STORY_POINTS = [
 	"game_start",
@@ -49,6 +50,7 @@ func advance_story() -> void:
 
 func load_from_file() -> void:
 	if FileAccess.file_exists(FILE_PATH):
+		first_run = false
 		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
 		data = file.get_var()
 		#for f in _file_save:
@@ -75,6 +77,8 @@ func save_to_file() -> void:
 		#advance_story()
 
 func _ready() -> void:
+	if FileAccess.file_exists(FILE_PATH):
+		first_run = false
 	Global.save_handler = self # reference
 	
 	Global.command_sent.connect(func(_cmd):
@@ -89,7 +93,8 @@ func _ready() -> void:
 			advance_story()
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["clear_bugs"]))
 	
-	load_from_file()
+	# Don't load until we get to the map...?
+	#load_from_file()
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
