@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bvhx4oidrcb5n" path="res://maps/debug_map/meshes/landscape_test.glb" id="10_vndj8"]
 [ext_resource type="PackedScene" uid="uid://1ma6van4rays" path="res://decorations/building_platform/deco_building_platform.tscn" id="11_e4s8j"]
 [ext_resource type="PackedScene" uid="uid://gum06jfkpxrp" path="res://decorations/platform_stairs/deco_platform_stairs.tscn" id="12_1v6u6"]
-[ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="12_8v7t0"]
 [ext_resource type="Texture2D" uid="uid://crd06m4fc15fh" path="res://maps/seitung/textures/moss_decal.png" id="13_1ga72"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="14_fuojk"]
 [ext_resource type="PackedScene" uid="uid://dkxgbow5m2nww" path="res://decorations/shing_jea_arch/deco_shing_jea_arch.tscn" id="14_nk60g"]
@@ -27,7 +26,8 @@
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="18_rj2gh"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="22_d5lul"]
-[ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="24_sjegt"]
+[ext_resource type="PackedScene" uid="uid://bh3h8snrh07d5" path="res://lib/gadget/weed_bin.tscn" id="28_m4ym0"]
+[ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -536,17 +536,17 @@ draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 [node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97531, 1.41256, 2.85007)
 
-[node name="LandscapeTest" parent="." index="10" instance=ExtResource("10_vndj8")]
+[node name="Landscape" parent="." index="10" instance=ExtResource("10_vndj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
-[node name="CleaningStation" parent="." index="11" instance=ExtResource("12_8v7t0")]
-transform = Transform3D(0.49708, 0, 0.867705, 0, 1, 0, -0.867705, 0, 0.49708, -7.76059, 0.580619, -2.93881)
+[node name="Discombobulator" parent="." index="11" instance=ExtResource("29_5yngu")]
+transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
 
-[node name="wp_base" parent="." index="12" instance=ExtResource("8_alpya")]
+[node name="SpawnPlatform" parent="." index="12" instance=ExtResource("8_alpya")]
 transform = Transform3D(0.999519, 0.0310095, 0, -0.0310095, 0.999519, 0, 0, 0, 1, -9.96945, 0.197754, 3.12597)
 
 [node name="Pulley" parent="." index="13" instance=ExtResource("9_2e7lr")]
 transform = Transform3D(-0.349406, 0, 1.304, 0, 1.35, 0, -1.304, 0, -0.349406, -10.5272, 0.446828, 3.54817)
 
-[node name="WeedBin" parent="." index="14" instance=ExtResource("24_sjegt")]
-transform = Transform3D(0.813679, 0, -0.581314, 0, 1, 0, 0.581314, 0, 0.813679, -7.71206, -0.30089, 7.08653)
+[node name="WeedBin" parent="." index="14" instance=ExtResource("28_m4ym0")]
+transform = Transform3D(-0.954684, -0.152123, 0.255807, -0.14694, 0.988362, 0.0393724, -0.258819, 3.45188e-09, -0.965926, -7.27067, -0.0381098, 7.58098)

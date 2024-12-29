@@ -13,9 +13,9 @@ func _ready() -> void:
 	super()
 	
 	Save.story_advanced.connect(set_marker_pos)
-	
 	await get_tree().process_frame
 	set_marker_pos()
+	
 	$DragonvoidArc/AnimationPlayer.play("Wobble")
 	$DragonvoidArc2/AnimationPlayer.play("Wobble")
 	$DragonvoidArc3/AnimationPlayer.play("Wobble")

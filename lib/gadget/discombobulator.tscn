@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm1eu0vwmgnl0"]
+
+[ext_resource type="Script" path="res://lib/gadget/discombobulator.gd" id="1_3e5cj"]
+[ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="1_4xwxo"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="2_melv0"]
+[ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="3_gw0sx"]
+
+[node name="Discombobulator" type="Node3D"]
+script = ExtResource("1_3e5cj")
+
+[node name="CleaningStation" parent="." instance=ExtResource("1_4xwxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SpatialText" parent="." instance=ExtResource("2_melv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.25)
+spatial_string = "Discombobulation Station"
+
+[node name="Collision" parent="." instance=ExtResource("3_gw0sx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
+
+[connection signal="interacted" from="Collision" to="." method="_on_collision_interacted"]
