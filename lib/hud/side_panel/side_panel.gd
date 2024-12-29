@@ -60,7 +60,19 @@ func _ready() -> void:
 		Global.play_flash($StoryText.global_position + Vector2(40, 30))
 		proc_story())
 
+var _j = 0.0
+
 func _process(delta: float) -> void:
+	# Get decoration count (every now and then)
+	_j += delta
+	if _j >= 0.5:
+		_j = 0.0
+		var _deco_count = Global.decorations.size()
+		var _deco_string = str(_deco_count) + " decorations"
+		if _deco_count == 1:
+			_deco_string = str(_deco_count) + " decoration"
+		$Details/DetailsBox/DecorationCount.text = _deco_string
+	
 	if _last_bug_ratio != _target_bug_ratio:
 		Global.play_flash($BugsBar.global_position + Vector2(20, 7))
 	if _last_weed_ratio != _target_weed_ratio:

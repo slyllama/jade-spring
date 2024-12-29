@@ -32,13 +32,13 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [node name="PanelProgress" type="Panel"]
-custom_minimum_size = Vector2(100, 20)
+custom_minimum_size = Vector2(100, 16)
 offset_right = 282.0
-offset_bottom = 20.0
+offset_bottom = 16.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_r7rca")
 
 [node name="Panel" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(282, 20)
+custom_minimum_size = Vector2(282, 16)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
