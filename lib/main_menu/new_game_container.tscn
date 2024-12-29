@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://d33ilqq0c1mwg"]
+[gd_scene load_steps=5 format=3 uid="uid://d33ilqq0c1mwg"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_lk5ru"]
 [ext_resource type="Script" path="res://lib/main_menu/new_game_container.gd" id="2_cge2a"]
 [ext_resource type="Texture2D" uid="uid://dp1j524j5uwre" path="res://generic/textures/stickers/sticker_warning.png" id="3_1hji7"]
+[ext_resource type="Texture2D" uid="uid://b45yqtf7u0sha" path="res://lib/hud/textures/folder_icon.png" id="4_ua847"]
 
 [node name="NewGameContainer" instance=ExtResource("1_lk5ru")]
+custom_minimum_size = Vector2(400, 450)
 script = ExtResource("2_cge2a")
 title = "Start New Game"
 
@@ -19,31 +21,39 @@ text = "[center]Starting a new game will reset any existing save.[/center]"
 fit_content = true
 
 [node name="Sticker" type="TextureRect" parent="Container" index="4"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
 size_flags_vertical = 6
 texture = ExtResource("3_1hji7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TitleSeparator2" type="ColorRect" parent="Container" index="5"]
-custom_minimum_size = Vector2(0, 70)
+[node name="NGBox" type="HBoxContainer" parent="Container" index="5"]
 layout_mode = 2
-mouse_filter = 1
-color = Color(1, 1, 1, 0)
 
-[node name="NewGameButton" type="Button" parent="Container" index="6"]
+[node name="NewGameButton" type="Button" parent="Container/NGBox" index="0"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 27
 text = "Start
 "
 
-[node name="CancelButton" type="Button" parent="Container" index="7"]
+[node name="Folder" type="Button" parent="Container/NGBox" index="1"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+tooltip_text = "Open save data folder."
+theme_override_font_sizes/font_size = 27
+icon = ExtResource("4_ua847")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CancelButton" type="Button" parent="Container" index="6"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Cancel"
 
-[connection signal="button_down" from="Container/NewGameButton" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="Container/NGBox/NewGameButton" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="Container/NGBox/Folder" to="." method="_on_folder_button_down"]
 [connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_down"]
 [connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_button_down"]

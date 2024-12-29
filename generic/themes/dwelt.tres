@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://b3xj2nmifhpar"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://b3xj2nmifhpar"]
 
 [ext_resource type="Texture2D" uid="uid://dwcktte3u1fme" path="res://lib/ui_container/textures/slider.png" id="1_s3hix"]
 [ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="2_xltgj"]
@@ -123,6 +123,18 @@ content_margin_right = 8.0
 content_margin_bottom = 2.0
 bg_color = Color(0.11, 0.11, 0.11, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whips"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.12, 0.12, 0.12, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g1o1"]
 bg_color = Color(0, 0, 0, 0)
 border_width_right = 8
@@ -159,6 +171,7 @@ MenuButton/styles/pressed = SubResource("StyleBoxFlat_cb2eh")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_b2i3v")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_6cnyg")
 RichTextLabel/font_sizes/normal_font_size = 16
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_whips")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_8g1o1")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_28o1j")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_oh5rp")

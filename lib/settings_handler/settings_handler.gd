@@ -1,7 +1,7 @@
 extends Node
 # SettingsHandler
 # Handles the management and updating of settings
-const FILE_PATH = "user://settings.dat"
+const FILE_PATH = "user://save/settings.dat"
 const DEFAULT_SETTINGS = { 
 	"music_vol": 1.0, # ratio (1.0),
 	"volume": 1.0,
@@ -29,6 +29,9 @@ func load_from_file() -> void:
 		save_to_file()
 
 func save_to_file() -> void:
+	if !DirAccess.dir_exists_absolute("user://save"):
+		DirAccess.make_dir_absolute("user://save")
+	
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	file.store_var(settings)
 	file.close()

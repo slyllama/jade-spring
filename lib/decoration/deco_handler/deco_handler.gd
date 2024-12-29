@@ -3,7 +3,7 @@ extends Node3D
 # Manages the placing and removal of decorations
 
 const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
-const FILE_PATH = "user://deco.dat"
+const FILE_PATH = "user://save/deco.dat"
 var default_deco_data = {}
 
 func place_decoration(data: Dictionary) -> void:

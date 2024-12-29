@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const LOADER_SCENE = "res://lib/loader/loader.tscn"
-const DECO_DATA_PATH = "user://deco.dat"
+const DECO_DATA_PATH = "user://save/deco.dat"
 var rng = RandomNumberGenerator.new()
 
 @onready var focus: Button
@@ -19,8 +19,8 @@ func set_up_nodule() -> void:
 		focus = $Container/SettingsButton)
 	$Container/QuitButton.focus_entered.connect(func():
 		focus = $Container/QuitButton)
-	$Container/ContinueButton.focus_entered.connect(func():
-		focus = $Container/ContinueButton)
+	$Container/Box/ContinueButton.focus_entered.connect(func():
+		focus = $Container/Box/ContinueButton)
 	
 	$Container/PlayButton.mouse_entered.connect(func():
 		focus = $Container/PlayButton)
@@ -28,8 +28,8 @@ func set_up_nodule() -> void:
 		focus = $Container/SettingsButton)
 	$Container/QuitButton.mouse_entered.connect(func():
 		focus = $Container/QuitButton)
-	$Container/ContinueButton.mouse_entered.connect(func():
-		focus = $Container/ContinueButton)
+	$Container/Box/ContinueButton.mouse_entered.connect(func():
+		focus = $Container/Box/ContinueButton)
 	
 	await get_tree().create_timer(0.12).timeout
 	var _f = create_tween()
@@ -87,10 +87,10 @@ func _ready() -> void:
 	
 	# Only show the 'continue' button if a save exists
 	if FileAccess.file_exists(Save.FILE_PATH):
-		$Container/ContinueButton.grab_focus()
+		$Container/Box/ContinueButton.grab_focus()
 	else:
 		$Container/Separator5.visible = false
-		$Container/ContinueButton.visible = false
+		$Container/Box/ContinueButton.visible = false
 		$Container/PlayButton.grab_focus()
 	
 	$Nodule.global_position = focus.global_position + Vector2(0, 16)
@@ -144,3 +144,7 @@ func _on_timer_timeout() -> void:
 
 func _on_settings_pane_closed() -> void:
 	$Container/SettingsButton.grab_focus()
+
+
+func _on_folder_button_down() -> void:
+	OS.shell_open(ProjectSettings.globalize_path("user://save"))

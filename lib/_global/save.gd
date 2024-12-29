@@ -30,7 +30,7 @@ var STORY_POINT_SCRIPT = {
 	}
 }
 
-const FILE_PATH = "user://save.dat"
+const FILE_PATH = "user://save/save.dat"
 const DEFAULT_DATA = {
 	"story_point": "game_start",
 	"crumbs": [],

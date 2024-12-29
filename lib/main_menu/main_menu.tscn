@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=23 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="5_pvsjo"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
 [ext_resource type="Texture2D" uid="uid://b14riwre77y4l" path="res://lib/main_menu/title_card/textures/h_sep.png" id="6_b4g4g"]
+[ext_resource type="Texture2D" uid="uid://b45yqtf7u0sha" path="res://lib/hud/textures/folder_icon.png" id="7_n6dqo"]
 [ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
 [ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="8_rr48m"]
@@ -132,11 +133,28 @@ texture = ExtResource("6_b4g4g")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ContinueButton" parent="Container" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
+[node name="Box" type="HBoxContainer" parent="Container"]
 layout_mode = 2
-text = "Continue Game"
+theme_override_constants/separation = 12
+
+[node name="ContinueButton" parent="Container/Box" instance=ExtResource("3_v0okn")]
+modulate = Color(1, 1, 1, 0.6)
+custom_minimum_size = Vector2(208, 0)
+layout_mode = 2
+text = "Continue"
+alignment = 2
+
+[node name="Folder" parent="Container/Box" instance=ExtResource("3_v0okn")]
+modulate = Color(1, 1, 1, 0.6)
+custom_minimum_size = Vector2(27, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Open save data folder."
+text = ""
+icon = ExtResource("7_n6dqo")
 alignment = 1
+icon_alignment = 1
+expand_icon = true
 
 [node name="Separator4" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
@@ -265,7 +283,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -144.0
-offset_top = -104.0
+offset_top = -114.0
 offset_right = 144.0
 offset_bottom = -73.0
 grow_horizontal = 2
@@ -308,12 +326,13 @@ anchor_bottom = 0.5
 offset_left = -200.0
 offset_top = -250.0
 offset_right = 200.0
-offset_bottom = 250.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="timeout" from="LightRay/Timer" to="." method="_on_timer_timeout"]
-[connection signal="button_down" from="Container/ContinueButton" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="Container/Box/ContinueButton" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="Container/Box/Folder" to="." method="_on_folder_button_down"]
 [connection signal="button_down" from="Container/PlayButton" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Container/SettingsButton" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="Container/QuitButton" to="." method="_on_quit_button_down"]

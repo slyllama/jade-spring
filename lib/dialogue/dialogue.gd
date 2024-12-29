@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal closed
+var has_closed = false
 
 const TEST_DATA = {
 	"_entry": {
@@ -70,6 +71,9 @@ func open() -> void:
 	fade_tween.tween_method(_set_paint_val, -1.0, 1.0, 0.3)
 
 func close() -> void:
+	if has_closed: return
+	has_closed = true
+	
 	closed.emit()
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_val, 1.0, -1.0, 0.3)
