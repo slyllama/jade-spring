@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dgsydbvgkeifh"]
+
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_8wb6l"]
+[ext_resource type="Texture2D" uid="uid://cxou6gcdvrsbf" path="res://maps/debug_map/materials/textures/pine_texture.png" id="2_vjm1s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8wb6l")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/distance_fade_min = 30.0
+shader_parameter/distance_fade_max = 25.0
+shader_parameter/alpha_scissor_threshold = 0.9
+shader_parameter/alpha_antialiasing_edge = 0.0
+shader_parameter/backlight = 0.14
+shader_parameter/specularity = 0.0
+shader_parameter/texture_albedo = ExtResource("2_vjm1s")
