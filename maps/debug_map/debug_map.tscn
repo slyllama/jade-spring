@@ -200,10 +200,10 @@ transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1758, 0.859013, 8.27941)
 
 [node name="Dragonvoid" parent="CrumbHandler" index="6" instance=ExtResource("35_f6q0j")]
-transform = Transform3D(-0.93045, 0, 0.36642, 0, 1, 0, -0.36642, 0, -0.93045, -8.15533, 0.323193, 0.753177)
+transform = Transform3D(-0.93045, 0, 0.36642, 0, 1, 0, -0.36642, 0, -0.93045, -7.14566, 0.323193, 1.04005)
 
 [node name="Dragonvoid2" parent="CrumbHandler" index="7" instance=ExtResource("35_f6q0j")]
-transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.999029, -6.82926, 0.323193, -10.3567)
+transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.999029, -5.92993, 0.323193, -9.17745)
 
 [node name="FloorMesh" parent="Floor" index="1"]
 visible = false

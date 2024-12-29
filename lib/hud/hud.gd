@@ -97,6 +97,8 @@ func _ready() -> void:
 	Global.bug_crumb_left.connect(_hide_int)
 	Global.weed_crumb_entered.connect(_show_int)
 	Global.weed_crumb_left.connect(_hide_int)
+	Global.dragonvoid_crumb_entered.connect(_show_int)
+	Global.dragonvoid_crumb_left.connect(_hide_int)
 	Global.generic_area_entered.connect(_show_int)
 	Global.generic_area_left.connect(_hide_int)
 	Global.deco_pane_closed.connect($DecoPane.close)

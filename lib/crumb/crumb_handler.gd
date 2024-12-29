@@ -4,6 +4,7 @@ class_name CrumbHandler extends Node
 
 const BugSwarm = preload("res://lib/crumb/bug_swarm.tscn")
 const Weed = preload("res://lib/crumb/weed.tscn")
+const Dragonvoid = preload("res://lib/crumb/dragonvoid.tscn")
 
 var totals = {}
 
@@ -14,7 +15,8 @@ func save_crumbs() -> void:
 		if _n is Crumb:
 			Save.data.crumbs.append({
 				"type": _n.type,
-				"position": _n.global_position
+				"position": _n.global_position,
+				"rotation": _n.rotation
 			})
 
 # Load crumbs from save file
@@ -31,6 +33,11 @@ func load_crumbs() -> void:
 			var _n = Weed.instantiate()
 			add_child(_n)
 			_n.global_position = _c.position
+		elif _c.type == "dragonvoid":
+			var _n = Dragonvoid.instantiate()
+			add_child(_n)
+			_n.global_position = _c.position
+			_n.rotation = _c.rotation
 
 func update_crumb_count() -> void:
 	var _get_crumb_count = {"bug": 0, "weed": 0, "dragonvoid": 0}

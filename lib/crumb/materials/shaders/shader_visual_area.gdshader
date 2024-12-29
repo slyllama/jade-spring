@@ -5,6 +5,7 @@ shadows_disabled, cull_disabled;
 
 uniform sampler2D mask_texture: source_color;
 uniform sampler2D vertical_mask: hint_default_white;
+uniform vec4 color: source_color;
 uniform float uv_scale = 1.0;
 uniform float exponent = 2.0;
 uniform float time_scale = 0.07;
@@ -14,4 +15,5 @@ void fragment() {
 	ALPHA = pow(ALPHA, exponent);
 	//ALPHA += 0.01;
 	ALPHA *= texture(vertical_mask, UV).r;
+	ALBEDO = color.rgb;
 }
