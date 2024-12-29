@@ -28,7 +28,7 @@ gradient = SubResource("Gradient_acgf2")
 fill_from = Vector2(1, 1)
 
 [resource]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_slrvx")
 shader_parameter/uv_scale = Vector2(1, 0.5)
 shader_parameter/ray_mask_texture = SubResource("NoiseTexture2D_77j05")

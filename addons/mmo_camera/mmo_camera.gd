@@ -45,6 +45,7 @@ func _get_v_offset() -> float:
 	return((_target_zoom - max_zoom_in) / (max_zoom_out - max_zoom_in) * v_offset)
 
 func _input(event: InputEvent) -> void:
+	if Global.mouse_in_ui: return
 	if event is InputEventPanGesture: _target_zoom += event.delta.y / 2.0
 	if Input.is_action_just_pressed(zoom_in): _target_zoom -= zoom_increment
 	if Input.is_action_just_pressed(zoom_out): _target_zoom += zoom_increment

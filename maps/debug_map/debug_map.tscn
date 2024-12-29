@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=51 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/debug_map/debug_map.gd" id="2_7lwj0"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://crd06m4fc15fh" path="res://maps/seitung/textures/moss_decal.png" id="13_1ga72"]
 [ext_resource type="PackedScene" uid="uid://b3ik5w5hwb5s5" path="res://maps/seitung/meshes/rock.glb" id="14_fuojk"]
 [ext_resource type="PackedScene" uid="uid://dkxgbow5m2nww" path="res://decorations/shing_jea_arch/deco_shing_jea_arch.tscn" id="14_nk60g"]
+[ext_resource type="PackedScene" uid="uid://3lblxj6dgvuv" path="res://decorations/autumnal_tree/deco_autumnal_tree.tscn" id="15_byd2e"]
 [ext_resource type="PackedScene" uid="uid://0fogdm1766qb" path="res://maps/seitung/props/pine_simple/meshes/pine_simple.glb" id="15_larjc"]
 [ext_resource type="PackedScene" uid="uid://b11iv0u77u0me" path="res://decorations/lantern/deco_lantern.tscn" id="15_m86pe"]
 [ext_resource type="PackedScene" uid="uid://bngsvcump0aee" path="res://decorations/test_wall/deco_test_wall.tscn" id="15_w0gcq"]
@@ -26,7 +27,12 @@
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="18_rj2gh"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="22_d5lul"]
+[ext_resource type="AudioStream" uid="uid://dcj26t2q5jq5n" path="res://maps/seitung/sounds/mus_shadows.ogg" id="24_r334e"]
+[ext_resource type="AudioStream" uid="uid://ccvkcu4u1iay5" path="res://maps/seitung/sounds/mus_haiju_strings.ogg" id="25_6ir35"]
+[ext_resource type="AudioStream" uid="uid://dfuppoomsjr3p" path="res://maps/seitung/sounds/mus_haiju_percussion.ogg" id="26_xpcn1"]
+[ext_resource type="AudioStream" uid="uid://2a40t0ubngvq" path="res://maps/seitung/sounds/mus_haiju_full.ogg" id="27_ery84"]
 [ext_resource type="PackedScene" uid="uid://bh3h8snrh07d5" path="res://lib/gadget/weed_bin.tscn" id="28_m4ym0"]
+[ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_wohrl"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
@@ -279,20 +285,23 @@ transform = Transform3D(0.921721, 0, -0.387853, 0, 1, 0, 0.387853, 0, 0.921721, 
 [node name="DecoShingJeaArch" parent="DecoHandler" index="27" instance=ExtResource("14_nk60g")]
 transform = Transform3D(-0.161707, 0, -0.986839, 0, 1, 0, 0.986839, 0, -0.161707, -5.15564, 0.65008, -12.0272)
 
+[node name="DecoAutumnalTree" parent="DecoHandler" index="28" instance=ExtResource("15_byd2e")]
+transform = Transform3D(-0.378051, 0, -0.925785, 0, 1, 0, 0.925785, 0, -0.378051, -11.608, 0.393326, 2.15324)
+
 [node name="pine_simple" parent="Decoration" index="0" instance=ExtResource("15_larjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5235, 1.50269, 2.58758)
+transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)
 
 [node name="pine_simple6" parent="Decoration" index="1" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.580516, 0, 0.170371, 0, 0.605, 0, -0.170371, 0, 0.580516, -12.6615, -0.137812, 3.9205)
 
 [node name="pine_simple4" parent="Decoration" index="2" instance=ExtResource("15_larjc")]
-transform = Transform3D(0.938438, 0, -0.747886, 0, 1.2, 0, 0.747886, 0, 0.938438, -17.3458, 1.77785, 4.40441)
+transform = Transform3D(1.001, 0, -0.797745, 0, 1.28, 0, 0.797745, 0, 1.001, -17.3458, 1.77785, 4.40441)
 
 [node name="pine_simple2" parent="Decoration" index="3" instance=ExtResource("15_larjc")]
-transform = Transform3D(0.339477, 0, -0.940615, 0, 1, 0, 0.940615, 0, 0.339477, -14.8905, 1.53716, 6.65038)
+transform = Transform3D(0.339477, 0, -0.940615, -0.0372729, 0.999215, -0.0134521, 0.939876, 0.039626, 0.33921, -14.8905, 1.53716, 6.65038)
 
 [node name="pine_simple3" parent="Decoration" index="4" instance=ExtResource("15_larjc")]
-transform = Transform3D(0.967533, 0, -0.252745, 0, 1, 0, 0.252745, 0, 0.967533, -17.5972, 4.62384, -2.31978)
+transform = Transform3D(1.04977, 0, -0.274228, 0.0076904, 1.08457, 0.0294396, 0.274121, -0.0304275, 1.04936, -17.5972, 4.62384, -2.31978)
 
 [node name="pine_simple8" parent="Decoration" index="5" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.537968, 0.0402015, -0.842006, -0.0216446, 0.999192, 0.0338773, 0.842687, 0, 0.538403, -12.5391, 2.33477, -3.23455)
@@ -300,28 +309,31 @@ transform = Transform3D(0.537968, 0.0402015, -0.842006, -0.0216446, 0.999192, 0.
 [node name="pine_simple5" parent="Decoration" index="6" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.685641, 0, -0.72794, 0, 1, 0, 0.72794, 0, 0.685641, -13.3228, 1.06455, -10.3142)
 
-[node name="pine_simple7" parent="Decoration" index="7" instance=ExtResource("15_larjc")]
-transform = Transform3D(-0.214565, 0, -0.97671, 0, 1, 0, 0.97671, 0, -0.214565, -11.7659, 3.66327, -14.2751)
+[node name="pine_simple9" parent="Decoration" index="7" instance=ExtResource("15_larjc")]
+transform = Transform3D(0.155846, -1.14087e-09, -1.21505, 0.0951412, 1.22124, 0.0122031, 1.21132, -0.0959206, 0.155367, -15.2917, 4.50431, -7.10212)
 
-[node name="Rock3" parent="Decoration" index="8" instance=ExtResource("14_fuojk")]
+[node name="pine_simple7" parent="Decoration" index="8" instance=ExtResource("15_larjc")]
+transform = Transform3D(-0.203837, 0, -0.927874, 0, 0.95, 0, 0.927874, 0, -0.203837, -11.7659, 3.66327, -14.2751)
+
+[node name="Rock3" parent="Decoration" index="9" instance=ExtResource("14_fuojk")]
 transform = Transform3D(0.992064, -0.23209, 0.182116, 0.238243, 1.0071, -0.0143488, -0.17399, 0.0556743, 1.01875, -3.19976, 1.72742, -14.9386)
 
-[node name="Rock2" parent="Decoration" index="9" instance=ExtResource("14_fuojk")]
+[node name="Rock2" parent="Decoration" index="10" instance=ExtResource("14_fuojk")]
 transform = Transform3D(1.72582, -0.287558, 0.0367045, 0.272242, 1.68384, 0.391238, -0.0996047, -0.380123, 1.70531, 1.77444, -0.70097, -13.0909)
 
-[node name="SmallBoulder" parent="Decoration" index="10" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder" parent="Decoration" index="11" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(-0.999691, 0, -0.0248508, 0, 1, 0, 0.0248508, 0, -0.999691, -9.51969, -0.306166, 8.48266)
 
-[node name="SmallBoulder2" parent="Decoration" index="11" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder2" parent="Decoration" index="12" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(0.658904, 0, -1.03863, 0, 1.54, 0, 1.03863, 0, 0.658904, -11.9682, -0.367718, 6.83031)
 
-[node name="SmallBoulder3" parent="Decoration" index="12" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder3" parent="Decoration" index="13" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.72817, -0.979063, 0.234261, 0.882062, 1.24833, -1.28982, 0.48519, 1.21783, 1.51046, -6.20262, -0.39578, -12.0408)
 
-[node name="SmallBoulder4" parent="Decoration" index="13" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder4" parent="Decoration" index="14" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.460502, -0.324509, -9.84375)
 
-[node name="SmallBoulder5" parent="Decoration" index="14" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder5" parent="Decoration" index="15" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.39185, 0, 1.43623, 0, 2, 0, -1.43623, 0, 1.39185, -9.66382, -0.198896, -10.7931)
 
 [node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="0"]
@@ -469,7 +481,7 @@ colour_1 = Color(0, 0.176, 0.44, 1)
 colour_2 = Color(0.120126, 0.44077, 1, 1)
 render_distance = 11.0
 
-[node name="Decals" type="Node3D" parent="Decoration" index="16"]
+[node name="Decals" type="Node3D" parent="Decoration" index="17"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
@@ -515,7 +527,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="17"]
+[node name="Motes" type="GPUParticles3D" parent="Decoration" index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
 amount = 120
 lifetime = 2.0
@@ -524,7 +536,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="18"]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
 amount = 120
 lifetime = 2.0
@@ -535,6 +547,9 @@ draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
 [node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97531, 1.41256, 2.85007)
+
+[node name="Jukebox" parent="." index="9"]
+track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("28_wohrl")])
 
 [node name="Landscape" parent="." index="10" instance=ExtResource("10_vndj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)

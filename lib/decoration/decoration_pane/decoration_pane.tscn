@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=12 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4hdvgok1lsmq" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.tscn" id="4_xgg1s"]
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="5_12xux"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="6_cqq78"]
+[ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="7_r3py3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -20,6 +21,8 @@ border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vf0qw"]
 content_margin_right = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5unaw"]
 
 [node name="DecorationPane" instance=ExtResource("1_t77x7")]
 self_modulate = Color(1, 1, 1, 0)
@@ -162,6 +165,18 @@ color = Color(1, 1, 1, 0.235294)
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
+
+[node name="ScrollBox" type="ScrollContainer" parent="Container" index="7"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_r3py3")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5unaw")
+horizontal_scroll_mode = 0
+
+[node name="ScrollVBox" type="VBoxContainer" parent="Container/ScrollBox" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
 
 [node name="PlaceDecoration" type="Button" parent="." index="5"]
 layout_mode = 1

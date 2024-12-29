@@ -68,7 +68,7 @@ func render(tag = "None") -> void:
 		_item.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_item.mouse_filter = Control.MOUSE_FILTER_PASS
 		buttons[_d] = _item
-		$Container.add_child(_item)
+		$Container/ScrollBox/ScrollVBox.add_child(_item)
 		
 		_item.button_down.connect(func():
 			current_id = _d

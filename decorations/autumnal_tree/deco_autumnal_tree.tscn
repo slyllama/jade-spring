@@ -12,6 +12,8 @@ id = "autumnal_tree"
 collision_box = NodePath("Body")
 
 [node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219254, 1.21061, 0)
