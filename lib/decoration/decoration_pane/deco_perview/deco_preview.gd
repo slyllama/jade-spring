@@ -6,7 +6,8 @@ const Offsets = {
 	"waterfall_fountain": 0.29,
 	"bamboo_cluster": -0.5,
 	"weeping_willow": -0.5,
-	"autumnal_shrub": -0.2
+	"autumnal_shrub": -0.2,
+	"autumnal_tree": -0.4
 }
 
 const HOffsets = {

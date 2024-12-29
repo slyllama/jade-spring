@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://3lblxj6dgvuv"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_qm4yw"]
+[ext_resource type="PackedScene" uid="uid://bfdhmct814tus" path="res://decorations/autumnal_tree/autumnal_tree.tscn" id="2_hcnfn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_p6je2"]
+height = 2.84576
+
+[node name="DecoAutumnalTree" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_qm4yw")
+id = "autumnal_tree"
+collision_box = NodePath("Body")
+
+[node name="Body" type="Area3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219254, 1.21061, 0)
+shape = SubResource("CylinderShape3D_p6je2")
+
+[node name="AutumnalTree" parent="." instance=ExtResource("2_hcnfn")]

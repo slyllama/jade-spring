@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfdhmct814tus"]
+
+[ext_resource type="PackedScene" uid="uid://cnpky1n1tfjhj" path="res://decorations/weeping_willow/meshes/weeping_willow.glb" id="1_w776e"]
+[ext_resource type="Material" uid="uid://dmrper60d0rrx" path="res://maps/seitung/props/foliage_test/materials/mat_autumn_test.tres" id="2_8jy4u"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_q4o4g"]
+material = ExtResource("2_8jy4u")
+size = Vector2(3, 3)
+
+[node name="AutumnalTree" type="Node3D"]
+
+[node name="WeepingWillow" parent="." instance=ExtResource("1_w776e")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, -0.349)
+
+[node name="FoliageTest5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.322043, 0.571464, -0.271694, -0.618544, 0.348574, 1.53252e-08, 0.133388, 0.236696, 0.655959, 0.881281, 4.23051, -0.63097)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.412759, 0.732439, -0.348227, 0.633476, -0.0471967, 0.651598, 0.506397, -0.537964, -0.531279, 1.08514, 4.3959, -1.08587)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.111576, 0.755232, 0.325693, -0.657043, -0.115852, 0.493733, 0.494717, -0.324196, 0.582282, 1.34349, 3.73688, -1.08587)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.247075, 0.253172, 0.615596, -0.35266, 0.507111, -0.350099, -0.564522, -0.427601, -0.050719, -0.949376, 4.65298, -1.85028)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.680784, -0.583452, -0.155615, 0.561055, 0.524464, 0.488114, -0.223271, -0.461109, 0.752083, -1.6569, 4.51012, -1.42232)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.766818, -0.657185, -0.175281, 0.408694, 0.656347, -0.672906, 0.543677, 0.433522, 0.75306, -1.61572, 4.19222, -0.500539)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest20" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.463456, 0.394612, -0.82469, -0.747603, 0.368621, 0.596518, 0.526236, 0.87122, 0.121145, -1.61572, 4.61797, -0.500539)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.125637, -0.362921, 0.597163, -0.520438, 0.356297, 0.326031, -0.466325, -0.49542, -0.202977, -1.53879, 4.36112, -1.91115)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest18" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.534265, -0.448035, -0.133887, -0.034663, -0.240674, 0.667064, -0.466325, -0.49542, -0.202977, -0.852523, 3.25278, -1.92336)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest19" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.572481, 0.145328, -0.394012, -0.174697, 0.688172, 0, 0.381898, 0.0969473, 0.590639, -0.376177, 2.96529, -1.08323)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest12" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.507043, -0.447035, 0.21718, -0.439058, 0.548283, 0.103509, -0.232885, -0.0603819, -0.667996, -2.49284, 3.51383, -1.27884)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest13" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.143144, -0.897381, -0.0481352, 0.881381, -0.149704, 0.169871, -0.175434, -0.0199005, 0.892707, -2.65114, 2.71025, -0.322635)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0963578, -0.948575, 0.376227, 0.858255, -0.129097, -0.545305, 0.552032, 0.366286, 0.782126, -2.30953, 2.5516, -0.428993)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest16" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25479, -0.38526, 0.492221, 0.602018, 0.294258, -0.0813089, -0.168171, 0.469693, 0.454678, -1.85208, 1.91585, 1.43335)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest17" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.426744, -0.508421, -0.31563, -0.268492, 0.183787, -0.659059, 0.534814, 0.497951, -0.079016, -1.30968, 2.05858, 1.46849)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.196187, -0.682216, -0.0138587, -0.213273, -0.0750037, 0.673045, -0.648171, -0.181812, -0.225652, -2.65911, 2.81928, -0.880529)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")

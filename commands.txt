@@ -12,4 +12,5 @@
 /savedata		Save data to file
 /printsavedata	Print all save data
 /printsettings	Print user settings
+/speedratio=X	Set the player's speed to ratio X of its base speed
 /storypanel		Debug the story panel

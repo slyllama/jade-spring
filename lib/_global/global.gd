@@ -195,6 +195,13 @@ const DecoData = {
 		"cursor_model": "res://maps/seitung/props/foliage_test/materials/autumnal_shrub.tscn",
 		"preview_scale": 0.65,
 		"tags": ["Foliage"]
+	},
+	"autumnal_tree": {
+		"name": "Autumnal Tree",
+		"scene": "res://decorations/autumnal_tree/deco_autumnal_tree.tscn",
+		"cursor_model": "res://decorations/autumnal_tree/autumnal_tree.tscn",
+		"preview_scale": 0.42,
+		"tags": ["Foliage"]
 	}
 }
 #endregion
