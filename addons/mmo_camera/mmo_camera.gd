@@ -57,7 +57,7 @@ func _ready() -> void:
 	axis.spring_length = 4.0
 	axis.margin = 0.5
 	camera.fov = fov
-	camera.far = 35.0
+	camera.far = 40.0
 	
 	# Add components to the scene
 	add_child(axis)
