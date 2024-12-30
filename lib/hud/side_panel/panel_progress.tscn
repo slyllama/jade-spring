@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://yrtnqwevr314"]
+[gd_scene load_steps=6 format=3 uid="uid://yrtnqwevr314"]
 
 [ext_resource type="Texture2D" uid="uid://cmq3a01pn8uh1" path="res://lib/hud/side_panel/materials/textures/side_panel_gradient.tres" id="1_c71ft"]
+[ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_khevg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7rca"]
 content_margin_left = 20.0
@@ -8,7 +9,7 @@ content_margin_bottom = 6.0
 texture = ExtResource("1_c71ft")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpru7"]
-bg_color = Color(0, 0, 0, 0.392157)
+bg_color = Color(0, 0, 0, 0.666667)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -20,7 +21,7 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bnm0"]
-bg_color = Color(0.405, 0.54, 0, 0.960784)
+bg_color = Color(0.566667, 0.68, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -52,6 +53,7 @@ layout_mode = 2
 color = Color(1, 1, 1, 0)
 
 [node name="Bar" type="ProgressBar" parent="Panel"]
+clip_children = 2
 custom_minimum_size = Vector2(230, 11)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_gpru7")
@@ -59,3 +61,41 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_1bnm0")
 step = 0.0
 value = 50.0
 show_percentage = false
+
+[node name="Koru" type="TextureRect" parent="Panel/Bar"]
+modulate = Color(0, 0, 0, 0.223529)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -12.5
+offset_right = 4.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_khevg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Koru2" type="TextureRect" parent="Panel/Bar"]
+modulate = Color(0, 0, 0, 0.223529)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -28.5
+offset_right = 114.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_khevg")
+expand_mode = 1
+stretch_mode = 6
+flip_h = true
+flip_v = true

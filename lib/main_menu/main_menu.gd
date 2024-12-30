@@ -90,7 +90,7 @@ func _ready() -> void:
 		$Container/Box/ContinueButton.grab_focus()
 	else:
 		$Container/Separator5.visible = false
-		$Container/Box/ContinueButton.visible = false
+		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()
 	
 	$Nodule.global_position = focus.global_position + Vector2(0, 16)
