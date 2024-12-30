@@ -97,6 +97,9 @@ func _process(_delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
 	
 	var mesh_query = PhysicsRayQueryParameters3D.create(from, to)
+	mesh_query.set_exclude([
+		Global.player.get_rid()
+	])
 	mesh_query.collision_mask = 10
 	mesh_query.collide_with_areas = true
 	mesh_query.collide_with_bodies = true

@@ -116,6 +116,7 @@ func skill_used(skill_id: String) -> void:
 				set_default_skills()
 		"deco_test":
 			if !Global.deco_pane_open:
+				await get_tree().process_frame
 				Global.deco_pane_opened.emit() # open the decoration pane
 			else:
 				Global.deco_pane_closed.emit()

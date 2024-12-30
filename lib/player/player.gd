@@ -36,6 +36,7 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	Global.camera = $Camera.camera # reference
+	Global.player = self
 	
 	$Camera.top_level = true
 	$Camera.set_cam_rotation(Vector3(-20, 0, 0))

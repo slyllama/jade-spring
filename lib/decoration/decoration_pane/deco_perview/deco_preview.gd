@@ -1,20 +1,5 @@
 extends Node3D
 
-const Offsets = {
-	"shing_jea_arch": -0.4,
-	"bloodstone_impacted_pillar": -0.6,
-	"waterfall_fountain": 0.29,
-	"bamboo_cluster": -0.5,
-	"weeping_willow": -0.5,
-	"autumnal_shrub": -0.2,
-	"autumnal_tree": -0.4
-}
-
-const HOffsets = {
-	"eepy_fence": -0.1,
-	"weeping_willow": -0.1
-}
-
 var orbiting = false
 var target_rotation = Vector3.ZERO
 var smooth_rotation = Vector3.ZERO
@@ -65,12 +50,14 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 	current_model_path = path
 	current_preview_scale = preview_scale
 	
-	if current_id in Offsets:
-		$Orbit.position.y = -Offsets[current_id]
+	# Add preview offsets
+	if "preview_v_offset" in Global.DecoData[current_id]:
+		$Orbit.position.y = -Global.DecoData[current_id].preview_v_offset
 	else: $Orbit.position.y = 0.0
-	if current_id in HOffsets:
-		$ModelBase.position.x = HOffsets[current_id]
-	else: $ModelBase.position.x = 0.0
+	
+	if "preview_h_offset" in Global.DecoData[current_id]:
+		$Orbit.position.x = -Global.DecoData[current_id].preview_h_offset
+	else: $Orbit.position.x = 0.0
 	
 	$ModelBase.rotation_degrees.y = current_y_rotation
 	ResourceLoader.load_threaded_request(path)

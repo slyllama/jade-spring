@@ -148,6 +148,7 @@ scale_max = 0.4
 alpha_curve = SubResource("CurveTexture_r1sh7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdk7r"]
+render_priority = 4
 transparency = 1
 shading_mode = 0
 specular_mode = 2
@@ -586,6 +587,7 @@ amount = 120
 lifetime = 2.0
 preprocess = 5.0
 speed_scale = 0.5
+visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
@@ -595,6 +597,7 @@ amount = 120
 lifetime = 2.0
 preprocess = 5.0
 speed_scale = 0.5
+visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 

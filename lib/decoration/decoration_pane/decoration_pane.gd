@@ -58,7 +58,10 @@ func render(tag = "None") -> void:
 				id_list.append(_d)
 	
 	id_list.sort()
-	current_id = id_list[0]
+	if "autumnal_tree" in id_list: # use Shing Jea arch if not (it's pretty
+		current_id = "autumnal_tree"
+	else:
+		current_id = id_list[0]
 	
 	for _d in id_list:
 		# Get decoration data from Global.DecoData and use it to make buttons
@@ -69,6 +72,11 @@ func render(tag = "None") -> void:
 		_item.mouse_filter = Control.MOUSE_FILTER_PASS
 		buttons[_d] = _item
 		$Container/ScrollBox/ScrollVBox.add_child(_item)
+		
+		if "Foliage" in _dl.tags:
+			_item.modulate = Color("bfee8e")
+		if "Architecture" in _dl.tags:
+			_item.modulate = Color("f2be98")
 		
 		_item.button_down.connect(func():
 			current_id = _d
@@ -100,6 +108,8 @@ func _input(_event) -> void:
 func _ready() -> void:
 	super()
 	Global.deco_placement_started.connect(close)
+	var _scroll_bar: VScrollBar = $Container/ScrollBox.get_v_scroll_bar()
+	_scroll_bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	
 	# Let the game know the popup has been closed (especially for CameraHandler)
 	tag_list.get_popup().visibility_changed.connect(func():

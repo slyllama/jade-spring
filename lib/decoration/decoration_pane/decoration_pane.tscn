@@ -106,11 +106,8 @@ render_target_update_mode = 4
 
 [node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]
 
-[node name="Corner" parent="." index="1"]
-visible = false
-
 [node name="DecorationNE" type="TextureRect" parent="." index="2"]
-modulate = Color(0.25, 0.25, 0.25, 1)
+modulate = Color(0.14, 0.14, 0.14, 1)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -127,6 +124,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Container" parent="." index="3"]
+offset_bottom = -2.0
 theme_override_constants/separation = 0
 
 [node name="TagContainer" type="HBoxContainer" parent="Container" index="3"]
@@ -194,5 +192,23 @@ grow_vertical = 0
 mouse_filter = 1
 text = "Place Decoration"
 
+[node name="Close" type="Button" parent="." index="6"]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 298.0
+offset_top = -11.0
+offset_right = 431.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 1
+text = "Close"
+
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
 [connection signal="button_down" from="PlaceDecoration" to="." method="_on_place_decoration_button_down"]
+[connection signal="button_down" from="Close" to="." method="close"]
