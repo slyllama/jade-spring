@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqap4iq7iwa03"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_u43m8"]
+[ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="2_xgqeo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8dpfd"]
+size = Vector3(1.62488, 0.525879, 0.814331)
+
+[node name="DecoSmallBoulder" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_u43m8")
+id = "small_boulder"
+collision_box = NodePath("Body")
+
+[node name="SmallBoulder" parent="." instance=ExtResource("2_xgqeo")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Shape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107361, 0.237061, -0.0928345)
+shape = SubResource("BoxShape3D_8dpfd")

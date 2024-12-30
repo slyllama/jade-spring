@@ -89,6 +89,13 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"small_boulder": {
+		"name": "Small Boulder",
+		"scene": "res://decorations/small_boulder/deco_small_boulder.tscn",
+		"cursor_model": "res://maps/seitung/meshes/small_boulders.glb",
+		"preview_scale": 0.9,
+		"tags": [ ]
+	},
 	"eepy_fence": {
 		"name": "Eepy Fence",
 		"scene": "res://decorations/eepy_fence/deco_eepy_fence.tscn",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=54 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/debug_map/debug_map.gd" id="2_7lwj0"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://d3fe4cn4t2050" path="res://maps/seitung/meshes/small_boulders.glb" id="16_0ijtd"]
 [ext_resource type="PackedScene" uid="uid://c5a3jblx82jr5" path="res://decorations/flower_patch/deco_flower_patch.tscn" id="16_0vj46"]
 [ext_resource type="PackedScene" uid="uid://cw22jtaf0fhxj" path="res://decorations/eepy_fence/deco_eepy_fence.tscn" id="17_x5gab"]
+[ext_resource type="PackedScene" uid="uid://bqap4iq7iwa03" path="res://decorations/small_boulder/deco_small_boulder.tscn" id="18_8cm4w"]
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="18_rj2gh"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="22_d5lul"]
@@ -301,6 +302,12 @@ transform = Transform3D(-0.378051, 0, -0.925785, 0, 1, 0, 0.925785, 0, -0.378051
 
 [node name="DecoEepyFence" parent="DecoHandler" index="30" instance=ExtResource("17_x5gab")]
 transform = Transform3D(0.999435, 0.0336262, 0, -0.0336195, 0.999236, 0.0199129, 0.000669594, -0.0199016, 0.999802, -1.95548, -0.017562, -6.39119)
+
+[node name="DecoSmallBoulder" parent="DecoHandler" index="31" instance=ExtResource("18_8cm4w")]
+transform = Transform3D(0.0744741, 0, -0.997223, 0, 1, 0, 0.997223, 0, 0.0744741, -0.252729, 0.599784, 0.317867)
+
+[node name="DecoSmallBoulder2" parent="DecoHandler" index="32" instance=ExtResource("18_8cm4w")]
+transform = Transform3D(-0.621544, 0, 0.783379, 0, 1, 0, -0.783379, 0, -0.621544, -0.284019, 0.475534, -0.854782)
 
 [node name="pine_simple" parent="Decoration" index="0" instance=ExtResource("15_larjc")]
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)
