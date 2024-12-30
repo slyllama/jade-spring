@@ -4,11 +4,17 @@ var _target_bug_ratio := 0.0
 var _last_bug_ratio = _target_bug_ratio
 var _target_weed_ratio := 0.0
 var _last_weed_ratio = _target_weed_ratio
+var _target_dv_ratio := 0.0
+var _last_dv_ratio = _target_dv_ratio
 var first_load = false
 
 func _get_bug_ratio() -> float:
 	return((100 - Save.data.crumb_count.bug
 		/ float(Global.crumb_handler.totals.bug) * 100))
+
+func _get_dv_ratio() -> float:
+	return((100 - Save.data.crumb_count.dragonvoid
+		/ float(Global.crumb_handler.totals.dragonvoid) * 100))
 
 func _get_weed_ratio () -> float:
 	var _ratio = (Save.data.deposited_weeds
@@ -17,20 +23,20 @@ func _get_weed_ratio () -> float:
 
 func proc_story() -> void:
 	# TODO: show different depending on where we are at in the story.
-	if Save.data.story_point == "pick_weeds":
-		$B_U.visible = true
-		$B_L.visible = true
-		
-		$WeedsText.visible = true
-		$WeedsBar.visible = true
-	if Save.data.story_point == "clear_bugs":
-		$B_U.visible = true
-		$B_L.visible = true
-		
-		$BugsText.visible = true
-		$BugsBar.visible = true
-		$WeedsText.visible = true
-		$WeedsBar.visible = true
+	#if Save.data.story_point == "pick_weeds":
+		#$B_U.visible = true
+		#$B_L.visible = true
+		#
+		#$WeedsText.visible = true
+		#$WeedsBar.visible = true
+	#if Save.data.story_point == "clear_bugs":
+		#$B_U.visible = true
+		#$B_L.visible = true
+		#
+		#$BugsText.visible = true
+		#$BugsBar.visible = true
+		#$WeedsText.visible = true
+		#$WeedsBar.visible = true
 	
 	# Update sidebar with story contents when the story is advanced
 	var _p = Save.data.story_point # story point shorthand
@@ -48,13 +54,18 @@ func _ready() -> void:
 			_target_bug_ratio = _get_bug_ratio()
 			if !first_load:
 				$BugsBar/Panel/Bar.value = _get_bug_ratio()
-				first_load = true
+		if "dragonvoid" in Save.data.crumb_count and "dragonvoid" in Global.crumb_handler.totals:
+			_target_dv_ratio = _get_dv_ratio()
+			if !first_load:
+				$DVBar/Panel/Bar.value = _get_dv_ratio()
 		if "deposited_weeds" in Save.data and "weed" in Global.crumb_handler.totals:
 			_target_weed_ratio = _get_weed_ratio()
 			if !first_load:
 				$WeedsBar/Panel/Bar.value = _get_weed_ratio()
-				first_load = true
-			proc_story())
+			proc_story()
+		
+		if !first_load:
+			first_load = true)
 	
 	Save.story_advanced.connect(func():
 		Global.play_flash($StoryText.global_position + Vector2(40, 30))
@@ -75,13 +86,18 @@ func _process(delta: float) -> void:
 	
 	if _last_bug_ratio != _target_bug_ratio:
 		Global.play_flash($BugsBar.global_position + Vector2(20, 7))
+	if _last_dv_ratio != _target_dv_ratio:
+		Global.play_flash($DVBar.global_position + Vector2(20, 7))
 	if _last_weed_ratio != _target_weed_ratio:
 		Global.play_flash($WeedsBar.global_position + Vector2(20, 7))
 	
 	$BugsBar/Panel/Bar.value = lerp(
 		$BugsBar/Panel/Bar.value, _target_bug_ratio, delta * 9)
+	$DVBar/Panel/Bar.value = lerp(
+		$DVBar/Panel/Bar.value, _target_dv_ratio, delta * 9)
 	$WeedsBar/Panel/Bar.value = lerp(
 		$WeedsBar/Panel/Bar.value, _target_weed_ratio, delta * 9)
 	
 	_last_bug_ratio = _target_bug_ratio
+	_last_dv_ratio = _target_dv_ratio
 	_last_weed_ratio = _target_weed_ratio

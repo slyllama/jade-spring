@@ -7,12 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://begdpwr5l122o" path="res://lib/player/materials/textures/jade_mask.jpg" id="5_sihx5"]
 
 [sub_resource type="GDScript" id="GDScript_0pd44"]
-script/source = "extends Crumb
+script/source = "@tool
+extends Crumb
+var rng = RandomNumberGenerator.new()
+
+func clear() -> void:
+	Global.announcement_sent.emit(\"[color=yellow]((Dragonvoid))[/color]\")
+	Global.bug_crumb_left.emit()
+	super()
 
 func _ready() -> void:
 	super()
-	$DragonvoidArc/AnimationPlayer.play(\"Wobble\")
-	
 	body_entered.connect(func(body):
 		if Save.data.story_point == \"game_start\": return # not unlocked yet
 		if body is CharacterBody3D:
@@ -23,8 +28,16 @@ func _ready() -> void:
 		if body is CharacterBody3D:
 			Global.dragonvoid_crumb_left.emit())
 
-func _on_interacted() -> void:
-	print(\"interact?\")
+func interact() -> void:
+	if Save.data.story_point == \"game_start\": return # not unlocked yet
+	
+	if \"discombobulator\" in Global.current_effects:
+		var _f = FishingInstance.instantiate()
+		_f.completed.connect(clear)
+		add_child(_f)
+	else:
+		Global.announcement_sent.emit(
+			\"((Dragonvoid))\")
 "
 
 [sub_resource type="Curve" id="Curve_mmsoi"]
@@ -99,6 +112,7 @@ cap_bottom = false
 input_ray_pickable = false
 script = SubResource("GDScript_0pd44")
 type = "dragonvoid"
+area_radius = 0.7
 
 [node name="DragonvoidArc" parent="." instance=ExtResource("2_xs588")]
 transform = Transform3D(0.410926, -0.911669, 0, 0.911669, 0.410926, 0, 0, 0, 1, 2.37039, 2.11277, 0)
@@ -120,4 +134,4 @@ shape = SubResource("CylinderShape3D_rgi1e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842777, 0)
 mesh = SubResource("CylinderMesh_v7ieq")
 
-[connection signal="interacted" from="." to="." method="_on_interacted"]
+[connection signal="interacted" from="." to="." method="interact"]
