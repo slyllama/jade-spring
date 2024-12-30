@@ -26,6 +26,16 @@ func _get_in_bounds(_pos: Vector2) -> bool:
 		_in_bounds = false
 	return(_in_bounds)
 
+func _settings_toggle_visibility() -> void:
+	var _value = SettingsHandler.settings.labels
+	if _value == "show":
+		settings_visibility = true
+		if hud_visible:
+			$FG.visible = true
+	elif _value == "hide":
+		settings_visibility = false
+		$FG.visible = false
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_hud"):
 		hud_visible = !hud_visible
@@ -39,15 +49,10 @@ func _ready() -> void:
 	_set_title(spatial_string)
 	
 	SettingsHandler.setting_changed.connect(func(parameter):
-		if parameter == "labels":
-			var _value = SettingsHandler.settings[parameter]
-			if _value == "show":
-				settings_visibility = true
-				if hud_visible:
-					visible = true
-			elif _value == "hide":
-				settings_visibility = false
-				visible = false)
+		if parameter == "labels": _settings_toggle_visibility())
+	
+	await get_tree().process_frame
+	_settings_toggle_visibility()
 
 func _process(_delta: float) -> void:
 	var _unp = Global.camera.unproject_position(global_position)
