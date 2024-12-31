@@ -4,7 +4,11 @@ const JADE_SOUNDS = [
 	preload("res://lib/player/sounds/jade_sound_1.ogg"),
 	preload("res://lib/player/sounds/jade_sound_2.ogg"),
 	preload("res://lib/player/sounds/jade_sound_3.ogg"),
-	preload("res://lib/player/sounds/jade_sound_4.ogg")
+	preload("res://lib/player/sounds/jade_sound_4.ogg"),
+	preload("res://lib/player/sounds/jade_sound_8.ogg"),
+	preload("res://lib/player/sounds/jade_sound_5.ogg"),
+	preload("res://lib/player/sounds/jade_sound_7.ogg"),
+	preload("res://lib/player/sounds/jade_sound_6.ogg")
 ]
 
 @export var base_speed := 2.0
