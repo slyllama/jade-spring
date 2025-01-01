@@ -1,28 +1,17 @@
 extends CanvasLayer
 
 signal closed
+signal block_played(id)
 var has_closed = false
 
-const TEST_DATA = {
+var data = { # default (blank) script
 	"_entry": {
-		"string": "F-f-friend, good morning! Thirty-three, seven. The magnetic realignment h-h-helped overnight, it did, twelve?",
+		"string": "((Empty dialogue.))",
 		"options": {
-			"new_bot": "All three rods seem to be floating just right, P-4; I feel like a new bot."
+			"close": "Exit."
 		}
 	},
-	"new_bot": {
-		"string": "Four, four, four! Magnificent! So uh (ahem, twenty-three)... want to t-t-take them for a spin?",
-		"options": {
-			"icky": "Sounds like someone has an icky job lined up for an idle set of jade rods, huh."
-		}
-	},
-	"icky": {
-		"string": "I just... These rotten weeds and b-b-bugs, one, one, one! I can't. The static! Swooping and d-d-diving. Worse than the Unchained.",
-		"options": {
-			"handle": "It's okay, Pull. I'll handle it, starting with the weeds."
-		}
-	},
-	"handle": {
+	"close": {
 		"reference": "_exit"
 	}
 }
@@ -51,20 +40,21 @@ func render_block(block_data: Dictionary) -> void:
 			$Base/Box.add_child(_b)
 			
 			_b.button_down.connect(func():
-				if _o in TEST_DATA:
-					var _new_block_data = TEST_DATA[_o]
+				block_played.emit(_o)
+				if _o in data:
+					var _new_block_data = data[_o]
 					if "reference" in _new_block_data:
 						if _new_block_data.reference == "_exit":
 							close()
-						if _new_block_data.reference in TEST_DATA:
-							render_block(TEST_DATA[_new_block_data.reference])
+						if _new_block_data.reference in data:
+							render_block(data[_new_block_data.reference])
 					else: render_block(_new_block_data))
 
 func open() -> void:
 	Global.in_exclusive_ui = true
 	Global.can_move = false
-	if "_entry" in TEST_DATA:
-		render_block(TEST_DATA._entry)
+	if "_entry" in data:
+		render_block(data._entry)
 	
 	$Player.play("Enter")
 	var fade_tween = create_tween()

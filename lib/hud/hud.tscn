@@ -257,6 +257,7 @@ stretch_mode = 0
 [node name="CenterPanel" type="Panel" parent="RotateButtons"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_f8ca3")
 
 [node name="RotateRight" type="TextureButton" parent="RotateButtons"]

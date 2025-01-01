@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=15 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
@@ -27,6 +27,13 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2v8d"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taymh"]
 content_margin_left = 10.0
@@ -202,6 +209,7 @@ offset_right = 635.0
 offset_bottom = 342.0
 theme_override_font_sizes/font_size = 18
 theme_override_styles/hover = SubResource("StyleBoxFlat_mcyqg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o2v8d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_taymh")
 text = "A man has fallen into the river in Lego City! Start the new rescue helicopter. HEY! Build the helicopter and off to the rescue. Prepare the lifeline, lower the stretcher, and make the rescue. The new Emergency Collection from Lego City!"
 alignment = 0

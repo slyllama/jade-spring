@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=55 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/debug_map/debug_map.gd" id="2_7lwj0"]
@@ -29,6 +29,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="18_rj2gh"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="22_d5lul"]
+[ext_resource type="PackedScene" uid="uid://d2a2ptt0rqp1i" path="res://maps/seitung/props/stucco_wall/plaster_wall.glb" id="22_v0qyq"]
 [ext_resource type="AudioStream" uid="uid://dcj26t2q5jq5n" path="res://maps/seitung/sounds/mus_shadows.ogg" id="24_r334e"]
 [ext_resource type="AudioStream" uid="uid://ccvkcu4u1iay5" path="res://maps/seitung/sounds/mus_haiju_strings.ogg" id="25_6ir35"]
 [ext_resource type="AudioStream" uid="uid://dfuppoomsjr3p" path="res://maps/seitung/sounds/mus_haiju_percussion.ogg" id="26_xpcn1"]
@@ -352,32 +353,38 @@ transform = Transform3D(-1.09395, 0.0424318, -0.5823, 0.0374561, 1.23927, 0.0199
 [node name="pine_simple14" parent="Decoration" index="13" instance=ExtResource("15_larjc")]
 transform = Transform3D(-0.963716, 0.0333882, -0.264833, 0.0302065, 0.999414, 0.0160787, 0.265215, 0.00749558, -0.96416, -14.0729, 9.58806, -25.747)
 
-[node name="Rock3" parent="Decoration" index="14" instance=ExtResource("14_fuojk")]
+[node name="SimplePine" parent="Decoration" index="14" instance=ExtResource("15_larjc")]
+transform = Transform3D(0.489245, 1.46683e-08, 0.872146, 0.0257668, 0.999563, -0.0144543, -0.871765, 0.0295441, 0.489032, 12.997, 1.98454, 5.26768)
+
+[node name="Rock3" parent="Decoration" index="15" instance=ExtResource("14_fuojk")]
 transform = Transform3D(0.992064, -0.23209, 0.182116, 0.238243, 1.0071, -0.0143488, -0.17399, 0.0556743, 1.01875, -3.19976, 1.72742, -14.9386)
 
-[node name="Rock2" parent="Decoration" index="15" instance=ExtResource("14_fuojk")]
+[node name="Rock2" parent="Decoration" index="16" instance=ExtResource("14_fuojk")]
 transform = Transform3D(1.72582, -0.287558, 0.0367045, 0.272242, 1.68384, 0.391238, -0.0996047, -0.380123, 1.70531, 1.77444, -0.70097, -13.0909)
 
-[node name="Rock4" parent="Decoration" index="16" instance=ExtResource("14_fuojk")]
+[node name="Rock4" parent="Decoration" index="17" instance=ExtResource("14_fuojk")]
 transform = Transform3D(2.40677, 0.802739, -3.09242, -0.493033, 3.91862, 0.633489, 3.15664, -2.98023e-08, 2.45676, 3.98971, -0.811862, -22.4332)
 
-[node name="Rock5" parent="Decoration" index="17" instance=ExtResource("14_fuojk")]
+[node name="Rock5" parent="Decoration" index="18" instance=ExtResource("14_fuojk")]
 transform = Transform3D(4.62076, -1.45776, 0.572855, 1.90982, 3.50421, -1.4717, 0.0344957, 1.2631, 4.74404, -6.10842, -0.36034, -25.6129)
 
-[node name="SmallBoulder" parent="Decoration" index="18" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder" parent="Decoration" index="19" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(-0.999691, 0, -0.0248508, 0, 1, 0, 0.0248508, 0, -0.999691, -9.51969, -0.306166, 8.48266)
 
-[node name="SmallBoulder2" parent="Decoration" index="19" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder2" parent="Decoration" index="20" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(0.658904, 0, -1.03863, 0, 1.54, 0, 1.03863, 0, 0.658904, -11.9682, -0.367718, 6.83031)
 
-[node name="SmallBoulder3" parent="Decoration" index="20" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder3" parent="Decoration" index="21" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.72817, -0.979063, 0.234261, 0.882062, 1.24833, -1.28982, 0.48519, 1.21783, 1.51046, -6.20262, -0.39578, -12.0408)
 
-[node name="SmallBoulder4" parent="Decoration" index="21" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder4" parent="Decoration" index="22" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.460502, -0.324509, -9.84375)
 
-[node name="SmallBoulder5" parent="Decoration" index="22" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder5" parent="Decoration" index="23" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.39185, 0, 1.43623, 0, 2, 0, -1.43623, 0, 1.39185, -9.66382, -0.198896, -10.7931)
+
+[node name="StuccoWall" parent="Decoration" index="24" instance=ExtResource("22_v0qyq")]
+transform = Transform3D(-6.33815e-08, 0, 1.45, 0, 1.45, 0, -1.45, 0, -6.33815e-08, 14.204, -0.598527, 0.28502)
 
 [node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="0"]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -5.61452, 0.27358, -1.19693)
@@ -524,7 +531,7 @@ colour_1 = Color(0, 0.176, 0.44, 1)
 colour_2 = Color(0.120126, 0.44077, 1, 1)
 render_distance = 11.0
 
-[node name="Decals" type="Node3D" parent="Decoration" index="24"]
+[node name="Decals" type="Node3D" parent="Decoration" index="26"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
@@ -581,7 +588,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="25"]
+[node name="Motes" type="GPUParticles3D" parent="Decoration" index="27"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
 amount = 120
 lifetime = 2.0
@@ -591,7 +598,7 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="26"]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="28"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
 amount = 120
 lifetime = 2.0
