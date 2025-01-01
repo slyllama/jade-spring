@@ -311,6 +311,9 @@ transform = Transform3D(0.0744741, 0, -0.997223, 0, 1, 0, 0.997223, 0, 0.0744741
 [node name="DecoSmallBoulder2" parent="DecoHandler" index="32" instance=ExtResource("18_8cm4w")]
 transform = Transform3D(-0.621544, 0, 0.783379, 0, 1, 0, -0.783379, 0, -0.621544, -0.284019, 0.475534, -0.854782)
 
+[node name="DecoAutumnalTree2" parent="DecoHandler" index="33" instance=ExtResource("15_byd2e")]
+transform = Transform3D(0.884825, 0, -0.465923, 0, 1, 0, 0.465923, 0, 0.884825, -5.34747, -0.109703, 9.46814)
+
 [node name="pine_simple" parent="Decoration" index="0" instance=ExtResource("15_larjc")]
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)
 

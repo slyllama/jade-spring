@@ -25,4 +25,4 @@ func _on_collision_interacted() -> void:
 		if id == "discombobulator":
 			Global.add_effect.emit("discombobulator")
 		elif id == "dragonvoid":
-			pass)
+			Global.add_effect.emit("dv_charge"))

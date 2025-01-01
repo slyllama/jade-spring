@@ -13,6 +13,7 @@ var rng = RandomNumberGenerator.new()
 
 func clear() -> void:
 	Global.announcement_sent.emit(\"[color=yellow]((Dragonvoid))[/color]\")
+	Global.remove_effect.emit(\"dv_charge\")
 	Global.bug_crumb_left.emit()
 	super()
 
@@ -31,9 +32,11 @@ func _ready() -> void:
 func interact() -> void:
 	if Save.data.story_point == \"game_start\": return # not unlocked yet
 	
-	if \"discombobulator\" in Global.current_effects:
+	if \"dv_charge\" in Global.current_effects:
 		var _f = FishingInstance.instantiate()
 		_f.completed.connect(clear)
+		_f.canceled.connect(func():
+			Global.remove_effect.emit(\"dv_charge\"))
 		add_child(_f)
 	else:
 		Global.announcement_sent.emit(

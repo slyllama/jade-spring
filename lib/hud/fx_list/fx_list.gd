@@ -27,6 +27,10 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"texture": "weed",
 		"title": "Picked Weed",
 		"description": "these belong in the compost bin!"
+	},
+	"dv_charge": {
+		"title": "Dragonvoid Charge",
+		"description": "((Dragonvoid Charge))"
 	}
 }
 

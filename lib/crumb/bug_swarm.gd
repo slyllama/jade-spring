@@ -5,6 +5,7 @@ var rng = RandomNumberGenerator.new()
 func clear() -> void:
 	Global.announcement_sent.emit("[color=yellow]The Discombobulator scatters these pests to the Four Winds![/color]")
 	Global.bug_crumb_left.emit()
+	Global.remove_effect.emit("discombobulator")
 	super()
 
 func _ready() -> void:
@@ -29,6 +30,8 @@ func interact() -> void:
 	if "discombobulator" in Global.current_effects:
 		var _f = FishingInstance.instantiate()
 		_f.completed.connect(clear)
+		_f.canceled.connect(func():
+			Global.remove_effect.emit("discombobulator"))
 		add_child(_f)
 	else:
 		Global.announcement_sent.emit(
