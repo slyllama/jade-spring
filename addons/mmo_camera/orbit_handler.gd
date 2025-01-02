@@ -6,6 +6,7 @@ extends Node
 var orbiting = false
 var target_rotation = Vector3.ZERO
 var smooth_rotation = Vector3.ZERO
+var smooth_modifier = 1.0 # orbit smoothing will be multiplied by this value - used for commands
 
 var _mouse_delta = Vector2.ZERO # event.relative
 var _last_click_position = Vector2.ZERO
@@ -24,6 +25,12 @@ func _ready() -> void:
 		await get_tree().process_frame
 		Global.camera_orbiting = false
 		orbiting = false)
+	
+	Global.command_sent.connect(func(_cmd):
+		if "/orbitsmooth=" in _cmd:
+			var _o = float(_cmd.replace("/orbitsmooth=", ""))
+			smooth_modifier = clamp(_o, 0.01, 1.0)
+	)
 
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
@@ -76,5 +83,5 @@ func _process(delta: float) -> void:
 		target_rotation.y -= _mouse_delta.x * Global.orbit_sensitivity_multiplier * delta * 60.0
 		if get_parent().clamp_y: target_rotation.y = clamp(
 			target_rotation.y, get_parent().clamp_y_lower, get_parent().clamp_y_upper)
-	smooth_rotation = lerp(smooth_rotation, target_rotation, delta * get_parent().orbit_smoothing)
+	smooth_rotation = lerp(smooth_rotation, target_rotation, delta * get_parent().orbit_smoothing * smooth_modifier)
 	_mouse_delta = Vector2.ZERO

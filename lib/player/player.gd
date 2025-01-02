@@ -13,6 +13,7 @@ const JADE_SOUNDS = [
 
 @export var base_speed := 2.0
 @export var smoothing := 7.0
+var smooth_mod = 1.0 # acceleration smoothing - to be modified by command
 
 @onready var anim: AnimationPlayer = get_node("PlayerMesh/AnimationPlayer")
 @onready var engine_bone: BoneAttachment3D = get_node("PlayerMesh/JadeArmature/Skeleton3D/EngineRing1")
@@ -58,6 +59,9 @@ func _ready() -> void:
 		elif "/speedratio=" in _cmd:
 			var _speed_ratio = float(_cmd.replace("/speedratio=", ""))
 			_speed = base_speed * clamp(_speed_ratio, 0.0, 2.0)
+		elif "/playersmooth=" in _cmd:
+			var _s = float(_cmd.replace("/playersmooth=", ""))
+			smooth_mod = clamp(_s, 0.01, 1.0)
 	)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
@@ -116,9 +120,9 @@ func _physics_process(delta: float) -> void:
 		_target_velocity = _target_velocity.normalized() * Vector3(_speed, _speed * 1.5, _speed)
 	else: _target_velocity = Vector3.ZERO
 	
-	velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta)
-	velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta)
-	velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta)
+	velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
+	velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta * smooth_mod)
+	velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta * smooth_mod)
 	
 	if !Global.in_walk_mode:
 		move_and_slide()
