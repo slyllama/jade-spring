@@ -61,7 +61,13 @@ mesh = SubResource("QuadMesh_q4o4g")
 skeleton = NodePath("../..")
 
 [node name="FoliageTest18" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.534265, -0.448035, -0.133887, -0.034663, -0.240674, 0.667064, -0.466325, -0.49542, -0.202977, -0.852523, 3.25278, -1.92336)
+transform = Transform3D(0.534265, -0.453533, 0.113879, -0.034663, 0.134022, 0.696374, -0.466325, -0.529571, 0.078708, -0.895617, 2.98926, -1.95314)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q4o4g")
+skeleton = NodePath("../..")
+
+[node name="FoliageTest23" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.48341, -0.44503, 0.269004, -0.48565, -0.255065, 0.450762, -0.1859, -0.490908, -0.47807, -0.837951, 3.34189, -1.91329)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_q4o4g")
 skeleton = NodePath("../..")
