@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hooieo80ip7g"
-path="res://.godot/imported/arch_test.glb-6f4ba743136f3b42fc3340de85ece0d4.scn"
+path="res://.godot/imported/arch.glb-4b2f091f89bad6990c06d383847b26d5.scn"
 
 [deps]
 
-source_file="res://maps/seitung/meshes/arch_test.glb"
-dest_files=["res://.godot/imported/arch_test.glb-6f4ba743136f3b42fc3340de85ece0d4.scn"]
+source_file="res://maps/seitung/meshes/arch.glb"
+dest_files=["res://.godot/imported/arch.glb-4b2f091f89bad6990c06d383847b26d5.scn"]
 
 [params]
 

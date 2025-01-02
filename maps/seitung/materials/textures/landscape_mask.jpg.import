@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5sldoo7exwou"
-path.s3tc="res://.godot/imported/landscape_mask.jpg-41efbe011bbdd046d9f54813acb5f737.s3tc.ctex"
+path.s3tc="res://.godot/imported/landscape_mask.jpg-1f28540614bf4d1d36d1b6977b95a00c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/debug_map/materials/textures/landscape_mask.jpg"
-dest_files=["res://.godot/imported/landscape_mask.jpg-41efbe011bbdd046d9f54813acb5f737.s3tc.ctex"]
+source_file="res://maps/seitung/materials/textures/landscape_mask.jpg"
+dest_files=["res://.godot/imported/landscape_mask.jpg-1f28540614bf4d1d36d1b6977b95a00c.s3tc.ctex"]
 
 [params]
 

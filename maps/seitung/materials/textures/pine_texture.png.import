@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxou6gcdvrsbf"
-path.s3tc="res://.godot/imported/pine_texture.png-23be8c0fc551898bd56cba133ec7c9ed.s3tc.ctex"
+path.s3tc="res://.godot/imported/pine_texture.png-b46e737513bf45bcf9045c954231402b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/debug_map/materials/textures/pine_texture.png"
-dest_files=["res://.godot/imported/pine_texture.png-23be8c0fc551898bd56cba133ec7c9ed.s3tc.ctex"]
+source_file="res://maps/seitung/materials/textures/pine_texture.png"
+dest_files=["res://.godot/imported/pine_texture.png-b46e737513bf45bcf9045c954231402b.s3tc.ctex"]
 
 [params]
 
