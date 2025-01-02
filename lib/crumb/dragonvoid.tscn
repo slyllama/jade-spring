@@ -60,6 +60,7 @@ color = Color(0, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_r1sh7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdk7r"]
+render_priority = 4
 transparency = 1
 shading_mode = 0
 specular_mode = 2
@@ -72,6 +73,9 @@ billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+distance_fade_mode = 2
+distance_fade_min_distance = 10.0
+distance_fade_max_distance = 9.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m4kwj"]
 material = SubResource("StandardMaterial3D_tdk7r")
