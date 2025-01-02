@@ -43,6 +43,15 @@ const DecoData = {
 		"preview_v_offset": -0.4,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"aetherblade_craft": {
+		"name": "Aetherblade Craft",
+		"scene": "res://decorations/rocket/deco_rocket.tscn",
+		"cursor_model": "res://decorations/rocket/rocket.tscn",
+		"preview_scale": 0.23,
+		"preview_y_rotation": 190,
+		"preview_v_offset": -0.4,
+		"tags": [ ]
+	},
 	"bloodstone_impacted_pillar": {
 		"name": "Bloodstone-Impacted Pillar",
 		"scene": "res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn",

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw8ec05sppr0u"]
+
+[ext_resource type="PackedScene" uid="uid://ccsgc6y2cwx45" path="res://decorations/rocket/rocket.glb" id="1_k0lj6"]
+
+[node name="Rocket" type="Node3D"]
+
+[node name="AetherbladeCraft" parent="." instance=ExtResource("1_k0lj6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4, 0)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2skr78sqgxln"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_sbxfq"]
+[ext_resource type="PackedScene" uid="uid://dw8ec05sppr0u" path="res://decorations/rocket/rocket.tscn" id="2_qph5l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8xl6"]
+size = Vector3(1.57397, 5.71601, 3.98657)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8axq"]
+size = Vector3(2.99121, 11.6572, 2.52734)
+
+[node name="Rocket" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_sbxfq")
+id = "aetherblade_craft"
+collision_box = NodePath("Body")
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Shape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 2.867, 0)
+shape = SubResource("BoxShape3D_h8xl6")
+
+[node name="Shape2" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 2.867, 0)
+shape = SubResource("BoxShape3D_h8xl6")
+
+[node name="ShapeCentral" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.55217, 0)
+shape = SubResource("BoxShape3D_w8axq")
+
+[node name="Rocket" parent="." instance=ExtResource("2_qph5l")]

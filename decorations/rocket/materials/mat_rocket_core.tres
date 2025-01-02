@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bivk3sio7fr7o"]
+
+[ext_resource type="Texture2D" uid="uid://dtm41d1ospgph" path="res://decorations/rocket/materials/textures/rocket_core_diff.jpg" id="1_aqrtb"]
+[ext_resource type="Texture2D" uid="uid://c4d8r8ovqhlyc" path="res://decorations/rocket/materials/textures/rocket_core_norm.jpg" id="2_qiw6h"]
+
+[resource]
+albedo_color = Color(0.7, 0.7, 0.7, 1)
+albedo_texture = ExtResource("1_aqrtb")
+metallic = 0.5
+metallic_specular = 0.35
+roughness = 0.25
+normal_enabled = true
+normal_texture = ExtResource("2_qiw6h")

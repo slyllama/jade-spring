@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bb5qkwiy3acm7"]
+
+[ext_resource type="Texture2D" uid="uid://t8arynx056ro" path="res://decorations/rocket/materials/textures/rocket_leg_diff.jpg" id="1_t7uxf"]
+[ext_resource type="Texture2D" uid="uid://b3jjivakl1sva" path="res://decorations/rocket/materials/textures/rocket_leg_norm.jpg" id="2_2icrx"]
+
+[resource]
+albedo_color = Color(0.7, 0.7, 0.7, 1)
+albedo_texture = ExtResource("1_t7uxf")
+metallic = 0.5
+metallic_specular = 0.25
+roughness = 0.35
+normal_enabled = true
+normal_texture = ExtResource("2_2icrx")
