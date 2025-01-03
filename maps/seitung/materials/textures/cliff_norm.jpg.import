@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuhtgebfn4wg5"
-path.s3tc="res://.godot/imported/dirt_mask.jpg-c017bcbe3ccc84c0eb500e05391da7be.s3tc.ctex"
+uid="uid://cans3a54doa6c"
+path.s3tc="res://.godot/imported/cliff_norm.jpg-8f866b3c3f3072c4639367d47842fea7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/seitung/materials/textures/dirt_mask.jpg"
-dest_files=["res://.godot/imported/dirt_mask.jpg-c017bcbe3ccc84c0eb500e05391da7be.s3tc.ctex"]
+source_file="res://maps/seitung/materials/textures/cliff_norm.jpg"
+dest_files=["res://.godot/imported/cliff_norm.jpg-8f866b3c3f3072c4639367d47842fea7.s3tc.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
