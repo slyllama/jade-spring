@@ -5,6 +5,7 @@ extends "res://lib/gadget/gadget.gd"
 const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 
 const intro_dialogue_data = {
+	"_texture": "sticker_pulley",
 	"_entry": {
 		"string": "F-f-friend, good morning! Thirty-three, seven. The magnetic realignment h-h-helped overnight, it did, twelve?",
 		"options": {

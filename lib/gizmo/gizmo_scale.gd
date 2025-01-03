@@ -24,6 +24,7 @@ func destroy() -> void:
 	scale_out_tween.tween_callback(queue_free)
 
 func _ready() -> void:
+	set_disable_scale(true)
 	enabled = true
 	
 	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
@@ -81,4 +82,4 @@ func _ready() -> void:
 	)
 	
 	#position.y = 2.5
-	set_disable_scale(true)
+	

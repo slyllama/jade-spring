@@ -55,6 +55,8 @@ func open() -> void:
 	Global.can_move = false
 	if "_entry" in data:
 		render_block(data._entry)
+	if "_texture" in data:
+		$Base/Sticker.texture = load("res://generic/textures/stickers/" + str(data._texture) + ".png")
 	
 	$Player.play("Enter")
 	var fade_tween = create_tween()

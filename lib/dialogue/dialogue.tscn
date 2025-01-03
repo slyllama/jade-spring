@@ -82,7 +82,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(276.5, 58), Vector2(276.5, 43)]
+"values": [Vector2(238, 0), Vector2(238, 25)]
 }
 
 [sub_resource type="Animation" id="Animation_uu45f"]
@@ -176,9 +176,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -315.0
-offset_top = 74.0147
+offset_top = 88.0
 offset_right = 315.0
-offset_bottom = 200.015
+offset_bottom = 214.0
 grow_horizontal = 2
 texture = ExtResource("3_k2g0f")
 expand_mode = 1
@@ -187,14 +187,17 @@ stretch_mode = 5
 [node name="Sticker" type="TextureRect" parent="Base"]
 use_parent_material = true
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = 50.5
-offset_right = 64.0
-offset_bottom = 178.5
+offset_top = -234.0
+offset_right = 141.0
+offset_bottom = -29.0
 grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_mtkmt")
 expand_mode = 1
 stretch_mode = 5

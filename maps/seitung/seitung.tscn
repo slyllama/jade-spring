@@ -378,7 +378,7 @@ transform = Transform3D(0.320001, 0, -0.947417, 0, 1, 0, 0.947417, 0, 0.320001, 
 transform = Transform3D(-0.378051, 0, -0.925785, 0, 1, 0, 0.925785, 0, -0.378051, -11.608, 0.393326, 2.15324)
 
 [node name="DecoAutumnalTree2" parent="DecoHandler" index="46" instance=ExtResource("15_byd2e")]
-transform = Transform3D(0.884825, 0, -0.465923, 0, 1, 0, 0.465923, 0, 0.884825, -5.34747, -0.109703, 9.46814)
+transform = Transform3D(0.996311, 0, 0.0858172, 0, 1, 0, -0.0858172, 0, 0.996311, -5.34747, -0.109703, 9.46814)
 
 [node name="DecoEepyFence" parent="DecoHandler" index="47" instance=ExtResource("17_x5gab")]
 transform = Transform3D(0.999435, 0.0336262, 0, -0.0336195, 0.999236, 0.0199129, 0.000669594, -0.0199016, 0.999802, -1.95548, -0.017562, -6.39119)
