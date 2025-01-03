@@ -1,3 +1,4 @@
+@tool
 @icon("res://lib/decoration/icon_decoration.svg")
 class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
@@ -9,6 +10,41 @@ var last_scale: Vector3
 var last_rotation: Vector3
 var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
+var dye_materials = {}
+
+func get_all_children(node: Node) -> Array:
+	var nodes: Array = []
+	if !node: return([])
+	for n in node.get_children():
+		if n.get_child_count() > 0:
+			nodes.append(n)
+			nodes.append_array(get_all_children(n, ))
+		else: nodes.append(n)
+	return(nodes)
+
+func assign_dye_channel(material_name: String):
+	var _new_m: StandardMaterial3D
+	for _n in get_all_children(self):
+		if _n is MeshInstance3D:
+			var _m = _n.get_active_material(0)
+			if _m is StandardMaterial3D:
+				if material_name in _m.resource_path:
+					_new_m = _m.duplicate()
+					dye_materials[material_name] = _new_m
+					continue
+	
+	for _n in get_all_children(self):
+		if _n is MeshInstance3D:
+			var _m = _n.get_active_material(0)
+			if _m is StandardMaterial3D:
+				if material_name in _m.resource_path:
+					_n.set_surface_override_material(0, _new_m)
+
+func set_dye_channel(material_name: String, albedo_color: Color):
+	if material_name in dye_materials:
+		var _m = dye_materials[material_name]
+		if "albedo_color" in _m:
+			_m.albedo_color = albedo_color
 
 func _spawn_rotators() -> void:
 	_clear_arrows()
@@ -112,6 +148,8 @@ func cancel_adjustment() -> void:
 		rotation = last_rotation
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	Global.adjustment_started.connect(func(): # disable input picking for ALL decorations
 		collision_box.set_collision_layer_value(1, false)
 		collision_box.set_collision_layer_value(2, false)

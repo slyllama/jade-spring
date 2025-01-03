@@ -219,7 +219,7 @@ transform = Transform3D(0.98899, 0, -0.147982, 0, 1, 0, 0.147982, 0, 0.98899, -5
 transform = Transform3D(-0.437273, 0, -0.899329, 0, 1, 0, 0.899329, 0, -0.437273, -10.0037, 1.0178, 1.40742)
 
 [node name="Weed3" parent="CrumbHandler" index="3" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -8.05982, 0.702664, 3.49156)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -7.86756, 0.702664, 3.2023)
 
 [node name="Weed4" parent="CrumbHandler" index="4" instance=ExtResource("5_e2aho")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -5.82848, 0.736776, 7.36174)
@@ -579,7 +579,7 @@ moss_color = Color(0.74656, 0.887131, 3.08037e-06, 1)
 colour_2 = Color(0.360179, 0.414021, 3.85046e-07, 1)
 
 [node name="FlowerSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.41237, 0.317728, -3.15279)
+transform = Transform3D(0.328042, 0, -0.944663, 0, 1, 0, 0.944663, 0, 0.328042, -4.84919, 0.317728, -3.30996)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_7dptf")
@@ -811,10 +811,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
 
 [node name="SpawnPlatform" parent="." index="12" instance=ExtResource("8_alpya")]
-transform = Transform3D(0.999519, 0.0310095, 0, -0.0310095, 0.999519, 0, 0, 0, 1, -9.96945, 0.197754, 3.12597)
+transform = Transform3D(0.999519, 0.0310095, 0, -0.0310095, 0.999519, 0, 0, 0, 1, -9.78259, 0.429223, 2.8401)
 
-[node name="Pulley" parent="." index="13" instance=ExtResource("9_2e7lr")]
-transform = Transform3D(-0.349406, 0, 1.304, 0, 1.35, 0, -1.304, 0, -0.349406, -10.5272, 0.446828, 3.54817)
+[node name="SpawnPlatform3" parent="." index="13" instance=ExtResource("8_alpya")]
+transform = Transform3D(1.17943, 0.0365912, 0, -0.0365912, 1.17943, 0, 0, 0, 1.18, -7.18588, 0.502338, -2.74958)
 
-[node name="WeedBin" parent="." index="14" instance=ExtResource("28_m4ym0")]
+[node name="SpawnPlatform2" parent="." index="14" instance=ExtResource("8_alpya")]
+transform = Transform3D(1.48006, 0.0306121, -0.239382, -0.0465143, 0.999519, -3.87658e-12, 0.239267, 0.00494876, 1.48078, -9.78259, 0.226526, 2.8401)
+
+[node name="Pulley" parent="." index="15" instance=ExtResource("9_2e7lr")]
+transform = Transform3D(-0.0237495, 0, 1.34979, 0, 1.35, 0, -1.34979, 0, -0.0237495, -10.2466, 0.828593, 2.74522)
+
+[node name="WeedBin" parent="." index="16" instance=ExtResource("28_m4ym0")]
 transform = Transform3D(-0.954684, -0.152123, 0.255807, -0.14694, 0.988362, 0.0393724, -0.258819, 3.45188e-09, -0.965926, -7.27067, -0.135322, 7.58098)

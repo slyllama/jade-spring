@@ -10,6 +10,7 @@ func set_default_skills() -> void:
 	clear_skills()
 	$Box/Skill1.switch_skill("select")
 	$Box/Skill2.switch_skill("deco_test")
+	$Box/Skill2.set_enabled()
 	$Box/Skill3.switch_skill("delete")
 	$Box/Skill4.switch_skill("safe_point")
 	# TODO: disabled for initial release

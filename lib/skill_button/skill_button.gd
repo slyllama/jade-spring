@@ -93,8 +93,8 @@ func set_highlight(state = true) -> void:
 
 func set_enabled(state = true) -> void:
 	enabled = state
-	if !enabled: modulate = Color(0.5, 0.5, 0.5)
-	else: modulate = Color.WHITE
+	if !enabled: $Image.modulate = Color(0.27, 0.27, 0.27)
+	else: $Image.modulate = Color.WHITE
 
 func set_tip_text(get_title: String, get_description: String):
 	$Tooltip.text = "[font_size=19]" + get_title + "[/font_size]\n" + get_description
