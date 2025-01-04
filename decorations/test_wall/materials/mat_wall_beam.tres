@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chd7wbb48o84b" path="res://decorations/test_wall/materials/textures/wall_beam_norm.jpg" id="2_2737k"]
 
 [resource]
+albedo_color = Color(0.57, 0.5073, 0.4845, 1)
 albedo_texture = ExtResource("1_13yve")
 metallic_specular = 0.0
 normal_enabled = true

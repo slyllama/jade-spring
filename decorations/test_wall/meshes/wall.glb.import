@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"mat_inlay": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/test_wall/materials/mat_wood_inlay.tres"
+},
 "mat_wall_beam": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/test_wall/materials/mat_wall_beam.tres"
