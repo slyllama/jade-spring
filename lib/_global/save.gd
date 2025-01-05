@@ -26,7 +26,7 @@ var STORY_POINT_SCRIPT = {
 	"clear_bugs": {
 		"title": "((Bug-clearing))",
 		"description": "((Bug-clearing))",
-		"objective": "((((Bug-clearing))))"
+		"objective": "Use Discombobulators from the cleaning station to disperse the pests spoiling the garden."
 	}
 }
 

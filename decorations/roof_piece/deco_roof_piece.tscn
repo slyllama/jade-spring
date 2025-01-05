@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rwpbhnk3wju3" path="res://decorations/roof_piece/roof_piece.glb" id="2_7j3ys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lemen"]
-size = Vector3(2.59277, 1, 1)
+size = Vector3(2.59277, 2.31616, 1.1521)
 
 [node name="DecoRoofPiece" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_uky7w")
@@ -14,7 +14,7 @@ collision_box = NodePath("Body")
 [node name="RoofPiece" parent="." instance=ExtResource("2_7j3ys")]
 
 [node name="Body" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.516401, -0.551411)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.242111, 0.0591978)
 collision_layer = 3
 collision_mask = 3
 

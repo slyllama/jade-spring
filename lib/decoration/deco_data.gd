@@ -104,6 +104,16 @@ const DecoData = {
 		"scene": "res://decorations/test_wall/deco_test_wall.tscn",
 		"cursor_model": "res://decorations/test_wall/meshes/wall.glb",
 		"preview_y_rotation": 35,
+		"y_rotation": 90,
+		"preview_scale": 0.42,
+		"tags": ["Architecture"]
+	},
+	"simple_wall_narrow": {
+		"name": "Simple Wall - Narrow",
+		"scene": "res://decorations/test_wall/deco_wall_narrow.tscn",
+		"cursor_model": "res://decorations/test_wall/meshes/wall_narrow.glb",
+		"y_rotation": 90,
+		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
 		"tags": ["Architecture"]
 	},
@@ -128,6 +138,7 @@ const DecoData = {
 		"name": "Simple Roof Piece",
 		"scene": "res://decorations/roof_piece/deco_roof_piece.tscn",
 		"cursor_model": "res://decorations/roof_piece/roof_piece.glb",
+		"y_rotation": -90,
 		"preview_scale": 0.9,
 		"preview_y_rotation": 215,
 		"tags": ["Architecture", "Cantha"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=59 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cw22jtaf0fhxj" path="res://decorations/eepy_fence/deco_eepy_fence.tscn" id="17_x5gab"]
 [ext_resource type="PackedScene" uid="uid://bqap4iq7iwa03" path="res://decorations/small_boulder/deco_small_boulder.tscn" id="18_8cm4w"]
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="18_rj2gh"]
+[ext_resource type="PackedScene" uid="uid://mupvmfjtkmav" path="res://decorations/test_wall/deco_wall_narrow.tscn" id="19_liot0"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="22_d5lul"]
 [ext_resource type="PackedScene" uid="uid://d2a2ptt0rqp1i" path="res://maps/seitung/props/stucco_wall/plaster_wall.glb" id="22_v0qyq"]
@@ -409,6 +410,15 @@ transform = Transform3D(1.7261, 0, 1.01023, 0, 2, 0, -1.01023, 0, 1.7261, 10.216
 
 [node name="DecoSmallBoulder5" parent="DecoHandler" index="52" instance=ExtResource("18_8cm4w")]
 transform = Transform3D(1.87697, 0, -0.690628, 0, 2, 0, 0.690628, 0, 1.87697, 9.27266, 0.794353, -9.55992)
+
+[node name="DecoTestWall12" parent="DecoHandler" index="53" instance=ExtResource("19_liot0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.75, 1.25, 1.75)
+
+[node name="DecoTestWall13" parent="DecoHandler" index="54" instance=ExtResource("19_liot0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.75, 1.25, 5.75)
+
+[node name="DecoTestWall14" parent="DecoHandler" index="55" instance=ExtResource("19_liot0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.25, 6.2)
 
 [node name="pine_simple" parent="Decoration" index="0" instance=ExtResource("15_larjc")]
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)

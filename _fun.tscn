@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://djafnwxejkqfc"]
+
+[ext_resource type="PackedScene" uid="uid://bngsvcump0aee" path="res://decorations/test_wall/deco_test_wall.tscn" id="1_dkhe6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DecoTestWall" parent="." instance=ExtResource("1_dkhe6")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+wall_color = Color(1, 0.342783, 0.31163, 1)
+
+[node name="DecoTestWall2" parent="." instance=ExtResource("1_dkhe6")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 1.5, 0, 0)
+wall_color = Color(0.968486, 0.64614, 5.0056e-06, 1)
+
+[node name="DecoTestWall3" parent="." instance=ExtResource("1_dkhe6")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 3, 0, 0)
+wall_color = Color(0.326052, 0.85583, 0, 1)
+
+[node name="DecoTestWall4" parent="." instance=ExtResource("1_dkhe6")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 4.5, 0, 0)
+wall_color = Color(0, 0.7, 1, 1)
+
+[node name="DecoTestWall5" parent="." instance=ExtResource("1_dkhe6")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 6, 0, 0)
+wall_color = Color(0.644, 0, 0.84, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.599638, -0.800271, 0, 0.800271, 0.599638, 0, 0, 1.35784)
