@@ -9,7 +9,7 @@ var smooth_rotation = Vector3.ZERO
 var smooth_modifier = 1.0 # orbit smoothing will be multiplied by this value - used for commands
 
 var action_cam_is_default = true
-var action_cam_active = true
+var action_cam_active = false
 var action_cam_paused = false
 
 var _mouse_delta = Vector2.ZERO # event.relative
@@ -49,9 +49,9 @@ func _enable_action_cam(override = false) -> void:
 		return
 	
 	await get_tree().process_frame
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if Global.in_exclusive_ui: return
-	if action_cam_is_default or override:
+	if SettingsHandler.settings.action_camera == "on_by_default" or override:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		_clicked_in_ui = false
 		action_cam_active = true
 
@@ -72,7 +72,8 @@ func _input(event: InputEvent) -> void:
 		else: _enable_action_cam(true)
 	
 	if Input.is_action_just_pressed(get_parent().left_click) or Input.is_action_just_pressed("right_click"):
-		_enable_action_cam()
+		if !Global.in_exclusive_ui and !Global.mouse_in_ui:
+			_enable_action_cam()
 		if get_parent().orbit_disabled: return
 		if get_parent().mouse_in_ui:
 			_clicked_in_ui = true

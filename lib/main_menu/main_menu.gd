@@ -55,6 +55,9 @@ func play() -> void:
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
 func _ready() -> void:
+	# Free the mouse if we've come from action camera mode
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	$LightRay.modulate.a = 0.01
 	$FG.visible = true
 	$FG.modulate.a = 1.0

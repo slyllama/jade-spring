@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://pr2mjxwcnmao"]
+[gd_scene load_steps=7 format=3 uid="uid://pr2mjxwcnmao"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_ssrkn"]
 [ext_resource type="Script" path="res://lib/settings_handler/settings_pane/settings_pane.gd" id="2_iwjpb"]
 [ext_resource type="PackedScene" uid="uid://di6uc8guyh2tr" path="res://lib/settings_handler/settings_pane/settings_dropdown.tscn" id="3_b7vwo"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="3_o7awb"]
 [ext_resource type="PackedScene" uid="uid://np0dx7q0lxai" path="res://lib/settings_handler/settings_pane/settings_slider.tscn" id="4_q7g3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrosn"]
+content_margin_top = 3.0
 
 [node name="SettingsPane" instance=ExtResource("1_ssrkn")]
 script = ExtResource("2_iwjpb")
@@ -45,36 +48,55 @@ default_option = "on"
 
 [node name="ShowLabels" parent="Container" index="6" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
-title = "Labels"
+title = "Label visibility"
 id = "labels"
 options = Array[String](["show", "hide"])
 default_option = "hide"
 
-[node name="OrbitSensitivity" parent="Container" index="7" instance=ExtResource("4_q7g3p")]
+[node name="ActionCamera" parent="Container" index="7" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
-title = "Orbit Sensitivity"
+title = "Action camera"
+id = "action_camera"
+options = Array[String](["on_by_default", "off_by_default"])
+default_option = "off_by_default"
+
+[node name="Title" type="RichTextLabel" parent="Container" index="8"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.65, 0.65, 0.65, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rrosn")
+bbcode_enabled = true
+text = "[center][i][font_size=14](Use Tab to toggle the action camera.)[/font_size][/i][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="OrbitSensitivity" parent="Container" index="9" instance=ExtResource("4_q7g3p")]
+layout_mode = 2
+title = "Orbit sensitivity"
 id = "orbit_sensitivity"
 
-[node name="Volume" parent="Container" index="8" instance=ExtResource("4_q7g3p")]
+[node name="Volume" parent="Container" index="10" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Volume"
 id = "volume"
 
-[node name="MusicVol" parent="Container" index="9" instance=ExtResource("4_q7g3p")]
+[node name="MusicVol" parent="Container" index="11" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Music volume"
 id = "music_vol"
 
-[node name="Fill" type="ColorRect" parent="Container" index="10"]
+[node name="Fill" type="ColorRect" parent="Container" index="12"]
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
 
-[node name="Done" type="Button" parent="Container" index="11"]
+[node name="Done" type="Button" parent="Container" index="13"]
 layout_mode = 2
 text = "Done"
 
-[node name="Quit" type="Button" parent="Container" index="12"]
+[node name="Quit" type="Button" parent="Container" index="14"]
 layout_mode = 2
 text = "Return To Menu"
 

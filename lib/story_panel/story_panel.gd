@@ -15,6 +15,8 @@ func open(
 	$Base/Content/Sticker.texture = sticker
 	$Paper.play()
 	
+	Global.action_cam_disable.emit()
+	
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_shader_value, 0.0, 1.0, 0.27)
 	var content_fade_tween = create_tween()
@@ -43,6 +45,7 @@ func close():
 	
 	await fade_tween.finished
 	Global.in_exclusive_ui = false
+	Global.action_cam_enable.emit()
 	queue_free()
 
 func _input(_event: InputEvent) -> void:

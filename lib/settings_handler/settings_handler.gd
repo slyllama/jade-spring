@@ -9,7 +9,8 @@ const DEFAULT_SETTINGS = {
 	"foliage_density": "high",
 	"bloom": "on",
 	"orbit_sensitivity": 0.5,
-	"labels": "hide"
+	"labels": "hide",
+	"action_camera": "off_by_default"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)
