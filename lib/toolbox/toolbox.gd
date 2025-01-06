@@ -85,6 +85,7 @@ func skill_used(skill_id: String) -> void:
 				clear_skills()
 				$Box/Skill3.switch_skill("delete")
 				get_button_by_id("delete").set_highlight()
+				Global.action_cam_disable.emit()
 				
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_DELETE:
@@ -97,6 +98,7 @@ func skill_used(skill_id: String) -> void:
 				clear_skills()
 				$Box/Skill1.switch_skill("select")
 				get_button_by_id("select").set_highlight()
+				Global.action_cam_disable.emit()
 				
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_SELECT:
@@ -109,16 +111,21 @@ func skill_used(skill_id: String) -> void:
 				Global.deco_placement_canceled.emit()
 			elif Global.tool_mode == Global.TOOL_MODE_FISH:
 				Global.fishing_canceled.emit()
+			
+			Global.action_cam_enable.emit()
 		"accept":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_applied.emit()
 				set_default_skills()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
 				set_default_skills()
+			
+			Global.action_cam_enable.emit()
 		"deco_test":
 			if !Global.deco_pane_open:
 				await get_tree().process_frame
 				Global.deco_pane_opened.emit() # open the decoration pane
+				Global.action_cam_disable.emit()
 			else:
 				Global.deco_pane_closed.emit()
 			if Global.tool_mode == Global.TOOL_MODE_SELECT: # clear the cursor if it is active
@@ -127,6 +134,7 @@ func skill_used(skill_id: String) -> void:
 		"transform_mode":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.toggle_transform_mode()
+				print(Global.transform_mode)
 		"adjust_mode_translate":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
@@ -148,11 +156,11 @@ func skill_used(skill_id: String) -> void:
 			$Box/Skill3.switch_skill("snap_disable")
 			Global.snapping = true
 			Global.snapping_enabled.emit()
-			#Global.announcement_sent.emit("((Snap Enabled))")
+			Global.announcement_sent.emit("Grid snapping enabled.")
 		"snap_disable":
 			$Box/Skill3.switch_skill("snap_enable")
 			Global.snapping = false
-			#Global.announcement_sent.emit("((Snap Disabled))")
+			Global.announcement_sent.emit("Grid snapping disabled.")
 		"reset_adjustment":
 			Global.adjustment_reset.emit()
 		"toggle_walk_mode":

@@ -8,6 +8,10 @@ var target_rotation = Vector3.ZERO
 var smooth_rotation = Vector3.ZERO
 var smooth_modifier = 1.0 # orbit smoothing will be multiplied by this value - used for commands
 
+var action_cam_is_default = true
+var action_cam_active = true
+var action_cam_paused = false
+
 var _mouse_delta = Vector2.ZERO # event.relative
 var _last_click_position = Vector2.ZERO
 # If a click and drag is initiated in the map, the drag will not influence camera
@@ -21,21 +25,54 @@ func set_initial_rotation(rotation: Vector3) -> void:
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	get_window().focus_exited.connect(func():
+		_disable_action_cam()
+		
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		await get_tree().process_frame
 		Global.camera_orbiting = false
 		orbiting = false)
 	
+	Global.action_cam_enable.connect(_enable_action_cam)
+	Global.action_cam_disable.connect(_disable_action_cam)
+	
 	Global.command_sent.connect(func(_cmd):
 		if "/orbitsmooth=" in _cmd:
 			var _o = float(_cmd.replace("/orbitsmooth=", ""))
-			smooth_modifier = clamp(_o, 0.01, 1.0)
-	)
+			smooth_modifier = clamp(_o, 0.01, 1.0))
+
+func _enable_action_cam(override = false) -> void:
+	# Prevent action cam reactivating in certain tool modes where the cursor is important
+	if (Global.tool_mode == Global.TOOL_MODE_SELECT
+		or Global.tool_mode == Global.TOOL_MODE_DELETE
+		or Global.tool_mode == Global.TOOL_MODE_ADJUST
+		or Global.deco_pane_open):
+		return
+	
+	await get_tree().process_frame
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if Global.in_exclusive_ui: return
+	if action_cam_is_default or override:
+		_clicked_in_ui = false
+		action_cam_active = true
+
+func _disable_action_cam() -> void:
+	for _i in 2: await get_tree().process_frame
+	action_cam_active = false
+	_clicked_in_ui = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Global.camera_orbiting = false
+	orbiting = false
 
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
 	
+	# Use key to toggle action camera
+	if Input.is_action_just_pressed("action_camera"):
+		if action_cam_active: _disable_action_cam()
+		else: _enable_action_cam(true)
+	
 	if Input.is_action_just_pressed(get_parent().left_click) or Input.is_action_just_pressed("right_click"):
+		_enable_action_cam()
 		if get_parent().orbit_disabled: return
 		if get_parent().mouse_in_ui:
 			_clicked_in_ui = true
@@ -43,6 +80,7 @@ func _input(event: InputEvent) -> void:
 			get_viewport().gui_release_focus()
 		_last_click_position = get_window().get_mouse_position()
 	if Input.is_action_just_released(get_parent().left_click) or Input.is_action_just_released("right_click"):
+		if action_cam_active and !action_cam_paused: return
 		_clicked_in_ui = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Global.camera_orbiting = false
@@ -60,9 +98,12 @@ func _process(delta: float) -> void:
 	
 	# Determine if either mouse button is currently down
 	var _mouse_button_down = false
-	if (Input.is_action_pressed("left_click")
-		or Input.is_action_pressed("right_click")):
+	if action_cam_active and !action_cam_paused:
 		_mouse_button_down = true
+	else:
+		if (Input.is_action_pressed("left_click")
+			or Input.is_action_pressed("right_click")):
+			_mouse_button_down = true
 	
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
 	if (!orbiting and !_clicked_in_ui and _mouse_button_down
