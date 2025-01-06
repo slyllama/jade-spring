@@ -17,6 +17,6 @@ void fragment() {
 	if (value >= 1.0) {
 		COLOR.a = original_alpha;
 	}
-	
+
 	COLOR *= exposure; // simple exposure for flashing dialogue changes
 }
