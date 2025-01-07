@@ -119,12 +119,14 @@ func start_adjustment() -> void:
 	last_position = position
 	last_scale = scale
 	last_rotation = rotation
-	collision_box.set_collision_layer_value(2, 0)
+	if collision_box != null:
+		collision_box.set_collision_layer_value(2, 0)
 
 func apply_adjustment() -> void:
-	collision_box.input_ray_pickable = true
-	collision_box.set_collision_layer_value(1, true)
-	collision_box.set_collision_layer_value(2, true)
+	if collision_box != null:
+		collision_box.input_ray_pickable = true
+		collision_box.set_collision_layer_value(1, true)
+		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
@@ -134,9 +136,10 @@ func apply_adjustment() -> void:
 		Global.command_sent.emit("/savedeco")
 
 func cancel_adjustment() -> void:
-	collision_box.input_ray_pickable = true
-	collision_box.set_collision_layer_value(1, true)
-	collision_box.set_collision_layer_value(2, true)
+	if collision_box != null:
+		collision_box.input_ray_pickable = true
+		collision_box.set_collision_layer_value(1, true)
+		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
@@ -151,9 +154,10 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	Global.adjustment_started.connect(func(): # disable input picking for ALL decorations
-		collision_box.set_collision_layer_value(1, false)
-		collision_box.set_collision_layer_value(2, false)
-		collision_box.input_ray_pickable = false)
+		if collision_box != null:
+			collision_box.set_collision_layer_value(1, false)
+			collision_box.set_collision_layer_value(2, false)
+			collision_box.input_ray_pickable = false)
 	
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)

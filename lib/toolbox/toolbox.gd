@@ -68,7 +68,9 @@ func _ready() -> void:
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel"))
 	
-	Global.fishing_canceled.connect(set_default_skills)
+	Global.fishing_canceled.connect(func():
+		print("fishing failed - setting default skills")
+		set_default_skills())
 	
 	$SkillSwap.volume_db = linear_to_db(0)
 	set_default_skills()

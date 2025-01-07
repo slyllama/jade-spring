@@ -11,9 +11,9 @@ signal canceled
 
 @export var fish_min_speed := 1.3
 @export var fish_max_speed := 1.95
-@export var fish_min_time := 0.55
+@export var fish_min_time := 0.65
 @export var fish_max_time := 2.7
-@export var progress_increase_rate := 0.24
+@export var progress_increase_rate := 0.29
 @export var progress_decrease_rate := 0.19
 
 @onready var center_pos = _get_center()
@@ -54,6 +54,7 @@ func end():
 	if has_succeeded:
 		completed.emit()
 	else:
+		Global.fishing_canceled.emit()
 		canceled.emit()
 	queue_free()
 
@@ -118,9 +119,15 @@ func _process(delta: float) -> void:
 	if progress > 99.5:
 		has_succeeded = true
 		end()
+	elif progress < 0.5:
+		end()
 	progress = clamp(progress, 0.0, 100.0)
 	
-	$BG/Progress.value = lerp($BG/Progress.value, float(progress), delta * 40)
+	$BG/Progress.value = lerp($BG/Progress.value, float(progress), delta * 5)
+	
+	$BG/Debug.text = ""
+	$BG/Debug.text += "progress_delta = " + str(snapped(_s, 0.01))
+	$BG/Debug.text += "\nprogress = " + str(snapped(progress, 1)) + "/100"
 
 func _on_timer_timeout() -> void:
 	switch_direction()

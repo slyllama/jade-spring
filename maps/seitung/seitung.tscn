@@ -576,7 +576,7 @@ moss_color = Color(0.74656, 0.887131, 3.08037e-06, 1)
 colour_2 = Color(0.360179, 0.414021, 3.85046e-07, 1)
 
 [node name="FoliageSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="1"]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0.0438099, 0.363092, 2.75999)
+transform = Transform3D(0.5, 0, -0.866025, -0.0678421, 0.996927, -0.0391686, 0.863364, 0.0783373, 0.498464, 0.0438099, 0.507693, 2.75999)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_2ao8n")

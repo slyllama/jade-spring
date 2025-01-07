@@ -50,9 +50,9 @@ func _enable_action_cam(override = false) -> void:
 		return
 	
 	await get_tree().process_frame
-	Global.hud.get_node("Cursor").visible = true
 	if Global.in_exclusive_ui: return
 	if SettingsHandler.settings.action_camera == "on_by_default" or override:
+		Global.hud.get_node("Cursor").visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		_clicked_in_ui = false
 		action_cam_active = true
