@@ -135,6 +135,7 @@ stretch_mode = 0
 [node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
 
 [node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
+visible = false
 offset_top = -86.0
 offset_bottom = -36.0
 

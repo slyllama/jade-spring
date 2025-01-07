@@ -851,7 +851,10 @@ transform = Transform3D(-0.0237495, 0, 1.34979, 0, 1.35, 0, -1.34979, 0, -0.0237
 [node name="WeedBin" parent="." index="13" instance=ExtResource("28_m4ym0")]
 transform = Transform3D(-0.954684, -0.152123, 0.255807, -0.14694, 0.988362, 0.0393724, -0.258819, 3.45188e-09, -0.965926, -7.27067, -0.135322, 7.58098)
 
-[node name="WorldBoundaries" type="StaticBody3D" parent="." index="15"]
+[node name="AetherbladeCraft" parent="." index="15" instance=ExtResource("40_by2qt")]
+transform = Transform3D(-0.94595, 0, -0.324314, 0, 1, 0, 0.324314, 0, -0.94595, 6.27623, 7.72427, 20.508)
+
+[node name="WorldBoundaries" type="StaticBody3D" parent="." index="16"]
 collision_layer = 3
 collision_mask = 3
 
@@ -864,7 +867,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_p7erp")
 
 [node name="WB3" type="CollisionShape3D" parent="WorldBoundaries" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 shape = SubResource("WorldBoundaryShape3D_vnekb")
 
 [node name="WB4" type="CollisionShape3D" parent="WorldBoundaries" index="3"]
@@ -874,6 +877,3 @@ shape = SubResource("WorldBoundaryShape3D_8o4md")
 [node name="WB5" type="CollisionShape3D" parent="WorldBoundaries" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 shape = SubResource("WorldBoundaryShape3D_x1c88")
-
-[node name="AetherbladeCraft" parent="WorldBoundaries" index="5" instance=ExtResource("40_by2qt")]
-transform = Transform3D(-0.94595, 0, -0.324314, 0, 1, 0, 0.324314, 0, -0.94595, 6.27623, 7.72427, 20.508)

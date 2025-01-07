@@ -86,6 +86,7 @@ func _ready() -> void:
 				"y_rotation": Global.mouse_3d_y_rotation
 			})
 			Global.deco_placed.emit()
+			Global.action_cam_enable.emit()
 			Global.jade_bot_sound.emit()
 			Global.queued_decoration = "none"
 			Global.set_cursor(false))
