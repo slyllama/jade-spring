@@ -16,7 +16,7 @@ const STORY_POINTS = [
 var STORY_POINT_SCRIPT = {
 	"game_start": {
 		"title": "1. A Helping Hand",
-		"description": "Nayos was not easy on us; the force of a Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery is a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending the garden![/color]",
+		"description": "Nayos was not easy on the Commander and I; the force of a Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery is a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending the garden![/color]",
 		"sticker": load('res://generic/textures/stickers/sticker_warning.png'),
 		"objective": "Talk to Pulley-4 about tending the garden."
 	},
