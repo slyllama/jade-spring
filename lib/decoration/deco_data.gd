@@ -158,5 +158,13 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.4,
 		"tags": ["Foliage"]
+	},
+	"ancient_cherry_blossom": {
+		"name": "Ancient Cherry Blossom",
+		"scene": "res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.tscn",
+		"cursor_model": "res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.glb",
+		"preview_scale": 0.35,
+		"preview_v_offset": -0.4,
+		"tags": ["Foliage"]
 	}
 }

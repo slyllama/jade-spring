@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6xdrn3kee1v7"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_3v8mn"]
+[ext_resource type="PackedScene" uid="uid://cvbgx6cdc7om5" path="res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.glb" id="2_b2854"]
+
+[node name="AncientCherryBlossom" type="Node3D"]
+script = ExtResource("1_3v8mn")
+id = "ancient_cherry_blossom"
+
+[node name="ancient_cherry_blossom" parent="." instance=ExtResource("2_b2854")]

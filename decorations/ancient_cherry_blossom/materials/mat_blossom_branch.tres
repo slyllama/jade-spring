@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://e7jpf8cp5tfb"]
+
+[ext_resource type="Texture2D" uid="uid://d3w1ui7soole4" path="res://decorations/ancient_cherry_blossom/materials/textures/blossom_branch_diff.jpg" id="1_r1iaq"]
+[ext_resource type="Texture2D" uid="uid://dibvtxpkcyyct" path="res://decorations/ancient_cherry_blossom/materials/textures/blossom_branch_norm.jpg" id="2_uwx52"]
+
+[resource]
+albedo_texture = ExtResource("1_r1iaq")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_uwx52")

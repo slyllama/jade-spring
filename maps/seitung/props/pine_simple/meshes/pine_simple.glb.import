@@ -39,7 +39,27 @@ _subresources={
 },
 "mat_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/debug_map/materials/mat_pine_foliage.tres"
+"use_external/path": "res://maps/seitung/materials/mat_pine_foliage.tres"
+}
+},
+"nodes": {
+"PATH:Circle_001": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Circle_002": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Circle_003": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Circle_004": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Circle_005": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Circle_006": {
+"mesh_instance/cast_shadow": 0
 }
 }
 }
