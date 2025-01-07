@@ -152,6 +152,7 @@ script = ExtResource("1_ylfot")
 environment = SubResource("Environment_hq0yq")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("PlaneMesh_uh8ht")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]

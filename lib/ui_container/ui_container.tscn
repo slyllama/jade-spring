@@ -81,4 +81,4 @@ stream = ExtResource("4_qohij")
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="Container/TitleContainer" to="." method="_on_title_mouse_entered"]
 [connection signal="mouse_exited" from="Container/TitleContainer" to="." method="_on_title_mouse_exited"]
-[connection signal="button_down" from="Container/TitleContainer/CloseButton" to="." method="close"]
+[connection signal="button_up" from="Container/TitleContainer/CloseButton" to="." method="close"]

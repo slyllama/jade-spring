@@ -43,7 +43,7 @@ func proc_story() -> void:
 	if _p in Save.STORY_POINT_SCRIPT:
 		var _d = Save.STORY_POINT_SCRIPT[_p] # data shorthand
 		if "objective" in Save.STORY_POINT_SCRIPT[_p]:
-			$StoryText.text = _d.objective
+			$StoryText.text = "Objective: " + _d.objective
 			if Save.data.story_point == "pick_weeds":
 				$StoryText.text += " (" + str(Save.OBJECTIVE_WEED_COUNT - Save.data.deposited_weeds) + " remaining)"
 

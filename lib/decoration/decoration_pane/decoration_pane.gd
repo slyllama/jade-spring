@@ -23,8 +23,8 @@ func open(silent = false) -> void:
 
 func close():
 	Global.deco_pane_open = false
-	Global.action_cam_enable.emit()
 	super()
+	Global.action_cam_enable.emit()
 
 func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE
