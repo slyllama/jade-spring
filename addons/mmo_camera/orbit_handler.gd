@@ -45,10 +45,12 @@ func _enable_action_cam(override = false) -> void:
 	if (Global.tool_mode == Global.TOOL_MODE_SELECT
 		or Global.tool_mode == Global.TOOL_MODE_DELETE
 		or Global.tool_mode == Global.TOOL_MODE_ADJUST
+		or Global.tool_mode == Global.TOOL_MODE_PLACE
 		or Global.deco_pane_open):
 		return
 	
 	await get_tree().process_frame
+	Global.hud.get_node("Cursor").visible = true
 	if Global.in_exclusive_ui: return
 	if SettingsHandler.settings.action_camera == "on_by_default" or override:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -57,6 +59,7 @@ func _enable_action_cam(override = false) -> void:
 
 func _disable_action_cam() -> void:
 	for _i in 2: await get_tree().process_frame
+	Global.hud.get_node("Cursor").visible = false
 	action_cam_active = false
 	_clicked_in_ui = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

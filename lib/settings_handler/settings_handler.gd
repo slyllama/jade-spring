@@ -10,7 +10,9 @@ const DEFAULT_SETTINGS = {
 	"bloom": "on",
 	"orbit_sensitivity": 0.5,
 	"labels": "hide",
-	"action_camera": "off_by_default"
+	"action_camera": "off_by_default",
+	"fps_cap": 60,
+	"vsync": "on"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

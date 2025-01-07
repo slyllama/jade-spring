@@ -36,7 +36,7 @@ const DecoData = {
 	"shing_jea_arch": {
 		"name": "Shing Jea Arch",
 		"scene": "res://decorations/shing_jea_arch/deco_shing_jea_arch.tscn",
-		"cursor_model": "res://maps/seitung/meshes/arch_test.glb",
+		"cursor_model": "res://maps/seitung/meshes/arch.glb",
 		"y_rotation": 90,
 		"preview_y_rotation": 115,
 		"preview_scale": 0.42,

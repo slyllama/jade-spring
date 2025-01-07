@@ -53,6 +53,7 @@ func render_block(block_data: Dictionary) -> void:
 func open() -> void:
 	Global.in_exclusive_ui = true
 	Global.can_move = false
+	Global.action_cam_disable.emit()
 	if "_entry" in data:
 		render_block(data._entry)
 	if "_texture" in data:
@@ -74,6 +75,7 @@ func close() -> void:
 	await get_tree().process_frame
 	Global.in_exclusive_ui = false
 	Global.can_move = true
+	Global.action_cam_enable.emit()
 	queue_free()
 
 func _ready() -> void:

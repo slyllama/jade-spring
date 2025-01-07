@@ -233,5 +233,6 @@ func _ready() -> void:
 					Global.set_cursor(false)
 					Global.tool_mode = Global.TOOL_MODE_NONE
 					Global.deco_deleted.emit()
+					Global.action_cam_enable.emit()
 					queue_free() # TODO: better delete communication?
 			)

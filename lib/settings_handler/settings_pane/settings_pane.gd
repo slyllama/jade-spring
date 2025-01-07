@@ -24,9 +24,11 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	super()
+	var _scroll_bar: VScrollBar = $Container/SC.get_v_scroll_bar()
+	_scroll_bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	# Volume needs to be set independently because its setting update isn't
 	# pinged on start (to prevent an awkward spike in volume)
-	$Container/Volume.set_value_silent(Utilities.get_user_vol())
+	$Container/SC/Contents/Volume.set_value_silent(Utilities.get_user_vol())
 
 func _on_save_press() -> void:
 	close()

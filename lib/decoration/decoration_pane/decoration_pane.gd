@@ -30,6 +30,7 @@ func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE
 	Global.queued_decoration = id
 	Global.deco_placement_started.emit()
+	Global.action_cam_disable.emit()
 	
 	var _y_rotation = 0.0
 	if "y_rotation" in Global.DecoData[id]:
