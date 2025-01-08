@@ -7,7 +7,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_x47tj")
-shader_parameter/albedo = Color(0.35, 0.321125, 0.3185, 1)
+shader_parameter/albedo = Color(0.5, 0.45875, 0.455, 1)
 shader_parameter/distance_fade_min = 20.0
 shader_parameter/distance_fade_max = 19.0
 shader_parameter/alpha_scissor_threshold = 0.87

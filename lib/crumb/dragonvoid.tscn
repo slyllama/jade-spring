@@ -12,7 +12,7 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 
 func clear() -> void:
-	Global.announcement_sent.emit(\"((The heaviness is lifted from the air as the resonance...))\")
+	Global.announcement_sent.emit(\"The heaviness is lifted from the air as the resonance disperses the dark void.\")
 	Global.remove_effect.emit(\"dv_charge\")
 	Global.bug_crumb_left.emit()
 	super()
