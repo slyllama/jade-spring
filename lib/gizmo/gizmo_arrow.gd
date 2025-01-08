@@ -76,10 +76,10 @@ func _ready() -> void:
 	
 	grabber.mouse_entered.connect(func():
 		if !enabled: return
-		set_color(color, 1.0))
+		set_color(color, 1.2))
 	grabber.mouse_exited.connect(func():
 		if active: return
-		set_color(color, 0.5))
+		set_color(color, 0.4))
 	
 	grabber.drag_started.connect(func():
 		if !enabled: return

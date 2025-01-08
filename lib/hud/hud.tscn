@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=28 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://fok8uup5fsm0" path="res://lib/hud/textures/button_rotate_hover.png" id="15_u4uwf"]
 [ext_resource type="Texture2D" uid="uid://cdr5fjfkma6nx" path="res://lib/hud/textures/button_rotate_click.png" id="15_yogb0"]
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
+[ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
 
 [sub_resource type="Gradient" id="Gradient_rfne7"]
 
@@ -348,6 +349,9 @@ mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_yply7")
 theme_override_font_sizes/font_size = 12
 placeholder_text = "Enter command:"
+
+[node name="InteractEnter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_hhimw")
 
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]
 [connection signal="button_down" from="RotateButtons/RotateLeft" to="RotateButtons" method="_on_rotate_left_button_down"]

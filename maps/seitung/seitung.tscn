@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=68 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="6_jt5mw"]
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="7_gcgfd"]
 [ext_resource type="PackedScene" uid="uid://btxknagn4foj1" path="res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn" id="7_s7skb"]
+[ext_resource type="AudioStream" uid="uid://cw2e47hwstsej" path="res://maps/seitung/sounds/ocean.ogg" id="7_tignd"]
 [ext_resource type="PackedScene" uid="uid://bp20w7u5bdeoa" path="res://maps/seitung/meshes/wp_base.glb" id="8_alpya"]
 [ext_resource type="PackedScene" uid="uid://bxj3pc7r8l63r" path="res://lib/pulley/pulley.tscn" id="9_2e7lr"]
 [ext_resource type="PackedScene" uid="uid://b863y1yeckqfh" path="res://decorations/autumnal_shrub/deco_autumnal_shrub.tscn" id="10_g35cq"]
@@ -279,6 +280,13 @@ transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.9990
 
 [node name="FloorMesh" parent="Floor" index="1"]
 visible = false
+
+[node name="Ambience" parent="." index="5"]
+volume_db = 3.0
+
+[node name="Ocean" type="AudioStreamPlayer" parent="Ambience" index="0"]
+stream = ExtResource("7_tignd")
+autoplay = true
 
 [node name="DecoBambooCluster" parent="DecoHandler" index="0" instance=ExtResource("7_s7skb")]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -9.63647, 0.40909, -0.284601)

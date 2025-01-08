@@ -60,10 +60,10 @@ func render(tag = "None") -> void:
 				id_list.append(_d)
 	
 	id_list.sort()
-	if "autumnal_tree" in id_list: # use Shing Jea arch if not (it's pretty
-		current_id = "autumnal_tree"
-	else:
-		current_id = id_list[0]
+	if !current_id in id_list:
+		if "autumnal_tree" in id_list: # use Shing Jea arch if not (it's pretty
+			current_id = "autumnal_tree"
+		else: current_id = id_list[0]
 	
 	for _d in id_list:
 		# Get decoration data from Global.DecoData and use it to make buttons

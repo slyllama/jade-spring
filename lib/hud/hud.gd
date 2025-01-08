@@ -23,6 +23,7 @@ func _render_crumb_debug() -> String:
 	return(_s)
 
 func _show_int() -> void: # show the interaction indicator
+	$InteractEnter.play()
 	var fade_tween = create_tween()
 	fade_tween.tween_property($InteractIndicator, "modulate:a", 1.0, 0.1)
 func _hide_int() -> void: # hide the interaction indicator
@@ -171,6 +172,7 @@ func _process(_delta: float) -> void:
 	#region Debug printing
 	$Debug.text = "[right]"
 	$Debug.text += _render_fps()
+	$Debug.text += "\n(" + Utilities.fmt_vec3(Global.player_position) + ")"
 	$Debug.text += ("\nPrimitives: "
 		+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)))
 	$Debug.text += "\n"

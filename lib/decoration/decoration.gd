@@ -85,7 +85,7 @@ func _spawn_arrows() -> void:
 	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
 		_arr_y.initial_override_rotation = Vector3(0, 0, 90)
 	else: _arr_y.initial_rotation = Vector3(0, 0, 90)
-	_arr_y.set_color(Color.BLUE)
+	_arr_y.set_color(Color.ROYAL_BLUE)
 	add_child(_arr_y)
 	arrows.append(_arr_y)
 	_arr_y.drag_complete.connect(_spawn_arrows)

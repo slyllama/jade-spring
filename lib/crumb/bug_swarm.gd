@@ -36,5 +36,6 @@ func interact() -> void:
 			Global.remove_effect.emit("discombobulator"))
 		add_child(_f)
 	else:
+		$Disabled.play()
 		Global.announcement_sent.emit(
 			"You need a Discombobulator to clear these pests.")
