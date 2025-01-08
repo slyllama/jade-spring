@@ -12,7 +12,7 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 
 func clear() -> void:
-	Global.announcement_sent.emit(\"((The heaviness is lifted from the air as the resonance))\")
+	Global.announcement_sent.emit(\"((The heaviness is lifted from the air as the resonance...))\")
 	Global.remove_effect.emit(\"dv_charge\")
 	Global.bug_crumb_left.emit()
 	super()
@@ -22,7 +22,6 @@ func _ready() -> void:
 	body_entered.connect(func(body):
 		#if Save.data.story_point == \"game_start\": return # not unlocked yet
 		if body is CharacterBody3D:
-			print(\"is this happening\")
 			Global.dragonvoid_crumb_entered.emit())
 	
 	body_exited.connect(func(body):

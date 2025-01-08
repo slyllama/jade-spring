@@ -11,5 +11,5 @@ void fragment() {
 	COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), 0.5);
 	COLOR *= texture(mask, UV).r;
 	COLOR *= texture(mask2, UV).r;
-	
+
 }

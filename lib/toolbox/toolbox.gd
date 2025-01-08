@@ -69,7 +69,6 @@ func _ready() -> void:
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.fishing_canceled.connect(func():
-		print("fishing failed - setting default skills")
 		set_default_skills())
 	
 	$SkillSwap.volume_db = linear_to_db(0)
@@ -136,7 +135,6 @@ func skill_used(skill_id: String) -> void:
 		"transform_mode":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.toggle_transform_mode()
-				print(Global.transform_mode)
 		"adjust_mode_translate":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE

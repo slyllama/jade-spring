@@ -123,7 +123,7 @@ func _process(delta: float) -> void:
 		end()
 	progress = clamp(progress, 0.0, 100.0)
 	
-	$BG/Progress.value = lerp($BG/Progress.value, float(progress), delta * 5)
+	$BG/Progress.value = lerp($BG/Progress.value, float(progress), delta * 55.0)
 	
 	$BG/Debug.text = ""
 	$BG/Debug.text += "progress_delta = " + str(snapped(_s, 0.01))

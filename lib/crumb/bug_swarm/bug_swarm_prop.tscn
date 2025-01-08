@@ -37,17 +37,16 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_qxsns")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1b65o"]
-emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
 emission_shape = 2
 emission_sphere_radius = 1.0
 angle_min = 1.07288e-05
 angle_max = 360.0
 spread = 180.0
-initial_velocity_min = 0.1
-initial_velocity_max = 0.3
+initial_velocity_min = 0.3
+initial_velocity_max = 0.5
 gravity = Vector3(0, 0.2, 0)
-scale_min = 0.06
-scale_max = 0.25
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_ssh0r")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1ohx"]
@@ -65,30 +64,30 @@ particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gyloj"]
 material = SubResource("StandardMaterial3D_l1ohx")
-size = Vector2(0.06, 0.06)
+size = Vector2(0.1, 0.1)
 orientation = 2
 
 [node name="BugSwarmProp" type="Node3D"]
 script = SubResource("GDScript_mj5b2")
 
 [node name="BugMeshX" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.122923, -0.992426, 0, 0.992426, -0.122923, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.581475, 0.813576, 0, -0.813576, 0.581475, 0, 0, 0, 1, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
 [node name="BugMeshY" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.82827e-08, 2.10979e-08, 1, 0.482664, 0.875806, 7.65991e-14, -0.875806, 0.482664, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.08524e-08, 1.55488e-08, 1, 0.355714, 0.934595, 1.41758e-14, -0.934595, 0.355714, -4.37114e-08, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
 [node name="BugMeshZ" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.636272, 0.771464, -3.37218e-08, 0, -4.37114e-08, -1, -0.771464, 0.636272, -2.78124e-08, 0, 0, 0)
+transform = Transform3D(-0.996672, 0.0815031, -3.56262e-09, 0, -4.37114e-08, -1, -0.0815031, -0.996672, 4.3566e-08, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_mqitg")
 
 [node name="BugParticles" type="GPUParticles3D" parent="."]
 cast_shadow = 0
-amount = 30
+amount = 60
 preprocess = 2.0
 randomness = 0.5
 fixed_fps = 15

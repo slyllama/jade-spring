@@ -41,6 +41,7 @@ func render_block(block_data: Dictionary) -> void:
 			
 			_b.button_down.connect(func():
 				block_played.emit(_o)
+				Global.click_sound.emit()
 				if _o in data:
 					var _new_block_data = data[_o]
 					if "reference" in _new_block_data:

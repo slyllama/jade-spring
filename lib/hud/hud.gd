@@ -124,7 +124,6 @@ func _ready() -> void:
 		#	"objective": <string which displays on sidebar>
 		# }
 		if !"description" in data or !"title" in data:
-			print("[ERROR] bad story panel invocation.")
 			return
 		var _sp = StoryPanel.instantiate()
 		add_child(_sp)
