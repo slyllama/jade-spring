@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://c6bs08rtj45w"]
+
+[ext_resource type="Shader" path="res://decorations/light_ray/materials/shaders/shader_light_ray.gdshader" id="1_44xpd"]
+
+[sub_resource type="Gradient" id="Gradient_387cx"]
+offsets = PackedFloat32Array(0.128302, 0.520755, 0.90566)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nco3y"]
+gradient = SubResource("Gradient_387cx")
+
+[sub_resource type="Gradient" id="Gradient_tdo5j"]
+offsets = PackedFloat32Array(0, 0.339623, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0m8pd"]
+gradient = SubResource("Gradient_tdo5j")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_pb2fu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dfdix"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w5tjp"]
+width = 1024
+height = 100
+seamless = true
+color_ramp = SubResource("Gradient_pb2fu")
+noise = SubResource("FastNoiseLite_dfdix")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_44xpd")
+shader_parameter/noise_scale = 0.35
+shader_parameter/alpha = 0.9
+shader_parameter/gradient_h = SubResource("GradientTexture2D_nco3y")
+shader_parameter/gradient_v = SubResource("GradientTexture2D_0m8pd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_w5tjp")

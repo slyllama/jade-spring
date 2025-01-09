@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=70 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 [ext_resource type="PackedScene" uid="uid://ccsgc6y2cwx45" path="res://decorations/rocket/rocket.glb" id="40_by2qt"]
+[ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -965,3 +966,12 @@ shape = SubResource("WorldBoundaryShape3D_8o4md")
 [node name="WB5" type="CollisionShape3D" parent="WorldBoundaries" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 shape = SubResource("WorldBoundaryShape3D_x1c88")
+
+[node name="LightRay" parent="." index="17" instance=ExtResource("44_mlhiv")]
+transform = Transform3D(1.47241, 0, 1.35352, 0, 2, 0, -1.35352, 0, 1.47241, -11.927, 1.08454, 2.39926)
+
+[node name="LightRay2" parent="." index="18" instance=ExtResource("44_mlhiv")]
+transform = Transform3D(1.41423, 0, 1.67868, 0, 2.195, 0, -1.67868, 0, 1.41423, -10.6724, 1.28454, -7.94002)
+
+[node name="LightRay3" parent="." index="19" instance=ExtResource("44_mlhiv")]
+transform = Transform3D(-2.22, 0, -3.35211e-07, 0, 2.22, 0, 3.35211e-07, 0, -2.22, 3.13823, 0.17833, -7.66438)

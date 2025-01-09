@@ -31,6 +31,7 @@ fill_from = Vector2(1, 1)
 render_priority = 1
 shader = ExtResource("1_slrvx")
 shader_parameter/uv_scale = Vector2(1, 0.5)
+shader_parameter/albedo = Color(0.678431, 1, 0, 1)
 shader_parameter/ray_mask_texture = SubResource("NoiseTexture2D_77j05")
 shader_parameter/x_gradient_texture = SubResource("GradientTexture2D_vc8yf")
 shader_parameter/y_gradient_texture = SubResource("GradientTexture2D_1ijhh")
