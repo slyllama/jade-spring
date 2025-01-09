@@ -27,7 +27,8 @@ func get_button_by_id(id: String):
 func _ready() -> void:
 	Global.deco_placement_started.connect(func():
 		clear_skills()
-		$Box/Skill6.switch_skill("cancel"))
+		$Box/Skill6.switch_skill("cancel")
+		$Box/Skill2.switch_skill("rotate_left"))
 	
 	Global.deco_placed.connect(set_default_skills)
 	Global.deco_deleted.connect(func():
@@ -148,8 +149,8 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_ROTATE
 				Global.adjustment_mode_rotation.emit()
 			$Box/Skill2.switch_skill("adjust_mode_translate")
-			$Box/Skill3.switch_skill("empty")
-			$Box/Skill4.switch_skill("empty")
+			$Box/Skill3.switch_skill("rotate_left")
+			$Box/Skill4.switch_skill("rotate_right")
 		"safe_point":
 			Global.go_to_safe_point()
 		"snap_enable":
@@ -166,4 +167,10 @@ func skill_used(skill_id: String) -> void:
 		"toggle_walk_mode":
 			if Global.in_walk_mode: Global.walk_mode_left.emit()
 			else: Global.walk_mode_entered.emit()
+		"rotate_left":
+			print("rotating left")
+			Global.rotate_left_90.emit()
+		"rotate_right":
+			print("rotating right")
+			Global.rotate_right_90.emit()
 #endregion

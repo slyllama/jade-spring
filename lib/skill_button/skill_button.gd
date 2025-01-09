@@ -76,6 +76,14 @@ const TOOLTIPS = {
 	"safe_point": {
 		"title": "I'm Stuck!",
 		"description": "Teleports you back to a safe point."
+	},
+	"rotate_left": {
+		"title": "((Rotate Left))",
+		"description": "((Rotate left.))"
+	},
+	"rotate_right": {
+		"title": "((Rotate Right))",
+		"description": "((Rotate right.))"
 	}
 }
 

@@ -7,6 +7,7 @@ var cursor_sphere: Node3D = CursorSphere.instantiate()
 var cursor_area := CursorArea.new()
 var highlight_on_decoration := true
 var y_rotation := 0.0 # this will be added to the rotation
+var y_rotation_offset := 0.0
 var disabled = false
 var data = {}
 
@@ -83,6 +84,9 @@ func _input(_event: InputEvent) -> void:
 			Global.deco_button_pressed = false
 
 func _ready() -> void:
+	Global.rotate_left_90.connect(func():
+		if "custom_model" in data:
+			y_rotation_offset -= 90.0)
 	Global.cursor_disabled.connect(dismiss)
 	# Make sure to call activate() after the node is ready!
 
@@ -133,7 +137,7 @@ func _process(_delta: float) -> void:
 	# for the moment.
 	
 	if "custom_model" in data:
-		global_rotation_degrees.y = data.y_rotation
+		global_rotation_degrees.y = data.y_rotation + y_rotation_offset
 		Global.mouse_3d_y_rotation = rotation.y
 	
 	#if !"custom_model" in data:
