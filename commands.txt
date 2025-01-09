@@ -7,6 +7,8 @@
 ### Show/hide
 /showplayer		Show the player mesh
 /hideplayer		Hide the player mesh
+/showcrumbs		Show bugs, Dragonvoid etc
+/hidecrumbs		Hide bugs, Dragonvoid etc
 
 ### Generic utilities
 /savedata		Save data to file

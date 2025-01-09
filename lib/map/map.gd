@@ -20,6 +20,16 @@ func _ready() -> void:
 	Global.safe_point = $SafePoint
 	Global.debug_toggled.emit()
 	
+	Global.command_sent.connect(func(cmd):
+		if cmd == "/hidecrumbs":
+			for _c in $CrumbHandler.get_children():
+				_c.visible = false
+				Global.announcement_sent.emit("((Hiding crumbs.))")
+		elif cmd == "/showcrumbs":
+			for _c in $CrumbHandler.get_children():
+				_c.visible = true
+				Global.announcement_sent.emit("((Showing crumbs.))"))
+	
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:

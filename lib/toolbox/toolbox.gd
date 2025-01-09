@@ -28,7 +28,8 @@ func _ready() -> void:
 	Global.deco_placement_started.connect(func():
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel")
-		$Box/Skill2.switch_skill("rotate_left"))
+		$Box/Skill2.switch_skill("rotate_left")
+		$Box/Skill3.switch_skill("rotate_right"))
 	
 	Global.deco_placed.connect(set_default_skills)
 	Global.deco_deleted.connect(func():
@@ -168,9 +169,7 @@ func skill_used(skill_id: String) -> void:
 			if Global.in_walk_mode: Global.walk_mode_left.emit()
 			else: Global.walk_mode_entered.emit()
 		"rotate_left":
-			print("rotating left")
 			Global.rotate_left_90.emit()
 		"rotate_right":
-			print("rotating right")
 			Global.rotate_right_90.emit()
 #endregion

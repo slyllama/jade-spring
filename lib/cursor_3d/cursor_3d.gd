@@ -87,6 +87,9 @@ func _ready() -> void:
 	Global.rotate_left_90.connect(func():
 		if "custom_model" in data:
 			y_rotation_offset -= 90.0)
+	Global.rotate_right_90.connect(func():
+		if "custom_model" in data:
+			y_rotation_offset += 90.0)
 	Global.cursor_disabled.connect(dismiss)
 	# Make sure to call activate() after the node is ready!
 

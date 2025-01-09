@@ -51,6 +51,7 @@ func end():
 	
 	Global.in_exclusive_ui = false
 	Global.can_move = true
+	Global.action_cam_enable.emit()
 	if has_succeeded:
 		completed.emit()
 	else:
