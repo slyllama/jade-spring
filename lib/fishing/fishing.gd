@@ -84,6 +84,7 @@ func _ready() -> void:
 	Global.in_exclusive_ui = true
 	Global.can_move = false
 	Global.tool_mode = Global.TOOL_MODE_FISH
+	Global.action_cam_disable.emit()
 	Global.set_cursor(false)
 	
 	resize()

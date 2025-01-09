@@ -8,7 +8,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_b4hvx")
-shader_parameter/albedo = Color(0.52, 0.52, 0.52, 1)
+shader_parameter/albedo = Color(0.6, 0.6, 0.6, 1)
 shader_parameter/uv_scale = 0.75
 shader_parameter/mask_dodge = 0.8
 shader_parameter/tile_texture = ExtResource("2_p63jh")

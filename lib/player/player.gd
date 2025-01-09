@@ -134,9 +134,14 @@ func _physics_process(delta: float) -> void:
 	_fs = _query_fs
 	
 	if Global.can_move:
+		#var _b = $PlayerMesh.rotation.y
+		#while _b > 0: _b -= deg_to_rad(360.0)
+		#var _a = $Camera.rotation.y - PI - _initial_y_rotation
+		#while _a > 0: _a -= deg_to_rad(360.0)
+		
 		if _direction.x > 0 or _direction.z != 0 or Global.in_walk_mode:
 			$PlayerMesh.rotation.y = lerp(
-				$PlayerMesh.rotation.y, 
+				$PlayerMesh.rotation.y,
 				$Camera.rotation.y - PI - _initial_y_rotation,
 				smoothing * 0.6 * delta)
 		$PlayerMesh.rotation.z = lerp(

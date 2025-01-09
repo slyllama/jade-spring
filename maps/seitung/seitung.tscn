@@ -282,7 +282,7 @@ transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.9990
 visible = false
 
 [node name="Ambience" parent="." index="5"]
-volume_db = 3.0
+volume_db = 0.0
 
 [node name="Ocean" type="AudioStreamPlayer" parent="Ambience" index="0"]
 stream = ExtResource("7_tignd")
@@ -595,9 +595,9 @@ size = 4.03
 scatter = 0.4
 max_scale = 4.6
 area_scale = 1.2
-moss_albedo_mix = 0.212
-moss_scaling = 1.401
-moss_color = Color(0.74656, 0.887131, 3.08037e-06, 1)
+moss_albedo_mix = 0.35
+moss_scaling = 1.1
+moss_color = Color(0.227979, 0.277606, 4.81307e-07, 1)
 colour_1 = Color(0.0916667, 0.22, 0, 1)
 colour_2 = Color(0.312, 0.48, 0, 1)
 
