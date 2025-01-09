@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkuds30etmrba"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_r6i2u"]
+[ext_resource type="PackedScene" uid="uid://cy3b7ory3l02t" path="res://decorations/roof_corner/roof_corner.glb" id="2_rmaen"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3nmbp"]
+data = PackedVector3Array(-1, -0.5992, 0.1293, -1, -0.9803, 0.1293, -1, -0.9803, -1, -1, -0.9803, -1, 0.1293, -0.9803, -1, 0.1293, -0.5992, -1, -0.8961, -0.6021, 0.1293, -0.8961, -0.9803, 0.1293, -1, -0.9803, 0.1293, -1, 0.3891, -1, 0.1293, -0.6021, -0.8961, -0.8961, -0.6021, 0.1293, 0.1293, -0.9803, -1, 0.1293, -0.9803, -0.8961, 0.1293, -0.6021, -0.8961, -0.8961, -0.9803, 0.1293, -0.8961, -0.6021, 0.1293, 0.1293, -0.6021, -0.8961, -0.8961, -0.9803, 0.1293, 0.1293, -0.9803, -0.8961, -1, -0.9803, -1, -1, -0.5992, 0.1293, -1, -0.9803, -1, -1, 0.3891, -1, -1, -0.9803, -1, 0.1293, -0.5992, -1, -1, 0.3891, -1, -0.8961, -0.6021, 0.1293, -1, -0.9803, 0.1293, -1, -0.5992, 0.1293, 0.1293, -0.6021, -0.8961, -1, 0.3891, -1, 0.1293, -0.5992, -1, -1, 0.3891, -1, -0.8961, -0.6021, 0.1293, -1, -0.5992, 0.1293, 0.1293, -0.9803, -1, 0.1293, -0.6021, -0.8961, 0.1293, -0.5992, -1, -0.8961, -0.9803, 0.1293, 0.1293, -0.6021, -0.8961, 0.1293, -0.9803, -0.8961, -1, -0.9803, 0.1293, -0.8961, -0.9803, 0.1293, -1, -0.9803, -1, -1, -0.9803, -1, 0.1293, -0.9803, -0.8961, 0.1293, -0.9803, -1)
+
+[node name="RoofCorner" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_r6i2u")
+id = "simple_roof_corner_piece"
+collision_box = NodePath("Body")
+
+[node name="RoofCorner" parent="." instance=ExtResource("2_rmaen")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
+shape = SubResource("ConcavePolygonShape3D_3nmbp")

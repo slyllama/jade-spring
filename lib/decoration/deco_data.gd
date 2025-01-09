@@ -143,6 +143,15 @@ const DecoData = {
 		"preview_y_rotation": 215,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"simple_roof_corner_piece": {
+		"name": "Simple Roof Corner Piece",
+		"scene": "res://decorations/roof_corner/roof_corner.tscn",
+		"cursor_model": "res://decorations/roof_corner/roof_corner.glb",
+		"y_rotation": -90,
+		"preview_scale": 0.9,
+		"preview_y_rotation": 215,
+		"tags": ["Architecture", "Cantha"]
+	},
 	"autumnal_shrub": {
 		"name": "Autumnal Shrub",
 		"scene": "res://decorations/autumnal_shrub/deco_autumnal_shrub.tscn",

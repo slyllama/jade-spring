@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cmrhx7gfso4r1"]
+
+[ext_resource type="Shader" path="res://decorations/roof_piece/materials/shaders/shader_roof_tile.gdshader" id="1_ee4tg"]
+[ext_resource type="Texture2D" uid="uid://ccotbeiub5php" path="res://decorations/roof_piece/materials/textures/roof_tile_diff.jpg" id="3_lb3bp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ee4tg")
+shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/uv_scale = 1.5
+shader_parameter/mask_dodge = 0.0
+shader_parameter/tile_texture = ExtResource("3_lb3bp")

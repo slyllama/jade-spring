@@ -20,4 +20,6 @@ void fragment() {
 	
 	NORMAL = texture(tile_normal, uv).rgb;
 	SPECULAR = 0.0;
+	//METALLIC = 0.5;
+	//SPECULAR = 0.5;
 }

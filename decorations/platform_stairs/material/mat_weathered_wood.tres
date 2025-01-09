@@ -9,8 +9,10 @@
 render_priority = 0
 shader = ExtResource("1_fy1gc")
 shader_parameter/base_brightness = 0.4
+shader_parameter/stain_brightness = 0.35
 shader_parameter/uv_scale = 5.5
 shader_parameter/saturation_value = 2.0
+shader_parameter/normal_strength = 1.0
 shader_parameter/wood_texture = ExtResource("3_rtxln")
 shader_parameter/wood_normal_texture = ExtResource("2_oj8jy")
 shader_parameter/stain_mask_texture = ExtResource("2_h48mx")

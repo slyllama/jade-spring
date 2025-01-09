@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=69 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="22_d5lul"]
 [ext_resource type="PackedScene" uid="uid://d2a2ptt0rqp1i" path="res://maps/seitung/props/stucco_wall/plaster_wall.glb" id="22_v0qyq"]
+[ext_resource type="PackedScene" uid="uid://dkuds30etmrba" path="res://decorations/roof_corner/roof_corner.tscn" id="22_v2a5c"]
 [ext_resource type="AudioStream" uid="uid://dcj26t2q5jq5n" path="res://maps/seitung/sounds/mus_shadows.ogg" id="24_r334e"]
 [ext_resource type="AudioStream" uid="uid://ccvkcu4u1iay5" path="res://maps/seitung/sounds/mus_haiju_strings.ogg" id="25_6ir35"]
 [ext_resource type="AudioStream" uid="uid://dfuppoomsjr3p" path="res://maps/seitung/sounds/mus_haiju_percussion.ogg" id="26_xpcn1"]
@@ -226,7 +227,7 @@ script = ExtResource("2_7lwj0")
 environment = SubResource("Environment_0d0ns")
 
 [node name="Sun" parent="Sky" index="0"]
-transform = Transform3D(0.926913, 0.255171, -0.275173, -0.190429, 0.951653, 0.241026, 0.323372, -0.171009, 0.930692, 0, 3, 0)
+transform = Transform3D(0.87662, 0.275357, -0.394608, -0.190429, 0.951653, 0.241026, 0.441898, -0.136143, 0.886674, 0, 3, 0)
 directional_shadow_blend_splits = true
 
 [node name="Player" parent="." index="1"]
@@ -467,6 +468,9 @@ transform = Transform3D(-0.212233, 0, 0.719345, 0, 0.75, 0, -0.719345, 0, -0.212
 
 [node name="AncientCherryBlossom2" parent="DecoHandler" index="59" instance=ExtResource("20_st7yt")]
 transform = Transform3D(0.447283, 0, 0.336954, 0, 0.56, 0, -0.336954, 0, 0.447283, 1.10651, -0.107148, 11.2171)
+
+[node name="RoofCorner" parent="DecoHandler" index="60" instance=ExtResource("22_v2a5c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.2, 5.2, 6.2)
 
 [node name="pine_simple" parent="Decoration" index="0" instance=ExtResource("15_larjc")]
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)
