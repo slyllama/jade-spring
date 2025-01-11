@@ -20,8 +20,8 @@ const EFFECTS_LIST = { # TODO: use images instead
 	},
 	"discombobulator": {
 		"texture": "discombobulator",
-		"title": "Pest Discombobulator",
-		"description": "Go forth, Wayfinder; disperse those locusts!"
+		"title": "Dispersion Flux",
+		"description": "((You are loaded with a coil of Dispersion Flux for clearing pests.))"
 	},
 	"weed": {
 		"texture": "weed",
@@ -29,8 +29,8 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"description": "these belong in the compost bin!"
 	},
 	"dv_charge": {
-		"title": "Dragonvoid Charge",
-		"description": "((Dragonvoid Charge))"
+		"title": "Ley-Charged Dispersion Flux",
+		"description": "((Ley-Charged Dispersion Flux))"
 	}
 }
 

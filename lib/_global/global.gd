@@ -42,6 +42,7 @@ signal click_sound
 signal crumbs_updated
 signal command_sent(string)
 signal debug_toggled
+signal debug_skill_used
 signal dragonvoid_crumb_entered
 signal dragonvoid_crumb_left
 signal fishing_started

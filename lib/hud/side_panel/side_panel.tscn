@@ -153,18 +153,6 @@ text = "Garden Roster"
 fit_content = true
 scroll_active = false
 
-[node name="BugsText" type="RichTextLabel" parent="."]
-layout_mode = 2
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
-text = "Clear invasive bugs"
-fit_content = true
-scroll_active = false
-
-[node name="BugsBar" parent="." instance=ExtResource("4_7d8f4")]
-layout_mode = 2
-
 [node name="WeedsText" type="RichTextLabel" parent="."]
 layout_mode = 2
 theme_override_constants/outline_size = 5
@@ -177,12 +165,24 @@ scroll_active = false
 [node name="WeedsBar" parent="." instance=ExtResource("4_7d8f4")]
 layout_mode = 2
 
+[node name="BugsText" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
+text = "Clear invasive pests"
+fit_content = true
+scroll_active = false
+
+[node name="BugsBar" parent="." instance=ExtResource("4_7d8f4")]
+layout_mode = 2
+
 [node name="DVText" type="RichTextLabel" parent="."]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
-text = "Dispel Dragonvoid"
+text = "Disperse Dragonvoid"
 fit_content = true
 scroll_active = false
 

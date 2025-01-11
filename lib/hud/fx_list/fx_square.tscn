@@ -11,7 +11,7 @@ var text_is_set = false # has text been assigned?
 func set_tip_text(get_title: String, get_description: String):
 	text_is_set = true
 	$Tooltip.visible = true
-	$Tooltip.text = \"[font_size=19]\" + get_title + \"[/font_size]\\n\" + get_description
+	$Tooltip.text = \"[font_size=18]\" + get_title + \"[/font_size]\\n\" + get_description
 	$Tooltip.size.y = 0
 
 func _ready() -> void:
@@ -74,6 +74,7 @@ mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_n3ena")
 bbcode_enabled = true
 text = "((Title))

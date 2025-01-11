@@ -40,6 +40,14 @@ func _input(_event: InputEvent) -> void:
 		$PlayerMesh.visible = !$PlayerMesh.visible
 
 func _ready() -> void:
+	$Follower.top_level = true
+	
+	Global.debug_skill_used.connect(func():
+		var _dg = load(
+			"res://lib/dispersion_golem/meshes/dispersion_golem.tscn").instantiate()
+		$Follower.add_child(_dg)
+		_dg.global_position = Global.player_position)
+	
 	Global.camera = $Camera.camera # reference
 	Global.player = self
 	
@@ -148,6 +156,9 @@ func _physics_process(delta: float) -> void:
 			$PlayerMesh.rotation.z, _direction.z * 0.4, smoothing * 0.2 * delta)
 
 func _process(delta: float) -> void:
+	$Follower.global_position = lerp(
+		$Follower.global_position, self.global_position, delta * 2.0)
+	
 	$PlayerMesh/Stars.global_position = engine_bone.global_position
 	$Camera.global_position.x = global_position.x
 	$Camera.global_position.z = global_position.z

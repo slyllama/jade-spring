@@ -84,6 +84,10 @@ const TOOLTIPS = {
 	"rotate_right": {
 		"title": "((Rotate Right))",
 		"description": "((Rotate right.))"
+	},
+	"debug_skill": {
+		"title": "((Debug Skill))",
+		"description": "((Debug skill.))"
 	}
 }
 

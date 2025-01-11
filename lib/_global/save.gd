@@ -24,9 +24,9 @@ var STORY_POINT_SCRIPT = {
 		"objective": "pick " + str(OBJECTIVE_WEED_COUNT) + " weeds and deposit them at the compost bin."
 	},
 	"clear_bugs": {
-		"title": "((Bug-clearing))",
-		"description": "((Bug-clearing))",
-		"objective": "use ((Resonance Charges)) from the cleaning station to disperse the pests spoiling the garden."
+		"title": "((2. Pest-Clearing))",
+		"description": "((Bugs and pests are Pulley-4's great nemeses; but you both have some tricks up your sleeve. In the shed are coils of Asuran Dispersion Flux; by attuning them near bug swarms you can disturb air currents in order to safely clear them out!\n[font_size=9] [/font_size]\n[color=white]Collect Dispersion Flux from Pulley's shed and use it to clear out pests.[/color]))",
+		"objective": "((use Dispersion Flux from Pulley's shed to clear out pests spoiling the garden.))"
 	}
 }
 
@@ -84,6 +84,9 @@ func _ready() -> void:
 			print(Save.data))
 	
 	Global.crumbs_updated.connect(func():
+		if !"story_point" in Save.data:
+			print("[WARNING] no save data loaded (even empty).")
+			return
 		if (Save.data.story_point == "pick_weeds"
 			and Save.data.deposited_weeds >= OBJECTIVE_WEED_COUNT):
 			advance_story()

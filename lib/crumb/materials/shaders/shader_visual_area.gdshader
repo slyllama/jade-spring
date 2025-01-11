@@ -19,7 +19,7 @@ void fragment() {
 	//ALPHA += 0.01;
 	ALPHA *= texture(vertical_mask, UV).r;
 	ALBEDO = color.rgb;
-	
+
 	{
 		// Distance Fade: Pixel Dither
 		float fade_distance = length(VERTEX);

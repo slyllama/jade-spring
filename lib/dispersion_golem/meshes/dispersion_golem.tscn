@@ -1,0 +1,107 @@
+[gd_scene load_steps=19 format=3 uid="uid://clwa387aosmjj"]
+
+[ext_resource type="PackedScene" uid="uid://br410pd2j3ik4" path="res://lib/dispersion_golem/meshes/dispersion_golem.glb" id="1_h1nq4"]
+[ext_resource type="Script" path="res://lib/dispersion_golem/meshes/dispersion_golem.gd" id="1_pnw82"]
+[ext_resource type="Animation" uid="uid://cuy1yj6yk1q1m" path="res://lib/dispersion_golem/anims/appear.res" id="2_xlpjd"]
+[ext_resource type="Animation" uid="uid://b0jpv84fy8s3d" path="res://lib/dispersion_golem/anims/spin.res" id="3_cmyoc"]
+[ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="5_y5ca6"]
+[ext_resource type="PackedScene" uid="uid://coei6p1j430xq" path="res://lib/dispersion_golem/dg_spiral/dg_spiral.glb" id="6_oagss"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xshx"]
+_data = {
+"appear": ExtResource("2_xlpjd"),
+"spin": ExtResource("3_cmyoc")
+}
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_hh2kt"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j2hsc"]
+animation = &"spin"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l4cv1"]
+animation = &"appear"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_o8bds"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3pms0"]
+animation = &"spin"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_os36u"]
+graph_offset = Vector2(-589.537, 138.406)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_hh2kt")
+nodes/Add2/position = Vector2(-120, 306.667)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_j2hsc")
+nodes/Animation/position = Vector2(-280, 306.667)
+nodes/appear/node = SubResource("AnimationNodeAnimation_l4cv1")
+nodes/appear/position = Vector2(-280, 466.667)
+nodes/output/position = Vector2(426.667, 160)
+nodes/proc_appear/node = SubResource("AnimationNodeOneShot_o8bds")
+nodes/proc_appear/position = Vector2(66.6667, 160)
+nodes/spin/node = SubResource("AnimationNodeAnimation_3pms0")
+nodes/spin/position = Vector2(-280, 160)
+node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"appear", &"output", 0, &"proc_appear", &"proc_appear", 0, &"spin", &"proc_appear", 1, &"Add2"]
+
+[sub_resource type="Curve" id="Curve_dcrpf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yc1l7"]
+curve = SubResource("Curve_dcrpf")
+
+[sub_resource type="Gradient" id="Gradient_5d6py"]
+colors = PackedColorArray(0.320432, 0.000649765, 0.85035, 1, 0.891083, 0.511508, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ph5yn"]
+gradient = SubResource("Gradient_5d6py")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fxxo6"]
+emission_shape_scale = Vector3(0.12, 0.12, 0.12)
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+gravity = Vector3(0, -1, 0)
+scale_min = 0.4
+scale_max = 1.3
+color_initial_ramp = SubResource("GradientTexture1D_ph5yn")
+alpha_curve = SubResource("CurveTexture_yc1l7")
+
+[node name="DispersionGolem" type="Node3D"]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+script = ExtResource("1_pnw82")
+
+[node name="Model" parent="." instance=ExtResource("1_h1nq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0438929, 0, -0.0715237)
+
+[node name="Tree" type="AnimationTree" parent="Model"]
+libraries = {
+"": SubResource("AnimationLibrary_3xshx")
+}
+tree_root = SubResource("AnimationNodeBlendTree_os36u")
+parameters/Add2/add_amount = 1.0
+parameters/proc_appear/active = true
+parameters/proc_appear/internal_active = true
+parameters/proc_appear/request = 0
+
+[node name="Stars" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-08, -0.256226, -0.2)
+amount = 40
+preprocess = 2.0
+speed_scale = 0.6
+process_material = SubResource("ParticleProcessMaterial_fxxo6")
+draw_pass_1 = ExtResource("5_y5ca6")
+
+[node name="dg_spiral" parent="." instance=ExtResource("6_oagss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53846, 0)

@@ -3,10 +3,10 @@ extends Node3D
 const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 const dialogue_data = {
 	"_entry": {
-		"string": "((Discombobulator dialogue.))",
+		"string": "The maintenance shed is filled with tools and technology alike: shovels, golem parts, and jade battery cells, all neatly stored and labeled. It'd be wise to straighten up any awry crates before Pulley wanders back into here again...",
 		"options": {
-			"discombobulator": "I'd like a bug discombobulator.",
-			"dragonvoid": "I'll take a Dragonvoid charge.",
+			"discombobulator": "I'd like a coil of Dispersion Flux.",
+			"dragonvoid": "((Ley-Charged Dispersion Flux for Dragonvoid.))",
 			"close": "I'm all sorted, thanks."
 		}
 	},

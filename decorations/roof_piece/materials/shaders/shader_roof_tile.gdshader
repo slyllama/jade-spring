@@ -17,7 +17,7 @@ void fragment() {
 	ALBEDO = texture(tile_texture, uv).rgb;
 	ALBEDO *= albedo.rgb;
 	ALBEDO = color_dodge(ALBEDO, texture(mask_texture, UV).rgb * mask_dodge);
-	
+
 	NORMAL = texture(tile_normal, uv).rgb;
 	SPECULAR = 0.0;
 	//METALLIC = 0.5;

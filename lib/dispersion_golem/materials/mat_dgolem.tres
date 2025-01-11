@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cejfi4i08ibsl"]
+
+[ext_resource type="Texture2D" uid="uid://dxv2e1ras8wgu" path="res://lib/dispersion_golem/materials/textures/dgolem_diff.jpg" id="1_deq17"]
+[ext_resource type="Texture2D" uid="uid://diwx1o5yhhk0q" path="res://lib/dispersion_golem/materials/textures/dgolem_norm.jpg" id="2_kc4ou"]
+[ext_resource type="Texture2D" uid="uid://crftrhmji4cw1" path="res://lib/dispersion_golem/materials/textures/dgolem_rough.jpg" id="3_04uhr"]
+
+[resource]
+albedo_texture = ExtResource("1_deq17")
+metallic = 0.5
+metallic_specular = 0.0
+roughness_texture = ExtResource("3_04uhr")
+normal_enabled = true
+normal_texture = ExtResource("2_kc4ou")

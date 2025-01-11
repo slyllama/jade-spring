@@ -3,7 +3,7 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 
 func clear() -> void:
-	Global.announcement_sent.emit("[color=yellow]The Discombobulator scatters these pests to the Four Winds![/color]")
+	Global.announcement_sent.emit("[color=yellow]The Dispersion Flux scatters these pests to the Four Winds![/color]")
 	Global.bug_crumb_left.emit()
 	Global.remove_effect.emit("discombobulator")
 	super()
@@ -38,4 +38,4 @@ func interact() -> void:
 	else:
 		$Disabled.play()
 		Global.announcement_sent.emit(
-			"You need a Discombobulator to clear these pests.")
+			"You need Dispersion Flux to clear these pests.")

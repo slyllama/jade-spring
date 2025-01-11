@@ -12,6 +12,11 @@ func set_marker_pos() -> void: # set the position of the story marker
 
 func _ready() -> void:
 	$Landscape/LandscapeCol.set_collision_layer_value(2, true)
+	var _dg = load(
+		"res://lib/dispersion_golem/meshes/dispersion_golem.tscn").instantiate()
+	add_child(_dg)
+	await get_tree().process_frame
+	_dg.queue_free()
 	super()
 	
 	Global.command_sent.connect(func(_cmd):
