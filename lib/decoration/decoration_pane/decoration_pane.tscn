@@ -209,6 +209,19 @@ grow_vertical = 0
 mouse_filter = 1
 text = "Close"
 
+[node name="DragToRotate" type="RichTextLabel" parent="." index="7"]
+modulate = Color(0.6, 0.6, 0.6, 1)
+layout_mode = 0
+offset_left = 687.0
+offset_top = 443.0
+offset_right = 839.0
+offset_bottom = 462.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[right]Drag to rotate preview.[/right]"
+fit_content = true
+autowrap_mode = 0
+
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
 [connection signal="button_down" from="PlaceDecoration" to="." method="_on_place_decoration_button_down"]
 [connection signal="button_down" from="Close" to="." method="close"]

@@ -48,7 +48,7 @@ func _ready() -> void:
 				if _value == "on": $Sky.environment.glow_enabled = true
 				elif _value == "off": $Sky.environment.glow_enabled = false
 			"orbit_sensitivity":
-				Global.orbit_sensitivity_multiplier = 0.15 + (_value / 2.0)
+				Global.orbit_sensitivity_multiplier = 0.05 + (_value / 2.0)
 			"fps_cap":
 				if str(_value) == "30":
 					Engine.set_max_fps(30)

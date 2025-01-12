@@ -10,12 +10,12 @@ const DEFAULT_SETTINGS = {
 	"window_mode": "full_screen",
 	"foliage_density": "high",
 	"bloom": "on",
-	"orbit_sensitivity": 0.5,
+	"orbit_sensitivity": 0.21,
 	"labels": "hide",
-	"action_camera": "on_by_default",
+	"action_camera": "off_by_default",
 	"fps_cap": 60,
 	"vsync": "on",
-	"fov": 0.65
+	"fov": 0.63
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)
