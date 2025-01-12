@@ -37,7 +37,7 @@ start_offset = 0.0
 loop_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_os36u"]
-graph_offset = Vector2(-589.537, 138.406)
+graph_offset = Vector2(-692.837, 140.314)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_hh2kt")
 nodes/Add2/position = Vector2(-120, 306.667)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_j2hsc")
@@ -79,7 +79,7 @@ color_initial_ramp = SubResource("GradientTexture1D_ph5yn")
 alpha_curve = SubResource("CurveTexture_yc1l7")
 
 [node name="DispersionGolem" type="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0, 0, 0)
 script = ExtResource("1_pnw82")
 
 [node name="Model" parent="." instance=ExtResource("1_h1nq4")]
@@ -96,12 +96,12 @@ parameters/proc_appear/internal_active = true
 parameters/proc_appear/request = 0
 
 [node name="Stars" type="GPUParticles3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-08, -0.256226, -0.2)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-08, -0.420217, -0.2)
 amount = 40
 preprocess = 2.0
 speed_scale = 0.6
 process_material = SubResource("ParticleProcessMaterial_fxxo6")
 draw_pass_1 = ExtResource("5_y5ca6")
 
-[node name="dg_spiral" parent="." instance=ExtResource("6_oagss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53846, 0)
+[node name="Spiral" parent="." instance=ExtResource("6_oagss")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.040267, -1.1332, -0.0728757)

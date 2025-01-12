@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://btwesu3wu30i8"]
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://btwesu3wu30i8"]
 
 [ext_resource type="Shader" path="res://lib/dispersion_golem/dg_spiral/materials/shaders/shader_dg_spiral.gdshader" id="1_y4bab"]
 
@@ -9,19 +9,29 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1ovbc"]
 gradient = SubResource("Gradient_mxigj")
 
+[sub_resource type="Gradient" id="Gradient_y1ohj"]
+offsets = PackedFloat32Array(0.090566, 0.332075, 0.618868, 0.898113)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_va0a6"]
+gradient = SubResource("Gradient_y1ohj")
+fill_to = Vector2(0, 1)
+
 [sub_resource type="Gradient" id="Gradient_jnnh8"]
-offsets = PackedFloat32Array(0, 0.823322)
+offsets = PackedFloat32Array(0.316981, 0.849057)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oaadg"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ye5m3"]
+seamless = true
 color_ramp = SubResource("Gradient_jnnh8")
 noise = SubResource("FastNoiseLite_oaadg")
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_y4bab")
-shader_parameter/base_color = null
-shader_parameter/h_position = 0.0
+shader_parameter/base_color = Color(0.870538, 0.00124582, 0.956388, 1)
+shader_parameter/h_position = 0.0540001
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_ye5m3")
 shader_parameter/grad_h = SubResource("GradientTexture2D_1ovbc")
+shader_parameter/grad_v = SubResource("GradientTexture2D_va0a6")

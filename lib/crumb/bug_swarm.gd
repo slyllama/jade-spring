@@ -38,4 +38,4 @@ func interact() -> void:
 	else:
 		$Disabled.play()
 		Global.announcement_sent.emit(
-			"You need Dispersion Flux to clear these pests.")
+			"You need Uncharged Dispersion Flux to clear these pests.")

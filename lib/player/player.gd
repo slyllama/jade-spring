@@ -11,16 +11,18 @@ const JADE_SOUNDS = [
 	preload("res://lib/player/sounds/jade_sound_6.ogg")
 ]
 
+const DgFX = preload("res://lib/dispersion_golem/dg_fx.tscn")
+
 @export var base_speed := 2.0
 @export var smoothing := 7.0
 var smooth_mod = 1.0 # acceleration smoothing - to be modified by command
 
 @onready var anim: AnimationPlayer = get_node("PlayerMesh/AnimationPlayer")
 @onready var engine_bone: BoneAttachment3D = get_node("PlayerMesh/JadeArmature/Skeleton3D/EngineRing1")
+@onready var _initial_y_rotation = global_rotation.y
 var _direction := Vector3.ZERO
 var _speed := base_speed
 var _target_velocity := Vector3.ZERO
-@onready var _initial_y_rotation = global_rotation.y
 
 func play_jade_sound() -> void:
 	var rng = RandomNumberGenerator.new()
@@ -35,18 +37,27 @@ func play_jade_sound() -> void:
 	sound.finished.connect(sound.queue_free)
 	sound.play()
 
+func spawn_dgolems() -> void:
+	clear_dgolems()
+	var _d = DgFX.instantiate()
+	_d.amount = 3
+	add_child(_d)
+
+func clear_dgolems() -> void:
+	for _n in get_children():
+		if "amount" in _n:
+			_n.queue_free()
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug_action"):
 		$PlayerMesh.visible = !$PlayerMesh.visible
 
 func _ready() -> void:
-	$Follower.top_level = true
-	
-	Global.debug_skill_used.connect(func():
-		var _dg = load(
-			"res://lib/dispersion_golem/meshes/dispersion_golem.tscn").instantiate()
-		$Follower.add_child(_dg)
-		_dg.global_position = Global.player_position)
+	Global.debug_skill_used.connect(spawn_dgolems)
+	Global.add_effect.connect(func(id):
+		if id == "discombobulator" or id == "dv_charge":
+			spawn_dgolems())
+	Global.fishing_canceled.connect(clear_dgolems)
 	
 	Global.camera = $Camera.camera # reference
 	Global.player = self
@@ -156,9 +167,6 @@ func _physics_process(delta: float) -> void:
 			$PlayerMesh.rotation.z, _direction.z * 0.4, smoothing * 0.2 * delta)
 
 func _process(delta: float) -> void:
-	$Follower.global_position = lerp(
-		$Follower.global_position, self.global_position, delta * 2.0)
-	
 	$PlayerMesh/Stars.global_position = engine_bone.global_position
 	$Camera.global_position.x = global_position.x
 	$Camera.global_position.z = global_position.z

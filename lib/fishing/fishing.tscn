@@ -16,13 +16,6 @@ texture = ExtResource("5_7iyew")
 
 [node name="Fishing" type="CanvasLayer"]
 script = ExtResource("1_6qcg4")
-move_speed = 1.6
-fish_min_speed = 1.45
-fish_max_speed = 1.7
-fish_min_time = 0.59
-fish_max_time = 2.1
-progress_increase_rate = 0.27
-progress_decrease_rate = 0.18
 
 [node name="Timer" type="Timer" parent="."]
 
