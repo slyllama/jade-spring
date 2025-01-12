@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=73 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -8,8 +8,10 @@
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="6_jt5mw"]
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="7_gcgfd"]
 [ext_resource type="PackedScene" uid="uid://btxknagn4foj1" path="res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn" id="7_s7skb"]
+[ext_resource type="Texture2D" uid="uid://culde2mjyr2qq" path="res://maps/seitung/materials/textures/dirt_diff.jpg" id="7_snv1i"]
 [ext_resource type="AudioStream" uid="uid://cw2e47hwstsej" path="res://maps/seitung/sounds/ocean.ogg" id="7_tignd"]
 [ext_resource type="PackedScene" uid="uid://bp20w7u5bdeoa" path="res://maps/seitung/meshes/wp_base.glb" id="8_alpya"]
+[ext_resource type="Texture2D" uid="uid://cans3a54doa6c" path="res://maps/seitung/materials/textures/cliff_norm.jpg" id="8_vn5ie"]
 [ext_resource type="PackedScene" uid="uid://bxj3pc7r8l63r" path="res://lib/pulley/pulley.tscn" id="9_2e7lr"]
 [ext_resource type="PackedScene" uid="uid://b863y1yeckqfh" path="res://decorations/autumnal_shrub/deco_autumnal_shrub.tscn" id="10_g35cq"]
 [ext_resource type="PackedScene" uid="uid://blrcrw8wkf6uu" path="res://decorations/weeping_willow/deco_weeping_willow.tscn" id="10_gcd6s"]
@@ -43,7 +45,6 @@
 [ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_wohrl"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
-[ext_resource type="PackedScene" uid="uid://ccsgc6y2cwx45" path="res://decorations/rocket/rocket.glb" id="40_by2qt"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
@@ -74,6 +75,15 @@ fog_sky_affect = 0.0
 fog_depth_begin = 21.0
 fog_depth_end = 27.0
 volumetric_fog_density = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixf13"]
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+albedo_texture = ExtResource("7_snv1i")
+normal_enabled = true
+normal_texture = ExtResource("8_vn5ie")
+uv1_scale = Vector3(16, 16, 16)
+distance_fade_min_distance = 20.0
+distance_fade_max_distance = 30.0
 
 [sub_resource type="MultiMesh" id="MultiMesh_yjagj"]
 transform_format = 1
@@ -282,7 +292,8 @@ transform = Transform3D(-0.0182724, 0, -0.999833, 0, 1, 0, 0.999833, 0, -0.01827
 transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.999029, -5.92993, 0.323193, -9.17745)
 
 [node name="FloorMesh" parent="Floor" index="1"]
-visible = false
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -0.759537, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_ixf13")
 
 [node name="Ambience" parent="." index="5"]
 volume_db = 0.0
@@ -968,10 +979,7 @@ transform = Transform3D(-0.0237495, 0, 1.34979, 0, 1.35, 0, -1.34979, 0, -0.0237
 [node name="WeedBin" parent="." index="13" instance=ExtResource("28_m4ym0")]
 transform = Transform3D(-0.954684, -0.152123, 0.255807, -0.14694, 0.988362, 0.0393724, -0.258819, 3.45188e-09, -0.965926, -7.27067, -0.135322, 7.58098)
 
-[node name="AetherbladeCraft" parent="." index="15" instance=ExtResource("40_by2qt")]
-transform = Transform3D(-0.94595, 0, -0.324314, 0, 1, 0, 0.324314, 0, -0.94595, 6.27623, 7.72427, 20.508)
-
-[node name="WorldBoundaries" type="StaticBody3D" parent="." index="16"]
+[node name="WorldBoundaries" type="StaticBody3D" parent="." index="15"]
 collision_layer = 3
 collision_mask = 3
 
@@ -995,17 +1003,17 @@ shape = SubResource("WorldBoundaryShape3D_8o4md")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 shape = SubResource("WorldBoundaryShape3D_x1c88")
 
-[node name="LightRay" parent="." index="17" instance=ExtResource("44_mlhiv")]
+[node name="LightRay" parent="." index="16" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(1.47241, 0, 1.35352, 0, 2, 0, -1.35352, 0, 1.47241, -11.927, 1.08454, 2.39926)
 
-[node name="LightRay2" parent="." index="18" instance=ExtResource("44_mlhiv")]
+[node name="LightRay2" parent="." index="17" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(1.53021, 0, 1.81634, 0, 2.375, 0, -1.81634, 0, 1.53021, -10.6724, 1.28454, -7.94002)
 
-[node name="LightRay3" parent="." index="19" instance=ExtResource("44_mlhiv")]
+[node name="LightRay3" parent="." index="18" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(-2.22, 0, -3.35211e-07, 0, 2.22, 0, 3.35211e-07, 0, -2.22, 3.13823, 0.17833, -7.66438)
 
-[node name="LightRay4" parent="." index="20" instance=ExtResource("44_mlhiv")]
+[node name="LightRay4" parent="." index="19" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 4.436, 1.77833, -2.26368)
 
-[node name="LightRay5" parent="." index="21" instance=ExtResource("44_mlhiv")]
+[node name="LightRay5" parent="." index="20" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 4.436, 1.77833, -2.26368)

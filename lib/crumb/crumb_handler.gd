@@ -18,6 +18,8 @@ func save_crumbs() -> void:
 				"position": _n.global_position,
 				"rotation": _n.rotation
 			})
+	Save.save_to_file()
+	print("saving crumbs to file")
 
 # Load crumbs from save file
 func load_crumbs() -> void:

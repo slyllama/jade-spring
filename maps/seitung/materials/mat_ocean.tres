@@ -4,6 +4,7 @@
 
 [sub_resource type="Shader" id="Shader_nlaf5"]
 code = "shader_type spatial;
+render_mode fog_disabled;
 
 uniform vec4 primary_color: source_color;
 uniform vec4 foam_color: source_color;
@@ -31,7 +32,7 @@ void fragment() {
 	ALBEDO = mix(primary_color.rgb, foam_color.rgb, foam_mix);
 	ALBEDO += vec3(fresnel(4.0, NORMAL, VIEW));
 	ALBEDO += pow(texture(alpha_mask, UV).g, 2.0);
-	ALPHA = 1.0 - texture(alpha_mask, UV).r;
+	ALPHA = clamp((1.0 - texture(alpha_mask, UV).r) * 0.75 + foam_mix, 0.0, 1.0);
 	
 	NORMAL_MAP = normal_map;
 	NORMAL_MAP_DEPTH = normal_strength;
@@ -82,8 +83,8 @@ render_priority = 0
 shader = SubResource("Shader_nlaf5")
 shader_parameter/primary_color = Color(0.164862, 0.598436, 1, 1)
 shader_parameter/foam_color = Color(1, 1, 1, 1)
-shader_parameter/roughness = 0.0
-shader_parameter/uv_scale = Vector2(15, 15)
+shader_parameter/roughness = 0.2
+shader_parameter/uv_scale = Vector2(24, 24)
 shader_parameter/speed_scale = 0.5
 shader_parameter/normal_strength = 2.0
 shader_parameter/foam_exponent = 3.0
