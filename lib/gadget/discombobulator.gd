@@ -1,7 +1,7 @@
 extends Node3D
 
 const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
-const dialogue_data = {
+const DIALOGUE_DATA = {
 	"_entry": {
 		"string": "The maintenance shed is filled with tools and technology alike: shovels, golem parts, and jade battery cells, all neatly stored and labeled. It'd be wise to straighten up any awry crates before Pulley wanders back into here again...",
 		"options": {
@@ -15,14 +15,31 @@ const dialogue_data = {
 	"close": { "reference": "_exit" }
 }
 
+@onready var dialogue_data = DIALOGUE_DATA.duplicate()
+
 func _on_collision_interacted() -> void:
+	Global.generic_area_left.emit()
+	dialogue_data = DIALOGUE_DATA.duplicate(true)
+	
+	# Add an option to clear an effect (and golems) if you have it
+	if ("discombobulator" in Global.current_effects
+		or "dv_charge" in Global.current_effects):
+		dialogue_data._entry["options"].erase("close")
+		dialogue_data._entry.options["clear"] = "I'd like to return my Golems. (Clears effects.)"
+		dialogue_data._entry.options["close"] = "I'm all sorted, thanks."
+		dialogue_data["clear"] = { "reference": "_exit" }
+	
 	var _d = Dialogue.instantiate()
 	_d.data = dialogue_data
 	Global.hud.add_child(_d)
 	_d.open()
 	
+	_d.closed.connect(Global.generic_area_entered.emit)
 	_d.block_played.connect(func(id):
 		if id == "discombobulator":
 			Global.add_effect.emit("discombobulator")
 		elif id == "dragonvoid":
-			Global.add_effect.emit("dv_charge"))
+			Global.add_effect.emit("dv_charge")
+		elif id == "clear":
+			Global.remove_effect.emit("discombobulator")
+			Global.remove_effect.emit("dv_charge"))

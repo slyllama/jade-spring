@@ -214,3 +214,9 @@ flip_h = true
 [node name="MajorSeparator" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("7_rlga1")
+
+[node name="IgnoreStoryUpdates" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="IgnoreStoryUpdates" to="." method="_on_ignore_story_updates_timeout"]

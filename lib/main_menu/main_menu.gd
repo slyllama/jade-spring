@@ -55,6 +55,11 @@ func play() -> void:
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
 func _ready() -> void:
+	# Clear lingering effects which shouldn't be persistent
+	for _fx in Global.current_effects:
+		Global.current_effects.erase("discombobulator")
+		Global.current_effects.erase("dv_charge")
+	
 	# Free the mouse if we've come from action camera mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	

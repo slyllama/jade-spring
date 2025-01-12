@@ -53,11 +53,15 @@ func _input(_event: InputEvent) -> void:
 		$PlayerMesh.visible = !$PlayerMesh.visible
 
 func _ready() -> void:
+	# Spawn/clear golems in different circumstances
 	Global.debug_skill_used.connect(spawn_dgolems)
 	Global.add_effect.connect(func(id):
 		if id == "discombobulator" or id == "dv_charge":
 			spawn_dgolems())
 	Global.fishing_canceled.connect(clear_dgolems)
+	Global.remove_effect.connect(func(_fx):
+		if _fx == "discombobulator" or _fx == "dv_charge":
+			clear_dgolems())
 	
 	Global.camera = $Camera.camera # reference
 	Global.player = self

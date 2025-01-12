@@ -8,6 +8,8 @@ var _target_dv_ratio := 0.0
 var _last_dv_ratio = _target_dv_ratio
 var first_load = false
 
+var ignore_story_updates = true
+
 func _get_bug_ratio() -> float:
 	return((100 - Save.data.crumb_count.bug
 		/ float(Global.crumb_handler.totals.bug) * 100))
@@ -85,11 +87,14 @@ func _process(delta: float) -> void:
 		$Details/DetailsBox/DecorationCount.text = _deco_string
 	
 	if _last_bug_ratio != _target_bug_ratio:
-		Global.play_flash($BugsBar.global_position + Vector2(20, 7))
+		if !ignore_story_updates:
+			Global.play_flash($BugsBar.global_position + Vector2(20, 7))
 	if _last_dv_ratio != _target_dv_ratio:
-		Global.play_flash($DVBar.global_position + Vector2(20, 7))
+		if !ignore_story_updates:
+			Global.play_flash($DVBar.global_position + Vector2(20, 7))
 	if _last_weed_ratio != _target_weed_ratio:
-		Global.play_flash($WeedsBar.global_position + Vector2(20, 7))
+		if !ignore_story_updates:
+			Global.play_flash($WeedsBar.global_position + Vector2(20, 7))
 	
 	$BugsBar/Panel/Bar.value = lerp(
 		$BugsBar/Panel/Bar.value, _target_bug_ratio, delta * 9)
@@ -101,3 +106,6 @@ func _process(delta: float) -> void:
 	_last_bug_ratio = _target_bug_ratio
 	_last_dv_ratio = _target_dv_ratio
 	_last_weed_ratio = _target_weed_ratio
+
+func _on_ignore_story_updates_timeout() -> void:
+	ignore_story_updates = false
