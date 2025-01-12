@@ -59,15 +59,16 @@ func _ready() -> void:
 	camera.fov = fov
 	camera.far = 35.0
 	
+	SettingsHandler.setting_changed.connect(func(_param):
+		if _param == "fov":
+			var _fov = SettingsHandler.settings.fov
+			camera.fov = SettingsHandler.get_fov_deg())
+	
 	# Add components to the scene
 	add_child(axis)
 	add_child(camera)
 	add_child(orbit_handler)
 	axis.add_child(target)
-	
-	#var listener = AudioListener3D.new()
-	#camera.add_child(listener)
-	#listener.make_current()
 	
 	for _n in excluded_collision_objects:
 		axis.add_excluded_object(_n)

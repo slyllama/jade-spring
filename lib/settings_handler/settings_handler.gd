@@ -2,6 +2,8 @@ extends Node
 # SettingsHandler
 # Handles the management and updating of settings
 const FILE_PATH = "user://save/settings.dat"
+const MIN_FOV = 55
+const MAX_FOV = 90
 const DEFAULT_SETTINGS = { 
 	"music_vol": 1.0, # ratio (1.0),
 	"volume": 1.0,
@@ -10,12 +12,16 @@ const DEFAULT_SETTINGS = {
 	"bloom": "on",
 	"orbit_sensitivity": 0.5,
 	"labels": "hide",
-	"action_camera": "off_by_default",
+	"action_camera": "on_by_default",
 	"fps_cap": 60,
-	"vsync": "on"
+	"vsync": "on",
+	"fov": 0.65
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)
+
+func get_fov_deg() -> int:
+	return(MIN_FOV + settings.fov * (MAX_FOV - MIN_FOV))
 
 func load_from_file() -> void:
 	if FileAccess.file_exists(FILE_PATH):
