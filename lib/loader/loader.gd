@@ -9,6 +9,7 @@ var loading_status: int
 var progress: Array[float]
 var load_bar_bias = 2.0 # only seems to go to 50% by default
 var has_loaded = false
+var transitioning = false
 
 # Clear parameters set by the previous instance
 func _reset_map() -> void:
@@ -17,6 +18,8 @@ func _reset_map() -> void:
 
 # Change scene after fading everything out
 func _transition():
+	if transitioning: return
+	transitioning = true
 	Save.load_from_file()
 	await get_tree().process_frame
 	

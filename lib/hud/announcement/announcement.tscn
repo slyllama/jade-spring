@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://lib/hud/announcement/announcement.gd" id="1_k270b"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_3o001"]
-[ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="3_in3cl"]
+[ext_resource type="Texture2D" uid="uid://btvrdyrhkcuxb" path="res://lib/hud/announcement/textures/announce_bg.png" id="2_nts8i"]
 
 [node name="Announcement" type="RichTextLabel"]
 clip_contents = false
@@ -27,6 +27,25 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("1_k270b")
 
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -564.0
+offset_top = -40.0
+offset_right = 564.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nts8i")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -49,26 +68,5 @@ mouse_filter = 2
 texture = ExtResource("2_3o001")
 expand_mode = 1
 stretch_mode = 1
-
-[node name="Blur" type="TextureRect" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.588235)
-z_index = -2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -600.0
-offset_top = -78.0
-offset_right = 600.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_in3cl")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

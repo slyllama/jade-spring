@@ -143,8 +143,11 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 				Global.adjustment_mode_translate.emit()
 			$Box/Skill2.switch_skill("adjust_mode_rotate")
-			if Global.snapping: $Box/Skill3.switch_skill("snap_disable")
-			else: $Box/Skill3.switch_skill("snap_enable")
+			if Global.transform_mode == Global.TRANSFORM_MODE_OBJECT:
+				$Box/Skill3.switch_skill("snap_forbidden")
+			else:
+				if Global.snapping: $Box/Skill3.switch_skill("snap_disable")
+				else:  $Box/Skill3.switch_skill("snap_enable")
 			$Box/Skill4.switch_skill("transform_mode")
 		"adjust_mode_rotate":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
