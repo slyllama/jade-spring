@@ -69,7 +69,7 @@ func _ready() -> void:
 		add_child(_d)
 		
 		_d.ratio_changed.connect(func(ratio):
-			var _new_scale = clamp(fluid_scale + ratio * -0.1, 0.5, 2.5)
+			var _new_scale = clamp(fluid_scale + ratio * -0.1, 0.15, 2.5)
 			fluid_scale = _new_scale
 			var snapped_scale = snapped(fluid_scale, Global.SNAP_INCREMENT)
 			if Global.snapping:
