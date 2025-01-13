@@ -7,6 +7,7 @@ var current_id = "fountain" # default
 @onready var selected_tag = default_tag
 
 var buttons = {} # associate buttons with IDs
+var active = false
 
 func _get_y_rotation(data: Dictionary) -> float:
 	var _custom_y_rotation = 135.0
@@ -17,6 +18,7 @@ func _get_y_rotation(data: Dictionary) -> float:
 	return(_custom_y_rotation)
 
 func open(silent = false) -> void:
+	active = true
 	Global.deco_pane_open = true
 	super(silent)
 	render(selected_tag)
@@ -24,7 +26,11 @@ func open(silent = false) -> void:
 func close():
 	Global.deco_pane_open = false
 	super()
-	Global.action_cam_enable.emit()
+	await get_tree().process_frame
+	if Global.tool_mode == Global.TOOL_MODE_NONE:
+		if active:
+			Global.action_cam_enable.emit()
+	active = false
 
 func start_decoration_placement(id: String) -> void:
 	Global.tool_mode = Global.TOOL_MODE_PLACE
