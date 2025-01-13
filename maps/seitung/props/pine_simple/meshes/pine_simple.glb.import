@@ -35,7 +35,7 @@ _subresources={
 "materials": {
 "mat_branch_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/platform_stairs/material/mat_weathered_wood.tres"
+"use_external/path": "res://maps/seitung/materials/mat_pine_trunk.tres"
 },
 "mat_placeholder": {
 "use_external/enabled": true,
