@@ -85,21 +85,20 @@ func skill_used(skill_id: String) -> void:
 		"delete": # delete a decoration - uses similar logic to 'select'
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_DELETE
-				
 				clear_skills()
 				$Box/Skill3.switch_skill("delete")
 				get_button_by_id("delete").set_highlight()
 				Global.action_cam_disable.emit()
-				
+				Global.deco_deletion_started.emit()
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 				Global.tool_mode = Global.TOOL_MODE_NONE
 				Global.action_cam_enable.emit()
+				Global.deco_deletion_canceled.emit()
 				set_default_skills()
 		"select":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_SELECT
-				
 				clear_skills()
 				$Box/Skill1.switch_skill("select")
 				get_button_by_id("select").set_highlight()
@@ -117,7 +116,6 @@ func skill_used(skill_id: String) -> void:
 				Global.deco_placement_canceled.emit()
 			elif Global.tool_mode == Global.TOOL_MODE_FISH:
 				Global.fishing_canceled.emit()
-			
 			Global.action_cam_enable.emit()
 		"accept":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
@@ -125,7 +123,6 @@ func skill_used(skill_id: String) -> void:
 				set_default_skills()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
 				set_default_skills()
-			
 			Global.action_cam_enable.emit()
 		"deco_test":
 			if !Global.deco_pane_open:

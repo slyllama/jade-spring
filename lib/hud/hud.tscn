@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=24 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bx0omalga0s0k" path="res://lib/hud/announcement/announcement.tscn" id="9_6p63t"]
 [ext_resource type="PackedScene" uid="uid://bvh87e5dxhdg8" path="res://lib/decoration/decoration_pane/decoration_pane.tscn" id="9_qacaq"]
 [ext_resource type="Texture2D" uid="uid://dlff8ygba3xfx" path="res://lib/hud/textures/interact_indicator.png" id="14_dlrg2"]
+[ext_resource type="PackedScene" uid="uid://fx684833x53q" path="res://lib/hud/state_indicator/state_indicator.tscn" id="16_s3yhc"]
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
 
@@ -253,6 +254,9 @@ grow_vertical = 2
 texture = ExtResource("18_5631a")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="StateIndicator" parent="." instance=ExtResource("16_s3yhc")]
+visible = false
 
 [node name="TopLevel" type="CanvasLayer" parent="."]
 layer = 2

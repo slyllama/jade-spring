@@ -120,6 +120,8 @@ signal deco_pane_opened
 signal deco_placement_started
 signal deco_placement_canceled
 signal deco_placed(data)
+signal deco_deletion_started # mainly for the HUD overlay
+signal deco_deletion_canceled
 signal deco_deleted
 signal snapping_enabled
 signal rotate_left_90 # rotate global position to the next nearest 90deg
