@@ -86,9 +86,11 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_hud"):
 		if visible:
 			$Toolbox.visible = false
+			$TopLevel/DebugEntry.visible = false
 			visible = false
 		else:
 			$Toolbox.visible = true
+			$TopLevel/DebugEntry.visible = true
 			visible = true
 func _ready() -> void:
 	Global.hud = self # reference
@@ -115,7 +117,8 @@ func _ready() -> void:
 			_sp.open())
 	
 	Global.debug_toggled.connect(func():
-		$TopLevel/DebugEntry.visible = Global.debug_enabled
+		if visible:
+			$TopLevel/DebugEntry.visible = Global.debug_enabled
 		$Debug.visible = Global.debug_enabled)
 	
 	Global.summon_story_panel.connect(func(data):

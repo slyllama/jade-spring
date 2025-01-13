@@ -19,5 +19,13 @@ func _ready() -> void:
 	for _n in _get_all_children(self):
 		if _n is MeshInstance3D:
 			for _m in _n.get_surface_override_material_count():
-				_n.set_surface_override_material(_m, XRAY_MAT)
+				var _original_material = _n.get_active_material(_m)
+				var _xray_mat = XRAY_MAT.duplicate()
+				if "albedo_texture" in _original_material:
+					var _alpha_mask = _original_material.albedo_texture
+					_xray_mat.set_shader_parameter("alpha_mask", _alpha_mask)
+				elif "shader_parameter/texture_albedo" in _original_material:
+					var _alpha_mask = _original_material.get_shader_parameter("texture_albedo")
+					_xray_mat.set_shader_parameter("alpha_mask", _alpha_mask)
+				_n.set_surface_override_material(_m, _xray_mat)
 				_n.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
