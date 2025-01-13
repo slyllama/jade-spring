@@ -26,12 +26,13 @@ func destroy() -> void:
 func _ready() -> void:
 	set_disable_scale(true)
 	enabled = true
+	position.y = 0.1
 	
 	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
 		global_rotation = Vector3.ZERO
 	
 	# Set up grabber from PickBox
-	grabber.set_size(Vector3(0.8, 0.5, 0.5))
+	grabber.set_size(Vector3(0.35, 0.35, 0.35))
 	grabber.make_ui_component()
 	add_child(grabber)
 	
@@ -80,6 +81,3 @@ func _ready() -> void:
 					fluid_scale, fluid_scale, fluid_scale)
 		)
 	)
-	
-	#position.y = 2.5
-	

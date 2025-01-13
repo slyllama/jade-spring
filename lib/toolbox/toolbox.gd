@@ -154,8 +154,8 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_ROTATE
 				Global.adjustment_mode_rotation.emit()
 			$Box/Skill2.switch_skill("adjust_mode_translate")
-			$Box/Skill3.switch_skill("rotate_left")
-			$Box/Skill4.switch_skill("rotate_right")
+			#$Box/Skill3.switch_skill("rotate_left")
+			#$Box/Skill4.switch_skill("rotate_right")
 		"safe_point":
 			Global.go_to_safe_point()
 		"snap_enable":
