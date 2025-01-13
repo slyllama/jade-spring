@@ -4,7 +4,6 @@
 
 [sub_resource type="Shader" id="Shader_nlaf5"]
 code = "shader_type spatial;
-render_mode fog_disabled;
 
 uniform vec4 primary_color: source_color;
 uniform vec4 foam_color: source_color;

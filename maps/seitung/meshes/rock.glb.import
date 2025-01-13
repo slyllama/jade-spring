@@ -37,6 +37,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://maps/seitung/materials/mat_rock_test.tres"
 }
+},
+"nodes": {
+"PATH:Cube": {
+"mesh_instance/cast_shadow": 0
+}
 }
 }
 gltf/naming_version=1

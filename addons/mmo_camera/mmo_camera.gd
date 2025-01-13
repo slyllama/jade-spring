@@ -57,7 +57,7 @@ func _ready() -> void:
 	axis.spring_length = 4.0
 	axis.margin = 0.5
 	camera.fov = fov
-	camera.far = 35.0
+	camera.far = 90.0
 	
 	SettingsHandler.setting_changed.connect(func(_param):
 		if _param == "fov":
