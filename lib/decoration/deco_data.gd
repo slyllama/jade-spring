@@ -75,6 +75,15 @@ const DecoData = {
 		"preview_v_offset": -0.5,
 		"tags": ["Foliage", "Cantha"]
 	},
+	"sunflowers": {
+		"name": "Sunflowers",
+		"scene": "res://decorations/sunflowers/deco_sunflowers.tscn",
+		"cursor_model": "res://decorations/sunflowers/sunflowers.glb",
+		"preview_scale": 1.3,
+		"preview_v_offset": -0.35,
+		"preview_y_rotation": 180,
+		"tags": ["Foliage", "Cantha"]
+	},
 	"simple_sub_frame": {
 		"name": "Simple Sub-Frame",
 		"scene": "res://decorations/building_platform/deco_building_platform.tscn",

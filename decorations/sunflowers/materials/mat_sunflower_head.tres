@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dfmfv7k7vg3df"]
+
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_3c2xk"]
+[ext_resource type="Texture2D" uid="uid://dda0r3bvka0h3" path="res://decorations/sunflowers/materials/textures/sunflower_diff.png" id="2_sg16f"]
+[ext_resource type="Texture2D" uid="uid://bfkb3jkxchs7w" path="res://decorations/sunflowers/materials/textures/sunflower_norm.jpg" id="3_oalap"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3c2xk")
+shader_parameter/albedo = Color(0.75, 0.75, 0.75, 1)
+shader_parameter/distance_fade_min = 10.0
+shader_parameter/distance_fade_max = 9.0
+shader_parameter/alpha_scissor_threshold = 0.8
+shader_parameter/alpha_antialiasing_edge = null
+shader_parameter/backlight = 0.25
+shader_parameter/specularity = 0.0
+shader_parameter/texture_albedo = ExtResource("2_sg16f")
+shader_parameter/texture_normal = ExtResource("3_oalap")
