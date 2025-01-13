@@ -14,6 +14,7 @@ uniform float alpha_scissor_threshold : hint_range(0.0, 1.0, 0.001);
 uniform float alpha_antialiasing_edge : hint_range(0.0, 1.0, 0.01);
 uniform float backlight = 0.5;
 uniform float specularity = 0.2;
+uniform float normal_strength = 1.0;
 
 float get_wind(vec2 vertex, vec2 uv){
 	float min_strength = 0.05;
@@ -41,7 +42,8 @@ void fragment() {
 	//ALBEDO = albedo_tex.rgb;
 	ALBEDO = COLOR.rgb * 1.5 * pow(albedo_tex.rgb, vec3(0.9));
 	ALBEDO *= albedo.rgb;
-	NORMAL = texture(texture_normal, UV).rgb;
+	NORMAL_MAP = texture(texture_normal, UV).rgb;
+	NORMAL_MAP_DEPTH = normal_strength;
 
 	ALPHA *= albedo_tex.a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;

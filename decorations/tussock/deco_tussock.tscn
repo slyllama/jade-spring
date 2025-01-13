@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1vnrnip1a71d"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_xjjfj"]
+[ext_resource type="PackedScene" uid="uid://coent8onfwcyi" path="res://decorations/tussock/tussock.glb" id="2_o6t6b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kq61o"]
+size = Vector3(1.56348, 0.781433, 1.1062)
+
+[node name="DecoTussock" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_xjjfj")
+id = "tussock"
+collision_box = NodePath("Body")
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Shape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.493304, -0.184937)
+shape = SubResource("BoxShape3D_kq61o")
+
+[node name="Tussock" parent="." instance=ExtResource("2_o6t6b")]

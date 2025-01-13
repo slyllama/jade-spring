@@ -84,6 +84,15 @@ const DecoData = {
 		"preview_y_rotation": 180,
 		"tags": ["Foliage", "Cantha"]
 	},
+	"tussock": {
+		"name": "Tussock",
+		"scene": "res://decorations/tussock/deco_tussock.tscn",
+		"cursor_model": "res://decorations/tussock/tussock.glb",
+		"preview_scale": 0.9,
+		"preview_v_offset": -0.15,
+		"preview_y_rotation": 180,
+		"tags": ["Foliage", "Cantha"]
+	},
 	"simple_sub_frame": {
 		"name": "Simple Sub-Frame",
 		"scene": "res://decorations/building_platform/deco_building_platform.tscn",

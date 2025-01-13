@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=75 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -42,6 +42,7 @@
 [ext_resource type="AudioStream" uid="uid://dfuppoomsjr3p" path="res://maps/seitung/sounds/mus_haiju_percussion.ogg" id="26_xpcn1"]
 [ext_resource type="AudioStream" uid="uid://2a40t0ubngvq" path="res://maps/seitung/sounds/mus_haiju_full.ogg" id="27_ery84"]
 [ext_resource type="PackedScene" uid="uid://uv2onprni5ok" path="res://decorations/sunflowers/deco_sunflowers.tscn" id="27_w1tjy"]
+[ext_resource type="PackedScene" uid="uid://c1vnrnip1a71d" path="res://decorations/tussock/deco_tussock.tscn" id="28_0cc6a"]
 [ext_resource type="PackedScene" uid="uid://bh3h8snrh07d5" path="res://lib/gadget/weed_bin.tscn" id="28_m4ym0"]
 [ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_wohrl"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
@@ -532,6 +533,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.2543
 
 [node name="DecoSunflowers" parent="DecoHandler" index="71" instance=ExtResource("27_w1tjy")]
 transform = Transform3D(1.18302, 0, 0.201176, 0, 1.2, 0, -0.201176, 0, 1.18302, -5.15885, 0.317186, -2.82268)
+
+[node name="DecoSunflowers2" parent="DecoHandler" index="72" instance=ExtResource("27_w1tjy")]
+transform = Transform3D(0.660696, 0, -0.750653, 0, 1, 0, 0.750653, 0, 0.660696, -1.58052, 0.340461, -3.1413)
+
+[node name="DecoTussock" parent="DecoHandler" index="73" instance=ExtResource("28_0cc6a")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.537294, 0.38622, -3.38695)
 
 [node name="pine_simple" parent="Decoration" index="0" instance=ExtResource("15_larjc")]
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)
