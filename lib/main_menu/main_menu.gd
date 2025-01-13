@@ -35,6 +35,11 @@ func set_up_nodule() -> void:
 	var _f = create_tween()
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
+func _display_version() -> void:
+	var v_file = FileAccess.open("res://version.txt", FileAccess.READ)
+	$Version.text = "v" + v_file.get_as_text().replace("\n", "")
+	v_file.close()
+
 func _set_title_card_pos() -> void:
 	$TitleCard.global_position = $Container/Padding.global_position + Vector2(230, -20)
 
@@ -55,6 +60,8 @@ func play() -> void:
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
 func _ready() -> void:
+	_display_version()
+	
 	# Clear lingering effects which shouldn't be persistent
 	for _fx in Global.current_effects:
 		Global.current_effects.erase("discombobulator")

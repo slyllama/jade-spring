@@ -48,6 +48,7 @@ turbulence_enabled = true
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_jagjv")
+metadata/_edit_horizontal_guides_ = [34.0]
 
 [node name="Base" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -273,6 +274,19 @@ theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
+scroll_active = false
+
+[node name="Version" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 139.0
+offset_bottom = 47.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = -4
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[Version]"
 scroll_active = false
 
 [node name="Logo" type="TextureRect" parent="."]
