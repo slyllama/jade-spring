@@ -2,7 +2,7 @@
 class_name GizmoArrow extends Node3D
 
 const ArrowMesh = preload("res://lib/gizmo/meshes/gizmo_arrow.res")
-const EXTENTS = 30.0
+const EXTENTS = 100.0
 
 var enabled = false
 var active = false
@@ -62,7 +62,7 @@ func _ready() -> void:
 	arrow_visual.set_layer_mask_value(1, 0)
 	arrow_visual.set_layer_mask_value(2, 0)
 	arrow_visual.set_layer_mask_value(3, 1)
-	arrow_visual.position.x = -0.75
+	arrow_visual.position.x = -0.45
 	arrow_visual.rotation_degrees.y = -90 # correct visual orientation
 	grabber.add_child(arrow_visual)
 	arrow_visual.scale = Vector3(0.01, 0.01, 0.01)
