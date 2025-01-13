@@ -34,7 +34,7 @@ func _ready() -> void:
 	
 	Global.deco_placed.connect(set_default_skills)
 	Global.deco_deleted.connect(func():
-		set_default_skills()
+		#set_default_skills()
 		await get_tree().process_frame
 		Global.command_sent.emit("/savedeco"))
 	Global.deco_placement_canceled.connect(set_default_skills)
@@ -94,6 +94,7 @@ func skill_used(skill_id: String) -> void:
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 				Global.tool_mode = Global.TOOL_MODE_NONE
+				Global.action_cam_enable.emit()
 				set_default_skills()
 		"select":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
@@ -107,6 +108,7 @@ func skill_used(skill_id: String) -> void:
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_SELECT:
 				Global.tool_mode = Global.TOOL_MODE_NONE
+				Global.action_cam_enable.emit()
 				set_default_skills()
 		"cancel":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:

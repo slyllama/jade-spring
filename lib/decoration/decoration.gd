@@ -234,9 +234,6 @@ func _ready() -> void:
 					Global.set_cursor(false)
 					start_adjustment()
 				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
-					Global.set_cursor(false)
-					Global.tool_mode = Global.TOOL_MODE_NONE
 					Global.deco_deleted.emit()
-					Global.action_cam_enable.emit()
-					queue_free() # TODO: better delete communication?
+					queue_free()
 			)
