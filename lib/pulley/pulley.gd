@@ -7,19 +7,19 @@ const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 const intro_dialogue_data = {
 	#"_texture": "sticker_pulley",
 	"_entry": {
-		"string": "F-f-friend, good morning! Thirty-three, seven. The magnetic realignment h-h-helped overnight, it did, twelve?",
+		"string": "F-f-friend, good morning! The magnetic realignment h-h-helped overnight, it did?",
 		"options": {
 			"new_bot": "All three rods seem to be floating just right, P-4; I feel like a new bot."
 		}
 	},
 	"new_bot": {
-		"string": "Four, four, four! Magnificent! So uh (ahem, twenty-three)... want to t-t-take them for a spin?",
+		"string": "M-m-magnificent! So uh, well... want to t-t-take them for a spin?",
 		"options": {
 			"icky": "Sounds like someone has an icky job lined up for an idle set of jade rods, huh."
 		}
 	},
 	"icky": {
-		"string": "I just... These rotten weeds and b-b-bugs, one, one, one! I can't. The static! Swooping and d-d-diving. Worse than the Unchained.",
+		"string": "I just... These rotten weeds and b-b-bugs; I can't. The static! Swooping and d-d-diving. Worse than the Unchained.",
 		"options": {
 			"handle": "It's okay, Pull. I'll handle it, starting with the weeds."
 		}

@@ -18,6 +18,7 @@ shader_parameter/gradient = ExtResource("3_0npe3")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fceqx"]
 content_margin_left = 30.0
 content_margin_top = 24.0
+content_margin_right = 20.0
 content_margin_bottom = 16.0
 texture = ExtResource("5_qmfye")
 

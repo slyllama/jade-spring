@@ -47,7 +47,7 @@ func proc_story() -> void:
 		if "objective" in Save.STORY_POINT_SCRIPT[_p]:
 			$StoryText.text = "Objective: " + _d.objective
 			if Save.data.story_point == "pick_weeds":
-				$StoryText.text += " (" + str(Save.OBJECTIVE_WEED_COUNT - Save.data.deposited_weeds) + " remaining)"
+				$StoryText.text += "\n(" + str(Save.OBJECTIVE_WEED_COUNT - Save.data.deposited_weeds) + " remaining.)"
 
 func _ready() -> void:
 	Global.crumbs_updated.connect(func():

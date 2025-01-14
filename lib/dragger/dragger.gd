@@ -21,6 +21,8 @@ func _set_shader_val(val: float) -> void:
 	_mat.set_shader_parameter("paint_exponent", (1 - val) * 10.0)
 
 func destroy() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	Global.in_exclusive_ui = false
 	$Debug.visible = false
 	active = false
@@ -37,6 +39,8 @@ func _input(event: InputEvent) -> void:
 		destroy()
 
 func _ready() -> void:
+	get_window().focus_exited.connect(destroy)
+	
 	Global.in_exclusive_ui = true
 	var _mat = $ArrowRoot/ArrowLeft.material.duplicate()
 	$ArrowRoot/ArrowLeft.material = _mat
@@ -49,6 +53,8 @@ func _ready() -> void:
 		$ArrowRoot.rotation_degrees = 90.0
 	last_mouse_click = get_window().get_mouse_position()
 	$ArrowRoot.position = last_mouse_click
+	
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 var last_ratio = ratio
 
