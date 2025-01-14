@@ -35,7 +35,11 @@ _subresources={
 "materials": {
 "mat_tiles": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/roof_corner/mat_roof_tiles.tres"
+"use_external/path": "C:/Users/Alec/Documents/Repos/seitung-spring-clean/decorations/roof_piece/materials/mat_roof_cords.tres"
+},
+"mat_tiles_generic": {
+"use_external/enabled": true,
+"use_external/path": "C:/Users/Alec/Documents/Repos/seitung-spring-clean/decorations/roof_corner/mat_roof_tiles.tres"
 },
 "mat_wood_generic": {
 "use_external/enabled": true,
