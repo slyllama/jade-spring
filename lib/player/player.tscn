@@ -131,7 +131,7 @@ shape = SubResource("CapsuleShape3D_hn77j")
 [node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("excluded_collision_objects")]
 script = ExtResource("1_lnnkv")
 zoom_increment = 0.2
-max_zoom_in = 0.8
+max_zoom_in = 0.0
 max_zoom_out = 2.5
 v_offset = 0.6
 excluded_collision_objects = [NodePath("..")]

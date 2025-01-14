@@ -32,5 +32,15 @@ void fragment() {
 	ALBEDO = mix(screen_wobble, texture(screen_texture, SCREEN_UV).rgb, circle(UV, 0.25, 0.25));
 	ALPHA = 0.9;
 	ALBEDO += (1.0 - circle(UV, 0.01, 0.3)) * glow_color.rgb * 0.5;
+	
+	{
+		// Distance Fade: Pixel Dither
+		float fade_distance = length(VERTEX);
+		const vec3 magic = vec3(0.06711056, 0.00583715, 52.9829189);
+		float fade = clamp(smoothstep(0.5, 0.6, fade_distance), 0.0, 1.0);
+		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
+			discard;
+		}
+	}
 }
 "

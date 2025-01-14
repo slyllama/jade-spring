@@ -10829,6 +10829,10 @@ _subresources={
 }
 },
 "materials": {
+"mat_black_gloss": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_eyes.tres"
+},
 "mat_engine_glow": {
 "use_external/enabled": true,
 "use_external/path": "res://lib/player/materials/mat_engine_glow.tres"
@@ -10857,6 +10861,9 @@ _subresources={
 },
 "PATH:JadeArmature/Skeleton3D/EngineRing2/EngineRing2": {
 "mesh_instance/layers": 0
+},
+"PATH:JadeArmature/Skeleton3D/Eyes/Eyes": {
+"mesh_instance/layers": 2
 }
 }
 }

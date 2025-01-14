@@ -56,7 +56,7 @@ const DecoData = {
 		"name": "Bloodstone-Impacted Pillar",
 		"scene": "res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn",
 		"cursor_model": "res://decorations/bloodstone_impacted_pillar/bloodstone_impacted_pillar.glb",
-		"preview_scale": 0.78,
+		"preview_scale": 0.48,
 		"preview_v_offset": -0.6,
 		"tags": ["Architecture"]
 	},
