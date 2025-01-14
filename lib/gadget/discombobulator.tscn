@@ -23,5 +23,7 @@ spatial_string = "Pulley's Shed"
 [node name="Collision" parent="." instance=ExtResource("3_gw0sx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
 reset_on_interact = false
+show_area = true
+tint_color = Color(0.225872, 0.778397, 0, 1)
 
 [connection signal="interacted" from="Collision" to="." method="_on_collision_interacted"]

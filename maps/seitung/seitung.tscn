@@ -1008,7 +1008,7 @@ transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, 
 transform = Transform3D(-0.0237495, 0, 1.34979, 0, 1.35, 0, -1.34979, 0, -0.0237495, -10.2466, 0.828593, 2.74522)
 
 [node name="WeedBin" parent="." index="17" instance=ExtResource("28_m4ym0")]
-transform = Transform3D(-0.954684, -0.152123, 0.255807, -0.14694, 0.988362, 0.0393724, -0.258819, 3.45188e-09, -0.965926, -7.27067, -0.135322, 7.58098)
+transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)
 
 [node name="WorldBoundaries" type="StaticBody3D" parent="." index="19"]
 collision_layer = 3

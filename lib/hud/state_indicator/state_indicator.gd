@@ -14,6 +14,7 @@ func set_color(color: Color) -> void:
 			_n.modulate = color
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	Global.deco_placement_started.connect(func():
 		tint_color = Color(0.51, 0.758, 0.169)
 		visible = true)

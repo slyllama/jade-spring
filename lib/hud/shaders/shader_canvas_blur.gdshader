@@ -8,7 +8,7 @@ uniform sampler2D mask2: hint_default_black;
 void fragment() {
 	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
 	COLOR = color;
-	COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), 0.5);
+	COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), 0.7);
 	COLOR *= texture(mask, UV).r;
 	COLOR *= texture(mask2, UV).r;
 
