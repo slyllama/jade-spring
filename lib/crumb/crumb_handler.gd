@@ -19,7 +19,6 @@ func save_crumbs() -> void:
 				"rotation": _n.rotation
 			})
 	Save.save_to_file()
-	print("saving crumbs to file")
 
 # Load crumbs from save file
 func load_crumbs() -> void:

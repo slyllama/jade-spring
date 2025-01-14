@@ -4,7 +4,6 @@ const MMOOrbitHandler = preload("res://addons/mmo_camera/orbit_handler.gd")
 
 @export var orbit_disabled := false
 @export var orbit_smoothing := 12.0
-@export_range(-180, 180, 0.1, "degrees", "hide_slider") var fov := 85.0
 @export_range(0, 100, 0.01, "suffix:m", "hide_slider") var zoom_increment = 0.25
 @export_range(0, 100, 0.1, "suffix:m", "hide_slider") var max_zoom_in = 0.5
 @export_range(0, 100, 0.1, "suffix:m", "hide_slider") var max_zoom_out = 1.5
@@ -30,6 +29,8 @@ var in_exclusive_ui = false
 var mouse_in_ui = false
 var popup_open = false
 var _target_zoom = max_zoom_out
+var added_fov = 0.0 # added every frame to current FOV
+var fov = 73.0
 
 var axis = SpringArm3D.new()
 var camera = Camera3D.new()
@@ -62,7 +63,7 @@ func _ready() -> void:
 	SettingsHandler.setting_changed.connect(func(_param):
 		if _param == "fov":
 			var _fov = SettingsHandler.settings.fov
-			camera.fov = SettingsHandler.get_fov_deg())
+			fov = SettingsHandler.get_fov_deg())
 	
 	# Add components to the scene
 	add_child(axis)
@@ -86,8 +87,9 @@ func _process(delta: float) -> void:
 	
 	var _spring_ratio = axis.get_hit_length() / axis.spring_length
 	var _target_v_offset = _get_v_offset() * _spring_ratio
-	var _v_offset = lerp(camera.v_offset, _target_v_offset, 6 * delta)
+	var _v_offset = lerp(camera.v_offset, _target_v_offset, 6.0 * delta)
 	camera.v_offset = _v_offset
+	camera.fov = lerp(camera.fov, fov + added_fov, delta)
 	
 	# Apply camera transformations
 	axis.spring_length = lerp(axis.spring_length, _target_zoom, 6.0 * delta)

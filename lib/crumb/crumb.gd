@@ -29,8 +29,9 @@ func _ready() -> void:
 		input_ray_pickable = false
 	
 	var collision = CollisionShape3D.new()
-	var shape = SphereShape3D.new()
+	var shape = CylinderShape3D.new()
 	shape.radius = area_radius
+	shape.height = 4.0
 	collision.shape = shape
 	add_child(collision)
 	

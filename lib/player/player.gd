@@ -21,7 +21,9 @@ var smooth_mod = 1.0 # acceleration smoothing - to be modified by command
 @onready var engine_bone: BoneAttachment3D = get_node("PlayerMesh/JadeArmature/Skeleton3D/EngineRing1")
 @onready var _initial_y_rotation = global_rotation.y
 var _direction := Vector3.ZERO
-var _speed := base_speed
+var _calculated_speed := base_speed
+var _speed := _calculated_speed
+var _sprint_multiplier := 1.0
 var _target_velocity := Vector3.ZERO
 
 func play_jade_sound() -> void:
@@ -81,7 +83,7 @@ func _ready() -> void:
 			$PlayerMesh.visible = true
 		elif "/speedratio=" in _cmd:
 			var _speed_ratio = float(_cmd.replace("/speedratio=", ""))
-			_speed = base_speed * clamp(_speed_ratio, 0.0, 2.0)
+			_calculated_speed = base_speed * clamp(_speed_ratio, 0.0, 2.0)
 		elif "/playersmooth=" in _cmd:
 			var _s = float(_cmd.replace("/playersmooth=", ""))
 			smooth_mod = clamp(_s, 0.01, 1.0)
@@ -134,6 +136,15 @@ func _physics_process(delta: float) -> void:
 	Global.camera_basis = _camera_basis
 	Global.camera_pivot_rotation_degrees = $Camera.rotation_degrees
 	
+	# Get player sprint multiplier
+	if Input.is_action_pressed("sprint"):
+		_sprint_multiplier = 1.95
+	else:
+		_sprint_multiplier = 1.0
+		$Camera.added_fov = 0.0
+	_speed = _calculated_speed
+	_speed *= _sprint_multiplier
+	
 	# Multiply inputs by the movement vector and orbit rotation
 	# This could be improved, but it works
 	if Global.can_move:
@@ -163,6 +174,8 @@ func _physics_process(delta: float) -> void:
 		#while _a > 0: _a -= deg_to_rad(360.0)
 		
 		if _direction.x > 0 or _direction.z != 0 or Global.in_walk_mode:
+			if _sprint_multiplier > 1.0:
+				$Camera.added_fov = 14.0
 			$PlayerMesh.rotation.y = lerp(
 				$PlayerMesh.rotation.y,
 				$Camera.rotation.y - PI - _initial_y_rotation,
