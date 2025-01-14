@@ -13,4 +13,5 @@ shader_parameter/alpha_scissor_threshold = 0.47
 shader_parameter/alpha_antialiasing_edge = 0.45
 shader_parameter/backlight = 0.5
 shader_parameter/specularity = 0.0
+shader_parameter/normal_strength = 1.0
 shader_parameter/texture_albedo = ExtResource("2_fmjel")

@@ -14,7 +14,4 @@ shader_parameter/cloud_scale = 1.0
 shader_parameter/speed_scale = 0.05
 shader_parameter/emission_color = Color(0, 0, 0, 1)
 shader_parameter/clear_coat = false
-shader_parameter/distance_fade_min = 0.3
-shader_parameter/distance_fade_max = 0.4
-shader_parameter/point_size = null
 shader_parameter/mask = ExtResource("2_d4reu")
