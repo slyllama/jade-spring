@@ -1010,15 +1010,6 @@ draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
 [node name="GizmoTest" parent="Decoration" index="43" instance=ExtResource("40_ay7rs")]
 transform = Transform3D(0.5, 0.433013, -0.75, 0, 0.866025, 0.5, 0.866025, -0.25, 0.433013, -1.78461, 1.78943, -0.0853257)
-visible = false
-
-[node name="GizmoTest2" parent="Decoration" index="44" instance=ExtResource("40_ay7rs")]
-transform = Transform3D(0.235745, -0.559563, -0.794553, 0.440936, 0.790183, -0.425659, 0.866025, -0.25, 0.433013, -2.72866, 1.78943, 0.427921)
-visible = false
-
-[node name="GizmoTest3" parent="Decoration" index="45" instance=ExtResource("40_ay7rs")]
-transform = Transform3D(0.0871678, 0.928253, 0.361591, -0.492343, -0.275403, 0.825683, 0.866025, -0.25, 0.433013, -2.72866, 3.19687, -0.471741)
-visible = false
 
 [node name="SafePoint" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97531, 1.41256, 2.85007)
