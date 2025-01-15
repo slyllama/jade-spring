@@ -123,6 +123,7 @@ text = "Continue"
 
 [node name="Spinner" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(-200, -200)
 scale = Vector2(0.67, 0.67)
 texture = ExtResource("5_tj3c3")
 
