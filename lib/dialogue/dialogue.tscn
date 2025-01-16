@@ -167,6 +167,7 @@ offset_right = 72.5
 offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 text = "Done"
 
 [node name="JadeWings" type="TextureRect" parent="Base"]
@@ -210,6 +211,7 @@ offset_left = 47.0
 offset_top = 273.0
 offset_right = 635.0
 offset_bottom = 342.0
+mouse_filter = 1
 theme_override_font_sizes/font_size = 16
 theme_override_styles/hover = SubResource("StyleBoxFlat_mcyqg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o2v8d")
@@ -235,6 +237,7 @@ theme_override_constants/separation = 4
 [node name="Text" type="RichTextLabel" parent="Base/Box"]
 use_parent_material = true
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 16
 text = "((Dialogue text))"
 fit_content = true
@@ -250,4 +253,6 @@ libraries = {
 "": SubResource("AnimationLibrary_gyjes")
 }
 
+[connection signal="mouse_entered" from="Base" to="." method="_on_base_mouse_entered"]
+[connection signal="mouse_exited" from="Base" to="." method="_on_base_mouse_exited"]
 [connection signal="button_down" from="Base/Done" to="." method="_on_done_button_down"]

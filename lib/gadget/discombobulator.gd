@@ -18,6 +18,7 @@ const DIALOGUE_DATA = {
 @onready var dialogue_data = DIALOGUE_DATA.duplicate()
 
 func _on_collision_interacted() -> void:
+	if Global.deco_pane_open or Global.dialogue_open: return
 	Global.generic_area_left.emit()
 	dialogue_data = DIALOGUE_DATA.duplicate(true)
 	

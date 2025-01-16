@@ -51,9 +51,9 @@ func render_block(block_data: Dictionary) -> void:
 							render_block(data[_new_block_data.reference])
 					else: render_block(_new_block_data))
 
-func open() -> void:
-	Global.in_exclusive_ui = true
+func open() -> void:	
 	Global.can_move = false
+	Global.dialogue_open = true
 	Global.action_cam_disable.emit()
 	if "_entry" in data:
 		render_block(data._entry)
@@ -74,7 +74,7 @@ func close() -> void:
 	
 	await fade_tween.finished
 	await get_tree().process_frame
-	Global.in_exclusive_ui = false
+	Global.dialogue_open = false
 	Global.can_move = true
 	Global.action_cam_enable.emit()
 	queue_free()
@@ -85,3 +85,6 @@ func _ready() -> void:
 
 func _on_done_button_down() -> void:
 	close()
+
+func _on_base_mouse_entered() -> void: Global.in_exclusive_ui = true
+func _on_base_mouse_exited() -> void: Global.in_exclusive_ui = false

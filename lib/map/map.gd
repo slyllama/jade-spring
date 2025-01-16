@@ -20,6 +20,8 @@ func _ready() -> void:
 	Global.safe_point = $SafePoint
 	Global.debug_toggled.emit()
 	Global.action_cam_enable.emit()
+	Global.deco_pane_open = false # reset
+	Global.dialogue_open = false # reset
 	
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/hidecrumbs":
