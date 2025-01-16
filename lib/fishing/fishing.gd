@@ -13,7 +13,7 @@ signal canceled
 @export var fish_max_speed := 1.95
 @export var fish_min_time := 0.65
 @export var fish_max_time := 2.7
-@export var progress_increase_rate := 0.29
+@export var progress_increase_rate := 0.26
 @export var progress_decrease_rate := 0.19
 
 @onready var center_pos = _get_center()
@@ -24,6 +24,10 @@ var progress = 50.0
 var dir = 1
 var has_completed = false
 var has_succeeded = false
+
+func _set_dissolve(val: float):
+	var _e = ease(val, 0.2)
+	$BG.material.set_shader_parameter("paint_exponent", 10.0 - _e * 10.0)
 
 func _get_x_left() -> float: # get the position of the left end of the bar
 	return(get_window().size.x / 2.0 / Global.retina_scale - width / 2.0)
@@ -40,13 +44,12 @@ func end():
 	if has_completed: return
 	has_completed = true
 	
-	#Global.remove_effect.emit("discombobulator")
 	Global.jade_bot_sound.emit()
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	
 	await get_tree().create_timer(0.2).timeout
 	var fade_out = create_tween()
-	fade_out.tween_property($BG, "modulate:a", 0.0, 0.4)
+	fade_out.tween_method(_set_dissolve, 1.0, 0.0, 0.5)
 	await fade_out.finished
 	
 	Global.in_exclusive_ui = false
@@ -55,7 +58,6 @@ func end():
 	if has_succeeded:
 		completed.emit()
 	else:
-		Global.fishing_canceled.emit()
 		canceled.emit()
 	queue_free()
 
@@ -73,9 +75,10 @@ func switch_direction() -> void:
 	$Timer.start()
 
 func _ready() -> void:
-	$BG.modulate.a = 0
+	_set_dissolve(0.0)
+	$BG.material.set_shader_parameter("alpha", 1.0)
 	var fade_in = create_tween()
-	fade_in.tween_property($BG, "modulate:a", 1.0, 0.2)
+	fade_in.tween_method(_set_dissolve, 0.0, 1.0, 0.5)
 	
 	get_window().size_changed.connect(resize)
 	Global.fishing_canceled.connect(end)
@@ -129,10 +132,6 @@ func _process(delta: float) -> void:
 	
 	_smoothed_progress = lerp(_smoothed_progress, progress, delta * 20.0)
 	$BG/Progress.value = _smoothed_progress
-	
-	$BG/Debug.text = ""
-	$BG/Debug.text += "progress_delta = " + str(snapped(_s, 0.01))
-	$BG/Debug.text += "\nprogress = " + str(snapped(progress, 1)) + "/100"
 
 func _on_timer_timeout() -> void:
 	switch_direction()
