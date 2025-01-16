@@ -92,6 +92,8 @@ func _ready() -> void:
 	switch_direction()
 	$BG/Progress.value = progress
 
+var _smoothed_progress = 0.0
+
 func _process(delta: float) -> void:
 	if has_completed: return
 	
@@ -125,7 +127,8 @@ func _process(delta: float) -> void:
 		end()
 	progress = clamp(progress, 0.0, 100.0)
 	
-	$BG/Progress.value = lerp($BG/Progress.value, float(progress), delta * 55.0)
+	_smoothed_progress = lerp(_smoothed_progress, progress, delta * 20.0)
+	$BG/Progress.value = _smoothed_progress
 	
 	$BG/Debug.text = ""
 	$BG/Debug.text += "progress_delta = " + str(snapped(_s, 0.01))

@@ -146,13 +146,13 @@ func _ready() -> void:
 			_n.button_down.connect(Global.click_sound.emit)
 	
 	$InteractIndicator.modulate.a = 0.0
-	$FG.visible = true
+	$TopLevel/FG.visible = true
 	$Underlay.queue_free()
 	
-	await get_tree().process_frame
+	await get_tree().create_timer(0.51).timeout
 	var _fade_tween = create_tween()
-	_fade_tween.tween_property($FG, "modulate:a", 0.0, 0.5)
-	_fade_tween.tween_callback($FG.queue_free)
+	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
+	_fade_tween.tween_callback($TopLevel/FG.queue_free)
 	
 	# Opening story panel (if the story hasn't been advanced)
 	if Save.data.story_point == "game_start":

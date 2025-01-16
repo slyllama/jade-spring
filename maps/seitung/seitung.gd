@@ -14,7 +14,8 @@ func _ready() -> void:
 	$Landscape/LandscapeCol.set_collision_layer_value(2, true)
 	var _dg = load(
 		"res://lib/dispersion_golem/meshes/dispersion_golem.tscn").instantiate()
-	add_child(_dg)
+	$Player.add_child(_dg)
+	_dg.position.z -= 0.5
 	await get_tree().process_frame
 	_dg.queue_free()
 	super()

@@ -174,11 +174,11 @@ func _physics_process(delta: float) -> void:
 		# 360deg until they are each less than 360deg
 		if $Camera.rotation_degrees.y < 0:
 			$Camera.rotation_degrees.y += 360.0;
-		$Camera.rotation_degrees.y -= 180.0
+		#$Camera.rotation_degrees.y -= 180.0
 		
 		$PlayerMesh.rotation.y = lerp_angle(
 			$PlayerMesh.rotation.y,
-			$Camera.rotation.y - _initial_y_rotation,
+			$Camera.rotation.y - _initial_y_rotation + PI,
 			smoothing * 0.6 * delta)
 	
 	if Global.can_move:

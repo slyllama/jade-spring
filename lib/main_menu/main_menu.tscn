@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://di4tqbaloy431" path="res://generic/textures/light_ray.png" id="3_nclce"]
 [ext_resource type="PackedScene" uid="uid://col3bfw2kkxf0" path="res://lib/main_menu/mm_button.tscn" id="3_v0okn"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
-[ext_resource type="Texture2D" uid="uid://c68tk7kv14da7" path="res://lib/ui_container/textures/slider_hover.png" id="5_pvsjo"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
 [ext_resource type="Texture2D" uid="uid://b14riwre77y4l" path="res://lib/main_menu/title_card/textures/h_sep.png" id="6_b4g4g"]
 [ext_resource type="Texture2D" uid="uid://b45yqtf7u0sha" path="res://lib/hud/textures/folder_icon.png" id="7_n6dqo"]
 [ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
 [ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="8_rr48m"]
+[ext_resource type="Texture2D" uid="uid://inll8yj8movt" path="res://lib/main_menu/textures/focus.png" id="9_4yys3"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="9_g8hmh"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="10_cqy1t"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="11_ctlnu"]
@@ -222,8 +222,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Nodule" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_pvsjo")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_4yys3")
 
 [node name="TitleCard" parent="." instance=ExtResource("6_aye18")]
 position = Vector2(0, 48)
@@ -231,6 +231,7 @@ scale = Vector2(0.57, 0.57)
 
 [node name="Motes" type="GPUParticles2D" parent="TitleCard"]
 position = Vector2(0, 416)
+amount = 16
 process_material = SubResource("ParticleProcessMaterial_0vfhr")
 texture = ExtResource("9_g8hmh")
 lifetime = 4.0

@@ -30,7 +30,7 @@ var mouse_in_ui = false
 var popup_open = false
 var _target_zoom = max_zoom_out
 var added_fov = 0.0 # added every frame to current FOV
-var fov = 73.0
+var fov = 50.0
 
 var axis = SpringArm3D.new()
 var camera = Camera3D.new()
