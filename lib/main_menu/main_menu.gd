@@ -108,7 +108,7 @@ func _ready() -> void:
 		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()
 	
-	$Nodule.global_position = Vector2(get_window().size.x / 2.0, focus.global_position.y + 16)
+	$Nodule.global_position = Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16)
 	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(
@@ -122,7 +122,7 @@ func _process(delta: float) -> void:
 	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
-		$Nodule.position, Vector2(get_window().size.x / 2.0, focus.global_position.y + 16), delta * 22)
+		$Nodule.position, Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16), delta * 22)
 
 func _on_play_button_down() -> void:
 	if !can_interact or ngc_open: return

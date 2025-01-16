@@ -4,6 +4,16 @@ var dragging = false # is the player dragging the pick box at the moment?
 var last_collision = Vector3.ZERO
 var collision_delta = Vector3.ZERO
 
+@export var color = Color.WHITE:
+	get: return(color)
+	set(_val):
+		color = _val
+		$Drag/Pick/Box.get_active_material(0).set_shader_parameter(
+			"color", _val)
+
+func destroy() -> void:
+	queue_free()
+
 func get_drag_collision():
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = Global.camera.project_ray_origin(mouse_pos)
@@ -49,6 +59,8 @@ func _process(delta: float) -> void:
 				$Drag/Pick.global_position,
 				$Drag/Cast.get_collision_point() + collision_delta,
 				delta * 20.0)
+	
+	get_parent().global_position = $Drag/Pick.global_position
 
 func _on_pick_input_event(_c, _e, _p, _n, _i) -> void:
 	if Input.is_action_pressed("left_click"):
