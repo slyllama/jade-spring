@@ -6,7 +6,7 @@ signal completed
 signal canceled
 
 @export var width := 240.0
-@export var threshold := 30.0
+@export var threshold := 65.0
 @export var move_speed := 1.5
 
 @export var fish_min_speed := 1.3

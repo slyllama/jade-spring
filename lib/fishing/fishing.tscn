@@ -1,18 +1,18 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0ampettqcu60"]
 
 [ext_resource type="Script" path="res://lib/fishing/fishing.gd" id="1_6qcg4"]
+[ext_resource type="Texture2D" uid="uid://cnkmwhjhb5h2j" path="res://lib/fishing/textures/base_asuran.png" id="2_386hq"]
 [ext_resource type="Texture2D" uid="uid://8e006712v0us" path="res://lib/fishing/textures/marker.png" id="3_7bdy4"]
-[ext_resource type="Texture2D" uid="uid://ck16aqlsgqadv" path="res://lib/fishing/textures/base.png" id="3_h1eu4"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="3_qfdut"]
 [ext_resource type="Texture2D" uid="uid://dd8ram7ugtnj6" path="res://lib/hud/side_panel/textures/progress_base.png" id="4_7ig0d"]
-[ext_resource type="Texture2D" uid="uid://t0j0j5r2tqrb" path="res://lib/hud/side_panel/textures/progress_filled.png" id="5_7iyew"]
 [ext_resource type="Texture2D" uid="uid://b5tfug8y7dm74" path="res://lib/fishing/textures/fish.png" id="5_nbblc"]
+[ext_resource type="Texture2D" uid="uid://b2wgxou5ddeax" path="res://lib/hud/side_panel/textures/progress_filled_purple.png" id="5_p21x7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4ydp"]
 texture = ExtResource("4_7ig0d")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqhv7"]
-texture = ExtResource("5_7iyew")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5g53"]
+texture = ExtResource("5_p21x7")
 
 [node name="Fishing" type="CanvasLayer"]
 script = ExtResource("1_6qcg4")
@@ -25,16 +25,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -427.0
-offset_top = -366.0
-offset_right = 427.0
-offset_bottom = -54.0
+offset_left = -482.0
+offset_top = -448.0
+offset_right = 483.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-texture = ExtResource("3_h1eu4")
+texture = ExtResource("2_386hq")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="Debug" type="RichTextLabel" parent="BG"]
 clip_contents = false
@@ -64,34 +64,28 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Progress" type="ProgressBar" parent="BG"]
-custom_minimum_size = Vector2(262, 14)
+custom_minimum_size = Vector2(160, 14)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -127.0
-offset_top = -118.0
-offset_right = 135.0
-offset_bottom = -104.0
+offset_left = -177.5
+offset_top = -180.0
+offset_right = 177.5
+offset_bottom = -166.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxTexture_q4ydp")
-theme_override_styles/fill = SubResource("StyleBoxTexture_fqhv7")
+theme_override_styles/fill = SubResource("StyleBoxTexture_o5g53")
 step = 0.0
 value = 35.0
 show_percentage = false
 
 [node name="Player" type="Sprite2D" parent="BG"]
-position = Vector2(-213, -354)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_7bdy4")
-
-[node name="Fish" type="Sprite2D" parent="BG"]
-position = Vector2(-213, -354)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_nbblc")
 
 [node name="CenterMarker" type="Control" parent="BG"]
 layout_mode = 1
@@ -100,12 +94,25 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -126.0
-offset_top = -158.0
-offset_right = 126.0
-offset_bottom = -154.0
+offset_left = -139.5
+offset_top = -250.0
+offset_right = 143.5
+offset_bottom = -246.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Fish" type="Node2D" parent="BG"]
+
+[node name="FishSprite" type="TextureRect" parent="BG/Fish"]
+texture_filter = 4
+offset_left = -30.0
+offset_top = -19.0
+offset_right = 87.0
+offset_bottom = 58.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_nbblc")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="completed" from="." to="." method="_on_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
