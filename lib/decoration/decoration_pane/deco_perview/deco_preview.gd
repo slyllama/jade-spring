@@ -2,7 +2,7 @@ extends Node3D
 
 var orbiting = false
 var target_rotation = Vector3.ZERO
-var smooth_rotation = Vector3.ZERO
+var smooth_rotation = 0.0
 @export var orbit_sensitivity := 0.15
 @export var orbit_smoothing := 12.0
 @onready var calculated_sensitivity = orbit_sensitivity
@@ -59,6 +59,16 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 		$Orbit.position.x = -Global.DecoData[current_id].preview_h_offset
 	else: $Orbit.position.x = 0.0
 	
+	if "model_offset" in Global.DecoData[current_id]:
+		$ModelBase.position = Global.DecoData[current_id].model_offset * preview_scale
+	else:
+		$ModelBase.position = Vector3.ZERO
+	
+	if "show_floor" in Global.DecoData[current_id]:
+		$Floor.visible = Global.DecoData[current_id].show_floor
+	else:
+		$Floor.visible = false
+	
 	$ModelBase.rotation_degrees.y = current_y_rotation
 	ResourceLoader.load_threaded_request(path)
 
@@ -93,6 +103,6 @@ func _process(delta: float) -> void:
 	
 	if orbiting:
 		target_rotation.y -= _mouse_delta.x * calculated_sensitivity * delta * 4
-	smooth_rotation = lerp(smooth_rotation, target_rotation, delta * orbit_smoothing)
-	$Orbit.rotation = smooth_rotation
+	smooth_rotation = lerp_angle(smooth_rotation, target_rotation.y, delta * orbit_smoothing)
+	$Orbit.rotation.y = smooth_rotation
 	_mouse_delta = Vector2.ZERO

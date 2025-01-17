@@ -47,7 +47,7 @@ const DecoData = {
 		"name": "Aetherblade Craft",
 		"scene": "res://decorations/rocket/deco_rocket.tscn",
 		"cursor_model": "res://decorations/rocket/rocket.tscn",
-		"preview_scale": 0.23,
+		"preview_scale": 0.19,
 		"preview_y_rotation": 190,
 		"preview_v_offset": -0.4,
 		"tags": [ ]
@@ -65,7 +65,8 @@ const DecoData = {
 		"scene": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"preview_scale": 1.00,
-		"tags": ["Foliage"]
+		"tags": ["Foliage"],
+		"show_floor": true
 	},
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
@@ -97,8 +98,9 @@ const DecoData = {
 		"name": "Simple Sub-Frame",
 		"scene": "res://decorations/building_platform/deco_building_platform.tscn",
 		"cursor_model": "res://decorations/building_platform/meshes/building_platform.glb",
-		"preview_scale": 0.4,
+		"preview_scale": 0.34,
 		"preview_y_rotation": 35,
+		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
 	},
 	"simple_stairs": {
@@ -107,6 +109,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/platform_stairs/meshes/platform_stairs.glb",
 		"preview_scale": 0.4,
 		"preview_y_rotation": 215,
+		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
 	},
 	"cobble_ward_ac_unit": {
@@ -124,6 +127,7 @@ const DecoData = {
 		"preview_y_rotation": 35,
 		"y_rotation": 90,
 		"preview_scale": 0.42,
+		"preview_v_offset": -0.1,
 		"tags": ["Architecture"]
 	},
 	"simple_wall_narrow": {
@@ -133,6 +137,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
+		"preview_v_offset": -0.1,
 		"tags": ["Architecture"]
 	},
 	"simple_door": {
@@ -141,6 +146,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/test_door/mesh/test_door.glb",
 		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
+		"model_offset": Vector3(0.6, 0, 0),
 		"tags": ["Architecture"]
 	},
 	"weeping_willow": {
@@ -157,8 +163,9 @@ const DecoData = {
 		"scene": "res://decorations/roof_piece/deco_roof_piece.tscn",
 		"cursor_model": "res://decorations/roof_piece/roof_piece.glb",
 		"y_rotation": -90,
-		"preview_scale": 0.9,
+		"preview_scale": 0.8,
 		"preview_y_rotation": 215,
+		"model_offset": Vector3(0, 0, 0.6),
 		"tags": ["Architecture", "Cantha"]
 	},
 	"simple_roof_corner_piece": {
@@ -168,6 +175,8 @@ const DecoData = {
 		"y_rotation": -90,
 		"preview_scale": 0.9,
 		"preview_y_rotation": 215,
+		"preview_v_offset": 0.1,
+		"model_offset": Vector3(-0.6, 0, -0.6),
 		"tags": ["Architecture", "Cantha"]
 	},
 	"autumnal_shrub": {
@@ -190,7 +199,7 @@ const DecoData = {
 		"name": "Ancient Cherry Blossom",
 		"scene": "res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.tscn",
 		"cursor_model": "res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.glb",
-		"preview_scale": 0.35,
+		"preview_scale": 0.31,
 		"preview_v_offset": -0.4,
 		"tags": ["Foliage"]
 	}

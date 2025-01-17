@@ -5,15 +5,15 @@
 
 [sub_resource type="Environment" id="Environment_hq0yq"]
 ambient_light_source = 2
-ambient_light_color = Color(0.65, 0.65, 0.65, 1)
+ambient_light_color = Color(1, 1, 1, 1)
+glow_normalized = true
+glow_bloom = 1.0
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.04, 0.04, 0.04, 1)
 fog_density = 1.0
 fog_depth_end = 13.0
 adjustment_enabled = true
-adjustment_brightness = 0.96
-adjustment_contrast = 1.03
 adjustment_saturation = 1.2
 
 [sub_resource type="Shader" id="Shader_e2vv8"]

@@ -32,7 +32,7 @@ func _ready() -> void:
 		$Box/Skill2.switch_skill("rotate_left")
 		$Box/Skill3.switch_skill("rotate_right"))
 	
-	Global.deco_placed.connect(set_default_skills)
+	#Global.deco_placed.connect(set_default_skills)
 	Global.deco_deleted.connect(func():
 		#set_default_skills()
 		await get_tree().process_frame
