@@ -1,59 +1,13 @@
-[gd_scene load_steps=31 format=4 uid="uid://dm88qsqr4e6bj"]
+[gd_scene load_steps=27 format=3 uid="uid://v80u5m4n4t2k"]
 
-[ext_resource type="Script" path="res://lib/crumb/weed.gd" id="1_lklqf"]
-[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="2_5nw6f"]
-[ext_resource type="Texture2D" uid="uid://butxx6fv7oeaf" path="res://lib/crumb/weed/materials/textures/weed_alpha.png" id="3_xjqgm"]
-[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_rqa4i"]
-[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://effects/water_splash/textures/splash_mask.png" id="5_gjm0t"]
-[ext_resource type="AudioStream" uid="uid://rdru5wa16llr" path="res://lib/crumb/weed/sounds/weed_clear.ogg" id="6_xdr4b"]
-[ext_resource type="PackedScene" uid="uid://cgr6iytjeuj80" path="res://lib/crumb/bug_swarm/visual_area.tscn" id="7_ec7aa"]
-[ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="8_qtji3"]
-[ext_resource type="Texture2D" uid="uid://bdl3ocb44powe" path="res://lib/hud/screen_effects/textures/splatter_mask.jpg" id="9_hjyqp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7hru"]
-render_priority = 0
-shader = ExtResource("2_5nw6f")
-shader_parameter/albedo = Color(0.7, 0.7, 0.7, 1)
-shader_parameter/distance_fade_min = 15.0
-shader_parameter/distance_fade_max = 13.0
-shader_parameter/alpha_scissor_threshold = 0.6
-shader_parameter/alpha_antialiasing_edge = 0.2
-shader_parameter/backlight = 0.25
-shader_parameter/specularity = 0.0
-shader_parameter/normal_strength = 1.0
-shader_parameter/texture_albedo = ExtResource("3_xjqgm")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_sajdi"]
-_surfaces = [{
-"aabb": AABB(-0.1, -2.23517e-08, -0.1, 0.2, 0.2, 0.2),
-"format": 34896613377,
-"index_count": 12,
-"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcA"),
-"name": "mat_grass",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP9/AAD//wAA/38AAAAA////fwAA//////9/AAD/fwAA//8AAP9/AAAAAAAA/3//////AAD/f///AAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_nf87d"]
-resource_name = "grass_Plane"
-_surfaces = [{
-"aabb": AABB(-0.1, -2.23517e-08, -0.1, 0.2, 0.2, 0.2),
-"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA////////AAAAAP//AAA="),
-"format": 34896613399,
-"index_count": 12,
-"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcA"),
-"material": SubResource("ShaderMaterial_x7hru"),
-"name": "mat_grass",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP9/AID//wAA/38AgAAA////fwCA//////9/AID/fwAA////v/9/AAAAAP+//3///////7//f///AAD/v/9/////f////3////9/////fwAA/38AAP9/AAD/fwAA")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_sajdi")
+[ext_resource type="Script" path="res://lib/crumb/weed.gd" id="1_c6gfs"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_awq3s"]
+[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://effects/water_splash/textures/splash_mask.png" id="5_eq2wc"]
+[ext_resource type="AudioStream" uid="uid://rdru5wa16llr" path="res://lib/crumb/weed/sounds/weed_clear.ogg" id="6_8ueyf"]
+[ext_resource type="PackedScene" uid="uid://cgr6iytjeuj80" path="res://lib/crumb/bug_swarm/visual_area.tscn" id="7_un45x"]
+[ext_resource type="PackedScene" uid="uid://cpgynonidh6ru" path="res://lib/crumb/weed/nettles.glb" id="8_8woky"]
+[ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="8_oqvfo"]
+[ext_resource type="Texture2D" uid="uid://bdl3ocb44powe" path="res://lib/hud/screen_effects/textures/splatter_mask.jpg" id="9_8aiut"]
 
 [sub_resource type="Curve" id="Curve_gc8mo"]
 _data = [Vector2(0, 0.835052), 0.0, 0.0, 0, 0, Vector2(0.1625, 0.824742), -1.877, -1.877, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -110,7 +64,7 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("5_gjm0t")
+albedo_texture = ExtResource("5_eq2wc")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -135,18 +89,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeedMesh:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(8, 8, 8)]
-}
 
 [sub_resource type="Animation" id="Animation_njoux"]
 resource_name = "clear"
@@ -163,18 +105,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeedMesh:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(2, -2),
-"update": 0,
-"values": [Vector3(8, 8, 8), Vector3(0.1, 0.1, 0.1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ypjpg"]
@@ -193,14 +123,14 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c531e"]
 render_priority = 2
-shader = ExtResource("8_qtji3")
+shader = ExtResource("8_oqvfo")
 shader_parameter/color = Color(0.58, 0.431037, 0.1914, 1)
 shader_parameter/uv_scale = Vector2(3.6, 0.43)
 shader_parameter/exponent = 0.5
 shader_parameter/time_scale = 0.07
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
-shader_parameter/mask_texture = ExtResource("9_hjyqp")
+shader_parameter/mask_texture = ExtResource("9_8aiut")
 shader_parameter/vertical_mask = SubResource("GradientTexture2D_ov7ee")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6ljul"]
@@ -213,29 +143,22 @@ rings = 0
 cap_top = false
 cap_bottom = false
 
-[node name="Weed" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="NettleWeed" type="Area3D"]
 input_ray_pickable = false
-script = ExtResource("1_lklqf")
+script = ExtResource("1_c6gfs")
 type = "weed"
 area_radius = 0.6
 
-[node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.19432, -0.167418, -6.81026, -0.411442, 7.98921, 0.0569994, 6.79988, 0.380138, -4.19727, 0, -0.6, 0)
-mesh = SubResource("ArrayMesh_nf87d")
+[node name="WeedMesh" parent="." instance=ExtResource("8_8woky")]
+transform = Transform3D(1.09927, 0.0486494, 0.61763, -0.0894223, 1.25723, 0.0601268, -0.613055, -0.09615, 1.0987, 0, 0, 0)
 
-[node name="WeedMeshBase" type="MeshInstance3D" parent="WeedMesh"]
-transform = Transform3D(1.36284, 0, 0.885038, 0, 0.416667, 0, -0.885038, 0, 1.36284, 0, 0, 0)
-mesh = SubResource("ArrayMesh_nf87d")
-skeleton = NodePath("../..")
-
-[node name="SpatialText" parent="." instance=ExtResource("4_rqa4i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-spatial_string = "Rotting Shrub"
+[node name="SpatialText" parent="." instance=ExtResource("4_awq3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+spatial_string = "Nettles"
 color = "yellow"
 
 [node name="Foam" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0830283, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cast_shadow = 0
 emitting = false
 amount = 30
@@ -249,14 +172,14 @@ libraries = {
 
 [node name="LeafSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-stream = ExtResource("6_xdr4b")
+stream = ExtResource("6_8ueyf")
 volume_db = -9.0
 autoplay = true
 max_distance = 5.0
 attenuation_filter_cutoff_hz = 10000.0
 
-[node name="VisualArea" parent="." instance=ExtResource("7_ec7aa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.069734, 0)
+[node name="VisualArea" parent="." instance=ExtResource("7_un45x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_6ljul")
 
 [connection signal="interacted" from="." to="." method="interact"]

@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cr84e0vkeyqbv"]
+
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_i20eq"]
+[ext_resource type="Texture2D" uid="uid://c3tr66tpqu1c" path="res://lib/crumb/weed/materials/textures/nettle_diff.png" id="2_t3ju7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_i20eq")
+shader_parameter/albedo = Color(0.6, 0.6, 0.6, 1)
+shader_parameter/distance_fade_min = 10.0
+shader_parameter/distance_fade_max = 9.0
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/alpha_antialiasing_edge = 0.0
+shader_parameter/backlight = 0.1
+shader_parameter/specularity = 0.0
+shader_parameter/normal_strength = 0.0
+shader_parameter/texture_albedo = ExtResource("2_t3ju7")
