@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=92 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -46,8 +46,11 @@
 [ext_resource type="PackedScene" uid="uid://bh3h8snrh07d5" path="res://lib/gadget/weed_bin.tscn" id="28_m4ym0"]
 [ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_wohrl"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
+[ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="35_42aun"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
+[ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
+[ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -89,6 +92,71 @@ normal_texture = ExtResource("8_vn5ie")
 uv1_scale = Vector3(16, 16, 16)
 distance_fade_min_distance = 20.0
 distance_fade_max_distance = 30.0
+
+[sub_resource type="Gradient" id="Gradient_ab0nn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqkxy"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_77j05"]
+seamless = true
+color_ramp = SubResource("Gradient_ab0nn")
+noise = SubResource("FastNoiseLite_oqkxy")
+
+[sub_resource type="Gradient" id="Gradient_ajv0q"]
+offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vc8yf"]
+gradient = SubResource("Gradient_ajv0q")
+
+[sub_resource type="Gradient" id="Gradient_acgf2"]
+offsets = PackedFloat32Array(0.0601093, 0.448087, 0.625683, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ijhh"]
+gradient = SubResource("Gradient_acgf2")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4p88s"]
+render_priority = 1
+shader = ExtResource("35_42aun")
+shader_parameter/uv_scale = Vector2(1, 0.5)
+shader_parameter/albedo = Color(0.3, 1, 0.3, 1)
+shader_parameter/ray_mask_texture = SubResource("NoiseTexture2D_77j05")
+shader_parameter/x_gradient_texture = SubResource("GradientTexture2D_vc8yf")
+shader_parameter/y_gradient_texture = SubResource("GradientTexture2D_1ijhh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m2asd"]
+material = SubResource("ShaderMaterial_4p88s")
+size = Vector2(0.35, 3)
+orientation = 2
+
+[sub_resource type="Curve" id="Curve_ywoey"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_thsk3"]
+curve = SubResource("Curve_ywoey")
+
+[sub_resource type="Gradient" id="Gradient_6vdv5"]
+colors = PackedColorArray(6.49765e-07, 0.399391, 0.0462379, 1, 0.880833, 1, 0.35, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1ciua"]
+gradient = SubResource("Gradient_6vdv5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sdcwh"]
+emission_shape_scale = Vector3(0.12, 0.12, 0.12)
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+gravity = Vector3(0, -0.3, 0)
+scale_max = 2.0
+color_initial_ramp = SubResource("GradientTexture1D_1ciua")
+alpha_curve = SubResource("CurveTexture_thsk3")
 
 [sub_resource type="MultiMesh" id="MultiMesh_yjagj"]
 transform_format = 1
@@ -652,11 +720,25 @@ transform = Transform3D(-6.33815e-08, 0, 1.45, 0, 1.45, 0, -1.45, 0, -6.33815e-0
 [node name="SpawnPlatform" parent="Decoration" index="36" instance=ExtResource("8_alpya")]
 transform = Transform3D(0.999519, 0.0310095, 0, -0.0310095, 0.999519, 0, 0, 0, 1, -9.78259, 0.429223, 2.8401)
 
+[node name="Waypoint" parent="Decoration/SpawnPlatform" index="0" instance=ExtResource("49_v10af")]
+transform = Transform3D(0.999519, -0.0310095, 0, 0.0310095, 0.999519, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="Ray" type="MeshInstance3D" parent="Decoration/SpawnPlatform/Waypoint" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171865, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_m2asd")
+
+[node name="Stars" type="GPUParticles3D" parent="Decoration/SpawnPlatform/Waypoint" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_sdcwh")
+draw_pass_1 = ExtResource("36_47sat")
+
+[node name="SpawnPlatform2" parent="Decoration/SpawnPlatform" index="4" instance=ExtResource("8_alpya")]
+transform = Transform3D(1.48079, -0.000397209, -0.239267, -0.000596002, 0.999988, -0.00742312, 0.239267, 0.00494876, 1.48078, 0.00628567, -0.2026, 0)
+
 [node name="SpawnPlatform3" parent="Decoration" index="37" instance=ExtResource("8_alpya")]
 transform = Transform3D(1.17943, 0.0365912, 0, -0.0365912, 1.17943, 0, 0, 0, 1.18, -7.18588, 0.502338, -2.74958)
-
-[node name="SpawnPlatform2" parent="Decoration" index="38" instance=ExtResource("8_alpya")]
-transform = Transform3D(1.48006, 0.0306121, -0.239382, -0.0465143, 0.999519, -3.87658e-12, 0.239267, 0.00494876, 1.48078, -9.78259, 0.226526, 2.8401)
 
 [node name="FoliageSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="0"]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -4.83487, 0.353832, -0.692672)
@@ -886,7 +968,7 @@ colour_1 = Color(0.940918, 0.84266, 7.70092e-07, 1)
 colour_2 = Color(1, 0.703474, 0.249328, 1)
 render_distance = 11.0
 
-[node name="Decals" type="Node3D" parent="Decoration" index="40"]
+[node name="Decals" type="Node3D" parent="Decoration" index="39"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
@@ -988,7 +1070,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 1048573
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="41"]
+[node name="Motes" type="GPUParticles3D" parent="Decoration" index="40"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
 amount = 120
 lifetime = 2.0
@@ -998,7 +1080,7 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="42"]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="41"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
 amount = 120
 lifetime = 2.0
@@ -1021,10 +1103,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
 
 [node name="Pulley" parent="." index="16" instance=ExtResource("9_2e7lr")]
-transform = Transform3D(-0.0237495, 0, 1.34979, 0, 1.35, 0, -1.34979, 0, -0.0237495, -10.2466, 0.828593, 2.74522)
+transform = Transform3D(-0.43867, 0, 1.27674, 0, 1.35, 0, -1.27674, 0, -0.43867, -10.8689, 0.828593, 3.6488)
 
 [node name="WeedBin" parent="." index="17" instance=ExtResource("28_m4ym0")]
 transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)
+
+[node name="StoryMarker" parent="." index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461254, -5.00618, 0.0370162)
 
 [node name="WorldBoundaries" type="StaticBody3D" parent="." index="19"]
 collision_layer = 3
