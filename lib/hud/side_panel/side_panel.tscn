@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://gokqv1eo16nh"]
+[gd_scene load_steps=18 format=3 uid="uid://gokqv1eo16nh"]
 
 [ext_resource type="Script" path="res://lib/hud/side_panel/side_panel.gd" id="1_xy7kn"]
 [ext_resource type="Shader" path="res://lib/hud/side_panel/materials/shaders/shader_panel_gradient.gdshader" id="2_xwfhn"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dgvxowegr8bu3" path="res://lib/hud/side_panel/textures/side_panel_minor_separator.png" id="5_rs76w"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="5_xhh38"]
 [ext_resource type="Texture2D" uid="uid://bs0q6kx81u58w" path="res://lib/hud/textures/settings_icon_outline.png" id="6_if1f0"]
-[ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="7_excbr"]
 [ext_resource type="Texture2D" uid="uid://cfb7i61lbowa0" path="res://lib/hud/side_panel/textures/side_panel_separator.png" id="7_rlga1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fqi0m"]
@@ -167,7 +166,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
-text = "Garden Roster"
+text = "Garden Roster (Total Progress)"
 fit_content = true
 scroll_active = false
 
@@ -219,15 +218,6 @@ scroll_active = false
 material = SubResource("ShaderMaterial_fqi0m")
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-
-[node name="Lower" type="TextureRect" parent="."]
-visible = false
-custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("7_excbr")
-expand_mode = 1
-flip_h = true
 
 [node name="MajorSeparator" type="TextureRect" parent="."]
 layout_mode = 2

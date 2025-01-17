@@ -105,9 +105,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 273.0
+offset_right = -273.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="Title" type="RichTextLabel" parent="Base/Content"]
 layout_mode = 1
@@ -132,9 +134,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 284.0
+offset_left = 10.0
 offset_top = 280.0
-offset_right = -282.0
+offset_right = -8.0
 offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -208,7 +210,7 @@ stretch_mode = 0
 [node name="Paper" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_e0q63")
 
-[connection signal="mouse_entered" from="Base" to="." method="_on_base_mouse_entered"]
-[connection signal="mouse_exited" from="Base" to="." method="_on_base_mouse_exited"]
+[connection signal="mouse_entered" from="Base/Content" to="." method="_on_content_mouse_entered"]
+[connection signal="mouse_exited" from="Base/Content" to="." method="_on_content_mouse_exited"]
 [connection signal="button_down" from="Base/Content/Done" to="." method="close"]
 [connection signal="button_down" from="CloseButton" to="." method="close"]

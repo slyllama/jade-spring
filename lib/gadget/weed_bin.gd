@@ -1,6 +1,19 @@
 extends Node3D
 # Weed bin
 
+func proc_story() -> void:
+	var _p = Save.data.story_point
+	if _p == "game_start":
+		$Collision.visible = false
+		$Collision.active = false
+	else:
+		$Collision.visible = true
+		$Collision.active = true
+
+func _ready() -> void:
+	Save.story_advanced.connect(proc_story)
+	proc_story()
+
 func _on_bin_interacted() -> void:
 	if Global.get_effect_qty("weed") > 0:
 		$Foam.emitting = true

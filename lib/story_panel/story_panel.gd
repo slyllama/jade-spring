@@ -15,6 +15,7 @@ func open(
 	$Base/Content/Sticker.texture = sticker
 	$Paper.play()
 	
+	Global.story_panel_open = true
 	Global.action_cam_disable.emit()
 	
 	var fade_tween = create_tween()
@@ -32,6 +33,7 @@ func open(
 func close():
 	if closed: return # should only happen once
 	closed = true
+	Global.story_panel_open = false
 	
 	# Do closing stuff
 	var fade_tween = create_tween()
@@ -60,6 +62,7 @@ func _process(_delta: float) -> void:
 	$JadeWingsBase.global_position = (
 		get_window().size / 2.0 * (1.0 / Global.retina_scale) + Vector2(0, -200))
 
-func _on_base_mouse_entered() -> void:
+func _on_content_mouse_entered() -> void:
 	Global.in_exclusive_ui = true
-func _on_base_mouse_exited() -> void: Global.in_exclusive_ui = false
+func _on_content_mouse_exited() -> void:
+	Global.in_exclusive_ui = false

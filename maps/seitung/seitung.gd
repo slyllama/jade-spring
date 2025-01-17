@@ -6,7 +6,7 @@ var y_target = 0.0
 func set_marker_pos() -> void: # set the position of the story marker
 	match Save.data.story_point:
 		"game_start": $StoryMarker.position = $Pulley.position
-		"pick_weeds": $StoryMarker.position = $WeedBin.position
+		"pick_weeds": $StoryMarker.position = $WeedBin.get_node("Collision").global_position
 		"clear_bugs": $StoryMarker.global_position = $Discombobulator/SpatialText.global_position - Vector3(0, 1.9, 0)
 		"_": $StoryMarker.position = Vector3(0, -10, 0) # hide under map
 

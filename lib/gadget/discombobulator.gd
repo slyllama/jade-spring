@@ -18,9 +18,13 @@ const DIALOGUE_DATA = {
 @onready var dialogue_data = DIALOGUE_DATA.duplicate()
 
 func proc_story() -> void:
-	if Save.data.story_point == "game_start":
+	var _p = Save.data.story_point
+	if _p == "game_start" or _p == "pick_weeds":
 		$Collision.active = false
 		$Collision.visible = false
+	else:
+		$Collision.active = true
+		$Collision.visible = true
 
 func _ready() -> void:
 	Save.story_advanced.connect(proc_story)

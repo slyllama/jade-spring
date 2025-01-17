@@ -33,6 +33,7 @@ var retina_scale = 1
 var safe_point: Marker3D
 var settings_open = false
 var snapping = false # don't snap by default
+var story_panel_open = false
 
 signal action_cam_enable # procs action cam
 signal action_cam_disable # procs action cam

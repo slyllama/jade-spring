@@ -75,7 +75,12 @@ func _input(event: InputEvent) -> void:
 		else: _enable_action_cam(true)
 	
 	if Input.is_action_just_pressed(get_parent().left_click) or Input.is_action_just_pressed("right_click"):
-		if !Global.in_exclusive_ui and !Global.mouse_in_ui:
+		if (
+			!Global.in_exclusive_ui and
+			!Global.mouse_in_ui and
+			!Global.dialogue_open and
+			!Global.story_panel_open and
+			!Global.settings_open):
 			_enable_action_cam()
 		if get_parent().orbit_disabled: return
 		if get_parent().mouse_in_ui:

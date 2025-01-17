@@ -23,9 +23,44 @@ func _get_weed_ratio () -> float:
 		/ float(Global.crumb_handler.totals.weed) * 100)
 	return(_ratio)
 
+func update_roster_visibility(pos: int) -> void:
+	if pos >= 0:
+		$Subtitle.visible = false
+		$WeedsText.visible = false
+		$WeedsBar.visible = false
+		$BugsText.visible = false
+		$BugsBar.visible = false
+		$DVText.visible = false
+		$DVBar.visible = false
+		
+		$MinorSeparator.visible = false
+		$B_U.visible = false
+		$B_L.visible = false
+		$Separator3.visible = false
+	if pos >= 1:
+		$Subtitle.visible = true
+		$WeedsText.visible = true
+		$WeedsBar.visible = true
+		
+		$MinorSeparator.visible = true
+		$B_U.visible = true
+		$B_L.visible = true
+		$Separator3.visible = true
+	if pos >= 2:
+		$BugsText.visible = true
+		$BugsBar.visible = true
+
 func proc_story() -> void:
 	# Update sidebar with story contents when the story is advanced
 	var _p = Save.data.story_point # story point shorthand
+	
+	if _p == "game_start":
+		update_roster_visibility(0)
+	elif _p == "pick_weeds":
+		update_roster_visibility(1)
+	elif _p == "clear_bugs":
+		update_roster_visibility(2)
+	
 	if _p in Save.STORY_POINT_SCRIPT:
 		var _d = Save.STORY_POINT_SCRIPT[_p] # data shorthand
 		if "objective" in Save.STORY_POINT_SCRIPT[_p]:
