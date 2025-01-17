@@ -81,6 +81,7 @@ func _ready() -> void:
 
 #region Skill button behaviour
 func skill_used(skill_id: String) -> void:
+	if !visible: return
 	match skill_id:
 		"delete": # delete a decoration - uses similar logic to 'select'
 			if Global.tool_mode == Global.TOOL_MODE_NONE:

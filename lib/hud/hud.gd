@@ -25,7 +25,7 @@ func _render_crumb_debug() -> String:
 func _show_int() -> void: # show the interaction indicator
 	$InteractEnter.play()
 	var fade_tween = create_tween()
-	fade_tween.tween_property($InteractIndicator, "modulate:a", 1.0, 0.1)
+	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.8, 0.1)
 func _hide_int() -> void: # hide the interaction indicator
 	var fade_tween = create_tween()
 	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.0, 0.1)
@@ -49,7 +49,10 @@ func _debug_cmd_lose_focus(clear = false) -> void:
 		Global.can_move = true
 
 func proc_story() -> void:
-	pass
+	if Save.data.story_point == "game_start":
+		$Toolbox.visible = false
+	else:
+		$Toolbox.visible = true
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -89,8 +92,10 @@ func _input(_event: InputEvent) -> void:
 			$TopLevel/DebugEntry.visible = false
 			visible = false
 		else:
-			$Toolbox.visible = true
-			$TopLevel/DebugEntry.visible = true
+			if Save.data.story_point != "game_start":
+				$Toolbox.visible = true
+			if Global.debug_enabled:
+				$TopLevel/DebugEntry.visible = true
 			visible = true
 func _ready() -> void:
 	Global.hud = self # reference

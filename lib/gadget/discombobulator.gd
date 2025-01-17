@@ -17,6 +17,15 @@ const DIALOGUE_DATA = {
 
 @onready var dialogue_data = DIALOGUE_DATA.duplicate()
 
+func proc_story() -> void:
+	if Save.data.story_point == "game_start":
+		$Collision.active = false
+		$Collision.visible = false
+
+func _ready() -> void:
+	Save.story_advanced.connect(proc_story)
+	proc_story()
+
 func _on_collision_interacted() -> void:
 	if Global.deco_pane_open or Global.dialogue_open: return
 	Global.generic_area_left.emit()

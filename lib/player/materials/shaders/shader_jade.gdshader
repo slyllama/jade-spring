@@ -37,7 +37,7 @@ void fragment() {
 		METALLIC = texture(mask, UV * 1.1).r;
 	}
 	EMISSION = ALBEDO * 0.5;
-	
+
 	{
 		// Distance Fade: Pixel Dither
 		float fade_distance = length(VERTEX);

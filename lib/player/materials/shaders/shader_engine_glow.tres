@@ -32,7 +32,7 @@ void fragment() {
 	ALBEDO = mix(screen_wobble, texture(screen_texture, SCREEN_UV).rgb, circle(UV, 0.25, 0.25));
 	ALPHA = 0.9;
 	ALBEDO += (1.0 - circle(UV, 0.01, 0.3)) * glow_color.rgb * 0.5;
-	
+
 	{
 		// Distance Fade: Pixel Dither
 		float fade_distance = length(VERTEX);

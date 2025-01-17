@@ -176,7 +176,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
-text = "Pick weeds"
+text = "Compost weeds"
 fit_content = true
 scroll_active = false
 
