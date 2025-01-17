@@ -64,7 +64,15 @@ const DecoData = {
 		"name": "Flower Patch",
 		"scene": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
-		"preview_scale": 1.00,
+		"preview_scale": 1.0,
+		"tags": ["Foliage"],
+		"show_floor": true
+	},
+	"lush_grass": {
+		"name": "Lush Grass",
+		"scene": "res://decorations/lush_grass/lush_grass.tscn",
+		"cursor_model": "res://decorations/lush_grass/lush_grass_model.tscn",
+		"preview_scale": 0.5,
 		"tags": ["Foliage"],
 		"show_floor": true
 	},

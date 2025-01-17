@@ -75,19 +75,19 @@ func _spawn_rotators() -> void:
 func _spawn_arrows() -> void:
 	_clear_arrows()
 	
-	var _arr_x = TestArrow.instantiate()
-	_arr_x.color = Color.RED
-	add_child(_arr_x)
-	_arr_x.rotation_degrees = Vector3(45.0, 45.0, 45.0)
-	arrows.append(_arr_x)
-	
-	#var _arr_x = GizmoArrow.new()
-	#if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
-		#_arr_x.initial_override_rotation = Vector3(0, 0, 0)
-	#_arr_x.set_color(Color.RED)
+	#var _arr_x = TestArrow.instantiate()
+	#_arr_x.color = Color.RED
 	#add_child(_arr_x)
+	#_arr_x.rotation_degrees = Vector3(45.0, 45.0, 45.0)
 	#arrows.append(_arr_x)
-	#_arr_x.drag_complete.connect(_spawn_arrows)
+	
+	var _arr_x = GizmoArrow.new()
+	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
+		_arr_x.initial_override_rotation = Vector3(0, 0, 0)
+	_arr_x.set_color(Color.RED)
+	add_child(_arr_x)
+	arrows.append(_arr_x)
+	_arr_x.drag_complete.connect(_spawn_arrows)
 	
 	var _arr_y = GizmoArrow.new()
 	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:

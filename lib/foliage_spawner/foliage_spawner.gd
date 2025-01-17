@@ -154,6 +154,7 @@ func set_density(get_density) -> void:
 func _ready() -> void:
 	for _n in get_children():
 		if _n is Label3D: _n.queue_free()
+	
 	if Engine.is_editor_hint():
 		var label = Label3D.new()
 		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -163,6 +164,18 @@ func _ready() -> void:
 		
 		add_child(label)
 		label.position.y = 0.5
+	
+	else:
+		SettingsHandler.setting_changed.connect(func(parameter):
+			var _value = SettingsHandler.settings[parameter]
+			match parameter:
+				"foliage_density":
+					var _d = 1.0 # ultra
+					if _value == "high": _d = 0.8
+					elif _value == "medium": _d = 0.6
+					elif _value == "low": _d = 0.4
+					set_density(_d)
+			)
 		
 	cast_shadow = SHADOW_CASTING_SETTING_OFF
 	# Prevent moss decals painting onto grass

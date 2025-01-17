@@ -37,13 +37,6 @@ func _ready() -> void:
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:
 			"window_mode": Utilities.set_window_mode(_value)
-			"foliage_density":
-				var _d = 1.0 # uldra
-				if _value == "high": _d = 0.8
-				elif _value == "medium": _d = 0.6
-				elif _value == "low": _d = 0.4
-				for _n in $Decoration/Foliage.get_children():
-					if _n is FoliageSpawner: _n.set_density(_d)
 			"volume": Utilities.set_master_vol()
 			"music_vol": $Jukebox.volume_db = linear_to_db(
 				clamp(float(_value) * 0.34, 0.0, 0.34))
