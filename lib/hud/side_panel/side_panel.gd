@@ -24,22 +24,6 @@ func _get_weed_ratio () -> float:
 	return(_ratio)
 
 func proc_story() -> void:
-	# TODO: show different depending on where we are at in the story.
-	#if Save.data.story_point == "pick_weeds":
-		#$B_U.visible = true
-		#$B_L.visible = true
-		#
-		#$WeedsText.visible = true
-		#$WeedsBar.visible = true
-	#if Save.data.story_point == "clear_bugs":
-		#$B_U.visible = true
-		#$B_L.visible = true
-		#
-		#$BugsText.visible = true
-		#$BugsBar.visible = true
-		#$WeedsText.visible = true
-		#$WeedsBar.visible = true
-	
 	# Update sidebar with story contents when the story is advanced
 	var _p = Save.data.story_point # story point shorthand
 	if _p in Save.STORY_POINT_SCRIPT:

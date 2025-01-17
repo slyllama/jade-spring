@@ -122,20 +122,12 @@ func _ready() -> void:
 		$Debug.visible = Global.debug_enabled)
 	
 	Global.summon_story_panel.connect(func(data):
-		# data = {
-		# 	"title": <title>,
-		# 	"description": <description>,
-		#	"objective": <string which displays on sidebar>
-		# }
-		if !"description" in data or !"title" in data:
-			return
+		if !"description" in data or !"title" in data: return
+		
 		var _sp = StoryPanel.instantiate()
 		add_child(_sp)
 		if "sticker" in data: _sp.open(data.title, data.description, data.sticker)
-		else: _sp.open(data.title, data.description)
-		
-		if "objective" in data: # set sidebar text
-			$SidePanel/StoryText.text = data.objective)
+		else: _sp.open(data.title, data.description))
 	
 	# Configure corner buttons to light up when hovered over
 	for _n in $CornerButtons.get_children():

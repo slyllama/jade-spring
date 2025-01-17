@@ -107,6 +107,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Title" type="RichTextLabel" parent="Base/Content"]
 layout_mode = 1
@@ -121,6 +122,7 @@ offset_right = 175.5
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 27
 bbcode_enabled = true
 text = "[center]1. A Helping Hand[/center]"
@@ -136,6 +138,7 @@ offset_right = -282.0
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/default_color = Color(0.75, 0.75, 0.75, 1)
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
@@ -155,6 +158,7 @@ offset_right = 68.5
 offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
 text = "Done"
 
 [node name="Sticker" type="TextureRect" parent="Base/Content"]
@@ -204,5 +208,7 @@ stretch_mode = 0
 [node name="Paper" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_e0q63")
 
+[connection signal="mouse_entered" from="Base" to="." method="_on_base_mouse_entered"]
+[connection signal="mouse_exited" from="Base" to="." method="_on_base_mouse_exited"]
 [connection signal="button_down" from="Base/Content/Done" to="." method="close"]
 [connection signal="button_down" from="CloseButton" to="." method="close"]

@@ -6,9 +6,11 @@ var qc
 func open(silent = false) -> void:
 	super(silent)
 	$Container/Done.grab_focus()
+	Global.settings_open = true
 	Global.action_cam_disable.emit()
 
 func close() -> void:
+	Global.settings_open = false
 	Global.action_cam_enable.emit()
 	if qc != null:
 		qc.queue_free()

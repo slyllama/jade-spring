@@ -131,6 +131,7 @@ _data = {
 }
 
 [node name="Dialogue" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_pyvfo")
 
 [node name="Base" type="TextureRect" parent="."]

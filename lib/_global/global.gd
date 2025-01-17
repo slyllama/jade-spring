@@ -31,6 +31,7 @@ var player_y_rotation = 0.0
 var popup_open = false
 var retina_scale = 1
 var safe_point: Marker3D
+var settings_open = false
 var snapping = false # don't snap by default
 
 signal action_cam_enable # procs action cam
