@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=92 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -51,7 +51,6 @@
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
-[ext_resource type="PackedScene" uid="uid://v80u5m4n4t2k" path="res://lib/crumb/nettles.tscn" id="52_83q7y"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -324,25 +323,25 @@ visible = false
 target_position = Vector3(0, -5, 0)
 
 [node name="Weed" parent="CrumbHandler" index="0" instance=ExtResource("5_e2aho")]
-transform = Transform3D(0.478508, 0, 0.878083, 0, 1, 0, -0.878083, 0, 0.478508, -7.91137, 1.02412, -0.870027)
+transform = Transform3D(0.478508, 0, 0.878083, 0, 1, 0, -0.878083, 0, 0.478508, -7.91137, 0.450742, -0.870027)
 
 [node name="Weed5" parent="CrumbHandler" index="1" instance=ExtResource("5_e2aho")]
-transform = Transform3D(0.98899, 0, -0.147982, 0, 1, 0, 0.147982, 0, 0.98899, -5.56696, 1.02412, -4.45075)
+transform = Transform3D(0.98899, 0, -0.147982, 0, 1, 0, 0.147982, 0, 0.98899, -5.56696, 0.316553, -4.45075)
 
 [node name="Weed2" parent="CrumbHandler" index="2" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.437273, 0, -0.899329, 0, 1, 0, 0.899329, 0, -0.437273, -10.0037, 1.0178, 1.40742)
+transform = Transform3D(-0.437273, 0, -0.899329, 0, 1, 0, 0.899329, 0, -0.437273, -10.0037, 0.551414, 1.40742)
 
 [node name="Weed3" parent="CrumbHandler" index="3" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -7.86756, 0.702664, 3.2023)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -7.86756, 0.164885, 3.2023)
 
 [node name="Weed4" parent="CrumbHandler" index="4" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -5.82848, 0.736776, 7.36174)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -5.65845, 0.0851234, 7.37172)
 
 [node name="Weed6" parent="CrumbHandler" index="5" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, 1.24751, 1.35037, 1.94852)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, 1.24751, 0.805359, 1.94852)
 
 [node name="Weed7" parent="CrumbHandler" index="6" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.942402, 0, 0.334482, 0, 1, 0, -0.334482, 0, -0.942402, 1.2251, 0.73165, 6.91188)
+transform = Transform3D(-0.942402, 0, 0.334482, 0, 1, 0, -0.334482, 0, -0.942402, 1.2251, 0.325138, 6.91188)
 
 [node name="BugSwarm" parent="CrumbHandler" index="7" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1758, 0.859013, 8.27941)
@@ -1135,9 +1134,3 @@ shape = SubResource("WorldBoundaryShape3D_8o4md")
 [node name="WB5" type="CollisionShape3D" parent="WorldBoundaries" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5, 0)
 shape = SubResource("WorldBoundaryShape3D_x1c88")
-
-[node name="NettleWeed" parent="." index="20" instance=ExtResource("52_83q7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245097, 0.555666, -0.657708)
-
-[node name="NettleWeed2" parent="." index="21" instance=ExtResource("52_83q7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.797181, 0.555666, -2.44503)

@@ -7,8 +7,8 @@
 render_priority = 0
 shader = ExtResource("1_i20eq")
 shader_parameter/albedo = Color(0.6, 0.6, 0.6, 1)
-shader_parameter/distance_fade_min = 10.0
-shader_parameter/distance_fade_max = 9.0
+shader_parameter/distance_fade_min = 15.0
+shader_parameter/distance_fade_max = 14.0
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/alpha_antialiasing_edge = 0.0
 shader_parameter/backlight = 0.1

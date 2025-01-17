@@ -5,8 +5,10 @@ class_name CrumbHandler extends Node
 const BugSwarm = preload("res://lib/crumb/bug_swarm.tscn")
 const Weed = preload("res://lib/crumb/weed.tscn")
 const Dragonvoid = preload("res://lib/crumb/dragonvoid.tscn")
+const Nettles = preload("res://lib/crumb/weed/nettles.glb")
 
 var totals = {}
+var RNG = RandomNumberGenerator.new()
 
 # Save crumb types and positions to file
 func save_crumbs() -> void:
@@ -60,6 +62,20 @@ func _ready() -> void:
 	await get_tree().process_frame
 	if Save.data.crumbs != []: load_crumbs()
 	else: update_crumb_count()
+	
+	for _n in get_children(): # weed variety
+		if _n is Crumb and RNG.randf() > 0.57:
+			if _n.type == "weed":
+				var _mesh_base: MeshInstance3D = _n.get_node_or_null("WeedMesh")
+				if _mesh_base:
+					for _o in _mesh_base.get_children():
+						_o.queue_free()
+					var _nettles = Nettles.instantiate()
+					_mesh_base.add_child(_nettles)
+					_mesh_base.set_mesh(null)
+					var _title = _n.get_node_or_null("SpatialText")
+					if _title:
+						_title.spatial_string = "Nettles"
 	
 	Global.crumbs_updated.connect(func():
 		# Wait for the node to be freed
