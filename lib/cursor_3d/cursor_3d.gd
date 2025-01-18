@@ -8,12 +8,17 @@ var cursor_area := CursorArea.new()
 var highlight_on_decoration := true
 var y_rotation := 0.0 # this will be added to the rotation
 var y_rotation_offset := 0.0
+var xray: XRayMesh
 var disabled = false
 var data = {}
 
 func set_cursor_tint(color: Color):
-	if disabled or !highlight_on_decoration: return
-	for _n in Utilities.get_all_children(cursor_sphere):
+	var target: Node3D = cursor_sphere
+	if data == {}:
+		if disabled or !highlight_on_decoration: return
+	elif xray:
+		target = xray
+	for _n in Utilities.get_all_children(target):
 		if _n is MeshInstance3D:
 			_n.get_active_material(0).set_shader_parameter("albedo", color)
 
@@ -35,7 +40,7 @@ func activate(get_data: Dictionary) -> void:
 	
 	# Cursor tint and radius is ignored if a custom model is used
 	if "custom_model" in data:
-		var xray = XRayMesh.new()
+		xray = XRayMesh.new()
 		var model = data.custom_model.instantiate()
 		xray.add_child(model)
 		add_child(xray)
@@ -118,8 +123,14 @@ func _process(_delta: float) -> void:
 		position = intersect.position
 		Global.mouse_3d_position = intersect.position
 		_target_normal = intersect.normal
-		if intersect.collider.get_parent() is Decoration:
-			set_cursor_tint(Color.GREEN)
+		if data == {}:
+			if intersect.collider.get_parent() is Decoration:
+				set_cursor_tint(Color.GREEN)
+		else: # tinting for decoration placement
+			if Global.cursor_in_safe_point():
+				set_cursor_tint(Color.RED)
+			else:
+				set_cursor_tint(Color.GREEN_YELLOW)
 	else:
 		Global.mouse_3d_position = Utilities.BIGVEC3 # set an impossible position
 		if visible:
@@ -128,7 +139,6 @@ func _process(_delta: float) -> void:
 	# Hide the cursor while panning with the mouse
 	if visible and Global.camera_orbiting: visible = false
 	if !visible and !Global.camera_orbiting: visible = true
-	
 	if Global.mouse_in_ui: visible = false
 	
 	# Get the facing angle (y-axis) from the player to the 3D cursor

@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 	add_child(collision)
 	input_ray_pickable = false
-	set_collision_layer_value(2, 1)
-	set_collision_mask_value(2, 1)
+	set_collision_layer_value(8, 1)
+	set_collision_mask_value(8, 1)
 	set_collision_layer_value(4, 0)
 	set_collision_mask_value(4, 0)

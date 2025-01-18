@@ -2,6 +2,8 @@ extends Node
 
 var start_params = { "new_save" = false }
 
+const SPAWN_RADIUS = 2.0 # protect area around spawn point
+
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
 var save_handler: SaveHandler
@@ -169,6 +171,15 @@ func set_cursor(state = true, data = {}) -> void:
 func go_to_safe_point() -> void:
 	if safe_point:
 		move_player.emit(safe_point.global_position)
+
+func cursor_in_safe_point() -> bool:
+	var _coord := Vector2(mouse_3d_position.x, mouse_3d_position.z)
+	var _safe_point_coord := Vector2(
+			safe_point.global_position.x, safe_point.global_position.z)
+	if _coord.distance_to(_safe_point_coord) < SPAWN_RADIUS:
+		return(true)
+	else:
+		return(false)
 
 const Flash = preload("res://lib/flash/flash.tscn")
 func play_flash(screen_position: Vector2) -> void:

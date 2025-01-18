@@ -5,3 +5,4 @@
 [resource]
 render_priority = 2
 shader = ExtResource("1_3kp18")
+shader_parameter/albedo = Color(1, 1, 0, 1)

@@ -83,6 +83,7 @@ func _ready() -> void:
 	else: _load_decorations(_load_decoration_file())
 	
 	Global.mouse_3d_click.connect(func():
+		if Global.cursor_in_safe_point(): return
 		if Global.tool_mode == Global.TOOL_MODE_PLACE:
 			place_decoration({
 				"position": Global.mouse_3d_position,
