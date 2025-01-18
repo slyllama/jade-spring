@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm1eu0vwmgnl0"]
+[gd_scene load_steps=6 format=3 uid="uid://bm1eu0vwmgnl0"]
 
 [ext_resource type="Script" path="res://lib/gadget/discombobulator.gd" id="1_3e5cj"]
 [ext_resource type="PackedScene" uid="uid://dyis7gg7cjq3c" path="res://maps/seitung/props/cleaning_station/cleaning_station.glb" id="1_4xwxo"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="2_melv0"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="3_gw0sx"]
+[ext_resource type="PackedScene" uid="uid://bp20w7u5bdeoa" path="res://maps/seitung/meshes/wp_base.glb" id="5_q05wt"]
 
 [node name="Discombobulator" type="Node3D"]
 script = ExtResource("1_3e5cj")
@@ -25,5 +26,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
 reset_on_interact = false
 show_area = true
 tint_color = Color(0.225872, 0.778397, 0, 1)
+
+[node name="SpawnPlatform3" parent="." instance=ExtResource("5_q05wt")]
+transform = Transform3D(1.17943, 0.0365912, 0, -0.0365912, 1.17943, 0, 0, 0, 1.18, 0, -0.204598, 0.827193)
 
 [connection signal="interacted" from="Collision" to="." method="_on_collision_interacted"]

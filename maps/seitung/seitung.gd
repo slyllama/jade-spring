@@ -43,4 +43,4 @@ func _process(delta: float) -> void:
 	var _player_z = Global.player_position.z
 	var _ocean_proximity = clamp((_player_z - OCEAN_Z_MIN) / (OCEAN_Z_MAX - OCEAN_Z_MIN), 0.0, 1.0)
 	$Ambience/Ocean.volume_db = linear_to_db(_ocean_proximity * 0.85)
-	$Decoration/SpawnPlatform/Waypoint.rotation.y += delta
+	$Decoration/PlatformInner/Waypoint.rotation.y += delta
