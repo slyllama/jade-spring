@@ -93,7 +93,7 @@ func _render_moss() -> void:
 		moss_decal.modulate = moss_color
 		moss_decal.size = Vector3(
 			size * moss_scaling, 2.5, size * moss_scaling)
-		moss_decal.cull_mask = 1
+		moss_decal.cull_mask = 0b00000000_00000000_00000000_00001000
 		
 		# Distance fading
 		moss_decal.distance_fade_enabled = true

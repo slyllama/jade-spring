@@ -293,7 +293,7 @@ transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, 1.24751, 0.805359, 1.94852)
 
 [node name="Weed7" parent="CrumbHandler" index="6" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.942402, 0, 0.334482, 0, 1, 0, -0.334482, 0, -0.942402, 1.2251, 0.325138, 6.91188)
+transform = Transform3D(-0.942402, 0, 0.334482, 0.00102162, 0.999995, 0.0028784, -0.33448, 0.00305432, -0.942398, 1.2251, 0.325138, 6.91188)
 
 [node name="BugSwarm" parent="CrumbHandler" index="7" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1758, 0.859013, 8.27941)
@@ -320,19 +320,7 @@ transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.9990
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -0.759537, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_ixf13")
 
-[node name="Rock" parent="." index="5" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-7.099, 0, -2.14414e-07, 0, 2.3, 0, 1.07192e-06, 0, -1.42, 2.44914, -4.53567, 48.0775)
-
-[node name="Rock2" parent="." index="6" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.0877378, -0.806011, 4.75906e-08, -2.06341, -17.6536, -4.77078, 45.2459)
-
-[node name="Rock4" parent="." index="7" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-1.86267, 0, 1.87222, 0, 2.555, 0, -3.62437, 0, -0.962191, -42.4968, -0.917976, 40.3189)
-
-[node name="Rock3" parent="." index="8" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
-
-[node name="Ambience" parent="." index="9"]
+[node name="Ambience" parent="." index="5"]
 volume_db = 0.0
 
 [node name="Ocean" type="AudioStreamPlayer" parent="Ambience" index="0"]
@@ -840,7 +828,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048569
+cull_mask = 8
 
 [node name="MossDecal2" type="Decal" parent="Decoration/Decals" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.36512, -2.38419e-07, 4.12021)
@@ -851,7 +839,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048569
+cull_mask = 8
 
 [node name="MossDecal3" type="Decal" parent="Decoration/Decals" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19526, 0.669289, 6.20711)
@@ -863,7 +851,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.5
-cull_mask = 1048569
+cull_mask = 8
 
 [node name="MossDecal5" type="Decal" parent="Decoration/Decals" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15209, 0.669289, 1.82992)
@@ -875,7 +863,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.5
-cull_mask = 1048569
+cull_mask = 8
 
 [node name="MossDecal4" type="Decal" parent="Decoration/Decals" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3739, 0.669289, 11.8825)
@@ -886,7 +874,7 @@ normal_fade = 0.5
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048569
+cull_mask = 8
 
 [node name="RockDecal2" type="Decal" parent="Decoration/Decals" index="5"]
 transform = Transform3D(0.9, 0, 0, 0, 0.615966, -0.65619, 0, 0.65619, 0.615966, -3.69045, -1.59911, -12.9086)
@@ -896,7 +884,7 @@ modulate = Color(0.661081, 0.661081, 0.661081, 1)
 upper_fade = 0.01
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 8
 
 [node name="RockDecal3" type="Decal" parent="Decoration/Decals" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36661, -0.542348, 2.28208)
@@ -907,7 +895,7 @@ normal_fade = 0.455
 upper_fade = 0.01
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 8
 
 [node name="RockDecal5" type="Decal" parent="Decoration/Decals" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36661, -0.625004, 2.85193)
@@ -918,7 +906,7 @@ normal_fade = 0.455
 upper_fade = 0.01
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 8
 
 [node name="RockDecal4" type="Decal" parent="Decoration/Decals" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53259, -1.07418, 11.5972)
@@ -929,7 +917,7 @@ normal_fade = 0.455
 upper_fade = 0.01
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
-cull_mask = 1048573
+cull_mask = 8
 
 [node name="Motes" type="GPUParticles3D" parent="Decoration" index="39"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
@@ -951,28 +939,28 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="SafePoint" parent="." index="12"]
+[node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97531, 1.41256, 2.85007)
 
-[node name="Jukebox" parent="." index="13"]
+[node name="Jukebox" parent="." index="9"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("28_wohrl")])
 
-[node name="Landscape" parent="." index="14" instance=ExtResource("10_vndj8")]
+[node name="Landscape" parent="." index="10" instance=ExtResource("10_vndj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
-[node name="Discombobulator" parent="." index="15" instance=ExtResource("29_5yngu")]
+[node name="Discombobulator" parent="." index="11" instance=ExtResource("29_5yngu")]
 transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
 
-[node name="Pulley" parent="." index="16" instance=ExtResource("9_2e7lr")]
+[node name="Pulley" parent="." index="12" instance=ExtResource("9_2e7lr")]
 transform = Transform3D(-0.43867, 0, 1.27674, 0, 1.35, 0, -1.27674, 0, -0.43867, -10.8689, 0.828593, 3.6488)
 
-[node name="WeedBin" parent="." index="17" instance=ExtResource("28_m4ym0")]
+[node name="WeedBin" parent="." index="13" instance=ExtResource("28_m4ym0")]
 transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)
 
-[node name="StoryMarker" parent="." index="18"]
+[node name="StoryMarker" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461254, -5.00618, 0.0370162)
 
-[node name="WorldBoundaries" type="StaticBody3D" parent="." index="19"]
+[node name="WorldBoundaries" type="StaticBody3D" parent="." index="15"]
 collision_layer = 136
 collision_mask = 136
 
@@ -995,3 +983,41 @@ shape = SubResource("WorldBoundaryShape3D_8o4md")
 [node name="WB5" type="CollisionShape3D" parent="WorldBoundaries" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5, 0)
 shape = SubResource("WorldBoundaryShape3D_x1c88")
+
+[node name="Hills" type="Node3D" parent="WorldBoundaries" index="5"]
+
+[node name="Rock" parent="WorldBoundaries/Hills" index="0" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-7.099, 0, -2.14414e-07, 0, 2.3, 0, 1.07192e-06, 0, -1.42, 2.44914, -4.53567, 48.0775)
+
+[node name="Rock2" parent="WorldBoundaries/Hills" index="1" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.0877378, -0.806011, 4.75906e-08, -2.06341, -17.6536, -4.77078, 45.2459)
+
+[node name="Rock4" parent="WorldBoundaries/Hills" index="2" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-1.86267, 0, 1.87222, 0, 2.555, 0, -3.62437, 0, -0.962191, -42.4968, -0.917976, 40.3189)
+
+[node name="Rock3" parent="WorldBoundaries/Hills" index="3" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
+
+[node name="Hills3" type="Node3D" parent="WorldBoundaries" index="6"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Rock" parent="WorldBoundaries/Hills3" index="0" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-7.099, 0, -2.14414e-07, 0, 2.3, 0, 1.07192e-06, 0, -1.42, 2.44914, -4.53567, 48.0775)
+
+[node name="Rock2" parent="WorldBoundaries/Hills3" index="1" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.0877378, -0.806011, 4.75906e-08, -2.06341, -17.6536, -4.77078, 45.2459)
+
+[node name="Rock4" parent="WorldBoundaries/Hills3" index="2" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-1.86267, 0, 1.87222, 0, 2.555, 0, -3.62437, 0, -0.962191, -42.4968, -0.917976, 40.3189)
+
+[node name="Hills2" type="Node3D" parent="WorldBoundaries" index="7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Rock" parent="WorldBoundaries/Hills2" index="0" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-7.099, 0, -2.14414e-07, 0, 2.3, 0, 1.07192e-06, 0, -1.42, 2.44914, -4.53567, 48.0775)
+
+[node name="Rock2" parent="WorldBoundaries/Hills2" index="1" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.0877378, -0.806011, 4.75906e-08, -2.06341, -17.6536, -4.77078, 45.2459)
+
+[node name="Rock3" parent="WorldBoundaries/Hills2" index="2" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
