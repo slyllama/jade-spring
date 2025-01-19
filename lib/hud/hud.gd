@@ -25,7 +25,7 @@ func _render_crumb_debug() -> String:
 func _show_int() -> void: # show the interaction indicator
 	$InteractEnter.play()
 	var fade_tween = create_tween()
-	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.8, 0.1)
+	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.9, 0.1)
 func _hide_int() -> void: # hide the interaction indicator
 	var fade_tween = create_tween()
 	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.0, 0.1)

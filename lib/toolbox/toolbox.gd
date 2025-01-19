@@ -7,15 +7,23 @@ func clear_skills() -> void:
 			_b.switch_skill("empty")
 
 func set_default_skills() -> void:
+	var _p = Save.data.story_point
+	
 	clear_skills()
 	$Box/Skill1.switch_skill("select")
 	$Box/Skill2.switch_skill("deco_test")
-	$Box/Skill2.set_enabled()
 	$Box/Skill3.switch_skill("delete")
 	$Box/Skill4.switch_skill("safe_point")
-	#$Box/Skill5.switch_skill("debug_skill")
-	# TODO: disabled for initial release
-	#$Box/Skill5.switch_skill("toggle_walk_mode")
+	
+	if _p == "game_start" or _p == "pick_weeds":
+		$Box/Skill1.set_enabled(false)
+		$Box/Skill2.set_enabled(false)
+		$Box/Skill3.set_enabled(false)
+	else:
+		$Box/Skill1.set_enabled()
+		$Box/Skill2.set_enabled()
+		$Box/Skill3.set_enabled()
+	
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.queued_decoration = "none"
 	Global.set_cursor(false)
@@ -26,17 +34,22 @@ func get_button_by_id(id: String):
 			return(_n)
 
 func _ready() -> void:
+	Save.story_advanced.connect(func():
+		$SkillSwap.volume_db = linear_to_db(0)
+		set_default_skills()
+		$SkillSwap.volume_db = linear_to_db(1)
+	)
+	
 	Global.deco_placement_started.connect(func():
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel")
 		$Box/Skill2.switch_skill("rotate_left")
 		$Box/Skill3.switch_skill("rotate_right"))
 	
-	#Global.deco_placed.connect(set_default_skills)
 	Global.deco_deleted.connect(func():
-		#set_default_skills()
 		await get_tree().process_frame
 		Global.command_sent.emit("/savedeco"))
+	
 	Global.deco_placement_canceled.connect(set_default_skills)
 	
 	Global.adjustment_started.connect(func():
@@ -44,15 +57,9 @@ func _ready() -> void:
 		Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 		$Box/Skill1.switch_skill("accept")
 		$Box/Skill2.switch_skill("adjust_mode_rotate")
-		
-		#if !Global.snapping: $Box/Skill3.switch_skill("snap_enable")
-		#else: $Box/Skill3.switch_skill("snap_disable")
 		Global.snapping = false
-		if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
-			$Box/Skill3.switch_skill("snap_enable")
-		else:
-			$Box/Skill3.switch_skill("snap_forbidden")
-		
+		if Global.transform_mode == Global.TRANSFORM_MODE_WORLD: $Box/Skill3.switch_skill("snap_enable")
+		else: $Box/Skill3.switch_skill("snap_forbidden")
 		$Box/Skill4.switch_skill("transform_mode")
 		$Box/Skill5.switch_skill("reset_adjustment")
 		$Box/Skill6.switch_skill("cancel"))

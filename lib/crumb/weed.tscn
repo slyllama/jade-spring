@@ -220,6 +220,7 @@ type = "weed"
 area_radius = 0.6
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0302693, -0.0141677, -0.999441, -0.0314357, 0.999391, -0.015119, 0.999047, 0.0318758, 0.0298055, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]
@@ -228,7 +229,7 @@ mesh = SubResource("ArrayMesh_nf87d")
 skeleton = NodePath("../..")
 
 [node name="WeedMeshBase" type="MeshInstance3D" parent="WeedMesh/Core"]
-transform = Transform3D(1.67734, 2.77971e-09, 1.08928, 0, 0.5, -2.04151e-08, -1.08928, 4.28038e-09, 1.67734, 0, 0, 0)
+transform = Transform3D(1.09027, 2.77972e-09, 0.708032, 0, 0.5, -1.32698e-08, -0.708032, 4.28038e-09, 1.09027, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nf87d")
 skeleton = NodePath("../../..")
 

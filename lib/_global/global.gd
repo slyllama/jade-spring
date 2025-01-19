@@ -134,7 +134,7 @@ signal rotate_left_90 # rotate global position to the next nearest 90deg
 signal rotate_right_90 # rotate global position to the last nearest 90deg
 signal transform_mode_changed(transform_mode)
 
-const SNAP_INCREMENT = 0.25
+const SNAP_INCREMENT = 0.5
 
 var decorations = [] # references to decorations will populate here
 var active_decoration: Decoration = null # decoration currently being adjusted

@@ -104,6 +104,7 @@ func set_highlight(state = true) -> void:
 	$ActiveOverlay.visible = state
 
 func set_enabled(state = true) -> void:
+	$LockedOverlay.visible = !state
 	enabled = state
 	if !enabled: $Image.modulate = Color(0.27, 0.27, 0.27)
 	else: $Image.modulate = Color.WHITE
