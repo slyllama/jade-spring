@@ -1,7 +1,7 @@
 @icon("res://lib/gizmo/icon_gizmo.svg")
 class_name GizmoScale extends Node3D
 
-const ScaleMesh = preload("res://lib/gizmo/meshes/gizmo_scale.res")
+const ScaleMesh = preload("res://gizmo_test/meshes/arrow_meshes_arrow_scale.res")
 const Dragger = preload("res://lib/dragger/dragger.tscn")
 
 var enabled = false
@@ -32,13 +32,14 @@ func _ready() -> void:
 		global_rotation = Vector3.ZERO
 	
 	# Set up grabber from PickBox
-	grabber.set_size(Vector3(0.35, 0.35, 0.35))
+	grabber.set_size(Vector3(0.35, 0.55, 0.35))
 	grabber.make_ui_component()
+	grabber.position.y = -0.6
 	add_child(grabber)
 	
 	# Set up visible mesh
-	scale_visual.mesh = BoxMesh.new()
-	scale_visual.mesh.size = Vector3(0.14, 0.14, 0.14)
+	scale_visual.mesh = ScaleMesh
+	#scale_visual.mesh.size = Vector3(0.14, 0.14, 0.14)
 	scale_visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	scale_visual.set_layer_mask_value(1, 0)
 	scale_visual.set_layer_mask_value(2, 0)
@@ -46,9 +47,10 @@ func _ready() -> void:
 	grabber.add_child(scale_visual)
 	#scale_visual.position.y = -0.25
 	scale_visual.scale = Vector3(0.01, 0.01, 0.01)
+	scale_visual.position.y = 0.2
 	
 	var scale_in_tween = create_tween()
-	scale_in_tween.tween_property(scale_visual, "scale", Vector3(1.5, 1.5, 1.5), 0.15)
+	scale_in_tween.tween_property(scale_visual, "scale", Vector3(0.8, 0.8, 0.8), 0.15)
 	
 	mat.shader = load("res://generic/materials/shaders/shader_color.gdshader")
 	mat.render_priority = 3

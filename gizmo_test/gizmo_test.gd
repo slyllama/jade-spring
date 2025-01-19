@@ -24,7 +24,8 @@ func _set_color() -> void:
 		"color", color * tint)
 
 func set_enabled(state: bool) -> void:
-	if !state: tint = 0.5
+	if !state:
+		tint = 0.5
 	
 	enabled = state
 	$Drag/Collision.disabled = !state
@@ -99,14 +100,28 @@ func _process(delta: float) -> void:
 		$Drag/Cast.position.x += 25.0
 		if $Drag/Cast.get_collider() and dragging:
 			top_level = true
+			
 			$Drag/Pick.global_position = lerp(
 				$Drag/Pick.global_position,
 				$Drag/Cast.get_collision_point() + collision_delta,
 				delta * 20.0)
-	get_parent().global_position = $Drag/Pick.global_position
+	if !Global.snapping:
+		get_parent().global_position = $Drag/Pick.global_position
+	else:
+		get_parent().global_position = Vector3(
+			snapped($Drag/Pick.global_position.x, Global.SNAP_INCREMENT),
+			snapped($Drag/Pick.global_position.y, Global.SNAP_INCREMENT),
+			snapped($Drag/Pick.global_position.z, Global.SNAP_INCREMENT)
+		)
+
+var _just_pressed = false
 
 func _on_pick_input_event(_c, _e, _p, _n, _i) -> void:
 	if Input.is_action_just_pressed("left_click"):
+		if _just_pressed: return # no repeats
+		_just_pressed = true
+		await get_tree().process_frame
+		
 		if !dragging:
 			_wait_frame = 0
 			dragging = true
