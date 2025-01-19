@@ -1,15 +1,34 @@
 extends Node3D
 
+signal drag_complete
+
 var dragging = false # is the player dragging the pick box at the moment?
 var last_collision = Vector3.ZERO
 var collision_delta = Vector3.ZERO
+var enabled = true
+
+@export var tint = 0.5:
+	get: return(tint)
+	set(_val):
+		tint = _val
+		_set_color()
 
 @export var color = Color.WHITE:
 	get: return(color)
 	set(_val):
 		color = _val
-		$Drag/Pick/Box.get_active_material(0).set_shader_parameter(
-			"color", _val)
+		_set_color()
+
+func _set_color() -> void:
+	$Drag/Pick/Box.get_active_material(0).set_shader_parameter(
+		"color", color * tint)
+
+func set_enabled(state: bool) -> void:
+	if !state: tint = 0.5
+	
+	enabled = state
+	$Drag/Collision.disabled = !state
+	$Drag/Adjacent/Collision.disabled = !state
 
 func destroy() -> void:
 	queue_free()
@@ -33,18 +52,42 @@ func get_drag_collision():
 	else: return(null)
 
 func _input(_event) -> void:
+	if !enabled: return
 	if Input.is_action_just_released("left_click"):
 		if dragging:
+			set_enabled(false)
 			dragging = false
+			drag_complete.emit()
 			var inflate = create_tween()
 			inflate.tween_property(
 				$Drag/Pick/Box, "scale", Vector3(1.0, 1.0, 1.0), 0.1
 			).set_ease(Tween.EASE_IN_OUT)
 
 func _ready() -> void:
-	top_level = true
+	set_disable_scale(true)
+	set_enabled(false)
+	$Drag/Pick/VisualAxis.visible = false
+	
+	for _n in Utilities.get_all_children(self):
+		if _n is CollisionShape3D:
+			var _s = _n.shape.duplicate()
+			_n.shape = _s
+	
+	var _mat = $Drag/Pick/Box.get_active_material(0).duplicate()
+	$Drag/Pick/Box.set_surface_override_material(0, _mat)
+	
+	Global.drag_started.connect(func():
+		$Drag/Pick/Collision.queue_free()
+		if !dragging: destroy())
+
+var _wait_frame: int = 0
 
 func _process(delta: float) -> void:
+	_wait_frame += 1
+	if !enabled: return
+	if _wait_frame < 3: return
+	
+	top_level = false
 	$Drag.look_at(Global.player_position)
 	$Drag.rotation *= Vector3(0, 1, 0)
 	
@@ -55,17 +98,20 @@ func _process(delta: float) -> void:
 		$Drag/Cast.global_position = _coll
 		$Drag/Cast.position.x += 25.0
 		if $Drag/Cast.get_collider() and dragging:
+			top_level = true
 			$Drag/Pick.global_position = lerp(
 				$Drag/Pick.global_position,
 				$Drag/Cast.get_collision_point() + collision_delta,
 				delta * 20.0)
-	
 	get_parent().global_position = $Drag/Pick.global_position
 
 func _on_pick_input_event(_c, _e, _p, _n, _i) -> void:
-	if Input.is_action_pressed("left_click"):
+	if Input.is_action_just_pressed("left_click"):
 		if !dragging:
+			_wait_frame = 0
 			dragging = true
+			$Drag/Pick/VisualAxis.visible = true
+			Global.drag_started.emit()
 			
 			var inflate = create_tween()
 			inflate.tween_property(
@@ -74,5 +120,14 @@ func _on_pick_input_event(_c, _e, _p, _n, _i) -> void:
 			last_collision = $Drag/Cast.get_collision_point()
 			collision_delta = $Drag/Pick.global_position - last_collision
 
-func _on_pick_mouse_entered() -> void: Global.mouse_in_ui = true
-func _on_pick_mouse_exited() -> void: Global.mouse_in_ui = false
+func _on_pick_mouse_entered() -> void:
+	if dragging: return
+	set_enabled(true)
+	tint = 1.0
+	Global.mouse_in_ui = true
+
+func _on_pick_mouse_exited() -> void:
+	if !dragging:
+		set_enabled(false)
+		tint = 0.5
+	Global.mouse_in_ui = false

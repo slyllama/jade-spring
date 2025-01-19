@@ -4,16 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_tii11"]
 [ext_resource type="ArrayMesh" uid="uid://d12wkjql05lhp" path="res://lib/gizmo/meshes/gizmo_arrow.res" id="3_r78a4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdnpn"]
-shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_dxfsn"]
-material = SubResource("StandardMaterial3D_sdnpn")
-top_radius = 0.01
-bottom_radius = 0.01
-height = 1.0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wwa8"]
 cull_mode = 2
 albedo_color = Color(0.75, 0.75, 0.75, 1)
@@ -25,7 +15,20 @@ material = SubResource("StandardMaterial3D_7wwa8")
 orientation = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ntqm"]
-size = Vector3(50, 50, 0.01)
+size = Vector3(10, 100, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdnpn"]
+render_priority = 4
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.196078)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dxfsn"]
+material = SubResource("StandardMaterial3D_sdnpn")
+top_radius = 0.003
+bottom_radius = 0.003
+height = 50.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r0l5d"]
 size = Vector3(0.2, 0.6, 0.2)
@@ -53,13 +56,6 @@ target_position = Vector3(-50, 0, 0)
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
-
-[node name="Axis2" type="MeshInstance3D" parent="Drag/Cast"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-layers = 2
-mesh = SubResource("CylinderMesh_dxfsn")
-skeleton = NodePath("../../..")
 
 [node name="Plane" type="MeshInstance3D" parent="Drag"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -91,12 +87,18 @@ shape = SubResource("BoxShape3D_6ntqm")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Box" type="MeshInstance3D" parent="Drag/Pick"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.203837, 0)
 layers = 2
 mesh = ExtResource("3_r78a4")
 
+[node name="VisualAxis" type="MeshInstance3D" parent="Drag/Pick"]
+visible = false
+layers = 2
+mesh = SubResource("CylinderMesh_dxfsn")
+skeleton = NodePath("../../..")
+
 [node name="Collision" type="CollisionShape3D" parent="Drag/Pick"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.351379, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555216, 0)
 shape = SubResource("BoxShape3D_r0l5d")
 
 [node name="Axis" type="MeshInstance3D" parent="."]
