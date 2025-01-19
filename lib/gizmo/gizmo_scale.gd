@@ -1,7 +1,7 @@
 @icon("res://lib/gizmo/icon_gizmo.svg")
 class_name GizmoScale extends Node3D
 
-const ScaleMesh = preload("res://gizmo_test/meshes/arrow_meshes_arrow_scale.res")
+const ScaleMesh = preload("res://lib/gizmo/gizmo_arrow/meshes/arrow_meshes_arrow_scale.res")
 const Dragger = preload("res://lib/dragger/dragger.tscn")
 
 var enabled = false
@@ -34,7 +34,7 @@ func _ready() -> void:
 	# Set up grabber from PickBox
 	grabber.set_size(Vector3(0.35, 0.55, 0.35))
 	grabber.make_ui_component()
-	grabber.position.y = -0.6
+	grabber.position.y = -0.9
 	add_child(grabber)
 	
 	# Set up visible mesh

@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=3 uid="uid://cs1adbapshsfb"]
+
+[ext_resource type="Script" path="res://lib/gizmo/gizmo_arrow/gizmo_arrow.gd" id="1_xynbh"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_gc747"]
+[ext_resource type="ArrayMesh" uid="uid://burxoykeai0o5" path="res://lib/gizmo/gizmo_arrow/meshes/arrow_meshes_arrow_translate.res" id="3_i53jx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wwa8"]
+cull_mode = 2
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("2_gc747")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tm48r"]
+material = SubResource("StandardMaterial3D_7wwa8")
+orientation = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ntqm"]
+size = Vector3(10, 100, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpnh8"]
+size = Vector3(0.885376, 0.304443, 0.294922)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdnpn"]
+render_priority = 4
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.196078)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dxfsn"]
+material = SubResource("StandardMaterial3D_sdnpn")
+top_radius = 0.003
+bottom_radius = 0.003
+height = 50.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_havow"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jdcab"]
+material = SubResource("StandardMaterial3D_havow")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 4.0
+
+[node name="GizmoArrow" type="Node3D"]
+script = ExtResource("1_xynbh")
+
+[node name="Drag" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 16
+input_ray_pickable = false
+
+[node name="Cast" type="RayCast3D" parent="Drag"]
+target_position = Vector3(-50, 0, 0)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Plane" type="MeshInstance3D" parent="Drag"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+visible = false
+layers = 2
+mesh = SubResource("QuadMesh_tm48r")
+skeleton = NodePath("../..")
+
+[node name="Collision" type="CollisionShape3D" parent="Drag"]
+shape = SubResource("BoxShape3D_6ntqm")
+
+[node name="Adjacent" type="Area3D" parent="Drag"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
+input_ray_pickable = false
+
+[node name="Plane" type="MeshInstance3D" parent="Drag/Adjacent"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+visible = false
+layers = 2
+mesh = SubResource("QuadMesh_tm48r")
+skeleton = NodePath("../../..")
+
+[node name="Collision" type="CollisionShape3D" parent="Drag/Adjacent"]
+shape = SubResource("BoxShape3D_6ntqm")
+
+[node name="Pick" type="Area3D" parent="Drag"]
+
+[node name="Collision" type="CollisionShape3D" parent="Drag/Pick"]
+transform = Transform3D(-3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, 0, 0.8, -2.19624e-09, 0.470244, 0)
+shape = SubResource("BoxShape3D_fpnh8")
+
+[node name="Box" type="MeshInstance3D" parent="Drag/Pick"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+layers = 2
+mesh = ExtResource("3_i53jx")
+
+[node name="VisualAxis" type="MeshInstance3D" parent="Drag/Pick"]
+visible = false
+layers = 2
+mesh = SubResource("CylinderMesh_dxfsn")
+skeleton = NodePath("../../..")
+
+[node name="Axis" type="MeshInstance3D" parent="."]
+visible = false
+layers = 2
+mesh = SubResource("CylinderMesh_jdcab")
+
+[connection signal="input_event" from="Drag/Pick" to="." method="_on_pick_input_event"]
+[connection signal="mouse_entered" from="Drag/Pick" to="." method="_on_pick_mouse_entered"]
+[connection signal="mouse_exited" from="Drag/Pick" to="." method="_on_pick_mouse_exited"]

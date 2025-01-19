@@ -3,7 +3,7 @@
 class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
-const TestArrow = preload("res://gizmo_test/gizmo_test.tscn")
+const GizmoArrow = preload("res://lib/gizmo/gizmo_arrow/gizmo_arrow.tscn")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
@@ -75,7 +75,7 @@ func _spawn_rotators() -> void:
 func _spawn_arrows() -> void:
 	_clear_arrows()
 	
-	var _arr_x = TestArrow.instantiate()
+	var _arr_x = GizmoArrow.instantiate()
 	_arr_x.color = Color.RED
 	add_child(_arr_x)
 	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
@@ -85,7 +85,7 @@ func _spawn_arrows() -> void:
 	arrows.append(_arr_x)
 	_arr_x.drag_complete.connect(_spawn_arrows)
 	
-	var _arr_y = TestArrow.instantiate()
+	var _arr_y = GizmoArrow.instantiate()
 	_arr_y.color = Color.GREEN
 	add_child(_arr_y)
 	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
@@ -95,7 +95,7 @@ func _spawn_arrows() -> void:
 	arrows.append(_arr_y)
 	_arr_y.drag_complete.connect(_spawn_arrows)
 	
-	var _arr_z = TestArrow.instantiate()
+	var _arr_z = GizmoArrow.instantiate()
 	_arr_z.color = Color.BLUE
 	add_child(_arr_z)
 	if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
@@ -104,32 +104,6 @@ func _spawn_arrows() -> void:
 		_arr_z.rotation_degrees = Vector3(0, 90.0, 0)
 	arrows.append(_arr_z)
 	_arr_z.drag_complete.connect(_spawn_arrows)
-	
-	#var _arr_x = GizmoArrow.new()
-	#if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
-		#_arr_x.initial_override_rotation = Vector3(0, 0, 0)
-	#_arr_x.set_color(Color.RED)
-	#add_child(_arr_x)
-	#arrows.append(_arr_x)
-	#_arr_x.drag_complete.connect(_spawn_arrows)
-	
-	#var _arr_y = GizmoArrow.new()
-	#if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
-		#_arr_y.initial_override_rotation = Vector3(0, 0, 90)
-	#else: _arr_y.initial_rotation = Vector3(0, 0, 90)
-	#_arr_y.set_color(Color.ROYAL_BLUE)
-	#add_child(_arr_y)
-	#arrows.append(_arr_y)
-	#_arr_y.drag_complete.connect(_spawn_arrows)
-	
-	#var _arr_z = GizmoArrow.new()
-	#if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
-		#_arr_z.initial_override_rotation = Vector3(0, 90, 0)
-	#else: _arr_z.initial_rotation = Vector3(0, 90, 0)
-	#_arr_z.set_color(Color.GREEN)
-	#add_child(_arr_z)
-	#arrows.append(_arr_z)
-	#_arr_z.drag_complete.connect(_spawn_arrows)
 	
 	var _scale_gizmo = GizmoScale.new()
 	add_child(_scale_gizmo)

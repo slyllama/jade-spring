@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvjs87tpbv1r3"
-path="res://.godot/imported/arrow_meshes.glb-031e164f6b07b4250b7850919e589b3b.scn"
+uid="uid://cd57beu3hxof5"
+path="res://.godot/imported/arrow_meshes.glb-33f30eb84ea3dab80a0ea1b4f889ddf1.scn"
 
 [deps]
 
-source_file="res://gizmo_test/arrow_meshes.glb"
-dest_files=["res://.godot/imported/arrow_meshes.glb-031e164f6b07b4250b7850919e589b3b.scn"]
+source_file="res://lib/gizmo/gizmo_arrow/arrow_meshes.glb"
+dest_files=["res://.godot/imported/arrow_meshes.glb-33f30eb84ea3dab80a0ea1b4f889ddf1.scn"]
 
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="GizmoArrowMeshes"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -40,7 +40,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://gizmo_test/meshes/arrow_meshes_arrow_scale.res"
+"save_to_file/path": "res://lib/gizmo/gizmo_arrow/meshes/arrow_meshes_arrow_scale.res"
 },
 "arrow_meshes_arrow_translate": {
 "generate/lightmap_uv": 0,
@@ -49,15 +49,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://gizmo_test/meshes/arrow_meshes_arrow_translate.res"
-}
-},
-"nodes": {
-"PATH:ArrowScale": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:ArrowTranslate": {
-"mesh_instance/cast_shadow": 0
+"save_to_file/path": "res://lib/gizmo/gizmo_arrow/meshes/arrow_meshes_arrow_translate.res"
 }
 }
 }
