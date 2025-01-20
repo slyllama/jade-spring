@@ -90,6 +90,27 @@ texture = ExtResource("2_stjvc")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Disclaimer" type="RichTextLabel" parent="Decorations"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -580.0
+offset_top = -56.0
+offset_right = 580.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.37, 0.37, 0.37, 1)
+theme_override_constants/line_separation = -4
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
+scroll_active = false
+
 [node name="Bar" type="ProgressBar" parent="."]
 anchors_preset = 12
 anchor_top = 1.0

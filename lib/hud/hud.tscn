@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=25 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dgvxowegr8bu3" path="res://lib/hud/side_panel/textures/side_panel_minor_separator.png" id="10_hvlxk"]
 [ext_resource type="Texture2D" uid="uid://dlff8ygba3xfx" path="res://lib/hud/textures/interact_indicator.png" id="14_dlrg2"]
 [ext_resource type="PackedScene" uid="uid://fx684833x53q" path="res://lib/hud/state_indicator/state_indicator.tscn" id="16_s3yhc"]
+[ext_resource type="Script" path="res://lib/hud/version.gd" id="18_0n0fc"]
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
 
@@ -199,6 +200,28 @@ offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
 title = "Decorations"
+
+[node name="Version" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+clip_contents = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -139.0
+offset_top = -35.0
+offset_right = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = -4
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[Version]"
+scroll_active = false
+script = ExtResource("18_0n0fc")
+align_right = true
 
 [node name="Debug" type="RichTextLabel" parent="."]
 clip_contents = false

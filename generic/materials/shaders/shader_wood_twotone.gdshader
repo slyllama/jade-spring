@@ -18,11 +18,11 @@ vec3 saturation(vec3 input, float value) {
 void fragment() {
 	vec3 albedo = texture(wood_texture, UV * uv_scale).rgb * base_brightness;
 	vec3 stain_mask = texture(stain_mask_texture, UV).rgb;
-	
+
 	albedo = mix(albedo, saturation(albedo * vec3(2.0), 0.5), stain_mask.r);
 	albedo = mix(albedo, albedo * stain_brightness, stain_mask.b);
 	albedo = saturation(albedo, saturation_value);
-	
+
 	NORMAL_MAP = texture(wood_normal_texture, UV * uv_scale).rgb;
 	NORMAL_MAP_DEPTH = normal_strength;
 	SPECULAR = 0.0;

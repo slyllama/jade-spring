@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=24 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="10_cqy1t"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="11_ctlnu"]
 [ext_resource type="PackedScene" uid="uid://d33ilqq0c1mwg" path="res://lib/main_menu/new_game_container.tscn" id="12_0oh4d"]
+[ext_resource type="Script" path="res://lib/hud/version.gd" id="14_n67d6"]
 
 [sub_resource type="Curve" id="Curve_2imnw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -289,6 +290,7 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[Version]"
 scroll_active = false
+script = ExtResource("14_n67d6")
 
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(0.5, 0.5, 0.5, 1)
