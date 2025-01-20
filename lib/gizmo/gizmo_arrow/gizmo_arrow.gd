@@ -86,7 +86,7 @@ var _wait_frame: int = 0
 func _process(delta: float) -> void:
 	_wait_frame += 1
 	if !enabled: return
-	if _wait_frame < 3: return
+	if _wait_frame < 2: return
 	
 	top_level = false
 	$Drag.look_at(Global.player_position)
