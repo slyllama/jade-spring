@@ -54,7 +54,7 @@ func _ready() -> void:
 	last_mouse_click = get_window().get_mouse_position()
 	$ArrowRoot.position = last_mouse_click
 	
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 var last_ratio = ratio
 

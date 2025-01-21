@@ -47,7 +47,7 @@ class SelectLabel extends Sprite3D:
 		target_scale = 0.0
 		visible = false
 	
-	func _process(delta: float) -> void:
+	func _process(_delta: float) -> void:
 		var corrected_scale = target_scale / get_parent().scale.x
 		scale = Vector3(corrected_scale, corrected_scale, corrected_scale)
 
