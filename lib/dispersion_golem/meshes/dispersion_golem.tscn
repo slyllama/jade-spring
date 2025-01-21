@@ -97,7 +97,6 @@ parameters/proc_appear/request = 0
 
 [node name="Stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-08, -0.420217, -0.2)
-amount = 40
 preprocess = 2.0
 speed_scale = 0.6
 process_material = SubResource("ParticleProcessMaterial_fxxo6")

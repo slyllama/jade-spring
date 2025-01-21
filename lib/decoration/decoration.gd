@@ -4,6 +4,7 @@ class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 const GizmoArrow = preload("res://lib/gizmo/gizmo_arrow/gizmo_arrow.tscn")
+const SELECT_TEX = preload("res://lib/decoration/textures/select_icon.png")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
@@ -13,6 +14,42 @@ var last_rotation: Vector3
 var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 var dye_materials = {}
+
+@onready var select_label = SelectLabel.new()
+
+class SelectLabel extends Sprite3D:
+	const SCALE = 0.31
+	var target_scale = 0.0
+	
+	func _set_target_scale(s: float) -> void:
+		target_scale = s
+	
+	func fade_in() -> void:
+		visible = true
+		var _t = create_tween()
+		_t.tween_method(_set_target_scale, 0.0, SCALE, 0.2)
+	
+	func fade_out() -> void:
+		var _t = create_tween()
+		_t.tween_method(_set_target_scale, SCALE, 0.0, 0.2)
+		await _t.finished
+		visible = false
+	
+	func _ready() -> void:
+		pixel_size = 0.005
+		texture = SELECT_TEX
+		billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		no_depth_test = true
+		fixed_size = true
+		shaded = false
+		render_priority = 5
+		
+		target_scale = 0.0
+		visible = false
+	
+	func _process(delta: float) -> void:
+		var corrected_scale = target_scale / get_parent().scale.x
+		scale = Vector3(corrected_scale, corrected_scale, corrected_scale)
 
 func get_all_children(node: Node) -> Array:
 	var nodes: Array = []
@@ -116,6 +153,8 @@ func _clear_arrows() -> void:
 	arrows = []
 
 func start_adjustment() -> void:
+	select_label.fade_in()
+	
 	Global.deco_pane_closed.emit()
 	Global.active_decoration = self
 	Global.transform_mode_changed.emit(Global.transform_mode)
@@ -136,6 +175,7 @@ func apply_adjustment() -> void:
 		collision_box.set_collision_layer_value(1, true)
 		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
+		select_label.fade_out()
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
@@ -149,6 +189,7 @@ func cancel_adjustment() -> void:
 		collision_box.set_collision_layer_value(1, true)
 		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
+		select_label.fade_out()
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
@@ -160,6 +201,9 @@ func cancel_adjustment() -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	
+	add_child(select_label)
+	select_label.position.y = 1.4
 	
 	Global.adjustment_started.connect(func(): # disable input picking for ALL decorations
 		if collision_box != null:
