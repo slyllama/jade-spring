@@ -12,6 +12,8 @@ var xray: XRayMesh
 var disabled = false
 var data = {}
 
+var _wait_time = 0.0
+
 func set_cursor_tint(color: Color):
 	var target: Node3D = cursor_sphere
 	if data == {}:
@@ -80,6 +82,7 @@ func _input(_event: InputEvent) -> void:
 	# Emit the 3D cursor click signal if its position is valid
 	
 	if Input.is_action_just_released("left_click"):
+		if _wait_time < 0.5: return
 		if Global.deco_button_pressed: return
 		if Global.mouse_3d_position != Utilities.BIGVEC3:
 			Global.mouse_3d_click.emit()
@@ -101,7 +104,9 @@ func _ready() -> void:
 
 var _target_normal = Vector3.ZERO
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if _wait_time < 0.5:
+		_wait_time += delta
 	if disabled: return
 	
 	var mouse_pos = get_viewport().get_mouse_position()

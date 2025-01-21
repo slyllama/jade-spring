@@ -19,7 +19,8 @@ func _ready() -> void:
 	# Apply settings
 	Global.safe_point = $SafePoint
 	Global.debug_toggled.emit()
-	Global.action_cam_enable.emit()
+	if get_window().has_focus():
+		Global.action_cam_enable.emit()
 	Global.deco_pane_open = false # reset
 	Global.dialogue_open = false # reset
 	

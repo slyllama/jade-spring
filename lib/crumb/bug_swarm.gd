@@ -9,7 +9,11 @@ func clear() -> void:
 	super()
 
 func proc_story() -> void:
-		$VisualArea.visible = Save.data.story_point != "game_start"
+	var _p = Save.data.story_point
+	if _p == "game_start" or _p == "pick_weeds":
+		$VisualArea.visible = false
+	else:
+		$VisualArea.visible = true
 
 func _ready() -> void:
 	super()
@@ -19,7 +23,7 @@ func _ready() -> void:
 	proc_story()
 	
 	body_entered.connect(func(body):
-		if Save.data.story_point == "game_start": return # not unlocked yet
+		#if Save.data.story_point == "game_start": return # not unlocked yet
 		if body is CharacterBody3D:
 			if !$BugEntry.playing:
 				$BugEntry.pitch_scale = 0.9 + rng.randf() * 0.2
@@ -28,7 +32,7 @@ func _ready() -> void:
 			Global.bug_crumb_entered.emit())
 	
 	body_exited.connect(func(body):
-		if Save.data.story_point == "game_start": return # not unlocked yet
+		#if Save.data.story_point == "game_start": return # not unlocked yet
 		if body is CharacterBody3D:
 			Global.bug_crumb_left.emit())
 

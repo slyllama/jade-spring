@@ -4,6 +4,13 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 var pickable = true
 
+func proc_story() -> void:
+	var _p = Save.data.story_point
+	if _p == "game_start":
+		$VisualArea.visible = false
+	else:
+		$VisualArea.visible = true
+
 func _ready() -> void:
 	super()
 	
@@ -22,6 +29,9 @@ func _ready() -> void:
 	body_exited.connect(func(body):
 		if body is CharacterBody3D:
 			Global.weed_crumb_left.emit())
+	
+	Save.story_advanced.connect(proc_story)
+	proc_story()
 
 func interact() -> void:
 	if Save.data.story_point == "game_start":

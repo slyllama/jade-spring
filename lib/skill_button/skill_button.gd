@@ -168,6 +168,7 @@ func _process(_delta: float) -> void:
 
 func _on_button_down() -> void:
 	if enabled:
+		$Tooltip.visible = false
 		Global.click_sound.emit()
 		clicked.emit(id)
 
