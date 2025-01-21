@@ -54,7 +54,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	$Spinner.position.x = get_window().size.x / 2.0
-	$Spinner.position.y  = get_window().size.y - 80.0
+	$Spinner.position.y  = get_window().size.y - 90.0
 	$Spinner.rotation_degrees += delta * 240.0
 	loading_status = ResourceLoader.load_threaded_get_status(target_scene, progress)
 	match loading_status:

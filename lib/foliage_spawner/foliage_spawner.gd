@@ -117,12 +117,10 @@ func render() -> void:
 	var midpoint = Vector3(size / 2, 0, size / 2)
 	var separation = size / count # base distance between instances
 	
+	# Generate and shuffle transformations
+	var _transforms = []
 	for y in count:
 		for x in count:
-			var i = y * count + x
-			if vary_colours:
-				build_multimesh.set_instance_color(i, lerp(colour_1, colour_2, rng.randf()))
-			
 			var base_pos = Vector3(x * separation, 0, y * separation) - midpoint
 			var grass_scatter = Vector3(rng.randf() * scatter, 0, rng.randf() * scatter)
 			var _ps = min_scale + rng.randf() * (max_scale - min_scale)
@@ -134,12 +132,20 @@ func render() -> void:
 				dist = abs(float(x) / count - 0.5) + abs(float(y) / count - 0.5)
 				dist = 0.5 + (1 - dist) / 2.0
 			
-			# Apply transforms
 			var grass_transform = Transform3D(Basis(), base_pos)
 			grass_transform = grass_transform.scaled_local(grass_scale * Vector3(1.0, dist, 1.0))
 			grass_transform = grass_transform.translated_local(grass_scatter)
 			grass_transform = grass_transform.rotated_local(Vector3.UP, grass_rotation)
-			build_multimesh.set_instance_transform(i, grass_transform)
+			_transforms.append(grass_transform)
+	
+	_transforms.shuffle()
+	
+	for y in count:
+		for x in count:
+			var i = y * count + x
+			if vary_colours:
+				build_multimesh.set_instance_color(i, lerp(colour_1, colour_2, rng.randf()))
+			build_multimesh.set_instance_transform(i, _transforms[i])
 	multimesh = build_multimesh
 
 func set_density(get_density) -> void:

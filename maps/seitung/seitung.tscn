@@ -549,22 +549,28 @@ transform = Transform3D(0.660696, 0, -0.750653, 0, 1, 0, 0.750653, 0, 0.660696, 
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.537294, 0.38622, -3.38695)
 
 [node name="LushGrass" parent="DecoHandler" index="74" instance=ExtResource("29_2q5vg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40945, 0.0482065, 8.92493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72145, -0.0645151, 7.13844)
 
-[node name="LushGrass2" parent="DecoHandler" index="75" instance=ExtResource("29_2q5vg")]
-transform = Transform3D(0.997242, -0.0742129, 0, 0.0742129, 0.997242, 0, 0, 0, 1, -1.79334, 0.240188, 4.51338)
+[node name="LushGrass3" parent="DecoHandler" index="75" instance=ExtResource("29_2q5vg")]
+transform = Transform3D(0.131064, 0, 1.09216, 0, 1.1, 0, -1.09216, 0, 0.131064, 0.246061, 0.428536, 3.41481)
 
-[node name="LushGrass3" parent="DecoHandler" index="76" instance=ExtResource("29_2q5vg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0939471, 0.55941, 1.48786)
+[node name="LushGrass4" parent="DecoHandler" index="76" instance=ExtResource("29_2q5vg")]
+transform = Transform3D(0.288029, 0, -0.957621, 0, 1, 0, 0.957621, 0, 0.288029, -6.14415, 0.280795, 1.03998)
 
-[node name="LushGrass4" parent="DecoHandler" index="77" instance=ExtResource("29_2q5vg")]
-transform = Transform3D(0.663495, 0, -0.74818, 0, 1, 0, 0.74818, 0, 0.663495, -4.03741, 0.280795, -0.545699)
+[node name="LushGrass5" parent="DecoHandler" index="77" instance=ExtResource("29_2q5vg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81047, 0.255089, -5.05902)
 
-[node name="LushGrass5" parent="DecoHandler" index="78" instance=ExtResource("29_2q5vg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42375, 0.255089, -4.90901)
-
-[node name="LushGrass6" parent="DecoHandler" index="79" instance=ExtResource("29_2q5vg")]
+[node name="LushGrass6" parent="DecoHandler" index="78" instance=ExtResource("29_2q5vg")]
 transform = Transform3D(1, 0, 0, 0, 0.993337, -0.115249, 0, 0.115249, 0.993337, 2.53394, 0.0457125, 9.83213)
+
+[node name="DecoTussock2" parent="DecoHandler" index="79" instance=ExtResource("28_0cc6a")]
+transform = Transform3D(1.24762, 0, -0.415536, 0, 1.315, 0, 0.415536, 0, 1.24762, 3.21948, -0.811812, -9.75861)
+
+[node name="DecoTussock3" parent="DecoHandler" index="80" instance=ExtResource("28_0cc6a")]
+transform = Transform3D(-1.06137, 0, 0.77635, 0, 1.315, 0, -0.77635, 0, -1.06137, 4.95057, -0.652312, -9.62569)
+
+[node name="DecoSunflowers3" parent="DecoHandler" index="81" instance=ExtResource("27_w1tjy")]
+transform = Transform3D(0.756002, 0, -0.654569, 0, 1, 0, 0.654569, 0, 0.756002, 3.1118, -0.357901, -10.036)
 
 [node name="LightRay" parent="Decoration" index="0" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(1.47241, 0, 1.35352, 0, 2, 0, -1.35352, 0, 1.47241, -11.927, 1.08454, 2.39926)
@@ -757,7 +763,7 @@ colour_2 = Color(1, 0.8, 0, 1)
 render_distance = 11.0
 
 [node name="FlowerSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.77945, 0.125517, 4.33065)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5059, 0.258923, 5.3246)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_tknxa")
@@ -841,8 +847,8 @@ distance_fade_length = 0.5
 cull_mask = 8
 
 [node name="MossDecal3" type="Decal" parent="Decoration/Decals" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19526, 0.669289, 6.20711)
-size = Vector3(5, 2, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.730042, 0.669289, 5.99735)
+size = Vector3(4, 2, 4)
 texture_albedo = ExtResource("13_1ga72")
 modulate = Color(0.685835, 0.685835, 0.685835, 1)
 albedo_mix = 0.75
@@ -946,6 +952,7 @@ track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("
 
 [node name="Landscape" parent="." index="10" instance=ExtResource("10_vndj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+metadata/_edit_lock_ = true
 
 [node name="Discombobulator" parent="." index="11" instance=ExtResource("29_5yngu")]
 transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
