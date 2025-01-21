@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcdukpdiq4241" path="res://decorations/test_wall/meshes/wall.glb" id="3_egx3r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rp7by"]
-size = Vector3(2.5, 4, 0.2)
+size = Vector3(2.94043, 4, 0.555664)
 
 [node name="DecoTestWall" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_0q4k2")

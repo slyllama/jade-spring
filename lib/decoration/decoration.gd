@@ -18,7 +18,7 @@ var dye_materials = {}
 @onready var select_label = SelectLabel.new()
 
 class SelectLabel extends Sprite3D:
-	const SCALE = 0.31
+	const SCALE = 0.19
 	var target_scale = 0.0
 	
 	func _set_target_scale(s: float) -> void:
