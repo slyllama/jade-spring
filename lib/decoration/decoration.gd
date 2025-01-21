@@ -287,5 +287,12 @@ func _ready() -> void:
 					start_adjustment()
 				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 					Global.deco_deleted.emit()
+					Global.decorations.erase(self)
 					queue_free()
+				elif Global.tool_mode == Global.TOOL_MODE_EYEDROPPER:
+					Global.deco_sampled.emit({
+						"id": id,
+						"rotation": rotation,
+						"eyedrop_scale": scale
+					})
 			)

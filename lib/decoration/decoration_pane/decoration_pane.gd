@@ -33,6 +33,7 @@ func close():
 	active = false
 
 func start_decoration_placement(id: String) -> void:
+	Global.mouse_3d_override_rotation = null
 	Global.tool_mode = Global.TOOL_MODE_PLACE
 	Global.queued_decoration = id
 	Global.deco_placement_started.emit()

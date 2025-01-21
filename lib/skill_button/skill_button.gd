@@ -88,6 +88,10 @@ const TOOLTIPS = {
 	"debug_skill": {
 		"title": "((Debug Skill))",
 		"description": "((Debug skill.))"
+	},
+	"eyedropper": {
+		"title": "((Eyedropper))",
+		"description": "((Eyedropper.))"
 	}
 }
 

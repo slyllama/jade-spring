@@ -30,6 +30,7 @@ func set_radius(radius: float) -> void:
 #region Activate/Deactivate
 func activate(get_data: Dictionary) -> void:
 	data = get_data
+	
 	set_cursor_tint(Color.RED)
 	if "highlight_on_decoration" in data:
 		highlight_on_decoration = data.highlight_on_decoration
@@ -141,23 +142,17 @@ func _process(_delta: float) -> void:
 	if !visible and !Global.camera_orbiting: visible = true
 	if Global.mouse_in_ui: visible = false
 	
-	# Get the facing angle (y-axis) from the player to the 3D cursor
-	var _a := Vector2(Global.player_position.x, Global.player_position.z)
-	var _b := Vector2(Global.mouse_3d_position.x, Global.mouse_3d_position.z)
-	
-	# TODO: currently disabled camera orientation-bases rotation. We might
-	# bring this back in the future but it's feeling more sensible like this
-	# for the moment.
-	
 	if "custom_model" in data:
-		global_rotation_degrees.y = data.y_rotation + y_rotation_offset
+		if "y_rotation" in data:
+			global_rotation_degrees.y = data.y_rotation + y_rotation_offset
+		if "eyedrop_scale" in data:
+			scale = data.eyedrop_scale
+			Global.mouse_3d_scale = data.eyedrop_scale
+		else:
+			Global.mouse_3d_scale = Vector3(1, 1, 1) # reset
+		if "rotation" in data:
+			rotation = data.rotation # override
+			Global.mouse_3d_override_rotation = rotation
+		else:
+			Global.mouse_3d_override_rotation = null
 		Global.mouse_3d_y_rotation = rotation.y
-	
-	#if !"custom_model" in data:
-		#rotation = lerp(rotation, _target_normal, delta * 3)
-	#else:
-		#global_rotation.y = (_b.angle_to_point(_a)
-			#+ (Global.camera.global_rotation.y * 2.0) - deg_to_rad(90))
-		#if "y_rotation" in data:
-			#global_rotation.y += deg_to_rad(data.y_rotation)
-		#Global.mouse_3d_y_rotation = rotation.y

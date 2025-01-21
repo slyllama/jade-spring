@@ -24,7 +24,9 @@ var foliage_count = 0
 var in_exclusive_ui = false
 var last_command = ""
 var mouse_3d_position = Utilities.BIGVEC3
+var mouse_3d_override_rotation = null
 var mouse_3d_y_rotation = 0.0
+var mouse_3d_scale = Vector3(1, 1, 1)
 var mouse_in_ui = false
 var mouse_in_deco_pane = false
 var orbit_sensitivity_multiplier = 1.0
@@ -93,6 +95,7 @@ const DecoData = preload("res://lib/decoration/deco_data.gd").new().DecoData
 
 enum {
 	TOOL_MODE_NONE,
+	TOOL_MODE_EYEDROPPER,
 	TOOL_MODE_ADJUST,
 	TOOL_MODE_SELECT,
 	TOOL_MODE_DELETE,
@@ -107,6 +110,7 @@ enum {
 
 const tool_identities = [ # associations for debug printing
 	"TOOL_MODE_NONE",
+	"TOOL_MODE_EYEDROPPER",
 	"TOOL_MODE_ADJUST",
 	"TOOL_MODE_SELECT",
 	"TOOL_MODE_DELETE",
@@ -120,6 +124,7 @@ signal adjustment_reset # reset to default orientation and scale
 signal adjustment_mode_rotation
 signal adjustment_mode_translate
 
+signal deco_sampled(data) # decoration sampled with the eyedropper tool
 signal deco_pane_closed
 signal deco_pane_opened
 signal deco_placement_started

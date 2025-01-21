@@ -14,6 +14,7 @@ func set_default_skills() -> void:
 	$Box/Skill2.switch_skill("deco_test")
 	$Box/Skill3.switch_skill("delete")
 	$Box/Skill4.switch_skill("safe_point")
+	$Box/Skill5.switch_skill("eyedropper")
 	
 	if _p == "game_start" or _p == "pick_weeds":
 		$Box/Skill1.set_enabled(false)
@@ -43,8 +44,9 @@ func _ready() -> void:
 	Global.deco_placement_started.connect(func():
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel")
-		$Box/Skill2.switch_skill("rotate_left")
-		$Box/Skill3.switch_skill("rotate_right"))
+		if !Global.mouse_3d_override_rotation:
+			$Box/Skill2.switch_skill("rotate_left")
+			$Box/Skill3.switch_skill("rotate_right"))
 	
 	Global.deco_deleted.connect(func():
 		await get_tree().process_frame
@@ -63,6 +65,22 @@ func _ready() -> void:
 		$Box/Skill4.switch_skill("transform_mode")
 		$Box/Skill5.switch_skill("reset_adjustment")
 		$Box/Skill6.switch_skill("cancel"))
+	
+	Global.deco_sampled.connect(func(data):
+		Global.set_cursor(false)
+		await get_tree().process_frame
+		Global.queued_decoration = data.id
+		Global.tool_mode = Global.TOOL_MODE_PLACE
+		Global.deco_placement_started.emit()
+		Global.action_cam_disable.emit()
+		
+		Global.set_cursor(true, {
+			"highlight_on_decoration": false,
+			"custom_model": load(Global.DecoData[data.id].cursor_model),
+			"rotation": data.rotation,
+			"eyedrop_scale": data.eyedrop_scale
+		})
+	)
 	
 	Global.adjustment_canceled.connect(set_default_skills)
 	
@@ -111,12 +129,20 @@ func skill_used(skill_id: String) -> void:
 				$Box/Skill1.switch_skill("select")
 				get_button_by_id("select").set_highlight()
 				Global.action_cam_disable.emit()
-				
 				Global.set_cursor()
-			elif Global.tool_mode == Global.TOOL_MODE_SELECT:
+			elif (Global.tool_mode == Global.TOOL_MODE_SELECT
+				or Global.tool_mode == Global.TOOL_MODE_EYEDROPPER):
 				Global.tool_mode = Global.TOOL_MODE_NONE
 				Global.action_cam_enable.emit()
 				set_default_skills()
+		"eyedropper":
+			if Global.tool_mode == Global.TOOL_MODE_NONE:
+				Global.tool_mode = Global.TOOL_MODE_EYEDROPPER
+				clear_skills()
+				$Box/Skill5.switch_skill("select")
+				get_button_by_id("select").set_highlight()
+				Global.action_cam_disable.emit()
+				Global.set_cursor()
 		"cancel":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_canceled.emit()
@@ -163,8 +189,6 @@ func skill_used(skill_id: String) -> void:
 			$Box/Skill2.switch_skill("adjust_mode_translate")
 			$Box/Skill3.switch_skill("snap_forbidden")
 			$Box/Skill4.switch_skill("empty")
-			#$Box/Skill3.switch_skill("rotate_left")
-			#$Box/Skill4.switch_skill("rotate_right")
 		"safe_point":
 			Global.go_to_safe_point()
 		"snap_enable":
