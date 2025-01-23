@@ -3,6 +3,9 @@ extends "res://lib/map/map.gd"
 @onready var toolbox = get_node("HUD/Toolbox")
 var y_target = 0.0
 
+const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
+const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
+
 func set_marker_pos() -> void: # set the position of the story marker
 	match Save.data.story_point:
 		"game_start": $StoryMarker.position = $Pulley.position
@@ -30,7 +33,20 @@ func _ready() -> void:
 			Global.command_sent.emit("/playersmooth=1.0")
 			Global.command_sent.emit("/speedratio=1.0")
 			Global.command_sent.emit("/orbitsmooth=1.0")
-		)
+		
+		if _cmd == "/time=night":
+			$Sky.environment = NIGHT_ENV
+			$Sky/Sun.visible = false
+			$Sky/SunNight.visible = true
+			
+			for _n in $Decoration/LightRays.get_children(): _n.visible = false
+		elif _cmd == "/time=day":
+			$Sky.environment = DAY_ENV
+			$Sky/Sun.visible = true
+			$Sky/SunNight.visible = false
+			
+			for _n in $Decoration/LightRays.get_children(): _n.visible = true
+	)
 	
 	Save.story_advanced.connect(set_marker_pos)
 	await get_tree().process_frame

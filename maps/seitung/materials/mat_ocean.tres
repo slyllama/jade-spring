@@ -36,7 +36,7 @@ void fragment() {
 	NORMAL_MAP = normal_map;
 	NORMAL_MAP_DEPTH = normal_strength;
 	ROUGHNESS = roughness;
-
+	//SPECULAR = 0.2;
 }
 "
 

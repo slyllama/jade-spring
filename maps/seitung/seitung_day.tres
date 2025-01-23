@@ -1,0 +1,35 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://pkvuagid82dc"]
+
+[ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_itm2h"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
+panorama = ExtResource("1_itm2h")
+
+[sub_resource type="Sky" id="Sky_1mh13"]
+sky_material = SubResource("PanoramaSkyMaterial_3jmvg")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_1mh13")
+ambient_light_source = 2
+ambient_light_color = Color(0.304708, 0.361277, 0.212145, 1)
+ambient_light_sky_contribution = 0.29
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.1
+glow_enabled = true
+glow_intensity = 0.65
+glow_strength = 0.45
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.455543, 0.509506, 0.688721, 1)
+fog_density = 1.0
+fog_aerial_perspective = 0.01
+fog_sky_affect = 0.1
+fog_height = 1.0
+fog_depth_curve = 0.241484
+fog_depth_begin = 24.0
+fog_depth_end = 33.0
+volumetric_fog_density = 0.01

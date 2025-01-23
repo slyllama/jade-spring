@@ -1,0 +1,44 @@
+[gd_resource type="Environment" load_steps=6 format=3 uid="uid://dctw7darxc41b"]
+
+[ext_resource type="Texture2D" uid="uid://cuo7lidht351u" path="res://generic/hdri/stars.exr" id="1_5sgbj"]
+
+[sub_resource type="Gradient" id="Gradient_e6xwc"]
+colors = PackedColorArray(0.0172, 0.002, 0.04, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iqr4j"]
+gradient = SubResource("Gradient_e6xwc")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5od8f"]
+panorama = ExtResource("1_5sgbj")
+
+[sub_resource type="Sky" id="Sky_rl5tb"]
+sky_material = SubResource("PanoramaSkyMaterial_5od8f")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_rl5tb")
+ambient_light_source = 2
+ambient_light_color = Color(0.292984, 0.351486, 0.442168, 1)
+ambient_light_sky_contribution = 0.29
+tonemap_mode = 2
+tonemap_exposure = 1.1
+tonemap_white = 1.1
+glow_enabled = true
+glow_intensity = 0.65
+glow_strength = 0.45
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.0792, 0.09892, 0.12, 1)
+fog_density = 1.0
+fog_aerial_perspective = 0.01
+fog_sky_affect = 0.1
+fog_height = 1.0
+fog_depth_curve = 0.241484
+fog_depth_begin = 24.0
+fog_depth_end = 33.0
+volumetric_fog_density = 0.01
+adjustment_enabled = true
+adjustment_saturation = 1.15
+adjustment_color_correction = SubResource("GradientTexture1D_iqr4j")
