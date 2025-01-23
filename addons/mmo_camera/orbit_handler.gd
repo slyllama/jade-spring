@@ -46,6 +46,7 @@ func _enable_action_cam(override = false) -> void:
 		or Global.tool_mode == Global.TOOL_MODE_DELETE
 		or Global.tool_mode == Global.TOOL_MODE_ADJUST
 		or Global.tool_mode == Global.TOOL_MODE_PLACE
+		or Global.tool_mode == Global.TOOL_MODE_EYEDROPPER
 		or Global.deco_pane_open):
 		return
 	

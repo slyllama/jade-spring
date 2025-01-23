@@ -7,6 +7,10 @@ const TICK = "[char=0x00002713]"
 const BIGNUM = -9999
 const BIGVEC3 = Vector3(BIGNUM, BIGNUM, BIGNUM)
 
+func get_time() -> String:
+	var time = Time.get_time_dict_from_system()
+	return("%02d:%02d:%02d" % [time.hour, time.minute, time.second])
+
 func set_window_mode(window_mode: String) -> void:
 		if window_mode == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
 		elif window_mode == "maximized": get_window().mode = Window.MODE_MAXIMIZED

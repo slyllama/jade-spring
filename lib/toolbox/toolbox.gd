@@ -13,17 +13,19 @@ func set_default_skills() -> void:
 	$Box/Skill1.switch_skill("select")
 	$Box/Skill2.switch_skill("deco_test")
 	$Box/Skill3.switch_skill("delete")
-	$Box/Skill4.switch_skill("safe_point")
-	$Box/Skill5.switch_skill("eyedropper")
+	$Box/Skill4.switch_skill("eyedropper")
+	$Box/Skill5.switch_skill("safe_point")
 	
 	if _p == "game_start" or _p == "pick_weeds":
 		$Box/Skill1.set_enabled(false)
 		$Box/Skill2.set_enabled(false)
 		$Box/Skill3.set_enabled(false)
+		$Box/Skill4.set_enabled(false)
 	else:
 		$Box/Skill1.set_enabled()
 		$Box/Skill2.set_enabled()
 		$Box/Skill3.set_enabled()
+		$Box/Skill4.set_enabled()
 	
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.queued_decoration = "none"
@@ -139,7 +141,7 @@ func skill_used(skill_id: String) -> void:
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_EYEDROPPER
 				clear_skills()
-				$Box/Skill5.switch_skill("select")
+				$Box/Skill4.switch_skill("select")
 				get_button_by_id("select").set_highlight()
 				Global.action_cam_disable.emit()
 				Global.set_cursor()

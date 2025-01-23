@@ -31,6 +31,7 @@ func set_radius(radius: float) -> void:
 
 #region Activate/Deactivate
 func activate(get_data: Dictionary) -> void:
+	print("[" + Utilities.get_time() + "] activating cursor.")
 	disabled = false
 	data = get_data
 	
@@ -69,6 +70,7 @@ func activate(get_data: Dictionary) -> void:
 # Remove cursor
 func dismiss() -> void:
 	# Animate the cursor out and destroy it when it is dismissed
+	print("[" + Utilities.get_time() + "] deactivating cursor.")
 	disabled = true
 	Global.mouse_3d_position = Utilities.BIGVEC3
 	var scale_out_tween = create_tween()
