@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqgf0spk4ga2b"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_uky7w"]
-[ext_resource type="PackedScene" uid="uid://rwpbhnk3wju3" path="res://decorations/roof_piece/roof_piece.glb" id="2_7j3ys"]
+[ext_resource type="PackedScene" uid="uid://bmojvv0uuoe8b" path="res://decorations/roof_piece/roof_piece_base.tscn" id="2_onylo"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t7e33"]
 points = PackedVector3Array(-1.29102, -0.5, 0.187553, 1.32684, 1.01376, -0.831809, 1.03663, 0.930701, -0.748749, -1.28407, -0.495987, -1.06, 1.29098, -0.5, 0.187553, 1.28404, -0.495987, -1.06, -1.28407, 0.989015, -1.06, -1.32688, -0.0642614, 0.204927, 1.32684, -0.0642614, 0.204927, 1.28404, 0.989015, -1.06, -1.32688, 1.01376, -0.831809, -1.32688, 0.847788, -0.665941, 1.32684, 0.847788, -0.665941)
@@ -11,12 +11,13 @@ script = ExtResource("1_uky7w")
 id = "simple_roof_piece"
 collision_box = NodePath("Body")
 
-[node name="RoofPiece" parent="." instance=ExtResource("2_7j3ys")]
-
 [node name="Body" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507071, 0)
 shape = SubResource("ConvexPolygonShape3D_t7e33")
+
+[node name="RoofPieceBase" parent="." instance=ExtResource("2_onylo")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=87 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -49,6 +49,7 @@
 [ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="35_42aun"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
+[ext_resource type="PackedScene" uid="uid://2irpg0mpnvmj" path="res://roof_pavilion.glb" id="43_4w16u"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
 
@@ -345,7 +346,7 @@ transform = Transform3D(0.999999, 0, -0.00148333, 0, 1, 0, 0.00148333, 0, 0.9999
 transform = Transform3D(1.13423, 0, -0.39181, 0, 1.2, 0, 0.39181, 0, 1.13423, 13.4109, -0.701302, 10.5509)
 
 [node name="DecoBambooCluster15" parent="DecoHandler" index="6" instance=ExtResource("7_s7skb")]
-transform = Transform3D(0.947304, -0.139589, 0.723273, 0.110947, 1.19185, 0.0847091, -0.728216, 0, 0.953779, 10.8225, 0.585171, 7.75469)
+transform = Transform3D(0.947304, -0.139589, 0.723273, 0.110947, 1.19185, 0.0847091, -0.728216, 0, 0.953779, 11.022, 0.585171, 8.86972)
 
 [node name="DecoBambooCluster3" parent="DecoHandler" index="7" instance=ExtResource("7_s7skb")]
 transform = Transform3D(0.834641, 0, -0.827042, 0, 1.175, 0, 0.827042, 0, 0.834641, -10.3365, 1.38553, -3.86724)
@@ -564,64 +565,106 @@ transform = Transform3D(-0.212233, 0, 0.719345, 0, 0.75, 0, -0.719345, 0, -0.212
 transform = Transform3D(0.447283, 0, 0.336954, 0, 0.56, 0, -0.336954, 0, 0.447283, 1.10651, -0.107148, 11.2171)
 
 [node name="RoofCorner" parent="DecoHandler" index="79" instance=ExtResource("22_v2a5c")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.32033, 4.97089, 6.24317)
+transform = Transform3D(-4.80825e-08, 0, -1.1, 0, 1.1, 0, 1.1, 0, -4.80825e-08, 3.32033, 4.97089, 6.24317)
 
-[node name="DecoRoofPiece" parent="DecoHandler" index="80" instance=ExtResource("23_jahvb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.25433, 4.92812, 4.97327)
+[node name="RoofCorner2" parent="DecoHandler" index="80" instance=ExtResource("22_v2a5c")]
+transform = Transform3D(-1.1, 0, 9.6165e-08, 0, 1.1, 0, -9.6165e-08, 0, -1.1, 3.34795, 4.97089, -3.77619)
 
-[node name="DecoRoofPiece5" parent="DecoHandler" index="81" instance=ExtResource("23_jahvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54707, 4.91748, 7.5)
+[node name="DecoRoofPiece" parent="DecoHandler" index="81" instance=ExtResource("23_jahvb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25433, 4.92812, 4.97327)
 
-[node name="DecoRoofPiece6" parent="DecoHandler" index="82" instance=ExtResource("23_jahvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04471, 4.90475, 7.5)
+[node name="DecoRoofPiece5" parent="DecoHandler" index="82" instance=ExtResource("23_jahvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54707, 4.91748, 6.5)
 
-[node name="DecoRoofPiece2" parent="DecoHandler" index="83" instance=ExtResource("23_jahvb")]
-transform = Transform3D(0.0219102, -2.16882e-09, -1.03477, 0.050945, 1.03374, 0.00107871, 1.03351, -0.0509564, 0.0218836, 2.19922, 4.82292, 2.50633)
+[node name="DecoRoofPiece6" parent="DecoHandler" index="83" instance=ExtResource("23_jahvb")]
+transform = Transform3D(0.999225, 0.0393645, 0, -0.0393645, 0.999225, 0, 0, 0, 1, 7, 4.8679, 6.5)
 
-[node name="DecoRoofPiece3" parent="DecoHandler" index="84" instance=ExtResource("23_jahvb")]
-transform = Transform3D(-0.0216995, 4.74974e-10, -1.01977, -0.0516464, 1.01869, 0.00109897, 1.01846, 0.0516581, -0.0216716, 2.25433, 4.84248, -0.0712644)
+[node name="DecoRoofPiece11" parent="DecoHandler" index="84" instance=ExtResource("23_jahvb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.54707, 4.91748, -3.67181)
 
-[node name="DecoRoofPiece4" parent="DecoHandler" index="85" instance=ExtResource("23_jahvb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.25433, 4.92812, -2.53497)
+[node name="DecoRoofPiece12" parent="DecoHandler" index="85" instance=ExtResource("23_jahvb")]
+transform = Transform3D(-0.999225, -0.0393644, -8.74228e-08, -0.0393644, 0.999225, 0, 8.7355e-08, 3.44135e-09, -1, 7, 4.8679, -3.67181)
 
-[node name="DecoSunflowers" parent="DecoHandler" index="86" instance=ExtResource("27_w1tjy")]
+[node name="DecoRoofPiece7" parent="DecoHandler" index="86" instance=ExtResource("23_jahvb")]
+transform = Transform3D(0.999706, -0.0242402, 0, 0.0242402, 0.999706, 0, 0, 0, 1, 9.54246, 4.85089, 6.53134)
+
+[node name="DecoRoofPiece8" parent="DecoHandler" index="87" instance=ExtResource("23_jahvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4.905, 6.5)
+
+[node name="DecoRoofPiece2" parent="DecoHandler" index="88" instance=ExtResource("23_jahvb")]
+transform = Transform3D(0.0219102, -2.16882e-09, -1.03477, 0.050945, 1.03374, 0.00107871, 1.03351, -0.0509564, 0.0218836, 3.19922, 4.82292, 2.50633)
+
+[node name="DecoRoofPiece3" parent="DecoHandler" index="89" instance=ExtResource("23_jahvb")]
+transform = Transform3D(-0.0216995, 4.74974e-10, -1.01977, -0.0516464, 1.01869, 0.00109897, 1.01846, 0.0516581, -0.0216716, 3.25433, 4.84248, -0.0712644)
+
+[node name="DecoRoofPiece9" parent="DecoHandler" index="90" instance=ExtResource("23_jahvb")]
+transform = Transform3D(-4.45856e-08, 0, -1.02, 0, 1.02, 0, 1.02, 0, -4.45857e-08, 9.00433, 6.62561, 0.172151)
+
+[node name="DecoRoofPiece10" parent="DecoHandler" index="91" instance=ExtResource("23_jahvb")]
+transform = Transform3D(-4.45856e-08, 0, -1.02, 0, 1.02, 0, 1.02, 0, -4.45857e-08, 9.00433, 6.62561, -2.32785)
+
+[node name="DecoRoofPiece4" parent="DecoHandler" index="92" instance=ExtResource("23_jahvb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25433, 4.92812, -2.53497)
+
+[node name="DecoSunflowers" parent="DecoHandler" index="93" instance=ExtResource("27_w1tjy")]
 transform = Transform3D(1.18302, 0, 0.201176, 0, 1.2, 0, -0.201176, 0, 1.18302, -5.15885, 0.317186, -2.82268)
 
-[node name="DecoSunflowers2" parent="DecoHandler" index="87" instance=ExtResource("27_w1tjy")]
+[node name="DecoSunflowers2" parent="DecoHandler" index="94" instance=ExtResource("27_w1tjy")]
 transform = Transform3D(0.660696, 0, -0.750653, 0, 1, 0, 0.750653, 0, 0.660696, -1.58052, 0.340461, -3.1413)
 
-[node name="DecoTussock" parent="DecoHandler" index="88" instance=ExtResource("28_0cc6a")]
+[node name="DecoTussock" parent="DecoHandler" index="95" instance=ExtResource("28_0cc6a")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.537294, 0.38622, -3.38695)
 
-[node name="LushGrass" parent="DecoHandler" index="89" instance=ExtResource("29_2q5vg")]
+[node name="LushGrass" parent="DecoHandler" index="96" instance=ExtResource("29_2q5vg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89632, 0.133518, 8.36084)
 
-[node name="LushGrass3" parent="DecoHandler" index="90" instance=ExtResource("29_2q5vg")]
+[node name="LushGrass3" parent="DecoHandler" index="97" instance=ExtResource("29_2q5vg")]
 transform = Transform3D(-0.0410744, -0.0243766, 0.998859, 0.00294226, 0.999695, 0.024518, -0.999152, 0.00394596, -0.0409902, -0.0704593, 0.428536, 3.5302)
 
-[node name="LushGrass4" parent="DecoHandler" index="91" instance=ExtResource("29_2q5vg")]
+[node name="LushGrass4" parent="DecoHandler" index="98" instance=ExtResource("29_2q5vg")]
 transform = Transform3D(0.874264, 0, 0.48545, 0, 1, 0, -0.48545, 0, 0.874264, -6.87002, 0.280794, 1.84035)
 
-[node name="LushGrass5" parent="DecoHandler" index="92" instance=ExtResource("29_2q5vg")]
+[node name="LushGrass5" parent="DecoHandler" index="99" instance=ExtResource("29_2q5vg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81047, 0.255089, -3.78327)
 
-[node name="LushGrass6" parent="DecoHandler" index="93" instance=ExtResource("29_2q5vg")]
+[node name="LushGrass6" parent="DecoHandler" index="100" instance=ExtResource("29_2q5vg")]
 transform = Transform3D(1, 0, 0, 0, 0.993337, -0.115249, 0, 0.115249, 0.993337, 2.53394, 0.0457125, 9.83213)
 
-[node name="DecoTussock2" parent="DecoHandler" index="94" instance=ExtResource("28_0cc6a")]
+[node name="DecoTussock2" parent="DecoHandler" index="101" instance=ExtResource("28_0cc6a")]
 transform = Transform3D(1.24762, 0, -0.415536, 0, 1.315, 0, 0.415536, 0, 1.24762, 3.21948, -0.811812, -9.75861)
 
-[node name="DecoTussock3" parent="DecoHandler" index="95" instance=ExtResource("28_0cc6a")]
+[node name="DecoTussock3" parent="DecoHandler" index="102" instance=ExtResource("28_0cc6a")]
 transform = Transform3D(-1.06137, 0, 0.77635, 0, 1.315, 0, -0.77635, 0, -1.06137, 4.95057, -0.652312, -9.62569)
 
-[node name="DecoSunflowers3" parent="DecoHandler" index="96" instance=ExtResource("27_w1tjy")]
+[node name="DecoSunflowers3" parent="DecoHandler" index="103" instance=ExtResource("27_w1tjy")]
 transform = Transform3D(0.756002, 0, -0.654569, 0, 1, 0, 0.654569, 0, 0.756002, 3.1118, -0.357901, -10.036)
 
-[node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" index="97" instance=ExtResource("28_g1iux")]
+[node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" index="104" instance=ExtResource("28_g1iux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62131, 0.299208, 6.80485)
 
+[node name="DecoBloodstoneImpactedPillar3" parent="DecoHandler" index="105" instance=ExtResource("28_g1iux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22185, 1.13874, 5.01832)
+
+[node name="DecoBloodstoneImpactedPillar4" parent="DecoHandler" index="106" instance=ExtResource("28_g1iux")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 3.22185, 5.6251, 2.41481)
+
+[node name="DecoTestWall19" parent="DecoHandler" index="107" instance=ExtResource("15_w0gcq")]
+transform = Transform3D(-0.425, 0, -6.41732e-08, 0, 0.425, 0, 6.41732e-08, 0, -0.425, 2.67384, 3.33506, -4.76329)
+
+[node name="DecoTestWall28" parent="DecoHandler" index="108" instance=ExtResource("15_w0gcq")]
+transform = Transform3D(-1.85773e-08, 0, -0.425, 0, 0.425, 0, 0.425, 0, -1.85773e-08, 2.16909, 3.33506, -4.22556)
+
+[node name="DecoTestWall29" parent="DecoHandler" index="109" instance=ExtResource("15_w0gcq")]
+transform = Transform3D(-1.85773e-08, 0, 0.425, 0, 0.425, 0, -0.425, 0, -1.85773e-08, 3.22598, 3.33506, -4.24894)
+
+[node name="DecoTestWall30" parent="DecoHandler" index="110" instance=ExtResource("15_w0gcq")]
+transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 2.69672, 3.33506, -3.74272)
+
+[node name="DecoBloodstoneImpactedPillar2" parent="DecoHandler" index="111" instance=ExtResource("28_g1iux")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.62131, 0.299208, -4.19515)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="Decoration" index="0"]
-transform = Transform3D(0.736204, 0, 0.676759, 0, 1, 0, -0.676759, 0, 0.736204, 5.64547, 4.20643, 1.35874)
+transform = Transform3D(0.736204, 0, 0.676759, 0, 1, 0, -0.676759, 0, 0.736204, 6.60145, 4.20643, -0.168603)
 light_color = Color(1, 0.9375, 0.75, 1)
 light_energy = 2.0
 omni_range = 4.5
@@ -998,6 +1041,9 @@ speed_scale = 0.5
 visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
+
+[node name="roof_pavilion" parent="Decoration" index="42" instance=ExtResource("43_4w16u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4662, 6.0966, -1.15343)
 
 [node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97531, 1.41256, 2.85007)

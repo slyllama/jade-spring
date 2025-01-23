@@ -169,7 +169,7 @@ const DecoData = {
 	"simple_roof_piece": {
 		"name": "Simple Roof Piece",
 		"scene": "res://decorations/roof_piece/deco_roof_piece.tscn",
-		"cursor_model": "res://decorations/roof_piece/roof_piece.glb",
+		"cursor_model": "res://decorations/roof_piece/roof_piece_base.tscn",
 		"y_rotation": -90,
 		"preview_scale": 0.8,
 		"preview_y_rotation": 215,
