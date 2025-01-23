@@ -76,13 +76,21 @@ const DecoData = {
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
+	"pancake_rocks": {
+		"name": "Pancake Rocks",
+		"scene": "res://decorations/rocks/deco_pancake_rocks.tscn",
+		"cursor_model": "res://decorations/rocks/pancake_rocks.glb",
+		"preview_scale": 0.7,
+		"tags": ["Foliage"],
+		"show_floor": true
+	},
 	"indoor_lamp": {
 		"name": "Indoor Lamp",
 		"scene": "res://decorations/lighting/deco_indoor_lamp.tscn",
 		"cursor_model": "res://decorations/lighting/indoor_lamp.tscn",
 		"preview_scale": 1.0,
 		"model_offset": Vector3(0, 0.5, 0),
-		"tags": ["Foliage"],
+		"tags": [],
 		"show_floor": true
 	},
 	"bamboo_cluster": {

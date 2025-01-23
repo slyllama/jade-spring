@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://qw6dxj43jndf"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_j01fy"]
+[ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="2_mhdjp"]
+[ext_resource type="PackedScene" uid="uid://cugqflilfm1ps" path="res://decorations/rocks/pancake_rocks.glb" id="3_sve6d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uxsrd"]
+size = Vector3(2.21286, 0.399902, 2.1167)
+
+[node name="DecoPancakeRocks" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_j01fy")
+id = "pancake_rocks"
+collision_box = NodePath("Body")
+
+[node name="RockDecal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513527, 0, -0.954277)
+texture_albedo = ExtResource("2_mhdjp")
+modulate = Color(0.661081, 0.661081, 0.661081, 1)
+upper_fade = 0.01
+distance_fade_begin = 9.0
+distance_fade_length = 0.5
+cull_mask = 8
+
+[node name="RockDecal2" type="Decal" parent="."]
+transform = Transform3D(-0.450036, 0, 0.89301, 0, 1, 0, -0.89301, 0, -0.450036, -0.169041, 0, 0.782462)
+size = Vector3(3, 2, 3)
+texture_albedo = ExtResource("2_mhdjp")
+modulate = Color(0.661081, 0.661081, 0.661081, 1)
+upper_fade = 0.01
+distance_fade_begin = 9.0
+distance_fade_length = 0.5
+cull_mask = 8
+
+[node name="PancakeRocks" parent="." instance=ExtResource("3_sve6d")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0706329, 0.199707, -0.0349121)
+shape = SubResource("BoxShape3D_uxsrd")

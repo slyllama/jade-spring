@@ -1,0 +1,61 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cugqflilfm1ps"
+path="res://.godot/imported/pancake_rocks.glb-bda7093ef2d5e9779f70c7bf1aa0d6cc.scn"
+
+[deps]
+
+source_file="res://decorations/rocks/pancake_rocks.glb"
+dest_files=["res://.godot/imported/pancake_rocks.glb-bda7093ef2d5e9779f70c7bf1aa0d6cc.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name="PancakeRocks"
+nodes/apply_root_scale=true
+nodes/root_scale=0.75
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"mat_pancake_grass": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/rocks/mat_pancake_grass.tres"
+},
+"mat_rock": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/rocks/mat_pancake_rocks.tres"
+}
+},
+"nodes": {
+"PATH:Grass": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Grass_001": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Grass_002": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Rock_003": {
+"mesh_instance/cast_shadow": 0
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=89 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://2irpg0mpnvmj" path="res://roof_pavilion.glb" id="43_4w16u"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
+[ext_resource type="PackedScene" uid="uid://qw6dxj43jndf" path="res://decorations/rocks/deco_pancake_rocks.tscn" id="54_iuxex"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("2_mxrbu")
@@ -667,6 +668,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.6213
 [node name="DecoIndoorLamp" parent="DecoHandler" index="112" instance=ExtResource("29_32tvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63747, 5.17506, -2.01675)
 
+[node name="DecoPancakeRocks" parent="DecoHandler" index="113" instance=ExtResource("54_iuxex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06481, 0.639255, 2.32803)
+
+[node name="DecoPancakeRocks2" parent="DecoHandler" index="114" instance=ExtResource("54_iuxex")]
+transform = Transform3D(-0.725262, 0, -0.866542, 0, 1.13, 0, 0.866542, 0, -0.725262, -11.0545, -0.140597, 8.16041)
+
 [node name="LightRay" parent="Decoration" index="0" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(1.47241, 0, 1.35352, 0, 2, 0, -1.35352, 0, 1.47241, -11.927, 1.08454, 2.39926)
 
@@ -986,29 +993,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="RockDecal3" type="Decal" parent="Decoration/Decals" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36661, -0.542348, 2.28208)
-size = Vector3(3, 3, 3)
-texture_albedo = ExtResource("21_d2j4w")
-modulate = Color(0.654232, 0.654232, 0.654232, 1)
-normal_fade = 0.455
-upper_fade = 0.01
-distance_fade_begin = 9.0
-distance_fade_length = 0.5
-cull_mask = 8
-
-[node name="RockDecal5" type="Decal" parent="Decoration/Decals" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36661, -0.625004, 2.85193)
-size = Vector3(3, 3, 3)
-texture_albedo = ExtResource("21_d2j4w")
-modulate = Color(0.654232, 0.654232, 0.654232, 1)
-normal_fade = 0.455
-upper_fade = 0.01
-distance_fade_begin = 9.0
-distance_fade_length = 0.5
-cull_mask = 8
-
-[node name="RockDecal4" type="Decal" parent="Decoration/Decals" index="8"]
+[node name="RockDecal4" type="Decal" parent="Decoration/Decals" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53259, -1.07418, 11.5972)
 size = Vector3(3, 3, 3)
 texture_albedo = ExtResource("21_d2j4w")
@@ -1125,3 +1110,6 @@ transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.087737
 
 [node name="Rock3" parent="WorldBoundaries/Hills2" index="2" instance=ExtResource("14_fuojk")]
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
+
+[node name="DecoPancakeRocks" parent="." index="16" instance=ExtResource("54_iuxex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0512873, -0.0580087, 11.8262)
