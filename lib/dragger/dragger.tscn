@@ -53,7 +53,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Cursor" type="Sprite2D" parent="ArrowRoot"]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_n6sc0")
 
 [node name="Debug" type="RichTextLabel" parent="."]
