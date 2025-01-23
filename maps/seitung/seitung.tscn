@@ -50,6 +50,7 @@
 [ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="35_42aun"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
+[ext_resource type="PackedScene" uid="uid://dmqlnx8l6lfhf" path="res://decorations/flower_patch/deco_yellow_flowers.tscn" id="42_h33ht"]
 [ext_resource type="PackedScene" uid="uid://2irpg0mpnvmj" path="res://roof_pavilion.glb" id="43_4w16u"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
@@ -167,14 +168,6 @@ instance_count = 16
 visible_instance_count = 16
 mesh = ExtResource("18_rj2gh")
 buffer = PackedFloat32Array(2.41445, 0, -0.154108, -0.890987, 0, 2.41936, 0, 0, 0.154108, 0, 2.41445, -0.682049, 0.828112, 0.00466084, 0.414141, 1, 0.546447, 0, 2.26, -0.124245, 0, 2.32512, 0, 0, -2.26, 0, 0.546447, -0.986885, 0.768004, 0.00873476, 0.486641, 1, -2.2914, 0, -1.08067, 0.405869, 0, 2.53345, 0, 0, 1.08067, 0, -2.2914, -1.12738, 0.864126, 0.00221988, 0.370702, 1, -1.19204, 0, 1.84411, 0.866907, 0, 2.19584, 0, 0, -1.84411, 0, -1.19204, -0.905744, 0.879245, 0.00119518, 0.352466, 1, -0.774655, 0, -2.87059, -0.759446, 0, 2.97328, 0, 0, 2.87059, 0, -0.774655, 0.0174593, 0.792228, 0.00709294, 0.457423, 1, 1.94049, 0, -0.912507, -0.278633, 0, 2.14434, 0, 0, 0.912507, 0, 1.94049, -0.540028, 0.79339, 0.00701419, 0.456022, 1, 0.684194, 0, -2.77078, 0.132723, 0, 2.85401, 0, 0, 2.77078, 0, 0.684194, -0.355737, 0.734102, 0.0110326, 0.527533, 1, 1.32154, 0, -2.29667, 0.911083, 0, 2.64974, 0, 0, 2.29667, 0, 1.32154, -0.280199, 0.773477, 0.00836387, 0.48004, 1, 1.90644, 0, -0.972217, -0.740779, 0, 2.14003, 0, 0, 0.972217, 0, 1.90644, 0.319949, 0.888965, 0.000536365, 0.340742, 1, 1.59652, 0, 1.88109, -0.363691, 0, 2.46726, 0, 0, -1.88109, 0, 1.59652, 0.345068, 0.76294, 0.00907802, 0.492749, 1, 1.09201, 0, -2.14655, 0.150421, 0, 2.40835, 0, 0, 2.14655, 0, 1.09201, 0.428984, 0.755692, 0.00956929, 0.501492, 1, 2.00743, 0, 0.75277, 0.894501, 0, 2.14393, 0, 0, -0.75277, 0, 2.00743, 0.230822, 0.813327, 0.00566294, 0.431975, 1, 1.02642, 0, 2.41934, -0.960118, 0, 2.62806, 0, 0, -2.41934, 0, 1.02642, 0.58512, 0.814272, 0.00559887, 0.430834, 1, -2.81349, 0, -0.770559, 0.00726372, 0, 2.9171, 0, 0, 0.770559, 0, -2.81349, 0.675629, 0.862285, 0.00234465, 0.372922, 1, 0.426358, 0, -2.02706, 0.0882713, 0, 2.07141, 0, 0, 2.02706, 0, 0.426358, 0.652974, 0.711031, 0.0125962, 0.55536, 1, 0.740038, 0, -2.425, 0.838549, 0, 2.5354, 0, 0, 2.425, 0, 0.740038, 0.947518, 0.781361, 0.00782949, 0.470531, 1)
-
-[sub_resource type="MultiMesh" id="MultiMesh_7xw2g"]
-transform_format = 1
-use_colors = true
-instance_count = 25
-visible_instance_count = 25
-mesh = ExtResource("18_rj2gh")
-buffer = PackedFloat32Array(-2.64327, 0, -0.0244119, -1.58048, 0, 2.03337, 0, 0, 0.0244119, 0, -2.64327, -1.03883, 0.921399, 0.960409, 0.0160409, 1, -1.17015, 0, -2.34388, -0.204622, 0, 2.01518, 0, 0, 2.34388, 0, -1.17015, -1.84531, 0.940898, 0.920616, 0.0120616, 1, 0.502718, 0, -3.71167, 0.500157, 0, 2.8812, 0, 0, 3.71167, 0, 0.502718, -1.72136, 0.961661, 0.878242, 0.00782423, 1, -1.28778, 0, 2.57965, 1.08699, 0, 2.21786, 0, 0, -2.57965, 0, -1.28778, -1.49042, 0.972932, 0.855241, 0.00552405, 1, -2.85179, 0, -0.209277, 1.40502, 0, 2.19958, 0, 0, 0.209277, 0, -2.85179, -1.07065, 0.927765, 0.947419, 0.0147419, 1, -2.5729, 0, 1.7642, -0.86106, 0, 2.39973, 0, 0, -1.7642, 0, -2.5729, -0.785006, 0.98707, 0.826388, 0.00263876, 1, -2.89925, 0, -0.550732, -0.306563, 0, 2.27007, 0, 0, 0.550732, 0, -2.89925, -0.981002, 0.906207, 0.991415, 0.0191415, 1, -1.05655, 0, 3.7359, 0.535261, 0, 2.98648, 0, 0, -3.7359, 0, -1.05655, -0.957039, 0.907438, 0.988903, 0.0188902, 1, -1.68662, 0, -2.48236, 1.38878, 0, 2.30856, 0, 0, 2.48236, 0, -1.68662, -0.979534, 0.96142, 0.878734, 0.00787342, 1, -0.304332, 0, 3.39364, 1.43454, 0, 2.62097, 0, 0, -3.39364, 0, -0.304332, -0.0368196, 0.907588, 0.988596, 0.0188596, 1, -3.15063, 0, 0.0594129, -1.74018, 0, 2.42399, 0, 0, -0.0594129, 0, -3.15063, 0.620859, 0.908431, 0.986875, 0.0186875, 1, 3.71849, 0, -0.931402, -0.666503, 0, 2.94874, 0, 0, 0.931402, 0, 3.71849, 0.446559, 0.998899, 0.802248, 0.000224756, 1, -0.20761, 0, -2.63611, 0.110311, 0, 2.03406, 0, 0, 2.63611, 0, -0.20761, -0.269348, 0.978956, 0.842946, 0.00429464, 1, 0.180146, 0, 3.31143, 1.59234, 0, 2.55102, 0, 0, -3.31143, 0, 0.180146, -0.0892557, 0.983525, 0.833622, 0.00336218, 1, 1.03731, 0, -3.36717, 1.61887, 0, 2.71025, 0, 0, 3.36717, 0, 1.03731, 0.648105, 0.989911, 0.820589, 0.00205889, 1, 2.26403, 0, 3.00727, -0.61722, 0, 2.89557, 0, 0, -3.00727, 0, 2.26403, 0.906259, 0.995416, 0.809355, 0.00093548, 1, 0.151389, 0, 3.74634, -0.172109, 0, 2.88415, 0, 0, -3.74634, 0, 0.151389, 1.13924, 0.944599, 0.913063, 0.0113063, 1, 2.55814, 0, -2.28374, 0.577915, 0, 2.63786, 0, 0, 2.28374, 0, 2.55814, 1.35967, 0.944805, 0.912643, 0.0112643, 1, -1.96441, 0, -2.67772, 1.19425, 0, 2.55462, 0, 0, 2.67772, 0, -1.96441, 0.425858, 0.994371, 0.811488, 0.00114881, 1, 1.65701, 0, 3.18319, 2.28595, 0, 2.7605, 0, 0, -3.18319, 0, 1.65701, 1.11126, 0.942647, 0.917046, 0.0117046, 1, -2.36758, 0, -2.0143, -1.53083, 0, 2.39116, 0, 0, 2.0143, 0, -2.36758, 1.97918, 0.917902, 0.967548, 0.0167548, 1, -2.42764, 0, 2.52497, 0.103536, 0, 2.69439, 0, 0, -2.52497, 0, -2.42764, 2.31828, 0.945886, 0.910437, 0.0110437, 1, 1.07973, 0, 3.37085, 0.491224, 0, 2.72274, 0, 0, -3.37085, 0, 1.07973, 1.62357, 0.978843, 0.843178, 0.00431783, 1, 0.690756, 0, 2.68033, 0.567572, 0, 2.12916, 0, 0, -2.68033, 0, 0.690756, 1.75327, 0.996826, 0.806477, 0.000647672, 1, 2.06152, 0, -1.58732, 2.23664, 0, 2.0014, 0, 0, 1.58732, 0, 2.06152, 1.72363, 0.97573, 0.84953, 0.00495299, 1)
 
 [sub_resource type="MultiMesh" id="MultiMesh_n5r2p"]
 transform_format = 1
@@ -674,6 +667,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06481, 0.639255, 2.32803)
 [node name="DecoPancakeRocks2" parent="DecoHandler" index="114" instance=ExtResource("54_iuxex")]
 transform = Transform3D(-0.725262, 0, -0.866542, 0, 1.13, 0, 0.866542, 0, -0.725262, -11.0545, -0.140597, 8.16041)
 
+[node name="DecoYellowFlowers" parent="DecoHandler" index="115" instance=ExtResource("42_h33ht")]
+transform = Transform3D(1, 0, 0, 0, 0.997945, 0.0640795, 0, -0.0640795, 0.997945, -2.79825, 0.308434, -2.43806)
+
 [node name="LightRay" parent="Decoration" index="0" instance=ExtResource("44_mlhiv")]
 transform = Transform3D(1.47241, 0, 1.35352, 0, 2, 0, -1.35352, 0, 1.47241, -11.927, 1.08454, 2.39926)
 
@@ -728,61 +724,64 @@ transform = Transform3D(0.572883, 0, -0.337684, 0, 0.665, 0, 0.337684, 0, 0.5728
 [node name="pine_simple11" parent="Decoration" index="17" instance=ExtResource("15_larjc")]
 transform = Transform3D(-0.575462, -0.0519695, -0.876722, -0.0285173, 1.04871, -0.0434464, 0.877798, -3.91155e-09, -0.576168, 4.73676, 3.81469, -16.5847)
 
-[node name="pine_simple16" parent="Decoration" index="18" instance=ExtResource("15_larjc")]
+[node name="pine_simple20" parent="Decoration" index="18" instance=ExtResource("15_larjc")]
+transform = Transform3D(-0.468591, -0.0423181, -0.713903, -0.0232212, 0.853952, -0.0353779, 0.714779, -5.89248e-08, -0.469166, 0.055511, 2.81457, -14.1375)
+
+[node name="pine_simple16" parent="Decoration" index="19" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.246504, -0.0353424, -1.01489, -0.0283815, 1.04372, -0.0432397, 1.01511, 0.0377637, 0.245242, 12.3449, 0.476858, -8.58524)
 
-[node name="pine_simple18" parent="Decoration" index="19" instance=ExtResource("15_larjc")]
+[node name="pine_simple18" parent="Decoration" index="20" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.610763, 0, -0.847935, 0, 1.045, 0, 0.847935, 0, 0.610763, 11.7171, 3.5119, -12.9856)
 
-[node name="pine_simple17" parent="Decoration" index="20" instance=ExtResource("15_larjc")]
+[node name="pine_simple17" parent="Decoration" index="21" instance=ExtResource("15_larjc")]
 transform = Transform3D(-0.71114, -0.112303, -0.928597, -0.0649233, 1.16961, -0.0917316, 0.933107, -0.00420977, -0.714085, 8.28994, 0.496386, -9.93413)
 
-[node name="pine_simple12" parent="Decoration" index="21" instance=ExtResource("15_larjc")]
+[node name="pine_simple12" parent="Decoration" index="22" instance=ExtResource("15_larjc")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 8.15151, 8.74361, -24.2357)
 
-[node name="pine_simple13" parent="Decoration" index="22" instance=ExtResource("15_larjc")]
+[node name="pine_simple13" parent="Decoration" index="23" instance=ExtResource("15_larjc")]
 transform = Transform3D(-1.09395, 0.0424318, -0.5823, 0.0374561, 1.23927, 0.0199375, 0.582641, -4.61936e-09, -1.09459, -1.89799, 6.89154, -24.3913)
 
-[node name="pine_simple14" parent="Decoration" index="23" instance=ExtResource("15_larjc")]
+[node name="pine_simple14" parent="Decoration" index="24" instance=ExtResource("15_larjc")]
 transform = Transform3D(-0.963716, 0.0333882, -0.264833, 0.0302065, 0.999414, 0.0160787, 0.265215, 0.00749558, -0.96416, -14.0729, 9.58806, -25.747)
 
-[node name="SimplePine" parent="Decoration" index="24" instance=ExtResource("15_larjc")]
+[node name="SimplePine" parent="Decoration" index="25" instance=ExtResource("15_larjc")]
 transform = Transform3D(0.489245, 1.46683e-08, 0.872146, 0.0257668, 0.999563, -0.0144543, -0.871765, 0.0295441, 0.489032, 15.7452, 0.0763225, 8.43755)
 
-[node name="SimplePine2" parent="Decoration" index="25" instance=ExtResource("15_larjc")]
+[node name="SimplePine2" parent="Decoration" index="26" instance=ExtResource("15_larjc")]
 transform = Transform3D(1.15788, -0.0353821, -0.382714, 0.00394726, 1.21585, -0.100464, 0.384325, 0.0941099, 1.15405, 15.459, -0.541041, 11.8915)
 
-[node name="Rock3" parent="Decoration" index="26" instance=ExtResource("14_fuojk")]
+[node name="Rock3" parent="Decoration" index="27" instance=ExtResource("14_fuojk")]
 transform = Transform3D(0.992064, -0.23209, 0.182116, 0.238243, 1.0071, -0.0143488, -0.17399, 0.0556743, 1.01875, -3.19976, 1.72742, -14.9386)
 
-[node name="Rock2" parent="Decoration" index="27" instance=ExtResource("14_fuojk")]
+[node name="Rock2" parent="Decoration" index="28" instance=ExtResource("14_fuojk")]
 transform = Transform3D(1.72582, -0.287558, 0.0367045, 0.272242, 1.68384, 0.391238, -0.0996047, -0.380123, 1.70531, 1.77444, -0.70097, -13.0909)
 
-[node name="Rock4" parent="Decoration" index="28" instance=ExtResource("14_fuojk")]
+[node name="Rock4" parent="Decoration" index="29" instance=ExtResource("14_fuojk")]
 transform = Transform3D(2.40677, 0.802739, -3.09242, -0.493033, 3.91862, 0.633489, 3.15664, -2.98023e-08, 2.45676, 3.98971, -0.811862, -22.4332)
 
-[node name="Rock5" parent="Decoration" index="29" instance=ExtResource("14_fuojk")]
+[node name="Rock5" parent="Decoration" index="30" instance=ExtResource("14_fuojk")]
 transform = Transform3D(4.62076, -1.45776, 0.572855, 1.90982, 3.50421, -1.4717, 0.0344957, 1.2631, 4.74404, -6.10842, -0.36034, -25.6129)
 
-[node name="SmallBoulder" parent="Decoration" index="30" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder" parent="Decoration" index="31" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(-0.999691, 0, -0.0248508, 0, 1, 0, 0.0248508, 0, -0.999691, -9.51969, -0.306166, 8.48266)
 
-[node name="SmallBoulder2" parent="Decoration" index="31" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder2" parent="Decoration" index="32" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(0.658904, 0, -1.03863, 0, 1.54, 0, 1.03863, 0, 0.658904, -11.9682, -0.367718, 6.83031)
 
-[node name="SmallBoulder3" parent="Decoration" index="32" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder3" parent="Decoration" index="33" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.72817, -0.979063, 0.234261, 0.882062, 1.24833, -1.28982, 0.48519, 1.21783, 1.51046, -6.20262, -0.39578, -12.0408)
 
-[node name="SmallBoulder4" parent="Decoration" index="33" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder4" parent="Decoration" index="34" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.460502, -0.324509, -9.84375)
 
-[node name="SmallBoulder5" parent="Decoration" index="34" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder5" parent="Decoration" index="35" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.39185, 0, 1.43623, 0, 2, 0, -1.43623, 0, 1.39185, -9.66382, -0.198896, -10.7931)
 
-[node name="StuccoWall" parent="Decoration" index="35" instance=ExtResource("22_v0qyq")]
+[node name="StuccoWall" parent="Decoration" index="36" instance=ExtResource("22_v0qyq")]
 transform = Transform3D(-6.33815e-08, 0, 1.45, 0, 1.45, 0, -1.45, 0, -6.33815e-08, 14.204, -0.598527, 0.28502)
 
-[node name="PlatformInner" parent="Decoration" index="36" instance=ExtResource("8_alpya")]
+[node name="PlatformInner" parent="Decoration" index="37" instance=ExtResource("8_alpya")]
 transform = Transform3D(0.999519, 0.0310095, 0, -0.0310095, 0.999519, 0, 0, 0, 1, -9.78259, 0.429223, 2.8401)
 
 [node name="Waypoint" parent="Decoration/PlatformInner" index="0" instance=ExtResource("49_v10af")]
@@ -822,28 +821,7 @@ colour_1 = Color(0.709552, 0.0126965, 0.557144, 1)
 colour_2 = Color(0.896879, 0, 0.331197, 1)
 render_distance = 11.0
 
-[node name="FlowerSpawner3" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="1"]
-transform = Transform3D(0.998471, -0.0552813, 0, 0.0552813, 0.998471, 0, 0, 0, 1, -2.34334, 0.351206, -2.96904)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_7xw2g")
-script = ExtResource("6_jt5mw")
-custom_mesh = ExtResource("18_rj2gh")
-size = 4.0
-scatter = 0.4
-min_scale = 2.0
-max_scale = 3.0
-area_scale = 1.3
-smooth = false
-moss_cover = false
-moss_albedo_mix = 0.268
-moss_scaling = 2.0
-moss_color = Color(0.45, 0.6, 0, 1)
-colour_1 = Color(0.902, 1, 0.02, 1)
-colour_2 = Color(1, 0.8, 0, 1)
-render_distance = 11.0
-
-[node name="FlowerSpawner4" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="2"]
+[node name="FlowerSpawner4" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70888, -0.0368974, 9.20308)
 layers = 2
 cast_shadow = 0
@@ -864,7 +842,7 @@ colour_1 = Color(0.902, 1, 0.02, 1)
 colour_2 = Color(1, 0.8, 0, 1)
 render_distance = 11.0
 
-[node name="FlowerSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="3"]
+[node name="FlowerSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5059, 0.258923, 5.3246)
 layers = 2
 cast_shadow = 0
@@ -884,7 +862,7 @@ colour_1 = Color(0, 0.176, 0.44, 1)
 colour_2 = Color(0.120126, 0.44077, 1, 1)
 render_distance = 11.0
 
-[node name="FlowerSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="4"]
+[node name="FlowerSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8916, 0.217283, 9.88264)
 layers = 2
 cast_shadow = 0
@@ -904,7 +882,7 @@ colour_1 = Color(0, 0.176, 0.44, 1)
 colour_2 = Color(0.120126, 0.44077, 1, 1)
 render_distance = 11.0
 
-[node name="FlowerSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="5"]
+[node name="FlowerSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.997998, -0.0632434, 0, 0.0632434, 0.997998, 6.3363, -0.0355749, 11.7825)
 layers = 2
 cast_shadow = 0
@@ -924,7 +902,7 @@ colour_1 = Color(0.940918, 0.84266, 7.70092e-07, 1)
 colour_2 = Color(1, 0.703474, 0.249328, 1)
 render_distance = 11.0
 
-[node name="Decals" type="Node3D" parent="Decoration" index="38"]
+[node name="Decals" type="Node3D" parent="Decoration" index="39"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
@@ -1004,7 +982,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="39"]
+[node name="Motes" type="GPUParticles3D" parent="Decoration" index="40"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
 amount = 120
 lifetime = 2.0
@@ -1014,7 +992,7 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="40"]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="41"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
 amount = 120
 lifetime = 2.0
@@ -1024,7 +1002,7 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="roof_pavilion" parent="Decoration" index="41" instance=ExtResource("43_4w16u")]
+[node name="roof_pavilion" parent="Decoration" index="42" instance=ExtResource("43_4w16u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4662, 6.0966, -1.15343)
 
 [node name="SafePoint" parent="." index="8"]
@@ -1112,4 +1090,4 @@ transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.087737
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
 
 [node name="DecoPancakeRocks" parent="." index="16" instance=ExtResource("54_iuxex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0512873, -0.0580087, 11.8262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0512873, -0.194814, 11.8262)

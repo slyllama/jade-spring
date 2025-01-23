@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmqlnx8l6lfhf"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_g1okj"]
+[ext_resource type="PackedScene" uid="uid://xwthb3yn3664" path="res://decorations/flower_patch/yellow_flowers.tscn" id="2_ub2q1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fu8ye"]
+size = Vector3(3.3877, 0.384399, 3.22461)
+
+[node name="DecoYellowFlowers" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_g1okj")
+id = "yellow_flowers"
+collision_box = NodePath("Body")
+
+[node name="YellowFlowers" parent="." instance=ExtResource("2_ub2q1")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.196228, 0)
+shape = SubResource("BoxShape3D_fu8ye")

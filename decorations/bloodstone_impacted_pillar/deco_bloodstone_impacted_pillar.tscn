@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="3_kc5am"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l6sg4"]
-size = Vector3(0.716797, 4.47094, 0.71875)
+size = Vector3(1.01465, 4.47094, 1.0625)
 
 [sub_resource type="Curve" id="Curve_tyww5"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]

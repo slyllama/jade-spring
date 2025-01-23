@@ -50,7 +50,7 @@ const DecoData = {
 		"preview_scale": 0.19,
 		"preview_y_rotation": 190,
 		"preview_v_offset": -0.4,
-		"tags": [ ]
+		"tags": []
 	},
 	"bloodstone_impacted_pillar": {
 		"name": "Bloodstone-Impacted Pillar",
@@ -68,6 +68,14 @@ const DecoData = {
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
+	"yellow_flowers": {
+		"name": "Yellow Flowers",
+		"scene": "res://decorations/flower_patch/deco_yellow_flowers.tscn",
+		"cursor_model": "res://decorations/flower_patch/yellow_flowers.tscn",
+		"preview_scale": 1.0,
+		"tags": ["Foliage"],
+		"show_floor": true
+	},
 	"lush_grass": {
 		"name": "Lush Grass",
 		"scene": "res://decorations/lush_grass/lush_grass.tscn",
@@ -81,7 +89,7 @@ const DecoData = {
 		"scene": "res://decorations/rocks/deco_pancake_rocks.tscn",
 		"cursor_model": "res://decorations/rocks/pancake_rocks.glb",
 		"preview_scale": 0.7,
-		"tags": ["Foliage"],
+		"tags": [],
 		"show_floor": true
 	},
 	"indoor_lamp": {
