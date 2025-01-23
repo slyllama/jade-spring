@@ -234,7 +234,7 @@ directional_shadow_blend_splits = true
 transform = Transform3D(0.21437, -0.0409216, -0.975895, 0.262636, 0.964741, 0.0172379, 0.940781, -0.26, 0.217559, 0, 3, 0)
 visible = false
 light_color = Color(0.82112, 0.6912, 0.96, 1)
-light_energy = 1.45
+light_energy = 0.5
 shadow_enabled = true
 directional_shadow_blend_splits = true
 
@@ -643,7 +643,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06481, 0.639255, 2.32803)
 [node name="DecoPancakeRocks2" parent="DecoHandler" index="114" instance=ExtResource("54_iuxex")]
 transform = Transform3D(-0.725262, 0, -0.866542, 0, 1.13, 0, 0.866542, 0, -0.725262, -11.0545, -0.140597, 8.16041)
 
-[node name="DecoYellowFlowers" parent="DecoHandler" index="115" instance=ExtResource("42_h33ht")]
+[node name="DecoPancakeRocks3" parent="DecoHandler" index="115" instance=ExtResource("54_iuxex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0512873, -0.194814, 11.8262)
+
+[node name="DecoYellowFlowers" parent="DecoHandler" index="116" instance=ExtResource("42_h33ht")]
 transform = Transform3D(1, 0, 0, 0, 0.997945, 0.0640795, 0, -0.0640795, 0.997945, -2.79825, 0.308434, -2.43806)
 
 [node name="LightRays" type="Node3D" parent="Decoration" index="0"]
@@ -982,6 +985,7 @@ draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
 [node name="roof_pavilion" parent="Decoration" index="38" instance=ExtResource("43_4w16u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4662, 6.0966, -1.15343)
+visible = false
 
 [node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97531, 1.41256, 2.85007)
@@ -1066,6 +1070,3 @@ transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.087737
 
 [node name="Rock3" parent="WorldBoundaries/Hills2" index="2" instance=ExtResource("14_fuojk")]
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
-
-[node name="DecoPancakeRocks" parent="." index="16" instance=ExtResource("54_iuxex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0512873, -0.194814, 11.8262)

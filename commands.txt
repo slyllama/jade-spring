@@ -4,7 +4,9 @@
 /resetdeco		Reset decorations for defaults
 /savedeco		Save decorations to file
 
-### Show/hide
+### Visibility
+/time=night		Switch to night
+/time=day		Switch to day
 /showplayer		Show the player mesh
 /hideplayer		Hide the player mesh
 /showcrumbs		Show bugs, Dragonvoid etc
