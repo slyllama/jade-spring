@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://5er1m8wsi3x6"]
+[gd_scene load_steps=8 format=3 uid="uid://5er1m8wsi3x6"]
 
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_nnkjf"]
 [ext_resource type="Script" path="res://lib/dragger/dragger.gd" id="1_t4ceu"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="3_di0uu"]
 [ext_resource type="Texture2D" uid="uid://dxnrapd5778a0" path="res://lib/dragger/textures/arrow.png" id="4_hebx0"]
 [ext_resource type="Material" uid="uid://wv0q1g0bmi10" path="res://lib/dragger/materials/mat_dissolve.tres" id="4_ofanv"]
+[ext_resource type="Texture2D" uid="uid://s0ot6c8goyks" path="res://generic/textures/cursor_2x.png" id="5_n6sc0"]
 [ext_resource type="Texture2D" uid="uid://df53qugtj3cxj" path="res://generic/textures/ui_corner.png" id="6_uhlv0"]
 
 [node name="Dragger" type="CanvasLayer"]
@@ -50,6 +51,10 @@ rotation = 3.14159
 texture = ExtResource("4_hebx0")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Cursor" type="Sprite2D" parent="ArrowRoot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_n6sc0")
 
 [node name="Debug" type="RichTextLabel" parent="."]
 visible = false

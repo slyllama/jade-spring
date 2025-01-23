@@ -62,6 +62,7 @@ func _ready() -> void:
 	SettingsHandler.refresh(["volume"])
 	
 	Global.cursor_enabled.connect(func(data):
+		await get_tree().process_frame
 		var _cursor = Cursor3D.new()
 		add_child(_cursor)
 		_cursor.activate(data))

@@ -31,6 +31,7 @@ func set_radius(radius: float) -> void:
 
 #region Activate/Deactivate
 func activate(get_data: Dictionary) -> void:
+	disabled = false
 	data = get_data
 	
 	set_cursor_tint(Color.RED)
@@ -73,7 +74,9 @@ func dismiss() -> void:
 	var scale_out_tween = create_tween()
 	scale_out_tween.tween_property(
 		cursor_sphere, "scale", Vector3(0.01, 0.01, 0.01), 0.12)
-	scale_out_tween.tween_callback(queue_free)
+	scale_out_tween.tween_callback(func():
+		if disabled:
+			queue_free())
 #endregion
 
 func _input(_event: InputEvent) -> void:

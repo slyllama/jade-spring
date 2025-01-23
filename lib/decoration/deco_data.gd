@@ -76,6 +76,15 @@ const DecoData = {
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
+	"indoor_lamp": {
+		"name": "Indoor Lamp",
+		"scene": "res://decorations/lighting/deco_indoor_lamp.tscn",
+		"cursor_model": "res://decorations/lighting/indoor_lamp.tscn",
+		"preview_scale": 1.0,
+		"model_offset": Vector3(0, 0.5, 0),
+		"tags": ["Foliage"],
+		"show_floor": true
+	},
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
 		"scene": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",

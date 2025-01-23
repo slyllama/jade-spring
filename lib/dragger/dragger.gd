@@ -45,6 +45,7 @@ func _ready() -> void:
 	var _mat = $ArrowRoot/ArrowLeft.material.duplicate()
 	$ArrowRoot/ArrowLeft.material = _mat
 	$ArrowRoot/ArrowRight.material = _mat
+	$ArrowRoot/Cursor.material = _mat
 	
 	var dissolve = create_tween()
 	dissolve.tween_method(_set_shader_val, 0.0, 1.0, 0.10)
@@ -74,6 +75,8 @@ func _process(delta: float) -> void:
 	elif axis == Axis.Y:
 		ratio = lerp(
 			ratio, event_relative.y * 0.06, delta * 20)
+		$ArrowRoot/Cursor.rotation_degrees = -90.0
+	$ArrowRoot/Cursor.position.x += ratio * 20.0
 	
 	$Debug.position = get_window().get_mouse_position() + Vector2(80, 0)
 	$Debug.text = str(snapped(ratio, 0.01))
