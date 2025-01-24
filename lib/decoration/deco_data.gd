@@ -173,6 +173,16 @@ const DecoData = {
 		"preview_v_offset": -0.1,
 		"tags": ["Architecture"]
 	},
+	"light_ray": {
+		"name": "Light Ray",
+		"scene": "res://decorations/light_ray/deco_light_ray.tscn",
+		"cursor_model": "res://decorations/light_ray/light_ray.glb",
+		"preview_y_rotation": 35,
+		"y_rotation": 90,
+		"preview_scale": 0.42,
+		"preview_v_offset": -0.1,
+		"tags": []
+	},
 	"simple_door": {
 		"name": "Simple Door",
 		"scene": "res://decorations/test_door/deco_test_door.tscn",

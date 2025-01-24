@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://do3fcqudbcd2x"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_2thel"]
+[ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="2_xo3ta"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v23nb"]
+size = Vector3(1.34766, 2.92163, 0.18335)
+
+[node name="DecoLightRay" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_2thel")
+id = "light_ray"
+collision_box = NodePath("Body")
+
+[node name="LightRay" parent="." instance=ExtResource("2_xo3ta")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(0.921633, -0.388063, 0, 0.388063, 0.921633, 0, 0, 0, 1, 0, 2.08682, 0)
+shape = SubResource("BoxShape3D_v23nb")

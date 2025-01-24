@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/light_ray.glb-8611efa87cbfcb5b96b782fb009c130
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="LightRay"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
