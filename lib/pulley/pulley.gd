@@ -29,11 +29,24 @@ const intro_dialogue_data = {
 	}
 }
 
+const debug_dialogue = {
+	"_entry": {
+		"string": "((Debug options!))",
+		"options": {
+			"day": "((Make it day-time.))",
+			"night": "((Make it night-time.))",
+			"done": "((I'm done for now.))"
+		}
+	},
+	"done": {
+		"reference": "_exit"
+	}
+}
+
 func _ready() -> void:
 	# Quick fix to an ambient occlusion issue
 	$PulleyMesh/GolemSkeleton/Skeleton3D/ArmBase_L/ArmBase_L.rotation_degrees.y = 180.0
 	$PulleyMesh/GolemSkeleton/Skeleton3D/Armpivot_L/Armpivot_L.rotation_degrees.y = 180.0
-	
 	$PulleyMesh/AnimationPlayer.play("Base")
 
 func _on_interacted() -> void:
@@ -45,4 +58,16 @@ func _on_interacted() -> void:
 		Global.hud.add_child(_d)
 		_d.closed.connect(func():
 			Save.advance_story())
+		_d.open()
+	else:
+		var _d = Dialogue.instantiate()
+		_d.data = debug_dialogue
+		_d.block_played.connect(func(id):
+			if id == "day":
+				Global.command_sent.emit("/time=day")
+			elif id == "night":
+				Global.command_sent.emit("/time=night")
+		)
+		
+		Global.hud.add_child(_d)
 		_d.open()
