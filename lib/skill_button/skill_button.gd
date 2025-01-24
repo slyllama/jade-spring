@@ -138,12 +138,12 @@ func switch_skill(get_id: String) -> void:
 	$Animation.play_backwards("squeeze")
 	#set_enabled()
 
-func _input(_event: InputEvent) -> void:
-	if Global.popup_open: return
-	if !binding_validated: return
-	if Input.is_action_just_pressed(input_binding):
-		if !Global.can_move: return
-		_on_button_down()
+#func _input(_event: InputEvent) -> void:
+	#if Global.popup_open: return
+	#if !binding_validated: return
+	#if Input.is_action_just_pressed(input_binding):
+		#if !Global.can_move: return
+		#_on_button_down()
 
 func _ready() -> void:
 	$Tooltip.visible = false

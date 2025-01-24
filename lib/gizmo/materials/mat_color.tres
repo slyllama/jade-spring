@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clfnuyha3mhhw"]
+
+[ext_resource type="Shader" path="res://generic/materials/shaders/shader_color.gdshader" id="1_ul848"]
+
+[resource]
+render_priority = 4
+shader = ExtResource("1_ul848")
+shader_parameter/color = null

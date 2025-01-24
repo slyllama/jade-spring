@@ -32,6 +32,16 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"mat_arrow": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/gizmo/materials/mat_color.tres"
+},
+"mat_neutral": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/gizmo/materials/mat_color.tres"
+}
+},
 "meshes": {
 "arrow_meshes_arrow_scale": {
 "generate/lightmap_uv": 0,

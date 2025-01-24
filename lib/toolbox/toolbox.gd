@@ -36,6 +36,36 @@ func get_button_by_id(id: String):
 		if _n.id == id:
 			return(_n)
 
+var _cd := 0.0
+
+func _input(_event: InputEvent) -> void:
+	if Global.popup_open or !Global.can_move: return
+	if _cd <= 0.0:
+		if Input.is_action_just_pressed("skill_1"):
+			_cd = 0.1
+			$Box/Skill1._on_button_down()
+			return
+		elif Input.is_action_just_pressed("skill_2"):
+			_cd = 0.1
+			$Box/Skill2._on_button_down()
+			return
+		elif Input.is_action_just_pressed("skill_3"):
+			_cd = 0.1
+			$Box/Skill3._on_button_down()
+			return
+		elif Input.is_action_just_pressed("skill_4"):
+			_cd = 0.1
+			$Box/Skill4._on_button_down()
+			return
+		elif Input.is_action_just_pressed("skill_5"):
+			_cd = 0.1
+			$Box/Skill5._on_button_down()
+			return
+		elif Input.is_action_just_pressed("skill_6"):
+			_cd = 0.1
+			$Box/Skill6._on_button_down()
+			return
+
 func _ready() -> void:
 	Save.story_advanced.connect(func():
 		$SkillSwap.volume_db = linear_to_db(0)
@@ -214,3 +244,7 @@ func skill_used(skill_id: String) -> void:
 		"debug_skill":
 			Global.debug_skill_used.emit()
 #endregion
+
+func _process(delta: float) -> void:
+	if _cd > 0:
+		_cd -= delta
