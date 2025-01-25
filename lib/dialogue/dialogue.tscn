@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=16 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_k137k"]
 [ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="4_mtkmt"]
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="5_flg4a"]
+[ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="8_f8vq4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xmdcj"]
 shader = ExtResource("2_kddfe")
@@ -253,6 +254,9 @@ layout_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_gyjes")
 }
+
+[node name="PlayDialogue" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_f8vq4")
 
 [connection signal="mouse_entered" from="Base" to="." method="_on_base_mouse_entered"]
 [connection signal="mouse_exited" from="Base" to="." method="_on_base_mouse_exited"]

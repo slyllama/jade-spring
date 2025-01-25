@@ -37,6 +37,7 @@ func _transition():
 
 func _ready() -> void:
 	$Decorations.modulate.a = 0.0
+	$Spinner.visible = true
 	
 	var _deco_fade_in = create_tween()
 	_deco_fade_in.tween_property($Decorations, "modulate:a", 1.0, 0.2)
@@ -53,8 +54,8 @@ func _ready() -> void:
 	ResourceLoader.load_threaded_request(target_scene)
 
 func _process(delta: float) -> void:
-	$Spinner.position.x = get_window().size.x / 2.0
-	$Spinner.position.y  = get_window().size.y - 90.0
+	$Spinner.position.x = get_window().size.x / 2.0 / Global.retina_scale
+	$Spinner.position.y = float(get_window().size.y) / Global.retina_scale - 90.0
 	$Spinner.rotation_degrees += delta * 240.0
 	loading_status = ResourceLoader.load_threaded_get_status(target_scene, progress)
 	match loading_status:
@@ -66,6 +67,7 @@ func _process(delta: float) -> void:
 				if has_loaded: return
 				has_loaded = true # only once
 				$Bar/ContinueButton.modulate.a = 0.0
+				$Spinner.visible = false
 				$Bar/ContinueButton.visible = true
 				$Bar/ContinueButton.grab_focus()
 				

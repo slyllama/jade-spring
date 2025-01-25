@@ -34,7 +34,8 @@ const debug_dialogue = {
 		"string": "((Debug options!))",
 		"options": {
 			"time": "((Toggle the time of day.))",
-			"cinematic": "((Toggle cinematic movement.))",
+			"clear": "((Clear all decorations (can't be undone).))",
+			"reset": "((Reset decorations to default (can't be undone).))",
 			"done": "((I'm done for now.))"
 		}
 	},
@@ -51,6 +52,7 @@ func _ready() -> void:
 
 func _on_interacted() -> void:
 	if Global.in_exclusive_ui: return
+	Global.generic_area_left.emit()
 	
 	if Save.data.story_point == "game_start":
 		var _d = Dialogue.instantiate()
@@ -68,7 +70,16 @@ func _on_interacted() -> void:
 					Global.command_sent.emit("/time=night")
 				elif Global.time_of_day == "night":
 					Global.command_sent.emit("/time=day")
+			elif id == "clear":
+				Global.command_sent.emit("/cleardeco")
+				await get_tree().process_frame
+				Global.command_sent.emit("/savedeco")
+			elif id == "reset":
+				Global.command_sent.emit("/resetdeco")
+				await get_tree().process_frame
+				Global.command_sent.emit("/savedeco")
 		)
 		
 		Global.hud.add_child(_d)
+		_d.closed.connect(Global.generic_area_entered.emit)
 		_d.open()

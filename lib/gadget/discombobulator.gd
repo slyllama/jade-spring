@@ -52,8 +52,10 @@ func _on_collision_interacted() -> void:
 	_d.block_played.connect(func(id):
 		if id == "discombobulator":
 			Global.add_effect.emit("discombobulator")
+			$GolemSound.play()
 		elif id == "dragonvoid":
 			Global.add_effect.emit("dv_charge")
+			$GolemSound.play()
 		elif id == "clear":
 			Global.remove_effect.emit("discombobulator")
 			Global.remove_effect.emit("dv_charge"))

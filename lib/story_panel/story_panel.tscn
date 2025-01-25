@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cn2qyrv6nlm14"]
+[gd_scene load_steps=15 format=3 uid="uid://cn2qyrv6nlm14"]
 
 [ext_resource type="Texture2D" uid="uid://4n7lm0nhmyrh" path="res://lib/story_panel/textures/base.png" id="1_08h36"]
 [ext_resource type="Script" path="res://lib/story_panel/story_panel.gd" id="1_b7ku0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="5_0s6ph"]
 [ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="7_p10w8"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="8_e0q63"]
+[ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="10_6vli3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysri0"]
 shader = ExtResource("2_krwrs")
@@ -209,6 +210,9 @@ stretch_mode = 0
 
 [node name="Paper" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_e0q63")
+
+[node name="PlayDialogue" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6vli3")
 
 [connection signal="mouse_entered" from="Base/Content" to="." method="_on_content_mouse_entered"]
 [connection signal="mouse_exited" from="Base/Content" to="." method="_on_content_mouse_exited"]

@@ -13,7 +13,7 @@ func open(
 	$Base/Content/Title.text = "[center]" + title + "[/center]"
 	$Base/Content/Description.text = description
 	$Base/Content/Sticker.texture = sticker
-	$Paper.play()
+	$PlayDialogue.play()
 	
 	Global.story_panel_open = true
 	Global.action_cam_disable.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=90 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -54,6 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://dmqlnx8l6lfhf" path="res://decorations/flower_patch/deco_yellow_flowers.tscn" id="42_h33ht"]
 [ext_resource type="Material" uid="uid://c3ygaq1wjp7c0" path="res://lib/player/materials/mat_engine_glow.tres" id="42_l2hym"]
 [ext_resource type="PackedScene" uid="uid://2irpg0mpnvmj" path="res://roof_pavilion.glb" id="43_4w16u"]
+[ext_resource type="AudioStream" uid="uid://bvbjroufthlhn" path="res://generic/sounds/insight_ambience.ogg" id="43_f8dlm"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
 [ext_resource type="PackedScene" uid="uid://qw6dxj43jndf" path="res://decorations/rocks/deco_pancake_rocks.tscn" id="54_iuxex"]
@@ -793,6 +794,15 @@ light_color = Color(0.689667, 1, 0.62, 1)
 omni_range = 4.0
 omni_attenuation = 0.0
 
+[node name="Bees" type="AudioStreamPlayer3D" parent="Decoration/PlatformInner/Waypoint" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.838457, 0)
+stream = ExtResource("43_f8dlm")
+max_db = 0.0
+pitch_scale = 1.1
+autoplay = true
+max_distance = 3.7
+attenuation_filter_cutoff_hz = 10000.0
+
 [node name="PlatformOuter" parent="Decoration/PlatformInner" index="4" instance=ExtResource("8_alpya")]
 transform = Transform3D(1.48079, -0.000397209, -0.239267, -0.000596002, 0.999988, -0.00742312, 0.239267, 0.00494876, 1.48078, 0, -0.203, 0)
 
@@ -1016,6 +1026,7 @@ transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, 
 
 [node name="Pulley" parent="." index="12" instance=ExtResource("9_2e7lr")]
 transform = Transform3D(-0.43867, 0, 1.27674, 0, 1.35, 0, -1.27674, 0, -0.43867, -10.8689, 0.828593, 3.6488)
+reset_on_interact = false
 
 [node name="WeedBin" parent="." index="13" instance=ExtResource("28_m4ym0")]
 transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)

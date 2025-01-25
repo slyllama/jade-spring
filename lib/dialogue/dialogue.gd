@@ -55,6 +55,8 @@ func open() -> void:
 	Global.can_move = false
 	Global.dialogue_open = true
 	Global.action_cam_disable.emit()
+	
+	$PlayDialogue.play()
 	if "_entry" in data:
 		render_block(data._entry)
 	if "_texture" in data:
