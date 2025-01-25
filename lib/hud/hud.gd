@@ -209,3 +209,10 @@ func _on_debug_entry_focus_exited() -> void:
 
 func _on_debug_entry_focus_entered() -> void:
 	_debug_cmd_gain_focus()
+
+func _on_interact_indicator_gui_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_click"):
+		var _i = InputEventAction.new()
+		_i.action = "interact"
+		_i.pressed = true
+		Input.parse_input_event(_i)

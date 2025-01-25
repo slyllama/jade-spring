@@ -35,12 +35,14 @@ func _ready() -> void:
 			Global.command_sent.emit("/orbitsmooth=1.0")
 		
 		if _cmd == "/time=night":
+			Global.time_of_day = "night"
 			$Sky.environment = NIGHT_ENV
 			$Sky/Sun.visible = false
 			$Sky/SunNight.visible = true
 			
 			for _n in $Decoration/LightRays.get_children(): _n.visible = false
 		elif _cmd == "/time=day":
+			Global.time_of_day = "day"
 			$Sky.environment = DAY_ENV
 			$Sky/Sun.visible = true
 			$Sky/SunNight.visible = false

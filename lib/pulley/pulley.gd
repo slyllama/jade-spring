@@ -33,8 +33,8 @@ const debug_dialogue = {
 	"_entry": {
 		"string": "((Debug options!))",
 		"options": {
-			"day": "((Make it day-time.))",
-			"night": "((Make it night-time.))",
+			"time": "((Toggle the time of day.))",
+			"cinematic": "((Toggle cinematic movement.))",
 			"done": "((I'm done for now.))"
 		}
 	},
@@ -63,10 +63,11 @@ func _on_interacted() -> void:
 		var _d = Dialogue.instantiate()
 		_d.data = debug_dialogue
 		_d.block_played.connect(func(id):
-			if id == "day":
-				Global.command_sent.emit("/time=day")
-			elif id == "night":
-				Global.command_sent.emit("/time=night")
+			if id == "time":
+				if Global.time_of_day == "day":
+					Global.command_sent.emit("/time=night")
+				elif Global.time_of_day == "night":
+					Global.command_sent.emit("/time=day")
 		)
 		
 		Global.hud.add_child(_d)
