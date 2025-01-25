@@ -58,6 +58,7 @@ func _input(_event) -> void:
 		if dragging:
 			set_enabled(false)
 			dragging = false
+			Global.in_exclusive_ui = false
 			drag_complete.emit()
 			var inflate = create_tween()
 			inflate.tween_property(
@@ -125,6 +126,7 @@ func _on_pick_input_event(_c, _e, _p, _n, _i) -> void:
 		if !dragging:
 			_wait_frame = 0
 			dragging = true
+			Global.in_exclusive_ui = true
 			$Drag/Pick/VisualAxis.visible = true
 			Global.drag_started.emit()
 			

@@ -179,6 +179,7 @@ func _process(_delta: float) -> void:
 	$Debug.text += ("\nTool mode: " + str(Global.tool_identities[Global.tool_mode]))
 	$Debug.text += ("\nFoliage count: " + str(Global.foliage_count))
 	$Debug.text += ("\nStory step: " + str(Save.data.story_point))
+	$Debug.text += ("\nIn exclusive UI: " + str(Global.in_exclusive_ui))
 	if Global.mouse_3d_position != Utilities.BIGVEC3:
 		$Debug.text += ("\n[color=yellow]Cursor 3D position: "
 			+ str(Utilities.fmt_vec3(Global.mouse_3d_position)) + "[/color]")

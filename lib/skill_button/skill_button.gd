@@ -90,8 +90,8 @@ const TOOLTIPS = {
 		"description": "((Debug skill.))"
 	},
 	"eyedropper": {
-		"title": "((Eyedropper))",
-		"description": "((Eyedropper.))"
+		"title": "Sample Decoration",
+		"description": "Copy an existing decoration, including its rotation and scale."
 	}
 }
 
@@ -136,14 +136,11 @@ func switch_skill(get_id: String) -> void:
 	
 	await $Animation.animation_finished
 	$Animation.play_backwards("squeeze")
-	#set_enabled()
 
-#func _input(_event: InputEvent) -> void:
-	#if Global.popup_open: return
-	#if !binding_validated: return
-	#if Input.is_action_just_pressed(input_binding):
-		#if !Global.can_move: return
-		#_on_button_down()
+func _input(_event: InputEvent) -> void:
+	if Global.popup_open or !binding_validated or !enabled or Global.in_exclusive_ui: return
+	if Input.is_action_just_pressed(input_binding):
+		fx_down()
 
 func _ready() -> void:
 	$Tooltip.visible = false
@@ -167,7 +164,12 @@ func _process(_delta: float) -> void:
 		$Tooltip.global_position.y -= $Tooltip.size.y
 
 func _on_button_down() -> void:
-	if enabled:
+	if enabled and !Global.in_exclusive_ui:
+		fx_down()
+
+func _on_button_up() -> void:
+	if enabled and !Global.in_exclusive_ui:
+		fx_up()
 		$Tooltip.visible = false
 		Global.click_sound.emit()
 		clicked.emit(id)
@@ -183,3 +185,11 @@ func _on_mouse_exited() -> void:
 	$Tooltip.visible = false
 	Global.mouse_in_ui = false
 	$HoverBorder.visible = false
+
+func fx_down() -> void:
+	$Image.modulate = Color(0.5, 0.5, 0.5)
+	$Image.scale = Vector2(0.4, 0.4)
+
+func fx_up() -> void:
+	$Image.modulate = Color(1.0, 1.0, 1.0)
+	$Image.scale = Vector2(0.5, 0.5)

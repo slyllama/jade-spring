@@ -41,29 +41,29 @@ var _cd := 0.0
 func _input(_event: InputEvent) -> void:
 	if Global.popup_open or !Global.can_move: return
 	if _cd <= 0.0:
-		if Input.is_action_just_pressed("skill_1"):
+		if Input.is_action_just_released("skill_1"):
 			_cd = 0.1
-			$Box/Skill1._on_button_down()
+			$Box/Skill1._on_button_up()
 			return
-		elif Input.is_action_just_pressed("skill_2"):
+		elif Input.is_action_just_released("skill_2"):
 			_cd = 0.1
-			$Box/Skill2._on_button_down()
+			$Box/Skill2._on_button_up()
 			return
-		elif Input.is_action_just_pressed("skill_3"):
+		elif Input.is_action_just_released("skill_3"):
 			_cd = 0.1
-			$Box/Skill3._on_button_down()
+			$Box/Skill3._on_button_up()
 			return
-		elif Input.is_action_just_pressed("skill_4"):
+		elif Input.is_action_just_released("skill_4"):
 			_cd = 0.1
-			$Box/Skill4._on_button_down()
+			$Box/Skill4._on_button_up()
 			return
-		elif Input.is_action_just_pressed("skill_5"):
+		elif Input.is_action_just_released("skill_5"):
 			_cd = 0.1
-			$Box/Skill5._on_button_down()
+			$Box/Skill5._on_button_up()
 			return
-		elif Input.is_action_just_pressed("skill_6"):
+		elif Input.is_action_just_released("skill_6"):
 			_cd = 0.1
-			$Box/Skill6._on_button_down()
+			$Box/Skill6._on_button_up()
 			return
 
 func _ready() -> void:
