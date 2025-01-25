@@ -1,6 +1,6 @@
 // Exposure-based light ray
 shader_type spatial;
-render_mode unshaded, fog_disabled, cull_disabled, ambient_light_disabled, shadows_disabled;
+render_mode blend_premul_alpha, unshaded, fog_disabled, cull_disabled, ambient_light_disabled, shadows_disabled;
 
 uniform sampler2D gradient_h: hint_default_white;
 uniform sampler2D gradient_v: hint_default_white;

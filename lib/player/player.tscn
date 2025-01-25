@@ -181,3 +181,12 @@ autoplay = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
 visible = false
 mesh = SubResource("QuadMesh_jd243")
+
+[node name="SprintSoundCD" type="Timer" parent="."]
+wait_time = 17.0
+one_shot = true
+
+[node name="SprintSoundPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -4.5
+
+[connection signal="timeout" from="SprintSoundCD" to="." method="_on_sprint_sound_cd_timeout"]

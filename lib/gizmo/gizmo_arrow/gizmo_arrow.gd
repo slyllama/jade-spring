@@ -58,6 +58,7 @@ func _input(_event) -> void:
 		if dragging:
 			set_enabled(false)
 			dragging = false
+			Global.mouse_in_ui = false
 			Global.in_exclusive_ui = false
 			drag_complete.emit()
 			var inflate = create_tween()

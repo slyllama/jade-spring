@@ -10,6 +10,7 @@ gradient = SubResource("Gradient_e6xwc")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5od8f"]
 panorama = ExtResource("1_n6eep")
+energy_multiplier = 0.45
 
 [sub_resource type="Sky" id="Sky_rl5tb"]
 sky_material = SubResource("PanoramaSkyMaterial_5od8f")
@@ -24,7 +25,7 @@ tonemap_mode = 2
 tonemap_exposure = 1.1
 tonemap_white = 1.1
 glow_enabled = true
-glow_intensity = 0.65
+glow_intensity = 1.0
 glow_strength = 0.45
 glow_bloom = 1.0
 glow_blend_mode = 0

@@ -163,6 +163,16 @@ const DecoData = {
 		"preview_v_offset": -0.1,
 		"tags": ["Architecture"]
 	},
+	"simple_windowed_wall": {
+		"name": "Simple Windowed Wall",
+		"scene": "res://decorations/test_wall/deco_wall_with_window.tscn",
+		"cursor_model": "res://decorations/test_wall/wall_with_window.glb",
+		"preview_y_rotation": 35,
+		"y_rotation": 90,
+		"preview_scale": 0.42,
+		"preview_v_offset": -0.1,
+		"tags": ["Architecture"]
+	},
 	"simple_wall_narrow": {
 		"name": "Simple Wall - Narrow",
 		"scene": "res://decorations/test_wall/deco_wall_narrow.tscn",

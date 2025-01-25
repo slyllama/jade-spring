@@ -7,6 +7,9 @@ var dv_state = false
 var bug_tween: Tween
 var dv_tween: Tween
 
+func _set_anime_alpha(val) -> void:
+	$Anime.material.set_shader_parameter("modulate_a", val)
+
 func _set_bugs_exponent(val) -> void:
 	var _e = ease(val, 2.0)
 	_e = 0.8 + 9.2 * _e
@@ -16,6 +19,14 @@ func _set_dragonvoid_exponent(val) -> void:
 	var _e = ease(val, 2.0)
 	_e = 0.8 + 9.2 * _e
 	$Dragonvoid.material.set_shader_parameter("alpha_exponent", _e)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("sprint"):
+		var _f = create_tween()
+		_f.tween_method(_set_anime_alpha, 0.0, 0.5, 0.1)
+	elif Input.is_action_just_released("sprint"):
+		var _f = create_tween()
+		_f.tween_method(_set_anime_alpha, 0.5, 0.0, 0.1)
 
 func _ready() -> void:
 	_set_bugs_exponent(10.0)

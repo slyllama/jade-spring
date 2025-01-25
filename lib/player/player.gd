@@ -11,7 +11,17 @@ const JADE_SOUNDS = [
 	preload("res://lib/player/sounds/jade_sound_6.ogg")
 ]
 
+const SPRINT_SOUNDS = [
+	preload("res://lib/player/sounds/jade_sprint_1.ogg"),
+	preload("res://lib/player/sounds/jade_sprint_2.ogg"),
+	preload("res://lib/player/sounds/jade_sprint_3.ogg"),
+	preload("res://lib/player/sounds/jade_sprint_4.ogg"),
+	preload("res://lib/player/sounds/jade_sprint_5.ogg")
+]
+
 const DgFX = preload("res://lib/dispersion_golem/dg_fx.tscn")
+
+var can_play_sprint_sound = true
 
 @export var base_speed := 2.0
 @export var smoothing := 7.0
@@ -53,6 +63,13 @@ func clear_dgolems() -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug_action"):
 		$PlayerMesh.visible = !$PlayerMesh.visible
+	
+	if Input.is_action_just_pressed("sprint"):
+		if can_play_sprint_sound:
+			can_play_sprint_sound = false
+			$SprintSoundCD.start()
+			$SprintSoundPlayer.stream = SPRINT_SOUNDS.pick_random()
+			$SprintSoundPlayer.play()
 
 func _ready() -> void:
 	# Spawn/clear golems in different circumstances
@@ -217,3 +234,6 @@ func _process(delta: float) -> void:
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)
 	#if Global.in_exclusive_ui: _target_pitch_scale = 1.0
 	$EngineSound.pitch_scale = lerp($EngineSound.pitch_scale, _target_pitch_scale, 0.07)
+
+func _on_sprint_sound_cd_timeout() -> void:
+	can_play_sprint_sound = true

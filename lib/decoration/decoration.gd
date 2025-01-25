@@ -182,6 +182,9 @@ func apply_adjustment() -> void:
 		_clear_arrows() 
 		collision_box.set_collision_layer_value(2, 1)
 		Global.command_sent.emit("/savedeco")
+	
+	await get_tree().process_frame
+	Global.mouse_in_ui = false
 
 func cancel_adjustment() -> void:
 	if collision_box != null:
@@ -198,6 +201,9 @@ func cancel_adjustment() -> void:
 		position = last_position
 		scale = last_scale
 		rotation = last_rotation
+	
+	await get_tree().process_frame
+	Global.mouse_in_ui = false
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
