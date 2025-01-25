@@ -90,8 +90,13 @@ func render(tag = "None") -> void:
 		_item.button_down.connect(func():
 			current_id = _d
 			preview.current_id = current_id
+			var _p = _dl.scene
+			
+			# Model exceptions
+			if _d == "light_ray":
+				_p = "res://decorations/light_ray/light_ray_cursor.glb"
 			preview.load_model(
-				_dl.scene, _dl.preview_scale, _get_y_rotation(_dl)))
+				_p, _dl.preview_scale, _get_y_rotation(_dl)))
 	
 	preview.clear_model()
 	preview.current_id = current_id

@@ -176,10 +176,10 @@ const DecoData = {
 	"light_ray": {
 		"name": "Light Ray",
 		"scene": "res://decorations/light_ray/deco_light_ray.tscn",
-		"cursor_model": "res://decorations/light_ray/light_ray.glb",
+		"cursor_model": "res://decorations/light_ray/light_ray_cursor.glb",
 		"preview_y_rotation": 35,
 		"y_rotation": 90,
-		"preview_scale": 0.42,
+		"preview_scale": 0.5,
 		"preview_v_offset": -0.1,
 		"tags": []
 	},

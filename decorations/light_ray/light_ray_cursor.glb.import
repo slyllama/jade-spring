@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b1eb6tuc5vgnl"
-path="res://.godot/imported/light_ray.glb-8611efa87cbfcb5b96b782fb009c1300.scn"
+uid="uid://yjjsmp4dujw7"
+path="res://.godot/imported/light_ray_cursor.glb-9c846f4d0e6e225763147f7bbc2cc13a.scn"
 
 [deps]
 
-source_file="res://decorations/light_ray/light_ray.glb"
-dest_files=["res://.godot/imported/light_ray.glb-8611efa87cbfcb5b96b782fb009c1300.scn"]
+source_file="res://decorations/light_ray/light_ray_cursor.glb"
+dest_files=["res://.godot/imported/light_ray_cursor.glb-9c846f4d0e6e225763147f7bbc2cc13a.scn"]
 
 [params]
 
@@ -35,7 +35,7 @@ _subresources={
 "materials": {
 "mat_ray": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/light_ray/materials/mat_exp_ray.tres"
+"use_external/path": "res://decorations/light_ray/materials/mat_light_ray.tres"
 }
 },
 "nodes": {
