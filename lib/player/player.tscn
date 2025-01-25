@@ -174,7 +174,7 @@ cull_mask = 1048573
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_ao383")
 attenuation_model = 1
-max_db = -3.7
+max_db = -3.2
 autoplay = true
 
 [node name="FloorMesh" type="MeshInstance3D" parent="."]
@@ -187,6 +187,6 @@ wait_time = 17.0
 one_shot = true
 
 [node name="SprintSoundPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -4.5
+volume_db = -3.2
 
 [connection signal="timeout" from="SprintSoundCD" to="." method="_on_sprint_sound_cd_timeout"]

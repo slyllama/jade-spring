@@ -32,12 +32,17 @@ func render_block(block_data: Dictionary) -> void:
 	if "string" in block_data:
 		$Base/Box/Text.text = block_data.string
 	
+	var _first = false
+	
 	if "options" in block_data:
 		for _o in block_data.options:
-			var _b = $Base/TemplateButton.duplicate()
+			var _b: Button = $Base/TemplateButton.duplicate()
 			_b.text = block_data.options[_o]
 			_b.visible = true
 			$Base/Box.add_child(_b)
+			if !_first:
+				_b.grab_focus()
+				_first = true
 			
 			_b.button_down.connect(func():
 				block_played.emit(_o)

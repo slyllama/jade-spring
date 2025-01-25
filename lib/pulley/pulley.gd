@@ -51,7 +51,7 @@ func _ready() -> void:
 	$PulleyMesh/AnimationPlayer.play("Base")
 
 func _on_interacted() -> void:
-	if Global.in_exclusive_ui: return
+	if Global.in_exclusive_ui or Global.dialogue_open: return
 	Global.generic_area_left.emit()
 	
 	if Save.data.story_point == "game_start":

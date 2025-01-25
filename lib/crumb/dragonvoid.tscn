@@ -19,6 +19,7 @@ func clear() -> void:
 
 func _ready() -> void:
 	super()
+	$DragonvoidArc/AnimationPlayer.play(\"Wobble\")
 	body_entered.connect(func(body):
 		#if Save.data.story_point == \"game_start\": return # not unlocked yet
 		if body is CharacterBody3D:

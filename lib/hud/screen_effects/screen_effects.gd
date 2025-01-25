@@ -20,7 +20,7 @@ func _set_dragonvoid_exponent(val) -> void:
 	_e = 0.8 + 9.2 * _e
 	$Dragonvoid.material.set_shader_parameter("alpha_exponent", _e)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("sprint"):
 		var _f = create_tween()
 		_f.tween_method(_set_anime_alpha, 0.0, 0.5, 0.1)

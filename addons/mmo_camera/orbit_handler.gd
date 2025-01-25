@@ -24,6 +24,8 @@ func set_initial_rotation(rotation: Vector3) -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	get_window().focus_entered.connect(func():
+		_enable_action_cam())
 	get_window().focus_exited.connect(func():
 		_disable_action_cam()
 		

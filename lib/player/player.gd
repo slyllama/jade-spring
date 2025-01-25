@@ -23,8 +23,8 @@ const DgFX = preload("res://lib/dispersion_golem/dg_fx.tscn")
 
 var can_play_sprint_sound = true
 
-@export var base_speed := 2.0
-@export var smoothing := 7.0
+@export var base_speed: float = 3.0
+@export var smoothing: float = 7.0
 var smooth_mod = 1.0 # acceleration smoothing - to be modified by command
 
 @onready var anim: AnimationPlayer = get_node("PlayerMesh/AnimationPlayer")
@@ -65,7 +65,7 @@ func _input(_event: InputEvent) -> void:
 		$PlayerMesh.visible = !$PlayerMesh.visible
 	
 	if Input.is_action_just_pressed("sprint"):
-		if can_play_sprint_sound:
+		if can_play_sprint_sound and velocity.length() > 0.0:
 			can_play_sprint_sound = false
 			$SprintSoundCD.start()
 			$SprintSoundPlayer.stream = SPRINT_SOUNDS.pick_random()
@@ -169,7 +169,7 @@ func _physics_process(delta: float) -> void:
 		_target_velocity = (Vector3.FORWARD * _camera_basis * Vector3(-1, 0, 1) * _direction.x)
 		_target_velocity += (Vector3.RIGHT * _camera_basis * Vector3(1, 0, -1) * _direction.z)
 		_target_velocity += (Vector3.UP * _camera_basis * Vector3(0, 1, 0) * _direction.y)
-		_target_velocity = _target_velocity.normalized() * Vector3(_speed, _speed * 1.5, _speed)
+		_target_velocity = _target_velocity.normalized() * Vector3(_speed, _speed * 1.12, _speed)
 	else: _target_velocity = Vector3.ZERO
 	
 	velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)

@@ -14,21 +14,29 @@ func set_up_nodule() -> void:
 	$Nodule.modulate.a = 0.0
 	
 	$Container/PlayButton.focus_entered.connect(func():
+		$Swish.play()
 		focus = $Container/PlayButton)
 	$Container/SettingsButton.focus_entered.connect(func():
+		$Swish.play()
 		focus = $Container/SettingsButton)
 	$Container/QuitButton.focus_entered.connect(func():
+		$Swish.play()
 		focus = $Container/QuitButton)
 	$Container/Box/ContinueButton.focus_entered.connect(func():
+		$Swish.play()
 		focus = $Container/Box/ContinueButton)
 	
 	$Container/PlayButton.mouse_entered.connect(func():
+		$Swish.play()
 		focus = $Container/PlayButton)
 	$Container/SettingsButton.mouse_entered.connect(func():
+		$Swish.play()
 		focus = $Container/SettingsButton)
 	$Container/QuitButton.mouse_entered.connect(func():
+		$Swish.play()
 		focus = $Container/QuitButton)
 	$Container/Box/ContinueButton.mouse_entered.connect(func():
+		$Swish.play()
 		focus = $Container/Box/ContinueButton)
 	
 	await get_tree().create_timer(0.12).timeout
@@ -75,6 +83,7 @@ func _ready() -> void:
 	fade_tween.tween_property($FG, "modulate:a", 0.0, 0.55)
 	fade_tween.tween_callback(func():
 		if can_interact:
+			$Swish.volume_db = -5.0
 			$FG.visible = false)
 	
 	AudioServer.set_bus_volume_db(0, -80)
@@ -115,7 +124,7 @@ func _process(delta: float) -> void:
 	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
-		$Nodule.position, Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16), delta * 22)
+		$Nodule.position, Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16), delta * 40.0)
 
 func _on_play_button_down() -> void:
 	if !can_interact or ngc_open: return
@@ -152,7 +161,6 @@ func _on_timer_timeout() -> void:
 
 func _on_settings_pane_closed() -> void:
 	$Container/SettingsButton.grab_focus()
-
 
 func _on_folder_button_down() -> void:
 	OS.shell_open(ProjectSettings.globalize_path("user://save"))
