@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ilps510wkjfw"
-path="res://.godot/imported/test_door.glb-6ae5c5e2c1faf51db6cb22cf21e8b62d.scn"
+uid="uid://coilvh3xwu0gu"
+path="res://.godot/imported/door.glb-d4e9e4c16de65e68150a6514553a4465.scn"
 
 [deps]
 
-source_file="res://decorations/test_door/mesh/test_door.glb"
-dest_files=["res://.godot/imported/test_door.glb-6ae5c5e2c1faf51db6cb22cf21e8b62d.scn"]
+source_file="res://decorations/door/meshes/door.glb"
+dest_files=["res://.godot/imported/door.glb-d4e9e4c16de65e68150a6514553a4465.scn"]
 
 [params]
 
 nodes/root_type=""
-nodes/root_name="TestDoor"
+nodes/root_name="Door"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8dtn2e7ub17e"]
+
+[ext_resource type="Script" path="res://decorations/door/door_container.gd" id="1_d0vvv"]
+[ext_resource type="PackedScene" uid="uid://coilvh3xwu0gu" path="res://decorations/door/meshes/door.glb" id="1_o0n3j"]
+[ext_resource type="Animation" uid="uid://cluvla1ed2hsp" path="res://decorations/door/anims/closed.res" id="2_2ghnm"]
+[ext_resource type="Animation" uid="uid://da5fufkopn3q6" path="res://decorations/door/anims/open.res" id="3_7jiq1"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qs7lc"]
+_data = {
+"closed": ExtResource("2_2ghnm"),
+"open": ExtResource("3_7jiq1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ywul"]
+animation = &"door/closed"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wtdp"]
+animation = &"door/open"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ju42u"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6ywul")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_6wtdp")
+blend_point_1/pos = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hhscr"]
+height = 4.0798
+radius = 1.74124
+
+[node name="DoorContainer" type="Node3D"]
+script = ExtResource("1_d0vvv")
+
+[node name="Door" parent="." instance=ExtResource("1_o0n3j")]
+
+[node name="Anim" type="AnimationTree" parent="Door"]
+libraries = {
+"door": SubResource("AnimationLibrary_qs7lc")
+}
+tree_root = SubResource("AnimationNodeBlendSpace1D_ju42u")
+parameters/blend_position = -0.925433
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_hhscr")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

@@ -195,11 +195,10 @@ const DecoData = {
 	},
 	"simple_door": {
 		"name": "Simple Door",
-		"scene": "res://decorations/test_door/deco_test_door.tscn",
-		"cursor_model": "res://decorations/test_door/mesh/test_door.glb",
+		"scene": "res://decorations/door/deco_door.tscn",
+		"cursor_model": "res://decorations/door/door_container.tscn",
 		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
-		"model_offset": Vector3(0.6, 0, 0),
 		"tags": ["Architecture"]
 	},
 	"weeping_willow": {

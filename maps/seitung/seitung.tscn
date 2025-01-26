@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=93 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
 [ext_resource type="PackedScene" uid="uid://uy3wjjetlcms" path="res://decorations/lighting/deco_indoor_lamp.tscn" id="29_32tvc"]
 [ext_resource type="PackedScene" uid="uid://do3fcqudbcd2x" path="res://decorations/light_ray/deco_light_ray.tscn" id="32_2oif6"]
+[ext_resource type="PackedScene" uid="uid://c6tcsp348wkyd" path="res://decorations/door/deco_door.tscn" id="34_oct38"]
 [ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="35_42aun"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
@@ -661,6 +662,9 @@ transform = Transform3D(1, 0, 0, 0, 0.997945, 0.0640795, 0, -0.0640795, 0.997945
 
 [node name="DecoLightRay" parent="DecoHandler" index="117" instance=ExtResource("32_2oif6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47224, 1.05467, -1.57769)
+
+[node name="DecoDoor" parent="DecoHandler" index="119" instance=ExtResource("34_oct38")]
+transform = Transform3D(0.00291469, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00291469, 3.65278, 1.25, 3.79308)
 
 [node name="LightRays" type="Node3D" parent="Decoration" index="0"]
 

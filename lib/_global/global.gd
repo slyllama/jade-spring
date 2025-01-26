@@ -125,6 +125,9 @@ signal adjustment_reset # reset to default orientation and scale
 signal adjustment_mode_rotation
 signal adjustment_mode_translate
 
+signal selection_started # applies to eyedropper too
+signal selection_canceled # applies to eyedropper too
+
 signal deco_sampled(data) # decoration sampled with the eyedropper tool
 signal deco_pane_closed
 signal deco_pane_opened

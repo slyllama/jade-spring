@@ -157,6 +157,7 @@ func skill_used(skill_id: String) -> void:
 		"select":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_SELECT
+				Global.selection_started.emit()
 				clear_skills()
 				$Box/Skill1.switch_skill("select")
 				get_button_by_id("select").set_highlight()
@@ -165,11 +166,13 @@ func skill_used(skill_id: String) -> void:
 			elif (Global.tool_mode == Global.TOOL_MODE_SELECT
 				or Global.tool_mode == Global.TOOL_MODE_EYEDROPPER):
 				Global.tool_mode = Global.TOOL_MODE_NONE
+				Global.selection_canceled.emit()
 				Global.action_cam_enable.emit()
 				set_default_skills()
 		"eyedropper":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_EYEDROPPER
+				Global.selection_started.emit()
 				clear_skills()
 				$Box/Skill4.switch_skill("select")
 				get_button_by_id("select").set_highlight()
