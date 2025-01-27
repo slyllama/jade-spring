@@ -121,7 +121,7 @@ func _process(delta: float) -> void:
 	var _s = 0.0 # position change
 	if diff < threshold: _s = progress_increase_rate
 	else: _s = -progress_decrease_rate
-	progress += _s
+	progress += _s * delta * 60.0
 	
 	if progress > 99.5:
 		has_succeeded = true

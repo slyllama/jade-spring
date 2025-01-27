@@ -13,6 +13,7 @@ func open(silent = false) -> void:
 func close() -> void:
 	Global.settings_open = false
 	Global.action_cam_enable.emit()
+	$BindingsPane.close()
 	if qc != null:
 		qc.queue_free()
 	SettingsHandler.save_to_file()
@@ -57,3 +58,9 @@ func _process(delta: float) -> void:
 	else:
 		if $PreventFocus.visible:
 			$PreventFocus.visible = false
+
+func _on_bindings_button_down() -> void:
+	if !$BindingsPane.is_open:
+		$BindingsPane.open()
+	else:
+		$BindingsPane.close()

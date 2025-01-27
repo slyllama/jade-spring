@@ -32,7 +32,7 @@ func open(silent = false):
 func close():
 	if !closeable or !is_open: return
 	
-	Global.click_sound.emit()
+	#Global.click_sound.emit()
 	is_open = false
 	closed.emit()
 	var close_tween = create_tween()
@@ -52,8 +52,8 @@ func _ready():
 	# Pass mouse events through UI elements, because non-orbit checks are done on the panel itself
 	for _n in Utilities.get_all_children(self):
 		if "mouse_filter" in _n: _n.mouse_filter = MOUSE_FILTER_PASS
-		#if _n is BaseButton:
-			#_n.button_down.connect(func(): Global.click_sound.emit())
+		if _n is BaseButton:
+			_n.button_down.connect(func(): Global.click_sound.emit())
 	$Corner.mouse_filter = MOUSE_FILTER_IGNORE
 
 func _input(_event: InputEvent) -> void:

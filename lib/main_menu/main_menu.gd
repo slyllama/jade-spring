@@ -128,20 +128,24 @@ func _process(delta: float) -> void:
 
 func _on_play_button_down() -> void:
 	if !can_interact or ngc_open: return
+	Global.click_sound.emit()
 	$NewGameContainer.open()
 	ngc_open = true
 
 func _on_quit_button_down() -> void:
 	if !can_interact or ngc_open: return
+	Global.click_sound.emit()
 	get_tree().quit()
 
 func _on_settings_button_down() -> void:
 	if !can_interact or ngc_open: return
 	if !$SettingsPane.is_open:
+		Global.click_sound.emit()
 		$SettingsPane.open()
 
 func _on_continue_button_down() -> void:
 	if !can_interact or ngc_open: return
+	Global.click_sound.emit()
 	Global.start_params.new_save = false
 	play()
 

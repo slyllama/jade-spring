@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5u3318qly2re"]
+
+[ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_tkh2g"]
+
+[node name="BindingsPane" instance=ExtResource("1_tkh2g")]
+title = "Input Bindings"

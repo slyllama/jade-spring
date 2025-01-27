@@ -207,14 +207,16 @@ func _physics_process(delta: float) -> void:
 			$PlayerMesh.rotation.z,
 			_direction.z * 0.4,
 			smoothing * 0.2 * delta)
+	
+	# Interpolating camera movements on physics tick seems to be smoother when
+	# playing with unlimited frames
+	$Camera.global_position.y = lerp(
+		$Camera.global_position.y, global_position.y, smoothing * delta)
+	$Camera.global_position.x = global_position.x
+	$Camera.global_position.z = global_position.z
 
 func _process(delta: float) -> void:
 	$PlayerMesh/Stars.global_position = engine_bone.global_position
-	$Camera.global_position.x = global_position.x
-	$Camera.global_position.z = global_position.z
-	$Camera.global_position.y = lerp(
-		$Camera.global_position.y, global_position.y, smoothing * delta)
-	
 	$Camera.popup_open = Global.popup_open
 	$Camera.mouse_in_ui = Global.mouse_in_ui
 	
