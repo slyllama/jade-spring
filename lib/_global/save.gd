@@ -68,6 +68,8 @@ func save_to_file() -> void:
 		if _fx.contains("weed"):
 			Save.data.weeds = int(_fx.split("=")[1])
 	
+	if data == {}:
+		breakpoint # TODO: trying to catch when a blank save file situation happens
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	file.store_var(data)
 	file.close()
@@ -97,5 +99,6 @@ func _ready() -> void:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_to_file()
+		if Save.data != {}: # only save if there is something to save
+			save_to_file()
 		get_tree().quit() # default behavior

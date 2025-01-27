@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxyq3hqxr2k7u"]
+
+[ext_resource type="Script" path="res://lib/bindings/key_ui.gd" id="1_lrqo7"]
+
+[node name="KeyUI" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+offset_right = 302.0
+offset_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+script = ExtResource("1_lrqo7")
+
+[node name="Title" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "((InputKey))"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Key" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "((Button))"
