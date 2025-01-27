@@ -10,7 +10,7 @@ const DEFAULT_SETTINGS = {
 	"window_mode": "full_screen",
 	"foliage_density": "high",
 	"bloom": "on",
-	"orbit_sensitivity": 0.21,
+	"orbit_sensitivity": 0.5,
 	"labels": "hide",
 	"action_camera": "off_by_default",
 	"fps_cap": 60,

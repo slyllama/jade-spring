@@ -45,19 +45,15 @@ func _ready() -> void:
 				if _value == "on": $Sky.environment.glow_enabled = true
 				elif _value == "off": $Sky.environment.glow_enabled = false
 			"orbit_sensitivity":
-				Global.orbit_sensitivity_multiplier = 0.05 + (_value / 2.0)
+				# Ease orbit sensitivity, making it more precise for lower values
+				Global.orbit_sensitivity_multiplier = ease(0.01 + _value, 1.8)
 			"fps_cap":
-				if str(_value) == "30":
-					Engine.set_max_fps(30)
-				elif str(_value) == "60":
-					Engine.set_max_fps(60)
-				else:
-					Engine.set_max_fps(0)
+				if str(_value) == "30": Engine.set_max_fps(30)
+				elif str(_value) == "60": Engine.set_max_fps(60)
+				else: Engine.set_max_fps(0)
 			"vsync":
-				if _value == "on":
-					DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-				else:
-					DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+				if _value == "on": DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+				else: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	)
 	SettingsHandler.refresh(["volume"])
 	

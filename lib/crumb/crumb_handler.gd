@@ -55,6 +55,7 @@ func _ready() -> void:
 			if !_n.type in totals:
 				totals[_n.type] = 0
 			totals[_n.type] += 1
+	totals.weed -= 1
 	
 	Global.crumb_handler = self
 	Global.crumbs_updated.emit()

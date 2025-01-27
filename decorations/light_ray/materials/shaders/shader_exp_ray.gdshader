@@ -15,7 +15,7 @@ void fragment() {
 	rays *= texture(gradient_h, UV).r;
 	rays *= texture(gradient_v, UV).r;
 	rays *= texture(noise_texture, UV * noise_scale + TIME * vec2(-0.01, -0.02)).r;
-	
+
 	ALBEDO = texture(screen_texture, SCREEN_UV).rgb;
 	ALBEDO += ALBEDO * rays * 20.0;
 }
