@@ -49,7 +49,8 @@ func _enable_action_cam(override = false) -> void:
 		or Global.tool_mode == Global.TOOL_MODE_ADJUST
 		or Global.tool_mode == Global.TOOL_MODE_PLACE
 		or Global.tool_mode == Global.TOOL_MODE_EYEDROPPER
-		or Global.deco_pane_open):
+		or Global.deco_pane_open
+		or Global.settings_open):
 		return
 	
 	await get_tree().process_frame
@@ -95,6 +96,8 @@ func _input(event: InputEvent) -> void:
 		if action_cam_active and !action_cam_paused: return
 		_clicked_in_ui = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if Global.camera_orbiting:
+			get_window().warp_mouse(_last_click_position)
 		Global.camera_orbiting = false
 		orbiting = false
 	

@@ -145,6 +145,7 @@ options = Array[String](["on_by_default", "off_by_default"])
 default_option = "off_by_default"
 
 [node name="Title" type="RichTextLabel" parent="Container/SC/Contents" index="13"]
+visible = false
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -212,6 +213,16 @@ text = "Done"
 [node name="Quit" type="Button" parent="Container" index="6"]
 layout_mode = 2
 text = "Return To Menu"
+
+[node name="PreventFocus" type="ColorRect" parent="." index="4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="button_down" from="Container/Done" to="." method="_on_save_press"]
 [connection signal="button_down" from="Container/Quit" to="." method="_on_quit_button_down"]

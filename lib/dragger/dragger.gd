@@ -4,10 +4,9 @@ enum Axis { X, Y }
 @export var axis: Axis = Axis.X
 
 @onready var win = get_window().size
-var last_mouse_click = Vector2.ZERO
+@onready var initial_mouse_position = get_window().get_mouse_position()
 
 var active = true
-
 var last_event_relative = Vector2.ZERO
 var event_relative = Vector2.ZERO
 
@@ -22,9 +21,9 @@ func _set_shader_val(val: float) -> void:
 
 func destroy() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_window().warp_mouse(initial_mouse_position) # move mouse back to where it was
 	
 	Global.in_exclusive_ui = false
-	$Debug.visible = false
 	active = false
 	
 	var dissolve = create_tween()
@@ -45,15 +44,16 @@ func _ready() -> void:
 	var _mat = $ArrowRoot/ArrowLeft.material.duplicate()
 	$ArrowRoot/ArrowLeft.material = _mat
 	$ArrowRoot/ArrowRight.material = _mat
-	$ArrowRoot/Cursor.material = _mat
+	$ArrowRoot/Mouse.material = _mat
+	
 	
 	var dissolve = create_tween()
 	dissolve.tween_method(_set_shader_val, 0.0, 1.0, 0.10)
 	
 	if axis == Axis.Y:
 		$ArrowRoot.rotation_degrees = 90.0
-	last_mouse_click = get_window().get_mouse_position()
-	$ArrowRoot.position = last_mouse_click
+	$ArrowRoot.global_position = initial_mouse_position
+	$ArrowRoot/Mouse.global_position = initial_mouse_position
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -70,16 +70,10 @@ func _process(delta: float) -> void:
 	
 	# Process event relative movement and smooth out
 	if axis == Axis.X:
-		ratio = lerp(
-			ratio, event_relative.x * 0.06, delta * 20)
+		ratio = lerp(ratio, event_relative.x * 0.06, delta * 20)
 	elif axis == Axis.Y:
-		ratio = lerp(
-			ratio, event_relative.y * 0.06, delta * 20)
-		$ArrowRoot/Cursor.rotation_degrees = -90.0
-	$ArrowRoot/Cursor.position.x += ratio * 20.0
-	
-	$Debug.position = get_window().get_mouse_position() + Vector2(80, 0)
-	$Debug.text = str(snapped(ratio, 0.01))
+		ratio = lerp(ratio, event_relative.y * 0.06, delta * 20)
+		$ArrowRoot/Mouse.rotation_degrees = -90.0
 	
 	if ratio != last_ratio:
 		ratio_changed.emit(ratio)

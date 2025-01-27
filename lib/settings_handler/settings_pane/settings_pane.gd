@@ -5,6 +5,7 @@ var qc
 
 func open(silent = false) -> void:
 	super(silent)
+	$PreventFocus.visible = false
 	$Container/Done.grab_focus()
 	Global.settings_open = true
 	Global.action_cam_disable.emit()
@@ -46,3 +47,13 @@ func _on_quit_button_down() -> void:
 		Global.command_sent.emit("/savedata")
 		close()
 		get_tree().change_scene_to_file("res://lib/main_menu/main_menu.tscn")
+
+func _process(delta: float) -> void:
+	super(delta)
+	# Prevent settings buttons from gaining focus while orbiting
+	if Global.camera_orbiting:
+		if !$PreventFocus.visible:
+			$PreventFocus.visible = true
+	else:
+		if $PreventFocus.visible:
+			$PreventFocus.visible = false

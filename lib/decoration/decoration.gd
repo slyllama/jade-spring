@@ -15,7 +15,7 @@ var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 var dye_materials = {}
 
-@onready var select_label = SelectLabel.new()
+#@onready var select_label = SelectLabel.new()
 
 class SelectLabel extends Sprite3D:
 	const SCALE = 0.19
@@ -153,7 +153,7 @@ func _clear_arrows() -> void:
 	arrows = []
 
 func start_adjustment() -> void:
-	select_label.fade_in()
+	#select_label.fade_in()
 	
 	Global.deco_pane_closed.emit()
 	Global.active_decoration = self
@@ -175,7 +175,7 @@ func apply_adjustment() -> void:
 		collision_box.set_collision_layer_value(1, true)
 		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
-		select_label.fade_out()
+		#select_label.fade_out()
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
@@ -192,7 +192,7 @@ func cancel_adjustment() -> void:
 		collision_box.set_collision_layer_value(1, true)
 		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
-		select_label.fade_out()
+		#select_label.fade_out()
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
@@ -208,8 +208,8 @@ func cancel_adjustment() -> void:
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	add_child(select_label)
-	select_label.position.y = 1.4
+	#add_child(select_label)
+	#select_label.position.y = 1.4
 	
 	Global.adjustment_started.connect(func(): # disable input picking for ALL decorations
 		if collision_box != null:
