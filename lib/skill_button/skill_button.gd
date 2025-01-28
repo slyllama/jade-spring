@@ -142,10 +142,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(input_binding):
 		fx_down()
 
-func _ready() -> void:
-	$Tooltip.visible = false
-	set_tip_text(title, description)
-	
+func _display_binding() -> void: # show the key the skill is associated with
 	if InputMap.has_action(input_binding):
 		binding_validated = true
 		var key_string = ""
@@ -157,6 +154,13 @@ func _ready() -> void:
 		key_string = "[center]" + key_string + "[/center]"
 		$InputKeyBox/InputKey.text = key_string
 	else: $InputKeyBox.visible = false # only show input hint if valid
+
+func _ready() -> void:
+	$Tooltip.visible = false
+	set_tip_text(title, description)
+	
+	_display_binding()
+	Global.bindings_updated.connect(_display_binding)
 
 func _process(_delta: float) -> void:
 	if $Tooltip.visible:

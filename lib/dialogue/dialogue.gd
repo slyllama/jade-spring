@@ -92,6 +92,3 @@ func _ready() -> void:
 
 func _on_done_button_down() -> void:
 	close()
-
-func _on_base_mouse_entered() -> void: Global.in_exclusive_ui = true
-func _on_base_mouse_exited() -> void: Global.in_exclusive_ui = false

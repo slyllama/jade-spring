@@ -43,6 +43,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Keymap" type="TextureRect" parent="Decorations"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

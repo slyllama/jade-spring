@@ -12,12 +12,17 @@ func open(silent = false) -> void:
 
 func close() -> void:
 	Global.settings_open = false
-	Global.action_cam_enable.emit()
 	$BindingsPane.close()
-	if qc != null:
-		qc.queue_free()
 	SettingsHandler.save_to_file()
 	super()
+	print("CLOSE")
+	
+	Global.action_cam_enable.emit()
+	var _i = InputEventAction.new()
+	_i.action = "left_click"
+	_i.pressed = true
+	Input.parse_input_event(_i)
+	_i.pressed = false
 
 func _input(event: InputEvent) -> void:
 	super(event)
@@ -60,7 +65,13 @@ func _process(delta: float) -> void:
 			$PreventFocus.visible = false
 
 func _on_bindings_button_down() -> void:
+	if Global.tool_mode != Global.TOOL_MODE_NONE:
+		return
 	if !$BindingsPane.is_open:
 		$BindingsPane.open()
-	else:
-		$BindingsPane.close()
+	else: $BindingsPane.close()
+
+func _on_bindings_pane_closed() -> void: 
+	moveable = true
+func _on_bindings_pane_opened() -> void:
+	moveable = false

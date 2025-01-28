@@ -59,8 +59,11 @@ func _ready():
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		if mouse_in_title:
-			last_mouse_title_click = get_window().get_mouse_position()
-			if moveable: moving_window = true
+			if moveable:
+				last_mouse_title_click = get_window().get_mouse_position()
+				moving_window = true
+			else:
+				moving_window = false
 	if Input.is_action_just_released("left_click"):
 		moving_window = false
 		current_position = position

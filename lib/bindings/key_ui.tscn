@@ -12,10 +12,10 @@ theme_override_constants/separation = 20
 script = ExtResource("1_lrqo7")
 
 [node name="Title" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(196, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "((InputKey))"
+text = "((Input Name))"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -23,4 +23,7 @@ autowrap_mode = 0
 [node name="Key" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 text = "((Button))"
+
+[connection signal="button_down" from="Key" to="." method="_on_key_button_down"]

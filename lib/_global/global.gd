@@ -44,6 +44,7 @@ signal action_cam_enable # procs action cam
 signal action_cam_disable # procs action cam
 
 signal announcement_sent(get_text)
+signal bindings_updated
 signal bug_crumb_entered
 signal bug_crumb_left
 signal click_sound

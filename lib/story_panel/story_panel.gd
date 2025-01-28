@@ -48,10 +48,6 @@ func close():
 	Global.action_cam_enable.emit()
 	queue_free()
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		close()
-
 func _ready() -> void:
 	$Base/Content.modulate.a = 0.0
 	$JadeWingsBase/JadeWings.modulate.a = 0.0

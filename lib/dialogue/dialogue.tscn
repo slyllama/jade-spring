@@ -258,6 +258,4 @@ libraries = {
 [node name="PlayDialogue" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_f8vq4")
 
-[connection signal="mouse_entered" from="Base" to="." method="_on_base_mouse_entered"]
-[connection signal="mouse_exited" from="Base" to="." method="_on_base_mouse_exited"]
 [connection signal="button_down" from="Base/Done" to="." method="_on_done_button_down"]

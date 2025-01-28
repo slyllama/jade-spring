@@ -146,6 +146,8 @@ grow_horizontal = 2
 alignment = 1
 
 [node name="InputKey" type="RichTextLabel" parent="InputKeyBox"]
+z_index = 1
+z_as_relative = false
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 mouse_filter = 2
@@ -155,6 +157,7 @@ theme_override_font_sizes/normal_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rc50")
 bbcode_enabled = true
 text = "[center]#[/center]"
+fit_content = true
 scroll_active = false
 autowrap_mode = 0
 

@@ -1,3 +1,3 @@
 extends Node
 
-const VER = "1.1a"
+const VER = "1.2a"

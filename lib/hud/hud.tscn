@@ -268,7 +268,7 @@ stretch_mode = 5
 visible = false
 
 [node name="TopLevel" type="CanvasLayer" parent="."]
-layer = 2
+layer = 3
 
 [node name="SettingsPane" parent="TopLevel" instance=ExtResource("7_w7sr0")]
 z_index = 1

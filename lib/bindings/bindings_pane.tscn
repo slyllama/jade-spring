@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5u3318qly2re"]
+[gd_scene load_steps=6 format=3 uid="uid://c5u3318qly2re"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_tkh2g"]
 [ext_resource type="Script" path="res://lib/bindings/bindings_pane.gd" id="2_kesgs"]
 [ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="2_rp8fw"]
 [ext_resource type="PackedScene" uid="uid://bxyq3hqxr2k7u" path="res://lib/bindings/key_ui.tscn" id="4_voemp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n83lq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_blend = true
+
 [node name="BindingsPane" instance=ExtResource("1_tkh2g")]
 script = ExtResource("2_kesgs")
 title = "Input Bindings"
+moveable = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Container" index="3"]
 layout_mode = 2
@@ -20,13 +26,149 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 1
 
-[node name="KeyUI" parent="Container/ScrollContainer/Contents" index="0" instance=ExtResource("4_voemp")]
+[node name="Subtitle" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="0"]
 layout_mode = 2
-input_name = "HNNNGH"
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_n83lq")
+text = "Display"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
-[node name="KeyUI2" parent="Container/ScrollContainer/Contents" index="1" instance=ExtResource("4_voemp")]
+[node name="TitleSeparator" type="ColorRect" parent="Container/ScrollContainer/Contents" index="1"]
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
-input_name = "HOOOARGH"
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="MoveForward" parent="Container/ScrollContainer/Contents" index="2" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Move Forward"
+action = "move_forward"
+
+[node name="MoveBack" parent="Container/ScrollContainer/Contents" index="3" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Move Back"
+action = "move_back"
+
+[node name="StrafeLeft" parent="Container/ScrollContainer/Contents" index="4" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Strafe Left"
+action = "move_left"
+
+[node name="StrafeRight" parent="Container/ScrollContainer/Contents" index="5" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Strafe Right"
+action = "move_right"
+
+[node name="Sprint" parent="Container/ScrollContainer/Contents" index="6" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Sprint"
+action = "sprint"
+
+[node name="Ascend" parent="Container/ScrollContainer/Contents" index="7" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Ascend"
+action = "move_up"
+
+[node name="Descent" parent="Container/ScrollContainer/Contents" index="8" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Descend"
+action = "move_down"
+
+[node name="Subtitle2" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_n83lq")
+text = "General"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TitleSeparator2" type="ColorRect" parent="Container/ScrollContainer/Contents" index="10"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="Interact" parent="Container/ScrollContainer/Contents" index="11" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Interact"
+action = "interact"
+
+[node name="ToggleAction" parent="Container/ScrollContainer/Contents" index="12" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Toggle Action Camera"
+action = "action_camera"
+
+[node name="ToggleHUD" parent="Container/ScrollContainer/Contents" index="13" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Show/Hide HUD"
+action = "toggle_hud"
+
+[node name="Subtitle3" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="14"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_n83lq")
+text = "Skills
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TitleSeparator3" type="ColorRect" parent="Container/ScrollContainer/Contents" index="15"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="Skill1" parent="Container/ScrollContainer/Contents" index="16" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Skill 1"
+action = "skill_1"
+
+[node name="Skill2" parent="Container/ScrollContainer/Contents" index="17" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Skill 2"
+action = "skill_2"
+
+[node name="Skill3" parent="Container/ScrollContainer/Contents" index="18" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Skill 3"
+action = "skill_3"
+
+[node name="Skill4" parent="Container/ScrollContainer/Contents" index="19" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Skill 4"
+action = "skill_4"
+
+[node name="Skill5" parent="Container/ScrollContainer/Contents" index="20" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Skill 5"
+action = "skill_5"
+
+[node name="Skill6" parent="Container/ScrollContainer/Contents" index="21" instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Skill 6"
+action = "skill_6"
 
 [node name="TitleSeparator2" type="ColorRect" parent="Container" index="4"]
 custom_minimum_size = Vector2(0, 16)
@@ -34,8 +176,13 @@ layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Done" type="Button" parent="Container" index="5"]
+[node name="ResetInputs" type="Button" parent="Container" index="5"]
+layout_mode = 2
+text = "Reset Inputs"
+
+[node name="Done" type="Button" parent="Container" index="6"]
 layout_mode = 2
 text = "Done"
 
+[connection signal="button_down" from="Container/ResetInputs" to="." method="_on_reset_inputs_button_down"]
 [connection signal="button_down" from="Container/Done" to="." method="_on_done_button_down"]

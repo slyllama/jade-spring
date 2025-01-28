@@ -246,3 +246,5 @@ offset_bottom = 540.0
 [connection signal="button_down" from="Container/SC/Contents/Bindings" to="." method="_on_bindings_button_down"]
 [connection signal="button_down" from="Container/Done" to="." method="_on_save_press"]
 [connection signal="button_down" from="Container/Quit" to="." method="_on_quit_button_down"]
+[connection signal="closed" from="BindingsPane" to="." method="_on_bindings_pane_closed"]
+[connection signal="opened" from="BindingsPane" to="." method="_on_bindings_pane_opened"]

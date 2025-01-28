@@ -45,7 +45,7 @@ func _debug_cmd_lose_focus(clear = false) -> void:
 	await get_tree().process_frame
 	Global.popup_open = false
 	# Only allow movement if it wasn't forbidden prior
-	if !Global.tool_mode == Global.TOOL_MODE_FISH:
+	if $TopLevel/DebugEntry.has_focus() and !Global.tool_mode == Global.TOOL_MODE_FISH:
 		Global.can_move = true
 
 func proc_story() -> void:
@@ -216,3 +216,4 @@ func _on_interact_indicator_gui_input(_event: InputEvent) -> void:
 		_i.action = "interact"
 		_i.pressed = true
 		Input.parse_input_event(_i)
+		_i.pressed = false

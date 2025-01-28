@@ -1,4 +1,63 @@
 extends "res://lib/ui_container/ui_container.gd"
 
+var bind_nodes = []
+const PATH = "user://save/map.dat"
+
+var default_input_map = { }
+var input_map = { }
+
+func _set_all_enabled(state = true) -> void:
+	$Container/Done.disabled = !state
+	$Container/TitleContainer/CloseButton.disabled = !state
+	for _n: KeyUI in bind_nodes:
+		_n.get_node("Key").disabled = !state
+		_n.enabled = state
+
+func _apply_input_map() -> void:
+	for _n: KeyUI in bind_nodes:
+		for _i in input_map:
+			if _n.action == _i:
+				_n.assign_key(input_map[_i])
+
+func _update_input_map() -> void:
+	for _n: KeyUI in bind_nodes:
+		input_map[_n.action] = _n.get_key()
+		_set_all_enabled()
+	var _f = FileAccess.open(PATH, FileAccess.WRITE)
+	_f.store_var(input_map, true)
+	_f.close()
+
+func _input(_event: InputEvent) -> void:
+	super(_event)
+	if Input.is_action_just_pressed("debug_action"):
+		open()
+
+func _ready() -> void:
+	for _n in $Container/ScrollContainer/Contents.get_children():
+		if _n is KeyUI: bind_nodes.append(_n)
+	
+	for _n: KeyUI in bind_nodes:
+		default_input_map[_n.action] = _n.get_key().duplicate()
+	
+	for _n: KeyUI in bind_nodes:
+		_n.await_input_started.connect(func(): _set_all_enabled(false))
+		_n.await_input_ended.connect(func(): _update_input_map())
+	
+	if FileAccess.file_exists(PATH):
+		var _f = FileAccess.open(PATH, FileAccess.READ)
+		input_map = _f.get_var(true)
+		_f.close()
+		_apply_input_map()
+	else:
+		for _n: KeyUI in bind_nodes:
+			_n.assign_key(_n.get_key())
+		_update_input_map()	
+
 func _on_done_button_down() -> void:
 	close()
+
+func _on_reset_inputs_button_down() -> void:
+	Global.bindings_updated.emit()
+	input_map = default_input_map.duplicate()
+	_apply_input_map()
+	_update_input_map()
