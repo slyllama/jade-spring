@@ -4,10 +4,12 @@ class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 const GizmoArrow = preload("res://lib/gizmo/gizmo_arrow/gizmo_arrow.tscn")
+const OutlineMaterial = preload("res://generic/materials/mat_outline.tres")
 const SELECT_TEX = preload("res://lib/decoration/textures/select_icon.png")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
+var outline_mat: ShaderMaterial
 var last_position: Vector3
 var last_scale: Vector3
 var last_rotation: Vector3
@@ -50,6 +52,15 @@ class SelectLabel extends Sprite3D:
 	func _process(_delta: float) -> void:
 		var corrected_scale = target_scale / get_parent().scale.x
 		scale = Vector3(corrected_scale, corrected_scale, corrected_scale)
+
+func set_outline(state = true) -> void:
+	if state:
+		if Global.cursor_active:
+			outline_mat.set_shader_parameter("outline_color", Color.YELLOW)
+			outline_mat.set_shader_parameter("outline_width", 0.6)
+	else:
+		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
+		outline_mat.set_shader_parameter("outline_width", 0)
 
 func get_all_children(node: Node) -> Array:
 	var nodes: Array = []
@@ -184,6 +195,7 @@ func apply_adjustment() -> void:
 		Global.command_sent.emit("/savedeco")
 	
 	await get_tree().process_frame
+	set_outline(false)
 	Global.mouse_in_ui = false
 
 func cancel_adjustment() -> void:
@@ -203,11 +215,30 @@ func cancel_adjustment() -> void:
 		rotation = last_rotation
 	
 	await get_tree().process_frame
+	set_outline(false)
 	Global.mouse_in_ui = false
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
+	outline_mat = OutlineMaterial.duplicate(true)
+	for _n in Utilities.get_all_children(self):
+		if _n is MeshInstance3D:
+			var _valid = true
+			var _mat = _n.get_active_material(0).duplicate()
+			_n.set_surface_override_material(0, _mat)
+			if _mat is ShaderMaterial:
+				if "shader_parameter/alpha_scissor_threshold" in _mat:
+					_valid = false
+				if "shader_parameter/alpha" in _mat:
+					_valid = false
+			if _mat is StandardMaterial3D:
+				if _mat.transparency != StandardMaterial3D.TRANSPARENCY_DISABLED:
+					_valid = false
+			if _valid:
+				_mat.next_pass = outline_mat
+	
+	set_outline(false)
 	#add_child(select_label)
 	#select_label.position.y = 1.4
 	
@@ -280,8 +311,10 @@ func _ready() -> void:
 				_spawn_arrows())
 		
 		collision_box.mouse_entered.connect(func():
+			set_outline()
 			Global.cursor_tint_changed.emit(Color.GREEN))
 		collision_box.mouse_exited.connect(func():
+			set_outline(false)
 			Global.cursor_tint_changed.emit(Color.RED))
 		
 		collision_box.input_event.connect(func(_c, _e, _p, _n, _i):

@@ -7,6 +7,8 @@ var last_collision = Vector3.ZERO
 var collision_delta = Vector3.ZERO
 var enabled = true
 
+var last_tick_position
+
 @export var tint = 0.5:
 	get: return(tint)
 	set(_val):
@@ -67,6 +69,8 @@ func _input(_event) -> void:
 			).set_ease(Tween.EASE_IN_OUT)
 
 func _ready() -> void:
+	last_tick_position = get_parent().global_position
+	
 	set_disable_scale(true)
 	set_enabled(false)
 	$Drag/Pick/VisualAxis.visible = false
@@ -115,6 +119,12 @@ func _process(delta: float) -> void:
 			snapped($Drag/Pick.global_position.y, Global.SNAP_INCREMENT),
 			snapped($Drag/Pick.global_position.z, Global.SNAP_INCREMENT)
 		)
+	
+	if dragging:
+		var _t = last_tick_position.distance_squared_to(get_parent().global_position)
+		if _t > 0.05:
+			$Tick.play()
+			last_tick_position = get_parent().global_position
 
 var _just_pressed = false
 

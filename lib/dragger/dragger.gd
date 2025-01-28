@@ -35,6 +35,7 @@ func _input(event: InputEvent) -> void:
 		event_relative = event.relative
 	
 	if Input.is_action_just_released("left_click"):
+		$Tick.play()
 		destroy()
 
 func _ready() -> void:

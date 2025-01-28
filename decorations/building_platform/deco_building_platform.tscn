@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dfnyxonymjauo" path="res://decorations/building_platform/meshes/building_platform.glb" id="2_acf17"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q1i3j"]
-size = Vector3(5, 1, 5)
+size = Vector3(5, 0.196289, 5)
 
 [node name="DecoBuildingPlatform" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_or1ml")
@@ -18,5 +18,5 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Shape" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901855, 0)
 shape = SubResource("BoxShape3D_q1i3j")

@@ -6,9 +6,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_v23nb"]
 size = Vector3(1.34766, 2.92163, 0.18335)
 
-[node name="DecoLightRay" type="Node3D"]
+[node name="DecoLightRay" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_3f2mh")
 id = "light_ray"
+collision_box = NodePath("Body")
 
 [node name="LightRay" parent="." instance=ExtResource("2_xo3ta")]
 

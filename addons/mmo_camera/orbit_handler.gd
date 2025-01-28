@@ -58,7 +58,6 @@ func _enable_action_cam(override = false) -> void:
 	await get_tree().process_frame
 	if Global.in_exclusive_ui: return
 	if SettingsHandler.settings.action_camera == "on_by_default" or override:
-		print("enabling")
 		Global.hud.get_node("Cursor").visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		_clicked_in_ui = false
@@ -69,7 +68,6 @@ func _disable_action_cam() -> void:
 	Global.hud.get_node("Cursor").visible = false
 	action_cam_active = false
 	_clicked_in_ui = false
-	print("disabling")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Global.camera_orbiting = false
 	orbiting = false

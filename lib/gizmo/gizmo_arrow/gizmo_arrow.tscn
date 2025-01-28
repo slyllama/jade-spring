@@ -108,6 +108,7 @@ mesh = SubResource("CylinderMesh_jdcab")
 
 [node name="Tick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_b115f")
+volume_db = 12.0
 max_polyphony = 8
 
 [connection signal="input_event" from="Drag/Pick" to="." method="_on_pick_input_event"]

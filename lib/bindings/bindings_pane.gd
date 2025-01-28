@@ -41,6 +41,8 @@ func _input(_event: InputEvent) -> void:
 		open()
 
 func _ready() -> void:
+	var _scroll_bar: VScrollBar = $Container/ScrollContainer.get_v_scroll_bar()
+	_scroll_bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	for _n in $Container/ScrollContainer/Contents.get_children():
 		if _n is KeyUI: bind_nodes.append(_n)
 	
