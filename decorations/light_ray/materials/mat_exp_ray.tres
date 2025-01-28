@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0hwe1nusso6v" path="res://decorations/light_ray/materials/textures/light_noise.tres" id="4_vjn76"]
 
 [resource]
-render_priority = -1
+render_priority = 2
 shader = ExtResource("1_c08qm")
 shader_parameter/noise_scale = 0.5
 shader_parameter/alpha = 0.9

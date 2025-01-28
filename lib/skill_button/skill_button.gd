@@ -138,6 +138,7 @@ func switch_skill(get_id: String) -> void:
 	$Animation.play_backwards("squeeze")
 
 func _input(_event: InputEvent) -> void:
+	if Global.bindings_pane_open: return
 	if Global.popup_open or !binding_validated or !enabled or Global.in_exclusive_ui: return
 	if Input.is_action_just_pressed(input_binding):
 		fx_down()
@@ -168,6 +169,7 @@ func _process(_delta: float) -> void:
 		$Tooltip.global_position.y -= $Tooltip.size.y
 
 func _on_button_down() -> void:
+	if Global.bindings_pane_open: return
 	if enabled and !Global.in_exclusive_ui:
 		fx_down()
 

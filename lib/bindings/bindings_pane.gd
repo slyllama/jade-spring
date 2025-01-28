@@ -6,6 +6,14 @@ const PATH = "user://save/map.dat"
 var default_input_map = { }
 var input_map = { }
 
+func open(silent = false):
+	super(silent)
+	Global.bindings_pane_open = true
+
+func close():
+	super()
+	Global.bindings_pane_open = false
+
 func _set_all_enabled(state = true) -> void:
 	$Container/Done.disabled = !state
 	$Container/TitleContainer/CloseButton.disabled = !state

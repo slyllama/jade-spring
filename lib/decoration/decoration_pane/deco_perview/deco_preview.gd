@@ -82,6 +82,7 @@ func _input(event: InputEvent) -> void:
 			_last_click_position = get_window().get_mouse_position()
 	if Input.is_action_just_released("left_click"):
 		_clicked_in_ui = false
+		print("---MOUSE_MODE_VISIBLE (CHECK)---")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Global.camera_orbiting = false
 		orbiting = false

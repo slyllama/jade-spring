@@ -13,16 +13,9 @@ func open(silent = false) -> void:
 func close() -> void:
 	Global.settings_open = false
 	$BindingsPane.close()
+	Global.action_cam_enable.emit()
 	SettingsHandler.save_to_file()
 	super()
-	print("CLOSE")
-	
-	Global.action_cam_enable.emit()
-	var _i = InputEventAction.new()
-	_i.action = "left_click"
-	_i.pressed = true
-	Input.parse_input_event(_i)
-	_i.pressed = false
 
 func _input(event: InputEvent) -> void:
 	super(event)
@@ -57,6 +50,12 @@ func _on_quit_button_down() -> void:
 func _process(delta: float) -> void:
 	super(delta)
 	# Prevent settings buttons from gaining focus while orbiting
+	
+	if Global.tool_mode != Global.TOOL_MODE_NONE:
+		$Container/SC/Contents/Bindings.disabled = true
+	else:
+		$Container/SC/Contents/Bindings.disabled = false
+	
 	if Global.camera_orbiting:
 		if !$PreventFocus.visible:
 			$PreventFocus.visible = true
@@ -69,7 +68,8 @@ func _on_bindings_button_down() -> void:
 		return
 	if !$BindingsPane.is_open:
 		$BindingsPane.open()
-	else: $BindingsPane.close()
+	else:
+		$BindingsPane.close()
 
 func _on_bindings_pane_closed() -> void: 
 	moveable = true

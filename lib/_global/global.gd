@@ -10,6 +10,7 @@ var save_handler: SaveHandler
 var hud: CanvasLayer
 var player: CharacterBody3D
 
+var bindings_pane_open = false
 var camera_basis: Basis
 var camera_orbiting = false
 var camera_pivot_rotation_degrees = Vector3.ZERO

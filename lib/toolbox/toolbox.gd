@@ -39,6 +39,7 @@ func get_button_by_id(id: String):
 var _cd := 0.0
 
 func _input(_event: InputEvent) -> void:
+	if Global.bindings_pane_open: return
 	if Global.popup_open or !Global.can_move: return
 	if _cd <= 0.0:
 		if Input.is_action_just_released("skill_1"):
