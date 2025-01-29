@@ -10,6 +10,7 @@ var save_handler: SaveHandler
 var hud: CanvasLayer
 var player: CharacterBody3D
 
+var bindings_saved_initial = false # make sure this is only done once during game run-time
 var bindings_pane_open = false
 var camera_basis: Basis
 var camera_orbiting = false
@@ -19,6 +20,7 @@ var current_crumb = null
 var debug_enabled = false
 var deco_button_pressed = false # this will become true on mouse down - decoration placement will not happen until it has been cleared
 var deco_pane_open = false
+var default_input_map = { }
 var dialogue_open = false
 var current_effects = [ ]
 var foliage_count = 0

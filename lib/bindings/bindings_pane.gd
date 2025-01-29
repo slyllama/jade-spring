@@ -3,7 +3,6 @@ extends "res://lib/ui_container/ui_container.gd"
 var bind_nodes = []
 const PATH = "user://save/map.dat"
 
-var default_input_map = { }
 var input_map = { }
 
 func open(silent = false):
@@ -37,8 +36,6 @@ func _update_input_map() -> void:
 
 func _input(_event: InputEvent) -> void:
 	super(_event)
-	if Input.is_action_just_pressed("debug_action"):
-		open()
 
 func _ready() -> void:
 	var _scroll_bar: VScrollBar = $Container/ScrollContainer.get_v_scroll_bar()
@@ -46,8 +43,10 @@ func _ready() -> void:
 	for _n in $Container/ScrollContainer/Contents.get_children():
 		if _n is KeyUI: bind_nodes.append(_n)
 	
-	for _n: KeyUI in bind_nodes:
-		default_input_map[_n.action] = _n.get_key().duplicate()
+	if !Global.bindings_saved_initial:
+		for _n: KeyUI in bind_nodes:
+			Global.default_input_map[_n.action] = _n.get_key().duplicate()
+		Global.bindings_saved_initial = true
 	
 	for _n: KeyUI in bind_nodes:
 		_n.await_input_started.connect(func(): _set_all_enabled(false))
@@ -61,13 +60,13 @@ func _ready() -> void:
 	else:
 		for _n: KeyUI in bind_nodes:
 			_n.assign_key(_n.get_key())
-		_update_input_map()	
+		_update_input_map()
 
 func _on_done_button_down() -> void:
 	close()
 
 func _on_reset_inputs_button_down() -> void:
+	input_map = Global.default_input_map.duplicate()
 	Global.bindings_updated.emit()
-	input_map = default_input_map.duplicate()
 	_apply_input_map()
 	_update_input_map()
