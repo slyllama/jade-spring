@@ -5,6 +5,7 @@
 [ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="3_4ircd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yoeuw"]
+height = 3.0
 radius = 0.8
 
 [sub_resource type="Gradient" id="Gradient_bbigo"]

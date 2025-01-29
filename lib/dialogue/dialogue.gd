@@ -2,7 +2,9 @@ extends CanvasLayer
 
 signal closed
 signal block_played(id)
+
 var has_closed = false
+var camera_last_orbiting = false
 
 var data = { # default (blank) script
 	"_entry": {
@@ -56,7 +58,12 @@ func render_block(block_data: Dictionary) -> void:
 							render_block(data[_new_block_data.reference])
 					else: render_block(_new_block_data))
 
-func open() -> void:	
+func _set_buttons_enabled(state: bool) -> void:
+	for _n in $Base/Box.get_children():
+		if _n is Button:
+			_n.disabled = !state
+
+func open() -> void:
 	Global.can_move = false
 	Global.dialogue_open = true
 	Global.action_cam_disable.emit()
@@ -65,7 +72,8 @@ func open() -> void:
 	if "_entry" in data:
 		render_block(data._entry)
 	if "_texture" in data:
-		$Base/Sticker.texture = load("res://generic/textures/stickers/" + str(data._texture) + ".png")
+		$Base/Sticker.texture = load(
+			"res://generic/textures/stickers/" + str(data._texture) + ".png")
 	
 	$Player.play("Enter")
 	var fade_tween = create_tween()
@@ -87,8 +95,17 @@ func close() -> void:
 	queue_free()
 
 func _ready() -> void:
-	#$Player.play("RESET")
 	$Base.modulate.a = 1.0
+
+func _process(_delta: float) -> void:
+	if Global.camera_orbiting:
+		if !camera_last_orbiting:
+			camera_last_orbiting = true
+			_set_buttons_enabled(false)
+	else:
+		if camera_last_orbiting:
+			camera_last_orbiting = false
+			_set_buttons_enabled(true)
 
 func _on_done_button_down() -> void:
 	close()

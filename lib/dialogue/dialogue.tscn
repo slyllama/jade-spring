@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=17 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
@@ -16,6 +16,18 @@ shader_parameter/value = 1.0
 shader_parameter/mask_scale = 1.6
 shader_parameter/exposure = 1.0
 shader_parameter/paint_mask_texture = ExtResource("3_k137k")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vlji"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
+bg_color = Color(0.1, 0.1, 0.1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1, 0.1, 0.1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcyqg"]
 content_margin_left = 10.0
@@ -195,10 +207,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = -292.0
-offset_right = 57.5
-offset_bottom = -132.0
+offset_left = -64.0
+offset_top = -234.0
+offset_right = 96.0
+offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_mtkmt")
@@ -214,7 +226,9 @@ offset_top = 273.0
 offset_right = 635.0
 offset_bottom = 342.0
 mouse_filter = 1
+theme_override_colors/font_disabled_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1vlji")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mcyqg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o2v8d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_taymh")

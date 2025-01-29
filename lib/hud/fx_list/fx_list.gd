@@ -88,7 +88,6 @@ func _process(delta: float) -> void:
 	_time += delta
 	if _time > 0.35:
 		_time = 0
-		# do periodic stuff
 		
 		if !Global.can_move:
 			add_effect("immobile")

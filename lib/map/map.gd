@@ -16,11 +16,9 @@ func _input(_event: InputEvent) -> void:
 		Global.debug_toggled.emit()
 
 func _ready() -> void:
-	# Apply settings
+	# Set initial state
 	Global.safe_point = $SafePoint
 	Global.debug_toggled.emit()
-	#if get_window().has_focus():
-		#Global.action_cam_enable.emit()
 	Global.deco_pane_open = false # reset
 	Global.dialogue_open = false # reset
 	
@@ -34,6 +32,7 @@ func _ready() -> void:
 				_c.visible = true
 				Global.announcement_sent.emit("((Showing crumbs.))"))
 	
+	# Apply settings
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		match parameter:
@@ -75,16 +74,20 @@ func _ready() -> void:
 	Global.adjustment_applied.connect(reset_picking_disabled_objects)
 	Global.adjustment_canceled.connect(reset_picking_disabled_objects)
 	
-	# Add some effects (like weeds)
-	Global.current_effects = [] # reset (if coming from main menu after a previous session)
+	# Reset (if coming from main menu after a previous session)
+	# We add 'immobile' as FXList won't check Global.can_move if it isn't there
+	Global.current_effects = [ "immobile" ]
 	await get_tree().process_frame
+	
+	# Add some effects (like weeds)
 	if "weeds" in Save.data: # protection for older dev saves
 		for _w in Save.data.weeds:
 			Global.add_qty_effect("weed")
 	
+	Global.can_move = true
+	
 	# Fade volume in and play music after a short delay
 	await get_tree().create_timer(0.5).timeout
-	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(
 		Utilities.set_master_vol, 0.0, Utilities.get_user_vol(), 1.0)
