@@ -14,13 +14,11 @@ const JADE_SOUNDS = [
 const SPRINT_SOUNDS = [
 	preload("res://lib/player/sounds/jade_sprint_1.ogg"),
 	preload("res://lib/player/sounds/jade_sprint_2.ogg"),
-	preload("res://lib/player/sounds/jade_sprint_3.ogg"),
 	preload("res://lib/player/sounds/jade_sprint_4.ogg"),
 	preload("res://lib/player/sounds/jade_sprint_5.ogg")
 ]
 
 const DgFX = preload("res://lib/dispersion_golem/dg_fx.tscn")
-
 var can_play_sprint_sound = true
 
 @export var base_speed: float = 3.0

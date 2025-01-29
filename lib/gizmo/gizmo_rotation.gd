@@ -16,6 +16,7 @@ var axis_stick = CSGBox3D.new()
 
 var mat = ShaderMaterial.new()
 var color: Color
+var accumulated_ratio = 0.0
 
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
@@ -53,12 +54,23 @@ func _configure_grabber(grabber: StaticBody3D) -> void:
 			
 			_d.ratio_changed.connect(func(ratio):
 				var _r = ratio # invert rotation for one axis (feels better)
+				accumulated_ratio += _r
 				if _d.axis == _d.Axis.Y:
 					_r = -ratio
 				
 				if !is_global:
-					get_parent().rotate_object_local(rotation_vector, _r * 0.1)
+					if Global.snapping:
+						
+						if accumulated_ratio > 5.0:
+							get_parent().rotate_object_local(rotation_vector, deg_to_rad(22.5))
+							accumulated_ratio = 0.0
+						elif accumulated_ratio < -5.0:
+							get_parent().rotate_object_local(rotation_vector, -deg_to_rad(22.5))
+							accumulated_ratio = 0.0
+					else:
+						get_parent().rotate_object_local(rotation_vector, _r * 0.1)
 				else:
+					
 					var _new_rotation = get_parent().global_rotation_degrees + _r * 10.0 * rotation_vector
 					get_parent().global_rotation_degrees = _new_rotation
 			)

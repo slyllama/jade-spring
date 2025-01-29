@@ -14,7 +14,12 @@ var data = {}
 
 var _wait_time = 0.0
 
+var last_color = Color.BLACK
+
 func set_cursor_tint(color: Color):
+	if color == last_color: return
+	last_color = color
+	
 	var target: Node3D = cursor_sphere
 	if data == {}:
 		if disabled or !highlight_on_decoration: return
@@ -22,7 +27,8 @@ func set_cursor_tint(color: Color):
 		target = xray
 	for _n in Utilities.get_all_children(target):
 		if _n is MeshInstance3D:
-			_n.get_active_material(0).set_shader_parameter("albedo", color)
+			for _i in _n.get_surface_override_material_count():
+				_n.get_active_material(_i).set_shader_parameter("albedo", color)
 
 func set_radius(radius: float) -> void:
 	current_radius = radius

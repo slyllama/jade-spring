@@ -86,6 +86,13 @@ func _ready() -> void:
 	Global.drag_started.connect(func():
 		$Drag/Pick/Collision.queue_free()
 		if !dragging: destroy())
+	
+	Global.snapping_enabled.connect(func():
+		get_parent().global_position = Vector3(
+			snapped($Drag/Pick.global_position.x, Global.SNAP_INCREMENT),
+			snapped($Drag/Pick.global_position.y, Global.SNAP_INCREMENT),
+			snapped($Drag/Pick.global_position.z, Global.SNAP_INCREMENT)
+		))
 
 var _wait_frame: int = 0
 
