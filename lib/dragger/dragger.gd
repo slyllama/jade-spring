@@ -12,6 +12,7 @@ var event_relative = Vector2.ZERO
 
 var ratio := 0.0 # ratio between _dist and half the length of the window along that axis
 signal ratio_changed(new_ratio)
+signal destroyed
 
 func _set_shader_val(val: float) -> void:
 	var _e = ease(val, 0.2)
@@ -25,6 +26,7 @@ func destroy() -> void:
 	
 	Global.in_exclusive_ui = false
 	active = false
+	destroyed.emit()
 	
 	var dissolve = create_tween()
 	dissolve.tween_method(_set_shader_val, 1.0, 0.0, 0.32)

@@ -56,7 +56,7 @@ class SelectLabel extends Sprite3D:
 func set_outline(state = true) -> void:
 	if state:
 		if Global.cursor_active:
-			outline_mat.set_shader_parameter("outline_color", Color.YELLOW)
+			outline_mat.set_shader_parameter("outline_color", Color.WHITE)
 			outline_mat.set_shader_parameter("outline_width", 0.6)
 	else:
 		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
@@ -101,7 +101,7 @@ func _spawn_rotators() -> void:
 	
 	var _arr_rotate_x = GizmoRotation.new()
 	_arr_rotate_x.rotation_vector = Vector3(1, 0, 0)
-	_arr_rotate_x.dragger_axis = "Y"
+	_arr_rotate_x.dragger_axis = "X"
 	add_child(_arr_rotate_x)
 	arrows.append(_arr_rotate_x)
 	_arr_rotate_x.set_color(Color.RED)
@@ -115,7 +115,7 @@ func _spawn_rotators() -> void:
 	
 	var _arr_rotate_z = GizmoRotation.new()
 	_arr_rotate_z.rotation_vector = Vector3(0, 0, 1)
-	_arr_rotate_z.dragger_axis = "Z"
+	_arr_rotate_z.dragger_axis = "X"
 	add_child(_arr_rotate_z)
 	arrows.append(_arr_rotate_z)
 	_arr_rotate_z.set_color(Color.GREEN)

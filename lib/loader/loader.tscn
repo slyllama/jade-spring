@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://fqasq1ggshha"]
+[gd_scene load_steps=7 format=3 uid="uid://fqasq1ggshha"]
 
 [ext_resource type="Script" path="res://lib/loader/loader.gd" id="1_kyod5"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_qx7v1"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_stjvc"]
-[ext_resource type="Texture2D" uid="uid://ctsnceycrli34" path="res://lib/loader/textures/keymap.png" id="4_du6m6"]
 [ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="5_tj3c3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83o4o"]
@@ -41,24 +40,6 @@ mouse_filter = 2
 texture = ExtResource("2_qx7v1")
 expand_mode = 1
 stretch_mode = 6
-
-[node name="Keymap" type="TextureRect" parent="Decorations"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -447.0
-offset_top = -179.0
-offset_right = 448.0
-offset_bottom = 129.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_du6m6")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="DecorationNE" type="TextureRect" parent="Decorations"]
 modulate = Color(0.1, 0.1, 0.1, 1)

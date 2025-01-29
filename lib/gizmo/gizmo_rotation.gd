@@ -11,7 +11,9 @@ const Dragger = preload("res://lib/dragger/dragger.tscn")
 var active = false
 var enabled = false
 
-var rotate_visual
+var rotate_visual: Node3D
+var axis_stick = CSGBox3D.new()
+
 var mat = ShaderMaterial.new()
 var color: Color
 
@@ -37,6 +39,17 @@ func _configure_grabber(grabber: StaticBody3D) -> void:
 			elif dragger_axis == "Z":
 				_d.axis = _d.Axis.X
 			add_child(_d)
+			
+			axis_stick.visible = true
+			var scale_tween = create_tween()
+			scale_tween.tween_property(
+				rotate_visual, "scale", Vector3(2.6, 2.6, 2.6), 0.1)
+			
+			_d.destroyed.connect(func():
+				axis_stick.visible = false
+				var scale_out_tween = create_tween()
+				scale_out_tween.tween_property(
+					rotate_visual, "scale", Vector3(1.5, 1.5, 1.5), 0.1))
 			
 			_d.ratio_changed.connect(func(ratio):
 				var _r = ratio # invert rotation for one axis (feels better)
@@ -70,6 +83,12 @@ func _ready() -> void:
 	
 	rotate_visual = RotatorMesh.instantiate()
 	add_child(rotate_visual)
+	
+	axis_stick.size = Vector3(0.02, 50.0, 0.02)
+	axis_stick.material_override = mat
+	rotate_visual.add_child(axis_stick)
+	axis_stick.visible = false
+	
 	if rotation_vector == Vector3(1, 0, 0):
 		rotate_visual.rotation_degrees.z = 90
 		rotate_visual.position.y += 0.05
