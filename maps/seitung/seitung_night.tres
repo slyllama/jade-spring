@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=6 format=3 uid="uid://dctw7darxc41b"]
 
-[ext_resource type="Texture2D" uid="uid://wg0wkj3aoc2y" path="res://generic/hdri/stars.jpg" id="1_n6eep"]
+[ext_resource type="Texture2D" uid="uid://cehf7x70j4wr7" path="res://generic/hdri/nasa_stars.jpg" id="1_ni2su"]
 
 [sub_resource type="Gradient" id="Gradient_e6xwc"]
 colors = PackedColorArray(0.0172, 0.002, 0.04, 1, 1, 1, 1, 1)
@@ -9,7 +9,7 @@ colors = PackedColorArray(0.0172, 0.002, 0.04, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_e6xwc")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5od8f"]
-panorama = ExtResource("1_n6eep")
+panorama = ExtResource("1_ni2su")
 energy_multiplier = 0.45
 
 [sub_resource type="Sky" id="Sky_rl5tb"]
@@ -31,7 +31,7 @@ glow_bloom = 1.0
 glow_blend_mode = 0
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.0792, 0.09892, 0.12, 1)
+fog_light_color = Color(0.016, 0.0256333, 0.05, 1)
 fog_density = 1.0
 fog_aerial_perspective = 0.01
 fog_sky_affect = 0.0

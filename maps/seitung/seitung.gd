@@ -39,6 +39,10 @@ func _ready() -> void:
 			$Sky.environment = NIGHT_ENV
 			$Sky/Sun.visible = false
 			$Sky/SunNight.visible = true
+			$Sky/OceanSunNight.visible = true
+			
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color.BLACK)
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.BLACK)
 			
 			for _n in $Decoration/LightRays.get_children(): _n.visible = false
 		elif _cmd == "/time=day":
@@ -46,6 +50,10 @@ func _ready() -> void:
 			$Sky.environment = DAY_ENV
 			$Sky/Sun.visible = true
 			$Sky/SunNight.visible = false
+			$Sky/OceanSunNight.visible = false
+			
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color("#005193"))
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.WHITE)
 			
 			for _n in $Decoration/LightRays.get_children(): _n.visible = true
 	)

@@ -80,7 +80,7 @@ noise = SubResource("FastNoiseLite_57d6i")
 [resource]
 render_priority = 0
 shader = SubResource("Shader_nlaf5")
-shader_parameter/primary_color = Color(0, 0.31825, 0.575143, 1)
+shader_parameter/primary_color = Color(0, 0.317647, 0.576471, 1)
 shader_parameter/foam_color = Color(1, 1, 1, 1)
 shader_parameter/roughness = 0.2
 shader_parameter/uv_scale = Vector2(16, 16)

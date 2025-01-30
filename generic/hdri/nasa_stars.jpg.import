@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wg0wkj3aoc2y"
-path.s3tc="res://.godot/imported/stars.jpg-a6d17cc78b22ddb6a7b87f5f72848341.s3tc.ctex"
+uid="uid://cehf7x70j4wr7"
+path.s3tc="res://.godot/imported/nasa_stars.jpg-cc4dd0584ddf0fc7bcf790a0700de26a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://generic/hdri/stars.jpg"
-dest_files=["res://.godot/imported/stars.jpg-a6d17cc78b22ddb6a7b87f5f72848341.s3tc.ctex"]
+source_file="res://generic/hdri/nasa_stars.jpg"
+dest_files=["res://.godot/imported/nasa_stars.jpg-cc4dd0584ddf0fc7bcf790a0700de26a.s3tc.ctex"]
 
 [params]
 

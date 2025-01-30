@@ -45,6 +45,9 @@ _subresources={
 "nodes": {
 "PATH:Landscape": {
 "mesh_instance/layers": 8
+},
+"PATH:Sea": {
+"mesh_instance/layers": 5
 }
 }
 }
