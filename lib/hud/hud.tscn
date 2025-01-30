@@ -298,6 +298,7 @@ mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_yply7")
 theme_override_font_sizes/font_size = 12
 placeholder_text = "Enter command:"
+selecting_enabled = false
 
 [node name="FG" type="ColorRect" parent="TopLevel"]
 visible = false

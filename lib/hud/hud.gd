@@ -35,6 +35,7 @@ func _debug_cmd_gain_focus() -> void:
 	$TopLevel/DebugEntry.modulate.a = 1.0
 	Global.popup_open = true
 	Global.can_move = false
+	Global.action_cam_disable.emit()
 
 func _debug_cmd_lose_focus(clear = false) -> void:
 	if clear:
@@ -44,6 +45,7 @@ func _debug_cmd_lose_focus(clear = false) -> void:
 	
 	await get_tree().process_frame
 	Global.popup_open = false
+	Global.action_cam_enable.emit()
 	# Only allow movement if it wasn't forbidden prior
 	if !Global.dialogue_open and !Global.tool_mode == Global.TOOL_MODE_FISH:
 		Global.can_move = true

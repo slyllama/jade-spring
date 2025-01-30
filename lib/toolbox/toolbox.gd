@@ -235,11 +235,11 @@ func skill_used(skill_id: String) -> void:
 			$Box/Skill3.switch_skill("snap_disable")
 			Global.snapping = true
 			Global.snapping_enabled.emit()
-			Global.announcement_sent.emit("Grid snapping enabled.")
+			Global.announcement_sent.emit("Snapping enabled.")
 		"snap_disable":
 			$Box/Skill3.switch_skill("snap_enable")
 			Global.snapping = false
-			Global.announcement_sent.emit("Grid snapping disabled.")
+			Global.announcement_sent.emit("Snapping disabled.")
 		"reset_adjustment":
 			Global.adjustment_reset.emit()
 		"toggle_walk_mode":
