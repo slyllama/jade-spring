@@ -149,11 +149,13 @@ func skill_used(skill_id: String) -> void:
 				get_button_by_id("delete").set_highlight()
 				Global.action_cam_disable.emit()
 				Global.deco_deletion_started.emit()
+				Global.selection_started.emit()
 				Global.set_cursor()
 			elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 				Global.tool_mode = Global.TOOL_MODE_NONE
 				Global.action_cam_enable.emit()
 				Global.deco_deletion_canceled.emit()
+				Global.selection_canceled.emit()
 				set_default_skills()
 		"select":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:

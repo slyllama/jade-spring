@@ -190,8 +190,11 @@ func apply_adjustment() -> void:
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
-		_clear_arrows() 
-		collision_box.set_collision_layer_value(2, 1)
+		_clear_arrows()
+		if collision_box:
+			collision_box.set_collision_layer_value(2, 1)
+		else:
+			print("[WARNING] collision box unassigned for " + str(id) + ".")
 		Global.command_sent.emit("/savedeco")
 	
 	await get_tree().process_frame

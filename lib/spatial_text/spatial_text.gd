@@ -65,7 +65,7 @@ func _process(_delta: float) -> void:
 		if $FG/Title.visible:
 			$FG/Title.visible = false
 	
-	if global_position.distance_to(Global.player_position) > 5.8:
+	if global_position.distance_to(Global.player_position) > 10.0:
 		if in_range:
 			in_range = false
 			var _ft = create_tween() # fade tween

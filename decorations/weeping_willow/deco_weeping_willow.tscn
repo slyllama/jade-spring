@@ -9,7 +9,7 @@ data = PackedVector3Array(-0.452753, -0.457206, 0.451808, -0.452753, -0.457206, 
 [node name="WeepingWillow" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_kgk8g")
 id = "weeping_willow"
-collision_box = NodePath("")
+collision_box = NodePath("Body")
 
 [node name="WeepingWillow" parent="." instance=ExtResource("2_5e5s2")]
 
