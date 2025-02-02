@@ -94,10 +94,10 @@ func _ready() -> void:
 		proc_story())
 	
 	Save.karma_changed.connect(func():
-		$Details/DetailsBox/KarmaCount.text = str(Save.data.karma) + " Karma"
+		$Details/DetailsBox/StatsBox/KarmaCount.text = str(Save.data.karma)
 		if karma_fist_load:
 			Global.play_flash(
-				$Details/DetailsBox/KarmaCount.global_position + Vector2(50, 5)))
+				$Details/DetailsBox/StatsBox/KarmaCount.global_position + Vector2(50, 5)))
 	
 	Save.karma_changed.emit()
 	karma_fist_load = true
@@ -113,7 +113,7 @@ func _process(delta: float) -> void:
 		var _deco_string = str(_deco_count) + " decorations"
 		if _deco_count == 1:
 			_deco_string = str(_deco_count) + " decoration"
-		$Details/DetailsBox/DecorationCount.text = _deco_string
+		$Details/DetailsBox/StatsBox/DecoCount.text = _deco_string
 	
 	if _last_bug_ratio != _target_bug_ratio:
 		if !ignore_story_updates:

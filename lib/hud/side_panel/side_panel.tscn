@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gokqv1eo16nh"]
+[gd_scene load_steps=20 format=3 uid="uid://gokqv1eo16nh"]
 
 [ext_resource type="Script" path="res://lib/hud/side_panel/side_panel.gd" id="1_xy7kn"]
 [ext_resource type="Shader" path="res://lib/hud/side_panel/materials/shaders/shader_panel_gradient.gdshader" id="2_xwfhn"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="5_xhh38"]
 [ext_resource type="Texture2D" uid="uid://bs0q6kx81u58w" path="res://lib/hud/textures/settings_icon_outline.png" id="6_if1f0"]
 [ext_resource type="Texture2D" uid="uid://cfb7i61lbowa0" path="res://lib/hud/side_panel/textures/side_panel_separator.png" id="7_rlga1"]
+[ext_resource type="Texture2D" uid="uid://b3cek2svfjg6j" path="res://lib/hud/textures/icon_count.png" id="8_sm7pe"]
+[ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="9_cafge"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fqi0m"]
 shader = ExtResource("2_xwfhn")
@@ -38,7 +40,7 @@ content_margin_top = 0.0
 content_margin_bottom = 0.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2htm"]
-content_margin_left = 54.0
+content_margin_left = 2.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 
@@ -103,19 +105,10 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Padding" type="ColorRect" parent="Details/DetailsBox/TitleBox"]
+[node name="P_Left" type="ColorRect" parent="Details/DetailsBox/TitleBox"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
-
-[node name="SettingsIcon" type="TextureRect" parent="Details/DetailsBox/TitleBox"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = ExtResource("6_if1f0")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="Title" type="RichTextLabel" parent="Details/DetailsBox/TitleBox"]
 layout_mode = 2
@@ -129,29 +122,82 @@ text = "My Garden"
 fit_content = true
 scroll_active = false
 
-[node name="DecorationCount" type="RichTextLabel" parent="Details/DetailsBox"]
+[node name="SettingsIcon" type="TextureRect" parent="Details/DetailsBox/TitleBox"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/outline_size = 5
-theme_override_constants/line_separation = -2
-theme_override_font_sizes/normal_font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxTexture_h2htm")
-bbcode_enabled = true
-text = "((Decoration Count))"
-fit_content = true
-scroll_active = false
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("6_if1f0")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="KarmaCount" type="RichTextLabel" parent="Details/DetailsBox"]
+[node name="P_Right" type="ColorRect" parent="Details/DetailsBox/TitleBox"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+color = Color(1, 1, 1, 0)
+
+[node name="StatsBox" type="HBoxContainer" parent="Details/DetailsBox"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Padding" type="ColorRect" parent="Details/DetailsBox/StatsBox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="DecoCountIcon" type="TextureRect" parent="Details/DetailsBox/StatsBox"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+tooltip_text = "Decoration count."
+texture = ExtResource("8_sm7pe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DecoCount" type="RichTextLabel" parent="Details/DetailsBox/StatsBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Decoration count."
 theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxTexture_h2htm")
 bbcode_enabled = true
-text = "((Karma Count))"
+text = "((#))"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0
+
+[node name="Padding2" type="ColorRect" parent="Details/DetailsBox/StatsBox"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="KarmaCountIcon" type="TextureRect" parent="Details/DetailsBox/StatsBox"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+tooltip_text = "Karma count."
+texture = ExtResource("9_cafge")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="KarmaCount" type="RichTextLabel" parent="Details/DetailsBox/StatsBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_h2htm")
+bbcode_enabled = true
+text = "((#))"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="MinorSeparator" type="TextureRect" parent="."]
 layout_mode = 2
