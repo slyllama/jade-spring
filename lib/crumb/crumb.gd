@@ -4,6 +4,7 @@ const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 
 @export var type := "bug"
 @export var area_radius := 1.2
+@export var karma_value = 0 # how much Karma does this type of crumb yield?
 @export var interact_when_proximal := true
 @export var can_click := false
 
@@ -12,6 +13,8 @@ signal cleared
 signal interacted
 
 func clear() -> void:
+	Save.add_karma(karma_value)
+	
 	Global.current_crumb = null
 	Global.crumbs_updated.emit()
 	cleared.emit()

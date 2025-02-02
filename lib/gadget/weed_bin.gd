@@ -1,6 +1,8 @@
 extends Node3D
 # Weed bin
 
+@export var karma_value = 5
+
 func proc_story() -> void:
 	var _p = Save.data.story_point
 	if _p == "game_start":
@@ -22,7 +24,10 @@ func _on_bin_interacted() -> void:
 		$Foam.emitting = false
 	else: # do weed stuff
 		Global.announcement_sent.emit("This bin is hungry for some weeds and rotting shrubs.")
+	
+	Save.add_karma(Global.get_effect_qty("weed") * karma_value)
 	Save.data.deposited_weeds += Global.get_effect_qty("weed")
+	
 	Global.crumbs_updated.emit()
 	Save.data.weeds = 0
 	Global.remove_effect.emit("weed")

@@ -44,6 +44,7 @@ cap_bottom = false
 input_ray_pickable = false
 script = ExtResource("1_5hoe5")
 area_radius = 0.9
+karma_value = 20
 
 [node name="BugSwarmProp" parent="." instance=ExtResource("2_y2aqg")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0)

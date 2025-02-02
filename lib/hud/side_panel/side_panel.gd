@@ -97,7 +97,7 @@ func _ready() -> void:
 		$Details/DetailsBox/StatsBox/KarmaCount.text = str(Save.data.karma)
 		if karma_fist_load:
 			Global.play_flash(
-				$Details/DetailsBox/StatsBox/KarmaCount.global_position + Vector2(50, 5)))
+				$Details/DetailsBox/StatsBox/KarmaCount.global_position + Vector2(5, 5)))
 	
 	Save.karma_changed.emit()
 	karma_fist_load = true
