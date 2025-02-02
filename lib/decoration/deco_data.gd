@@ -76,6 +76,14 @@ const DecoData = {
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
+	"blue_flowers": {
+		"name": "Blue Flowers",
+		"scene": "res://decorations/flower_patch/deco_blue_flowers.tscn",
+		"cursor_model": "res://decorations/flower_patch/blue_flowers.tscn",
+		"preview_scale": 1.0,
+		"tags": ["Foliage"],
+		"show_floor": true
+	},
 	"lush_grass": {
 		"name": "Lush Grass",
 		"scene": "res://decorations/lush_grass/lush_grass.tscn",
