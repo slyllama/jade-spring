@@ -1,10 +1,9 @@
-[gd_scene load_steps=98 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=92 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
 [ext_resource type="Environment" uid="uid://pkvuagid82dc" path="res://maps/seitung/seitung_day.tres" id="3_e4u8p"]
 [ext_resource type="PackedScene" uid="uid://dm88qsqr4e6bj" path="res://lib/crumb/weed.tscn" id="5_e2aho"]
-[ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="6_jt5mw"]
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="7_gcgfd"]
 [ext_resource type="PackedScene" uid="uid://btxknagn4foj1" path="res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn" id="7_s7skb"]
 [ext_resource type="Texture2D" uid="uid://culde2mjyr2qq" path="res://maps/seitung/materials/textures/dirt_diff.jpg" id="7_snv1i"]
@@ -30,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://bdc04bpiejlqc" path="res://decorations/test_wall/deco_wall_with_window.tscn" id="16_kbquq"]
 [ext_resource type="PackedScene" uid="uid://cw22jtaf0fhxj" path="res://decorations/eepy_fence/deco_eepy_fence.tscn" id="17_x5gab"]
 [ext_resource type="PackedScene" uid="uid://bqap4iq7iwa03" path="res://decorations/small_boulder/deco_small_boulder.tscn" id="18_8cm4w"]
-[ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="18_rj2gh"]
 [ext_resource type="PackedScene" uid="uid://mupvmfjtkmav" path="res://decorations/test_wall/deco_wall_narrow.tscn" id="19_liot0"]
 [ext_resource type="PackedScene" uid="uid://6xdrn3kee1v7" path="res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.tscn" id="20_st7yt"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
@@ -55,6 +53,7 @@
 [ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="35_42aun"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
+[ext_resource type="PackedScene" uid="uid://dgxqwx2186efc" path="res://decorations/flower_patch/deco_blue_flowers.tscn" id="37_wlchm"]
 [ext_resource type="PackedScene" uid="uid://dmqlnx8l6lfhf" path="res://decorations/flower_patch/deco_yellow_flowers.tscn" id="42_h33ht"]
 [ext_resource type="Material" uid="uid://c3ygaq1wjp7c0" path="res://lib/player/materials/mat_engine_glow.tres" id="42_l2hym"]
 [ext_resource type="PackedScene" uid="uid://2irpg0mpnvmj" path="res://roof_pavilion.glb" id="43_4w16u"]
@@ -156,46 +155,6 @@ alpha_curve = SubResource("CurveTexture_thsk3")
 material = ExtResource("42_l2hym")
 size = Vector2(1.3, 2)
 orientation = 2
-
-[sub_resource type="MultiMesh" id="MultiMesh_7dptf"]
-transform_format = 1
-use_colors = true
-instance_count = 16
-visible_instance_count = 16
-mesh = ExtResource("18_rj2gh")
-buffer = PackedFloat32Array(2.41445, 0, -0.154108, -0.890987, 0, 2.41936, 0, 0, 0.154108, 0, 2.41445, -0.682049, 0.828112, 0.00466084, 0.414141, 1, 0.546447, 0, 2.26, -0.124245, 0, 2.32512, 0, 0, -2.26, 0, 0.546447, -0.986885, 0.768004, 0.00873476, 0.486641, 1, -2.2914, 0, -1.08067, 0.405869, 0, 2.53345, 0, 0, 1.08067, 0, -2.2914, -1.12738, 0.864126, 0.00221988, 0.370702, 1, -1.19204, 0, 1.84411, 0.866907, 0, 2.19584, 0, 0, -1.84411, 0, -1.19204, -0.905744, 0.879245, 0.00119518, 0.352466, 1, -0.774655, 0, -2.87059, -0.759446, 0, 2.97328, 0, 0, 2.87059, 0, -0.774655, 0.0174593, 0.792228, 0.00709294, 0.457423, 1, 1.94049, 0, -0.912507, -0.278633, 0, 2.14434, 0, 0, 0.912507, 0, 1.94049, -0.540028, 0.79339, 0.00701419, 0.456022, 1, 0.684194, 0, -2.77078, 0.132723, 0, 2.85401, 0, 0, 2.77078, 0, 0.684194, -0.355737, 0.734102, 0.0110326, 0.527533, 1, 1.32154, 0, -2.29667, 0.911083, 0, 2.64974, 0, 0, 2.29667, 0, 1.32154, -0.280199, 0.773477, 0.00836387, 0.48004, 1, 1.90644, 0, -0.972217, -0.740779, 0, 2.14003, 0, 0, 0.972217, 0, 1.90644, 0.319949, 0.888965, 0.000536365, 0.340742, 1, 1.59652, 0, 1.88109, -0.363691, 0, 2.46726, 0, 0, -1.88109, 0, 1.59652, 0.345068, 0.76294, 0.00907802, 0.492749, 1, 1.09201, 0, -2.14655, 0.150421, 0, 2.40835, 0, 0, 2.14655, 0, 1.09201, 0.428984, 0.755692, 0.00956929, 0.501492, 1, 2.00743, 0, 0.75277, 0.894501, 0, 2.14393, 0, 0, -0.75277, 0, 2.00743, 0.230822, 0.813327, 0.00566294, 0.431975, 1, 1.02642, 0, 2.41934, -0.960118, 0, 2.62806, 0, 0, -2.41934, 0, 1.02642, 0.58512, 0.814272, 0.00559887, 0.430834, 1, -2.81349, 0, -0.770559, 0.00726372, 0, 2.9171, 0, 0, 0.770559, 0, -2.81349, 0.675629, 0.862285, 0.00234465, 0.372922, 1, 0.426358, 0, -2.02706, 0.0882713, 0, 2.07141, 0, 0, 2.02706, 0, 0.426358, 0.652974, 0.711031, 0.0125962, 0.55536, 1, 0.740038, 0, -2.425, 0.838549, 0, 2.5354, 0, 0, 2.425, 0, 0.740038, 0.947518, 0.781361, 0.00782949, 0.470531, 1)
-
-[sub_resource type="MultiMesh" id="MultiMesh_n5r2p"]
-transform_format = 1
-use_colors = true
-instance_count = 25
-visible_instance_count = 25
-mesh = ExtResource("18_rj2gh")
-buffer = PackedFloat32Array(3.13802, 0, 1.62914, -1.13161, 0, 2.71978, 0, 0, -1.62914, 0, 3.13802, -0.858563, 0.924855, 0.953357, 0.0153357, 1, -0.82514, 0, -3.0588, 0.111751, 0, 2.43703, 0, 0, 3.0588, 0, -0.82514, -1.11941, 0.957724, 0.886277, 0.00862775, 1, 3.63264, 0, -0.522597, 0.878062, 0, 2.8231, 0, 0, 0.522597, 0, 3.63264, -1.37021, 0.946375, 0.90944, 0.010944, 1, 1.98277, 0, 2.30799, 0.408354, 0, 2.34056, 0, 0, -2.30799, 0, 1.98277, -1.39617, 0.976272, 0.848424, 0.00484241, 1, 2.69281, 0, -0.73671, 1.19969, 0, 2.14751, 0, 0, 0.73671, 0, 2.69281, -0.398025, 0.940359, 0.921717, 0.0121717, 1, -1.78964, 0, -2.90637, -1.1258, 0, 2.62553, 0, 0, 2.90637, 0, -1.78964, -0.594316, 0.983347, 0.833985, 0.00339854, 1, -0.380813, 0, 2.86591, -0.168042, 0, 2.22393, 0, 0, -2.86591, 0, -0.380813, 0.164175, 0.986001, 0.828569, 0.00285686, 1, -1.58227, 0, -2.32511, 0.643653, 0, 2.1634, 0, 0, 2.32511, 0, -1.58227, 0.0484861, 0.972562, 0.855995, 0.00559949, 1, -0.575487, 0, -3.52367, 0.696218, 0, 2.74643, 0, 0, 3.52367, 0, -0.575487, -0.466033, 0.925138, 0.952779, 0.0152779, 1, 0.967429, 0, -3.72961, 1.48376, 0, 2.96388, 0, 0, 3.72961, 0, 0.967429, -0.172331, 0.953278, 0.895351, 0.00953512, 1, -2.83851, 0, 2.03724, -0.37772, 0, 2.68763, 0, 0, -2.03724, 0, -2.83851, 0.276276, 0.918527, 0.966271, 0.0166271, 1, -2.44016, 0, 1.63364, -0.33328, 0, 2.25886, 0, 0, -1.63364, 0, -2.44016, -0.170903, 0.953393, 0.895117, 0.00951165, 1, -2.25272, 0, 2.89555, 0.515963, 0, 2.82204, 0, 0, -2.89555, 0, -2.25272, 0.623936, 0.966989, 0.867369, 0.00673693, 1, 1.27404, 0, 2.52315, 0.302372, 0, 2.17428, 0, 0, -2.52315, 0, 1.27404, -0.0871522, 0.92164, 0.959918, 0.0159918, 1, 2.72475, 0, 0.973366, 1.18107, 0, 2.22569, 0, 0, -0.973366, 0, 2.72475, 0.515213, 0.922274, 0.958625, 0.0158625, 1, 2.45468, 0, -1.08948, -0.81177, 0, 2.06584, 0, 0, 1.08948, 0, 2.45468, 0.384118, 0.948974, 0.904135, 0.0104135, 1, -1.25302, 0, -3.06655, -0.689284, 0, 2.54821, 0, 0, 3.06655, 0, -1.25302, 1.50597, 0.959283, 0.883096, 0.00830957, 1, -2.11079, 0, 1.99173, 0.393937, 0, 2.23242, 0, 0, -1.99173, 0, -2.11079, 0.499341, 0.994488, 0.811249, 0.00112487, 1, 1.55068, 0, -2.31606, 0.872715, 0, 2.14404, 0, 0, 2.31606, 0, 1.55068, 0.776808, 0.98146, 0.837837, 0.00378368, 1, -2.64283, 0, -2.33114, 1.41849, 0, 2.71079, 0, 0, 2.33114, 0, -2.64283, 0.867244, 0.950176, 0.901682, 0.0101682, 1, 2.78049, 0, -2.73176, -0.504655, 0, 2.99838, 0, 0, 2.73176, 0, 2.78049, 1.46301, 0.940668, 0.921087, 0.0121087, 1, 3.29745, 0, 0.17728, 0.24962, 0, 2.54016, 0, 0, -0.17728, 0, 3.29745, 2.13369, 0.910165, 0.983337, 0.0183337, 1, -2.84093, 0, -1.23021, 0.227806, 0, 2.38143, 0, 0, 1.23021, 0, -2.84093, 1.06271, 0.994547, 0.811129, 0.00111289, 1, -1.96252, 0, 2.13109, 1.09002, 0, 2.22852, 0, 0, -2.13109, 0, -1.96252, 1.38234, 0.91428, 0.974939, 0.0174939, 1, -1.72021, 0, -3.08266, 0.994066, 0, 2.7155, 0, 0, 3.08266, 0, -1.72021, 1.24531, 0.906772, 0.990261, 0.0190261, 1)
-
-[sub_resource type="MultiMesh" id="MultiMesh_tknxa"]
-transform_format = 1
-use_colors = true
-instance_count = 16
-visible_instance_count = 16
-mesh = ExtResource("18_rj2gh")
-buffer = PackedFloat32Array(-1.59483, 0, 1.84393, -0.869591, 0, 2.43794, 0, 0, -1.84393, 0, -1.59483, -0.81895, 0.0413276, 0.26709, 0.63266, 1, -1.77009, 0, -1.52063, -0.268752, 0, 2.33357, 0, 0, 1.52063, 0, -1.77009, -0.845236, 0.021883, 0.224232, 0.542014, 1, 2.65314, 0, 0.769055, 0.123707, 0, 2.76235, 0, 0, -0.769055, 0, 2.65314, -0.976529, 0.0524394, 0.291582, 0.68446, 1, 1.97728, 0, -0.533597, 0.653764, 0, 2.04801, 0, 0, 0.533597, 0, 1.97728, -0.883467, 0.00747185, 0.192469, 0.474832, 1, 2.31334, 0, -0.969074, -0.982424, 0, 2.50812, 0, 0, 0.969074, 0, 2.31334, -0.293137, 0.09051, 0.375493, 0.861937, 1, -1.13821, 0, -2.03699, -0.13424, 0, 2.33342, 0, 0, 2.03699, 0, -1.13821, -0.171944, 0.0465734, 0.278653, 0.657115, 1, 2.49606, 0, 0.908091, 0.0538427, 0, 2.65611, 0, 0, -0.908091, 0, 2.49606, -0.0770481, 0.0588698, 0.305755, 0.714437, 1, 1.49248, 0, -2.32674, 1.12179, 0, 2.76427, 0, 0, 2.32674, 0, 1.49248, -0.0362678, 0.0973215, 0.390506, 0.89369, 1, -2.7655, 0, 0.805316, -0.575638, 0, 2.88037, 0, 0, -0.805316, 0, -2.7655, 0.0646814, 0.0864298, 0.3665, 0.842916, 1, 0.44501, 0, 2.5114, -0.546391, 0, 2.55052, 0, 0, -2.5114, 0, 0.44501, 0.408176, 0.0234974, 0.227791, 0.549539, 1, -1.47979, 0, -1.49251, 0.315314, 0, 2.10176, 0, 0, 1.49251, 0, -1.47979, 0.0430445, 0.119987, 0.440463, 0.999352, 1, 1.80662, 0, -1.28672, 0.976476, 0, 2.218, 0, 0, 1.28672, 0, 1.80662, 0.397157, 0.00864181, 0.195047, 0.480286, 1, 0.451666, 0, 2.38211, -0.856695, 0, 2.42455, 0, 0, -2.38211, 0, 0.451666, 0.892507, 0.0620117, 0.31268, 0.729084, 1, 2.13721, 0, 0.772261, -0.31573, 0, 2.27245, 0, 0, -0.772261, 0, 2.13721, 0.993995, 0.0277875, 0.237246, 0.569539, 1, -2.18732, 0, -1.10012, 0.296405, 0, 2.44839, 0, 0, 1.10012, 0, -2.18732, 0.860184, 0.0411039, 0.266597, 0.631617, 1, 1.38468, 0, 2.40998, 0.833567, 0, 2.77945, 0, 0, -2.40998, 0, 1.38468, 0.911059, 0.0827638, 0.35842, 0.825826, 1)
-
-[sub_resource type="MultiMesh" id="MultiMesh_mbgae"]
-transform_format = 1
-use_colors = true
-instance_count = 16
-visible_instance_count = 16
-mesh = ExtResource("18_rj2gh")
-buffer = PackedFloat32Array(-2.05462, 0, -0.276228, -1.11487, 0, 2.0731, 0, 0, 0.276228, 0, -2.05462, -1.02484, 0.0917706, 0.378272, 0.867814, 1, -2.33341, 0, -0.125762, -0.280547, 0, 2.3368, 0, 0, 0.125762, 0, -2.33341, -0.787801, 0.019719, 0.219463, 0.531925, 1, 2.03344, 0, -1.91008, 0.368718, 0, 2.78986, 0, 0, 1.91008, 0, 2.03344, -1.13648, 0.0644323, 0.318015, 0.740369, 1, 2.20577, 0, 0.433146, 0.838157, 0, 2.2479, 0, 0, -0.433146, 0, 2.20577, -0.766429, 0.103565, 0.404268, 0.922798, 1, 0.591723, 0, 1.9944, -0.948688, 0, 2.08033, 0, 0, -1.9944, 0, 0.591723, -0.199026, 0.020472, 0.221122, 0.535436, 1, -1.77326, 0, 1.26465, -0.493211, 0, 2.17802, 0, 0, -1.26465, 0, -1.77326, -0.161778, 0.0336934, 0.250264, 0.597071, 1, -1.89199, 0, 1.33127, 0.458001, 0, 2.31341, 0, 0, -1.33127, 0, -1.89199, -0.506175, 0.018144, 0.215991, 0.524583, 1, -1.89791, 0, -2.06815, 0.931002, 0, 2.80701, 0, 0, 2.06815, 0, -1.89791, -0.352795, 0.0182549, 0.216236, 0.5251, 1, 1.28382, 0, -1.96085, -0.899642, 0, 2.34374, 0, 0, 1.96085, 0, 1.28382, 0.276008, 0.0159064, 0.211059, 0.514152, 1, -2.0605, 0, -0.866855, -0.38993, 0, 2.23542, 0, 0, 0.866855, 0, -2.0605, 0.135184, 0.0339938, 0.250926, 0.598471, 1, -0.164763, 0, -2.8936, 0.387593, 0, 2.89829, 0, 0, 2.8936, 0, -0.164763, 0.543044, 0.0425779, 0.269846, 0.638488, 1, -2.06414, 0, -1.28935, 1.0187, 0, 2.43374, 0, 0, 1.28935, 0, -2.06414, 0.213801, 0.116266, 0.432262, 0.982005, 1, -2.71549, 0, -1.01588, -0.930177, 0, 2.89929, 0, 0, 1.01588, 0, -2.71549, 0.871369, 0.0904857, 0.37544, 0.861824, 1, -2.35827, 0, -1.25807, -0.453486, 0, 2.67286, 0, 0, 1.25807, 0, -2.35827, 0.798365, 0.0491777, 0.284393, 0.669255, 1, 1.07111, 0, 2.37959, 0.0952789, 0, 2.60954, 0, 0, -2.37959, 0, 1.07111, 0.905816, 0.113495, 0.426155, 0.969088, 1, 2.22982, 0, -1.29096, 0.737038, 0, 2.57657, 0, 0, 1.29096, 0, 2.22982, 0.963781, 0.0742163, 0.33958, 0.78598, 1)
-
-[sub_resource type="MultiMesh" id="MultiMesh_4h2c7"]
-transform_format = 1
-use_colors = true
-instance_count = 16
-visible_instance_count = 16
-mesh = ExtResource("18_rj2gh")
-buffer = PackedFloat32Array(0.32027, 0, -2.62268, -1.02038, 0, 2.64216, 0, 0, 2.62268, 0, 0.32027, -1.13801, 0.952423, 0.815556, 0.0485522, 1, 2.62402, 0, -1.42622, -0.11589, 0, 2.98657, 0, 0, 1.42622, 0, 2.62402, -0.782409, 0.946072, 0.830519, 0.0217491, 1, -2.95739, 0, 0.384483, 0.386429, 0, 2.98228, 0, 0, -0.384483, 0, -2.95739, -0.781931, 0.94742, 0.827343, 0.027438, 1, 2.98641, 0, -0.0921834, 1.01493, 0, 2.98783, 0, 0, 0.0921834, 0, 2.98641, -0.843904, 0.964206, 0.787798, 0.098277, 1, -2.14735, 0, -0.865283, -0.779342, 0, 2.31513, 0, 0, 0.865283, 0, -2.14735, -0.499619, 0.99632, 0.712143, 0.233798, 1, 1.64594, 0, -1.52912, -0.173918, 0, 2.24663, 0, 0, 1.52912, 0, 1.64594, -0.303808, 0.997396, 0.709607, 0.238342, 1, 2.49789, 0, -0.827857, 0.330971, 0, 2.6315, 0, 0, 0.827857, 0, 2.49789, -0.545016, 0.944904, 0.83327, 0.0168212, 1, -1.35443, 0, 1.73177, 0.883034, 0, 2.19852, 0, 0, -1.73177, 0, -1.35443, -0.46246, 0.972947, 0.767205, 0.135166, 1, -2.44058, 0, -1.32199, -0.728769, 0, 2.77563, 0, 0, 1.32199, 0, -2.44058, 0.493543, 0.950402, 0.820317, 0.0400239, 1, -1.31805, 0, 2.54414, -0.362286, 0, 2.8653, 0, 0, -2.54414, 0, -1.31805, 0.157814, 0.993429, 0.718953, 0.2216, 1, -1.9949, 0, -1.93668, 0.00864729, 0, 2.78035, 0, 0, 1.93668, 0, -1.9949, 0.02679, 0.941099, 0.842233, 0.000766441, 1, 2.12421, 0, 0.455044, 0.589738, 0, 2.17241, 0, 0, -0.455044, 0, 2.12421, 0.317018, 0.961702, 0.793696, 0.0877108, 1, -2.32269, 0, -1.3556, -0.888674, 0, 2.68934, 0, 0, 1.3556, 0, -2.32269, 0.593102, 0.996541, 0.711621, 0.234733, 1, 1.27409, 0, -2.71371, -0.489331, 0, 2.99792, 0, 0, 2.71371, 0, 1.27409, 0.752413, 0.992677, 0.720725, 0.218425, 1, -2.61304, 0, -0.711894, 0.0812811, 0, 2.70828, 0, 0, 0.711894, 0, -2.61304, 0.879238, 0.973168, 0.766685, 0.136096, 1, -2.52394, 0, -0.599177, 1.06123, 0, 2.59408, 0, 0, 0.599177, 0, -2.52394, 0.706473, 0.976757, 0.758229, 0.151245, 1)
 
 [sub_resource type="Curve" id="Curve_qjpf4"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
@@ -703,6 +662,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47224, 1.05467, -1.57769)
 [node name="DecoDoor" parent="DecoHandler" index="120" instance=ExtResource("34_oct38")]
 transform = Transform3D(0.00291469, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00291469, 3.65278, 1.25, 3.79308)
 
+[node name="DecoYellowFlowers2" parent="DecoHandler" index="121" instance=ExtResource("42_h33ht")]
+transform = Transform3D(1, 0, 0, 0, 0.993167, -0.116705, 0, 0.116705, 0.993167, 6.8861, 0.00377366, 10.8702)
+
+[node name="DecoBlueFlowers" parent="DecoHandler" index="122" instance=ExtResource("37_wlchm")]
+transform = Transform3D(1, 0, 0, 0, 0.994625, -0.103539, 0, 0.103539, 0.994625, 3.12305, 0.0523648, 9.64714)
+
+[node name="DecoYellowFlowers3" parent="DecoHandler" index="123" instance=ExtResource("42_h33ht")]
+transform = Transform3D(1, 0, 0, 0, 0.999753, -0.0222337, 0, 0.0222337, 0.999753, -5.02971, -0.0562165, 9.23233)
+
+[node name="DecoBlueFlowers2" parent="DecoHandler" index="124" instance=ExtResource("37_wlchm")]
+transform = Transform3D(0.999661, 0.0260199, 0, -0.0260199, 0.999661, 0, 0, 0, 1, -6.2725, 0.112226, 5.34846)
+
 [node name="LightRays" type="Node3D" parent="Decoration" index="0"]
 
 [node name="LightRay" parent="Decoration/LightRays" index="0" instance=ExtResource("44_mlhiv")]
@@ -849,107 +820,6 @@ attenuation_filter_cutoff_hz = 10000.0
 [node name="PlatformOuter" parent="Decoration/PlatformInner" index="4" instance=ExtResource("8_alpya")]
 transform = Transform3D(1.48079, -0.000397209, -0.239267, -0.000596002, 0.999988, -0.00742312, 0.239267, 0.00494876, 1.48078, 0, -0.203, 0)
 
-[node name="FlowerSpawner" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="0"]
-transform = Transform3D(0.328042, 0, -0.944663, 0, 1, 0, 0.944663, 0, 0.328042, -4.84919, 0.317728, -3.30996)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_7dptf")
-script = ExtResource("6_jt5mw")
-custom_mesh = ExtResource("18_rj2gh")
-count = 4
-size = 2.3
-min_scale = 2.0
-max_scale = 3.0
-smooth = false
-moss_cover = false
-moss_albedo_mix = 0.268
-moss_scaling = 2.0
-moss_color = Color(0.45, 0.6, 0, 1)
-colour_1 = Color(0.709552, 0.0126965, 0.557144, 1)
-colour_2 = Color(0.896879, 0, 0.331197, 1)
-render_distance = 11.0
-
-[node name="FlowerSpawner4" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70888, -0.0368974, 9.20308)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_n5r2p")
-script = ExtResource("6_jt5mw")
-custom_mesh = ExtResource("18_rj2gh")
-size = 3.0
-scatter = 0.4
-min_scale = 2.0
-max_scale = 3.0
-area_scale = 1.3
-smooth = false
-moss_cover = false
-moss_albedo_mix = 0.268
-moss_scaling = 2.0
-moss_color = Color(0.45, 0.6, 0, 1)
-colour_1 = Color(0.902, 1, 0.02, 1)
-colour_2 = Color(1, 0.8, 0, 1)
-render_distance = 11.0
-
-[node name="FlowerSpawner2" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5059, 0.258923, 5.3246)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_tknxa")
-script = ExtResource("6_jt5mw")
-custom_mesh = ExtResource("18_rj2gh")
-count = 4
-size = 2.3
-min_scale = 2.0
-max_scale = 3.0
-smooth = false
-moss_cover = false
-moss_albedo_mix = 0.268
-moss_scaling = 2.0
-moss_color = Color(0.45, 0.6, 0, 1)
-colour_1 = Color(0, 0.176, 0.44, 1)
-colour_2 = Color(0.120126, 0.44077, 1, 1)
-render_distance = 11.0
-
-[node name="FlowerSpawner5" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8916, 0.217283, 9.88264)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_mbgae")
-script = ExtResource("6_jt5mw")
-custom_mesh = ExtResource("18_rj2gh")
-count = 4
-size = 2.3
-min_scale = 2.0
-max_scale = 3.0
-smooth = false
-moss_cover = false
-moss_albedo_mix = 0.268
-moss_scaling = 2.0
-moss_color = Color(0.45, 0.6, 0, 1)
-colour_1 = Color(0, 0.176, 0.44, 1)
-colour_2 = Color(0.120126, 0.44077, 1, 1)
-render_distance = 11.0
-
-[node name="FlowerSpawner6" type="MultiMeshInstance3D" parent="Decoration/Foliage" index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.997998, -0.0632434, 0, 0.0632434, 0.997998, 6.3363, -0.0355749, 11.7825)
-layers = 2
-cast_shadow = 0
-multimesh = SubResource("MultiMesh_4h2c7")
-script = ExtResource("6_jt5mw")
-custom_mesh = ExtResource("18_rj2gh")
-count = 4
-size = 2.3
-min_scale = 2.0
-max_scale = 3.0
-smooth = false
-moss_cover = false
-moss_albedo_mix = 0.268
-moss_scaling = 2.0
-moss_color = Color(0.45, 0.6, 0, 1)
-colour_1 = Color(0.940918, 0.84266, 7.70092e-07, 1)
-colour_2 = Color(1, 0.703474, 0.249328, 1)
-render_distance = 11.0
-
 [node name="Decals" type="Node3D" parent="Decoration" index="35"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
@@ -1014,17 +884,6 @@ transform = Transform3D(0.9, 0, 0, 0, 0.615966, -0.65619, 0, 0.65619, 0.615966, 
 size = Vector3(4, 8, 4)
 texture_albedo = ExtResource("21_d2j4w")
 modulate = Color(0.661081, 0.661081, 0.661081, 1)
-upper_fade = 0.01
-distance_fade_begin = 9.0
-distance_fade_length = 0.5
-cull_mask = 8
-
-[node name="RockDecal4" type="Decal" parent="Decoration/Decals" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53259, -1.07418, 11.5972)
-size = Vector3(3, 3, 3)
-texture_albedo = ExtResource("21_d2j4w")
-modulate = Color(0.661081, 0.661081, 0.661081, 1)
-normal_fade = 0.455
 upper_fade = 0.01
 distance_fade_begin = 9.0
 distance_fade_length = 0.5
