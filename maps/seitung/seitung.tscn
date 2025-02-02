@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=93 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -62,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
 [ext_resource type="PackedScene" uid="uid://qw6dxj43jndf" path="res://decorations/rocks/deco_pancake_rocks.tscn" id="54_iuxex"]
 [ext_resource type="AudioStream" uid="uid://d1gwlg80yr26a" path="res://maps/seitung/sounds/mus_lyllian.ogg" id="56_oq8ka"]
+[ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="59_gjbjt"]
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="64_xbvsq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixf13"]
@@ -929,6 +930,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)
 
 [node name="Jukebox" parent="." index="9"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("28_wohrl"), ExtResource("56_oq8ka")])
+
+[node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0"]
+stream = ExtResource("59_gjbjt")
 
 [node name="Landscape" parent="." index="10" instance=ExtResource("10_vndj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)

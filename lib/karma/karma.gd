@@ -8,7 +8,24 @@ func _on_pick_up_area_body_entered(body: Node3D) -> void:
 		picked_up = true
 		Save.add_karma(1)
 		
-		queue_free()
+		$DespawnTimer.start()
+		$Orb/Stars.emitting = true
+		$Collect.play()
+		var scale_tween = create_tween()
+		scale_tween.tween_property($Orb, "scale", Vector3(0.01, 0.01, 0.01), 0.05)
+		scale_tween.tween_callback(func():
+			$Orb/Stars.emitting = false)
+
+func _ready() -> void:
+	$Orb/Stars.set_disable_scale(true)
+	$Orb.scale = Vector3(0.01, 0.01, 0.01)
+	
+	var scale_tween = create_tween()
+	scale_tween.tween_property($Orb, "scale", Vector3(1, 1, 1), 0.05)
 
 func _process(_delta: float) -> void:
+	if picked_up: return
 	$Orb.global_position.y = $YCast.get_collision_point().y + 0.65
+
+func _on_despawn_timer_timeout() -> void:
+	queue_free()

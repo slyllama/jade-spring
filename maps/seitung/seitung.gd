@@ -2,6 +2,7 @@ extends "res://lib/map/map.gd"
 
 @onready var toolbox = get_node("HUD/Toolbox")
 var y_target = 0.0
+var rng = RandomNumberGenerator.new()
 
 const Karma = preload("res://lib/karma/karma.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
@@ -13,6 +14,16 @@ func set_marker_pos() -> void: # set the position of the story marker
 		"pick_weeds": $StoryMarker.position = $WeedBin.get_node("Collision").global_position
 		"clear_bugs": $StoryMarker.global_position = $Discombobulator/SpatialText.global_position - Vector3(0, 1.9, 0)
 		"_": $StoryMarker.position = Vector3(0, -10, 0) # hide under map
+
+func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
+	$Jukebox/SpawnKarma.play()
+	for _i in amount:
+		var _a = deg_to_rad(360.0 / amount * _i + rng.randf() * 45.0)
+		var _offset = Vector3(radius * cos(_a), 0, radius * sin(_a))
+		
+		var _k = Karma.instantiate()
+		add_child(_k)
+		_k.global_position = orb_position + _offset
 
 func _ready() -> void:
 	$Landscape/LandscapeCol.set_collision_layer_value(2, true)
@@ -60,11 +71,7 @@ func _ready() -> void:
 		
 		if "/spawnkarma=" in _cmd:
 			var _count = int(_cmd.replace("/spawnkarma=", ""))
-			for _i in _count:
-				var _k = Karma.instantiate()
-				add_child(_k)
-				_k.global_position = Global.player_position
-				_k.position.x += _i
+			spawn_karma(_count, Global.player_position)
 	)
 	
 	Save.story_advanced.connect(set_marker_pos)

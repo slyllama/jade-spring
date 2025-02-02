@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://css5f06cjlswq"]
+[gd_scene load_steps=17 format=3 uid="uid://css5f06cjlswq"]
 
 [ext_resource type="Script" path="res://lib/karma/karma.gd" id="1_7siie"]
 [ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_i10le"]
 [ext_resource type="Texture2D" uid="uid://begdpwr5l122o" path="res://lib/player/materials/textures/jade_mask.jpg" id="2_hua5p"]
 [ext_resource type="Texture2D" uid="uid://tofc8p3cnl3c" path="res://lib/player/textures/floor_insignia.png" id="2_n02mk"]
+[ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="4_ma66g"]
+[ext_resource type="AudioStream" uid="uid://cf4vigsxqembu" path="res://lib/karma/sounds/karma_collect.ogg" id="6_vb0t3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq1by"]
 render_priority = 0
@@ -21,8 +23,43 @@ shader_parameter/mask = ExtResource("2_hua5p")
 
 [sub_resource type="SphereMesh" id="SphereMesh_renxr"]
 material = SubResource("ShaderMaterial_rq1by")
-radius = 0.2
-height = 0.4
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Curve" id="Curve_ygynt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20625, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yc1l7"]
+curve = SubResource("Curve_ygynt")
+
+[sub_resource type="Gradient" id="Gradient_rufu5"]
+colors = PackedColorArray(0.320432, 0.000649765, 0.85035, 1, 0.891083, 0.511508, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ph5yn"]
+gradient = SubResource("Gradient_rufu5")
+
+[sub_resource type="Curve" id="Curve_ucpa2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7125, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -11.2715, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_35mdh"]
+curve = SubResource("Curve_ucpa2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gcgmw"]
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -1.00002
+radial_velocity_max = -1.00002
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_35mdh")
+color_initial_ramp = SubResource("GradientTexture1D_ph5yn")
+alpha_curve = SubResource("CurveTexture_yc1l7")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ksru4"]
 
@@ -37,8 +74,20 @@ collision_mask = 3
 cast_shadow = 0
 mesh = SubResource("SphereMesh_renxr")
 
+[node name="Stars" type="GPUParticles3D" parent="Orb"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+emitting = false
+amount = 16
+lifetime = 0.25
+explosiveness = 0.75
+randomness = 0.1
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gcgmw")
+draw_pass_1 = ExtResource("4_ma66g")
+
 [node name="Decal" type="Decal" parent="Orb"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+visible = false
 size = Vector3(0.3, 1, 0.3)
 texture_albedo = ExtResource("2_n02mk")
 emission_energy = 2.0
@@ -50,4 +99,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 [node name="Collision" type="CollisionShape3D" parent="Orb/PickUpArea"]
 shape = SubResource("CylinderShape3D_ksru4")
 
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Collect" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_vb0t3")
+
 [connection signal="body_entered" from="Orb/PickUpArea" to="." method="_on_pick_up_area_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

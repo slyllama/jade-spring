@@ -37,7 +37,6 @@ start_offset = 0.0
 loop_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_os36u"]
-graph_offset = Vector2(-692.837, 140.314)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_hh2kt")
 nodes/Add2/position = Vector2(-120, 306.667)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_j2hsc")
@@ -55,13 +54,13 @@ node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"appear", &"output", 
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_yc1l7"]
+[sub_resource type="CurveTexture" id="CurveTexture_1jepn"]
 curve = SubResource("Curve_dcrpf")
 
 [sub_resource type="Gradient" id="Gradient_5d6py"]
 colors = PackedColorArray(0.320432, 0.000649765, 0.85035, 1, 0.891083, 0.511508, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ph5yn"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c0pjc"]
 gradient = SubResource("Gradient_5d6py")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fxxo6"]
@@ -75,8 +74,8 @@ initial_velocity_max = 0.2
 gravity = Vector3(0, -1, 0)
 scale_min = 0.4
 scale_max = 1.3
-color_initial_ramp = SubResource("GradientTexture1D_ph5yn")
-alpha_curve = SubResource("CurveTexture_yc1l7")
+color_initial_ramp = SubResource("GradientTexture1D_c0pjc")
+alpha_curve = SubResource("CurveTexture_1jepn")
 
 [node name="DispersionGolem" type="Node3D"]
 transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0, 0, 0)

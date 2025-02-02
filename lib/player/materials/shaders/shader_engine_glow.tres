@@ -2,11 +2,15 @@
 
 [resource]
 code = "shader_type spatial;
-render_mode unshaded, shadows_disabled, fog_disabled, ambient_light_disabled;
+render_mode unshaded, shadows_disabled, fog_disabled, ambient_light_disabled, cull_disabled;
 
 uniform sampler2D screen_texture: hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D noise: filter_linear_mipmap, repeat_enable;
 uniform vec4 glow_color: source_color;
+
+uniform float wobble_size = 0.2;
+uniform float wobble_intensity = 0.03;
+uniform float speed_scale = 0.1;
 
 float circle(vec2 position, float radius, float feather) {
 	return(smoothstep(radius, radius + feather, length(position - vec2(0.5))));
@@ -23,9 +27,7 @@ void vertex() {
 }
 
 void fragment() {
-	float wobble_size = 0.2;
-	float wobble_intensity = 0.03;
-	float speed_scale = 0.1;
+	
 
 	vec2 wobble = texture(noise, UV * wobble_size + TIME * speed_scale).rg * wobble_intensity;
 	vec3 screen_wobble = texture(screen_texture, SCREEN_UV + wobble).rgb;

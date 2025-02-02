@@ -37,7 +37,6 @@ func _input(event: InputEvent) -> void:
 		event_relative = event.relative
 	
 	if Input.is_action_just_released("left_click"):
-		$Tick.play()
 		destroy()
 
 func _ready() -> void:
@@ -62,6 +61,8 @@ func _ready() -> void:
 
 var last_ratio = ratio
 
+var _accumulated_ratio = 0.0
+
 func _process(delta: float) -> void:
 	# Prevent scale continuously changing when the mouse isn't moving
 	if event_relative.x == last_event_relative.x:
@@ -83,3 +84,7 @@ func _process(delta: float) -> void:
 		last_ratio = ratio
 	
 	last_event_relative = event_relative
+	_accumulated_ratio += ratio
+	if _accumulated_ratio > 1.2 or _accumulated_ratio < - 1.2:
+		_accumulated_ratio = 0.0
+		$Tick.play()
