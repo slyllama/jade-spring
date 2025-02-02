@@ -3,6 +3,7 @@ extends "res://lib/map/map.gd"
 @onready var toolbox = get_node("HUD/Toolbox")
 var y_target = 0.0
 
+const Karma = preload("res://lib/karma/karma.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
@@ -56,6 +57,14 @@ func _ready() -> void:
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.WHITE)
 			
 			for _n in $Decoration/LightRays.get_children(): _n.visible = true
+		
+		if "/spawnkarma=" in _cmd:
+			var _count = int(_cmd.replace("/spawnkarma=", ""))
+			for _i in _count:
+				var _k = Karma.instantiate()
+				add_child(_k)
+				_k.global_position = Global.player_position
+				_k.position.x += _i
 	)
 	
 	Save.story_advanced.connect(set_marker_pos)

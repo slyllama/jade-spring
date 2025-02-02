@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://css5f06cjlswq"]
+
+[ext_resource type="Script" path="res://lib/karma/karma.gd" id="1_7siie"]
+[ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_i10le"]
+[ext_resource type="Texture2D" uid="uid://begdpwr5l122o" path="res://lib/player/materials/textures/jade_mask.jpg" id="2_hua5p"]
+[ext_resource type="Texture2D" uid="uid://tofc8p3cnl3c" path="res://lib/player/textures/floor_insignia.png" id="2_n02mk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rq1by"]
+render_priority = 0
+shader = ExtResource("1_i10le")
+shader_parameter/base_color = Color(0.169265, 1.841e-05, 0.16665, 1)
+shader_parameter/swirl_color = Color(0.892885, 0.113558, 0.716199, 1)
+shader_parameter/cloud_color = Color(0.999997, 0.564534, 0.418525, 1)
+shader_parameter/fresnel_color = Color(0.18, 0.808667, 1, 1)
+shader_parameter/cloud_scale = 1.5
+shader_parameter/speed_scale = 0.02
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/clear_coat = false
+shader_parameter/fresnel_amount = 3.0
+shader_parameter/mask = ExtResource("2_hua5p")
+
+[sub_resource type="SphereMesh" id="SphereMesh_renxr"]
+material = SubResource("ShaderMaterial_rq1by")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ksru4"]
+
+[node name="Karma" type="Node3D"]
+script = ExtResource("1_7siie")
+
+[node name="YCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, -20, 0)
+collision_mask = 3
+
+[node name="Orb" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_renxr")
+
+[node name="Decal" type="Decal" parent="Orb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+size = Vector3(0.3, 1, 0.3)
+texture_albedo = ExtResource("2_n02mk")
+emission_energy = 2.0
+cull_mask = 1048574
+
+[node name="PickUpArea" type="Area3D" parent="Orb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="Orb/PickUpArea"]
+shape = SubResource("CylinderShape3D_ksru4")
+
+[connection signal="body_entered" from="Orb/PickUpArea" to="." method="_on_pick_up_area_body_entered"]

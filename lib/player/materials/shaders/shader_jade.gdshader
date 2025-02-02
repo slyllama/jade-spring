@@ -10,6 +10,7 @@ uniform float cloud_scale = 1.0;
 uniform float speed_scale = 0.05;
 uniform vec3 emission_color: source_color = vec3(0.0);
 uniform bool clear_coat = false;
+uniform float fresnel_amount = 3.4;
 
 float fresnel(float amount, vec3 normal, vec3 view) {
 	return pow((1.0 - clamp(dot(normalize(normal),
@@ -22,7 +23,7 @@ void fragment() {
 	vec3 swirl_texture = swirl_color.rgb * texture(mask, (UV + wobble * 0.3) * 0.3 + TIME * speed_scale).r;
 
 	ALBEDO = mix(base_texture, swirl_texture, 0.5);
-	ALBEDO += fresnel(3.4, NORMAL, VIEW) * fresnel_color.rgb;
+	ALBEDO += fresnel(fresnel_amount, NORMAL, VIEW) * fresnel_color.rgb;
 
 	vec3 cloud_texture = cloud_color.rgb * texture(mask, (SCREEN_UV + wobble * 0.1) * cloud_scale + TIME * speed_scale).r;
 	cloud_texture = pow(cloud_texture, vec3(4.0));

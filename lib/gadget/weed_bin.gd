@@ -23,7 +23,8 @@ func _on_bin_interacted() -> void:
 		await get_tree().create_timer(0.3).timeout
 		$Foam.emitting = false
 	else: # do weed stuff
-		Global.announcement_sent.emit("This bin is hungry for some weeds and rotting shrubs.")
+		Global.announcement_sent.emit(
+			"This bin is hungry for some weeds and rotting shrubs.")
 	
 	Save.add_karma(Global.get_effect_qty("weed") * karma_value)
 	Save.data.deposited_weeds += Global.get_effect_qty("weed")
