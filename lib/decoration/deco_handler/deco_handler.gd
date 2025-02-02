@@ -105,11 +105,19 @@ func _ready() -> void:
 	
 	# Commands (useful for debugging)
 	Global.command_sent.connect(func(_cmd):
-		if _cmd == "/cleardeco": _clear_decorations()
-		elif _cmd == "/loaddeco": _load_decorations(_load_decoration_file())
-		elif _cmd == "/resetdeco": _load_decorations(default_deco_data)
-		elif _cmd == "/savedeco": _save_decorations()
+		if _cmd == "/cleardeco":
+			Global.announcement_sent.emit("((Cleared decorations))")
+			_clear_decorations()
+		elif _cmd == "/loaddeco":
+			Global.announcement_sent.emit("((Loaded decorations from file))")
+			_load_decorations(_load_decoration_file())
+		elif _cmd == "/resetdeco":
+			Global.announcement_sent.emit("((Reset decorations to defaults))")
+			_load_decorations(default_deco_data)
+		elif _cmd == "/savedeco":
+			#Global.announcement_sent.emit("((Saved decorations))")
+			_save_decorations()
 		elif _cmd == "/getdecolist": _get_decoration_list())
 	
 	await get_tree().process_frame # needs a frame to avoid duplication
-	Global.command_sent.emit("/savedeco")
+	_save_decorations()

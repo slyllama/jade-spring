@@ -13,6 +13,9 @@
 /hidecrumbs		Hide bugs, Dragonvoid etc
 
 ### Generic utilities
+/addkarma=X		Add X Karma (negatives permitted)
+/collision=off	Disable player collisions
+/collision=on	Enable player collisions
 /savedata		Save data to file
 /printsavedata	Print all save data
 /printsettings	Print user settings

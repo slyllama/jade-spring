@@ -42,6 +42,12 @@ const DEFAULT_DATA = {
 }
 var data = {}
 
+func has_sufficient_karma(amount: int) -> bool:
+	if data.karma - amount >= 0:
+		return(true)
+	else:
+		return(false)
+
 func add_karma(amount: int) -> void:
 	data.karma += amount
 	save_to_file()

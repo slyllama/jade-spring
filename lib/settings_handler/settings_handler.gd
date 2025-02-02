@@ -8,7 +8,7 @@ const DEFAULT_SETTINGS = {
 	"music_vol": 1.0, # ratio (1.0),
 	"volume": 1.0,
 	"window_mode": "full_screen",
-	"foliage_density": "high",
+	"foliage_density": "ultra",
 	"bloom": "on",
 	"orbit_sensitivity": 0.5,
 	"labels": "hide",

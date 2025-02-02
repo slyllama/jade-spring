@@ -86,7 +86,7 @@ load_path = "res://.godot/imported/grass_base_diff.jpg-671630e1b73b22edad8750846
 [resource]
 render_priority = 0
 shader = SubResource("Shader_e2vv8")
-shader_parameter/uv_scale = 24.0
+shader_parameter/uv_scale = 32.0
 shader_parameter/grass_base_multiplier = 1.25
 shader_parameter/normal_strength = 1.0
 shader_parameter/grass_add_multiplier = 0.65

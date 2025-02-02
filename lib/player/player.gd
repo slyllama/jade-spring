@@ -102,6 +102,12 @@ func _ready() -> void:
 		elif "/playersmooth=" in _cmd:
 			var _s = float(_cmd.replace("/playersmooth=", ""))
 			smooth_mod = clamp(_s, 0.01, 1.0)
+		elif _cmd == "/collision=off":
+			$Collision.disabled = true
+			Global.announcement_sent.emit("((Collision disabled))")
+		elif _cmd == "/collision=on":
+			$Collision.disabled = false
+			Global.announcement_sent.emit("((Collision re-enabled))")
 	)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
