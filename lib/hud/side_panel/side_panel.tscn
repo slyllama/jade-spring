@@ -141,6 +141,18 @@ text = "((Decoration Count))"
 fit_content = true
 scroll_active = false
 
+[node name="KarmaCount" type="RichTextLabel" parent="Details/DetailsBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_h2htm")
+bbcode_enabled = true
+text = "((Karma Count))"
+fit_content = true
+scroll_active = false
+
 [node name="MinorSeparator" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("5_rs76w")

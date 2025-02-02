@@ -3,6 +3,7 @@ class_name SaveHandler extends Node
 # settings and decorations
 
 signal story_advanced
+signal karma_changed
 
 const OBJECTIVE_WEED_COUNT = 3
 var first_run = true
@@ -36,9 +37,15 @@ const DEFAULT_DATA = {
 	"crumbs": [],
 	"crumb_count": {},
 	"weeds": 0, # weeds in inventory
-	"deposited_weeds": 0
+	"deposited_weeds": 0,
+	"karma": 0
 }
 var data = {}
+
+func add_karma(amount: int) -> void:
+	data.karma += amount
+	save_to_file()
+	karma_changed.emit()
 
 # Advance the story by looking up STORY_POINTS (as long as you're not at the last one)
 func advance_story() -> void:
@@ -83,7 +90,10 @@ func _ready() -> void:
 		if _cmd == "/savedata":
 			save_to_file()
 		elif _cmd == "/printsavedata":
-			print(Save.data))
+			print(Save.data)
+		elif "/addkarma=" in _cmd:
+			var _k = int(_cmd.replace("/addkarma=", ""))
+			add_karma(_k))
 	
 	Global.crumbs_updated.connect(func():
 		if !"story_point" in Save.data:
@@ -93,9 +103,6 @@ func _ready() -> void:
 			and Save.data.deposited_weeds >= OBJECTIVE_WEED_COUNT):
 			advance_story()
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["clear_bugs"]))
-	
-	# Don't load until we get to the map...?
-	#load_from_file()
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

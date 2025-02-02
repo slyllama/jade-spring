@@ -6,7 +6,9 @@ var _target_weed_ratio := 0.0
 var _last_weed_ratio = _target_weed_ratio
 var _target_dv_ratio := 0.0
 var _last_dv_ratio = _target_dv_ratio
+
 var first_load = false
+var karma_fist_load = false
 
 var ignore_story_updates = true
 
@@ -32,7 +34,6 @@ func update_roster_visibility(pos: int) -> void:
 		$BugsBar.visible = false
 		$DVText.visible = false
 		$DVBar.visible = false
-		
 		$MinorSeparator.visible = false
 		$B_U.visible = false
 		$B_L.visible = false
@@ -91,6 +92,15 @@ func _ready() -> void:
 	Save.story_advanced.connect(func():
 		Global.play_flash($StoryText.global_position + Vector2(40, 30))
 		proc_story())
+	
+	Save.karma_changed.connect(func():
+		$Details/DetailsBox/KarmaCount.text = str(Save.data.karma) + " Karma"
+		if karma_fist_load:
+			Global.play_flash(
+				$Details/DetailsBox/KarmaCount.global_position + Vector2(50, 5)))
+	
+	Save.karma_changed.emit()
+	karma_fist_load = true
 
 var _j = 0.0
 
