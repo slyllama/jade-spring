@@ -34,6 +34,11 @@ func _ready() -> void:
 	$Bugs.visible = false
 	$Dragonvoid.visible = false
 	
+	get_window().focus_exited.connect(func():
+		if $Anime.material.get_shader_parameter("modulate_a") > 0.0:
+			var _f = create_tween()
+			_f.tween_method(_set_anime_alpha, 0.5, 0.0, 0.1))
+	
 	Global.dragonvoid_crumb_entered.connect(func():
 		dv_state = true
 		$Dragonvoid.visible = true

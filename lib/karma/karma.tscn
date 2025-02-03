@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://css5f06cjlswq"]
+[gd_scene load_steps=27 format=3 uid="uid://css5f06cjlswq"]
 
 [ext_resource type="Script" path="res://lib/karma/karma.gd" id="1_7siie"]
 [ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_i10le"]
 [ext_resource type="Texture2D" uid="uid://begdpwr5l122o" path="res://lib/player/materials/textures/jade_mask.jpg" id="2_hua5p"]
-[ext_resource type="Texture2D" uid="uid://tofc8p3cnl3c" path="res://lib/player/textures/floor_insignia.png" id="2_n02mk"]
+[ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="4_k1v8w"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="4_ma66g"]
 [ext_resource type="AudioStream" uid="uid://cf4vigsxqembu" path="res://lib/karma/sounds/karma_collect.ogg" id="6_vb0t3"]
+[ext_resource type="Texture2D" uid="uid://cjxn2j2i148cd" path="res://lib/karma/textures/ring.png" id="6_vvvmv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq1by"]
 render_priority = 0
@@ -25,6 +26,45 @@ shader_parameter/mask = ExtResource("2_hua5p")
 material = SubResource("ShaderMaterial_rq1by")
 radius = 0.1
 height = 0.2
+
+[sub_resource type="Gradient" id="Gradient_ab0nn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqkxy"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_77j05"]
+seamless = true
+color_ramp = SubResource("Gradient_ab0nn")
+noise = SubResource("FastNoiseLite_oqkxy")
+
+[sub_resource type="Gradient" id="Gradient_ajv0q"]
+offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vc8yf"]
+gradient = SubResource("Gradient_ajv0q")
+
+[sub_resource type="Gradient" id="Gradient_52tuk"]
+offsets = PackedFloat32Array(0, 0.197183, 0.577465, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.27193, 0.27193, 0.27193, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4bktw"]
+gradient = SubResource("Gradient_52tuk")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqtf3"]
+render_priority = 1
+shader = ExtResource("4_k1v8w")
+shader_parameter/uv_scale = Vector2(1, 0.2)
+shader_parameter/albedo = Color(0.987833, 0.27, 1, 1)
+shader_parameter/ray_mask_texture = SubResource("NoiseTexture2D_77j05")
+shader_parameter/x_gradient_texture = SubResource("GradientTexture2D_vc8yf")
+shader_parameter/y_gradient_texture = SubResource("GradientTexture2D_4bktw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_65p8k"]
+material = SubResource("ShaderMaterial_aqtf3")
+size = Vector2(0.3, 0.7)
+orientation = 2
 
 [sub_resource type="Curve" id="Curve_ygynt"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20625, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -62,6 +102,7 @@ color_initial_ramp = SubResource("GradientTexture1D_ph5yn")
 alpha_curve = SubResource("CurveTexture_yc1l7")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ksru4"]
+radius = 0.25
 
 [node name="Karma" type="Node3D"]
 script = ExtResource("1_7siie")
@@ -73,6 +114,12 @@ collision_mask = 3
 [node name="Orb" type="MeshInstance3D" parent="."]
 cast_shadow = 0
 mesh = SubResource("SphereMesh_renxr")
+
+[node name="Ray" type="MeshInstance3D" parent="Orb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181851, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_65p8k")
+skeleton = NodePath("../../YCast")
 
 [node name="Stars" type="GPUParticles3D" parent="Orb"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
@@ -87,9 +134,8 @@ draw_pass_1 = ExtResource("4_ma66g")
 
 [node name="Decal" type="Decal" parent="Orb"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
-visible = false
 size = Vector3(0.3, 1, 0.3)
-texture_albedo = ExtResource("2_n02mk")
+texture_albedo = ExtResource("6_vvvmv")
 emission_energy = 2.0
 cull_mask = 1048574
 

@@ -13,7 +13,7 @@ signal cleared
 signal interacted
 
 func clear() -> void:
-	Save.add_karma(karma_value)
+	Global.spawn_karma.emit(karma_value, global_position)
 	
 	Global.current_crumb = null
 	Global.crumbs_updated.emit()

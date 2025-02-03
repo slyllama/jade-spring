@@ -24,6 +24,8 @@ func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
 		var _k = Karma.instantiate()
 		add_child(_k)
 		_k.global_position = orb_position + _offset
+		_k.global_position.y = 10.0
+		await get_tree().create_timer(0.025).timeout
 
 func _ready() -> void:
 	$Landscape/LandscapeCol.set_collision_layer_value(2, true)
@@ -34,6 +36,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_dg.queue_free()
 	super()
+	
+	Global.spawn_karma.connect(spawn_karma)
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/cinematic=on":

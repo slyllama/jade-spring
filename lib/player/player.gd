@@ -87,6 +87,10 @@ func _ready() -> void:
 	$Camera.set_cam_rotation(Vector3(-20, 0, 0))
 	Global.jade_bot_sound.connect(play_jade_sound)
 	
+	get_window().focus_exited.connect(func():
+		_sprint_multiplier = 1.0
+		$Camera.added_fov = 0.0)
+	
 	# Move the player to a new location using global signals
 	Global.move_player.connect(func(_pos: Vector3):
 		global_position = _pos)

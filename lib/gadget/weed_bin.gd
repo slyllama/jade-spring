@@ -26,7 +26,8 @@ func _on_bin_interacted() -> void:
 		Global.announcement_sent.emit(
 			"This bin is hungry for some weeds and rotting shrubs.")
 	
-	Save.add_karma(Global.get_effect_qty("weed") * karma_value)
+	#Save.add_karma(Global.get_effect_qty("weed") * karma_value)
+	Global.spawn_karma.emit(Global.get_effect_qty("weed") * karma_value, global_position)
 	Save.data.deposited_weeds += Global.get_effect_qty("weed")
 	
 	Global.crumbs_updated.emit()
