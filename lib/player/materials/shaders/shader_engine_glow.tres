@@ -27,7 +27,7 @@ void vertex() {
 }
 
 void fragment() {
-	
+
 
 	vec2 wobble = texture(noise, UV * wobble_size + TIME * speed_scale).rg * wobble_intensity;
 	vec3 screen_wobble = texture(screen_texture, SCREEN_UV + wobble).rgb;

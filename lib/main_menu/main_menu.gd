@@ -74,6 +74,7 @@ func _ready() -> void:
 	$LightRay.modulate.a = 0.01
 	$FG.visible = true
 	$FG.modulate.a = 1.0
+	$Container/Box/InvalidWarning.visible = false
 	$SettingsPane/Container/Quit.queue_free()
 	
 	set_up_nodule()
@@ -104,7 +105,12 @@ func _ready() -> void:
 	
 	# Only show the 'continue' button if a save exists
 	if FileAccess.file_exists(Save.FILE_PATH):
-		$Container/Box/ContinueButton.grab_focus()
+		if !Save.is_save_valid():
+			$Container/Box/ContinueButton.disabled = true
+			$Container/Box/InvalidWarning.visible = true
+			$Container/PlayButton.grab_focus()
+		else:
+			$Container/Box/ContinueButton.grab_focus()
 	else:
 		$Container/Separator5.visible = false
 		$Container/Box.visible = false

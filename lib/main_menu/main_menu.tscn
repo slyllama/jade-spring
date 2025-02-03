@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=26 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
 [ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="8_rr48m"]
+[ext_resource type="Texture2D" uid="uid://dk63fvrvvpjy0" path="res://lib/hud/textures/warning.png" id="8_suxxi"]
 [ext_resource type="Texture2D" uid="uid://inll8yj8movt" path="res://lib/main_menu/textures/focus.png" id="9_4yys3"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="9_g8hmh"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="10_cqy1t"]
@@ -159,6 +160,17 @@ alignment = 1
 icon_alignment = 1
 expand_icon = true
 
+[node name="InvalidWarning" type="TextureRect" parent="Container/Box"]
+visible = false
+modulate = Color(0.9, 0.9, 0.9, 0.588235)
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+tooltip_text = "Invalid save detected."
+texture = ExtResource("8_suxxi")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Separator4" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
 custom_minimum_size = Vector2(350, 4)
@@ -283,7 +295,7 @@ scroll_active = false
 clip_contents = false
 offset_left = 16.0
 offset_top = 12.0
-offset_right = 139.0
+offset_right = 494.0
 offset_bottom = 47.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = -4

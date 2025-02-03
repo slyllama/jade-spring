@@ -54,6 +54,18 @@ func add_karma(amount: int) -> void:
 		save_to_file()
 		karma_changed.emit()
 
+func is_save_valid() -> bool:
+	if FileAccess.file_exists(FILE_PATH):
+		var _f = FileAccess.open(FILE_PATH, FileAccess.READ)
+		data = _f.get_var()
+		_f.close()
+		for _key in DEFAULT_DATA:
+			if !_key in data:
+				return(false)
+	else:
+		return(false)
+	return(true)
+
 # Advance the story by looking up STORY_POINTS (as long as you're not at the last one)
 func advance_story() -> void:
 	var _ind = STORY_POINTS.find(data.story_point)
@@ -67,8 +79,6 @@ func load_from_file() -> void:
 		first_run = false
 		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
 		data = file.get_var()
-		#for f in _file_save:
-			#if f in data: data[f] = _file_save[f]
 		file.close()
 	else: reset()
 
