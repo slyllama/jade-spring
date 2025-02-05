@@ -40,6 +40,7 @@ tree_root = SubResource("AnimationNodeBlendSpace1D_ju42u")
 parameters/blend_position = -0.925433
 
 [node name="Area" type="Area3D" parent="."]
+input_ray_pickable = false
 
 [node name="Collision" type="CollisionShape3D" parent="Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
