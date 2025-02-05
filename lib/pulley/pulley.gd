@@ -81,5 +81,8 @@ func _on_interacted() -> void:
 		)
 		
 		Global.hud.add_child(_d)
-		_d.closed.connect(Global.generic_area_entered.emit)
+		_d.closed.connect(func():
+			Global.generic_area_entered.emit()
+			Global.hearts_emit.emit()
+		)
 		_d.open()

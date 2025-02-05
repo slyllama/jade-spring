@@ -58,6 +58,16 @@ func clear_dgolems() -> void:
 		if "amount" in _n:
 			_n.queue_free()
 
+var hearts_playing = false
+
+func play_hearts() -> void:
+	if !$PlayerMesh/HeartParticles.visible:
+		$PlayerMesh/HeartParticles.visible = true
+	
+	hearts_playing = true
+	$PlayerMesh/HeartParticles.emitting = true
+	$HeartTimer.start()
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug_action"):
 		$PlayerMesh.visible = !$PlayerMesh.visible
@@ -80,6 +90,7 @@ func _ready() -> void:
 		if _fx == "discombobulator" or _fx == "dv_charge":
 			clear_dgolems())
 	
+	Global.hearts_emit.connect(play_hearts)
 	Global.camera = $Camera.camera # reference
 	Global.player = self
 	
@@ -113,6 +124,11 @@ func _ready() -> void:
 			$Collision.disabled = false
 			Global.announcement_sent.emit("((Collision re-enabled))")
 	)
+	
+	$PlayerMesh/HeartParticles.emitting = true
+	await get_tree().process_frame
+	$PlayerMesh/HeartParticles.emitting = false
+	$PlayerMesh/HeartParticles.visible = false
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
 var _ss = 0 # strafe state
@@ -242,8 +258,12 @@ func _process(delta: float) -> void:
 	
 	var _target_pitch_scale: float = (1.0
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)
-	#if Global.in_exclusive_ui: _target_pitch_scale = 1.0
 	$EngineSound.pitch_scale = lerp($EngineSound.pitch_scale, _target_pitch_scale, 0.07)
 
 func _on_sprint_sound_cd_timeout() -> void:
 	can_play_sprint_sound = true
+
+func _on_heart_timer_timeout() -> void:
+	if hearts_playing:
+		hearts_playing = false
+		$PlayerMesh/HeartParticles.emitting = false

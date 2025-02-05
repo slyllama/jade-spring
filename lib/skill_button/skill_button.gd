@@ -170,15 +170,17 @@ func _process(_delta: float) -> void:
 
 func _on_button_down() -> void:
 	if Global.bindings_pane_open: return
-	if enabled and !Global.in_exclusive_ui:
-		fx_down()
+	if enabled:
+		if !Global.in_exclusive_ui or id == "cancel":
+			fx_down()
 
 func _on_button_up() -> void:
-	if enabled and !Global.in_exclusive_ui:
-		fx_up()
-		$Tooltip.visible = false
-		Global.click_sound.emit()
-		clicked.emit(id)
+	if enabled:
+		if !Global.in_exclusive_ui or id == "cancel":
+			fx_up()
+			$Tooltip.visible = false
+			Global.click_sound.emit()
+			clicked.emit(id)
 
 func _on_mouse_entered() -> void:
 	Global.mouse_in_ui = true

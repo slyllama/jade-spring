@@ -16,7 +16,6 @@ func set_marker_pos() -> void: # set the position of the story marker
 		"_": $StoryMarker.position = Vector3(0, -10, 0) # hide under map
 
 func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
-	$Jukebox/SpawnKarma.play()
 	for _i in amount:
 		var _a = deg_to_rad(360.0 / amount * _i + rng.randf() * 45.0)
 		var _offset = Vector3(radius * cos(_a), 0, radius * sin(_a))

@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=33 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
 [ext_resource type="PackedScene" uid="uid://dow0fxe5m8rr1" path="res://lib/player/meshes/jade_bot.glb" id="4_0sx7s"]
+[ext_resource type="PackedScene" uid="uid://ctgrir47nofil" path="res://lib/player/heart/heart_particles.tscn" id="4_bxjah"]
 [ext_resource type="Texture2D" uid="uid://tofc8p3cnl3c" path="res://lib/player/textures/floor_insignia.png" id="4_i6xj3"]
 [ext_resource type="Animation" uid="uid://jg6kyecjnitv" path="res://lib/player/anims/accelerate.res" id="4_vjr6v"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="4_wdnsj"]
@@ -144,6 +145,11 @@ current = true
 [node name="PlayerMesh" parent="." instance=ExtResource("4_0sx7s")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0263149, 0)
 
+[node name="HeartParticles" parent="PlayerMesh" instance=ExtResource("4_bxjah")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.2, 0)
+emitting = false
+explosiveness = 0.45
+
 [node name="Stars" type="GPUParticles3D" parent="PlayerMesh"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-08, -0.223685, -0.2)
 amount = 20
@@ -189,4 +195,9 @@ one_shot = true
 [node name="SprintSoundPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -3.2
 
+[node name="HeartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="SprintSoundCD" to="." method="_on_sprint_sound_cd_timeout"]
+[connection signal="timeout" from="HeartTimer" to="." method="_on_heart_timer_timeout"]

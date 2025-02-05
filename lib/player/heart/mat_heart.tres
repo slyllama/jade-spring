@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://u2hrs4s6oiy"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.88, 0.2552, 0.28644, 1)
+roughness = 0.45
+emission_enabled = true
+emission = Color(0.380235, 0.134697, 0.133891, 1)
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false

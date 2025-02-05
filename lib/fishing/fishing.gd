@@ -56,6 +56,7 @@ func end():
 	Global.can_move = true
 	Global.action_cam_enable.emit()
 	if has_succeeded:
+		Global.hearts_emit.emit()
 		completed.emit()
 	else:
 		canceled.emit()
@@ -127,7 +128,7 @@ func _process(delta: float) -> void:
 		has_succeeded = true
 		end()
 	elif progress < 0.5:
-		end()
+		Global.fishing_canceled.emit()
 	progress = clamp(progress, 0.0, 100.0)
 	
 	_smoothed_progress = lerp(_smoothed_progress, progress, delta * 20.0)
