@@ -22,8 +22,15 @@ var fish_speed = 0.0
 var rng = RandomNumberGenerator.new()
 var progress = 50.0
 var dir = 1
+
+var has_started = false
 var has_completed = false
 var has_succeeded = false
+
+func _set_tutorial_dissolve(val: float) -> void:
+	var _e = ease(val, 0.2)
+	$BG/CenterMarker/TutorialPanel.material.set_shader_parameter(
+		"paint_exponent", 10.0 - _e * 10.0)
 
 func _set_dissolve(val: float):
 	var _e = ease(val, 0.2)
@@ -51,6 +58,9 @@ func end():
 	await get_tree().create_timer(0.2).timeout
 	var fade_out = create_tween()
 	fade_out.tween_method(_set_dissolve, 1.0, 0.0, 0.5)
+	var tut_fade_tween = create_tween()
+	tut_fade_tween.tween_method(_set_tutorial_dissolve, 1.0, 0.0, 0.5)
+	tut_fade_tween.set_parallel()
 	await fade_out.finished
 	
 	Global.in_exclusive_ui = false
@@ -76,11 +86,28 @@ func switch_direction() -> void:
 	$Timer.wait_time = rng.randf_range(fish_min_time, fish_max_time)
 	$Timer.start()
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact"):
+		if !Save.data.fishing_tutorial_played and !has_started:
+			_on_tutorial_done()
+
 func _ready() -> void:
 	_set_dissolve(0.0)
+	
 	$BG.material.set_shader_parameter("alpha", 1.0)
 	var fade_in = create_tween()
 	fade_in.tween_method(_set_dissolve, 0.0, 1.0, 0.5)
+	var tut_fade_tween = create_tween()
+	tut_fade_tween.tween_method(_set_tutorial_dissolve, 0.0, 1.0, 0.5)
+	tut_fade_tween.set_parallel()
+	
+	if Save.data.fishing_tutorial_played: # go straight to gameplay if the tutorial has already played
+		$BG/CenterMarker/TutorialPanel.visible = false
+		Save.save_to_file()
+		has_started = true
+	else:
+		$BG/CenterMarker/TutorialPanel/VBox/Done.grab_focus()
+		Save.data.fishing_tutorial_played = true
 	
 	get_window().size_changed.connect(resize)
 	Global.fishing_canceled.connect(end)
@@ -102,7 +129,7 @@ func _ready() -> void:
 var _smoothed_progress = 0.0
 
 func _process(delta: float) -> void:
-	if has_completed: return
+	if has_completed or !has_started: return
 	
 	if Input.is_action_pressed("move_left"):
 		$BG/Player.global_position.x -= move_speed * delta * 60.0
@@ -142,3 +169,10 @@ func _on_timer_timeout() -> void:
 
 func _on_completed() -> void:
 	Global.fishing_canceled.emit()
+
+func _on_tutorial_done() -> void:
+	has_started = true
+	var tut_fade_tween = create_tween()
+	tut_fade_tween.tween_method(_set_tutorial_dissolve, 1.0, 0.0, 0.5)
+	tut_fade_tween.tween_callback(func():
+		$BG/CenterMarker/TutorialPanel.visible = false)

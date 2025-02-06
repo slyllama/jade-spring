@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0ampettqcu60"]
+[gd_scene load_steps=17 format=3 uid="uid://b0ampettqcu60"]
 
 [ext_resource type="Script" path="res://lib/fishing/fishing.gd" id="1_6qcg4"]
 [ext_resource type="Texture2D" uid="uid://cnkmwhjhb5h2j" path="res://lib/fishing/textures/base_asuran.png" id="2_386hq"]
@@ -24,6 +24,26 @@ texture = ExtResource("4_7ig0d")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5g53"]
 texture = ExtResource("5_p21x7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ny808"]
+shader = ExtResource("2_y3on4")
+shader_parameter/paint_exponent = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/uv_scale = 1.0
+shader_parameter/arrow_reduce_alpha = false
+shader_parameter/paint_mask = ExtResource("3_151ui")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j00t0"]
+bg_color = Color(0, 0, 0, 0.862745)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uigay"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbype"]
+
 [node name="Fishing" type="CanvasLayer"]
 script = ExtResource("1_6qcg4")
 
@@ -42,7 +62,6 @@ offset_right = 483.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 2
 texture = ExtResource("2_386hq")
 expand_mode = 1
 stretch_mode = 5
@@ -87,8 +106,71 @@ offset_right = 0.5
 offset_bottom = -249.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
 
 [node name="DispulsionFX" parent="BG/CenterMarker" instance=ExtResource("8_mvgxp")]
+
+[node name="TutorialPanel" type="Panel" parent="BG/CenterMarker"]
+material = SubResource("ShaderMaterial_ny808")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -179.5
+offset_right = 152.5
+offset_bottom = -32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j00t0")
+
+[node name="VBox" type="VBoxContainer" parent="BG/CenterMarker/TutorialPanel"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="Title" type="RichTextLabel" parent="BG/CenterMarker/TutorialPanel/VBox"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxTexture_uigay")
+text = "Flux Dispulsion"
+fit_content = true
+scroll_active = false
+
+[node name="Separator" type="ColorRect" parent="BG/CenterMarker/TutorialPanel/VBox"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Body" type="RichTextLabel" parent="BG/CenterMarker/TutorialPanel/VBox"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_qbype")
+text = "Alert: dispulsion procedure imminent. Use Left/Right controls to track calibrator until completion. Do not look directly into dispersion vents."
+fit_content = true
+scroll_active = false
+
+[node name="Done" type="Button" parent="BG/CenterMarker/TutorialPanel/VBox"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 10
+text = "Proceed"
 
 [node name="Fish" type="Node2D" parent="BG"]
 use_parent_material = true
@@ -107,3 +189,4 @@ stretch_mode = 5
 
 [connection signal="completed" from="." to="." method="_on_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="BG/CenterMarker/TutorialPanel/VBox/Done" to="." method="_on_tutorial_done"]

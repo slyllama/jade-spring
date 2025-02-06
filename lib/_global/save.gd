@@ -38,7 +38,8 @@ const DEFAULT_DATA = {
 	"crumb_count": {},
 	"weeds": 0, # weeds in inventory
 	"deposited_weeds": 0,
-	"karma": 0
+	"karma": 0,
+	"fishing_tutorial_played": false
 }
 var data = {}
 
