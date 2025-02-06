@@ -41,7 +41,8 @@ const DecoData = {
 		"preview_y_rotation": 115,
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.4,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha"],
+		"unlock_value": 10
 	},
 	"aetherblade_craft": {
 		"name": "Aetherblade Craft",

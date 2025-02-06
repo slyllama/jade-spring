@@ -90,6 +90,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_mouse_delta = event.relative
 
+func _ready() -> void:
+	# Move the preview's collision world well under player space
+	global_position = Vector3(0, -20, 0)
+
 func _process(delta: float) -> void:
 	_update_resource_loader()
 	

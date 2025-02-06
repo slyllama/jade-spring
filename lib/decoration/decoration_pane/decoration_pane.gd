@@ -17,6 +17,16 @@ func _get_y_rotation(data: Dictionary) -> float:
 		_custom_y_rotation += data.y_rotation
 	return(_custom_y_rotation)
 
+func _update_unlock_button(id: String) -> void:
+	if "unlock_value" in Global.DecoData[id]:
+		var _data = Global.DecoData[id]
+		$ActionsBox/Unlock.visible = true
+		$ActionsBox/Unlock.text = "(" + str(_data.unlock_value) + ") Unlock"
+		$ActionsBox/PlaceDecoration.disabled = true
+	else:
+		$ActionsBox/Unlock.visible = false
+		$ActionsBox/PlaceDecoration.disabled = false
+
 func open(silent = false) -> void:
 	active = true
 	Global.deco_pane_open = true
@@ -92,6 +102,8 @@ func render(tag = "None") -> void:
 			preview.current_id = current_id
 			var _p = _dl.scene
 			
+			_update_unlock_button(_d)
+			
 			# Model exceptions
 			if _d == "light_ray":
 				_p = "res://decorations/light_ray/light_ray_cursor.glb"
@@ -105,6 +117,8 @@ func render(tag = "None") -> void:
 		_data.scene,
 		_data.preview_scale,
 		_get_y_rotation(_data))
+	
+	_update_unlock_button(current_id)
 	
 	# Grab focus on the last selected decoration type
 	buttons[current_id].grab_focus()
@@ -135,7 +149,6 @@ func _ready() -> void:
 		selected_tag = Global.DecoTags[n]
 		render(selected_tag)
 		_refresh())
-	
 	_refresh()
 
 func _process(delta: float) -> void:

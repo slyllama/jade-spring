@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=13 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="5_12xux"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="6_cqq78"]
 [ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="7_r3py3"]
+[ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="8_q6jje"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -92,7 +93,7 @@ layout_mode = 0
 offset_left = 325.0
 offset_top = 29.0
 offset_right = 896.0
-offset_bottom = 544.0
+offset_bottom = 504.0
 stretch = true
 
 [node name="PreviewViewport" type="SubViewport" parent="Base/PreviewContainer" index="0"]
@@ -101,7 +102,7 @@ world_3d = SubResource("World3D_cxjm1")
 transparent_bg = true
 handle_input_locally = false
 msaa_3d = 2
-size = Vector2i(571, 515)
+size = Vector2i(571, 475)
 render_target_update_mode = 4
 
 [node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]
@@ -176,40 +177,43 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
 
-[node name="PlaceDecoration" type="Button" parent="." index="5"]
+[node name="ActionsBox" type="HBoxContainer" parent="." index="5"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 435.0
-offset_top = -11.0
-offset_right = 568.0
-offset_bottom = 16.0
+offset_left = 23.0
+offset_top = -30.0
+offset_right = 559.0
+offset_bottom = -1.0
 grow_horizontal = 0
 grow_vertical = 0
-mouse_filter = 1
-text = "Place Decoration"
 
-[node name="Close" type="Button" parent="." index="6"]
+[node name="Close" type="Button" parent="ActionsBox" index="0"]
 modulate = Color(0.7, 0.7, 0.7, 1)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 298.0
-offset_top = -11.0
-offset_right = 431.0
-offset_bottom = 16.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 1
 text = "Close"
 
-[node name="DragToRotate" type="RichTextLabel" parent="." index="7"]
+[node name="Unlock" type="Button" parent="ActionsBox" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "((#)) Unlock
+"
+icon = ExtResource("8_q6jje")
+expand_icon = true
+
+[node name="PlaceDecoration" type="Button" parent="ActionsBox" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Place Decoration"
+
+[node name="DragToRotate" type="RichTextLabel" parent="." index="6"]
 modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = 687.0
@@ -223,5 +227,5 @@ fit_content = true
 autowrap_mode = 0
 
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
-[connection signal="button_down" from="PlaceDecoration" to="." method="_on_place_decoration_button_down"]
-[connection signal="button_down" from="Close" to="." method="close"]
+[connection signal="button_down" from="ActionsBox/Close" to="." method="close"]
+[connection signal="button_down" from="ActionsBox/PlaceDecoration" to="." method="_on_place_decoration_button_down"]

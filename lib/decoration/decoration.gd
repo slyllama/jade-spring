@@ -57,7 +57,7 @@ func set_outline(state = true) -> void:
 	if state:
 		if Global.cursor_active:
 			outline_mat.set_shader_parameter("outline_color", Color.WHITE)
-			outline_mat.set_shader_parameter("outline_width", 0.6)
+			outline_mat.set_shader_parameter("outline_width", 0.5)
 	else:
 		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
 		outline_mat.set_shader_parameter("outline_width", 0)
