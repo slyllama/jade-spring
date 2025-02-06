@@ -46,6 +46,7 @@ func end():
 	
 	Global.jade_bot_sound.emit()
 	Global.tool_mode = Global.TOOL_MODE_NONE
+	$BG/CenterMarker/DispulsionFX.anim_out()
 	
 	await get_tree().create_timer(0.2).timeout
 	var fade_out = create_tween()
@@ -91,6 +92,8 @@ func _ready() -> void:
 	Global.tool_mode = Global.TOOL_MODE_FISH
 	Global.action_cam_disable.emit()
 	Global.set_cursor(false)
+	
+	$BG/CenterMarker/DispulsionFX.anim_in()
 	
 	resize()
 	switch_direction()

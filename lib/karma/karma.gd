@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if picked_up: return
-	$Orb.global_position.y = $YCast.get_collision_point().y + 0.12
+	$Orb.global_position.y = $YCast.get_collision_point().y + 0.24
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()

@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://d070iet1hdc2c"]
+
+[ext_resource type="Texture2D" uid="uid://l3427bws2aju" path="res://lib/fishing/dispulsion_fx/textures/inner_circle.png" id="1_it5o2"]
+[ext_resource type="Script" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.gd" id="1_pvm8o"]
+[ext_resource type="Texture2D" uid="uid://py86v5rcysq6" path="res://lib/fishing/dispulsion_fx/textures/outer_circle.png" id="2_7mvrm"]
+[ext_resource type="Texture2D" uid="uid://ddegp22r0d6kf" path="res://lib/fishing/dispulsion_fx/textures/triangle_1.png" id="4_le431"]
+[ext_resource type="Texture2D" uid="uid://ci3hl2uj0527j" path="res://lib/fishing/dispulsion_fx/textures/triangle_2.png" id="5_5fcu0"]
+
+[sub_resource type="Curve" id="Curve_5poc7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c2dw2"]
+curve = SubResource("Curve_5poc7")
+
+[sub_resource type="Gradient" id="Gradient_3wpgh"]
+colors = PackedColorArray(1, 0.444907, 0.884513, 1, 0.626391, 0.674365, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mjuy"]
+gradient = SubResource("Gradient_3wpgh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mi5qr"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(960, 540, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(4, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.3
+scale_max = 0.4
+color_ramp = SubResource("GradientTexture1D_8mjuy")
+alpha_curve = SubResource("CurveTexture_c2dw2")
+turbulence_enabled = true
+
+[node name="DispulsionFX" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_pvm8o")
+
+[node name="InnerCircle" type="Sprite2D" parent="."]
+rotation = 395.332
+texture = ExtResource("1_it5o2")
+
+[node name="OuterCircle" type="Sprite2D" parent="."]
+rotation = -198.464
+texture = ExtResource("2_7mvrm")
+
+[node name="Motes" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_mi5qr")
+texture = ExtResource("4_le431")
+lifetime = 4.0
+preprocess = 5.0
+
+[node name="Motes2" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_mi5qr")
+texture = ExtResource("5_5fcu0")
+lifetime = 4.0
+preprocess = 5.0
