@@ -228,4 +228,5 @@ autowrap_mode = 0
 
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
 [connection signal="button_down" from="ActionsBox/Close" to="." method="close"]
+[connection signal="button_down" from="ActionsBox/Unlock" to="." method="_on_unlock_button_down"]
 [connection signal="button_down" from="ActionsBox/PlaceDecoration" to="." method="_on_place_decoration_button_down"]

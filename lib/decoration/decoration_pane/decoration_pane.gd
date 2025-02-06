@@ -1,11 +1,13 @@
 extends "res://lib/ui_container/ui_container.gd"
 
+const LockTexture = preload("res://lib/skill_button/textures/lock.png")
+
 @onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
 @onready var tag_list = get_node("Container/TagContainer/TagMenu") # preview
-var current_id = "fountain" # default
 @export var default_tag = "None"
 @onready var selected_tag = default_tag
 
+var current_id = "fountain" # default
 var buttons = {} # associate buttons with IDs
 var active = false
 
@@ -19,10 +21,19 @@ func _get_y_rotation(data: Dictionary) -> float:
 
 func _update_unlock_button(id: String) -> void:
 	if "unlock_value" in Global.DecoData[id]:
-		var _data = Global.DecoData[id]
-		$ActionsBox/Unlock.visible = true
-		$ActionsBox/Unlock.text = "(" + str(_data.unlock_value) + ") Unlock"
-		$ActionsBox/PlaceDecoration.disabled = true
+		if !id in Save.data.unlocked_decorations:
+			var _data = Global.DecoData[id]
+			$ActionsBox/Unlock.visible = true
+			$ActionsBox/Unlock.text = "(" + str(_data.unlock_value) + ") Unlock"
+			if _data.unlock_value < Save.data.karma:
+				$ActionsBox/Unlock.disabled = false
+			else:
+				$ActionsBox/Unlock.disabled = true
+				$ActionsBox/Unlock.tooltip_text = "((Insufficient Karma.))"
+			$ActionsBox/PlaceDecoration.disabled = true
+		else:
+			$ActionsBox/Unlock.visible = false
+			$ActionsBox/PlaceDecoration.disabled = false
 	else:
 		$ActionsBox/Unlock.visible = false
 		$ActionsBox/PlaceDecoration.disabled = false
@@ -86,7 +97,13 @@ func render(tag = "None") -> void:
 		# Get decoration data from Global.DecoData and use it to make buttons
 		var _item = Button.new()
 		var _dl = Global.DecoData[_d]
-		_item.text = "  " + _dl.name
+		
+		if "unlock_value" in _dl and !_d in Save.data.unlocked_decorations:
+			_item.text = "  (" + str(_dl.unlock_value) + ") " + _dl.name
+			_item.icon = LockTexture
+			_item.expand_icon = true
+		else:
+			_item.text = "  " + _dl.name
 		_item.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_item.mouse_filter = Control.MOUSE_FILTER_PASS
 		buttons[_d] = _item
@@ -163,3 +180,13 @@ func _on_place_decoration_button_down() -> void:
 
 func _on_menu_about_to_popup() -> void:
 	Global.popup_open = true
+
+func _on_unlock_button_down() -> void:
+	Save.subtract_karma(Global.DecoData[current_id].unlock_value)
+	Save.data.unlocked_decorations.append(current_id)
+	Save.save_to_file()
+	render()
+	
+	await get_tree().process_frame
+	Global.play_flash($ActionsBox/PlaceDecoration.global_position
+		+ $ActionsBox/PlaceDecoration.size / 2.0)

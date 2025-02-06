@@ -130,7 +130,7 @@ func _process(delta: float) -> void:
 	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
-		$Nodule.position, Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16), delta * 40.0)
+		$Nodule.position, Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16), delta * 30.0)
 
 func _on_play_button_down() -> void:
 	if !can_interact or ngc_open: return

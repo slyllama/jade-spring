@@ -22,6 +22,7 @@ const DecoData = {
 		"preview_scale": 0.70,
 		"preview_y_rotation": 180,
 		"preview_h_offset": -0.1,
+		"unlock_value": 2,
 		"tags": ["Architecture"]
 	},
 	"waterfall_fountain": {

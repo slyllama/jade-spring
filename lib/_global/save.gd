@@ -39,7 +39,8 @@ const DEFAULT_DATA = {
 	"weeds": 0, # weeds in inventory
 	"deposited_weeds": 0,
 	"karma": 0,
-	"fishing_tutorial_played": false
+	"fishing_tutorial_played": false,
+	"unlocked_decorations": []
 }
 var data = {}
 
@@ -52,6 +53,12 @@ func has_sufficient_karma(amount: int) -> bool:
 func add_karma(amount: int) -> void:
 	if amount > 0:
 		data.karma += amount
+		save_to_file()
+		karma_changed.emit()
+
+func subtract_karma(amount: int) -> void:
+	if amount > 0:
+		data.karma -= amount
 		save_to_file()
 		karma_changed.emit()
 
