@@ -4,3 +4,4 @@
 
 [node name="Decoration" type="Node3D"]
 script = ExtResource("1_aunu6")
+disable_culling = null

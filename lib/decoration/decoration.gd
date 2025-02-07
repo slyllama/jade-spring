@@ -9,6 +9,7 @@ const SELECT_TEX = preload("res://lib/decoration/textures/select_icon.png")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
+@export var disable_culling = false
 var outline_mat: ShaderMaterial
 var last_position: Vector3
 var last_scale: Vector3
@@ -230,6 +231,9 @@ func _ready() -> void:
 			cull_distance = 10000
 		elif Global.DecoData[id].cull == "AGGRESSIVE":
 			cull_distance /= 2.0
+	
+	if disable_culling:
+		cull_distance = 10000
 	
 	outline_mat = OutlineMaterial.duplicate(true)
 	for _n in Utilities.get_all_children(self):

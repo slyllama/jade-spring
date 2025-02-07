@@ -1,6 +1,6 @@
 extends "res://lib/ui_container/ui_container.gd"
 
-const LockTexture = preload("res://lib/skill_button/textures/lock.png")
+const LockTexture = preload("res://lib/hud/textures/icon_karma.png")
 
 @onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
 @onready var tag_list = get_node("Container/TagContainer/TagMenu") # preview
