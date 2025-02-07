@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmojvv0uuoe8b"]
+[gd_scene load_steps=3 format=3 uid="uid://bmojvv0uuoe8b"]
 
 [ext_resource type="PackedScene" uid="uid://rwpbhnk3wju3" path="res://decorations/roof_piece/roof_piece.glb" id="1_cf85i"]
+[ext_resource type="Script" path="res://decorations/roof_piece/roof_piece_base.gd" id="1_jbwxk"]
 
 [node name="RoofPieceBase" type="Node3D"]
+script = ExtResource("1_jbwxk")
 
 [node name="RoofPiece" parent="." instance=ExtResource("1_cf85i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

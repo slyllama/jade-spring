@@ -16,6 +16,7 @@ var last_rotation: Vector3
 var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 var dye_materials = {}
+var cull_distance = 24.0
 
 #@onready var select_label = SelectLabel.new()
 
@@ -224,6 +225,12 @@ func cancel_adjustment() -> void:
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
+	if "cull" in Global.DecoData[id]:
+		if Global.DecoData[id].cull == "NEVER":
+			cull_distance = 10000
+		elif Global.DecoData[id].cull == "AGGRESSIVE":
+			cull_distance /= 2.0
+	
 	outline_mat = OutlineMaterial.duplicate(true)
 	for _n in Utilities.get_all_children(self):
 		if _n is MeshInstance3D:
@@ -338,3 +345,17 @@ func _ready() -> void:
 						"eyedrop_scale": scale
 					})
 			)
+
+var _d = 0.0
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint(): return
+	_d += delta
+	if _d >= 0.2:
+		_d = 0
+		var _dist = global_position.distance_to(Global.player_position)
+		if _dist > 24.0:
+			if visible:
+				visible = false
+		else:
+			if !visible:
+				visible = true

@@ -52,7 +52,8 @@ const DecoData = {
 		"preview_scale": 0.19,
 		"preview_y_rotation": 190,
 		"preview_v_offset": -0.4,
-		"tags": []
+		"tags": [],
+		"cull": "NEVER"
 	},
 	"bloodstone_impacted_pillar": {
 		"name": "Bloodstone-Impacted Pillar",
@@ -68,7 +69,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"preview_scale": 1.0,
 		"tags": ["Foliage"],
-		"show_floor": true
+		"show_floor": true,
+		"cull": "AGGRESSIVE"
 	},
 	"yellow_flowers": {
 		"name": "Yellow Flowers",
@@ -76,7 +78,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/yellow_flowers.tscn",
 		"preview_scale": 1.0,
 		"tags": ["Foliage"],
-		"show_floor": true
+		"show_floor": true,
+		"cull": "AGGRESSIVE"
 	},
 	"blue_flowers": {
 		"name": "Blue Flowers",
@@ -84,7 +87,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/blue_flowers.tscn",
 		"preview_scale": 1.0,
 		"tags": ["Foliage"],
-		"show_floor": true
+		"show_floor": true,
+		"cull": "AGGRESSIVE"
 	},
 	"lush_grass": {
 		"name": "Lush Grass",
@@ -100,7 +104,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/rocks/pancake_rocks.glb",
 		"preview_scale": 0.7,
 		"tags": [],
-		"show_floor": true
+		"show_floor": true,
+		"cull": "AGGRESSIVE"
 	},
 	"indoor_lamp": {
 		"name": "Indoor Lamp",
@@ -109,7 +114,8 @@ const DecoData = {
 		"preview_scale": 1.0,
 		"model_offset": Vector3(0, 0.5, 0),
 		"tags": [],
-		"show_floor": true
+		"show_floor": true,
+		"cull": "AGGRESSIVE"
 	},
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
@@ -135,7 +141,8 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"preview_v_offset": -0.15,
 		"preview_y_rotation": 180,
-		"tags": ["Foliage", "Cantha"]
+		"tags": ["Foliage", "Cantha"],
+		"cull": "AGGRESSIVE"
 	},
 	"simple_sub_frame": {
 		"name": "Simple Sub-Frame",
@@ -201,7 +208,8 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.5,
 		"preview_v_offset": -0.1,
-		"tags": []
+		"tags": [],
+		"cull": "AGGRESSIVE"
 	},
 	"simple_door": {
 		"name": "Simple Door",

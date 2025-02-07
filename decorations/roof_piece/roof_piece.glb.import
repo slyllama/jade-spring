@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"mat_roof_lod": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/roof_piece/materials/mat_roof_tiles_lod.tres"
+},
 "mat_tiles": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/roof_piece/materials/mat_roof_tiles.tres"
