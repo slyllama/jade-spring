@@ -5,7 +5,7 @@ const FILE_PATH = "user://save/settings.dat"
 const MIN_FOV = 55
 const MAX_FOV = 90
 const DEFAULT_SETTINGS = { 
-	"music_vol": 1.0, # ratio (1.0),
+	"music_vol": 0.85, # ratio (1.0),
 	"volume": 1.0,
 	"window_mode": "full_screen",
 	"foliage_density": "ultra",

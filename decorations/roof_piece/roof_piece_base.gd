@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	if _d >= 0.2:
 		_d = 0
 		var _dist = global_position.distance_to(Global.player_position)
-		if _dist >= 13.0:
+		if _dist >= 9.0:
 			tile_detail.visible = false
 			tile_lod.visible = true
 		else:

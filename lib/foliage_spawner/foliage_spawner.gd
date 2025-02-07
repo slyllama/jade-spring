@@ -191,11 +191,11 @@ func _ready() -> void:
 	_render_moss()
 	_set_display_distance()
 
-func _process(_delta: float) -> void:
-	if Engine.is_editor_hint(): return
-	
-	# Turn off foliage visiblity after the shader has faded it out
-	var dist = global_position.distance_to(Global.player_position)
-	if visible: # includes a buffer
-		if dist > render_distance + render_fade_spread * 2.0: visible = false
-	else: if dist < render_distance + render_fade_spread * 2.0: visible = true
+#func _process(_delta: float) -> void:
+	#if Engine.is_editor_hint(): return
+	#
+	## Turn off foliage visiblity after the shader has faded it out
+	#var dist = global_position.distance_to(Global.player_position)
+	#if visible: # includes a buffer
+		#if dist > render_distance + render_fade_spread * 2.0: visible = false
+	#else: if dist < render_distance + render_fade_spread * 2.0: visible = true

@@ -265,6 +265,9 @@ func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
 	
+	Global.deco_deletion_canceled.connect(func():
+		set_outline(false))
+	
 	Global.snapping_enabled.connect(func():
 		if Global.active_decoration == self:
 			var _new_snapped_pos = Vector3(
