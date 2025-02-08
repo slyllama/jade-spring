@@ -6,9 +6,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_8w3i2"]
 size = Vector3(1.67578, 5.04819, 1.78125)
 
-[node name="DecoBambooCluster" type="Node3D"]
+[node name="DecoBambooCluster" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_tj73h")
 id = "bamboo_cluster"
+collision_box = NodePath("SelectArea")
 
 [node name="Bamboo" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268744, 0, -0.141392)

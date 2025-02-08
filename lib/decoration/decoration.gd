@@ -360,7 +360,7 @@ func _process(delta: float) -> void:
 	if _d >= 0.2:
 		_d = 0
 		var _dist = global_position.distance_to(Global.player_position)
-		if _dist > 24.0:
+		if _dist > cull_distance:
 			if visible:
 				visible = false
 		else:

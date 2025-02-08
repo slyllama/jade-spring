@@ -220,7 +220,7 @@ type = "weed"
 area_radius = 0.6
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.854694, -0.00731583, -0.519081, -0.00452413, 0.999758, -0.0215396, 0.519112, 0.0207582, 0.854454, 0, 0, 0)
+transform = Transform3D(-0.0599244, 0.0544974, 0.996714, 0.0623523, 0.996763, -0.0507513, -0.996254, 0.0591062, -0.0631285, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]
@@ -261,6 +261,7 @@ attenuation_filter_cutoff_hz = 10000.0
 
 [node name="VisualArea" parent="." instance=ExtResource("7_ec7aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
 mesh = SubResource("CylinderMesh_6ljul")
 
 [connection signal="interacted" from="." to="." method="interact"]
