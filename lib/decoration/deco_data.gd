@@ -208,7 +208,8 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.5,
 		"preview_v_offset": -0.1,
-		"tags": []
+		"tags": [],
+		"cull": "NEVER"
 	},
 	"simple_door": {
 		"name": "Simple Door",
