@@ -10,3 +10,6 @@ metallic_specular = 0.0
 normal_enabled = true
 normal_scale = 1.7
 normal_texture = ExtResource("2_b1hjp")
+distance_fade_mode = 2
+distance_fade_min_distance = 20.0
+distance_fade_max_distance = 19.0

@@ -18,3 +18,16 @@ func _ready() -> void:
 			#if _m is StandardMaterial3D:
 				#if "ornament" in _m.resource_path:
 					#_m.albedo_color = Color(0.299, 0.461, 0.471)
+
+var _e = 0.0
+func _process(delta: float) -> void:
+	super(delta)
+	
+	if Engine.is_editor_hint(): return
+	if get_node_or_null("Wall"):
+		_e += delta
+		if _e >= 0.2:
+			_e = 0
+			#var _dist = global_position.distance_to(Global.player_position)
+			if distance_to_player >= 9.5: $Wall.visible = false
+			else: $Wall.visible = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bngsvcump0aee"]
+[gd_scene load_steps=5 format=3 uid="uid://bngsvcump0aee"]
 
 [ext_resource type="Script" path="res://decorations/test_wall/deco_test_wall.gd" id="1_0q4k2"]
 [ext_resource type="PackedScene" uid="uid://bcdukpdiq4241" path="res://decorations/test_wall/meshes/wall.glb" id="3_egx3r"]
+[ext_resource type="PackedScene" uid="uid://yw1cuhacvnoh" path="res://decorations/test_wall/meshes/wall_lod.glb" id="3_fqwdd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rp7by"]
 size = Vector3(2.94043, 4, 0.555664)
@@ -21,3 +22,5 @@ collision_mask = 3
 [node name="Collision" type="CollisionShape3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_rp7by")
+
+[node name="WallLOD" parent="." instance=ExtResource("3_fqwdd")]

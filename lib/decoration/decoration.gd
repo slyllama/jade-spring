@@ -18,6 +18,7 @@ var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 var dye_materials = {}
 var cull_distance = 24.0
+var distance_to_player = 0.0
 
 #@onready var select_label = SelectLabel.new()
 
@@ -359,8 +360,8 @@ func _process(delta: float) -> void:
 	_d += delta
 	if _d >= 0.2:
 		_d = 0
-		var _dist = global_position.distance_to(Global.player_position)
-		if _dist > cull_distance:
+		distance_to_player = global_position.distance_to(Global.player_position)
+		if distance_to_player > cull_distance:
 			if visible:
 				visible = false
 		else:
