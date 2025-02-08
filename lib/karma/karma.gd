@@ -33,8 +33,9 @@ func _ready() -> void:
 	ray_tween.set_parallel()
 	ray_tween.tween_property($Orb/Ray, "scale:y", 1.0, 0.25)
 
-func _process(_delta: float) -> void:
-	if picked_up: return
+func _process(delta: float) -> void:
+	if picked_up:
+		global_position = lerp(global_position, Global.player_position, delta * 10.0)
 	$Orb.global_position.y = $YCast.get_collision_point().y + 0.24
 
 func _on_despawn_timer_timeout() -> void:

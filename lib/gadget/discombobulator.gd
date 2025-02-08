@@ -3,7 +3,7 @@ extends Node3D
 const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 const DIALOGUE_DATA = {
 	"_entry": {
-		"string": "The maintenance shed is filled to the brim with tools and magitech alike: shovels, replacement golem parts, and jade battery cells, all neatly stowed and labeled. I should make sure to straighten up any crates that have gone awry before Ratchet wanders back in there again.",
+		"string": "The maintenance shed is filled to the brim with tools and magitech alike: shovels, replacement golem parts, and jade battery cells, all neatly stowed and labeled. I should make sure to straighten up any crates that have gone awry before Ratchet wanders back in here again.",
 		"options": {
 			"discombobulator": "Take a coil of Raw Dispersion Flux.",
 			"close": "I'm all sorted, thanks."

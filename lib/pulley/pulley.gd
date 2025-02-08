@@ -35,6 +35,34 @@ const intro_dialogue_data = {
 	}
 }
 
+const pick_weeds_alt_dialogue = {
+	"_entry": {
+		"string": "(Ratchet is mumbling to themselves as they consult data on their heads-up display.)",
+		"options": {
+			"interference": "What's with the interference?",
+			"ship": "How are your ship repairs coming along, Ratchet?",
+			"done": "I'll leave you to it."
+		}
+	},
+	"interference": {
+		"string": "Shadow of the Dragonvoid... despair... h-h-haze... it inhibits m-m-machinery and renders devices inoperable. We must clear it out if we are to re-engage the renovation c-c-cataloging system.",
+		"options": {
+			"done": "You've got this, Ratchet.",
+			"_entry": "(Ask Ratchet more.)"
+		}
+	},
+	"ship": {
+		"string": "Ship-p-p is... sixty-five percent optimal! Dents g-g-gone; engine calibration underway. Thanks, friend; that craft will n-never have t-t-to experience Aetherblade misconduct again.",
+		"options": {
+			"done": "I'm so happy to hear that, Ratchet. You deserve that; I wouldn't be here recovering if it weren't for you, that's for sure.",
+			"_entry": "(Ask Ratchet more.)"
+		}
+	},
+	"done": {
+		"reference": "_exit"
+	}
+}
+
 const debug_dialogue = {
 	"_entry": {
 		"string": "((Debug options!))",
@@ -65,7 +93,15 @@ func _on_interacted() -> void:
 		_d.data = intro_dialogue_data
 		Global.hud.add_child(_d)
 		_d.closed.connect(func():
+			Global.generic_area_entered.emit()
 			Save.advance_story())
+		_d.open()
+	elif Save.data.story_point == "pick_weeds":
+		var _d = Dialogue.instantiate()
+		_d.data = pick_weeds_alt_dialogue
+		Global.hud.add_child(_d)
+		_d.closed.connect(func():
+			Global.generic_area_entered.emit())
 		_d.open()
 	else:
 		var _d = Dialogue.instantiate()

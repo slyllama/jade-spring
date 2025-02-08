@@ -23,7 +23,7 @@ func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
 		var _k = Karma.instantiate()
 		add_child(_k)
 		_k.global_position = orb_position + _offset
-		_k.global_position.y = 10.0
+		_k.global_position.y = 2.0
 		await get_tree().create_timer(0.025).timeout
 
 func _ready() -> void:

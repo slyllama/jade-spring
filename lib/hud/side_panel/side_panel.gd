@@ -68,6 +68,8 @@ func proc_story() -> void:
 			$StoryText.text = "[font_size=18]" + _d.title + "[/font_size]\n[font_size=3] [/font_size]\n" + _d.objective
 			if Save.data.story_point == "pick_weeds":
 				$StoryText.text += " (" + str(Save.data.deposited_weeds) + "/" + str(Save.OBJECTIVE_WEED_COUNT) + ")"
+			elif Save.data.story_point == "clear_bugs":
+				$StoryText.text += " (" + str(Global.crumb_handler.totals.bug - Save.data.crumb_count.bug) + "/" + str(Save.OBJECTIVE_PEST_COUNT) + ")"
 
 func _ready() -> void:
 	Global.crumbs_updated.connect(func():

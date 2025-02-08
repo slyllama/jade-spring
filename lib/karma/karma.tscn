@@ -102,7 +102,7 @@ color_initial_ramp = SubResource("GradientTexture1D_ph5yn")
 alpha_curve = SubResource("CurveTexture_yc1l7")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ksru4"]
-radius = 0.25
+radius = 0.45
 
 [node name="Karma" type="Node3D"]
 script = ExtResource("1_7siie")

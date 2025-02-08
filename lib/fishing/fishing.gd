@@ -13,8 +13,8 @@ signal canceled
 @export var fish_max_speed := 1.95
 @export var fish_min_time := 0.65
 @export var fish_max_time := 2.7
-@export var progress_increase_rate := 0.26
-@export var progress_decrease_rate := 0.19
+@export var progress_increase_rate := 0.23
+@export var progress_decrease_rate := 0.17
 
 @onready var center_pos = _get_center()
 
@@ -128,8 +128,12 @@ func _ready() -> void:
 
 var _smoothed_progress = 0.0
 
+var _d = 0.0
 func _process(delta: float) -> void:
 	if has_completed or !has_started: return
+	if _d < 0.45: # short delay before starting
+		_d += delta
+		return
 	
 	if Input.is_action_pressed("move_left"):
 		$BG/Player.global_position.x -= move_speed * delta * 60.0

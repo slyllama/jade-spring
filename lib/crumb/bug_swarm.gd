@@ -3,7 +3,7 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 
 func clear() -> void:
-	Global.announcement_sent.emit("The Dispersion Flux scatters these pests to the Four Winds!")
+	Global.announcement_sent.emit("The burst of Raw Dispersion Flux scatters these pests to the Four Winds!")
 	Global.bug_crumb_left.emit()
 	Global.remove_effect.emit("discombobulator")
 	super()

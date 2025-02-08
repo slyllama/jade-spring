@@ -6,6 +6,7 @@ signal story_advanced
 signal karma_changed
 
 const OBJECTIVE_WEED_COUNT = 3
+const OBJECTIVE_PEST_COUNT = 2
 var first_run = true
 
 const STORY_POINTS = [
@@ -23,12 +24,12 @@ var STORY_POINT_SCRIPT = {
 	},
 	"pick_weeds": {
 		"title": "1. A Helping Hand",
-		"objective": "Pick " + str(OBJECTIVE_WEED_COUNT) + " weeds and drop them into the compost bin. Collect any hard-earned Karma that drops!"
+		"objective": "Pick weeds and drop them into the compost bin. Collect any hard-earned Karma that drops!"
 	},
 	"clear_bugs": {
-		"title": "((2. Pest-Clearing))",
-		"description": "((Bugs and pests are Pulley-4's great nemeses; but you both have some tricks up your sleeve. In the shed are coils of Asuran Dispersion Flux; by attuning them near bug swarms you can disturb air currents in order to safely clear them out!\n[font_size=9] [/font_size]\n[color=white]Collect Dispersion Flux from Pulley's shed and use it to clear out pests.[/color]))",
-		"objective": "((Use Dispersion Flux from Pulley's shed to clear out pests spoiling the garden.))"
+		"title": "2. Pesky Pests",
+		"description": "Bugs and pests are Ratchet's great nemeses, but I have some tricks up my sleeve to deal with them. In the shed are coils of Raw Dispersion Flux supplied from Rata Sum; by activating them near bug swarms, I can disturb the air currents and safely clear them out! <Collect Raw Dispersion Flux from Ratchet's shed and use it to scatter pest clouds. Once the carrier golems are following you, interact with a pest cloud and follow the node that appears with your slider to disperse the Flux and clear out the bugs.>",
+		"objective": "Use Raw Dispersion Flux from Ratchet's shed to clear out pests spoiling the garden."
 	}
 }
 
@@ -46,10 +47,8 @@ const DEFAULT_DATA = {
 var data = {}
 
 func has_sufficient_karma(amount: int) -> bool:
-	if data.karma - amount >= 0:
-		return(true)
-	else:
-		return(false)
+	if data.karma - amount >= 0: return(true)
+	else: return(false)
 
 func add_karma(amount: int) -> void:
 	if amount > 0:

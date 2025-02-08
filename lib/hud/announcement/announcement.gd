@@ -23,4 +23,5 @@ func _on_timer_timeout() -> void:
 	fade_out.tween_property(self, "modulate:a", 0.0, 0.4)
 	fade_out.tween_callback(func():
 		if !active:
+			active = false
 			visible = false)

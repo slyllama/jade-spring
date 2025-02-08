@@ -1,49 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://cknccdf2rvyk8"]
 
+[ext_resource type="Script" path="res://lib/crumb/dragonvoid.gd" id="1_xg3mb"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="2_xs588"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="3_s6v0a"]
 [ext_resource type="PackedScene" uid="uid://cgr6iytjeuj80" path="res://lib/crumb/bug_swarm/visual_area.tscn" id="3_ytxy4"]
 [ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="4_05r8m"]
 [ext_resource type="Texture2D" uid="uid://bdl3ocb44powe" path="res://lib/hud/screen_effects/textures/splatter_mask.jpg" id="5_1sw7g"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="6_hdk5x"]
-
-[sub_resource type="GDScript" id="GDScript_0pd44"]
-script/source = "@tool
-extends Crumb
-var rng = RandomNumberGenerator.new()
-
-func clear() -> void:
-	Global.announcement_sent.emit(\"The heaviness is lifted from the air as the resonance disperses the dark void.\")
-	Global.remove_effect.emit(\"dv_charge\")
-	Global.bug_crumb_left.emit()
-	super()
-
-func _ready() -> void:
-	super()
-	$DragonvoidArc/AnimationPlayer.play(\"Wobble\")
-	body_entered.connect(func(body):
-		#if Save.data.story_point == \"game_start\": return # not unlocked yet
-		if body is CharacterBody3D:
-			Global.dragonvoid_crumb_entered.emit())
-	
-	body_exited.connect(func(body):
-		#if Save.data.story_point == \"game_start\": return # not unlocked yet
-		if body is CharacterBody3D:
-			Global.dragonvoid_crumb_left.emit())
-
-func interact() -> void:
-	#if Save.data.story_point == \"game_start\": return # not unlocked yet
-	
-	if \"dv_charge\" in Global.current_effects:
-		var _f = FishingInstance.instantiate()
-		_f.completed.connect(clear)
-		_f.canceled.connect(func():
-			Global.remove_effect.emit(\"dv_charge\"))
-		add_child(_f)
-	else:
-		Global.announcement_sent.emit(
-			\"This streak of Dragonvoid casts a consuming shadow over the garden.\")
-"
 
 [sub_resource type="Curve" id="Curve_mmsoi"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
@@ -116,7 +79,7 @@ cap_bottom = false
 
 [node name="Dragonvoid" type="Area3D"]
 input_ray_pickable = false
-script = SubResource("GDScript_0pd44")
+script = ExtResource("1_xg3mb")
 type = "dragonvoid"
 area_radius = 0.7
 area_height = 8.0

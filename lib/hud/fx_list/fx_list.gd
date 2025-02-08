@@ -11,26 +11,26 @@ const EFFECTS_LIST = { # TODO: use images instead
 	"immobile": {
 		"texture": "immobile",
 		"title": "Immobile",
-		"description": "You are unable to move."
+		"description": "I can't move at the moment!"
 	},
 	"decorating": {
 		"texture": "decorating",
 		"title": "Decorating",
-		"description": "You are currently modifying an existing decoration."
+		"description": "I'm currently modifying a decoration."
 	},
 	"discombobulator": {
 		"texture": "discombobulator",
-		"title": "Dispersion Flux",
-		"description": "((You are loaded with a coil of Dispersion Flux for clearing pests.))"
+		"title": "Raw Dispersion Flux",
+		"description": "I'm equipped for clearing out bugs."
 	},
 	"weed": {
 		"texture": "weed",
 		"title": "Picked Weed",
-		"description": "these belong in the compost bin!"
+		"description": "These belong in the compost bin!"
 	},
 	"dv_charge": {
-		"title": "Ley-Charged Dispersion Flux",
-		"description": "((Ley-Charged Dispersion Flux))"
+		"title": "Attuned Dispersion Flux",
+		"description": "I'm equipped for clearing out Dragonvoid."
 	}
 }
 
