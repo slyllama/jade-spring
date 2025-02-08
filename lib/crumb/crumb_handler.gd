@@ -75,7 +75,7 @@ func _ready() -> void:
 					_mesh_base.add_child(_nettles)
 					_mesh_base.set_mesh(null)
 					var _title = _n.get_node_or_null("SpatialText")
-					if _title: _title.spatial_string = "Nettles"
+					if _title: _title.spatial_string = "Pestilent Nettles"
 	
 	Global.crumbs_updated.connect(func():
 		# Wait for the node to be freed

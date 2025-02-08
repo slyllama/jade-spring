@@ -104,8 +104,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/rocks/pancake_rocks.glb",
 		"preview_scale": 0.7,
 		"tags": [],
-		"show_floor": true,
-		"cull": "AGGRESSIVE"
+		"show_floor": true
 	},
 	"indoor_lamp": {
 		"name": "Indoor Lamp",

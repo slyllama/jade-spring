@@ -7,6 +7,7 @@ const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 @export var karma_value = 0 # how much Karma does this type of crumb yield?
 @export var interact_when_proximal := true
 @export var can_click := false
+@export var area_height = 4.0
 
 var cursor_in_crumb = false
 signal cleared
@@ -34,7 +35,7 @@ func _ready() -> void:
 	var collision = CollisionShape3D.new()
 	var shape = CylinderShape3D.new()
 	shape.radius = area_radius
-	shape.height = 4.0
+	shape.height = area_height
 	collision.shape = shape
 	add_child(collision)
 	

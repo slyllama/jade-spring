@@ -7,21 +7,27 @@ const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 const intro_dialogue_data = {
 	#"_texture": "sticker_pulley",
 	"_entry": {
-		"string": "F-f-friend, good morning! The magnetic realignment h-h-helped overnight, it did?",
+		"string": "(Curse t-t-this infuriating, abhorrent... why won’t it just...) Oh, f-f-friend, good morning! The overnight magnetic realignment h-h-helped, did it?",
 		"options": {
-			"new_bot": "All three rods seem to be floating just right, P-4; I feel like a new bot."
+			"new_bot": "All three rods seem to be floating just right, Ratchet: I'm feeling like a new bot."
 		}
 	},
 	"new_bot": {
-		"string": "M-m-magnificent! So uh, well... want to t-t-take them for a spin?",
+		"string": "M-m-magnificent! So uh, well... want to t-take them for a spin... give them a stretch?",
 		"options": {
-			"icky": "Sounds like someone has an icky job lined up for an idle set of jade rods, huh."
+			"icky": "A stretch, huh - sounds like someone has an icky job lined up for an idle set of jade rods."
 		}
 	},
 	"icky": {
-		"string": "I just... These rotten weeds and b-b-bugs; I can't. The static! Swooping and d-d-diving. Worse than the Unchained.",
+		"string": "I just... These rotten weeds and b-b-bugs; I can't. The static! Swooping and d-d-diving. Worse than Unchained grubs.",
 		"options": {
-			"handle": "It's okay, Pull. I'll handle it, starting with the weeds."
+			"alchemy": "It's okay, Ratchet. I'll handle it, starting with the weeds."
+		}
+	},
+	"alchemy": {
+		"string": "Thank you, t-t-thank you. Alchemy - t-t-this Dragonvoid has been interfering with t-t-the renovation cataloging system. I'll have to keep w-w-working on it.",
+		"options": {
+			"handle": "(Leave ratchet to their business.)"
 		}
 	},
 	"handle": {

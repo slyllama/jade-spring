@@ -78,7 +78,7 @@ visible = false
 
 [node name="SpatialText" parent="." index="1" instance=ExtResource("3_ypg4v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-spatial_string = "Pulley-4"
+spatial_string = "Ratchet"
 color = "green"
 
 [node name="Placeholder" type="CSGSphere3D" parent="." index="2"]

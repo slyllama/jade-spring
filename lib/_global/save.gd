@@ -17,17 +17,18 @@ const STORY_POINTS = [
 var STORY_POINT_SCRIPT = {
 	"game_start": {
 		"title": "1. A Helping Hand",
-		"description": "Nayos was not easy on the Commander and I; the force of a Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery is a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.\n[font_size=9] [/font_size]\n[color=white]Talk to Pulley-4 about tending the garden![/color]",
+		"description": "Nayos was tough on the Commander and I; a Kryptis turret-blast left my Jade Bot plating cracked and my servos badly damaged. Repair and recovery is a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long! Though perhaps, as I rehabilitate here, I too can help build some\u00ADthing meaningful. <Talk to Ratchet about tending to the garden!>",
 		"sticker": load('res://generic/textures/stickers/sticker_warning.png'),
-		"objective": "talk to Golem Pulley-4 about tending the garden."
+		"objective": "Talk to the steward golem Ratchet about tending to the garden."
 	},
 	"pick_weeds": {
-		"objective": "pick " + str(OBJECTIVE_WEED_COUNT) + " weeds and deposit them at the compost bin."
+		"title": "1. A Helping Hand",
+		"objective": "Pick " + str(OBJECTIVE_WEED_COUNT) + " weeds and drop them into the compost bin. Collect any hard-earned Karma that drops!"
 	},
 	"clear_bugs": {
 		"title": "((2. Pest-Clearing))",
 		"description": "((Bugs and pests are Pulley-4's great nemeses; but you both have some tricks up your sleeve. In the shed are coils of Asuran Dispersion Flux; by attuning them near bug swarms you can disturb air currents in order to safely clear them out!\n[font_size=9] [/font_size]\n[color=white]Collect Dispersion Flux from Pulley's shed and use it to clear out pests.[/color]))",
-		"objective": "((use Dispersion Flux from Pulley's shed to clear out pests spoiling the garden.))"
+		"objective": "((Use Dispersion Flux from Pulley's shed to clear out pests spoiling the garden.))"
 	}
 }
 

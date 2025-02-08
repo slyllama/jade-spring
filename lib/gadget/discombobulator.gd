@@ -3,15 +3,13 @@ extends Node3D
 const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 const DIALOGUE_DATA = {
 	"_entry": {
-		"string": "The maintenance shed is filled with tools and technology alike: shovels, golem parts, and jade battery cells, all neatly stored and labeled. It'd be wise to straighten up any awry crates before Pulley wanders back into here again...",
+		"string": "The maintenance shed is filled to the brim with tools and magitech alike: shovels, replacement golem parts, and jade battery cells, all neatly stowed and labeled. I should make sure to straighten up any crates that have gone awry before Ratchet wanders back in there again.",
 		"options": {
-			"discombobulator": "I'd like a coil of Dispersion Flux.",
-			"dragonvoid": "((Ley-Charged Dispersion Flux for Dragonvoid.))",
+			"discombobulator": "Take a coil of Raw Dispersion Flux.",
 			"close": "I'm all sorted, thanks."
 		}
 	},
 	"discombobulator": { "reference": "_exit" },
-	"dragonvoid": { "reference": "_exit" },
 	"close": { "reference": "_exit" }
 }
 
@@ -52,9 +50,6 @@ func _on_collision_interacted() -> void:
 	_d.block_played.connect(func(id):
 		if id == "discombobulator":
 			Global.add_effect.emit("discombobulator")
-			$GolemSound.play()
-		elif id == "dragonvoid":
-			Global.add_effect.emit("dv_charge")
 			$GolemSound.play()
 		elif id == "clear":
 			Global.remove_effect.emit("discombobulator")

@@ -11,7 +11,8 @@ func open(
 	description = "((Description))",
 	sticker = load("res://generic/textures/stickers/sticker_placeholder.png")):
 	$Base/Content/Title.text = "[center]" + title + "[/center]"
-	$Base/Content/Description.text = description
+	# Includes shortcuts for second paragraph
+	$Base/Content/Description.text = description.replace("<", "\n[font_size=9] [/font_size]\n[color=white]").replace(">", "[/color]")
 	$Base/Content/Sticker.texture = sticker
 	$PlayDialogue.play()
 	

@@ -37,17 +37,19 @@ func _ready() -> void:
 			Global.bug_crumb_left.emit())
 
 func interact() -> void:
-	if Save.data.story_point == "game_start":
-		#Global.announcement_sent.emit("((Comment about bugs))")
+	if Save.data.story_point == "game_start" or Save.data.story_point == "pick_weeds":
+		Global.announcement_sent.emit("Noisy bugs flick incessantly about me, sending my sensors haywire.")
 		return # not unlocked yet
+	elif Save.data.story_point == "clear_bugs":
+		pass
 	
-	if "discombobulator" in Global.current_effects:
-		var _f = FishingInstance.instantiate()
-		_f.completed.connect(clear)
-		_f.canceled.connect(func():
-			Global.remove_effect.emit("discombobulator"))
-		add_child(_f)
-	else:
-		$Disabled.play()
-		Global.announcement_sent.emit(
-			"You need Uncharged Dispersion Flux to clear these pests.")
+		if "discombobulator" in Global.current_effects:
+			var _f = FishingInstance.instantiate()
+			_f.completed.connect(clear)
+			_f.canceled.connect(func():
+				Global.remove_effect.emit("discombobulator"))
+			add_child(_f)
+		else:
+			$Disabled.play()
+			Global.announcement_sent.emit(
+				"I'll need some Raw Dispersion Flux to deal with these pests.")
