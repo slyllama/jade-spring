@@ -63,6 +63,24 @@ const pick_weeds_alt_dialogue = {
 	}
 }
 
+const clear_bugs_alt_dialogue = {
+	"_entry": {
+		"string": "(Ratchet is rapidly mumbling esoteric-sounding calculations.)",
+		"options": {
+			"stinks": "This stinks, Ratchet!"
+		}
+	},
+	"stinks": {
+		"string": "Keep at it-t-t, friend; just g-g-give me a minute. Ratchet has some ideas about clearing out this interference for good.",
+		"options": {
+			"done": "I'll leave you to it."
+		}
+	},
+	"done": {
+		"reference": "_exit"
+	}
+}
+
 const debug_dialogue = {
 	"_entry": {
 		"string": "((Debug options!))",
@@ -99,6 +117,13 @@ func _on_interacted() -> void:
 	elif Save.data.story_point == "pick_weeds":
 		var _d = Dialogue.instantiate()
 		_d.data = pick_weeds_alt_dialogue
+		Global.hud.add_child(_d)
+		_d.closed.connect(func():
+			Global.generic_area_entered.emit())
+		_d.open()
+	elif Save.data.story_point == "clear_bugs":
+		var _d = Dialogue.instantiate()
+		_d.data = clear_bugs_alt_dialogue
 		Global.hud.add_child(_d)
 		_d.closed.connect(func():
 			Global.generic_area_entered.emit())

@@ -34,7 +34,7 @@ var STORY_POINT_SCRIPT = {
 	},
 	"ratchet_dv" : {
 		"title": "2. Pesky Pests",
-		"description": "((Description))",
+		"description": "My communicator is buzzing; it's a message from Ratchet. 'I believe that I've established a solution for the Dragonvoid incursion blocking all our devices and systems. Please come and visit me at your earliest convenience so that we can clear out these blights once and for all.' <Speak to Ratchet about their efforts in solving the Dragonvoid problem.>",
 		"objective": "Speak to Ratchet about their efforts in solving the Dragonvoid problem."
 	}
 }
