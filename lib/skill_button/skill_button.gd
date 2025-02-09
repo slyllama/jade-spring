@@ -30,12 +30,12 @@ const TOOLTIPS = {
 		"description": "Select a decoration for adjusting."
 	},
 	"delete": {
-		"title": "Delete Decoration",
-		"description": "Clear the selected decoration."
+		"title": "Delete Decorations",
+		"description": "Remove items."
 	},
 	"deco_test": {
 		"title": "Decoration Pane",
-		"description": "A comprehensive catalogue of placeable items!"
+		"description": "Open a comprehensive catalogue of placeable items!"
 	},
 	"cancel": {
 		"title": "Cancel",
@@ -43,27 +43,27 @@ const TOOLTIPS = {
 	},
 	"accept": {
 		"title": "Apply Transformation",
-		"description": "Confirm and save the current transformation."
+		"description": "Confirm the current transformation."
 	},
 	"transform_mode": {
 		"title": "Toggle Transformation Basis",
-		"description": "Switch between object and world space for decoration transformation."
+		"description": "Switch between object axes and world axes."
 	},
 	"adjust_mode_translate": {
-		"title": "Move/Scale",
-		"description": "Move and uniformly scale the decoration."
+		"title": "Move",
+		"description": "Switch to movement controls."
 	},
 	"adjust_mode_rotate": {
 		"title": "Rotate",
-		"description": "Rotate the decoration."
+		"description": "Switch to rotation controls."
 	},
 	"snap_enable": {
 		"title": "Enable Snapping",
-		"description": "Constrain all transformations to stepped values."
+		"description": "Snap transformation."
 	},
 	"snap_disable": {
 		"title": "Disable Snapping",
-		"description": "Switch to smooth and free transformation."
+		"description": "Allow free transformation."
 	},
 	"snap_forbidden": {
 		"title": "Snapping Disabled",
@@ -71,11 +71,11 @@ const TOOLTIPS = {
 	},
 	"reset_adjustment": {
 		"title": "Reset Decoration",
-		"description": "Reset the orientation and scale of the decoration."
+		"description": "Reset rotation and scale of decoration."
 	},
 	"safe_point": {
-		"title": "I'm Stuck!",
-		"description": "Teleports you back to a safe point."
+		"title": "I'm Stuck",
+		"description": "Teleport back to Ratchet"
 	},
 	"rotate_left": {
 		"title": "((Rotate Left))",
@@ -90,8 +90,8 @@ const TOOLTIPS = {
 		"description": "((Debug skill.))"
 	},
 	"eyedropper": {
-		"title": "Sample Decoration",
-		"description": "Copy an existing decoration, including its rotation and scale."
+		"title": "Copy Decoration",
+		"description": "Copy an existing decoration, along with its rotation and scale."
 	}
 }
 

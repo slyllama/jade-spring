@@ -10,10 +10,8 @@ func clear() -> void:
 
 func proc_story() -> void:
 	var _p = Save.data.story_point
-	if _p == "game_start" or _p == "pick_weeds":
-		$VisualArea.visible = false
-	else:
-		$VisualArea.visible = true
+	if _p == "game_start" or _p == "pick_weeds": $VisualArea.visible = false
+	else: $VisualArea.visible = true
 
 func _ready() -> void:
 	super()
@@ -40,9 +38,7 @@ func interact() -> void:
 	if Save.data.story_point == "game_start" or Save.data.story_point == "pick_weeds":
 		Global.announcement_sent.emit("Noisy bugs flick incessantly about me, sending my sensors haywire.")
 		return # not unlocked yet
-	elif Save.data.story_point == "clear_bugs":
-		pass
-	
+	elif Save.data.story_point == "clear_bugs" or Save.data.story_point == "ratchet_dv":
 		if "discombobulator" in Global.current_effects:
 			var _f = FishingInstance.instantiate()
 			_f.completed.connect(clear)

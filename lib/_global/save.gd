@@ -12,7 +12,8 @@ var first_run = true
 const STORY_POINTS = [
 	"game_start",
 	"pick_weeds",
-	"clear_bugs"
+	"clear_bugs",
+	"ratchet_dv"
 ]
 
 var STORY_POINT_SCRIPT = {
@@ -30,6 +31,11 @@ var STORY_POINT_SCRIPT = {
 		"title": "2. Pesky Pests",
 		"description": "Bugs and pests are Ratchet's great nemeses, but I have some tricks up my sleeve to deal with them. In the shed are coils of Raw Dispersion Flux supplied from Rata Sum; by activating them near bug swarms, I can disturb the air currents and safely clear them out! <Collect Raw Dispersion Flux from Ratchet's shed and use it to scatter pest clouds. Once the carrier golems are following you, interact with a pest cloud and follow the node that appears with your slider to disperse the Flux and clear out the bugs.>",
 		"objective": "Use Raw Dispersion Flux from Ratchet's shed to clear out pests spoiling the garden."
+	},
+	"ratchet_dv" : {
+		"title": "2. Pesky Pests",
+		"description": "((Description))",
+		"objective": "Speak to Ratchet about their efforts in solving the Dragonvoid problem."
 	}
 }
 
@@ -121,13 +127,20 @@ func _ready() -> void:
 			add_karma(_k))
 	
 	Global.crumbs_updated.connect(func():
+		for _i in 3: await get_tree().process_frame
 		if !"story_point" in Save.data:
 			print("[WARNING] no save data loaded (even empty).")
 			return
+		
 		if (Save.data.story_point == "pick_weeds"
 			and Save.data.deposited_weeds >= OBJECTIVE_WEED_COUNT):
 			advance_story()
-			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["clear_bugs"]))
+			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["clear_bugs"])
+		elif (Save.data.story_point == "clear_bugs"
+			and Global.crumb_handler.totals.bug - Save.data.crumb_count.bug >= OBJECTIVE_PEST_COUNT):
+			advance_story()
+			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_dv"])
+	)
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
