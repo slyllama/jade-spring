@@ -34,13 +34,14 @@ var in_range = false
 		tint_color = _val
 		_mat.set_shader_parameter("color", _val)
 
-func spawn_dialogue(data: Dictionary) -> void:
+func spawn_dialogue(data: Dictionary, advance = false) -> void:
 	var _d = Dialogue.instantiate()
 	_d.data = data
 	Global.hud.add_child(_d)
 	_d.closed.connect(func():
 		Global.generic_area_entered.emit()
-		Save.advance_story())
+		if advance:
+			Save.advance_story())
 	_d.open()
 
 func _input(_event: InputEvent) -> void:

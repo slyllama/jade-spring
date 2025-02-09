@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 	_d += delta
 	if _d >= 0.2:
 		_d = 0
-		if get_parent().distance_to_player >= 5.0:
+		if get_parent().distance_to_player >= 10.5:
 			tile_detail.visible = false
 		else:
 			tile_detail.visible = true

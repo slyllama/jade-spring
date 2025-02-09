@@ -15,6 +15,7 @@ var bindings_pane_open = false
 var camera_basis: Basis
 var camera_orbiting = false
 var camera_pivot_rotation_degrees = Vector3.ZERO
+var camera_position = Vector3.ZERO
 var can_move = true
 var current_crumb = null
 var debug_enabled = false

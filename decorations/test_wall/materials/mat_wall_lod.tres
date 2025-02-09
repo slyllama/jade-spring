@@ -8,4 +8,4 @@ albedo_texture = ExtResource("1_r1srj")
 metallic_specular = 0.15
 distance_fade_mode = 2
 distance_fade_min_distance = 8.0
-distance_fade_max_distance = 9.5
+distance_fade_max_distance = 8.5

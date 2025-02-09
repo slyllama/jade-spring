@@ -360,7 +360,7 @@ func _process(delta: float) -> void:
 	_d += delta
 	if _d >= 0.2:
 		_d = 0
-		distance_to_player = global_position.distance_to(Global.player_position)
+		distance_to_player = global_position.distance_to(Global.camera_position)
 		if distance_to_player > cull_distance:
 			if visible:
 				visible = false

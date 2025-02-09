@@ -29,5 +29,5 @@ func _process(delta: float) -> void:
 		if _e >= 0.2:
 			_e = 0
 			#var _dist = global_position.distance_to(Global.player_position)
-			if distance_to_player >= 9.5: $Wall.visible = false
+			if distance_to_player >= 10.5: $Wall.visible = false
 			else: $Wall.visible = true

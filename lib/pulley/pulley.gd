@@ -129,13 +129,13 @@ func _on_interacted() -> void:
 	Global.generic_area_left.emit()
 	
 	if Save.data.story_point == "game_start":
-		spawn_dialogue(intro_dialogue_data)
+		spawn_dialogue(intro_dialogue_data, true)
 	elif Save.data.story_point == "pick_weeds":
 		spawn_dialogue(pick_weeds_alt_dialogue)
 	elif Save.data.story_point == "clear_bugs":
 		spawn_dialogue(clear_bugs_alt_dialogue)
 	elif Save.data.story_point == "ratchet_dv":
-		spawn_dialogue(dv_intro_dialogue)
+		spawn_dialogue(dv_intro_dialogue, true)
 	
 	else:
 		var _d = Dialogue.instantiate()
