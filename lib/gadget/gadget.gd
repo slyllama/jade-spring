@@ -3,6 +3,7 @@ extends Area3D
 # Gadget
 # A simple area that can handle interactions and events.
 
+const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 signal interacted
 
 @export var active = true
@@ -32,6 +33,15 @@ var in_range = false
 		$VisualArea.set_surface_override_material(0, _mat)
 		tint_color = _val
 		_mat.set_shader_parameter("color", _val)
+
+func spawn_dialogue(data: Dictionary) -> void:
+	var _d = Dialogue.instantiate()
+	_d.data = data
+	Global.hud.add_child(_d)
+	_d.closed.connect(func():
+		Global.generic_area_entered.emit()
+		Save.advance_story())
+	_d.open()
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):

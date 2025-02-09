@@ -1,6 +1,5 @@
 extends "res://lib/gadget/gadget.gd"
 
-const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 const ATTUNE_DIALOGUE = {
 	"_entry": {
 		"string": "((Raw Dispersion Flux Attunement))",

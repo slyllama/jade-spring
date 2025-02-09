@@ -2,8 +2,6 @@ extends "res://lib/gadget/gadget.gd"
 # Pulley
 # Script for the character Pulley-4!
 
-const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
-
 const intro_dialogue_data = {
 	#"_texture": "sticker_pulley",
 	"_entry": {
@@ -81,6 +79,30 @@ const clear_bugs_alt_dialogue = {
 	}
 }
 
+const dv_intro_dialogue = {
+	"_entry": {
+		"string": "(Ratchet is looking more smug than a Snaff Prize winner.)",
+		"options": {
+			"communicator": "I... was right over there... did you really need to use the communicator, Ratchet?"
+		}
+	},
+	"communicator": {
+		"string": "Standard g-g-golem operating procedure. Now! T-t-take the Raw Dispersion Flux; we're going to attune it in this genius m-machine I've developed.",
+		"options": {
+			"procedure": "(...)"
+		}
+	},
+	"procedure": {
+		"string": "Each Dragonvoid blight seems to resonate with the m-magic of a certain Elder Dragon. Use the device to play a melody and t-t-tune the flux to the correct Dragon, and then you can dispel it as you would any old bug!",
+		"options": {
+			"got_this": "(Through the communicator) I'll check it out; I've got this. Over!"
+		}
+	},
+	"got_this": {
+		"reference": "_exit"
+	}
+}
+
 const debug_dialogue = {
 	"_entry": {
 		"string": "((Debug options!))",
@@ -107,27 +129,14 @@ func _on_interacted() -> void:
 	Global.generic_area_left.emit()
 	
 	if Save.data.story_point == "game_start":
-		var _d = Dialogue.instantiate()
-		_d.data = intro_dialogue_data
-		Global.hud.add_child(_d)
-		_d.closed.connect(func():
-			Global.generic_area_entered.emit()
-			Save.advance_story())
-		_d.open()
+		spawn_dialogue(intro_dialogue_data)
 	elif Save.data.story_point == "pick_weeds":
-		var _d = Dialogue.instantiate()
-		_d.data = pick_weeds_alt_dialogue
-		Global.hud.add_child(_d)
-		_d.closed.connect(func():
-			Global.generic_area_entered.emit())
-		_d.open()
+		spawn_dialogue(pick_weeds_alt_dialogue)
 	elif Save.data.story_point == "clear_bugs":
-		var _d = Dialogue.instantiate()
-		_d.data = clear_bugs_alt_dialogue
-		Global.hud.add_child(_d)
-		_d.closed.connect(func():
-			Global.generic_area_entered.emit())
-		_d.open()
+		spawn_dialogue(clear_bugs_alt_dialogue)
+	elif Save.data.story_point == "ratchet_dv":
+		spawn_dialogue(dv_intro_dialogue)
+	
 	else:
 		var _d = Dialogue.instantiate()
 		_d.data = debug_dialogue
