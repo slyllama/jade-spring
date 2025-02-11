@@ -329,7 +329,8 @@ func _ready() -> void:
 				_spawn_arrows())
 		
 		collision_box.mouse_entered.connect(func():
-			set_outline()
+			if !Global.tool_mode == Global.TOOL_MODE_PLACE:
+				set_outline()
 			Global.cursor_tint_changed.emit(Color.GREEN))
 		collision_box.mouse_exited.connect(func():
 			set_outline(false)

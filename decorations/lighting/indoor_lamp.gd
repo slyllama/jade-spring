@@ -20,6 +20,11 @@ func _ready() -> void:
 	Global.selection_canceled.connect(_set_mesh_visiblity)
 	Global.adjustment_applied.connect(_set_mesh_visiblity)
 	Global.adjustment_canceled.connect(_set_mesh_visiblity)
+	
+	var parent = get_parent().get_parent().name
+	if (!parent == "DecoHandler"
+		or Global.tool_mode == Global.TOOL_MODE_ADJUST):
+		_set_mesh_visiblity(true)
 
 func _process(_delta: float) -> void:
 	if Global.active_decoration == get_parent():

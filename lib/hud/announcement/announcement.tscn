@@ -6,16 +6,16 @@
 
 [node name="Announcement" type="RichTextLabel"]
 clip_contents = false
-custom_minimum_size = Vector2(1080, 50)
+custom_minimum_size = Vector2(700, 50)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -540.0
+offset_left = -350.0
 offset_top = -25.0
-offset_right = 540.0
-offset_bottom = 25.0
+offset_right = 350.0
+offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -25,22 +25,23 @@ theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[center]((Announcement))[/center]"
 scroll_active = false
-autowrap_mode = 0
+autowrap_mode = 2
 script = ExtResource("1_k270b")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.745098)
 z_index = -1
+custom_minimum_size = Vector2(1080, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -564.0
-offset_top = -40.0
-offset_right = 564.0
-offset_bottom = 70.0
+offset_left = -649.0
+offset_top = -45.0
+offset_right = 649.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
