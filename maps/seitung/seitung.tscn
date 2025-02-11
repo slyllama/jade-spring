@@ -973,15 +973,19 @@ draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
 [node name="roof_pavilion" parent="Decoration" index="44" instance=ExtResource("43_4w16u")]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 5.57752, 6.0966, -1.43116)
+visible = false
 
 [node name="roof_pavilion2" parent="Decoration" index="45" instance=ExtResource("43_4w16u")]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 5.57514, 6.0966, 3.92192)
+visible = false
 
 [node name="roof_pavilion3" parent="Decoration" index="46" instance=ExtResource("43_4w16u")]
 transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.03, 10.7656, 6.0966, -1.25046)
+visible = false
 
 [node name="roof_pavilion4" parent="Decoration" index="47" instance=ExtResource("43_4w16u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7656, 6.0966, 3.96223)
+visible = false
 
 [node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)

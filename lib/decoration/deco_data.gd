@@ -271,5 +271,14 @@ const DecoData = {
 		"preview_scale": 0.31,
 		"preview_v_offset": -0.4,
 		"tags": ["Foliage"]
-	}
+	},
+	"rata_sum_floor": {
+		"name": "Rata Sum Floor",
+		"scene": "res://decorations/rata_sum/floor/floor.tscn",
+		"cursor_model": "res://decorations/rata_sum/floor/floor.glb",
+		"preview_scale": 0.34,
+		"preview_y_rotation": 35,
+		"preview_v_offset": 0.3,
+		"tags": ["Architecture"]
+	},
 }

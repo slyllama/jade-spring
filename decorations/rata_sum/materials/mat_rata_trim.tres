@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://cqcoyxuagg5hw"]
+
+[ext_resource type="Texture2D" uid="uid://lg252rxxedt8" path="res://decorations/rata_sum/materials/textures/rata_trim_diff.jpg" id="1_t7ah4"]
+[ext_resource type="Texture2D" uid="uid://c4v05pi2ls2e2" path="res://decorations/rata_sum/materials/textures/rata_trim_norm.jpg" id="2_p5g5o"]
+[ext_resource type="Texture2D" uid="uid://dhm1w5ib1hby3" path="res://decorations/rata_sum/materials/textures/rata_trim_rough.jpg" id="3_yrn3o"]
+
+[resource]
+albedo_texture = ExtResource("1_t7ah4")
+orm_texture = ExtResource("3_yrn3o")
+normal_enabled = true
+normal_texture = ExtResource("2_p5g5o")
