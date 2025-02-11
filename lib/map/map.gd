@@ -38,8 +38,7 @@ func _ready() -> void:
 		match parameter:
 			"window_mode": Utilities.set_window_mode(_value)
 			"volume": Utilities.set_master_vol()
-			"music_vol": $Jukebox.volume_db = linear_to_db(
-				clamp(float(_value) * 0.34, 0.0, 0.34))
+			"music_vol": $Jukebox.volume_set = float(_value) * 0.34
 			"bloom":
 				if _value == "on": $Sky.environment.glow_enabled = true
 				elif _value == "off": $Sky.environment.glow_enabled = false

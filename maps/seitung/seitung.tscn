@@ -1074,5 +1074,4 @@ transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.087737
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
 
 [node name="ChargingStation" parent="." index="16" instance=ExtResource("64_xbvsq")]
-transform = Transform3D(0.992837, 0, -0.119478, 0, 1, 0, 0.119478, 0, 0.992837, 7.09978, 1.1468, -2.61045)
-reset_on_interact = false
+transform = Transform3D(0.992837, 0, -0.119478, 0, 1, 0, 0.119478, 0, 0.992837, -3.08881, 0.315961, 0.0627203)

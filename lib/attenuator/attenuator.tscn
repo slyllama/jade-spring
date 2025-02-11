@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5rqfmavxpqcy"]
+
+[ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_qd7v5"]
+[ext_resource type="PackedScene" uid="uid://d070iet1hdc2c" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.tscn" id="3_dgqi3"]
+
+[node name="Attenuator" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_3up0s")
+
+[node name="Underlay" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.35, 0.35, 0.35, 0.196078)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_qd7v5")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="DebugTitle" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]Ratchet's Makeshift Attunement Gadget[/center]"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="DispulsionFX" parent="DebugTitle" instance=ExtResource("3_dgqi3")]
+
+[node name="KeyConrainer" type="HBoxContainer" parent="DebugTitle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = 15.0
+offset_right = 235.5
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Close" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 40.0
+offset_bottom = 8.0
+text = "Close"
+
+[connection signal="button_down" from="Close" to="." method="_on_close_button_down"]

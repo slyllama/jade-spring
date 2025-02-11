@@ -42,6 +42,7 @@ var safe_point: Marker3D
 var settings_open = false
 var snapping = false # don't snap by default
 var story_panel_open = false
+var target_music_ratio = 1.0
 var time_of_day = "day"
 
 signal action_cam_enable # procs action cam

@@ -45,6 +45,7 @@ func spawn_dialogue(data: Dictionary, advance = false) -> void:
 	_d.open()
 
 func _input(_event: InputEvent) -> void:
+	if Global.tool_mode != Global.TOOL_MODE_NONE: return
 	if Input.is_action_just_pressed("interact"):
 		if active and in_range:
 			interacted.emit()

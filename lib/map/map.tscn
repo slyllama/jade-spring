@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bxsbnw48fh4vy" path="res://maps/seitung/sounds/ambience.ogg" id="5_uggpi"]
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="6_fmnwt"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="6_p5ee1"]
+[ext_resource type="Script" path="res://lib/map/jukebox.gd" id="10_0ckh4"]
 [ext_resource type="PackedScene" uid="uid://12h1x7xjn8c2" path="res://lib/story_marker/story_marker.tscn" id="10_743fl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
@@ -58,62 +59,6 @@ material = SubResource("StandardMaterial3D_11m6v")
 size = Vector2(80, 80)
 orientation = 1
 
-[sub_resource type="GDScript" id="GDScript_kjg48"]
-script/source = "extends AudioStreamPlayer
-# Jukebox
-# The jukebox makes sure that music is always playing appropriately
-
-@export var track_list: Array[AudioStreamOggVorbis]
-@export var start_muted := false
-@export var music_enabled := true
-@export var delay := 24.0
-
-var rng = RandomNumberGenerator.new()
-var tracks: Array[AudioStreamOggVorbis] = []
-var tracks_alt: Array[AudioStreamOggVorbis] = []
-var using_alt = false
-
-var space_timer = Timer.new()
-
-# Will randomly select tracks from `tracks` and swap them over to `tracks_alt`
-# until they have all been used up, and then do the same from `tracks_alt`;
-# `using_alt` is used to keep track of this
-func load_track() -> void:
-	if !using_alt:
-		var selected_id = rng.randi_range(0, tracks.size() - 1)
-		set_stream(tracks[selected_id])
-		play()
-		tracks_alt.append(tracks[selected_id])
-		tracks.remove_at(selected_id)
-		if tracks == []: using_alt = true
-		return
-	else:
-		var selected_id = rng.randi_range(0, tracks_alt.size() - 1)
-		set_stream(tracks_alt[selected_id])
-		play()
-		tracks.append(tracks_alt[selected_id])
-		tracks_alt.remove_at(selected_id)
-		if tracks_alt == []: using_alt = false
-		return
-
-func _ready() -> void:
-	space_timer.one_shot = true
-	add_child(space_timer)
-	
-	space_timer.timeout.connect(load_track)
-	finished.connect(func():
-		space_timer.wait_time = delay
-		space_timer.start())
-	
-	# `enabled` only disables music, not sound effects
-	if !music_enabled: return
-	if track_list == []: return
-	tracks = track_list.duplicate()
-	
-	await get_tree().create_timer(2.0).timeout
-	load_track()
-"
-
 [node name="Map" type="Node3D"]
 script = ExtResource("1_juxxi")
 
@@ -158,7 +103,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61923, 1, 7.56866)
 
 [node name="Jukebox" type="AudioStreamPlayer" parent="."]
-script = SubResource("GDScript_kjg48")
+script = ExtResource("10_0ckh4")
 
 [node name="StoryMarker" parent="." instance=ExtResource("10_743fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
