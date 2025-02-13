@@ -4,6 +4,8 @@ extends Node2D
 const SPIN_RATE = 0.4
 var spin_rate = SPIN_RATE
 
+signal anim_out_complete
+
 @export var test_animation = false:
 	get: return(test_animation)
 	set(_val):
@@ -50,6 +52,9 @@ func anim_out() -> void: # animate in
 		self, "modulate:a", 0.0, anim_duration
 	).set_ease(Tween.EASE_IN_OUT)
 	mod_tween.set_parallel()
+	
+	await get_tree().create_timer(anim_duration).timeout
+	anim_out_complete.emit()
 
 func _ready() -> void:
 	if !Engine.is_editor_hint():

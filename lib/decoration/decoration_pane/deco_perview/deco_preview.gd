@@ -32,6 +32,8 @@ func _update_resource_loader() -> void:
 				var scene_instance = loaded_scene.instantiate()
 				if "disable_culling" in scene_instance:
 					scene_instance.disable_culling = true
+				if "custom_lod" in scene_instance:
+					scene_instance.custom_lod = false
 				$ModelBase.add_child(scene_instance)
 				scene_instance.scale = Vector3(
 					current_preview_scale, current_preview_scale, current_preview_scale)

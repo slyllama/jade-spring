@@ -1,26 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgp46dhfkb28c"]
+[gd_scene load_steps=3 format=3 uid="uid://cgp46dhfkb28c"]
 
 [ext_resource type="Script" path="res://lib/attenuator/piano_key.gd" id="1_305wr"]
 [ext_resource type="AudioStream" uid="uid://d3hlc87gf58h" path="res://lib/attenuator/sounds/note.ogg" id="1_ylbsu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmsfm"]
-bg_color = Color(0.894922, 0.894922, 0.894922, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.641934, 0.641934, 0.641934, 1)
-
-[node name="PianoKey" type="Button"]
-custom_minimum_size = Vector2(20, 100)
-size_flags_vertical = 0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_nmsfm")
+[node name="PianoKey" type="HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 20)
+offset_right = 1030.0
+offset_bottom = 41.0
+size_flags_horizontal = 3
 script = ExtResource("1_305wr")
 
 [node name="Note" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ylbsu")
 max_polyphony = 3
 
-[connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[node name="Button" type="Button" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "((Note))"
+
+[node name="Rect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 0, 0, 1)
+
+[connection signal="button_down" from="Button" to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_mouse_entered"]

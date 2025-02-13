@@ -23,6 +23,7 @@ var _e = 0.0
 func _process(delta: float) -> void:
 	super(delta)
 	
+	if !custom_lod: return
 	if Engine.is_editor_hint(): return
 	if get_node_or_null("Wall"):
 		_e += delta

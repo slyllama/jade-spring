@@ -1,15 +1,16 @@
 extends CanvasLayer
 
-func clear_skills() -> void:
-	$SkillSwap.play()
+func clear_skills(audio = true) -> void:
+	if audio:
+		$SkillSwap.play()
 	for _b in $Box.get_children():
 		if _b is SkillButton:
 			_b.switch_skill("empty")
 
-func set_default_skills() -> void:
+func set_default_skills(audio = true) -> void:
 	var _p = Save.data.story_point
 	
-	clear_skills()
+	clear_skills(audio)
 	$Box/Skill1.switch_skill("select")
 	$Box/Skill2.switch_skill("deco_test")
 	$Box/Skill3.switch_skill("delete")
@@ -70,7 +71,7 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	Save.story_advanced.connect(func():
 		$SkillSwap.volume_db = linear_to_db(0)
-		set_default_skills()
+		set_default_skills(false)
 		$SkillSwap.volume_db = linear_to_db(1)
 	)
 	

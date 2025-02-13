@@ -10,6 +10,8 @@ const SELECT_TEX = preload("res://lib/decoration/textures/select_icon.png")
 @export var id = ""
 @export var collision_box: CollisionObject3D
 @export var disable_culling = false
+@export var custom_lod = true
+
 var outline_mat: ShaderMaterial
 var last_position: Vector3
 var last_scale: Vector3

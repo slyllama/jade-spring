@@ -11,6 +11,7 @@ script = ExtResource("1_bnimd")
 id = "rata_sum_floor"
 collision_box = NodePath("Body")
 disable_culling = true
+custom_lod = null
 
 [node name="RataSumFloor" parent="." instance=ExtResource("2_p3x0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)

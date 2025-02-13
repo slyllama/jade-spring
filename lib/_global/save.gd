@@ -13,7 +13,8 @@ const STORY_POINTS = [
 	"game_start",
 	"pick_weeds",
 	"clear_bugs",
-	"ratchet_dv"
+	"ratchet_dv",
+	"clear_dv"
 ]
 
 var STORY_POINT_SCRIPT = {
@@ -32,10 +33,14 @@ var STORY_POINT_SCRIPT = {
 		"description": "Bugs and pests are Ratchet's great nemeses, but I have some tricks up my sleeve to deal with them. In the shed are coils of Raw Dispersion Flux supplied from Rata Sum; by activating them near bug swarms, I can disturb the air currents and safely clear them out! <Collect Raw Dispersion Flux from Ratchet's shed and use it to scatter pest clouds. Once the carrier golems are following you, interact with a pest cloud and follow the node that appears with your slider to disperse the Flux and clear out the bugs.>",
 		"objective": "Use Raw Dispersion Flux from Ratchet's shed to clear out pests spoiling the garden."
 	},
-	"ratchet_dv" : {
+	"ratchet_dv": {
 		"title": "2. Pesky Pests",
 		"description": "My communicator is buzzing; it's a message from Ratchet. 'I believe that I've established a solution for the Dragonvoid incursion blocking all our devices and systems. Please come and visit me at your earliest convenience so that we can clear out these blights once and for all.' <Speak to Ratchet about their efforts in solving the Dragonvoid problem.>",
 		"objective": "Speak to Ratchet about their efforts in solving the Dragonvoid problem."
+	},
+	"clear_dv": {
+		"title": "2. Pesky Pests",
+		"objective": "Attune a coil of Raw Dispersion Flux using Ratchet’s Makeshift Attunement Gadget. Use it to dispel a column of Dragonvoid."
 	}
 }
 
