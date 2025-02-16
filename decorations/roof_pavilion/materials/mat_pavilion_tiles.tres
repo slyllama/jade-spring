@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bpkchcehimjam"]
+
+[ext_resource type="Texture2D" uid="uid://bshmn7yhlqi5w" path="res://decorations/roof_pavilion/materials/textures/pavilion_tiles_diff.jpg" id="1_m8ga5"]
+[ext_resource type="Texture2D" uid="uid://bibkplh1b4ung" path="res://decorations/roof_pavilion/materials/textures/pavilion_tiles_norm.jpg" id="2_c0758"]
+
+[resource]
+albedo_texture = ExtResource("1_m8ga5")
+metallic = 0.35
+metallic_specular = 0.4
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_c0758")
+uv1_scale = Vector3(3, 3, 3)

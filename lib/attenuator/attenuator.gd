@@ -59,4 +59,4 @@ func _on_close_button_down() -> void:
 	queue_free()
 
 func _process(_delta: float) -> void:
-	$DispulsionFX.position = get_window().size / 2.0
+	$DispulsionFX.position = get_window().size / 2.0 / Global.retina_scale

@@ -56,9 +56,9 @@
 [ext_resource type="PackedScene" uid="uid://dgxqwx2186efc" path="res://decorations/flower_patch/deco_blue_flowers.tscn" id="37_wlchm"]
 [ext_resource type="PackedScene" uid="uid://c2skr78sqgxln" path="res://decorations/rocket/deco_rocket.tscn" id="38_nvn2d"]
 [ext_resource type="PackedScene" uid="uid://cugqflilfm1ps" path="res://decorations/rocks/pancake_rocks.glb" id="38_rijwn"]
+[ext_resource type="PackedScene" uid="uid://y8jctjwecoos" path="res://decorations/roof_pavilion/roof_pavilion.tscn" id="39_anqa6"]
 [ext_resource type="PackedScene" uid="uid://dmqlnx8l6lfhf" path="res://decorations/flower_patch/deco_yellow_flowers.tscn" id="42_h33ht"]
 [ext_resource type="Material" uid="uid://c3ygaq1wjp7c0" path="res://lib/player/materials/mat_engine_glow.tres" id="42_l2hym"]
-[ext_resource type="PackedScene" uid="uid://2irpg0mpnvmj" path="res://roof_pavilion.glb" id="43_4w16u"]
 [ext_resource type="AudioStream" uid="uid://bvbjroufthlhn" path="res://generic/sounds/insight_ambience.ogg" id="43_f8dlm"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
@@ -831,6 +831,18 @@ custom_lod = null
 transform = Transform3D(0.528094, 0, 1.24242, 0, 1.35, 0, -1.24242, 0, 0.528094, 7.14662, 0.22585, 7.53581)
 custom_lod = null
 
+[node name="RoofPavilion" parent="DecoHandler" index="135" instance=ExtResource("39_anqa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60315, 6.47672, -1.47149)
+
+[node name="RoofPavilion2" parent="DecoHandler" index="136" instance=ExtResource("39_anqa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60315, 6.47672, 3.89267)
+
+[node name="RoofPavilion3" parent="DecoHandler" index="137" instance=ExtResource("39_anqa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, -1.47149)
+
+[node name="RoofPavilion4" parent="DecoHandler" index="138" instance=ExtResource("39_anqa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, 3.89267)
+
 [node name="PancakeRocks" parent="Decoration" index="0" instance=ExtResource("38_rijwn")]
 transform = Transform3D(1.98271, 0.196091, 0.174417, 0, 1.32921, -1.49439, -0.262437, 1.48147, 1.31772, -8.55051, 2.60614, -13.8208)
 
@@ -1083,22 +1095,6 @@ speed_scale = 0.5
 visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
-
-[node name="roof_pavilion" parent="Decoration" index="44" instance=ExtResource("43_4w16u")]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 5.57752, 6.0966, -1.43116)
-visible = false
-
-[node name="roof_pavilion2" parent="Decoration" index="45" instance=ExtResource("43_4w16u")]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 5.57514, 6.0966, 3.92192)
-visible = false
-
-[node name="roof_pavilion3" parent="Decoration" index="46" instance=ExtResource("43_4w16u")]
-transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.03, 10.7656, 6.0966, -1.25046)
-visible = false
-
-[node name="roof_pavilion4" parent="Decoration" index="47" instance=ExtResource("43_4w16u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7656, 6.0966, 3.96223)
-visible = false
 
 [node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)

@@ -152,6 +152,15 @@ const DecoData = {
 		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
 	},
+	"roof_pavilion": {
+		"name": "Roof Pavilion",
+		"scene": "res://decorations/roof_pavilion/roof_pavilion.tscn",
+		"cursor_model": "res://decorations/roof_pavilion/roof_pavilion.glb",
+		"preview_scale": 0.34,
+		"preview_y_rotation": 35,
+		"preview_v_offset": 0.3,
+		"tags": ["Architecture"]
+	},
 	"simple_stairs": {
 		"name": "Simple Stairs",
 		"scene": "res://decorations/platform_stairs/deco_platform_stairs.tscn",
