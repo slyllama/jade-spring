@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-const PianoKey = preload("res://lib/attenuator/piano_key.tscn")
 signal closed
 
+const PianoKey = preload("res://lib/attenuator/piano_key.tscn")
 const notes = [
 	{"float": 0.0,  "color": Color.CADET_BLUE},	# C
 	{"float": 1.0,  "color": Color.WHITE},		# D
@@ -12,11 +12,15 @@ const notes = [
 	{"float": 5.5,  "color": Color.WHITE},		# A
 	{"float": 7.2,  "color": Color.WHITE},		# B
 ]
+const PILLS_SIZE = 9
 
 var two_oct = notes.duplicate()
+var place = 0
+var target_track
 
 func _set_paint_exponent(val: float) -> void:
-	$DebugTitle/KeyContainer.material.set_shader_parameter("paint_exponent", val)
+	$Base.material.set_shader_parameter("paint_exponent", val)
+	$Base/KeyContainer.material.set_shader_parameter("paint_exponent", val)
 
 func _ready() -> void:
 	Global.target_music_ratio = 0.0
@@ -34,14 +38,21 @@ func _ready() -> void:
 		var _n = PianoKey.instantiate()
 		_n.pitch = 1.0 + _i.float * (1.0 / 8.0)
 		_n.modulate = _i.color
-		#if _n.modulate == Color.BLACK:
-			#_n.custom_minimum_size.x /= 2.0
-			#_n.custom_minimum_size.y /=1.1
-		$DebugTitle/KeyContainer.add_child(_n)
+		_n.played.connect(func():
+			place += 1)
+		$Base/KeyContainer.add_child(_n)
 	$DispulsionFX.anim_in()
+	$Base/KeyContainer.get_children()[3].assign_track([1, 3, 5])
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_exponent, 10.0, 0.0, 0.3)
+	
+	for _n in $Base/KeyContainer.get_children():
+		if "alpha" in _n:
+			_n.alpha = 1.0
+		await get_tree().create_timer(0.03).timeout
+	
+	target_track = $Base/KeyContainer.get_children()[0]
 
 func _on_close_button_down() -> void:
 	Global.target_music_ratio = 1.0
@@ -58,5 +69,13 @@ func _on_close_button_down() -> void:
 	
 	queue_free()
 
-func _process(_delta: float) -> void:
-	$DispulsionFX.position = get_window().size / 2.0 / Global.retina_scale
+func _process(delta: float) -> void:
+	$DispulsionFX.position.x = get_window().size.x / 2.0 / Global.retina_scale
+	$DispulsionFX.position.y = $Base.position.y + 140.0
+	
+	if !target_track: return # not ready yet
+	if "pills" in target_track:
+		if place < PILLS_SIZE:
+			var _target = target_track.pills[place]
+			$Base/Marker.position.x = lerp(
+				$Base/Marker.position.x, _target.position.x + 24.0, delta * 20.0)

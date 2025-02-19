@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=9 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
+[ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_qd7v5"]
 [ext_resource type="PackedScene" uid="uid://d070iet1hdc2c" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.tscn" id="3_dgqi3"]
 [ext_resource type="Material" uid="uid://wv0q1g0bmi10" path="res://lib/dragger/materials/mat_dissolve.tres" id="4_0j0el"]
+[ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="6_an5xe"]
+[ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="7_13bqe"]
+[ext_resource type="Texture2D" uid="uid://cg6cuuo4brmnn" path="res://lib/attenuator/textures/marker.png" id="8_ftpwr"]
 
 [node name="Attenuator" type="CanvasLayer"]
 script = ExtResource("1_3up0s")
 
-[node name="DispulsionFX" parent="." instance=ExtResource("3_dgqi3")]
-position = Vector2(390, 100)
-
 [node name="Underlay" type="TextureRect" parent="."]
 visible = false
-modulate = Color(0.35, 0.35, 0.35, 0.196078)
+modulate = Color(0.25, 0.25, 0.25, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,26 +25,45 @@ texture = ExtResource("2_qd7v5")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="DebugTitle" type="RichTextLabel" parent="."]
-clip_contents = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -250.0
-offset_top = 100.0
-offset_right = 250.0
-offset_bottom = 150.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/normal_font_size = 27
-bbcode_enabled = true
-text = " 
-"
-scroll_active = false
-autowrap_mode = 0
+[node name="DispulsionFX" parent="." instance=ExtResource("3_dgqi3")]
 
-[node name="KeyContainer" type="VBoxContainer" parent="DebugTitle"]
+[node name="Base" type="TextureRect" parent="."]
+material = ExtResource("4_0j0el")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -615.0
+offset_top = -342.0
+offset_right = 343.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3yp7v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Close" type="TextureButton" parent="Base"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -432.0
+offset_top = -573.0
+offset_right = -392.0
+offset_bottom = -533.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_an5xe")
+texture_pressed = ExtResource("7_13bqe")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="KeyContainer" type="VBoxContainer" parent="Base"]
 material = ExtResource("4_0j0el")
 layout_mode = 1
 anchors_preset = 8
@@ -51,28 +71,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -451.0
-offset_top = 15.0
-offset_right = 451.0
-offset_bottom = 258.0
+offset_left = -431.0
+offset_top = -206.0
+offset_right = 248.0
+offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 3
+theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Close" type="Button" parent="."]
-custom_minimum_size = Vector2(200, 0)
-anchors_preset = 7
+[node name="ControlContainer" type="VBoxContainer" parent="Base"]
+material = ExtResource("4_0j0el")
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -181.0
-offset_right = 100.0
-offset_bottom = -154.0
+anchor_bottom = 0.5
+offset_left = 263.0
+offset_top = -206.0
+offset_right = 430.0
+offset_bottom = 223.0
 grow_horizontal = 2
-grow_vertical = 0
-text = "Close"
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
 
-[connection signal="button_down" from="Close" to="." method="_on_close_button_down"]
+[node name="Marker" type="Sprite2D" parent="Base"]
+use_parent_material = true
+position = Vector2(276, 356)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ftpwr")
+
+[connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]

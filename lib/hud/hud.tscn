@@ -65,6 +65,7 @@ mouse_filter = 2
 layout_mode = 0
 offset_right = 158.0
 offset_bottom = 159.0
+mouse_filter = 2
 texture = ExtResource("1_8jsj4")
 expand_mode = 1
 

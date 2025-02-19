@@ -5,7 +5,7 @@
 
 [resource]
 shader = ExtResource("1_7bkyk")
-shader_parameter/paint_exponent = 1.0
+shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 1.0
 shader_parameter/arrow_reduce_alpha = false
