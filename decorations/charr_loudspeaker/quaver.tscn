@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://ul2xkcw6fjv5"]
+
+[ext_resource type="ArrayMesh" uid="uid://dvpalgx5bksgb" path="res://decorations/charr_loudspeaker/quaver.res" id="1_d2m5p"]
+
+[sub_resource type="Curve" id="Curve_qkrn3"]
+_data = [Vector2(0, 0), 0.0, 3.72927, 0, 0, Vector2(0.325, 0.463918), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bhwsy"]
+curve = SubResource("Curve_qkrn3")
+
+[sub_resource type="Gradient" id="Gradient_ssfk3"]
+colors = PackedColorArray(0.974744, 7.18111e-05, 0.740972, 1, 2.5028e-06, 0.608505, 0.859913, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wsn2o"]
+gradient = SubResource("Gradient_ssfk3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0q5eb"]
+emission_shape = 2
+emission_sphere_radius = 0.17
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+gravity = Vector3(0, 0.25, 0)
+scale_min = 0.6
+scale_max = 0.8
+color_ramp = SubResource("GradientTexture1D_wsn2o")
+alpha_curve = SubResource("CurveTexture_bhwsy")
+
+[node name="Quaver" type="GPUParticles3D"]
+cast_shadow = 0
+amount = 6
+preprocess = 3.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_0q5eb")
+draw_pass_1 = ExtResource("1_d2m5p")

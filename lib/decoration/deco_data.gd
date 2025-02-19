@@ -257,6 +257,16 @@ const DecoData = {
 		"model_offset": Vector3(-0.6, 0, -0.6),
 		"tags": ["Architecture", "Cantha"]
 	},
+	"charr_loudspeaker": {
+		"name": "Charr Loudspeaker",
+		"scene": "res://decorations/charr_loudspeaker/charr_loudspeaker.tscn",
+		"cursor_model": "res://decorations/charr_loudspeaker/charr_loudspeaker.glb",
+		"y_rotation": -90,
+		"preview_scale": 0.9,
+		"preview_y_rotation": 215,
+		"preview_v_offset": 0.1,
+		"tags": [ ]
+	},
 	"autumnal_shrub": {
 		"name": "Autumnal Shrub",
 		"scene": "res://decorations/autumnal_shrub/deco_autumnal_shrub.tscn",

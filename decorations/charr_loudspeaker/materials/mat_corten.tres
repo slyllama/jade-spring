@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cg0f22u1hsdli"]
+
+[ext_resource type="Texture2D" uid="uid://ck8hxme70arei" path="res://decorations/charr_loudspeaker/materials/textures/corten_diff.jpg" id="1_tfmob"]
+[ext_resource type="Texture2D" uid="uid://n8dkn7viahll" path="res://decorations/charr_loudspeaker/materials/textures/corten_norm.jpg" id="2_7l2ht"]
+
+[resource]
+albedo_texture = ExtResource("1_tfmob")
+metallic = 0.5
+metallic_specular = 0.25
+roughness = 0.45
+normal_enabled = true
+normal_texture = ExtResource("2_7l2ht")
+uv1_scale = Vector3(2, 2, 2)

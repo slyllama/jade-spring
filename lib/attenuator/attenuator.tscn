@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=10 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://wv0q1g0bmi10" path="res://lib/dragger/materials/mat_dissolve.tres" id="4_0j0el"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="6_an5xe"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="7_13bqe"]
+[ext_resource type="Texture2D" uid="uid://dyiv32pl2xda4" path="res://lib/attenuator/textures/glyph_container.png" id="8_4iiki"]
 [ext_resource type="Texture2D" uid="uid://cg6cuuo4brmnn" path="res://lib/attenuator/textures/marker.png" id="8_ftpwr"]
 
 [node name="Attenuator" type="CanvasLayer"]
@@ -73,7 +74,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -431.0
 offset_top = -206.0
-offset_right = 248.0
+offset_right = 301.0
 offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -88,14 +89,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 263.0
+offset_left = 308.0
 offset_top = -206.0
 offset_right = 430.0
 offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
-alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Base/ControlContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("8_4iiki")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Base/ControlContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 20.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BUTTON"
 
 [node name="Marker" type="Sprite2D" parent="Base"]
 use_parent_material = true
