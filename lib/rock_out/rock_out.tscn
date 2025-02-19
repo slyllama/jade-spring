@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://kt2evf8a1gsv"]
+
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="1_2gdrv"]
+[ext_resource type="Script" path="res://lib/rock_out/rock_out.gd" id="1_rsuif"]
+[ext_resource type="AudioStream" uid="uid://bkl1k657lvasa" path="res://lib/rock_out/sounds/insight_rock.ogg" id="3_resay"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6grtn"]
+height = 6.0
+radius = 2.0
+
+[node name="RockOut" type="Node3D"]
+script = ExtResource("1_rsuif")
+
+[node name="Area" type="Area3D" parent="."]
+input_ray_pickable = false
+
+[node name="Collision" type="CollisionShape3D" parent="Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CylinderShape3D_6grtn")
+
+[node name="Music" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("3_resay")
+max_db = -1.0
+autoplay = true
+max_distance = 2.5
+area_mask = 0
+attenuation_filter_cutoff_hz = 20500.0
+
+[node name="SpatialText" parent="Music" instance=ExtResource("1_2gdrv")]
+spatial_string = "((RockOut))"
+color = "cyan"
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

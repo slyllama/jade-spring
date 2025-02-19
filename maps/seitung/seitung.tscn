@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=96 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -66,6 +66,7 @@
 [ext_resource type="AudioStream" uid="uid://d1gwlg80yr26a" path="res://maps/seitung/sounds/mus_lyllian.ogg" id="56_oq8ka"]
 [ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="59_gjbjt"]
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="64_xbvsq"]
+[ext_resource type="PackedScene" uid="uid://kt2evf8a1gsv" path="res://lib/rock_out/rock_out.tscn" id="67_tdy4a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixf13"]
 albedo_color = Color(0.2, 0.2, 0.2, 1)
@@ -1194,3 +1195,6 @@ transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777
 
 [node name="ChargingStation" parent="." index="16" instance=ExtResource("64_xbvsq")]
 transform = Transform3D(0.992837, 0, -0.119478, 0, 1, 0, 0.119478, 0, 0.992837, -3.08881, 0.315961, 0.0627203)
+
+[node name="RockOut" parent="." index="17" instance=ExtResource("67_tdy4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45797, 0.183987, 5.87308)
