@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=13 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -9,6 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="7_13bqe"]
 [ext_resource type="Texture2D" uid="uid://dyiv32pl2xda4" path="res://lib/attenuator/textures/glyph_container.png" id="8_4iiki"]
 [ext_resource type="Texture2D" uid="uid://cg6cuuo4brmnn" path="res://lib/attenuator/textures/marker.png" id="8_ftpwr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwhmk"]
+bg_color = Color(0, 0, 0, 0.862745)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tm6r3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfyfv"]
 
 [node name="Attenuator" type="CanvasLayer"]
 script = ExtResource("1_3up0s")
@@ -97,14 +109,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Base/ControlContainer"]
+[node name="GlyphContainer" type="TextureRect" parent="Base/ControlContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture = ExtResource("8_4iiki")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="Base/ControlContainer/TextureRect"]
+[node name="Button" type="Button" parent="Base/ControlContainer/GlyphContainer"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -124,5 +137,61 @@ use_parent_material = true
 position = Vector2(276, 356)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_ftpwr")
+
+[node name="TutorialPanel" type="Panel" parent="Base"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -73.5
+offset_right = 152.0
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qwhmk")
+
+[node name="VBox" type="VBoxContainer" parent="Base/TutorialPanel"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="Title" type="RichTextLabel" parent="Base/TutorialPanel/VBox"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxTexture_tm6r3")
+text = "((Sorry!))"
+fit_content = true
+scroll_active = false
+
+[node name="Separator" type="ColorRect" parent="Base/TutorialPanel/VBox"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Body" type="RichTextLabel" parent="Base/TutorialPanel/VBox"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_yfyfv")
+text = "((The Attenuator is a work in progress and currently doesn't do anything. (You can play around with the keys, though.) You'll be given a Charged Dispersion Flux if you are holding an uncharged one.))"
+fit_content = true
+scroll_active = false
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]

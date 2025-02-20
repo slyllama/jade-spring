@@ -70,7 +70,7 @@ func _on_close_button_down() -> void:
 	queue_free()
 
 func _process(delta: float) -> void:
-	$DispulsionFX.position.x = get_window().size.x / 2.0 / Global.retina_scale
+	$DispulsionFX.position.x = $Base.position.x + $Base.size.x / 2.0
 	$DispulsionFX.position.y = $Base.position.y + 140.0
 	
 	if !target_track: return # not ready yet

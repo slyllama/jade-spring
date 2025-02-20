@@ -265,7 +265,8 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"preview_y_rotation": 215,
 		"preview_v_offset": 0.1,
-		"tags": [ ]
+		"tags": [ ],
+		"unlock_value": 30
 	},
 	"autumnal_shrub": {
 		"name": "Autumnal Shrub",

@@ -78,6 +78,7 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
+	if !Global.deco_pane_open: return # pane not open
 	if Input.is_action_just_pressed("left_click"):
 		if Global.mouse_in_deco_pane:
 			_clicked_in_ui = true
