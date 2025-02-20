@@ -1197,4 +1197,4 @@ transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777
 transform = Transform3D(0.992837, 0, -0.119478, 0, 1, 0, 0.119478, 0, 0.992837, -3.08881, 0.315961, 0.0627203)
 
 [node name="RockOut" parent="." index="17" instance=ExtResource("67_tdy4a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45797, 0.183987, 5.87308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7995, 2.74313, 4.2636)

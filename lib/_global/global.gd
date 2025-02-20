@@ -70,6 +70,7 @@ signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
 signal rock_out_started
 signal rock_out_ended
+signal rock_out_beat
 signal spawn_karma(amount: int, location: Vector3)
 signal weed_crumb_entered
 signal weed_crumb_left

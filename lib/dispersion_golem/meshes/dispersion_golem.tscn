@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://clwa387aosmjj"]
+[gd_scene load_steps=28 format=3 uid="uid://clwa387aosmjj"]
 
 [ext_resource type="PackedScene" uid="uid://br410pd2j3ik4" path="res://lib/dispersion_golem/meshes/dispersion_golem.glb" id="1_h1nq4"]
 [ext_resource type="Script" path="res://lib/dispersion_golem/meshes/dispersion_golem.gd" id="1_pnw82"]
@@ -6,6 +6,36 @@
 [ext_resource type="Animation" uid="uid://b0jpv84fy8s3d" path="res://lib/dispersion_golem/anims/spin.res" id="3_cmyoc"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="5_y5ca6"]
 [ext_resource type="PackedScene" uid="uid://coei6p1j430xq" path="res://lib/dispersion_golem/dg_spiral/dg_spiral.glb" id="6_oagss"]
+[ext_resource type="Texture2D" uid="uid://dj5h42y2y0xr0" path="res://lib/dispersion_golem/materials/textures/emote_1.png" id="7_q0pvq"]
+
+[sub_resource type="Curve" id="Curve_13u78"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.06875, 1), 0.0, 0.0, 0, 0, Vector2(0.51875, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_u53ao"]
+curve = SubResource("Curve_13u78")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6gtrh"]
+gravity = Vector3(0, 0.1, 0)
+alpha_curve = SubResource("CurveTexture_u53ao")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2ggs"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("7_q0pvq")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_8pu44"]
+material = SubResource("StandardMaterial3D_k2ggs")
+size = Vector2(0.35, 0.35)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3xshx"]
 _data = {
@@ -77,12 +107,83 @@ scale_max = 1.3
 color_initial_ramp = SubResource("GradientTexture1D_c0pjc")
 alpha_curve = SubResource("CurveTexture_1jepn")
 
+[sub_resource type="Animation" id="Animation_q5a2y"]
+resource_name = "rock_out"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.20944, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.16, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ux8s1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3d7x"]
+_data = {
+"RESET": SubResource("Animation_ux8s1"),
+"rock_out": SubResource("Animation_q5a2y")
+}
+
 [node name="DispersionGolem" type="Node3D"]
 transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0, 0, 0)
 script = ExtResource("1_pnw82")
 
 [node name="Model" parent="." instance=ExtResource("1_h1nq4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0438929, 0, -0.0715237)
+
+[node name="Emote" type="GPUParticles3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763121, 0)
+cast_shadow = 0
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_6gtrh")
+draw_pass_1 = SubResource("QuadMesh_8pu44")
 
 [node name="Tree" type="AnimationTree" parent="Model"]
 libraries = {
@@ -103,3 +204,8 @@ draw_pass_1 = ExtResource("5_y5ca6")
 
 [node name="Spiral" parent="." instance=ExtResource("6_oagss")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.040267, -1.1332, -0.0728757)
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b3d7x")
+}
