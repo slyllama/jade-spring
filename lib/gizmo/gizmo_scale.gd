@@ -73,6 +73,10 @@ func _ready() -> void:
 		
 		_d.ratio_changed.connect(func(ratio):
 			var _new_scale = clamp(fluid_scale + ratio * -0.1, 0.15, 2.5)
+			if _new_scale <= 0.15 or _new_scale >= 2.5:
+				_d.play_tick = false
+			else:
+				_d.play_tick = true
 			fluid_scale = _new_scale
 			var snapped_scale = snapped(fluid_scale, Global.SNAP_INCREMENT)
 			if Global.snapping:

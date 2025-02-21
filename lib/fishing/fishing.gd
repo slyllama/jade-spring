@@ -89,7 +89,6 @@ func switch_direction() -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if $BG/CenterMarker/TutorialPanel.visible and !has_started:
-			print("doing this")
 			_on_tutorial_done()
 
 func _ready() -> void:

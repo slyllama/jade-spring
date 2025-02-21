@@ -46,10 +46,11 @@ var STORY_POINT_SCRIPT = {
 
 const FILE_PATH = "user://save/save.dat"
 const DEFAULT_DATA = {
+	"v1.21a": true,
 	"story_point": "game_start",
 	"crumbs": [],
 	"crumb_count": {},
-	"weeds": 0, # weeds in inventory
+	"weeds": 0,
 	"deposited_weeds": 0,
 	"karma": 0,
 	"fishing_tutorial_played": false,

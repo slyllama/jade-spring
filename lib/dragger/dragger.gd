@@ -2,6 +2,7 @@ extends CanvasLayer
 enum Axis { X, Y }
 
 @export var axis: Axis = Axis.X
+@export var play_tick = true
 
 @onready var win = get_window().size
 @onready var initial_mouse_position = get_window().get_mouse_position()
@@ -48,7 +49,6 @@ func _ready() -> void:
 	$ArrowRoot/ArrowRight.material = _mat
 	$ArrowRoot/Mouse.material = _mat
 	
-	
 	var dissolve = create_tween()
 	dissolve.tween_method(_set_shader_val, 0.0, 1.0, 0.10)
 	
@@ -60,7 +60,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 var last_ratio = ratio
-
 var _accumulated_ratio = 0.0
 
 func _process(delta: float) -> void:
@@ -87,4 +86,5 @@ func _process(delta: float) -> void:
 	_accumulated_ratio += ratio
 	if _accumulated_ratio > 1.2 or _accumulated_ratio < - 1.2:
 		_accumulated_ratio = 0.0
-		$Tick.play()
+		if play_tick:
+			$Tick.play()
