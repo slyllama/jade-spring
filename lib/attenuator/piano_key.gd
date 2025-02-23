@@ -1,7 +1,10 @@
 extends HBoxContainer
 
 const HIGHLIGHT = Color("b13087")
+
 const FILL_TEX = preload("res://lib/attenuator/textures/pill_filled.png")
+const KEY_UP_TEX = preload("res://lib/attenuator/textures/piano_key.png")
+const KEY_DOWN_TEX = preload("res://lib/attenuator/textures/piano_key_press.png")
 
 var alpha = 0.0
 var pills: Array[TextureRect] = []
@@ -26,6 +29,8 @@ func _ready() -> void:
 		var _r: TextureRect = $Rect.duplicate()
 		add_child(_r)
 		pills.append(_r)
+	
+	$Rect.queue_free()
 
 func _on_button_down() -> void:
 	modulate = HIGHLIGHT
@@ -34,9 +39,16 @@ func _on_button_down() -> void:
 
 func _on_mouse_entered() -> void:
 	if Input.is_action_pressed("left_click"):
+		$Button.texture_normal = KEY_DOWN_TEX
 		modulate = HIGHLIGHT
 		$Note.play()
 		played.emit()
+
+func _on_button_mouse_exited() -> void:
+	$Button.texture_normal = KEY_UP_TEX
+
+func _on_button_button_up() -> void:
+	$Button.texture_normal = KEY_UP_TEX
 
 func _process(delta: float) -> void:
 	modulate = lerp(modulate, Color.WHITE, delta * 4.0)

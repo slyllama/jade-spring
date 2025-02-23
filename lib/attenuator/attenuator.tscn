@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=15 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://d070iet1hdc2c" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.tscn" id="3_dgqi3"]
 [ext_resource type="Material" uid="uid://wv0q1g0bmi10" path="res://lib/dragger/materials/mat_dissolve.tres" id="4_0j0el"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="6_an5xe"]
+[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="6_l431d"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="7_13bqe"]
 [ext_resource type="Texture2D" uid="uid://dyiv32pl2xda4" path="res://lib/attenuator/textures/glyph_container.png" id="8_4iiki"]
 [ext_resource type="Texture2D" uid="uid://cg6cuuo4brmnn" path="res://lib/attenuator/textures/marker.png" id="8_ftpwr"]
+[ext_resource type="AudioStream" uid="uid://bjdutdjfx2x1v" path="res://lib/ui_container/sounds/click.ogg" id="10_r8x0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwhmk"]
 bg_color = Color(0, 0, 0, 0.862745)
@@ -56,6 +58,29 @@ grow_vertical = 2
 texture = ExtResource("2_3yp7v")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Debug" type="RichTextLabel" parent="Base"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -914.0
+offset_top = 582.0
+offset_right = -310.0
+offset_bottom = 630.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/line_separation = -2
+theme_override_fonts/normal_font = ExtResource("6_l431d")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "((Debug))"
+autowrap_mode = 1
 
 [node name="Close" type="TextureButton" parent="Base"]
 use_parent_material = true
@@ -139,6 +164,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_ftpwr")
 
 [node name="TutorialPanel" type="Panel" parent="Base"]
+visible = false
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
@@ -193,5 +219,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_yfyfv")
 text = "((The Attenuator is a work in progress and currently doesn't do anything. (You can play around with the keys, though.) You'll be given a Charged Dispersion Flux if you are holding an uncharged one.))"
 fit_content = true
 scroll_active = false
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_r8x0m")
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]
