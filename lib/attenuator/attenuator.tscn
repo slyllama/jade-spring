@@ -119,7 +119,7 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="ControlContainer" type="VBoxContainer" parent="Base"]
-material = ExtResource("4_0j0el")
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,33 +129,51 @@ anchor_bottom = 0.5
 offset_left = 308.0
 offset_top = -206.0
 offset_right = 430.0
-offset_bottom = 223.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 6
 
 [node name="GlyphContainer" type="TextureRect" parent="Base/ControlContainer"]
-custom_minimum_size = Vector2(0, 200)
+use_parent_material = true
+custom_minimum_size = Vector2(0, 116)
 layout_mode = 2
 texture = ExtResource("8_4iiki")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="Base/ControlContainer/GlyphContainer"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -4.0
-offset_right = 20.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "BUTTON"
+[node name="DragonTitle" type="RichTextLabel" parent="Base/ControlContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]((Elder Dragon))[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Previous" type="Button" parent="Base/ControlContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "((Previous))"
+
+[node name="Next" type="Button" parent="Base/ControlContainer"]
+use_parent_material = true
+layout_mode = 2
+focus_mode = 0
+text = "((Next))"
+
+[node name="Close" type="Button" parent="Base/ControlContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 10
+focus_mode = 0
+text = "((Close))"
+
+[node name="Reset" type="Button" parent="Base/ControlContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+text = "((Reset))"
 
 [node name="Marker" type="Sprite2D" parent="Base"]
 use_parent_material = true
@@ -224,3 +242,7 @@ scroll_active = false
 stream = ExtResource("10_r8x0m")
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]
+[connection signal="button_down" from="Base/ControlContainer/Previous" to="." method="_on_previous_button_down"]
+[connection signal="button_down" from="Base/ControlContainer/Next" to="." method="_on_next_button_down"]
+[connection signal="button_down" from="Base/ControlContainer/Close" to="." method="_on_close_button_down"]
+[connection signal="button_down" from="Base/ControlContainer/Reset" to="." method="_on_reset_button_down"]

@@ -995,10 +995,10 @@ omni_attenuation = 0.0
 [node name="Bees" type="AudioStreamPlayer3D" parent="Decoration/PlatformInner/Waypoint" index="22"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.838457, 0)
 stream = ExtResource("43_f8dlm")
-max_db = 0.0
+max_db = -4.0
 pitch_scale = 1.1
 autoplay = true
-max_distance = 3.7
+max_distance = 2.4
 attenuation_filter_cutoff_hz = 10000.0
 
 [node name="PlatformOuter" parent="Decoration/PlatformInner" index="4" instance=ExtResource("8_alpya")]

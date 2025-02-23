@@ -16,6 +16,14 @@ signal played
 		pitch = _val
 		$Note.pitch_scale = pitch
 
+@export var id = -1 # to be replaced with array ID
+
+func set_pills_size(pills_size: int) -> void:
+	for _i in pills_size:
+		var _r: TextureRect = $Rect.duplicate()
+		add_child(_r)
+		pills.append(_r)
+
 func assign_track(notes: Array) -> void:
 	for note in notes:
 		if int(note) < pills.size():
@@ -24,12 +32,6 @@ func assign_track(notes: Array) -> void:
 
 func _ready() -> void:
 	modulate = Color("b13087")
-	
-	for _i in 9:
-		var _r: TextureRect = $Rect.duplicate()
-		add_child(_r)
-		pills.append(_r)
-	
 	$Rect.queue_free()
 
 func _on_button_down() -> void:
@@ -38,6 +40,7 @@ func _on_button_down() -> void:
 	played.emit()
 
 func _on_mouse_entered() -> void:
+	modulate.a = 1.4
 	if Input.is_action_pressed("left_click"):
 		$Button.texture_normal = KEY_DOWN_TEX
 		modulate = HIGHLIGHT
