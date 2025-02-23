@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 	if !in_range: return
 	
 	var _b = 0
-	time += 0.03
+	time += 0.1
 	if time > BEAT:
 		while time > BEAT:
 			time -= BEAT
