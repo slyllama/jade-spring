@@ -6,6 +6,7 @@ const BugSwarm = preload("res://lib/crumb/bug_swarm.tscn")
 const Weed = preload("res://lib/crumb/weed.tscn")
 const Dragonvoid = preload("res://lib/crumb/dragonvoid.tscn")
 const Nettles = preload("res://lib/crumb/weed/nettles.glb")
+const DRAGONS = ["kralkatorrik", "soo_won", "primordus", "jormag", "zhaitan", "mordremoth"]
 
 var totals = {}
 var RNG = RandomNumberGenerator.new()
@@ -82,3 +83,17 @@ func _ready() -> void:
 		for _i in 2: await get_tree().process_frame
 		update_crumb_count()
 		save_crumbs())
+	
+	await get_tree().process_frame
+	# Assign Elder Dragons to Dragonvoid
+	var _dragons_shuffle = DRAGONS.duplicate()
+	_dragons_shuffle.shuffle()
+	for _n: Crumb in get_children():
+		#if !_n is Crumb: continue
+		print(_n.type)
+		if _n.type == "dragonvoid":
+			_n.custom_data = _dragons_shuffle[0]
+			_dragons_shuffle.remove_at(0)
+			if _dragons_shuffle.size() == 0:
+				_dragons_shuffle = DRAGONS.duplicate()
+			print(_n.custom_data)

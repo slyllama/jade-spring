@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cknccdf2rvyk8"]
+[gd_scene load_steps=18 format=3 uid="uid://cknccdf2rvyk8"]
 
 [ext_resource type="Script" path="res://lib/crumb/dragonvoid.gd" id="1_xg3mb"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="2_xs588"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="4_05r8m"]
 [ext_resource type="Texture2D" uid="uid://bdl3ocb44powe" path="res://lib/hud/screen_effects/textures/splatter_mask.jpg" id="5_1sw7g"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="6_hdk5x"]
+[ext_resource type="Texture2D" uid="uid://b1cawde2nbycs" path="res://generic/textures/collection_icon.png" id="8_l0y0y"]
 
 [sub_resource type="Curve" id="Curve_mmsoi"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
@@ -101,8 +102,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CylinderMesh_3fip3")
 
 [node name="SpatialText" parent="." instance=ExtResource("6_hdk5x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 2.91916, 0)
+aabb = AABB(-0.2, -0.311328, -0.2, 0.4, 0.4, 0.4)
 spatial_string = "Dragonvoid"
-color = "yellow"
+override_settings = true
+
+[node name="Title" parent="SpatialText/FG" index="1"]
+clip_contents = false
+
+[node name="CollectionIcon" type="TextureRect" parent="SpatialText/FG/Title" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -80.0
+offset_right = 29.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_l0y0y")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="interacted" from="." to="." method="interact"]
+
+[editable path="SpatialText"]

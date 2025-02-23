@@ -262,9 +262,9 @@ const DecoData = {
 		"scene": "res://decorations/charr_loudspeaker/charr_loudspeaker.tscn",
 		"cursor_model": "res://decorations/charr_loudspeaker/charr_loudspeaker.glb",
 		"y_rotation": -90,
-		"preview_scale": 0.9,
-		"preview_y_rotation": 215,
-		"preview_v_offset": 0.1,
+		"preview_scale": 1.2,
+		"preview_y_rotation": 250,
+		"preview_v_offset": 0.5,
 		"tags": [ ],
 		"unlock_value": 30
 	},

@@ -15,6 +15,7 @@ var settings_visibility = true # are the labels enabled in settins?
 		spatial_string = _val
 		_set_title(_val)
 @export var color = "white"
+@export var override_settings = false
 
 func _set_title(title: String) -> void:
 	$FG/Title.text = "[center][color=" + color + "]" + title + "[/color][/center]"
@@ -35,6 +36,10 @@ func _settings_toggle_visibility() -> void:
 	elif _value == "hide":
 		settings_visibility = false
 		$FG.visible = false
+	
+	if override_settings: # always show no matter what
+		settings_visibility = true
+		$FG.visible = true
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_hud"):
