@@ -42,11 +42,12 @@ func _set_paint_exponent(val: float) -> void:
 func present_glyph() -> void: # present a glyph based on the current Elder Dragon
 	for _n in glyph_box.get_children():
 		_n.queue_free()
+	
 	var glyph_sprite = Sprite2D.new()
 	glyph_sprite.modulate.a = 0.0
 	glyph_sprite.use_parent_material = true
 	glyph_sprite.texture = load(
-		"res://generic/textures/stickers/sticker_placeholder.png")
+		"res://lib/attenuator/textures/glyphs/" + current_dragon + ".png")
 	glyph_box.add_child(glyph_sprite)
 	
 	var _g_fade_tween = create_tween()
@@ -57,14 +58,10 @@ func present_glyph() -> void: # present a glyph based on the current Elder Drago
 
 func _set_prev_next_keys() -> void:
 	var current_index = TUNES_ORDER.find(current_dragon, 0)
-	if current_index >= TUNES_ORDER.size() - 1:
-		$Base/ControlContainer/Next.disabled = true
-	else:
-		$Base/ControlContainer/Next.disabled = false
-	if current_index - 1 < 0:
-		$Base/ControlContainer/Previous.disabled = true
-	else:
-		$Base/ControlContainer/Previous.disabled = false
+	if current_index >= TUNES_ORDER.size() - 1: $Base/ControlContainer/Next.disabled = true
+	else: $Base/ControlContainer/Next.disabled = false
+	if current_index - 1 < 0: $Base/ControlContainer/Previous.disabled = true
+	else: $Base/ControlContainer/Previous.disabled = false
 
 func select_dragon(forward = true) -> void:
 	var current_index = TUNES_ORDER.find(current_dragon, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=98 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -65,6 +65,8 @@
 [ext_resource type="PackedScene" uid="uid://qw6dxj43jndf" path="res://decorations/rocks/deco_pancake_rocks.tscn" id="54_iuxex"]
 [ext_resource type="AudioStream" uid="uid://d1gwlg80yr26a" path="res://maps/seitung/sounds/mus_lyllian.ogg" id="56_oq8ka"]
 [ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="59_gjbjt"]
+[ext_resource type="AudioStream" uid="uid://cqa8swypim218" path="res://maps/seitung/sounds/mus_phantom.ogg" id="61_vie7w"]
+[ext_resource type="AudioStream" uid="uid://ded3ghoqlnt7g" path="res://maps/seitung/sounds/mus_winds.ogg" id="62_2xddo"]
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="64_xbvsq"]
 [ext_resource type="PackedScene" uid="uid://kt2evf8a1gsv" path="res://lib/rock_out/rock_out.tscn" id="67_tdy4a"]
 
@@ -1121,7 +1123,7 @@ draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)
 
 [node name="Jukebox" parent="." index="9"]
-track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("28_wohrl"), ExtResource("56_oq8ka")])
+track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("28_wohrl"), ExtResource("56_oq8ka"), ExtResource("61_vie7w"), ExtResource("62_2xddo")])
 
 [node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0"]
 stream = ExtResource("59_gjbjt")
