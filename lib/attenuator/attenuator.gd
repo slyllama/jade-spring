@@ -32,6 +32,9 @@ var passing = true
 
 @onready var glyph_box: TextureRect = $Base/ControlContainer/GlyphContainer
 
+func _set_ee_paint_exponent(val: float) -> void:
+	$Base/EEUpper.material.set_shader_parameter("dissolve_value", val)
+
 func _set_paint_exponent(val: float) -> void:
 	$Base.material.set_shader_parameter("paint_exponent", val)
 	$Base/KeyContainer.material.set_shader_parameter("paint_exponent", val)
@@ -93,19 +96,28 @@ func render() -> void:
 		var _n = PianoKey.instantiate()
 		_n.pitch = 1.0 + _i.float * (1.0 / 8.0)
 		_n.id = _d
+		_n.note_name = KEY_INDICES[_d]
 		_n.modulate = _i.color
 		_n.played.connect(func():
 			var played_note = KEY_INDICES[_n.id]
 			var correct_note = TUNES[current_dragon][place]
-			if played_note != correct_note: passing = false
+			if played_note != correct_note:
+				if passing:
+					$Disabled.play()
+					var ee_fade_tween = create_tween()
+					ee_fade_tween.tween_method(_set_ee_paint_exponent, 1.0, 0.0, 0.3)
+				passing = false
 			
 			if place < TUNES[current_dragon].size() - 1 and passing:
 				place += 1
 				_adv_blank_place()
 				$Click.play()
 			else:
-				if place == TUNES[current_dragon].size() - 1:
-					Global.announcement_sent.emit("((Attenuator success))")
+				if place == TUNES[current_dragon].size() - 1 and passing:
+					$Success.play()
+					$Dragon.reveal()
+					await get_tree().create_timer(0.5).timeout
+					render()
 		)
 		$Base/KeyContainer.add_child(_n)
 		_n.set_pills_size(TUNES[current_dragon].size())
@@ -118,10 +130,14 @@ func render() -> void:
 			$Base/KeyContainer.get_children()[_key_index].assign_track([_c])
 		_c += 1
 	
-	passing = true
+	if !passing:
+		passing = true
+		var ee_fade_tween = create_tween()
+		ee_fade_tween.tween_method(_set_ee_paint_exponent, 0.0, 1.0, 0.3)
 	target_track = $Base/KeyContainer.get_children()[0]
 	
 	for _n in $Base/KeyContainer.get_children():
+		if !is_instance_valid(_n): continue
 		if "alpha" in _n:
 			_n.alpha = 1.0
 		await get_tree().create_timer(0.03).timeout
@@ -137,6 +153,8 @@ func close() -> void:
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_exponent, 0.0, 10.0, 0.2)
+	var ee_fade_tween = create_tween()
+	ee_fade_tween.tween_method(_set_ee_paint_exponent, 1.0, 0.0, 0.3)
 	$DispulsionFX.anim_out()
 	await $DispulsionFX.anim_out_complete
 	
@@ -164,6 +182,8 @@ func _ready() -> void:
 	$DispulsionFX.anim_in()
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_exponent, 10.0, 0.0, 0.3)
+	var ee_fade_tween = create_tween()
+	ee_fade_tween.tween_method(_set_ee_paint_exponent, 0.0, 1.0, 0.3)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -177,6 +197,9 @@ func _on_close_button_down() -> void:
 func _process(delta: float) -> void:
 	$DispulsionFX.position.x = $Base.position.x + $Base.size.x / 2.0
 	$DispulsionFX.position.y = $Base.position.y + 140.0
+	
+	$Dragon.position.x = $Base.position.x + $Base.size.x / 2.0
+	$Dragon.position.y = $Base.position.y + $Base.size.y / 2.0
 	
 	for _n in glyph_box.get_children():
 		_n.position.x = glyph_box.size.x / 2.0
@@ -192,10 +215,13 @@ func _process(delta: float) -> void:
 		+ "\npassing = " + str(passing))
 
 func _on_reset_button_down() -> void:
+	Global.click_sound.emit()
 	render()
 
 func _on_next_button_down() -> void:
+	Global.click_sound.emit()
 	select_dragon()
 
 func _on_previous_button_down() -> void:
+	Global.click_sound.emit()
 	select_dragon(false)

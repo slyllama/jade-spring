@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=27 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -13,6 +13,11 @@
 [ext_resource type="AudioStream" uid="uid://bjdutdjfx2x1v" path="res://lib/ui_container/sounds/click.ogg" id="10_r8x0m"]
 [ext_resource type="Texture2D" uid="uid://c6bptaa3p8mka" path="res://lib/attenuator/textures/energy_effects.png" id="12_a26c3"]
 [ext_resource type="Shader" path="res://lib/attenuator/materials/shaders/shader_energy_wobble.gdshader" id="12_tj5i4"]
+[ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="13_dfsye"]
+[ext_resource type="Texture2D" uid="uid://cknjydpsd20w8" path="res://lib/attenuator/textures/dragon.png" id="13_oio82"]
+[ext_resource type="AudioStream" uid="uid://comrowg2td5v1" path="res://generic/sounds/disabled.ogg" id="14_e0ud8"]
+[ext_resource type="Script" path="res://lib/attenuator/dragon_indicator.gd" id="15_k3slj"]
+[ext_resource type="AudioStream" uid="uid://p27he2puiuwj" path="res://lib/attenuator/sounds/attenuator_success.ogg" id="15_vld85"]
 
 [sub_resource type="Gradient" id="Gradient_cvck5"]
 
@@ -25,6 +30,10 @@ noise = SubResource("FastNoiseLite_f2x6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eisi1"]
 shader = ExtResource("12_tj5i4")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/wobble_scale = 0.45
+shader_parameter/strength = 0.4
+shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/noise = SubResource("NoiseTexture2D_pyaki")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwhmk"]
@@ -38,6 +47,14 @@ border_blend = true
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tm6r3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfyfv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ti8g"]
+shader = ExtResource("12_tj5i4")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/wobble_scale = 0.1
+shader_parameter/strength = 0.03
+shader_parameter/color = Color(0.333301, 0.703581, 0.515647, 1)
+shader_parameter/noise = ExtResource("13_dfsye")
 
 [node name="Attenuator" type="CanvasLayer"]
 script = ExtResource("1_3up0s")
@@ -294,8 +311,21 @@ text = "((The Attenuator is a work in progress and currently doesn't do anything
 fit_content = true
 scroll_active = false
 
+[node name="Dragon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2ti8g")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_oio82")
+script = ExtResource("15_k3slj")
+
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_r8x0m")
+
+[node name="Disabled" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_e0ud8")
+
+[node name="Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_vld85")
+volume_db = -3.0
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/Previous" to="." method="_on_previous_button_down"]

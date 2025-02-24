@@ -16,6 +16,7 @@ signal played
 		pitch = _val
 		$Note.pitch_scale = pitch
 
+@export var note_name = "_"
 @export var id = -1 # to be replaced with array ID
 
 func set_pills_size(pills_size: int) -> void:
@@ -32,6 +33,7 @@ func assign_track(notes: Array) -> void:
 
 func _ready() -> void:
 	modulate = Color("b13087")
+	$NoteIdent.texture = load("res://lib/attenuator/textures/notes/note_" + note_name[0] + ".png")
 	$Rect.queue_free()
 
 func _on_button_down() -> void:
@@ -40,7 +42,8 @@ func _on_button_down() -> void:
 	played.emit()
 
 func _on_mouse_entered() -> void:
-	modulate.a = 1.4
+	modulate.a = 2.0
+	$Button.self_modulate = Color.DARK_SLATE_GRAY
 	if Input.is_action_pressed("left_click"):
 		$Button.texture_normal = KEY_DOWN_TEX
 		modulate = HIGHLIGHT
@@ -48,6 +51,7 @@ func _on_mouse_entered() -> void:
 		played.emit()
 
 func _on_button_mouse_exited() -> void:
+	$Button.self_modulate = Color.WHITE
 	$Button.texture_normal = KEY_UP_TEX
 
 func _on_button_button_up() -> void:
