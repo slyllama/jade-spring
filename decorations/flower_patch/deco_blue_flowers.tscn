@@ -10,6 +10,7 @@ size = Vector3(3.3877, 0.384399, 3.22461)
 script = ExtResource("1_qglbc")
 id = "blue_flowers"
 collision_box = NodePath("Body")
+disable_culling = true
 
 [node name="BlueFlowers" parent="." instance=ExtResource("2_34ono")]
 

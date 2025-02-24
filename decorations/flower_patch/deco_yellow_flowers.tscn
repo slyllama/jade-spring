@@ -10,6 +10,7 @@ size = Vector3(3.3877, 0.384399, 3.22461)
 script = ExtResource("1_g1okj")
 id = "yellow_flowers"
 collision_box = NodePath("Body")
+disable_culling = true
 
 [node name="YellowFlowers" parent="." instance=ExtResource("2_ub2q1")]
 

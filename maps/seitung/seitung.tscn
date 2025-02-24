@@ -419,7 +419,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9236, 2.1705, -0.139159)
 custom_lod = null
 
 [node name="WeepingWillow2" parent="DecoHandler" index="26" instance=ExtResource("10_gcd6s")]
-transform = Transform3D(1.07234, 0.647383, -0.347814, -0.725735, 1.02973, -0.320889, 0.115704, 0.458865, 1.21081, -7.87373, -0.236968, -11.6737)
+transform = Transform3D(1.31981, 0.796781, -0.428079, -0.893215, 1.26736, -0.394939, 0.142405, 0.564756, 1.49023, -7.87373, -0.236968, -11.6737)
 custom_lod = null
 
 [node name="DecoBuildingPlatform" parent="DecoHandler" index="27" instance=ExtResource("11_e4s8j")]
@@ -854,6 +854,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, -1.47149)
 
 [node name="RoofPavilion4" parent="DecoHandler" index="137" instance=ExtResource("39_anqa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, 3.89267)
+
+[node name="DecoIndoorLamp3" parent="DecoHandler" index="138" instance=ExtResource("29_32tvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39738, 3.47498, -3.30966)
 
 [node name="PancakeRocks" parent="Decoration" index="0" instance=ExtResource("38_rijwn")]
 transform = Transform3D(1.98271, 0.196091, 0.174417, 0, 1.32921, -1.49439, -0.262437, 1.48147, 1.31772, -8.55051, 2.60614, -13.8208)

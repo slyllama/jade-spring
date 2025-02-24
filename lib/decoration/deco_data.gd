@@ -69,8 +69,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"preview_scale": 1.0,
 		"tags": ["Foliage"],
-		"show_floor": true,
-		"cull": "AGGRESSIVE"
+		"show_floor": true
 	},
 	"yellow_flowers": {
 		"name": "Yellow Flowers",
@@ -78,8 +77,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/yellow_flowers.tscn",
 		"preview_scale": 1.0,
 		"tags": ["Foliage"],
-		"show_floor": true,
-		"cull": "AGGRESSIVE"
+		"show_floor": true
 	},
 	"blue_flowers": {
 		"name": "Blue Flowers",
@@ -87,8 +85,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/blue_flowers.tscn",
 		"preview_scale": 1.0,
 		"tags": ["Foliage"],
-		"show_floor": true,
-		"cull": "AGGRESSIVE"
+		"show_floor": true
 	},
 	"lush_grass": {
 		"name": "Lush Grass",
