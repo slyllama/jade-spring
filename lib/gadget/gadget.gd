@@ -26,13 +26,16 @@ var in_range = false
 		show_area = _val
 		$VisualArea.visible = show_area
 
+func _set_tint_color(_val) -> void:
+	var _mat = $VisualArea.get_active_material(0).duplicate()
+	$VisualArea.set_surface_override_material(0, _mat)
+	_mat.set_shader_parameter("color", _val)
+
 @export var tint_color = Color("ff7b00"):
 	get: return(tint_color)
 	set(_val):
-		var _mat = $VisualArea.get_active_material(0).duplicate()
-		$VisualArea.set_surface_override_material(0, _mat)
 		tint_color = _val
-		_mat.set_shader_parameter("color", _val)
+		_set_tint_color(_val)
 
 func spawn_dialogue(data: Dictionary, advance = false) -> void:
 	var _d = Dialogue.instantiate()
@@ -43,6 +46,19 @@ func spawn_dialogue(data: Dictionary, advance = false) -> void:
 		if advance:
 			Save.advance_story())
 	_d.open()
+
+func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	var _unique_mesh = $VisualArea.mesh.duplicate(true)
+	var _unique_collision = $Collision.shape.duplicate(true)
+	
+	$VisualArea.mesh = _unique_mesh
+	$Collision.shape = _unique_collision
+	
+	$Collision.shape.radius = radius
+	$VisualArea.mesh.top_radius = radius
+	$VisualArea.mesh.bottom_radius = radius
+	_set_tint_color(tint_color)
 
 func _input(_event: InputEvent) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE: return

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckk5clionshof"]
+[gd_scene load_steps=10 format=3 uid="uid://ckk5clionshof"]
 
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_02rig"]
 [ext_resource type="Script" path="res://lib/charging_station/charging_station.gd" id="2_0owda"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_mnhgl"]
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="3_pmmu2"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_7ig55"]
+[ext_resource type="PackedScene" uid="uid://cvekevn35bs0" path="res://lib/charging_station/meshes/jade_turret.glb" id="5_hljxm"]
+[ext_resource type="ArrayMesh" uid="uid://7ii5d18xkdex" path="res://decorations/charr_loudspeaker/charr_loudspeaker_Cylinder_002.res" id="7_0px5r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4f2fh"]
 albedo_color = Color(0.5, 0.5, 0.5, 1)
@@ -21,15 +23,25 @@ script = ExtResource("2_0owda")
 radius = 1.0
 show_area = true
 
+[node name="Collision" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
+
 [node name="VisualArea" parent="." index="1"]
-visible = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.5)
 
 [node name="Placeholder" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)
+visible = false
 mesh = SubResource("BoxMesh_c0xru")
 
-[node name="SpatialText" parent="Placeholder" index="0" instance=ExtResource("4_7ig55")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+[node name="JadeTurret" parent="." index="3" instance=ExtResource("5_hljxm")]
+
+[node name="SpatialText" parent="JadeTurret" index="7" instance=ExtResource("4_7ig55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -0.25)
 spatial_string = "Makeshift Attunement Gadget"
+
+[node name="Loudspeaker" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55061, 0.396282)
+mesh = ExtResource("7_0px5r")
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dnki42dnr6rim"]
+
+[ext_resource type="Texture2D" uid="uid://pqqy3kbvniis" path="res://lib/charging_station/materials/textures/leg_armour_diff.jpg" id="1_2q2sr"]
+[ext_resource type="Texture2D" uid="uid://nsvy2f0b3qoa" path="res://lib/charging_station/materials/textures/leg_armour_norm.jpg" id="2_3hle4"]
+
+[resource]
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("1_2q2sr")
+metallic = 0.5
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_3hle4")

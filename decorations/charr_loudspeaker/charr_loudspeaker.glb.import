@@ -46,6 +46,17 @@ _subresources={
 "use_external/path": "res://decorations/charr_loudspeaker/materials/mat_woofer.tres"
 }
 },
+"meshes": {
+"charr_loudspeaker_Cylinder_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://decorations/charr_loudspeaker/charr_loudspeaker_Cylinder_002.res"
+}
+},
 "nodes": {
 "PATH:Cylinder": {
 "mesh_instance/layers": 513

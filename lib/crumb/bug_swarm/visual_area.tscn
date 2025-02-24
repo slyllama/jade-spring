@@ -14,9 +14,12 @@ fill_to = Vector2(0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bcdkn"]
 render_priority = 2
 shader = ExtResource("1_0crl3")
-shader_parameter/uv_scale = 3.7
-shader_parameter/exponent = 3.6
+shader_parameter/color = null
+shader_parameter/uv_scale = Vector2(3.6, 3.6)
+shader_parameter/exponent = 2.0
 shader_parameter/time_scale = 0.07
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
 shader_parameter/mask_texture = ExtResource("2_qx0md")
 shader_parameter/vertical_mask = SubResource("GradientTexture2D_e28v7")
 

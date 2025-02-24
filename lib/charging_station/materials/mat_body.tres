@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dpxjjql4rljo"]
+
+[ext_resource type="Texture2D" uid="uid://dxvtynd70nytq" path="res://lib/charging_station/materials/textures/body_diff.jpg" id="1_tsbvd"]
+[ext_resource type="Texture2D" uid="uid://xoipx63csxdc" path="res://lib/charging_station/materials/textures/body_norm.jpg" id="2_0y6k7"]
+
+[resource]
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("1_tsbvd")
+metallic = 0.5
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_0y6k7")

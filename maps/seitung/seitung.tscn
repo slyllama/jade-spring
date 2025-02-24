@@ -1205,7 +1205,7 @@ transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.087737
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
 
 [node name="ChargingStation" parent="." index="16" instance=ExtResource("64_xbvsq")]
-transform = Transform3D(0.360794, 0, 0.932646, 0, 1, 0, -0.932646, 0, 0.360794, -8.61712, 0.194917, 1.08514)
+transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494, -8.40679, 0.276039, 0.582495)
 
 [node name="RockOut" parent="." index="17" instance=ExtResource("67_tdy4a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7995, 2.74313, 4.2636)

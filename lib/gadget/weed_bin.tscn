@@ -84,8 +84,7 @@ script = ExtResource("1_ruw2u")
 [node name="WeedBin" parent="." instance=ExtResource("1_o4ibe")]
 
 [node name="Collision" parent="." instance=ExtResource("2_ybvcv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
-radius = 0.8
+radius = 1.7
 show_area = true
 tint_color = Color(1, 0.481567, 0.0597604, 1)
 
