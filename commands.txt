@@ -21,3 +21,6 @@
 /printsettings	Print user settings
 /speedratio=X	Set the player's speed to ratio X of its base speed
 /storypanel		Debug the story panel
+
+/enableattn		Enable Attenuator (good for if story hasn't spawned it yet)
+/disableattn	Disable Attenuator

@@ -18,6 +18,7 @@ func _ready() -> void:
 	Global.announcement_sent.connect(play)
 
 func _on_timer_timeout() -> void:
+	
 	active = false
 	var fade_out = create_tween()
 	fade_out.tween_property(self, "modulate:a", 0.0, 0.4)

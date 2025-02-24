@@ -3,6 +3,30 @@ extends "res://lib/gadget/gadget.gd"
 const AttenuatorUI = preload("res://lib/attenuator/attenuator.tscn")
 var in_ui = false
 
+func proc_story() -> void:
+	var _sp = Save.data.story_point
+	if _sp  == "clear_dv":
+		visible = true
+		active = true
+	else:
+		visible = false
+		active = false
+
+func _ready() -> void:
+	super()
+	Save.story_advanced.connect(proc_story)
+	proc_story()
+	
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/enableattn":
+			visible = true
+			active = true
+		elif _cmd == "/disableattn":
+			visible = false
+			active = false
+			if in_range:
+				Global.generic_area_left.emit())
+
 func _on_interacted() -> void:
 	if in_ui: return # don't open multiple
 	else: in_ui = true
