@@ -48,6 +48,8 @@ func present_glyph() -> void: # present a glyph based on the current Elder Drago
 	glyph_sprite.use_parent_material = true
 	glyph_sprite.texture = load(
 		"res://lib/attenuator/textures/glyphs/" + current_dragon + ".png")
+	$Dragon/Rune.texture = load( # TODO: streamline this
+		"res://lib/attenuator/textures/glyphs/" + current_dragon + ".png")
 	glyph_box.add_child(glyph_sprite)
 	
 	var _g_fade_tween = create_tween()

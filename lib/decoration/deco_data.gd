@@ -149,6 +149,24 @@ const DecoData = {
 		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
 	},
+	"kaineng_cobble_floor": {
+		"name": "Kaineng Cobble Floor",
+		"scene": "res://decorations/kaineng_cobble_floor/kaineng_cobble_floor.tscn",
+		"cursor_model": "res://decorations/kaineng_cobble_floor/kaineng_cobble_floor.glb",
+		"preview_scale": 0.34,
+		"preview_y_rotation": 35,
+		"preview_v_offset": 0.3,
+		"tags": ["Architecture"]
+	},
+	"kaineng_cobble_stairs": {
+		"name": "Kaineng Cobble Stairs",
+		"scene": "res://decorations/kaineng_cobble_floor/kaineng_cobble_stairs.tscn",
+		"cursor_model": "res://decorations/kaineng_cobble_floor/kaineng_cobble_stairs.glb",
+		"preview_scale": 0.45,
+		"preview_y_rotation": 35,
+		"preview_v_offset": 0.3,
+		"tags": ["Architecture"]
+	},
 	"roof_pavilion": {
 		"name": "Roof Pavilion",
 		"scene": "res://decorations/roof_pavilion/roof_pavilion.tscn",

@@ -1,0 +1,52 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ba3m7l27rxsvc"
+path="res://.godot/imported/kaineng_cobble_floor.glb-8fe9382177f3bfdba2e4c03458a8dd35.scn"
+
+[deps]
+
+source_file="res://decorations/kaineng_cobble_floor/kaineng_cobble_floor.glb"
+dest_files=["res://.godot/imported/kaineng_cobble_floor.glb-8fe9382177f3bfdba2e4c03458a8dd35.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name="KainengCobbleFloor"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"mat_kaineng_cobble": {
+"use_external/enabled": true,
+"use_external/path": "res://maps/seitung/materials/mat_kaineng_cobble.tres"
+},
+"mat_rock": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/fountain/materials/mat_rocks.tres"
+}
+},
+"nodes": {
+"PATH:Floor": {
+"mesh_instance/layers": 3
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
