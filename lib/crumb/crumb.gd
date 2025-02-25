@@ -14,6 +14,11 @@ var cursor_in_crumb = false
 signal cleared
 signal interacted
 
+func process_custom_data() -> void:
+	pass
+	# This is called by the CrumbHandler once it has loaded everything, so you
+	# can guarantee that custom data exists at this point.
+
 func clear() -> void:
 	Global.spawn_karma.emit(karma_value, global_position)
 	

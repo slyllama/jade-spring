@@ -8,6 +8,11 @@ func clear() -> void:
 	Global.bug_crumb_left.emit()
 	super()
 
+func process_custom_data() -> void:
+	super()
+	$SpatialText/FG/Title/CollectionIcon.texture = load(
+		"res://lib/hud/fx_list/textures/fx_d_" + custom_data + ".png")
+
 func _ready() -> void:
 	super()
 	$DragonvoidArc/AnimationPlayer.play("Wobble")

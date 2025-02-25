@@ -95,3 +95,4 @@ func _ready() -> void:
 			_dragons_shuffle.remove_at(0)
 			if _dragons_shuffle.size() == 0:
 				_dragons_shuffle = DRAGONS.duplicate()
+		_n.process_custom_data()
