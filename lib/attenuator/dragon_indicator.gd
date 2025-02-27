@@ -4,7 +4,12 @@ func _set_paint_value(val: float) -> void:
 	val = ease(val, -0.5)
 	material.set_shader_parameter("dissolve_value", val)
 
-func reveal() -> void:
+func _set_color(color: Color) -> void:
+	material.set_shader_parameter("color", color)
+
+func reveal(current_dragon: String) -> void:
+	_set_color(Utilities.DRAGON_DATA[current_dragon].color)
+	
 	scale = Vector2(0.8, 0.8)
 	var scale_tween = create_tween()
 	scale_tween.tween_property(

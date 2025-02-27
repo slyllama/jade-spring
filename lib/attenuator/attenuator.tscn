@@ -54,7 +54,7 @@ shader = ExtResource("12_tj5i4")
 shader_parameter/dissolve_value = 1.0
 shader_parameter/wobble_scale = 0.1
 shader_parameter/strength = 0.03
-shader_parameter/color = Color(0.333301, 0.703581, 0.515647, 1)
+shader_parameter/color = Color(0.75, 0.75, 0.75, 1)
 shader_parameter/noise = ExtResource("13_dfsye")
 
 [node name="Attenuator" type="CanvasLayer"]

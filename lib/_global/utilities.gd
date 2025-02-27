@@ -7,6 +7,33 @@ const TICK = "[char=0x00002713]"
 const BIGNUM = -9999
 const BIGVEC3 = Vector3(BIGNUM, BIGNUM, BIGNUM)
 
+const DRAGON_DATA = {
+	"jormag": {
+		"name": "Jormag",
+		"color": Color("90d6d0")
+	},
+	"kralkatorrik": {
+		"name": "Kralkatorrik",
+		"color": Color("dc6cb5")
+	},
+	"mordremoth": {
+		"name": "Mordremoth",
+		"color": Color("85ab37")
+	},
+	"primordus": {
+		"name": "Primordus",
+		"color": Color("e9694c")
+	},
+	"soo_won": {
+		"name": "Soo-Won",
+		"color": Color("4da3bf")
+	},
+	"zhaitan": {
+		"name": "Zhaitan",
+		"color": Color("57375c")
+	}
+}
+
 func get_time() -> String:
 	var time = Time.get_time_dict_from_system()
 	return("%02d:%02d:%02d" % [time.hour, time.minute, time.second])

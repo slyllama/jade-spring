@@ -85,6 +85,7 @@ func _ready() -> void:
 		save_crumbs())
 	
 	await get_tree().process_frame
+	
 	# Assign Elder Dragons to Dragonvoid
 	var _dragons_shuffle = DRAGONS.duplicate()
 	_dragons_shuffle.shuffle()

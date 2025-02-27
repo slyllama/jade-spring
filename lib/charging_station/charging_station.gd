@@ -29,12 +29,14 @@ func _ready() -> void:
 
 func _on_interacted() -> void:
 	if in_ui: return # don't open multiple
-	else: in_ui = true
 	
-	if "discombobulator" in Global.current_effects:
-		Global.remove_effect.emit("discombobulator")
-		Global.add_effect.emit("dv_charge")
+	if !"discombobulator" in Global.current_effects:
+		Global.announcement_sent.emit("((Charge needed.))")
+		return
 	
+	Global.remove_effect.emit("discombobulator")
+	
+	in_ui = true
 	var _ui = AttenuatorUI.instantiate()
 	Global.hud.add_child(_ui)
 	_ui.closed.connect(func():

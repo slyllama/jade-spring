@@ -49,7 +49,7 @@ anchor_bottom = 1.0
 offset_top = -64.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 1
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Skill1" parent="Box" instance=ExtResource("2_xy11a")]

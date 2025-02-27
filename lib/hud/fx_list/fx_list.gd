@@ -28,9 +28,39 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"title": "Picked Weed",
 		"description": "These belong in the compost bin!"
 	},
-	"dv_charge": {
+	"dv_charge": { # TODO: placeholder only now
 		"title": "Attuned Dispersion Flux",
 		"description": "I'm equipped for clearing out Dragonvoid."
+	},
+	"d_jormag": {
+		"texture": "d_jormag",
+		"title": "((Attuned Dispersion Flux))",
+		"description": "((Description.))"
+	},
+	"d_kralkatorrik": {
+		"texture": "d_kralkatorrik",
+		"title": "((Attuned Dispersion Flux))",
+		"description": "((Description.))"
+	},
+	"d_mordremoth": {
+		"texture": "d_mordremoth",
+		"title": "((Attuned Dispersion Flux))",
+		"description": "((Description.))"
+	},
+	"d_primordus": {
+		"texture": "d_primordus",
+		"title": "((Attuned Dispersion Flux))",
+		"description": "((Description.))"
+	},
+	"d_soo_won": {
+		"texture": "d_soo_won",
+		"title": "((Attuned Dispersion Flux))",
+		"description": "((Description.))"
+	},
+	"d_zhaitan": {
+		"texture": "d_zhaitan",
+		"title": "((Attuned Dispersion Flux))",
+		"description": "((Description.))"
 	}
 }
 

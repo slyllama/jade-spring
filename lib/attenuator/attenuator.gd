@@ -113,8 +113,9 @@ func render() -> void:
 				$Click.play()
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
+					Global.add_effect.emit("d_" + current_dragon)
 					$Success.play()
-					$Dragon.reveal()
+					$Dragon.reveal(current_dragon)
 					await get_tree().create_timer(0.5).timeout
 					render()
 		)
