@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctgrir47nofil"]
 
-[ext_resource type="ArrayMesh" uid="uid://b4oaroy1xe4of" path="res://lib/player/heart/meshes/heart_Plane.res" id="1_gwequ"]
+[ext_resource type="ArrayMesh" uid="uid://b4oaroy1xe4of" path="res://lib/player/heart/meshes/heart.res" id="1_gwequ"]
 
 [sub_resource type="Curve" id="Curve_mpy03"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.29375, 1), 0.0, 0.0, 0, 0, Vector2(0.71875, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

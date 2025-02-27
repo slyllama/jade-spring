@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="3_pmmu2"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_7ig55"]
 [ext_resource type="PackedScene" uid="uid://cvekevn35bs0" path="res://lib/charging_station/meshes/jade_turret.glb" id="5_hljxm"]
-[ext_resource type="ArrayMesh" uid="uid://7ii5d18xkdex" path="res://decorations/charr_loudspeaker/charr_loudspeaker_Cylinder_002.res" id="7_0px5r"]
+[ext_resource type="ArrayMesh" uid="uid://7ii5d18xkdex" path="res://decorations/charr_loudspeaker/charr_loudspeaker.res" id="7_0px5r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4f2fh"]
 albedo_color = Color(0.5, 0.5, 0.5, 1)

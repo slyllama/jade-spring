@@ -5,7 +5,6 @@ enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 const GizmoArrow = preload("res://lib/gizmo/gizmo_arrow/gizmo_arrow.tscn")
 const OutlineMaterial = preload("res://generic/materials/mat_outline.tres")
-const SELECT_TEX = preload("res://lib/decoration/textures/select_icon.png")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
@@ -21,45 +20,11 @@ var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 var dye_materials = {}
 var cull_distance = 24.0
 var distance_to_player = 0.0
-
-#@onready var select_label = SelectLabel.new()
-
-class SelectLabel extends Sprite3D:
-	const SCALE = 0.19
-	var target_scale = 0.0
-	
-	func _set_target_scale(s: float) -> void:
-		target_scale = s
-	
-	func fade_in() -> void:
-		visible = true
-		var _t = create_tween()
-		_t.tween_method(_set_target_scale, 0.0, SCALE, 0.2)
-	
-	func fade_out() -> void:
-		var _t = create_tween()
-		_t.tween_method(_set_target_scale, SCALE, 0.0, 0.2)
-		await _t.finished
-		visible = false
-	
-	func _ready() -> void:
-		pixel_size = 0.005
-		texture = SELECT_TEX
-		billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		no_depth_test = true
-		fixed_size = true
-		shaded = false
-		render_priority = 5
-		
-		target_scale = 0.0
-		visible = false
-	
-	func _process(_delta: float) -> void:
-		var corrected_scale = target_scale / get_parent().scale.x
-		scale = Vector3(corrected_scale, corrected_scale, corrected_scale)
+var mouse_in_box = false
 
 func set_outline(state = true) -> void:
 	if state:
+		for _i in 2: await get_tree().process_frame # give the cursor a chance to be readded
 		if Global.cursor_active:
 			outline_mat.set_shader_parameter("outline_color", Color.WHITE)
 			outline_mat.set_shader_parameter("outline_width", 0.5)
@@ -254,11 +219,8 @@ func _ready() -> void:
 					_valid = false
 			if _valid:
 				_mat.next_pass = outline_mat
-	
 	set_outline(false)
-	#add_child(select_label)
-	#select_label.position.y = 1.4
-	
+
 	Global.adjustment_started.connect(func(): # disable input picking for ALL decorations
 		if collision_box != null:
 			collision_box.set_collision_layer_value(1, false)
@@ -268,7 +230,16 @@ func _ready() -> void:
 	Global.adjustment_canceled.connect(cancel_adjustment)
 	Global.adjustment_applied.connect(apply_adjustment)
 	
+	Global.deco_deletion_started.connect(func():
+		if mouse_in_box:
+			set_outline())
 	Global.deco_deletion_canceled.connect(func():
+		set_outline(false))
+	
+	Global.selection_started.connect(func():
+		if mouse_in_box:
+			set_outline())
+	Global.selection_canceled.connect(func():
 		set_outline(false))
 	
 	Global.snapping_enabled.connect(func():
@@ -331,10 +302,12 @@ func _ready() -> void:
 				_spawn_arrows())
 		
 		collision_box.mouse_entered.connect(func():
+			mouse_in_box = true
 			if !Global.tool_mode == Global.TOOL_MODE_PLACE:
 				set_outline()
 			Global.cursor_tint_changed.emit(Color.GREEN))
 		collision_box.mouse_exited.connect(func():
+			mouse_in_box = false
 			set_outline(false)
 			Global.cursor_tint_changed.emit(Color.RED))
 		
