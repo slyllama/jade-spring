@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://t7hqoyng4f7t"]
+
+[ext_resource type="Shader" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_wood.gdshader" id="1_xw7bo"]
+[ext_resource type="Texture2D" uid="uid://ccyfewfjwommf" path="res://decorations/door/materials/textures/door_trellis_stain.jpg" id="2_7p7ov"]
+[ext_resource type="Texture2D" uid="uid://b0k6k5mw0pvd2" path="res://maps/seitung/materials/textures/weathered_wood_norm.jpg" id="3_lfr3j"]
+[ext_resource type="Texture2D" uid="uid://b0mdc72lwfjl2" path="res://maps/seitung/materials/textures/weathered_wood_diff.jpg" id="4_jll5j"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xw7bo")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/occlusion_color = Color(0, 0.431373, 0.627451, 1)
+shader_parameter/occlusion_intensity = 1.0
+shader_parameter/occlusion_multiplier = 0.75
+shader_parameter/uv_scale = 4.0
+shader_parameter/saturation = 0.75
+shader_parameter/multiplier = 0.75
+shader_parameter/exponent = 1.0
+shader_parameter/wood_texture = ExtResource("4_jll5j")
+shader_parameter/wood_normal_texture = ExtResource("3_lfr3j")
+shader_parameter/occlusion_mask = ExtResource("2_7p7ov")

@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c0uhwe16ejnv1"]
+
+[ext_resource type="Shader" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_wood.gdshader" id="1_kaxx1"]
+[ext_resource type="Texture2D" uid="uid://bc6yg7qscxq07" path="res://decorations/door/materials/textures/door_column_stain.jpg" id="2_r0kdh"]
+[ext_resource type="Texture2D" uid="uid://b0k6k5mw0pvd2" path="res://maps/seitung/materials/textures/weathered_wood_norm.jpg" id="2_ynbpv"]
+[ext_resource type="Texture2D" uid="uid://b0mdc72lwfjl2" path="res://maps/seitung/materials/textures/weathered_wood_diff.jpg" id="3_lx8oy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kaxx1")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/occlusion_color = Color(0.97, 0.920207, 0.8633, 1)
+shader_parameter/occlusion_intensity = 1.0
+shader_parameter/occlusion_multiplier = 1.0
+shader_parameter/uv_scale = 4.0
+shader_parameter/saturation = 1.0
+shader_parameter/multiplier = 0.5
+shader_parameter/exponent = 6.0
+shader_parameter/wood_texture = ExtResource("3_lx8oy")
+shader_parameter/wood_normal_texture = ExtResource("2_ynbpv")
+shader_parameter/occlusion_mask = ExtResource("2_r0kdh")

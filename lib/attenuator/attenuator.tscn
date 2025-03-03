@@ -218,6 +218,7 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="ArrowBox" type="HBoxContainer" parent="Base/ControlContainer"]
+use_parent_material = true
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_constants/separation = 0

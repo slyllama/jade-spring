@@ -18,11 +18,15 @@ const KEY_INDICES = [
 	"c2", "d2", "e2", "f2", "g2", "a2", "b2", "c2" ]
 const TUNES = {
 	"primordus": [
-		"_", "a1", "a2", "b2", "b2", "_", "e2", "g2", "a2", "e2"],
+		"_", "a1", "a2", "b2", "b2", "_", "e2", "g2", "a2", "e2" ],
 	"soo_won": [
-		"d1", "e1", "f1", "e1", "f1", "g1", "a1", "f1", "d1", "g1", "e1", "c1"]
+		"d1", "e1", "f1", "e1", "f1", "g1", "a1", "f1", "d1", "g1", "e1", "c1" ],
+	"mordremoth": [
+		"a1", "_", "c2", "b1", "_", "c2", "e2", "_", "c2", "b1", "_", "c2" ],
+	"zhaitan": [
+		"e2", "_", "b1", "c2", "_", "a1", "b1", "_", "b1" ]
 }
-const TUNES_ORDER = [ "primordus", "soo_won" ]
+const TUNES_ORDER = [ "primordus", "soo_won", "mordremoth", "zhaitan" ]
 
 var current_dragon = "primordus"
 var two_oct = notes.duplicate()

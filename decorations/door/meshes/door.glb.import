@@ -31,6 +31,29 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"mat_columns": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/door/materials/mat_door_columns.tres"
+},
+"mat_placeholder": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_gold_dark.tres"
+},
+"mat_wood_inlay": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/door/materials/mat_door_inlay.tres"
+},
+"mat_wood_red_stain": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/door/materials/mat_door_trellis.tres"
+},
+"mat_wood_red_stain.001": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/door/materials/mat_door_panel.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
