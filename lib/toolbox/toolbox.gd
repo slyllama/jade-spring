@@ -128,6 +128,8 @@ func _ready() -> void:
 	
 	Global.fishing_started.connect(func():
 		clear_skills()
+		$Box/Skill1.switch_skill("fishing_left")
+		$Box/Skill2.switch_skill("fishing_right")
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.fishing_canceled.connect(func():

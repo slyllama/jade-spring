@@ -23,6 +23,9 @@ var rng = RandomNumberGenerator.new()
 var progress = 50.0
 var dir = 1
 
+var fishing_left_down = false
+var fishing_right_down = false
+
 var has_started = false
 var has_completed = false
 var has_succeeded = false
@@ -92,6 +95,13 @@ func _input(_event: InputEvent) -> void:
 			_on_tutorial_done()
 
 func _ready() -> void:
+	Global.skill_button_down.connect(func(id):
+		if id == "fishing_left": fishing_left_down = true
+		if id == "fishing_right": fishing_right_down = true)
+	Global.skill_button_up.connect(func(id):
+		if id == "fishing_left": fishing_left_down = false
+		if id == "fishing_right": fishing_right_down = false)
+	
 	_set_dissolve(0.0)
 	
 	$BG.material.set_shader_parameter("alpha", 1.0)
@@ -135,9 +145,9 @@ func _process(delta: float) -> void:
 		_d += delta
 		return
 	
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left") or fishing_left_down:
 		$BG/Player.global_position.x -= move_speed * delta * 60.0
-	elif Input.is_action_pressed("move_right"):
+	elif Input.is_action_pressed("move_right") or fishing_right_down:
 		$BG/Player.global_position.x += move_speed * delta * 60.0
 	
 	$BG/Fish.global_position.x += fish_speed * delta * 60.0
@@ -175,6 +185,7 @@ func _on_completed() -> void:
 	Global.fishing_canceled.emit()
 
 func _on_tutorial_done() -> void:
+	Global.click_sound.emit()
 	has_started = true
 	var tut_fade_tween = create_tween()
 	tut_fade_tween.tween_method(_set_tutorial_dissolve, 1.0, 0.0, 0.5)

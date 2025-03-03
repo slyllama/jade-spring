@@ -82,7 +82,8 @@ func select_dragon(forward = true) -> void:
 func render() -> void:
 	place = 0
 	present_glyph()
-	$Base/ControlContainer/DragonTitle.text = "[center]" + current_dragon + "[/center]"
+	var _title = Utilities.DRAGON_DATA[current_dragon].name
+	$Base/ControlContainer/DragonTitle.text = "[center]" + _title + "[/center]"
 	
 	# Reset
 	for _n in $Base/KeyContainer.get_children():

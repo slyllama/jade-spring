@@ -34,33 +34,33 @@ const EFFECTS_LIST = { # TODO: use images instead
 	},
 	"d_jormag": {
 		"texture": "d_jormag",
-		"title": "((Attuned Dispersion Flux))",
-		"description": "((Description.))"
+		"title": "Jormag-Attuned Dispersion Flux",
+		"description": "I'm equipped for clearing out Dragonvoid."
 	},
 	"d_kralkatorrik": {
 		"texture": "d_kralkatorrik",
-		"title": "((Attuned Dispersion Flux))",
-		"description": "((Description.))"
+		"title": "Kralkatorrik-Attuned Dispersion Flux",
+		"description": "I'm equipped for clearing out Dragonvoid."
 	},
 	"d_mordremoth": {
 		"texture": "d_mordremoth",
-		"title": "((Attuned Dispersion Flux))",
-		"description": "((Description.))"
+		"title": "Mordremoth-Attuned Dispersion Flux",
+		"description": "I'm equipped for clearing out Dragonvoid."
 	},
 	"d_primordus": {
 		"texture": "d_primordus",
-		"title": "((Attuned Dispersion Flux))",
-		"description": "((Description.))"
+		"title": "Primordus-Attuned Dispersion Flux",
+		"description": "I'm equipped for clearing out Dragonvoid."
 	},
 	"d_soo_won": {
 		"texture": "d_soo_won",
-		"title": "((Attuned Dispersion Flux))",
-		"description": "((Description.))"
+		"title": "Soo-Won-Attuned Dispersion Flux",
+		"description": "I'm equipped for clearing out Dragonvoid."
 	},
 	"d_zhaitan": {
 		"texture": "d_zhaitan",
-		"title": "((Attuned Dispersion Flux))",
-		"description": "((Description.))"
+		"title": "Zhaitan-Attuned Dispersion Flux",
+		"description": "I'm equipped for clearing out Dragonvoid."
 	}
 }
 

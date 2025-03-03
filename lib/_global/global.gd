@@ -71,6 +71,8 @@ signal remove_effect(id)
 signal rock_out_started
 signal rock_out_ended
 signal rock_out_beat
+signal skill_button_down(id: String)
+signal skill_button_up(id: String)
 signal spawn_karma(amount: int, location: Vector3)
 signal weed_crumb_entered
 signal weed_crumb_left

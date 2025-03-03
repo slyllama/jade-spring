@@ -20,7 +20,9 @@ const TEXTURES = { # associations with texture paths
 	"snap_forbidden": preload("res://lib/skill_button/textures/snap_forbidden.png"),
 	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png"),
 	"reset_adjustment": preload("res://lib/skill_button/textures/reset_adjustment.png"),
-	"safe_point": preload("res://lib/skill_button/textures/safe_point.png")
+	"safe_point": preload("res://lib/skill_button/textures/safe_point.png"),
+	"fishing_left": preload("res://lib/skill_button/textures/fishing_left.png"),
+	"fishing_right": preload("res://lib/skill_button/textures/fishing_right.png"),
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 
@@ -78,12 +80,12 @@ const TOOLTIPS = {
 		"description": "Teleport back to Ratchet"
 	},
 	"rotate_left": {
-		"title": "((Rotate Left))",
-		"description": "((Rotate left.))"
+		"title": "Rotate Left",
+		"description": "Rotate the decoration left by 90 degrees."
 	},
 	"rotate_right": {
-		"title": "((Rotate Right))",
-		"description": "((Rotate right.))"
+		"title": "Rotate Right",
+		"description": "Rotate the decoration right by 90 degrees."
 	},
 	"debug_skill": {
 		"title": "((Debug Skill))",
@@ -92,6 +94,14 @@ const TOOLTIPS = {
 	"eyedropper": {
 		"title": "Copy Decoration",
 		"description": "Copy an existing decoration, along with its rotation and scale."
+	},
+	"fishing_left": {
+		"title": "Adjust Left",
+		"description": "Move the Attenuation gauge left."
+	},
+	"fishing_right": {
+		"title": "Adjust Right",
+		"description": "Move the Attenuation gauge right."
 	}
 }
 
@@ -142,6 +152,8 @@ func _input(_event: InputEvent) -> void:
 	if Global.popup_open or !binding_validated or !enabled or Global.in_exclusive_ui: return
 	if Input.is_action_just_pressed(input_binding):
 		fx_down()
+	elif Input.is_action_just_released(input_binding):
+		Global.skill_button_up.emit(id)
 
 func _display_binding() -> void: # show the key the skill is associated with
 	if InputMap.has_action(input_binding):
@@ -171,12 +183,14 @@ func _process(_delta: float) -> void:
 func _on_button_down() -> void:
 	if Global.bindings_pane_open: return
 	if enabled:
-		if !Global.in_exclusive_ui or id == "cancel":
+		if (!Global.in_exclusive_ui or id == "cancel"
+			or id == "fishing_left" or id == "fishing_right"):
 			fx_down()
 
 func _on_button_up() -> void:
 	if enabled:
-		if !Global.in_exclusive_ui or id == "cancel":
+		if (!Global.in_exclusive_ui or id == "cancel"
+			or id == "fishing_left" or id == "fishing_right"):
 			fx_up()
 			$Tooltip.visible = false
 			Global.click_sound.emit()
@@ -195,9 +209,11 @@ func _on_mouse_exited() -> void:
 	$HoverBorder.visible = false
 
 func fx_down() -> void:
+	Global.skill_button_down.emit(id)
 	$Image.modulate = Color(0.5, 0.5, 0.5)
 	$Image.scale = Vector2(0.4, 0.4)
 
 func fx_up() -> void:
+	Global.skill_button_up.emit(id)
 	$Image.modulate = Color(1.0, 1.0, 1.0)
 	$Image.scale = Vector2(0.5, 0.5)
