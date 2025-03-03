@@ -60,10 +60,10 @@ func present_glyph() -> void: # present a glyph based on the current Elder Drago
 
 func _set_prev_next_keys() -> void:
 	var current_index = TUNES_ORDER.find(current_dragon, 0)
-	if current_index >= TUNES_ORDER.size() - 1: $Base/ControlContainer/Next.disabled = true
-	else: $Base/ControlContainer/Next.disabled = false
-	if current_index - 1 < 0: $Base/ControlContainer/Previous.disabled = true
-	else: $Base/ControlContainer/Previous.disabled = false
+	if current_index >= TUNES_ORDER.size() - 1: $Base/ControlContainer/ArrowBox/Next.disabled = true
+	else: $Base/ControlContainer/ArrowBox/Next.disabled = false
+	if current_index - 1 < 0: $Base/ControlContainer/ArrowBox/Previous.disabled = true
+	else: $Base/ControlContainer/ArrowBox/Previous.disabled = false
 
 func select_dragon(forward = true) -> void:
 	var current_index = TUNES_ORDER.find(current_dragon, 0)

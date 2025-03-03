@@ -103,6 +103,18 @@ const dv_intro_dialogue = {
 	}
 }
 
+const no_dv_charge = {
+	"_entry": {
+		"string": "Your c-c-circuit functions are stable... no energy spikes... no anomalies... you mustn't have used t-t-the Attenuator yet, huh. N-no, it's perfectly safe.",
+		"options": {
+			"done": "Okay..."
+		}
+	},
+	"done": {
+		"reference": "exit"
+	}
+}
+
 const debug_dialogue = {
 	"_entry": {
 		"string": "((Debug options!))",

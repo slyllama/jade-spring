@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=28 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -12,10 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://cg6cuuo4brmnn" path="res://lib/attenuator/textures/marker.png" id="8_ftpwr"]
 [ext_resource type="AudioStream" uid="uid://bjdutdjfx2x1v" path="res://lib/ui_container/sounds/click.ogg" id="10_r8x0m"]
 [ext_resource type="Texture2D" uid="uid://c6bptaa3p8mka" path="res://lib/attenuator/textures/energy_effects.png" id="12_a26c3"]
+[ext_resource type="Texture2D" uid="uid://dcyqub4vhl6r4" path="res://lib/attenuator/textures/arrow.png" id="12_ceq7c"]
 [ext_resource type="Shader" path="res://lib/attenuator/materials/shaders/shader_energy_wobble.gdshader" id="12_tj5i4"]
 [ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="13_dfsye"]
 [ext_resource type="Texture2D" uid="uid://cknjydpsd20w8" path="res://lib/attenuator/textures/dragon.png" id="13_oio82"]
+[ext_resource type="Texture2D" uid="uid://cf7ril0yniapq" path="res://lib/attenuator/textures/arrow_hover.png" id="13_yshcl"]
 [ext_resource type="AudioStream" uid="uid://comrowg2td5v1" path="res://generic/sounds/disabled.ogg" id="14_e0ud8"]
+[ext_resource type="Texture2D" uid="uid://bggnkyljip2sf" path="res://lib/attenuator/textures/arrow_disabled.png" id="14_q6c1q"]
 [ext_resource type="Script" path="res://lib/attenuator/dragon_indicator.gd" id="15_k3slj"]
 [ext_resource type="AudioStream" uid="uid://p27he2puiuwj" path="res://lib/attenuator/sounds/attenuator_success.ogg" id="15_vld85"]
 [ext_resource type="Texture2D" uid="uid://j2u6itfbl3mi" path="res://lib/attenuator/textures/glyphs/jormag.png" id="16_qdpey"]
@@ -214,30 +217,46 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Previous" type="Button" parent="Base/ControlContainer"]
-use_parent_material = true
+[node name="ArrowBox" type="HBoxContainer" parent="Base/ControlContainer"]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
-text = "((Previous))"
+theme_override_constants/separation = 0
 
-[node name="Next" type="Button" parent="Base/ControlContainer"]
+[node name="Previous" type="TextureButton" parent="Base/ControlContainer/ArrowBox"]
 use_parent_material = true
 layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("12_ceq7c")
+texture_hover = ExtResource("13_yshcl")
+texture_disabled = ExtResource("14_q6c1q")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Next" type="TextureButton" parent="Base/ControlContainer/ArrowBox"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
 focus_mode = 0
-text = "((Next))"
+texture_normal = ExtResource("12_ceq7c")
+texture_hover = ExtResource("13_yshcl")
+texture_disabled = ExtResource("14_q6c1q")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
 
 [node name="Close" type="Button" parent="Base/ControlContainer"]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 10
 focus_mode = 0
-text = "((Close))"
+text = "Close"
 
 [node name="Reset" type="Button" parent="Base/ControlContainer"]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 8
 focus_mode = 0
-text = "((Reset))"
+text = "Reset"
 
 [node name="Marker" type="Sprite2D" parent="Base"]
 use_parent_material = true
@@ -266,7 +285,7 @@ stream = ExtResource("15_vld85")
 volume_db = -3.0
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]
-[connection signal="button_down" from="Base/ControlContainer/Previous" to="." method="_on_previous_button_down"]
-[connection signal="button_down" from="Base/ControlContainer/Next" to="." method="_on_next_button_down"]
+[connection signal="button_down" from="Base/ControlContainer/ArrowBox/Previous" to="." method="_on_previous_button_down"]
+[connection signal="button_down" from="Base/ControlContainer/ArrowBox/Next" to="." method="_on_next_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/Close" to="." method="_on_close_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/Reset" to="." method="_on_reset_button_down"]
