@@ -29,7 +29,7 @@ func render_block(block_data: Dictionary) -> void:
 		if _n is Button: _n.queue_free() # clear out previous buttons
 	
 	var _exp_tween = create_tween() # exposure flash
-	_exp_tween.tween_method(_set_exposure_val, 2.0, 1.0, 0.31).set_ease(Tween.EASE_IN_OUT)
+	_exp_tween.tween_method(_set_exposure_val, 1.2, 1.0, 0.31).set_ease(Tween.EASE_IN_OUT)
 	
 	if "string" in block_data:
 		$Base/Box/Text.text = block_data.string
@@ -41,6 +41,7 @@ func render_block(block_data: Dictionary) -> void:
 			var _b: Button = $Base/TemplateButton.duplicate()
 			_b.text = block_data.options[_o]
 			_b.visible = true
+			_b.modulate.a = 0.0
 			$Base/Box.add_child(_b)
 			if !_first:
 				_b.grab_focus()
@@ -57,6 +58,13 @@ func render_block(block_data: Dictionary) -> void:
 						if _new_block_data.reference in data:
 							render_block(data[_new_block_data.reference])
 					else: render_block(_new_block_data))
+	
+	for _b: Node in $Base/Box.get_children():
+		if !is_instance_valid(_b): continue
+		if _b is Button:
+			var _t = create_tween()
+			_t.tween_property(_b, "modulate:a", 1.0, 0.2)
+			await get_tree().create_timer(0.07).timeout
 
 func _set_buttons_enabled(state: bool) -> void:
 	for _n in $Base/Box.get_children():
@@ -82,6 +90,14 @@ func open() -> void:
 func close() -> void:
 	if has_closed: return
 	has_closed = true
+	
+	# Fade buttons out one-by-one
+	for _b: Node in $Base/Box.get_children():
+		if !is_instance_valid(_b): continue
+		if _b is Button:
+			var _t = create_tween()
+			_t.tween_property(_b, "modulate:a", 0.0, 0.1)
+			await get_tree().create_timer(0.03).timeout
 	
 	closed.emit()
 	var fade_tween = create_tween()
