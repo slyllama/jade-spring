@@ -214,7 +214,9 @@ func _process(delta: float) -> void:
 	if "pills" in target_track:
 		var _target = target_track.pills[place]
 		$Base/Marker.global_position.x = lerp(
-			$Base/Marker.global_position.x, _target.global_position.x + 22.0, delta * 20.0)
+			$Base/Marker.global_position.x,
+			_target.global_position.x + 22.0,
+			Utilities.critical_lerp(delta, 20.0))
 	
 	$Base/Debug.text = ("place: " + str(place) + "/" + str(TUNES[current_dragon].size())
 		+ "\npassing = " + str(passing))

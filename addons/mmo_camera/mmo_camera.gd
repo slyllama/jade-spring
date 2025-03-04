@@ -92,9 +92,8 @@ func _process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, fov + added_fov, delta)
 	
 	# Apply camera transformations
-	axis.spring_length = lerp(axis.spring_length, _target_zoom, 6.0 * delta)
-	camera.position = lerp(camera.position, target.position, 6.0 * delta)
+	axis.spring_length = lerp(axis.spring_length, _target_zoom, Utilities.critical_lerp(delta, 6.0))
+	camera.position = lerp(camera.position, target.position, Utilities.critical_lerp(delta, 6.0))
+
 	rotation_degrees = orbit_handler.smooth_rotation
-	
 	Global.camera_position = camera.global_position
-	#camera.v_offset = _target_v_offset

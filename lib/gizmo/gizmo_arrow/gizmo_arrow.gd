@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 			$Drag/Pick.global_position = lerp(
 				$Drag/Pick.global_position,
 				$Drag/Cast.get_collision_point() + collision_delta,
-				delta * 20.0)
+				Utilities.critical_lerp(delta, 20.0))
 	if !Global.snapping:
 		get_parent().global_position = $Drag/Pick.global_position
 	else:

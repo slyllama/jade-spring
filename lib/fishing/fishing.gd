@@ -175,7 +175,7 @@ func _process(delta: float) -> void:
 		Global.fishing_canceled.emit()
 	progress = clamp(progress, 0.0, 100.0)
 	
-	_smoothed_progress = lerp(_smoothed_progress, progress, delta * 20.0)
+	_smoothed_progress = lerp(_smoothed_progress, progress, Utilities.critical_lerp(delta, 20.0))
 	$BG/Progress.value = _smoothed_progress
 
 func _on_timer_timeout() -> void:

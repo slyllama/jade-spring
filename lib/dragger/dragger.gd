@@ -73,9 +73,9 @@ func _process(delta: float) -> void:
 	
 	# Process event relative movement and smooth out
 	if axis == Axis.X:
-		ratio = lerp(ratio, event_relative.x * 0.06, delta * 20)
+		ratio = lerp(ratio, event_relative.x * 0.06, Utilities.critical_lerp(delta, 20.0))
 	elif axis == Axis.Y:
-		ratio = lerp(ratio, event_relative.y * 0.06, delta * 20)
+		ratio = lerp(ratio, event_relative.y * 0.06, Utilities.critical_lerp(delta, 20.0))
 		$ArrowRoot/Mouse.rotation_degrees = -90.0
 	
 	if ratio != last_ratio:
