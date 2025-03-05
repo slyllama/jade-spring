@@ -216,6 +216,11 @@ func _on_interact_indicator_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		var _i = InputEventAction.new()
 		_i.action = "interact"
+		
 		_i.pressed = true
 		Input.parse_input_event(_i)
 		_i.pressed = false
+		
+		# Not sure why this only works when you do it twice, but it does
+		Input.action_press("interact")
+		Input.action_release("interact")

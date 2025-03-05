@@ -23,6 +23,12 @@ const TEXTURES = { # associations with texture paths
 	"safe_point": preload("res://lib/skill_button/textures/safe_point.png"),
 	"fishing_left": preload("res://lib/skill_button/textures/fishing_left.png"),
 	"fishing_right": preload("res://lib/skill_button/textures/fishing_right.png"),
+	"roll_left": preload("res://lib/skill_button/textures/roll_minus_90.png"),
+	"roll_right": preload("res://lib/skill_button/textures/roll_90.png"),
+	"rotate_left": preload("res://lib/skill_button/textures/rotate_minus_90.png"),
+	"rotate_right": preload("res://lib/skill_button/textures/rotate_90.png"),
+	"eyedropper": preload("res://lib/skill_button/textures/duplicate.png"),
+	"adjust_mode_translate": preload("res://lib/skill_button/textures/move_scale.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 
@@ -88,12 +94,12 @@ const TOOLTIPS = {
 		"description": "Rotate the decoration right by 90 degrees."
 	},
 	"roll_left": {
-		"title": "((Roll Left))",
-		"description": "((Description.))"
+		"title": "Roll Up",
+		"description": "Roll the decoration by 90 degrees."
 	},
 	"roll_right": {
-		"title": "((Roll Right))",
-		"description": "((Description.))"
+		"title": "Roll Down",
+		"description": "Roll the decoration by 90 degrees."
 	},
 	"debug_skill": {
 		"title": "((Debug Skill))",
