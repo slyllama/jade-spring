@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4hdvgok1lsmq"]
+[gd_scene load_steps=23 format=3 uid="uid://c4hdvgok1lsmq"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.gd" id="1_ylfot"]
+[ext_resource type="PackedScene" uid="uid://dwrrj0ukov0ov" path="res://lib/decoration/decoration_pane/deco_perview/rune/rune.tscn" id="3_wifgh"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="5_m0vr7"]
 
 [sub_resource type="Environment" id="Environment_hq0yq"]
@@ -179,3 +180,6 @@ preprocess = 5.0
 speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_cl58p")
 draw_pass_1 = SubResource("PlaneMesh_b55oj")
+
+[node name="Rune" parent="." instance=ExtResource("3_wifgh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

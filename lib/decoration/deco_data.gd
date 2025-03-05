@@ -75,7 +75,7 @@ const DecoData = {
 		"name": "Yellow Flowers",
 		"scene": "res://decorations/flower_patch/deco_yellow_flowers.tscn",
 		"cursor_model": "res://decorations/flower_patch/yellow_flowers.tscn",
-		"preview_scale": 1.0,
+		"preview_scale": 0.75,
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
@@ -83,7 +83,7 @@ const DecoData = {
 		"name": "Blue Flowers",
 		"scene": "res://decorations/flower_patch/deco_blue_flowers.tscn",
 		"cursor_model": "res://decorations/flower_patch/blue_flowers.tscn",
-		"preview_scale": 1.0,
+		"preview_scale": 0.75,
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
@@ -144,18 +144,18 @@ const DecoData = {
 		"name": "Simple Sub-Frame",
 		"scene": "res://decorations/building_platform/deco_building_platform.tscn",
 		"cursor_model": "res://decorations/building_platform/meshes/building_platform.glb",
-		"preview_scale": 0.34,
+		"preview_scale": 0.42,
+		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
 	},
 	"kaineng_cobble_floor": {
 		"name": "Kaineng Cobble Floor",
 		"scene": "res://decorations/kaineng_cobble_floor/kaineng_cobble_floor.tscn",
 		"cursor_model": "res://decorations/kaineng_cobble_floor/kaineng_cobble_floor.glb",
-		"preview_scale": 0.34,
+		"preview_scale": 0.42,
+		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
 	},
 	"kaineng_cobble_stairs": {
@@ -311,9 +311,9 @@ const DecoData = {
 		"name": "Rata Sum Floor",
 		"scene": "res://decorations/rata_sum/floor/floor.tscn",
 		"cursor_model": "res://decorations/rata_sum/floor/floor.glb",
-		"preview_scale": 0.34,
+		"preview_scale": 0.42,
+		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
 	},
 }
