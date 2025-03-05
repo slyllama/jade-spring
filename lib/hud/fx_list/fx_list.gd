@@ -28,39 +28,35 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"title": "Picked Weed",
 		"description": "These belong in the compost bin!"
 	},
-	"dv_charge": { # TODO: placeholder only now
-		"title": "Attuned Dispersion Flux",
-		"description": "I'm equipped for clearing out Dragonvoid."
-	},
 	"d_jormag": {
 		"texture": "d_jormag",
-		"title": "Jormag-Attuned Dispersion Flux",
-		"description": "I'm equipped for clearing out Dragonvoid."
+		"title": "Jormag-Attuned Flux",
+		"description": "I'm equipped with Dispersion Flux for clearing out Dragonvoid."
 	},
 	"d_kralkatorrik": {
 		"texture": "d_kralkatorrik",
-		"title": "Kralkatorrik-Attuned Dispersion Flux",
-		"description": "I'm equipped for clearing out Dragonvoid."
+		"title": "Kralkatorrik-Attuned Flux",
+		"description": "I'm equipped with Dispersion Flux for clearing out Dragonvoid."
 	},
 	"d_mordremoth": {
 		"texture": "d_mordremoth",
-		"title": "Mordremoth-Attuned Dispersion Flux",
-		"description": "I'm equipped for clearing out Dragonvoid."
+		"title": "Mordremoth-Attuned Flux",
+		"description": "I'm equipped with Dispersion Flux for clearing out Dragonvoid."
 	},
 	"d_primordus": {
 		"texture": "d_primordus",
-		"title": "Primordus-Attuned Dispersion Flux",
-		"description": "I'm equipped for clearing out Dragonvoid."
+		"title": "Primordus-Attuned Flux",
+		"description": "I'm equipped with Dispersion Flux for clearing out Dragonvoid."
 	},
 	"d_soo_won": {
 		"texture": "d_soo_won",
-		"title": "Soo-Won-Attuned Dispersion Flux",
-		"description": "I'm equipped for clearing out Dragonvoid."
+		"title": "Soo-Won-Attuned Flux",
+		"description": "I'm equipped with Dispersion Flux for clearing out Dragonvoid."
 	},
 	"d_zhaitan": {
 		"texture": "d_zhaitan",
-		"title": "Zhaitan-Attuned Dispersion Flux",
-		"description": "I'm equipped for clearing out Dragonvoid."
+		"title": "Zhaitan-Attuned Flux",
+		"description": "I'm equipped with Dispersion Flux for clearing out Dragonvoid."
 	}
 }
 

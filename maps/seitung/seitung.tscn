@@ -216,7 +216,10 @@ plane = Plane(0, -1, 0, 0)
 [node name="Map" instance=ExtResource("1_uym6y")]
 script = ExtResource("2_7lwj0")
 
-[node name="Sky" parent="." index="0"]
+[node name="RockOut" parent="." index="0" instance=ExtResource("67_tdy4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+
+[node name="Sky" parent="." index="1"]
 environment = ExtResource("3_e4u8p")
 
 [node name="Sun" parent="Sky" index="0"]
@@ -240,7 +243,7 @@ spot_range = 70.0
 spot_attenuation = 0.45
 spot_angle = 25.0
 
-[node name="Player" parent="." index="1"]
+[node name="Player" parent="." index="2"]
 transform = Transform3D(0.998077, 0, -0.0619893, 0, 1, 0, 0.0619893, 0, 0.998077, -2.96519, 2.9413, 2.49198)
 
 [node name="YCast" type="RayCast3D" parent="Player" index="5"]
@@ -273,7 +276,7 @@ can_click = true
 custom_data = null
 
 [node name="Weed4" parent="CrumbHandler" index="5" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -5.65845, 0.0851234, 7.37172)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -4.77608, 0.0851234, 7.37172)
 can_click = true
 custom_data = null
 
@@ -327,7 +330,7 @@ transform = Transform3D(1.25, 0, 0, 0, 1.20741, 0.12941, 0, -0.323524, 0.482963,
 mesh = SubResource("QuadMesh_kt5au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ixf13")
 
-[node name="Ambience" parent="." index="5"]
+[node name="Ambience" parent="." index="6"]
 volume_db = 0.0
 
 [node name="Ocean" type="AudioStreamPlayer" parent="Ambience" index="0"]
@@ -1119,32 +1122,32 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="SafePoint" parent="." index="8"]
+[node name="SafePoint" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)
 
-[node name="Jukebox" parent="." index="9"]
+[node name="Jukebox" parent="." index="10"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("28_wohrl"), ExtResource("56_oq8ka"), ExtResource("61_vie7w"), ExtResource("62_2xddo")])
 
 [node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0"]
 stream = ExtResource("59_gjbjt")
 
-[node name="Landscape" parent="." index="10" instance=ExtResource("10_vndj8")]
+[node name="Landscape" parent="." index="11" instance=ExtResource("10_vndj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
-[node name="Discombobulator" parent="." index="11" instance=ExtResource("29_5yngu")]
+[node name="Discombobulator" parent="." index="12" instance=ExtResource("29_5yngu")]
 transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
 
-[node name="Pulley" parent="." index="12" instance=ExtResource("9_2e7lr")]
+[node name="Pulley" parent="." index="13" instance=ExtResource("9_2e7lr")]
 transform = Transform3D(-0.43867, 0, 1.27674, 0, 1.35, 0, -1.27674, 0, -0.43867, -10.8689, 0.828593, 3.6488)
 reset_on_interact = false
 
-[node name="WeedBin" parent="." index="13" instance=ExtResource("28_m4ym0")]
+[node name="WeedBin" parent="." index="14" instance=ExtResource("28_m4ym0")]
 transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)
 
-[node name="StoryMarker" parent="." index="14"]
+[node name="StoryMarker" parent="." index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461254, -5.00618, 0.0370162)
 
-[node name="WorldBoundaries" type="StaticBody3D" parent="." index="15"]
+[node name="WorldBoundaries" type="StaticBody3D" parent="." index="16"]
 collision_layer = 136
 collision_mask = 136
 
@@ -1209,8 +1212,5 @@ transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.087737
 [node name="Rock3" parent="WorldBoundaries/Hills2" index="2" instance=ExtResource("14_fuojk")]
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
 
-[node name="ChargingStation" parent="." index="16" instance=ExtResource("64_xbvsq")]
+[node name="ChargingStation" parent="." index="17" instance=ExtResource("64_xbvsq")]
 transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494, -8.40679, 0.276039, 0.582495)
-
-[node name="RockOut" parent="." index="17" instance=ExtResource("67_tdy4a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7995, 2.74313, 4.2636)
