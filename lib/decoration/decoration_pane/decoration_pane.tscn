@@ -37,6 +37,7 @@ title = "Place Decoration"
 metadata/_edit_vertical_guides_ = [283.0]
 
 [node name="Base" type="TextureRect" parent="." index="0"]
+self_modulate = Color(0.8, 0.8, 0.8, 1)
 clip_children = 2
 z_index = -1
 layout_mode = 0
@@ -77,7 +78,7 @@ flip_h = true
 flip_v = true
 
 [node name="DecorationSW" type="TextureRect" parent="Base" index="2"]
-modulate = Color(0.5, 0.5, 0.5, 1)
+modulate = Color(0.205117, 0.205117, 0.205117, 1)
 layout_mode = 0
 offset_left = 28.0
 offset_top = 307.0
@@ -125,7 +126,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Container" parent="." index="3"]
-offset_bottom = -2.0
+offset_right = -4.0
+offset_bottom = 22.0
 theme_override_constants/separation = 0
 
 [node name="TagContainer" type="HBoxContainer" parent="Container" index="3"]
@@ -175,7 +177,7 @@ horizontal_scroll_mode = 0
 [node name="ScrollVBox" type="VBoxContainer" parent="Container/ScrollBox" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 1
+theme_override_constants/separation = 0
 
 [node name="ActionsBox" type="HBoxContainer" parent="." index="5"]
 layout_mode = 1
@@ -185,9 +187,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 23.0
-offset_top = -30.0
+offset_top = 5.0
 offset_right = 559.0
-offset_bottom = -1.0
+offset_bottom = 34.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -217,9 +219,9 @@ text = "Place Decoration"
 modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = 687.0
-offset_top = 443.0
+offset_top = 478.0
 offset_right = 839.0
-offset_bottom = 462.0
+offset_bottom = 497.0
 mouse_filter = 2
 bbcode_enabled = true
 text = "[right]Drag to rotate preview.[/right]"

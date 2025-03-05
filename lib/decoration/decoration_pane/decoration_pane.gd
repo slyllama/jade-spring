@@ -1,6 +1,7 @@
 extends "res://lib/ui_container/ui_container.gd"
 
 const LockTexture = preload("res://lib/hud/textures/icon_karma.png")
+const DecoButton = preload("res://lib/decoration/decoration_pane/deco_button.tscn")
 
 @onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
 @onready var tag_list = get_node("Container/TagContainer/TagMenu") # preview
@@ -93,32 +94,31 @@ func render(tag = "None") -> void:
 			current_id = "autumnal_tree"
 		else: current_id = id_list[0]
 	
+	var _c = 0
 	for _d in id_list:
 		# Get decoration data from Global.DecoData and use it to make buttons
-		var _item = Button.new()
+		var _item = DecoButton.instantiate()
 		var _dl = Global.DecoData[_d]
 		
+		_item.set_text("  " + _dl.name)
 		if "unlock_value" in _dl and !_d in Save.data.unlocked_decorations:
-			_item.text = "  (" + str(_dl.unlock_value) + ") " + _dl.name
-			_item.icon = LockTexture
-			_item.expand_icon = true
-		else:
-			_item.text = "  " + _dl.name
-		_item.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		_item.mouse_filter = Control.MOUSE_FILTER_PASS
+			_item.set_cost(_dl.unlock_value)
+			
 		buttons[_d] = _item
 		$Container/ScrollBox/ScrollVBox.add_child(_item)
+		_item.fade_in_with_delay(_c * 0.02)
 		
 		if "Foliage" in _dl.tags:
-			_item.modulate = Color("bfee8e")
-		if "Architecture" in _dl.tags:
-			_item.modulate = Color("f2be98")
+			_item.set_icon("foliage")
+		if "Utility" in _dl.tags:
+			_item.set_icon("utility")
+		if "Furniture" in _dl.tags:
+			_item.set_icon("furniture")
 		
-		_item.button_down.connect(func():
+		_item.clicked.connect(func():
 			current_id = _d
 			preview.current_id = current_id
 			var _p = _dl.scene
-			
 			_update_unlock_button(_d)
 			
 			# Model exceptions
@@ -126,6 +126,8 @@ func render(tag = "None") -> void:
 				_p = "res://decorations/light_ray/light_ray_cursor.glb"
 			preview.load_model(
 				_p, _dl.preview_scale, _get_y_rotation(_dl)))
+		
+		_c += 1
 	
 	preview.clear_model()
 	preview.current_id = current_id
@@ -138,7 +140,7 @@ func render(tag = "None") -> void:
 	_update_unlock_button(current_id)
 	
 	# Grab focus on the last selected decoration type
-	buttons[current_id].grab_focus()
+	#buttons[current_id].grab_focus()
 
 # Update displayed value
 func _refresh() -> void:

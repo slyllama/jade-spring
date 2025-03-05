@@ -56,7 +56,7 @@ const DecoData = {
 		"cull": "NEVER"
 	},
 	"bloodstone_impacted_pillar": {
-		"name": "Bloodstone-Impacted Pillar",
+		"name": "Bloodstone Pillar",
 		"scene": "res://decorations/bloodstone_impacted_pillar/deco_bloodstone_impacted_pillar.tscn",
 		"cursor_model": "res://decorations/bloodstone_impacted_pillar/bloodstone_impacted_pillar.glb",
 		"preview_scale": 0.48,
@@ -109,7 +109,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/lighting/indoor_lamp.tscn",
 		"preview_scale": 1.0,
 		"model_offset": Vector3(0, 0.5, 0),
-		"tags": [],
+		"tags": [ "Utility" ],
 		"show_floor": true,
 		"cull": "AGGRESSIVE"
 	},
@@ -191,7 +191,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/rusted_ac_unit/rusted_ac_unit.glb",
 		"preview_scale": 1.2,
 		"preview_y_rotation": 35,
-		"tags": ["Cantha"]
+		"tags": ["Cantha", "Furniture"]
 	},
 	"simple_wall": {
 		"name": "Simple Wall",
@@ -231,7 +231,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.5,
 		"preview_v_offset": -0.1,
-		"tags": [],
+		"tags": ["Utility"],
 		"cull": "NEVER"
 	},
 	"simple_door": {
@@ -280,7 +280,7 @@ const DecoData = {
 		"preview_scale": 1.2,
 		"preview_y_rotation": 250,
 		"preview_v_offset": 0.5,
-		"tags": [ ],
+		"tags": ["Furniture"],
 		"unlock_value": 30
 	},
 	"autumnal_shrub": {

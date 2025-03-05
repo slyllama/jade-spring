@@ -150,7 +150,7 @@ bg_color = Color(0, 0, 0, 0)
 border_width_right = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73cfk"]
-content_margin_left = 30.0
+content_margin_left = 12.0
 bg_color = Color(0, 0, 0, 0)
 
 [resource]
