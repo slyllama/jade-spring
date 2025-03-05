@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cj7uhhiyd58ku" path="res://maps/seitung/meshes/weed_bin.glb" id="1_o4ibe"]
 [ext_resource type="Script" path="res://lib/gadget/weed_bin.gd" id="1_ruw2u"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="2_ybvcv"]
-[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://effects/water_splash/textures/splash_mask.png" id="4_m5hti"]
+[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://decorations/fountain/water_splash/textures/splash_mask.png" id="4_m5hti"]
 [ext_resource type="Texture2D" uid="uid://b1cawde2nbycs" path="res://generic/textures/collection_icon.png" id="4_r64xk"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="5_ppo2s"]
 [ext_resource type="AudioStream" uid="uid://rdru5wa16llr" path="res://lib/crumb/weed/sounds/weed_clear.ogg" id="6_6dfg2"]

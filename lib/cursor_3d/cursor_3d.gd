@@ -6,7 +6,9 @@ var current_radius := 1.0
 var cursor_sphere: Node3D = CursorSphere.instantiate()
 var cursor_area := CursorArea.new()
 var highlight_on_decoration := true
+var x_rotation := 0.0
 var y_rotation := 0.0 # this will be added to the rotation
+var x_rotation_offset := 0.0
 var y_rotation_offset := 0.0
 var xray: XRayMesh
 var disabled = false
@@ -56,6 +58,8 @@ func activate(get_data: Dictionary) -> void:
 		add_child(xray)
 		if "y_rotation" in data:
 			y_rotation = data.y_rotation
+		if "x_rotation" in data:
+			x_rotation = data.x_rotation
 	else:
 		for _n in Utilities.get_all_children(cursor_sphere):
 			if _n is MeshInstance3D:
@@ -109,6 +113,13 @@ func _ready() -> void:
 	Global.rotate_right_90.connect(func():
 		if "custom_model" in data:
 			y_rotation_offset += 90.0)
+	Global.roll_left_90.connect(func():
+		if "custom_model" in data:
+			x_rotation_offset -= 90.0)
+	Global.roll_right_90.connect(func():
+		if "custom_model" in data:
+			x_rotation_offset += 90.0)
+	
 	Global.cursor_disabled.connect(dismiss)
 	# Make sure to call activate() after the node is ready!
 
@@ -158,8 +169,11 @@ func _process(delta: float) -> void:
 	if Global.mouse_in_ui: visible = false
 	
 	if "custom_model" in data:
+		global_rotation_degrees.x = x_rotation_offset
 		if "y_rotation" in data:
 			global_rotation_degrees.y = data.y_rotation + y_rotation_offset
+		if "x_rotation" in data:
+			global_rotation_degrees.x = data.x_rotation + x_rotation_offset
 		if "eyedrop_scale" in data:
 			scale = data.eyedrop_scale
 			Global.mouse_3d_scale = data.eyedrop_scale
@@ -171,3 +185,4 @@ func _process(delta: float) -> void:
 		else:
 			Global.mouse_3d_override_rotation = null
 		Global.mouse_3d_y_rotation = rotation.y
+		Global.mouse_3d_x_rotation = rotation.x

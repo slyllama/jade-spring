@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bvsqlumwkla0v"]
 
-[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://effects/water_splash/textures/splash_mask.png" id="1_ddafp"]
+[ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://decorations/fountain/water_splash/textures/splash_mask.png" id="1_ddafp"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="2_1n8vu"]
 
 [sub_resource type="Curve" id="Curve_exrsw"]

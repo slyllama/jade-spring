@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dgp0r5exp3ebw" path="res://maps/seitung/meshes/_bamboo.res" id="4_07111"]
 [ext_resource type="PackedScene" uid="uid://vqd44whxclb3" path="res://decorations/fountain/fountain.glb" id="5_volr7"]
 [ext_resource type="PackedScene" uid="uid://bt4skwxifwah0" path="res://decorations/lantern/lantern.glb" id="6_4686x"]
-[ext_resource type="PackedScene" uid="uid://bvsqlumwkla0v" path="res://effects/water_splash/water_splash.tscn" id="6_rhmsy"]
+[ext_resource type="PackedScene" uid="uid://bvsqlumwkla0v" path="res://decorations/fountain/water_splash/water_splash.tscn" id="6_rhmsy"]
 [ext_resource type="ArrayMesh" uid="uid://d0p7bn635jl63" path="res://maps/seitung/meshes/_flower_1.res" id="7_8v73e"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="8_w5pib"]
 

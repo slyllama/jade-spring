@@ -29,6 +29,7 @@ var in_exclusive_ui = false
 var last_command = ""
 var mouse_3d_position = Utilities.BIGVEC3
 var mouse_3d_override_rotation = null
+var mouse_3d_x_rotation = 0.0
 var mouse_3d_y_rotation = 0.0
 var mouse_3d_scale = Vector3(1, 1, 1)
 var mouse_in_ui = false
@@ -154,6 +155,8 @@ signal drag_started
 signal snapping_enabled
 signal rotate_left_90 # rotate global position to the next nearest 90deg
 signal rotate_right_90 # rotate global position to the last nearest 90deg
+signal roll_left_90
+signal roll_right_90
 signal transform_mode_changed(transform_mode)
 
 const SNAP_INCREMENT = 0.5

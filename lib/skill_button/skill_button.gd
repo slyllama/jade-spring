@@ -87,6 +87,14 @@ const TOOLTIPS = {
 		"title": "Rotate Right",
 		"description": "Rotate the decoration right by 90 degrees."
 	},
+	"roll_left": {
+		"title": "((Roll Left))",
+		"description": "((Description.))"
+	},
+	"roll_right": {
+		"title": "((Roll Right))",
+		"description": "((Description.))"
+	},
 	"debug_skill": {
 		"title": "((Debug Skill))",
 		"description": "((Debug skill.))"

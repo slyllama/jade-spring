@@ -80,7 +80,9 @@ func _ready() -> void:
 		$Box/Skill6.switch_skill("cancel")
 		if !Global.mouse_3d_override_rotation:
 			$Box/Skill2.switch_skill("rotate_left")
-			$Box/Skill3.switch_skill("rotate_right"))
+			$Box/Skill3.switch_skill("rotate_right")
+			$Box/Skill4.switch_skill("roll_left")
+			$Box/Skill5.switch_skill("roll_right"))
 	
 	Global.deco_deleted.connect(func():
 		await get_tree().process_frame
@@ -254,6 +256,10 @@ func skill_used(skill_id: String) -> void:
 			Global.rotate_left_90.emit()
 		"rotate_right":
 			Global.rotate_right_90.emit()
+		"roll_left":
+			Global.roll_left_90.emit()
+		"roll_right":
+			Global.roll_right_90.emit()
 		"debug_skill":
 			Global.debug_skill_used.emit()
 #endregion

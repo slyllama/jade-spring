@@ -193,6 +193,16 @@ const DecoData = {
 		"preview_y_rotation": 35,
 		"tags": ["Cantha", "Furniture"]
 	},
+	"plaster_wall": {
+		"name": "Plaster Wall",
+		"scene": "res://decorations/plaster_wall/plaster_wall.tscn",
+		"cursor_model": "res://maps/seitung/props/stucco_wall/plaster_wall.glb",
+		"preview_y_rotation": 35,
+		"y_rotation": 90,
+		"preview_scale": 0.25,
+		"preview_v_offset": -0.1,
+		"tags": ["Architecture"]
+	},
 	"simple_wall": {
 		"name": "Simple Wall",
 		"scene": "res://decorations/test_wall/deco_test_wall.tscn",

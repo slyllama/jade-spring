@@ -19,6 +19,8 @@ func place_decoration(data: Dictionary) -> void:
 			_d.rotation = data.rotation
 	if "y_rotation" in data:
 		_d.global_rotation.y = data.y_rotation
+	if "x_rotation" in data:
+		_d.global_rotation.x = data.x_rotation
 	if "eyedrop_scale" in data:
 		_d.scale = data.eyedrop_scale
 	Global.decorations.append(_d)
@@ -95,6 +97,7 @@ func _ready() -> void:
 			place_decoration({
 				"position": Global.mouse_3d_position,
 				"y_rotation": Global.mouse_3d_y_rotation,
+				"x_rotation": Global.mouse_3d_x_rotation,
 				"eyedrop_scale": Global.mouse_3d_scale,
 				"rotation": Global.mouse_3d_override_rotation
 			})

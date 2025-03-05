@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctvn0oehf2yjq"
-path.s3tc="res://.godot/imported/splash_mask.png-f35382d56f0eb5d081eeafc1e92ab062.s3tc.ctex"
+path.s3tc="res://.godot/imported/splash_mask.png-9b7381d47d11150133c26bcfa1ce973d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://effects/water_splash/textures/splash_mask.png"
-dest_files=["res://.godot/imported/splash_mask.png-f35382d56f0eb5d081eeafc1e92ab062.s3tc.ctex"]
+source_file="res://decorations/fountain/water_splash/textures/splash_mask.png"
+dest_files=["res://.godot/imported/splash_mask.png-9b7381d47d11150133c26bcfa1ce973d.s3tc.ctex"]
 
 [params]
 
