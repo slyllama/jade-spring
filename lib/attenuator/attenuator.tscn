@@ -49,6 +49,7 @@ shader_parameter/color = Color(0.75, 0.75, 0.75, 1)
 shader_parameter/noise = ExtResource("13_dfsye")
 
 [node name="Attenuator" type="CanvasLayer"]
+layer = 4
 script = ExtResource("1_3up0s")
 
 [node name="Underlay" type="TextureRect" parent="."]
@@ -73,12 +74,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -615.0
-offset_top = -342.0
-offset_right = 343.0
-offset_bottom = 300.0
+offset_left = -479.0
+offset_top = -350.0
+offset_right = 479.0
+offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_3yp7v")
 expand_mode = 1
 stretch_mode = 5

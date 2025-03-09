@@ -34,11 +34,9 @@ func _on_interacted() -> void:
 		Global.announcement_sent.emit("((Charge needed.))")
 		return
 	
-	Global.remove_effect.emit("discombobulator")
-	
 	in_ui = true
 	var _ui = AttenuatorUI.instantiate()
-	Global.hud.add_child(_ui)
+	Global.hud.get_node("TopLevel").add_child(_ui)
 	_ui.closed.connect(func():
 		in_ui = false
 		in_range = true

@@ -36,8 +36,10 @@ var passing = true
 
 @onready var glyph_box: TextureRect = $Base/ControlContainer/GlyphContainer
 
-func _set_ee_paint_exponent(val: float) -> void:
+func _set_ee_paint_exponent(val: float, include_dragon = false) -> void:
 	$Base/EEUpper.material.set_shader_parameter("dissolve_value", val)
+	if include_dragon:
+		$Dragon.material.set_shader_parameter("dissolve_value", val)
 
 func _set_paint_exponent(val: float) -> void:
 	$Base.material.set_shader_parameter("paint_exponent", val)
@@ -118,6 +120,7 @@ func render() -> void:
 				$Click.play()
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
+					Global.remove_effect.emit("discombobulator")
 					Global.add_effect.emit("d_" + current_dragon)
 					$Success.play()
 					$Dragon.reveal(current_dragon)
@@ -159,7 +162,7 @@ func close() -> void:
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_exponent, 0.0, 10.0, 0.2)
 	var ee_fade_tween = create_tween()
-	ee_fade_tween.tween_method(_set_ee_paint_exponent, 1.0, 0.0, 0.3)
+	ee_fade_tween.tween_method(_set_ee_paint_exponent.bind(true), 1.0, 0.0, 0.3)
 	$DispulsionFX.anim_out()
 	await $DispulsionFX.anim_out_complete
 	
