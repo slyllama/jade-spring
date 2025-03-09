@@ -134,7 +134,11 @@ func _ready() -> void:
 		var _sp = StoryPanel.instantiate()
 		add_child(_sp)
 		if "sticker" in data: _sp.open(data.title, data.description, data.sticker)
-		else: _sp.open(data.title, data.description))
+		else: _sp.open(data.title, data.description)
+		$InteractIndicator.mouse_filter = Control.MOUSE_FILTER_IGNORE)
+	
+	Global.close_story_panel.connect(func():
+		$InteractIndicator.mouse_filter = Control.MOUSE_FILTER_STOP)
 	
 	# Configure corner buttons to light up when hovered over
 	for _n in $CornerButtons.get_children():

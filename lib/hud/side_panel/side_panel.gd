@@ -96,7 +96,7 @@ func _ready() -> void:
 		proc_story())
 	
 	Save.karma_changed.connect(func():
-		$Details/DetailsBox/StatsBox/KarmaCount.text = str(Save.data.karma)
+		$Details/DetailsBox/StatsBox/KarmaCount.text = str(Save.data.karma) + " Karma"
 		if karma_fist_load:
 			Global.play_flash(
 				$Details/DetailsBox/StatsBox/KarmaCount.global_position + Vector2(5, 5)))

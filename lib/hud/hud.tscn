@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=27 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bx0omalga0s0k" path="res://lib/hud/announcement/announcement.tscn" id="9_6p63t"]
 [ext_resource type="PackedScene" uid="uid://bvh87e5dxhdg8" path="res://lib/decoration/decoration_pane/decoration_pane.tscn" id="9_qacaq"]
 [ext_resource type="Texture2D" uid="uid://dgvxowegr8bu3" path="res://lib/hud/side_panel/textures/side_panel_minor_separator.png" id="10_hvlxk"]
+[ext_resource type="Texture2D" uid="uid://bq7uy8v7vpum8" path="res://lib/hud/textures/interact_indicator_hover.png" id="13_4sao5"]
+[ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="14_7wyoj"]
 [ext_resource type="Texture2D" uid="uid://dlff8ygba3xfx" path="res://lib/hud/textures/interact_indicator.png" id="14_dlrg2"]
 [ext_resource type="PackedScene" uid="uid://fx684833x53q" path="res://lib/hud/state_indicator/state_indicator.tscn" id="16_s3yhc"]
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="18_0n0fc"]
@@ -173,22 +175,41 @@ alignment = 1
 [node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
 layer = 2
 
-[node name="InteractIndicator" type="TextureRect" parent="."]
+[node name="InteractIndicator" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(56, 56)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -114.0
-offset_top = 202.0
-offset_right = 114.0
-offset_bottom = 248.0
+offset_left = -28.0
+offset_top = 147.0
+offset_right = 28.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
-texture = ExtResource("14_dlrg2")
-expand_mode = 1
+texture_normal = ExtResource("14_dlrg2")
+texture_hover = ExtResource("13_4sao5")
+ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Blur" type="TextureRect" parent="InteractIndicator"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -81.0
+offset_right = 132.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_7wyoj")
+expand_mode = 1
 
 [node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
 z_index = 1

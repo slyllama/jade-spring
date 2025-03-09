@@ -35,6 +35,7 @@ func close():
 	if closed: return # should only happen once
 	closed = true
 	Global.story_panel_open = false
+	Global.close_story_panel.emit()
 	
 	# Do closing stuff
 	var fade_tween = create_tween()

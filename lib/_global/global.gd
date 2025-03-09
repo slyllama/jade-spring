@@ -78,6 +78,7 @@ signal spawn_karma(amount: int, location: Vector3)
 signal weed_crumb_entered
 signal weed_crumb_left
 signal summon_story_panel(data: Dictionary)
+signal close_story_panel
 
 # Walk mode
 signal walk_mode_entered
