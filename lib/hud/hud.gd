@@ -90,15 +90,24 @@ func _input(_event: InputEvent) -> void:
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
 		if visible:
-			$Toolbox.visible = false
-			$TopLevel/DebugEntry.visible = false
-			visible = false
+			hide_hud()
 		else:
-			if Save.data.story_point != "game_start":
-				$Toolbox.visible = true
-			if Global.debug_enabled:
-				$TopLevel/DebugEntry.visible = true
-			visible = true
+			show_hud()
+
+func show_hud() -> void:
+	if visible: return
+	if Save.data.story_point != "game_start":
+		$Toolbox.visible = true
+	if Global.debug_enabled:
+		$TopLevel/DebugEntry.visible = true
+	visible = true
+
+func hide_hud() -> void:
+	if !visible: return
+	$Toolbox.visible = false
+	$TopLevel/DebugEntry.visible = false
+	visible = false
+
 func _ready() -> void:
 	Global.hud = self # reference
 	
@@ -228,3 +237,10 @@ func _on_interact_indicator_gui_input(_event: InputEvent) -> void:
 		# Not sure why this only works when you do it twice, but it does
 		Input.action_press("interact")
 		Input.action_release("interact")
+
+func _on_camera_button_down() -> void:
+	Global.command_sent.emit("/screenshot")
+
+func _on_camera_gui_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("right_click"):
+		OS.shell_open(ProjectSettings.globalize_path("user://save"))

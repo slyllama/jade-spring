@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=28 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="2_yply7"]
 [ext_resource type="PackedScene" uid="uid://c6kvxy3mhfso3" path="res://lib/hud/screen_effects/screen_effects.tscn" id="4_m3be7"]
 [ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="4_r77lv"]
+[ext_resource type="Texture2D" uid="uid://bs4mey7d6ut4j" path="res://lib/hud/textures/camera_icon.png" id="5_ycds6"]
 [ext_resource type="Texture2D" uid="uid://couvfdq0mtm6p" path="res://lib/hud/textures/settings_icon.png" id="6_n0v1s"]
 [ext_resource type="PackedScene" uid="uid://7s701kqjqy22" path="res://lib/hud/fx_list/fx_list.tscn" id="7_5oqpl"]
 [ext_resource type="PackedScene" uid="uid://gokqv1eo16nh" path="res://lib/hud/side_panel/side_panel.tscn" id="7_6qwis"]
@@ -108,6 +109,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 257.0
 offset_bottom = 28.0
+theme_override_constants/separation = 8
 
 [node name="Padding" type="ColorRect" parent="CornerButtons"]
 custom_minimum_size = Vector2(2, 0)
@@ -119,7 +121,17 @@ color = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
+tooltip_text = "Settings."
 texture_normal = ExtResource("6_n0v1s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Camera" type="TextureButton" parent="CornerButtons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Take a screenshot. (Right-click to open screenshots folder.)"
+texture_normal = ExtResource("5_ycds6")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -338,6 +350,8 @@ color = Color(0, 0, 0, 1)
 stream = ExtResource("20_hhimw")
 
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]
+[connection signal="button_down" from="CornerButtons/Camera" to="." method="_on_camera_button_down"]
+[connection signal="gui_input" from="CornerButtons/Camera" to="." method="_on_camera_gui_input"]
 [connection signal="gui_input" from="InteractIndicator" to="." method="_on_interact_indicator_gui_input"]
 [connection signal="focus_entered" from="TopLevel/DebugEntry" to="." method="_on_debug_entry_focus_entered"]
 [connection signal="focus_exited" from="TopLevel/DebugEntry" to="." method="_on_debug_entry_focus_exited"]

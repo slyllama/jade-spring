@@ -30,7 +30,16 @@ func _ready() -> void:
 		elif cmd == "/showcrumbs":
 			for _c in $CrumbHandler.get_children():
 				_c.visible = true
-				Global.announcement_sent.emit("((Showing crumbs.))"))
+				Global.announcement_sent.emit("((Showing crumbs.))")
+		if cmd == "/screenshot":
+			Global.hud.hide_hud()
+			for _x in 2: await get_tree().process_frame
+			var _image = get_viewport().get_texture().get_image()
+			var _time_string = Time.get_datetime_string_from_system(
+				).replace(":", "-").replace("T", " ")
+			_image.save_png("user://save/Screenshot " + _time_string + ".png")
+			Global.hud.show_hud()
+		)
 	
 	# Apply settings
 	SettingsHandler.setting_changed.connect(func(parameter):
