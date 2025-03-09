@@ -58,8 +58,18 @@ func clear_dgolems() -> void:
 		if "amount" in _n:
 			_n.queue_free()
 
-var hearts_playing = false
+func update_golem_effects() -> void:
+	if ("d_kralkatorrik" in Global.current_effects
+		or "d_soo_won" in Global.current_effects
+		or "d_zhaitan" in Global.current_effects
+		or "d_mordremoth" in Global.current_effects
+		or "d_jormag" in Global.current_effects
+		or "d_primordus" in Global.current_effects
+		or "discombobulator" in Global.current_effects):
+		spawn_dgolems()
+	else: clear_dgolems()
 
+var hearts_playing = false
 func play_hearts() -> void:
 	if !$PlayerMesh/HeartParticles.visible:
 		$PlayerMesh/HeartParticles.visible = true

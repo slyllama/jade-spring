@@ -125,6 +125,7 @@ func render() -> void:
 					$Success.play()
 					$Dragon.reveal(current_dragon)
 					await get_tree().create_timer(0.5).timeout
+					Global.player.update_golem_effects()
 					render()
 		)
 		$Base/KeyContainer.add_child(_n)

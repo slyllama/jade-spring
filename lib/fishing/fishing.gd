@@ -74,6 +74,8 @@ func end():
 		completed.emit()
 	else:
 		canceled.emit()
+	
+	Global.player.update_golem_effects()
 	queue_free()
 
 func resize() -> void:

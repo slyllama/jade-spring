@@ -53,4 +53,11 @@ func _on_collision_interacted() -> void:
 			$GolemSound.play()
 		elif id == "clear":
 			Global.remove_effect.emit("discombobulator")
-			Global.remove_effect.emit("dv_charge"))
+			Global.remove_effect.emit("dv_charge")
+			Global.remove_effect.emit("d_soo_won")
+			Global.remove_effect.emit("d_kralkatorrik")
+			Global.remove_effect.emit("d_zhaitan")
+			Global.remove_effect.emit("d_jormag")
+			Global.remove_effect.emit("d_primordus")
+			Global.remove_effect.emit("d_mordremoth")
+			Global.player.clear_dgolems())
