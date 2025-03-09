@@ -6,7 +6,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6grtn"]
 height = 6.0
-radius = 2.0
+radius = 1.4
 
 [node name="RockOut" type="Node3D"]
 script = ExtResource("1_rsuif")

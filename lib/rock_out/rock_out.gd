@@ -24,7 +24,10 @@ func _process(_delta: float) -> void:
 			Global.rock_out_beat.emit()
 
 func _on_area_body_entered(body: Node3D) -> void:
+	await get_tree().process_frame
+	if Global.rocking_out: return # already rocking out!
 	if body is CharacterBody3D:
+		Global.rocking_out = true
 		in_range = true
 		$Music.play()
 		Global.target_music_ratio = 0.0
@@ -32,6 +35,7 @@ func _on_area_body_entered(body: Node3D) -> void:
 
 func _on_area_body_exited(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		Global.rocking_out = false
 		in_range = false
 		$Music.stop()
 		Global.target_music_ratio = 1.0

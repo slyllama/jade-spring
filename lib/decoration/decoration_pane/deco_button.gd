@@ -20,3 +20,6 @@ func set_cost(cost: int) -> void:
 
 func _on_button_button_down() -> void:
 	clicked.emit()
+
+func _on_button_mouse_entered() -> void:
+	$Anim.play("pop")

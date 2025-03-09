@@ -39,6 +39,7 @@ var player_position = Vector3.ZERO
 var player_y_rotation = 0.0
 var popup_open = false
 var retina_scale = 1
+var rocking_out = false
 var safe_point: Marker3D
 var settings_open = false
 var snapping = false # don't snap by default

@@ -3,8 +3,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dvpalgx5bksgb" path="res://decorations/charr_loudspeaker/quaver.res" id="1_d2m5p"]
 
 [sub_resource type="Curve" id="Curve_qkrn3"]
-_data = [Vector2(0, 0), 0.0, 3.72927, 0, 0, Vector2(0.325, 0.463918), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0), 0.0, 3.72927, 0, 0, Vector2(0.15625, 1), 0.0, 0.0, 0, 0, Vector2(0.59375, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_bhwsy"]
 curve = SubResource("Curve_qkrn3")
@@ -22,8 +22,8 @@ spread = 90.0
 initial_velocity_min = 0.1
 initial_velocity_max = 0.3
 gravity = Vector3(0, 0.25, 0)
-scale_min = 0.6
-scale_max = 0.8
+scale_min = 0.9
+scale_max = 1.1
 color_ramp = SubResource("GradientTexture1D_wsn2o")
 alpha_curve = SubResource("CurveTexture_bhwsy")
 

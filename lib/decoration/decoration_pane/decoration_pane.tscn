@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=14 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="6_cqq78"]
 [ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="7_r3py3"]
 [ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="8_q6jje"]
+[ext_resource type="Texture2D" uid="uid://ccrjdhca3foth" path="res://lib/hud/state_indicator/textures/hud_ornament.png" id="9_5igfo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -49,8 +50,24 @@ texture = ExtResource("3_kxuya")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CornerNW" type="TextureRect" parent="Base" index="0"]
-z_index = 1
+[node name="DecorationNE" type="TextureRect" parent="Base" index="0"]
+modulate = Color(0.14, 0.14, 0.14, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -22.0
+offset_top = 258.0
+offset_right = 228.0
+offset_bottom = 553.0
+grow_horizontal = 0
+rotation = 3.14159
+mouse_filter = 2
+texture = ExtResource("6_cqq78")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CornerNW" type="TextureRect" parent="Base" index="1"]
 layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -62,7 +79,7 @@ grow_vertical = 0
 texture = ExtResource("5_12xux")
 expand_mode = 1
 
-[node name="CornerSE" type="TextureRect" parent="Base" index="1"]
+[node name="CornerSE" type="TextureRect" parent="Base" index="2"]
 z_index = 1
 layout_mode = 2
 anchor_top = 1.0
@@ -77,7 +94,7 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="DecorationSW" type="TextureRect" parent="Base" index="2"]
+[node name="DecorationSW" type="TextureRect" parent="Base" index="3"]
 modulate = Color(0.205117, 0.205117, 0.205117, 1)
 layout_mode = 0
 offset_left = 28.0
@@ -89,7 +106,32 @@ texture = ExtResource("6_cqq78")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="3"]
+[node name="Ornament" type="TextureRect" parent="Base" index="4"]
+modulate = Color(0.3, 0.3, 0.3, 1)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 27.0
+offset_right = 454.0
+offset_bottom = 157.0
+mouse_filter = 2
+texture = ExtResource("9_5igfo")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="Ornament2" type="TextureRect" parent="Base" index="5"]
+modulate = Color(0.3, 0.3, 0.3, 1)
+layout_mode = 0
+offset_left = 746.0
+offset_top = 27.0
+offset_right = 874.0
+offset_bottom = 157.0
+mouse_filter = 2
+texture = ExtResource("9_5igfo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="6"]
 layout_mode = 0
 offset_left = 337.0
 offset_top = 29.0
@@ -108,24 +150,7 @@ render_target_update_mode = 4
 
 [node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]
 
-[node name="DecorationNE" type="TextureRect" parent="." index="2"]
-modulate = Color(0.14, 0.14, 0.14, 1)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 588.0
-offset_top = 242.0
-offset_right = 838.0
-offset_bottom = 537.0
-grow_horizontal = 0
-rotation = 3.14159
-mouse_filter = 2
-texture = ExtResource("6_cqq78")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Container" parent="." index="3"]
+[node name="Container" parent="." index="2"]
 offset_right = -4.0
 offset_bottom = 22.0
 theme_override_constants/separation = 0
@@ -179,7 +204,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="ActionsBox" type="HBoxContainer" parent="." index="5"]
+[node name="ActionsBox" type="HBoxContainer" parent="." index="4"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -215,7 +240,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 text = "Place Decoration"
 
-[node name="DragToRotate" type="RichTextLabel" parent="." index="6"]
+[node name="DragToRotate" type="RichTextLabel" parent="." index="5"]
 modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = 677.0
