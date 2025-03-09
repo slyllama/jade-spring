@@ -5,13 +5,13 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b841u"]
 material = ExtResource("1_tl07w")
-size = Vector2(0.66, 4.5)
+size = Vector2(0.5, 12)
 orientation = 2
 
 [node name="StoryMarker" type="Node3D"]
 
 [node name="Ray" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_b841u")
 
