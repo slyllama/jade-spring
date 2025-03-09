@@ -76,6 +76,7 @@ func _ready() -> void:
 		
 		if "/spawnkarma=" in _cmd:
 			var _count = int(_cmd.replace("/spawnkarma=", ""))
+			_count = clamp(_count, 0, 25)
 			spawn_karma(_count, Global.player_position)
 	)
 	

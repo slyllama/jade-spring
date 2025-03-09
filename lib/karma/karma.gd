@@ -1,6 +1,10 @@
 extends Node3D
 
 var picked_up = false
+var target_y_position = 0.0
+
+func _get_y_collision() -> float:
+	return($YCast.get_collision_point().y + 0.24)
 
 func _on_pick_up_area_body_entered(body: Node3D) -> void:
 	if picked_up: return
@@ -32,16 +36,23 @@ func _ready() -> void:
 	var ray_tween = create_tween()
 	ray_tween.set_parallel()
 	ray_tween.tween_property($Orb/Ray, "scale:y", 1.0, 0.25)
+	
+	target_y_position = _get_y_collision()
+	$Orb.global_position.y = _get_y_collision()
 
 var _c = 0
 
 func _process(delta: float) -> void:
 	_c += delta
 	if picked_up:
-		global_position = lerp(global_position, Global.player_position, delta * 10.0)
-	else:
-		global_position = lerp(global_position, Global.player_position, delta * clamp(_c, 0.0, 2.0) * 0.5)
-	$Orb.global_position.y = $YCast.get_collision_point().y + 0.24
+		global_position = lerp(
+			global_position, Global.player_position, Utilities.critical_lerp(delta, 10.0))
+	
+	if _c >= 0.5:
+		_c = 0.0
+		target_y_position = _get_y_collision()
+	$Orb.global_position.y = lerp(
+		$Orb.global_position.y, target_y_position, Utilities.critical_lerp(delta, 10.0))
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()

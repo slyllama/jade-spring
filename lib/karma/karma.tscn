@@ -63,7 +63,7 @@ shader_parameter/y_gradient_texture = SubResource("GradientTexture2D_4bktw")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_65p8k"]
 material = SubResource("ShaderMaterial_aqtf3")
-size = Vector2(0.3, 0.7)
+size = Vector2(0.3, 0.5)
 orientation = 2
 
 [sub_resource type="Curve" id="Curve_ygynt"]
@@ -102,7 +102,7 @@ color_initial_ramp = SubResource("GradientTexture1D_ph5yn")
 alpha_curve = SubResource("CurveTexture_yc1l7")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ksru4"]
-radius = 0.45
+radius = 0.65
 
 [node name="Karma" type="Node3D"]
 script = ExtResource("1_7siie")
@@ -116,7 +116,7 @@ cast_shadow = 0
 mesh = SubResource("SphereMesh_renxr")
 
 [node name="Ray" type="MeshInstance3D" parent="Orb"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181851, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102116, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_65p8k")
 skeleton = NodePath("../../YCast")
@@ -134,6 +134,7 @@ draw_pass_1 = ExtResource("4_ma66g")
 
 [node name="Decal" type="Decal" parent="Orb"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+visible = false
 size = Vector3(0.3, 1, 0.3)
 texture_albedo = ExtResource("6_vvvmv")
 emission_energy = 2.0
