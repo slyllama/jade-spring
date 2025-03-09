@@ -58,7 +58,6 @@ func start_decoration_placement(id: String) -> void:
 	Global.mouse_3d_override_rotation = null
 	Global.tool_mode = Global.TOOL_MODE_PLACE
 	Global.queued_decoration = id
-	Global.deco_placement_started.emit()
 	Global.action_cam_disable.emit()
 	
 	var _y_rotation = 0.0
@@ -73,6 +72,8 @@ func start_decoration_placement(id: String) -> void:
 	else:
 		Global.set_cursor(true, {
 			"highlight_on_decoration": false})
+	
+	Global.deco_placement_started.emit()
 
 func render(tag = "None") -> void:
 	for _n in buttons:
@@ -106,7 +107,6 @@ func render(tag = "None") -> void:
 			
 		buttons[_d] = _item
 		$Container/ScrollBox/ScrollVBox.add_child(_item)
-		_item.fade_in_with_delay(_c * 0.02)
 		
 		if "Foliage" in _dl.tags:
 			_item.set_icon("foliage")

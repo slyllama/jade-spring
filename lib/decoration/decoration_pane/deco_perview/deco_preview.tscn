@@ -1,6 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4hdvgok1lsmq"]
+[gd_scene load_steps=14 format=3 uid="uid://c4hdvgok1lsmq"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.gd" id="1_ylfot"]
+[ext_resource type="Texture2D" uid="uid://bnh63xcitf33o" path="res://decorations/rata_sum/materials/textures/hex_tile_diff.jpg" id="2_ilmmx"]
+[ext_resource type="Texture2D" uid="uid://wgm62osd2ft1" path="res://decorations/rata_sum/materials/textures/hex_tile_norm.png" id="3_nohax"]
 [ext_resource type="PackedScene" uid="uid://dwrrj0ukov0ov" path="res://lib/decoration/decoration_pane/deco_perview/rune/rune.tscn" id="3_wifgh"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="5_m0vr7"]
 
@@ -18,99 +20,19 @@ fog_depth_end = 13.0
 adjustment_enabled = true
 adjustment_saturation = 1.2
 
-[sub_resource type="Shader" id="Shader_e2vv8"]
-code = "shader_type spatial;
-
-uniform float uv_scale = 18.0;
-uniform sampler2D grass_texture_base: source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D grass_texture_add: source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D grass_normal_texture: filter_linear_mipmap, repeat_enable;
-uniform sampler2D blend_noise_texture: filter_linear_mipmap, repeat_enable, hint_default_black;
-
-uniform sampler2D dirt_texture: source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D dirt_mask_texture: filter_linear_mipmap, hint_default_black;
-
-uniform float grass_base_multiplier = 0.45;
-uniform float normal_strength = 1.0;
-uniform float grass_add_multiplier = 0.7;
-
-vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
-	float cosa = cos(rotation);
-	float sina = sin(rotation);
-	uv -= pivot;
-	return vec2(
-		cosa * uv.x - sina * uv.y,
-		cosa * uv.y + sina * uv.x
-	) + pivot;
-}
-
-void fragment() {
-	float blend_noise = texture(blend_noise_texture, UV).r;
-	float dirt_blend = texture(dirt_mask_texture, UV).b;
-	float light_blend = texture(dirt_mask_texture, UV).r;
-
-	vec3 grass_base = texture(grass_texture_base, UV * uv_scale).rgb;
-	vec3 grass_add = texture(grass_texture_add, rotate_uv(UV, vec2(0.5), PI / 2.0) * uv_scale * 0.5).rgb;
-	vec3 grass_normal = texture(grass_normal_texture, UV * uv_scale).rgb;
-
-	vec3 dirt = texture(dirt_texture, UV * uv_scale * 1.55).rgb;
-
-	ALBEDO = mix(grass_base * grass_base_multiplier, grass_add * grass_add_multiplier, blend_noise);
-	ALBEDO = mix(ALBEDO, dirt, dirt_blend);
-	ALBEDO *= (1.0 + light_blend);
-	NORMAL_MAP = grass_normal;
-	NORMAL_MAP_DEPTH = normal_strength;
-	SPECULAR = 0.0;
-}
-"
-
-[sub_resource type="Gradient" id="Gradient_qv4sk"]
-offsets = PackedFloat32Array(0, 0.587432)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_csnh3"]
-frequency = 0.025
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fjivs"]
-color_ramp = SubResource("Gradient_qv4sk")
-noise = SubResource("FastNoiseLite_csnh3")
-
-[sub_resource type="Gradient" id="Gradient_rplvo"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_x22y7"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3fwdj"]
-color_ramp = SubResource("Gradient_rplvo")
-noise = SubResource("FastNoiseLite_x22y7")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0rf7j"]
-load_path = "res://.godot/imported/dirt_diff.jpg-f1fc3b4766c596063b9a1adcd4b07dc0.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t6j0b"]
-load_path = "res://.godot/imported/grass_norm.jpg-dbae9797f8f4aafb49008420754fe58c.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f68cj"]
-load_path = "res://.godot/imported/grass_add_diff.jpg-13b8df258a1a13df87f2e9dc7e6efba8.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ipm5"]
-load_path = "res://.godot/imported/grass_base_diff.jpg-671630e1b73b22edad87508466dc6e73.s3tc.ctex"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4iv0s"]
-render_priority = 0
-shader = SubResource("Shader_e2vv8")
-shader_parameter/uv_scale = 16.0
-shader_parameter/grass_base_multiplier = 0.2
-shader_parameter/normal_strength = 1.0
-shader_parameter/grass_add_multiplier = 0.14
-shader_parameter/grass_texture_base = SubResource("CompressedTexture2D_2ipm5")
-shader_parameter/grass_texture_add = SubResource("CompressedTexture2D_f68cj")
-shader_parameter/grass_normal_texture = SubResource("CompressedTexture2D_t6j0b")
-shader_parameter/blend_noise_texture = SubResource("NoiseTexture2D_fjivs")
-shader_parameter/dirt_texture = SubResource("CompressedTexture2D_0rf7j")
-shader_parameter/dirt_mask_texture = SubResource("NoiseTexture2D_3fwdj")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_splts"]
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("2_ilmmx")
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = -2.0
+normal_texture = ExtResource("3_nohax")
+backlight_enabled = true
+backlight = Color(0.2, 0.2, 0.2, 1)
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uh8ht"]
-material = SubResource("ShaderMaterial_4iv0s")
+material = SubResource("StandardMaterial3D_splts")
 size = Vector2(20, 20)
 
 [sub_resource type="Curve" id="Curve_iv3k0"]

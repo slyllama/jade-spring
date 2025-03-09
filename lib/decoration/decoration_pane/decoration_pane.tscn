@@ -91,10 +91,10 @@ stretch_mode = 5
 
 [node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="3"]
 layout_mode = 0
-offset_left = 325.0
+offset_left = 337.0
 offset_top = 29.0
-offset_right = 896.0
-offset_bottom = 504.0
+offset_right = 872.0
+offset_bottom = 507.0
 stretch = true
 
 [node name="PreviewViewport" type="SubViewport" parent="Base/PreviewContainer" index="0"]
@@ -103,7 +103,7 @@ world_3d = SubResource("World3D_cxjm1")
 transparent_bg = true
 handle_input_locally = false
 msaa_3d = 2
-size = Vector2i(571, 475)
+size = Vector2i(535, 478)
 render_target_update_mode = 4
 
 [node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]
@@ -218,10 +218,10 @@ text = "Place Decoration"
 [node name="DragToRotate" type="RichTextLabel" parent="." index="6"]
 modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
-offset_left = 687.0
-offset_top = 478.0
-offset_right = 839.0
-offset_bottom = 497.0
+offset_left = 677.0
+offset_top = 465.0
+offset_right = 829.0
+offset_bottom = 484.0
 mouse_filter = 2
 bbcode_enabled = true
 text = "[right]Drag to rotate preview.[/right]"
