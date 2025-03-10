@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://berm2vx2llqc3"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_mbryx"]
+[ext_resource type="PackedScene" uid="uid://dwrstaiamhjjb" path="res://decorations/janthiri_bee/janthiri_bee.glb" id="2_m8xkx"]
+[ext_resource type="Script" path="res://decorations/janthiri_bee/janthiri_bee.gd" id="3_q04mg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74lef"]
+radius = 0.17
+height = 0.7
+
+[node name="JanthiriBee" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_mbryx")
+id = "janthiri_bee"
+collision_box = NodePath("Body")
+custom_lod = false
+
+[node name="JanthiriBee" parent="." instance=ExtResource("2_m8xkx")]
+script = ExtResource("3_q04mg")
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 0.0871558, -0.996195, 0, 0.996195, 0.0871558, 0, 0, -0.1)
+shape = SubResource("CapsuleShape3D_74lef")

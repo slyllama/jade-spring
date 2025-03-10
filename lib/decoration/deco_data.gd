@@ -113,6 +113,15 @@ const DecoData = {
 		"show_floor": true,
 		"cull": "AGGRESSIVE"
 	},
+	"janthiri_bee": {
+		"name": "Janthiri Bee",
+		"scene": "res://decorations/janthiri_bee/janthiri_bee.tscn",
+		"cursor_model": "res://decorations/janthiri_bee/janthiri_bee.glb",
+		"preview_scale": 1.9,
+		"model_offset": Vector3(0, 0.2, 0),
+		"preview_y_rotation": 180,
+		"tags": [ ]
+	},
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
 		"scene": "res://decorations/bamboo_cluster/deco_bamboo_cluster.tscn",

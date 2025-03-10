@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://lpt2rmhj2gfg"]
+
+[ext_resource type="Texture2D" uid="uid://br40qfuwidp7o" path="res://decorations/janthiri_bee/materials/textures/bee_body_diff.jpg" id="1_pnrdd"]
+[ext_resource type="Texture2D" uid="uid://criwrnwec7byw" path="res://decorations/janthiri_bee/materials/textures/bee_body_norm.jpg" id="2_ddj0y"]
+
+[resource]
+albedo_texture = ExtResource("1_pnrdd")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_ddj0y")
+backlight_enabled = true
+backlight = Color(0.15, 0.15, 0.15, 1)

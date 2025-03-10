@@ -17,9 +17,6 @@ func _ready() -> void:
 	super()
 	if Engine.is_editor_hint(): return
 	
-	#Save.story_advanced.connect(proc_story)
-	#proc_story()
-	
 	body_entered.connect(func(body):
 		#if Save.data.story_point == "game_start": return # not unlocked yet
 		if body is CharacterBody3D:
@@ -35,10 +32,13 @@ func _ready() -> void:
 			Global.bug_crumb_left.emit())
 
 func interact() -> void:
-	if Save.data.story_point == "game_start" or Save.data.story_point == "pick_weeds":
+	if (Save.data.story_point == "game_start"
+		or Save.data.story_point == "pick_weeds"):
 		Global.announcement_sent.emit("Noisy bugs flick incessantly about me, sending my sensors haywire.")
 		return # not unlocked yet
-	elif Save.data.story_point == "clear_bugs" or Save.data.story_point == "ratchet_dv":
+	elif (Save.data.story_point == "clear_bugs" 
+		or Save.data.story_point == "ratchet_dv"
+		or Save.data.story_point == "clear_dv"):
 		if "discombobulator" in Global.current_effects:
 			var _f = FishingInstance.instantiate()
 			_f.completed.connect(clear)

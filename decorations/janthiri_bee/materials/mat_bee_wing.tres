@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://crgyapms2hh3s"]
+
+[ext_resource type="Texture2D" uid="uid://bn74altcdgl2n" path="res://decorations/janthiri_bee/materials/textures/wing_alpha.png" id="1_sx41t"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.45, 0.45, 0.45, 1)
+albedo_texture = ExtResource("1_sx41t")
