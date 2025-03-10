@@ -22,6 +22,9 @@ func _render_crumb_debug() -> String:
 			+ str(Global.current_crumb) + "[/color]")
 	return(_s)
 
+func get_debug_has_focus() -> bool:
+	return($TopLevel/DebugEntry.has_focus())
+
 func _show_int() -> void: # show the interaction indicator
 	$InteractEnter.play()
 	var fade_tween = create_tween()
@@ -58,7 +61,9 @@ func proc_story() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		_debug_cmd_lose_focus(true)
+		if $TopLevel/DebugEntry.has_focus():
+			_debug_cmd_lose_focus(true)
+			return
 		if (!Global.in_exclusive_ui and !Global.deco_pane_open
 			and !$TopLevel/SettingsPane.is_open):
 			$TopLevel/SettingsPane.open()
@@ -86,6 +91,8 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_up"):
 		_debug_cmd_gain_focus()
 		$TopLevel/DebugEntry.text = Global.last_command
+		await get_tree().process_frame
+		$TopLevel/DebugEntry.set_caret_column(100)
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):

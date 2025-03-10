@@ -128,7 +128,7 @@ func render() -> void:
 					Global.add_effect.emit("d_" + current_dragon)
 					$Success.play()
 					$Dragon.reveal(current_dragon)
-					await get_tree().create_timer(1.2).timeout
+					await get_tree().create_timer(2.0).timeout
 					Global.player.update_golem_effects()
 					close()
 		)

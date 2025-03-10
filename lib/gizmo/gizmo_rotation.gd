@@ -22,7 +22,7 @@ func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
 	mat.set_shader_parameter("color", get_color * dim)
 
-func _configure_grabber(grabber: StaticBody3D) -> void:
+func _configure_grabber(grabber: Area3D) -> void:
 	grabber.mouse_entered.connect(func():
 		if !enabled: return
 		set_color(color, 1.0))
@@ -60,17 +60,18 @@ func _configure_grabber(grabber: StaticBody3D) -> void:
 				
 				if !is_global:
 					if Global.snapping:
-						
 						if accumulated_ratio > 5.0:
-							get_parent().rotate_object_local(rotation_vector, deg_to_rad(22.5))
+							get_parent().rotate_object_local(
+								rotation_vector, deg_to_rad(22.5))
 							accumulated_ratio = 0.0
 						elif accumulated_ratio < -5.0:
-							get_parent().rotate_object_local(rotation_vector, -deg_to_rad(22.5))
+							get_parent().rotate_object_local(
+								rotation_vector, -deg_to_rad(22.5))
 							accumulated_ratio = 0.0
 					else:
-						get_parent().rotate_object_local(rotation_vector, _r * 0.1)
+						get_parent().rotate_object_local(
+							rotation_vector, _r * 0.1)
 				else:
-					
 					var _new_rotation = get_parent().global_rotation_degrees + _r * 10.0 * rotation_vector
 					get_parent().global_rotation_degrees = _new_rotation
 			)
@@ -92,9 +93,19 @@ func destroy() -> void:
 
 func _ready() -> void:
 	enabled = true
-	
 	rotate_visual = RotatorMesh.instantiate()
 	add_child(rotate_visual)
+	
+	# Replace the imported StaticBody3D with an Area3D
+	# (Could've instanced the important scene but whatever, LMAO)
+	var _area = Area3D.new()
+	_area.add_child(rotate_visual.get_node("Cylinder/CollisionShape3D").duplicate(true))
+	_area.set_collision_layer_value(1, false)
+	_area.set_collision_layer_value(5, true)
+	_area.set_collision_mask_value(1, false)
+	_area.set_collision_mask_value(5, true)
+	rotate_visual.get_node("Cylinder").queue_free()
+	rotate_visual.add_child(_area)
 	
 	axis_stick.size = Vector3(0.02, 50.0, 0.02)
 	axis_stick.material_override = mat
@@ -116,7 +127,7 @@ func _ready() -> void:
 	for _n in Utilities.get_all_children(rotate_visual):
 		if _n is MeshInstance3D:
 			_configure_mesh(_n)
-		elif _n is StaticBody3D:
+		elif _n is Area3D:
 			_configure_grabber(_n)
 	
 	set_disable_scale(true)

@@ -10,7 +10,7 @@ void fragment() {
 	vec2 wobble = texture(noise, SCREEN_UV * wobble_scale + TIME * 0.04).rg * 0.2;
 	float dissolve = texture(noise, SCREEN_UV - TIME * 0.01).r;
 	float _dv = 1.0 - dissolve_value;
-	
+
 	COLOR = texture(TEXTURE, (UV + wobble * strength) * 0.95);
 	COLOR.rgb *= color;
 	float _original_alpha = COLOR.a;
@@ -22,4 +22,3 @@ void fragment() {
 		COLOR.a = _original_alpha;
 	}
 }
-	

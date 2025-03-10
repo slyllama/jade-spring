@@ -280,13 +280,13 @@ texture = ExtResource("16_qdpey")
 
 [node name="Orb" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
-rotation = 137.556
+rotation = 159.928
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("20_04yj8")
 
 [node name="Orb2" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
-rotation = -178.796
+rotation = -210.12
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("20_04yj8")
 flip_h = true

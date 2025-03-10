@@ -20,6 +20,11 @@ func close() -> void:
 func _input(event: InputEvent) -> void:
 	super(event)
 	if Input.is_action_just_pressed("ui_cancel"):
+		# Horrible sickening dark magic to prevent the settings pane closing
+		# after escaping out of the debugging input field
+		if get_parent().get_parent().has_method(&"get_debug_has_focus"):
+			if get_parent().get_parent().get_debug_has_focus():
+				return
 		if is_open:
 			await get_tree().process_frame
 			close()
