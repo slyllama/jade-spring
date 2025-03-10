@@ -50,6 +50,13 @@ func update_crumb_count() -> void:
 			_get_crumb_count[_n.type] += 1
 	Save.data.crumb_count = _get_crumb_count
 
+func get_karma_stats() -> void:
+	var _out = "weed = " + str(totals.weed) + " @ " + str(Global.kv_weed) + " = " + str(totals.weed * Global.kv_weed)
+	_out += "\nbug = " + str(totals.bug) + " @ " + str(Global.kv_bug) + " = " + str(totals.bug * Global.kv_bug)
+	_out += "\ndragonvoid = " + str(totals.dragonvoid) + " @ " + str(Global.kv_dragonvoid) + " = " + str(totals.dragonvoid * Global.kv_dragonvoid)
+	_out += "\nTotal Karma yield: " + str(totals.weed * Global.kv_weed + totals.bug * Global.kv_bug + totals. dragonvoid * Global.kv_dragonvoid)
+	print(_out)
+
 func _ready() -> void:
 	for _n in get_children():
 		if _n is Crumb:
@@ -57,6 +64,10 @@ func _ready() -> void:
 				totals[_n.type] = 0
 			totals[_n.type] += 1
 	totals.weed -= 1
+	
+	Global.command_sent.connect(func(cmd):
+		if cmd == "/karmastats":
+			get_karma_stats())
 	
 	Global.crumb_handler = self
 	Global.crumbs_updated.emit()

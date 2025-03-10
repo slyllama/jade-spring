@@ -10,6 +10,11 @@ var save_handler: SaveHandler
 var hud: CanvasLayer
 var player: CharacterBody3D
 
+# Karma values
+var kv_weed = 5
+var kv_bug = 10
+var kv_dragonvoid = 15
+
 var bindings_saved_initial = false # make sure this is only done once during game run-time
 var bindings_pane_open = false
 var camera_basis: Basis

@@ -36,11 +36,9 @@ func _ready() -> void:
 	var ray_tween = create_tween()
 	ray_tween.set_parallel()
 	ray_tween.tween_property($Orb/Ray, "scale:y", 1.0, 0.25)
-	
-	target_y_position = _get_y_collision()
-	$Orb.global_position.y = _get_y_collision()
 
 var _c = 0
+var _ticked = false
 
 func _process(delta: float) -> void:
 	_c += delta
@@ -50,9 +48,15 @@ func _process(delta: float) -> void:
 	
 	if _c >= 0.5:
 		_c = 0.0
+		if !_ticked: _ticked = true
 		target_y_position = _get_y_collision()
-	$Orb.global_position.y = lerp(
-		$Orb.global_position.y, target_y_position, Utilities.critical_lerp(delta, 10.0))
+	
+	if !_ticked: # update every frame for the first little portion (and then reduce update frequency)
+		target_y_position = _get_y_collision()
+		$Orb.global_position.y = target_y_position
+	else:
+		$Orb.global_position.y = lerp(
+			$Orb.global_position.y, target_y_position, Utilities.critical_lerp(delta, 10.0))
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()

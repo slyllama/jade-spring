@@ -4,7 +4,6 @@ const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 
 @export var type := "bug"
 @export var area_radius := 1.2
-@export var karma_value = 0 # how much Karma does this type of crumb yield?
 @export var interact_when_proximal := true
 @export var can_click := false
 @export var area_height = 4.0
@@ -20,7 +19,10 @@ func process_custom_data() -> void:
 	# can guarantee that custom data exists at this point.
 
 func clear() -> void:
-	Global.spawn_karma.emit(karma_value, global_position)
+	if type == "bug":
+		Global.spawn_karma.emit(Global.kv_bug, global_position)
+	elif type == "dragonvoid":
+		Global.spawn_karma.emit(Global.kv_dragonvoid, global_position)
 	
 	Global.current_crumb = null
 	Global.crumbs_updated.emit()
