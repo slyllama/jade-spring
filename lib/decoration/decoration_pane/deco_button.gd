@@ -22,4 +22,7 @@ func _on_button_button_down() -> void:
 	clicked.emit()
 
 func _on_button_mouse_entered() -> void:
-	$Anim.play("pop")
+	$Anim.play("pop_in")
+
+func _on_button_mouse_exited() -> void:
+	$Anim.play("pop_out")

@@ -48,6 +48,7 @@ func render_block(block_data: Dictionary) -> void:
 				_first = true
 			
 			_b.button_down.connect(func():
+				if has_closed: return
 				block_played.emit(_o)
 				Global.click_sound.emit()
 				if _o in data:

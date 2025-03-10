@@ -32,6 +32,7 @@ func _ready() -> void:
 				_c.visible = true
 				Global.announcement_sent.emit("((Showing crumbs.))")
 		if cmd == "/screenshot":
+			$Shutter.play()
 			Global.hud.hide_hud()
 			for _x in 2: await get_tree().process_frame
 			var _image = get_viewport().get_texture().get_image()
