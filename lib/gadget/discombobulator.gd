@@ -34,8 +34,13 @@ func _on_collision_interacted() -> void:
 	dialogue_data = DIALOGUE_DATA.duplicate(true)
 	
 	# Add an option to clear an effect (and golems) if you have it
-	if ("discombobulator" in Global.current_effects
-		or "dv_charge" in Global.current_effects):
+	if ("d_kralkatorrik" in Global.current_effects
+		or "d_soo_won" in Global.current_effects
+		or "d_zhaitan" in Global.current_effects
+		or "d_mordremoth" in Global.current_effects
+		or "d_jormag" in Global.current_effects
+		or "d_primordus" in Global.current_effects
+		or "discombobulator" in Global.current_effects):
 		dialogue_data._entry["options"].erase("close")
 		dialogue_data._entry.options["clear"] = "I'd like to return my Golems. (Clears effects.)"
 		dialogue_data._entry.options["close"] = "I'm all sorted, thanks."

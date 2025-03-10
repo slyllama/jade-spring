@@ -1,3 +1,4 @@
+@tool
 extends CanvasLayer
 
 signal closed
@@ -33,6 +34,7 @@ var two_oct = notes.duplicate()
 var place = 0
 var target_track
 var passing = true
+var has_closed = false
 
 @onready var glyph_box: TextureRect = $Base/ControlContainer/GlyphContainer
 
@@ -110,6 +112,8 @@ func render() -> void:
 			if played_note != correct_note:
 				if passing:
 					$Disabled.play()
+					Global.play_flash(
+						$Base/ControlContainer/Reset.global_position + Vector2(60, 16))
 					var ee_fade_tween = create_tween()
 					ee_fade_tween.tween_method(_set_ee_paint_exponent, 1.0, 0.0, 0.3)
 				passing = false
@@ -124,9 +128,9 @@ func render() -> void:
 					Global.add_effect.emit("d_" + current_dragon)
 					$Success.play()
 					$Dragon.reveal(current_dragon)
-					await get_tree().create_timer(0.5).timeout
+					await get_tree().create_timer(1.2).timeout
 					Global.player.update_golem_effects()
-					render()
+					close()
 		)
 		$Base/KeyContainer.add_child(_n)
 		_n.set_pills_size(TUNES[current_dragon].size())
@@ -152,7 +156,9 @@ func render() -> void:
 		await get_tree().create_timer(0.03).timeout
 
 func close() -> void:
+	if has_closed: return
 	await get_tree().process_frame # queue for next frame so settings doesn't open
+	has_closed = true
 	Global.target_music_ratio = 1.0
 	
 	Global.can_move = true
@@ -174,6 +180,7 @@ func _adv_blank_place() -> void:
 		place += 1
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	Global.target_music_ratio = 0.0
 	
 	Global.can_move = false
@@ -204,6 +211,11 @@ func _on_close_button_down() -> void:
 	close()
 
 func _process(delta: float) -> void:
+	$Dragon/Orb.rotation_degrees += delta * 10.0
+	$Dragon/Orb2.rotation_degrees -= delta * 14.0
+	
+	if Engine.is_editor_hint(): return
+	
 	$DispulsionFX.position.x = $Base.position.x + $Base.size.x / 2.0
 	$DispulsionFX.position.y = $Base.position.y + 140.0
 	

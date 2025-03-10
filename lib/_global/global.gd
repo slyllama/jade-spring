@@ -213,7 +213,8 @@ const Flash = preload("res://lib/flash/flash.tscn")
 func play_flash(screen_position: Vector2) -> void:
 	var _f = Flash.instantiate()
 	_f.global_position = screen_position
-	hud.add_child(_f)
+	_f.z_index = 100
+	hud.get_node("TopLevel").add_child(_f)
 
 ##### Execution
 

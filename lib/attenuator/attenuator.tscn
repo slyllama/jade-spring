@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=29 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://lib/attenuator/dragon_indicator.gd" id="15_k3slj"]
 [ext_resource type="AudioStream" uid="uid://p27he2puiuwj" path="res://lib/attenuator/sounds/attenuator_success.ogg" id="15_vld85"]
 [ext_resource type="Texture2D" uid="uid://j2u6itfbl3mi" path="res://lib/attenuator/textures/glyphs/jormag.png" id="16_qdpey"]
+[ext_resource type="Texture2D" uid="uid://bfd1m6uyrf648" path="res://lib/attenuator/textures/dragon_orbs.png" id="20_04yj8"]
 
 [sub_resource type="Gradient" id="Gradient_cvck5"]
 
@@ -276,6 +277,19 @@ script = ExtResource("15_k3slj")
 [node name="Rune" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
 texture = ExtResource("16_qdpey")
+
+[node name="Orb" type="Sprite2D" parent="Dragon"]
+use_parent_material = true
+rotation = 137.556
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("20_04yj8")
+
+[node name="Orb2" type="Sprite2D" parent="Dragon"]
+use_parent_material = true
+rotation = -178.796
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("20_04yj8")
+flip_h = true
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_r8x0m")
