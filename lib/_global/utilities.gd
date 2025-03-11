@@ -34,6 +34,14 @@ const DRAGON_DATA = {
 	}
 }
 
+# Is the specified point within the world boundaries?
+# TODO: relies on magic numbers; should use the boundary nodes themselves
+func point_in_wb(point: Vector3) -> bool:
+	if (point.x <= -13.0 or point.x >= 14.0 or point.z >= 20.75
+		or point.z <= -12.0 or point.y >= 16.5):
+		return(false)
+	else: return(true)
+
 func get_time() -> String:
 	var time = Time.get_time_dict_from_system()
 	return("%02d:%02d:%02d" % [time.hour, time.minute, time.second])

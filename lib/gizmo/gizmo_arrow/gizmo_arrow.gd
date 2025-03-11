@@ -95,6 +95,7 @@ func _ready() -> void:
 		))
 
 var _wait_frame: int = 0
+@onready var _last_position = get_parent().global_position
 
 func _process(delta: float) -> void:
 	_wait_frame += 1
@@ -126,6 +127,12 @@ func _process(delta: float) -> void:
 			snapped($Drag/Pick.global_position.y, Global.SNAP_INCREMENT),
 			snapped($Drag/Pick.global_position.z, Global.SNAP_INCREMENT)
 		)
+	
+	
+	if (Global.safe_point.global_position.distance_to(get_parent().global_position) < Global.SPAWN_RADIUS
+		or !Utilities.point_in_wb(get_parent().global_position)):
+		get_parent().global_position = _last_position
+	else: _last_position = get_parent().global_position
 	
 	if dragging:
 		var _t = last_tick_position.distance_squared_to(get_parent().global_position)
