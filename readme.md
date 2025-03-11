@@ -1,19 +1,18 @@
-![Seitung Spring Clean](https://www.slyllama.net/journal/seitung-nov24/banner.jpg)
+# Jade Spring
 
-# Seitung Spring Clean
+Take some time to relax, potter, and decorate in Jade Spring, a small, independent Guild Wars 2 sandbox fan game. Tend your garden as a Xunlai jade bot, clearing weeds and pests, dispelling Dragonvoid blights, and furnishing your plot with architecture, flora, furniture, and ornaments from across Tyria!
 
-Clear Dragonvoid blights, pick weeds, and utilise your jade bot technologies to decorate a house and garden in this tiny, cozy Guild Wars 2 fan game, set in the vibrant landscape of Seitung Province!
+![Jade Spring gameplay screenshot](https://www.slyllama.net/jade-spring/decorating.jpg)
 
-![Seitung Spring Clean gameplay screenshot](https://www.slyllama.net/journal/seitung-nov24/gameplay.jpg)
 
-> Nayos was not easy on us; the force of that Kryptis turret's blast left my plating cracked and my servos crushed and fragmented. Repair and recovery will be a slow process and, as grateful as I am for my jade technicians, it pains me to be away from the Commander for so long. Though perhaps, as I rehabilitate, I too can help build something meaningful.
 
-- Build with decorations inspired by a variety of Guild Wars 2 regions.
-- Play minigames to clear infestations featuring unique visual effects.
-- Tweak your creation with a robust adjustment system.
-- Configure your experience - play without infestations, or on a flat world!
+- __Zen cleaning__ - engage in mini-games to spruce up your garden, clearing out bugs, invasive plants, trash, and leftover strands of Dragonvoid. Collect Karma from each task to spend on permanent improvements to your gardening and decorating abilities!
+- __Granular decoration__ - personalise your garden using robust tools which let you easily move, rotate, scale, snap, and clear items. Acquire enough Karma to unlock the Decoration Manager, allowing you to clear items by type, change the time of day, and otherwise adjust the garden at a broad scale.
+- __A Guild Wars 2 tribute__ - Jade Spring is an independent developer’s love letter to Cantha and to Guild Wars 2 in general, featuring hand-made art, models, animations, and music directly inspired by the worlds of Tyria.
 
 ## Links
 
+- [Jade Spring website](https://www.slyllama.net/jade-spring/)
 - [Updates on Bluesky](https://bsky.app/profile/slyllama.net/)
 - [Development Notes #1 (Nov. '24)](https://www.slyllama.net/journal/seitung-nov24/)
+- [Development Notes #2 (Jan. '25)](https://www.slyllama.net/journal/jade-jan25/)

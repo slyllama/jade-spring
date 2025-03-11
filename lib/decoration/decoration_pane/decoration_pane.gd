@@ -41,6 +41,7 @@ func _update_unlock_button(id: String) -> void:
 
 func open(silent = false) -> void:
 	active = true
+	$Container/SearchContainer/Search.set_text("")
 	Global.deco_pane_open = true
 	super(silent)
 	render(selected_tag)
@@ -75,25 +76,34 @@ func start_decoration_placement(id: String) -> void:
 	
 	Global.deco_placement_started.emit()
 
-func render(tag = "None") -> void:
+func render(tag = "None", custom_data = []) -> void:
 	for _n in buttons:
 		buttons[_n].queue_free()
 	buttons = {}
 	
 	var id_list = []
-	for _d in Global.DecoData:
-		var _ds = Global.DecoData[_d]
-		if tag == "None":
+	
+	if custom_data.size() > 0:
+		for _d in custom_data:
 			id_list.append(_d)
-		elif "tags" in _ds:
-			if tag in _ds.tags:
+	else:
+		for _d in Global.DecoData:
+			var _ds = Global.DecoData[_d]
+			if tag == "None":
 				id_list.append(_d)
+			elif tag == "Empty":
+				pass
+			elif "tags" in _ds:
+				if tag in _ds.tags:
+					id_list.append(_d)
 	
 	id_list.sort()
 	if !current_id in id_list:
 		if "autumnal_tree" in id_list: # use Shing Jea arch if not (it's pretty
 			current_id = "autumnal_tree"
-		else: current_id = id_list[0]
+		else:
+			if id_list.size() > 0:
+				current_id = id_list[0]
 	
 	var _c = 0
 	for _d in id_list:
@@ -124,6 +134,7 @@ func render(tag = "None") -> void:
 			# Model exceptions
 			if _d == "light_ray":
 				_p = "res://decorations/light_ray/light_ray_cursor.glb"
+			$DecoTitle.text = "[center]" + _dl.name + "[/center]"
 			preview.load_model(
 				_p, _dl.preview_scale, _get_y_rotation(_dl)))
 		
@@ -132,15 +143,15 @@ func render(tag = "None") -> void:
 	preview.clear_model()
 	preview.current_id = current_id
 	var _data = Global.DecoData[current_id]
+	
+	if $Container/SearchContainer/Search.has_focus():
+		await get_tree().create_timer(0.5).timeout
+	$DecoTitle.text = "[center]" + _data.name + "[/center]"
 	preview.load_model(
 		_data.scene,
 		_data.preview_scale,
 		_get_y_rotation(_data))
-	
 	_update_unlock_button(current_id)
-	
-	# Grab focus on the last selected decoration type
-	#buttons[current_id].grab_focus()
 
 # Update displayed value
 func _refresh() -> void:
@@ -192,3 +203,23 @@ func _on_unlock_button_down() -> void:
 	await get_tree().process_frame
 	Global.play_flash($ActionsBox/PlaceDecoration.global_position
 		+ $ActionsBox/PlaceDecoration.size / 2.0)
+
+func _on_search_focus_entered() -> void:
+	Global.can_move = false
+
+func _on_search_focus_exited() -> void:
+	Global.can_move = true
+
+func _on_search_text_changed(new_text: String) -> void:
+	if new_text.length() > 0 and new_text.length() < 3:
+		render("Empty")
+		return # too short
+	var _decos = []
+	for _d in Global.DecoData:
+		if Global.DecoData[_d].name.findn(new_text) > -1:
+			_decos.append(_d)
+	render("None", _decos)
+
+func _on_clear_search_button_down() -> void:
+	$Container/SearchContainer/Search.set_text("")
+	render(selected_tag)
