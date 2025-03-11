@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://co07o3aacdvcq"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_dakct"]
+[ext_resource type="PackedScene" uid="uid://plb3te1tt65t" path="res://decorations/cid_banners/banner_time_gadget.tscn" id="2_77unr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
+
+[node name="BannerTime" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_dakct")
+id = "time_banner"
+collision_box = NodePath("Body")
+custom_lod = false
+
+[node name="BannerTimeGadget" parent="." instance=ExtResource("2_77unr")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ioh2s")

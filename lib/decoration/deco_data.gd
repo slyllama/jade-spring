@@ -139,6 +139,15 @@ const DecoData = {
 		"preview_y_rotation": 180,
 		"tags": ["Foliage", "Cantha"]
 	},
+	"time_banner": {
+		"name": "Cid's Time Banner",
+		"scene": "res://decorations/cid_banners/banner_time.tscn",
+		"cursor_model": "res://decorations/cid_banners/banner_time_gadget.tscn",
+		"preview_scale": 1.3,
+		"preview_v_offset": -0.35,
+		"preview_y_rotation": 180,
+		"tags": ["Utilities"]
+	},
 	"tussock": {
 		"name": "Tussock",
 		"scene": "res://decorations/tussock/deco_tussock.tscn",

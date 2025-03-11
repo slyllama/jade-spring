@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://plb3te1tt65t"]
+
+[ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_1jwoi"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="2_bm4ud"]
+[ext_resource type="Script" path="res://decorations/cid_banners/banner_time_gadget.gd" id="2_f7avr"]
+[ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="2_rg885"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_tcnmt"]
+[ext_resource type="PackedScene" uid="uid://kct3qcx77ox8" path="res://decorations/cid_banners/otter_instance.tscn" id="6_88xoy"]
+
+[sub_resource type="Gradient" id="Gradient_bbigo"]
+offsets = PackedFloat32Array(0.0780142, 0.156028, 0.269504)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cfxhs"]
+gradient = SubResource("Gradient_bbigo")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8s4x3"]
+render_priority = 2
+shader = ExtResource("2_rg885")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = Vector2(2, 0.43)
+shader_parameter/exponent = 1.65
+shader_parameter/time_scale = 0.07
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/mask_texture = ExtResource("3_tcnmt")
+shader_parameter/vertical_mask = SubResource("GradientTexture2D_cfxhs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pifq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h46ds"]
+material = SubResource("StandardMaterial3D_1pifq")
+
+[node name="BannerTimeGadget" instance=ExtResource("1_1jwoi")]
+script = ExtResource("2_f7avr")
+radius = 1.0
+show_area = true
+tint_color = Color(1, 1, 1, 1)
+
+[node name="VisualArea" parent="." index="1"]
+visible = false
+surface_material_override/0 = SubResource("ShaderMaterial_8s4x3")
+
+[node name="Cube" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_h46ds")
+
+[node name="SpatialText" parent="." index="3" instance=ExtResource("2_bm4ud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+spatial_string = "((Time Gadget))"
+color = "cyan"
+override_settings = true
+
+[node name="Otter" parent="." index="4" instance=ExtResource("6_88xoy")]
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

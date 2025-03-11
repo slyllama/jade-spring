@@ -1,0 +1,51 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://vuyjq6c67k5c"
+path="res://.godot/imported/otter.glb-7e8ee70e0f16284ec3c6d3bf55de4ed9.scn"
+
+[deps]
+
+source_file="res://decorations/cid_banners/otter/otter.glb"
+dest_files=["res://.godot/imported/otter.glb-7e8ee70e0f16284ec3c6d3bf55de4ed9.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name="Otter"
+nodes/apply_root_scale=true
+nodes/root_scale=0.25
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=60.0
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"mat_stars": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/cid_banners/otter/materials/mat_stars.tres"
+}
+},
+"nodes": {
+"PATH:OtterArmature/Skeleton3D": {
+"rest_pose/external_animation_library": null
+},
+"PATH:OtterArmature/Skeleton3D/OtterMesh": {
+"mesh_instance/cast_shadow": 0
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
