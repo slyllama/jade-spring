@@ -24,6 +24,7 @@ var camera_pivot_rotation_degrees = Vector3.ZERO
 var camera_position = Vector3.ZERO
 var can_move = true
 var current_crumb = null
+var current_gadget = null
 var debug_enabled = false
 var deco_button_pressed = false # this will become true on mouse down - decoration placement will not happen until it has been cleared
 var deco_pane_open = false

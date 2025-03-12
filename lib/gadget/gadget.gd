@@ -63,19 +63,23 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE: return
 	if Input.is_action_just_pressed("interact"):
-		if active and in_range:
+		if active and in_range and Global.current_gadget == self:
 			interacted.emit()
 			if reset_on_interact:
 				in_range = false
 				Global.generic_area_left.emit()
 
 func _on_body_entered(body: Node3D) -> void:
+	if Global.current_crumb: return
 	if body is CharacterBody3D:
+		Global.current_gadget = self
 		in_range = true
 		if active:
 			Global.generic_area_entered.emit()
 
 func _on_body_exited(body: Node3D) -> void:
+	if Global.current_gadget == self:
+		Global.current_gadget = null
 	if body is CharacterBody3D:
 		in_range = false
 		Global.generic_area_left.emit()

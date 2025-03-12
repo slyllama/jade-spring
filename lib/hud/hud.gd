@@ -20,6 +20,9 @@ func _render_crumb_debug() -> String:
 	if Global.current_crumb != null:
 		_s += ("\n[color=yellow]Proximal crumb: "
 			+ str(Global.current_crumb) + "[/color]")
+	if Global.current_gadget != null:
+		_s += ("\n[color=yellow]Proximal Gadget: "
+			+ str(Global.current_gadget) + "[/color]")
 	return(_s)
 
 func get_debug_has_focus() -> bool:
