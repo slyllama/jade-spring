@@ -29,7 +29,8 @@ func get_debug_has_focus() -> bool:
 	return($TopLevel/DebugEntry.has_focus())
 
 func _show_int() -> void: # show the interaction indicator
-	$InteractEnter.play()
+	if Global.tool_mode == Global.TOOL_MODE_NONE:
+		$InteractEnter.play()
 	var fade_tween = create_tween()
 	fade_tween.tween_property($InteractIndicator, "modulate:a", 0.9, 0.1)
 func _hide_int() -> void: # hide the interaction indicator

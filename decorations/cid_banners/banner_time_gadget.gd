@@ -30,11 +30,13 @@ func _on_interacted() -> void:
 	_d.block_played.connect(func(id):
 		if id == "day":
 			Global.generic_area_entered.emit()
+			if !$FX.playing: $FX.play()
 			in_range = true
 			await get_tree().create_timer(0.5).timeout
 			Global.command_sent.emit("/time=day")
 		elif id == "night":
 			Global.generic_area_entered.emit()
+			if !$FX.playing: $FX.play()
 			in_range = true
 			await get_tree().create_timer(0.5).timeout
 			Global.command_sent.emit("/time=night"))

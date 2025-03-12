@@ -139,7 +139,7 @@ const DecoData = {
 		"preview_y_rotation": 180,
 		"tags": ["Foliage", "Cantha"]
 	},
-	"time_banner": {
+	"cid_time_banner": {
 		"name": "Cid's Time Banner",
 		"scene": "res://decorations/cid_banners/banner_time.tscn",
 		"cursor_model": "res://decorations/cid_banners/banner_time_gadget.tscn",

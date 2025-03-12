@@ -96,6 +96,10 @@ func _ready() -> void:
 	
 	Global.deco_deleted.connect($DeleteSound.play)
 	
+	Global.adjustment_applied.connect(func():
+		if Global.current_gadget:
+			Global.current_gadget._on_body_entered(Global.player))
+	
 	# Load saved decorations or reset them depending on parameters passed from the main menu
 	if Global.start_params.new_save:
 		_load_decorations(default_deco_data)

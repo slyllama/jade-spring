@@ -209,30 +209,26 @@ _data = {
 [node name="Otter" instance=ExtResource("1_j07xh")]
 
 [node name="Skeleton3D" parent="OtterArmature" index="0"]
-bones/0/position = Vector3(0.132654, 2.99894, 0.998467)
-bones/0/rotation = Quaternion(0.54246, -0.556747, -0.439102, -0.45051)
-bones/0/scale = Vector3(0.00999999, 0.00999999, 0.00999999)
-bones/1/position = Vector3(-1.83503e-05, 0.820777, 3.39251e-05)
-bones/1/rotation = Quaternion(0.0599477, -0.0301537, -0.20013, 0.977469)
-bones/2/position = Vector3(-1.10968e-05, 0.898474, 6.61152e-06)
-bones/2/rotation = Quaternion(0.0293683, -0.119497, -0.251476, 0.960009)
-bones/3/position = Vector3(1.82749e-05, 0.509947, 4.39153e-05)
-bones/3/rotation = Quaternion(-0.104567, -0.343021, -0.0786555, 0.93017)
-bones/4/position = Vector3(0.134843, 0.880029, -0.119132)
+bones/0/rotation = Quaternion(0.655815, -0.475102, -0.475102, -0.344185)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.0235728, -0.0246094, 0.00709322, 0.999394)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.120321, -0.249721, -0.0162416, 0.960676)
 bones/4/rotation = Quaternion(0.186753, -0.393188, 0.805662, -0.401791)
-bones/5/position = Vector3(-0.0552314, 0.880048, -0.171247)
-bones/5/rotation = Quaternion(0.333383, -0.521687, 0.756851, -0.209465)
-bones/6/position = Vector3(0.183305, 0.791842, -0.15402)
-bones/6/rotation = Quaternion(-0.0871315, 0.30883, -0.725338, 0.60903)
-bones/7/position = Vector3(-0.0565214, 0.791842, -0.232666)
+bones/5/rotation = Quaternion(0.333383, -0.521686, 0.756851, -0.209465)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.0871314, 0.30883, -0.725338, 0.60903)
+bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.488147, 0.633218, -0.543525, 0.255594)
+bones/7/scale = Vector3(1, 1, 1)
 
 [node name="OtterMesh" parent="OtterArmature/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_wcycr")
 skin = SubResource("Skin_f0y1d")
 
 [node name="BubblesAttach" type="BoneAttachment3D" parent="OtterArmature/Skeleton3D" index="1"]
-transform = Transform3D(0.00667653, -0.00401627, -0.00626844, 0.00671023, -0.000400265, 0.00740354, -0.00322437, -0.00914927, 0.00242777, 0.113235, 3.00026, 0.990746)
+transform = Transform3D(-0.000460558, -0.999999, -0.00112504, 0.37879, -0.00121558, 0.925481, -0.925482, 1.82539e-07, 0.378791, -3.84435, -1.18908, 1.0146e-06)
 bone_name = "Bone.007"
 bone_idx = 3
 

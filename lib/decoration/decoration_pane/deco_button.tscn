@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmxp6mar38s6y"]
+[gd_scene load_steps=13 format=3 uid="uid://bmxp6mar38s6y"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/deco_button.gd" id="1_4whpl"]
 [ext_resource type="Texture2D" uid="uid://bbhenn7y3oyg" path="res://lib/hud/fx_list/textures/fx_decorating.png" id="2_q0rj1"]
 [ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="3_d3jtc"]
+[ext_resource type="AudioStream" uid="uid://d0n1puuixbtlj" path="res://lib/ui_container/sounds/hover.ogg" id="4_ms12t"]
+[ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="5_oworf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3iaf0"]
 
@@ -118,6 +120,13 @@ stretch_mode = 5
 libraries = {
 "": SubResource("AnimationLibrary_dq1dl")
 }
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ms12t")
+volume_db = 6.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_oworf")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]

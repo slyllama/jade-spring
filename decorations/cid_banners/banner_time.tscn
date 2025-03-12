@@ -8,7 +8,7 @@
 
 [node name="BannerTime" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_dakct")
-id = "time_banner"
+id = "cid_time_banner"
 collision_box = NodePath("Body")
 custom_lod = false
 

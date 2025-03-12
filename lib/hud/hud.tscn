@@ -245,8 +245,6 @@ mouse_filter = 2
 alignment = 1
 
 [node name="InputKey" type="RichTextLabel" parent="InteractIndicator/InputKeyBox"]
-z_index = 1
-z_as_relative = false
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 mouse_filter = 1

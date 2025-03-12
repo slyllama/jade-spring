@@ -19,9 +19,11 @@ func set_cost(cost: int) -> void:
 	$Karma.visible = true
 
 func _on_button_button_down() -> void:
+	$Click.play()
 	clicked.emit()
 
 func _on_button_mouse_entered() -> void:
+	$Hover.play()
 	$Anim.play("pop_in")
 
 func _on_button_mouse_exited() -> void:
