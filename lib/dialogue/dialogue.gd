@@ -44,7 +44,6 @@ func render_block(block_data: Dictionary) -> void:
 			_b.modulate.a = 0.0
 			$Base/Box.add_child(_b)
 			if !_first:
-				_b.grab_focus()
 				_first = true
 			
 			_b.button_down.connect(func():
@@ -87,6 +86,16 @@ func open() -> void:
 	$Player.play("Enter")
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_val, -1.0, 1.0, 0.3)
+	
+	# Delay entry of input - focus isn't given until FG layer is cleared
+	await fade_tween.finished
+	await get_tree().create_timer(0.2).timeout
+	$Base/FG.queue_free()
+	for _b: Node in $Base/Box.get_children():
+		if !is_instance_valid(_b): continue
+		if _b is Button:
+			_b.grab_focus()
+			break
 
 func close() -> void:
 	if has_closed: return

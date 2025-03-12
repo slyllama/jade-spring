@@ -9,12 +9,12 @@ const TEST_DIALOGUE = {
 		"options": {
 			"day": "Turn the skies to day.",
 			"night": "Rotate the heavens to the night.",
-			"test": "Dismiss."
+			"dismiss": "Dismiss."
 		}
 	},
 	"day": { "reference": "_exit" },
 	"night": { "reference": "_exit" },
-	"test": { "reference": "_exit" }
+	"dismiss": { "reference": "_exit" }
 }
 
 func play_animation() -> void:
@@ -32,15 +32,19 @@ func _on_interacted() -> void:
 			Global.generic_area_entered.emit()
 			if !$FX.playing: $FX.play()
 			in_range = true
+			play_animation()
 			await get_tree().create_timer(0.5).timeout
 			Global.command_sent.emit("/time=day")
 		elif id == "night":
 			Global.generic_area_entered.emit()
 			if !$FX.playing: $FX.play()
 			in_range = true
+			play_animation()
 			await get_tree().create_timer(0.5).timeout
-			Global.command_sent.emit("/time=night"))
-	_d.closed.connect(play_animation)
+			Global.command_sent.emit("/time=night")
+		elif id == "dismiss":
+			Global.generic_area_entered.emit()
+			in_range = true)
 	Global.hud.add_child(_d)
 	_d.open()
 
