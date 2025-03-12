@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://co07o3aacdvcq"]
+[gd_scene load_steps=5 format=3 uid="uid://co07o3aacdvcq"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_dakct"]
 [ext_resource type="PackedScene" uid="uid://plb3te1tt65t" path="res://decorations/cid_banners/banner_time_gadget.tscn" id="2_77unr"]
+[ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="3_otdmy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
 
@@ -12,6 +13,9 @@ collision_box = NodePath("Body")
 custom_lod = false
 
 [node name="BannerTimeGadget" parent="." instance=ExtResource("2_77unr")]
+
+[node name="LightRay" parent="BannerTimeGadget" instance=ExtResource("3_otdmy")]
+transform = Transform3D(0.487503, 0.111089, 0, -0.111089, 0.487503, 0, 0, 0, 0.5, -0.3802, 1.02849, -0.0161505)
 
 [node name="Body" type="Area3D" parent="."]
 collision_layer = 3

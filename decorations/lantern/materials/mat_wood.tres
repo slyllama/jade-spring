@@ -7,7 +7,10 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_54edb")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/occlusion_color = Color(1, 1, 1, 1)
 shader_parameter/occlusion_intensity = 1.0
+shader_parameter/occlusion_multiplier = 1.0
 shader_parameter/uv_scale = 1.0
 shader_parameter/saturation = 1.0
 shader_parameter/multiplier = 1.0

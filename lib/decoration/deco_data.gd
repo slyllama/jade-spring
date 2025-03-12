@@ -143,8 +143,8 @@ const DecoData = {
 		"name": "Cid's Time Banner",
 		"scene": "res://decorations/cid_banners/banner_time.tscn",
 		"cursor_model": "res://decorations/cid_banners/banner_time_gadget.tscn",
-		"preview_scale": 1.3,
-		"preview_v_offset": -0.35,
+		"preview_scale": 1.0,
+		"preview_v_offset": -0.45,
 		"preview_y_rotation": 180,
 		"tags": ["Utilities"]
 	},

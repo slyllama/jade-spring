@@ -150,13 +150,18 @@ func render(tag = "None", custom_data = []) -> void:
 	var _data = Global.DecoData[current_id]
 	
 	if $Container/SearchContainer/Search.has_focus():
-		await get_tree().create_timer(0.5).timeout
+		$LoadOnTimeout.start()
+	else:
+		_load_model()
 	$DecoTitle.text = "[center]" + _data.name + "[/center]"
+	_update_unlock_button(current_id)
+
+func _load_model() -> void:
+	var _data = Global.DecoData[current_id]
 	preview.load_model(
 		_data.scene,
 		_data.preview_scale,
 		_get_y_rotation(_data))
-	_update_unlock_button(current_id)
 
 # Update displayed value
 func _refresh() -> void:
@@ -228,3 +233,6 @@ func _on_search_text_changed(new_text: String) -> void:
 func _on_clear_search_button_down() -> void:
 	$Container/SearchContainer/Search.set_text("")
 	render(selected_tag)
+
+func _on_load_on_timeout_timeout() -> void:
+	_load_model()

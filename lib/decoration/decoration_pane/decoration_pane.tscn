@@ -317,6 +317,10 @@ mouse_filter = 2
 texture = ExtResource("13_hkm37")
 expand_mode = 1
 
+[node name="LoadOnTimeout" type="Timer" parent="." index="7"]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
 [connection signal="focus_entered" from="Container/SearchContainer/Search" to="." method="_on_search_focus_entered"]
 [connection signal="focus_exited" from="Container/SearchContainer/Search" to="." method="_on_search_focus_exited"]
@@ -325,3 +329,4 @@ expand_mode = 1
 [connection signal="button_down" from="ActionsBox/Close" to="." method="close"]
 [connection signal="button_down" from="ActionsBox/Unlock" to="." method="_on_unlock_button_down"]
 [connection signal="button_down" from="ActionsBox/PlaceDecoration" to="." method="_on_place_decoration_button_down"]
+[connection signal="timeout" from="LoadOnTimeout" to="." method="_on_load_on_timeout_timeout"]

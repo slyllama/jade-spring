@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://vuyjq6c67k5c"
-path="res://.godot/imported/otter.glb-7e8ee70e0f16284ec3c6d3bf55de4ed9.scn"
+uid="uid://dt7owvu7rjha1"
+path="res://.godot/imported/banner.glb-656d7439b732db8aa6d5d64152ddca5b.scn"
 
 [deps]
 
-source_file="res://decorations/cid_banners/otter/otter.glb"
-dest_files=["res://.godot/imported/otter.glb-7e8ee70e0f16284ec3c6d3bf55de4ed9.scn"]
+source_file="res://decorations/cid_banners/banner.glb"
+dest_files=["res://.godot/imported/banner.glb-656d7439b732db8aa6d5d64152ddca5b.scn"]
 
 [params]
 
 nodes/root_type=""
-nodes/root_name="Otter"
+nodes/root_name="CidBanner"
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=1.2
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -26,24 +26,24 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=60.0
+animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"mat_stars": {
+"mat_cloth": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/cid_banners/otter/materials/mat_stars.tres"
-}
+"use_external/path": "res://decorations/cid_banners/materials/mat_banner_linen.tres"
 },
-"nodes": {
-"PATH:OtterArmature/Skeleton3D": {
-"rest_pose/external_animation_library": null
+"mat_gold": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_gold.tres"
 },
-"PATH:OtterArmature/Skeleton3D/OtterMesh": {
-"mesh_instance/cast_shadow": 0
+"mat_wood": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/cid_banners/materials/mat_banner_wood.tres"
 }
 }
 }

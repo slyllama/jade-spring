@@ -9,7 +9,7 @@
 render_priority = 2
 shader = ExtResource("1_44xpd")
 shader_parameter/noise_scale = 0.5
-shader_parameter/alpha = 0.9
+shader_parameter/alpha = 0.65
 shader_parameter/gradient_h = ExtResource("2_ep588")
 shader_parameter/gradient_v = ExtResource("3_vgtgi")
 shader_parameter/noise_texture = ExtResource("4_d5735")
