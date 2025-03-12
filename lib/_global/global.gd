@@ -7,6 +7,7 @@ const SPAWN_RADIUS = 2.0 # protect area around spawn point
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
 var save_handler: SaveHandler
+var deco_handler: DecoHandler
 var hud: CanvasLayer
 var player: CharacterBody3D
 

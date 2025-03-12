@@ -1,10 +1,18 @@
-extends Node3D
+class_name DecoHandler extends Node3D
 # DecoHandler
 # Manages the placing and removal of decorations
 
 const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
 const FILE_PATH = "user://save/deco.dat"
 var default_deco_data = {}
+
+func get_deco_count() -> Dictionary:
+	var _d = {}
+	for _n in get_children():
+		if _n is Decoration:
+			if !_n.id in _d: _d[_n.id] = 1
+			else: _d[_n.id] += 1
+	return(_d)
 
 func place_decoration(data: Dictionary) -> void:
 	if !Global.queued_decoration in Global.DecoData: return
@@ -79,6 +87,8 @@ func _save_decorations() -> void:
 	_file.close()
 
 func _ready() -> void:
+	Global.deco_handler = self
+	
 	for _n in get_children():
 		if _n is Decoration:
 			Global.decorations.append(_n)
@@ -118,9 +128,11 @@ func _ready() -> void:
 			Global.announcement_sent.emit("((Reset decorations to defaults))")
 			_load_decorations(default_deco_data)
 		elif _cmd == "/savedeco":
-			#Global.announcement_sent.emit("((Saved decorations))")
 			_save_decorations()
-		elif _cmd == "/getdecolist": _get_decoration_list())
+		elif _cmd == "/getdecolist":
+			_get_decoration_list()
+		elif _cmd == "/getdecocount":
+			print(get_deco_count()))
 	
 	await get_tree().process_frame # needs a frame to avoid duplication
 	_save_decorations()

@@ -11,6 +11,7 @@ const DecoButton = preload("res://lib/decoration/decoration_pane/deco_button.tsc
 var current_id = "fountain" # default
 var buttons = {} # associate buttons with IDs
 var active = false
+var last_deco_count = {} # updated when the pane is opened
 
 func _get_y_rotation(data: Dictionary) -> float:
 	var _custom_y_rotation = 135.0
@@ -44,6 +45,7 @@ func open(silent = false) -> void:
 	$Container/SearchContainer/Search.set_text("")
 	Global.deco_pane_open = true
 	super(silent)
+	last_deco_count = Global.deco_handler.get_deco_count()
 	render(selected_tag)
 
 func close():
@@ -111,7 +113,10 @@ func render(tag = "None", custom_data = []) -> void:
 		var _item = DecoButton.instantiate()
 		var _dl = Global.DecoData[_d]
 		
-		_item.set_text("  " + _dl.name)
+		var _button_text = "  " + _dl.name
+		if _d in last_deco_count:
+			_button_text += " (" + str(last_deco_count[_d]) + ")"
+		_item.set_text(_button_text)
 		if "unlock_value" in _dl and !_d in Save.data.unlocked_decorations:
 			_item.set_cost(_dl.unlock_value)
 			
@@ -211,9 +216,9 @@ func _on_search_focus_exited() -> void:
 	Global.can_move = true
 
 func _on_search_text_changed(new_text: String) -> void:
-	if new_text.length() > 0 and new_text.length() < 3:
-		render("Empty")
-		return # too short
+	#if new_text.length() > 0 and new_text.length() < 3:
+		#render("Empty")
+		#return # too short
 	var _decos = []
 	for _d in Global.DecoData:
 		if Global.DecoData[_d].name.findn(new_text) > -1:
