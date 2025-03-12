@@ -8,9 +8,12 @@ Take some time to relax, potter, and decorate in Jade Spring, a small, independe
 - __Granular decoration__ - personalise your garden using robust tools which let you easily move, rotate, scale, snap, and clear items. Acquire enough Karma to unlock the Decoration Manager, allowing you to clear items by type, change the time of day, and otherwise adjust the garden at a broad scale.
 - __A Guild Wars 2 tribute__ - Jade Spring is an independent developer’s love letter to Cantha and to Guild Wars 2 in general, featuring hand-made art, models, animations, and music directly inspired by the worlds of Tyria.
 
+![Jade Spring gameplay screenshot](https://www.slyllama.net/jade-spring/nkc.jpg)
+
 ## Links
 
 - [Jade Spring website](https://www.slyllama.net/jade-spring/)
-- [Updates on Bluesky](https://bsky.app/profile/slyllama.net/)
-- [Development Notes #1 (Nov. '24)](https://www.slyllama.net/journal/seitung-nov24/)
-- [Development Notes #2 (Jan. '25)](https://www.slyllama.net/journal/jade-jan25/)
+- [Slyllama on Bluesky](https://bsky.app/profile/slyllama.net/)
+- [Development Notes #3 (Mar-25)](https://www.slyllama.net/journal/jade-mar25/)
+- [Development Notes #2 (Jan-25)](https://www.slyllama.net/journal/jade-jan25/)
+- [Development Notes #1 (Nov-24)](https://www.slyllama.net/journal/seitung-nov24/)
