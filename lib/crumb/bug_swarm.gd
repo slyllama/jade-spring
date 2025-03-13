@@ -38,7 +38,8 @@ func interact() -> void:
 		return # not unlocked yet
 	elif (Save.data.story_point == "clear_bugs" 
 		or Save.data.story_point == "ratchet_dv"
-		or Save.data.story_point == "clear_dv"):
+		or Save.data.story_point == "clear_dv"
+		or Save.data.story_point == "free_reign"):
 		if "discombobulator" in Global.current_effects:
 			var _f = FishingInstance.instantiate()
 			_f.completed.connect(clear)

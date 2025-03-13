@@ -6,7 +6,7 @@ const N1 = "This streak of Dragonvoid casts a looming shadow over the garden."
 const N2 = "I'll need Attuned Dispersion Flux to dispel it."
 
 func clear() -> void:
-	Global.announcement_sent.emit("The air lightens as the Flux disperses the somber void.")
+	#Global.announcement_sent.emit("The air lightens as the Flux disperses the somber void.")
 	Global.remove_effect.emit("d_" + custom_data)
 	Global.bug_crumb_left.emit()
 	super()

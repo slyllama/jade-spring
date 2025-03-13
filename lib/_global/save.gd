@@ -7,6 +7,7 @@ signal karma_changed
 
 const OBJECTIVE_WEED_COUNT = 3
 const OBJECTIVE_PEST_COUNT = 2
+const OBJECTIVE_DV_COUNT = 1
 var first_run = true
 
 const STORY_POINTS = [
@@ -14,7 +15,8 @@ const STORY_POINTS = [
 	"pick_weeds",
 	"clear_bugs",
 	"ratchet_dv",
-	"clear_dv"
+	"clear_dv",
+	"free_reign"
 ]
 
 var STORY_POINT_SCRIPT = {
@@ -41,6 +43,11 @@ var STORY_POINT_SCRIPT = {
 	"clear_dv": {
 		"title": "2. Pesky Pests",
 		"objective": "Attune a coil of Raw Dispersion Flux using Ratchet’s Makeshift Attunement Gadget. Use it to dispel a column of Dragonvoid."
+	},
+	"free_reign": {
+		"title": "3. Free Reign",
+		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them. And they managed to get the renovation system operational again! Now we can go back to renewing the life and joy of this garden as we continue to clean it up. <All decoration tools are now available to you! You can place, and delete items, move, scale, rotate, and duplicate them, and unlock special decorations with Karma earnt from doing tough jobs around the garden. Speak to Ratchet if you want to know more. Enjoy the Jade Spring!>",
+		"objective": "((3. Free Reign))"
 	}
 }
 
@@ -146,6 +153,10 @@ func _ready() -> void:
 			and Global.crumb_handler.totals.bug - Save.data.crumb_count.bug >= OBJECTIVE_PEST_COUNT):
 			advance_story()
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_dv"])
+		elif (Save.data.story_point == "clear_dv"
+			and Global.crumb_handler.totals.dragonvoid - Save.data.crumb_count.dragonvoid >= OBJECTIVE_DV_COUNT):
+			advance_story()
+			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["free_reign"])
 	)
 
 func _notification(what):

@@ -15,6 +15,7 @@ func set_marker_pos() -> void: # set the position of the story marker
 		"clear_bugs": $StoryMarker.global_position = $Discombobulator/SpatialText.global_position - Vector3(0, 1.9, 0)
 		"ratchet_dv": $StoryMarker.position = $Pulley.position
 		"clear_dv": $StoryMarker.position = $ChargingStation.position + Vector3(-0.4, 0, 0)
+		"free_reign": $StoryMarker.position = Vector3(0, -10, 0)
 		"_": $StoryMarker.position = Vector3(0, -10, 0) # hide under map
 
 func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:

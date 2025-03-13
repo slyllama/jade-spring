@@ -116,8 +116,26 @@ const no_dv_charge = {
 }
 
 const dv_charge = {
-	"_entry" : {
-		
+	"_entry": {
+		"string": "Beep... Static... Buzz...",
+		"options": {
+			"weird": "I feel... a little faint, Ratchet. Is this attuning thing... safe?"
+		}
+	},
+	"weird": {
+		"string": "T-t-the zapping, the energy... aha. Ahaha! Yes - it's w-w-working!",
+		"options": {
+			"safe": "(...)"
+		}
+	},
+	"safe": {
+		"string": "O-oh... I mean... yes, yes, it's entirely s-s-safe. It just incurs, well... a small m-m-memory leak. Noted for next t-time.",
+		"options": {
+			"done": "I hope so; my mind... it's scrambled."
+		}
+	},
+	"done": {
+		"reference": "_exit"
 	}
 }
 

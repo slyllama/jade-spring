@@ -50,6 +50,9 @@ func update_roster_visibility(pos: int) -> void:
 	if pos >= 2:
 		$BugsText.visible = true
 		$BugsBar.visible = true
+	if pos >= 3:
+		$DVText.visible = true
+		$DVBar.visible = true
 
 func proc_story() -> void:
 	# Update sidebar with story contents when the story is advanced
@@ -61,6 +64,12 @@ func proc_story() -> void:
 		update_roster_visibility(1)
 	elif _p == "clear_bugs":
 		update_roster_visibility(2)
+	elif _p == "ratchet_dv":
+		update_roster_visibility(3)
+	elif _p == "clear_dv":
+		update_roster_visibility(3)
+	elif _p == "free_reign":
+		update_roster_visibility(3)
 	
 	if _p in Save.STORY_POINT_SCRIPT:
 		var _d = Save.STORY_POINT_SCRIPT[_p] # data shorthand
