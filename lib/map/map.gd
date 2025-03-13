@@ -31,7 +31,7 @@ func _ready() -> void:
 			for _c in $CrumbHandler.get_children():
 				_c.visible = true
 				Global.announcement_sent.emit("((Showing crumbs.))")
-		if cmd == "/screenshot":
+		elif cmd == "/screenshot":
 			$Shutter.play()
 			Global.hud.hide_hud()
 			for _x in 2: await get_tree().process_frame
@@ -40,6 +40,11 @@ func _ready() -> void:
 				).replace(":", "-").replace("T", " ")
 			_image.save_png("user://save/Screenshot " + _time_string + ".png")
 			Global.hud.show_hud()
+		elif cmd == "/gravity":
+			if "gravity" in Global.current_effects:
+				Global.remove_effect.emit("gravity")
+			else:
+				Global.add_effect.emit("gravity")
 		)
 	
 	# Apply settings
@@ -75,6 +80,8 @@ func _ready() -> void:
 	# manipulation is active (so the arrows can still be dragged even if the
 	# decoration is, say, underground)
 	Global.adjustment_started.connect(func():
+		if "gravity" in Global.current_effects:
+			Global.remove_effect.emit("gravity")
 		for _n in Utilities.get_all_children(self):
 			if _n is StaticBody3D:
 				picking_disabled_objects.append(_n)

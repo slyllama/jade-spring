@@ -179,9 +179,10 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("move_left"): _direction.z = -1
 	else: _direction.z = 0
 	
-	if Input.is_action_pressed("move_up"): _direction.y = 1
-	elif Input.is_action_pressed("move_down"): _direction.y = -1
-	else: _direction.y = 0
+	if !"gravity" in Global.current_effects:
+		if Input.is_action_pressed("move_up"): _direction.y = 1
+		elif Input.is_action_pressed("move_down"): _direction.y = -1
+		else: _direction.y = 0
 	
 	var _camera_direction = $Camera.rotation_degrees.y
 	var _camera_basis = $Camera.global_transform.basis
@@ -207,14 +208,23 @@ func _physics_process(delta: float) -> void:
 	else: _target_velocity = Vector3.ZERO
 	
 	velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
-	velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta * smooth_mod)
 	velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta * smooth_mod)
 	
-	if !Global.in_walk_mode:
-		move_and_slide()
+	# Apply gravity
+	if "gravity" in Global.current_effects:
+		motion_mode = MotionMode.MOTION_MODE_GROUNDED
+		velocity.y -= 24.0 * delta
+		if Input.is_action_just_pressed("move_up"):
+			velocity.y = 8.0
+		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
+		velocity.z = lerp(velocity.z, _target_velocity.z, Utilities.critical_lerp(delta, 15.0))
 	else:
-		if Global.walk_mode_target != null:
-			global_position = Global.walk_mode_target.global_position + Vector3(0, 1, 0)
+		velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
+		velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta * smooth_mod)
+		velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta * smooth_mod)
+	
+	move_and_slide()
+	
 	Global.player_position = global_position
 	Global.player_y_rotation = global_rotation.y
 	_fs = _query_fs
@@ -233,7 +243,7 @@ func _physics_process(delta: float) -> void:
 			smoothing * 0.6 * delta)
 	
 	if Global.can_move:
-		if _direction.x > 0 or _direction.z != 0 or Global.in_walk_mode:
+		if _direction.x > 0 or _direction.z != 0:
 			if _sprint_multiplier > 1.0:
 				$Camera.added_fov = 14.0
 		

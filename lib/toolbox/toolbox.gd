@@ -249,9 +249,6 @@ func skill_used(skill_id: String) -> void:
 			Global.announcement_sent.emit("Snapping disabled.")
 		"reset_adjustment":
 			Global.adjustment_reset.emit()
-		"toggle_walk_mode":
-			if Global.in_walk_mode: Global.walk_mode_left.emit()
-			else: Global.walk_mode_entered.emit()
 		"rotate_left":
 			Global.rotate_left_90.emit()
 		"rotate_right":

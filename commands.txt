@@ -16,11 +16,13 @@
 /addkarma=X		Add X Karma (negatives permitted)
 /collision=off	Disable player collisions
 /collision=on	Enable player collisions
-/savedata		Save data to file
+/gravity		Toggle jumping puzzle physics
+/karmastats		Print Karma statistics
 /printsavedata	Print all save data
 /printsettings	Print user settings
+/savedata		Save data to file
+/screenshot		Take a screenshot
 /speedratio=X	Set the player's speed to ratio X of its base speed
-/karmastats		Print Karma statistics
 
 /enableattn		Enable Attenuator (good for if story hasn't spawned it yet)
 /disableattn	Disable Attenuator
