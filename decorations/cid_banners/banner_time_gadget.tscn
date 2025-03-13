@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://plb3te1tt65t"]
+[gd_scene load_steps=15 format=3 uid="uid://plb3te1tt65t"]
 
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_1jwoi"]
 [ext_resource type="Script" path="res://decorations/cid_banners/banner_time_gadget.gd" id="2_f7avr"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_tcnmt"]
 [ext_resource type="PackedScene" uid="uid://kct3qcx77ox8" path="res://decorations/cid_banners/otter_instance.tscn" id="6_88xoy"]
 [ext_resource type="PackedScene" uid="uid://dt7owvu7rjha1" path="res://decorations/cid_banners/banner.glb" id="7_4o0ve"]
-[ext_resource type="Texture2D" uid="uid://tofc8p3cnl3c" path="res://lib/player/textures/floor_insignia.png" id="8_q6oqq"]
+[ext_resource type="Texture2D" uid="uid://dynq664sk032" path="res://decorations/cid_banners/materials/textures/cid_diff.png" id="7_7tel7"]
+[ext_resource type="Texture2D" uid="uid://cfxlnqo6fr5l5" path="res://decorations/cid_banners/materials/textures/clock_diff.png" id="8_ajm3p"]
 [ext_resource type="AudioStream" uid="uid://chx7m6d6ai2k5" path="res://decorations/cid_banners/sounds/time_shift.ogg" id="8_vrrse"]
 
 [sub_resource type="Gradient" id="Gradient_bbigo"]
@@ -54,10 +55,17 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.2, 0.4, -0.3)
 
 [node name="CidBanner" parent="." index="4" instance=ExtResource("7_4o0ve")]
 
-[node name="Decal" type="Decal" parent="CidBanner" index="14"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.67, 0.07)
-size = Vector3(0.4, 0.1, 0.4)
-texture_albedo = ExtResource("8_q6oqq")
+[node name="Decal" type="Decal" parent="CidBanner" index="13"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.67, 0.0579028)
+size = Vector3(0.4, 0.0480713, 0.4)
+texture_albedo = ExtResource("7_7tel7")
+lower_fade = 0.2
+
+[node name="DetailDecal" type="Decal" parent="CidBanner" index="14"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.23593, 0.0889961)
+size = Vector3(0.27, 0.0384277, 0.27)
+texture_albedo = ExtResource("8_ajm3p")
+lower_fade = 0.2
 
 [node name="FX" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("8_vrrse")
