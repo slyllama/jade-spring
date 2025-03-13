@@ -90,7 +90,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_5hquj")
 blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5upv6"]
-graph_offset = Vector2(-78.9256, 60.9504)
+graph_offset = Vector2(-509.584, 103.48)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_um6qk")
 nodes/Animation/position = Vector2(0, 240)
 nodes/elongate/node = SubResource("AnimationNodeAnimation_3pws5")
@@ -163,7 +163,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_5upv6")
 parameters/set_elongate/add_amount = 0.0
 parameters/strafe/add_amount = 0.4
-parameters/test_blend/blend_position = -1.0
+parameters/test_blend/blend_position = -0.95739
 
 [node name="Decal" type="Decal" parent="PlayerMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3257, 0)

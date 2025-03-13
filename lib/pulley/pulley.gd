@@ -111,24 +111,16 @@ const no_dv_charge = {
 		}
 	},
 	"done": {
-		"reference": "exit"
-	}
-}
-
-const debug_dialogue = {
-	"_entry": {
-		"string": "((Debug options!))",
-		"options": {
-			"time": "((Toggle the time of day.))",
-			"clear": "((Clear all decorations (can't be undone).))",
-			"reset": "((Reset decorations to default (can't be undone).))",
-			"done": "((I'm done for now.))"
-		}
-	},
-	"done": {
 		"reference": "_exit"
 	}
 }
+
+const dv_charge = {
+	"_entry" : {
+		
+	}
+}
+
 
 func _ready() -> void:
 	# Quick fix to an ambient occlusion issue
@@ -148,29 +140,9 @@ func _on_interacted() -> void:
 		spawn_dialogue(clear_bugs_alt_dialogue)
 	elif Save.data.story_point == "ratchet_dv":
 		spawn_dialogue(dv_intro_dialogue, true)
-	
-	else:
-		var _d = Dialogue.instantiate()
-		_d.data = debug_dialogue
-		_d.block_played.connect(func(id):
-			if id == "time":
-				if Global.time_of_day == "day":
-					Global.command_sent.emit("/time=night")
-				elif Global.time_of_day == "night":
-					Global.command_sent.emit("/time=day")
-			elif id == "clear":
-				Global.command_sent.emit("/cleardeco")
-				await get_tree().process_frame
-				Global.command_sent.emit("/savedeco")
-			elif id == "reset":
-				Global.command_sent.emit("/resetdeco")
-				await get_tree().process_frame
-				Global.command_sent.emit("/savedeco")
-		)
-		
-		Global.hud.add_child(_d)
-		_d.closed.connect(func():
-			Global.generic_area_entered.emit()
-			Global.hearts_emit.emit()
-		)
-		_d.open()
+	elif Save.data.story_point == "clear_dv":
+		if ("d_zhaitan" in Global.current_effects or "d_soo_won" in Global.current_effects
+			or "d_mordremoth" in Global.current_effects or "d_jormag" in Global.current_effects
+			or "d_primordus" in Global.current_effects or "d_kralkatorrik" in Global.current_effects):
+			spawn_dialogue(dv_charge)
+		else: spawn_dialogue(no_dv_charge)

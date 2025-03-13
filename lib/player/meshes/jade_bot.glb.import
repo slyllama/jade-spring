@@ -10852,6 +10852,10 @@ _subresources={
 "mat_jade": {
 "use_external/enabled": true,
 "use_external/path": "res://lib/player/materials/mat_jade.tres"
+},
+"mat_plush_bake": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_hood.tres"
 }
 },
 "nodes": {

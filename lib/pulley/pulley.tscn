@@ -67,7 +67,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_1t7wh")
 
 [sub_resource type="QuadMesh" id="QuadMesh_f178q"]
 material = SubResource("ShaderMaterial_00gk1")
-size = Vector2(0.8, 0.8)
+size = Vector2(0.8, 1.6)
 
 [node name="Pulley" instance=ExtResource("1_7ikog")]
 transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 0, 0)
@@ -97,7 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.631505, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_rox8u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ray" index="0"]
+[node name="Glow" type="MeshInstance3D" parent="Ray" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0407044, 0)
 mesh = SubResource("QuadMesh_f178q")
 
