@@ -90,6 +90,8 @@ func _input(_event: InputEvent) -> void:
 			$SprintSoundPlayer.play()
 
 func _ready() -> void:
+	$Spider/AnimationPlayer.play("walk")
+	
 	# Spawn/clear golems in different circumstances
 	Global.debug_skill_used.connect(spawn_dgolems)
 	Global.add_effect.connect(func(id):
@@ -212,6 +214,10 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply gravity
 	if "gravity" in Global.current_effects:
+		$PlayerMesh.global_position = $Spider/Armature/Skeleton3D/Cylinder.global_position
+		$PlayerMesh.position.y += 0.35
+		if !$Spider.visible:
+			$Spider.visible = true
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
 		velocity.y -= 24.0 * delta
 		if Input.is_action_just_pressed("move_up"):
@@ -219,6 +225,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
 		velocity.z = lerp(velocity.z, _target_velocity.z, Utilities.critical_lerp(delta, 15.0))
 	else:
+		if $Spider.visible:
+			$Spider.visible = false
+		$PlayerMesh.position.y = 0.0
 		velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
 		velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta * smooth_mod)
 		velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta * smooth_mod)
@@ -235,22 +244,23 @@ func _physics_process(delta: float) -> void:
 		# 360deg until they are each less than 360deg
 		if $Camera.rotation_degrees.y < 0:
 			$Camera.rotation_degrees.y += 360.0;
-		#$Camera.rotation_degrees.y -= 180.0
 		
 		$PlayerMesh.rotation.y = lerp_angle(
 			$PlayerMesh.rotation.y,
 			$Camera.rotation.y - _initial_y_rotation + PI,
 			smoothing * 0.6 * delta)
+		$Spider.rotation.y = $PlayerMesh.rotation.y
 	
 	if Global.can_move:
 		if _direction.x > 0 or _direction.z != 0:
 			if _sprint_multiplier > 1.0:
 				$Camera.added_fov = 14.0
 		
-		$PlayerMesh.rotation.z = lerp(
-			$PlayerMesh.rotation.z,
-			_direction.z * 0.4,
-			smoothing * 0.2 * delta)
+		if !"gravity" in Global.current_effects:
+			$PlayerMesh.rotation.z = lerp(
+				$PlayerMesh.rotation.z,
+				_direction.z * 0.4,
+				smoothing * 0.2 * delta)
 	
 	# Interpolating camera movements on physics tick seems to be smoother when
 	# playing with unlimited frames
@@ -259,6 +269,8 @@ func _physics_process(delta: float) -> void:
 	$Camera.global_position.x = global_position.x
 	$Camera.global_position.z = global_position.z
 
+var _target_jump_anim = 0.0
+
 func _process(delta: float) -> void:
 	$PlayerMesh/Stars.global_position = engine_bone.global_position
 	$Camera.popup_open = Global.popup_open
@@ -266,15 +278,24 @@ func _process(delta: float) -> void:
 	
 	if Global.can_move:
 		_blend_state = lerp(_blend_state, _blend_target, 3.7 * delta)
-		_strafe_target = lerp(_strafe_target, -_direction.z, 5.2 * delta)
-		_elongate_target = lerp(_elongate_target, _direction.y * 1.2, 3.7 * delta)
+		if !"gravity" in Global.current_effects:
+			_strafe_target = lerp(_strafe_target, -_direction.z, 5.2 * delta)
+			_elongate_target = lerp(_elongate_target, _direction.y * 1.2, 3.7 * delta)
 	else: # gently reset when locking position
 		_blend_state = lerp(_blend_state, 0.0, 2.0 * delta)
-		_strafe_target = lerp(_strafe_target, 0.0, 2.0 * delta)
-		_elongate_target = lerp(_elongate_target, 0.0, 2.0 * delta)
+		if !"gravity" in Global.current_effects:
+			_strafe_target = lerp(_strafe_target, 0.0, 2.0 * delta)
+			_elongate_target = lerp(_elongate_target, 0.0, 2.0 * delta)
 	$PlayerMesh/Tree.set("parameters/test_blend/blend_position", _blend_state)
 	$PlayerMesh/Tree.set("parameters/strafe/add_amount", _strafe_target)
 	$PlayerMesh/Tree.set("parameters/set_elongate/add_amount", _elongate_target)
+	_target_jump_anim = abs(velocity.y) / 7.0
+	$Spider.set_jump_scale(
+		lerp($Spider.get_jump_scale(), _target_jump_anim, Utilities.critical_lerp(delta, 21.0)))
+	if abs(velocity.y) < 1.0:
+		$Spider.set_anim_speed(Vector3(velocity * Vector3(1, 0, 1)).length() * 0.9)
+	else:
+		$Spider.set_anim_speed(0.0)
 	
 	var _target_pitch_scale: float = (1.0
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)
