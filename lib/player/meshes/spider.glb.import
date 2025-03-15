@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/spider.glb-348084237c4a8f13e59c4ede52c0570d.s
 nodes/root_type=""
 nodes/root_name="Spider"
 nodes/apply_root_scale=true
-nodes/root_scale=0.55
+nodes/root_scale=0.5
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -3630,6 +3630,16 @@ _subresources={
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
 "slices/amount": 0
+}
+},
+"materials": {
+"mat_brass": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_holo_legs.tres"
+},
+"mat_jade": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/player/materials/mat_holo_legs.tres"
 }
 }
 }

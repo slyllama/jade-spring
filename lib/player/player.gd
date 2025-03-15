@@ -216,22 +216,26 @@ func _physics_process(delta: float) -> void:
 	if "gravity" in Global.current_effects:
 		$PlayerMesh.global_position = $Spider/Armature/Skeleton3D/Cylinder.global_position
 		$PlayerMesh.position.y += 0.35
-		if !$Spider.visible:
-			$Spider.visible = true
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
 		velocity.y -= 24.0 * delta
-		if Input.is_action_just_pressed("move_up"):
+		if Input.is_action_just_pressed("move_up") and velocity.y > -2.0 and velocity.y < 2.0:
 			velocity.y = 8.0
+		if (!Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_right") and 
+			!Input.is_action_pressed("move_forward") and !Input.is_action_pressed("move_back")):
+			axis_lock_linear_x = true
+			axis_lock_linear_z = true
+		else:
+			axis_lock_linear_x = false
+			axis_lock_linear_z = false
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
 		velocity.z = lerp(velocity.z, _target_velocity.z, Utilities.critical_lerp(delta, 15.0))
 	else:
-		if $Spider.visible:
-			$Spider.visible = false
 		$PlayerMesh.position.y = 0.0
+		axis_lock_linear_x = false
+		axis_lock_linear_z = false
 		velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
 		velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta * smooth_mod)
 		velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta * smooth_mod)
-	
 	move_and_slide()
 	
 	Global.player_position = global_position
