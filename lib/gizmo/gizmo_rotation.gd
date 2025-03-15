@@ -17,6 +17,7 @@ var axis_stick = CSGBox3D.new()
 var mat = ShaderMaterial.new()
 var color: Color
 var accumulated_ratio = 0.0
+signal mouse_entered
 
 func set_color(get_color: Color, dim = 0.5) -> void:
 	color = get_color
@@ -25,13 +26,14 @@ func set_color(get_color: Color, dim = 0.5) -> void:
 func _configure_grabber(grabber: Area3D) -> void:
 	grabber.mouse_entered.connect(func():
 		if !enabled: return
+		mouse_entered.emit()
 		set_color(color, 1.0))
 	grabber.mouse_exited.connect(func():
 		if active: return
 		set_color(color, 0.5))
 	
 	grabber.input_event.connect(func(_c, _e, _p, _n, _i):
-		if Input.is_action_just_pressed("left_click"):
+		if Input.is_action_just_pressed("left_click") and get_parent().last_rotator == self:
 			var _d = Dragger.instantiate()
 			if dragger_axis == "X":
 				_d.axis = _d.Axis.X

@@ -1,0 +1,43 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://buvclpeosgpjf"
+path="res://.godot/imported/honeycomb.glb-f1b4dd414a0a6f7fd5184b72a4bbe954.scn"
+
+[deps]
+
+source_file="res://decorations/janthiri_bee/honeycomb/honeycomb.glb"
+dest_files=["res://.godot/imported/honeycomb.glb-f1b4dd414a0a6f7fd5184b72a4bbe954.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name="Honeycomb"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=false
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"mat_honeycomb": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/janthiri_bee/honeycomb/materials/mat_honeycomb.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

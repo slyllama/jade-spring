@@ -17,13 +17,22 @@ func set_holo_exponent(val: float) -> void:
 	var _e = 0.5 + (1 - val) * 15.5
 	holo_material.set_shader_parameter("holo_exponent", _e)
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("debug_action"):
+		if "gravity" in Global.current_effects:
+			if visible:
+				visible = false
+			else:
+				visible = true
+
 func _ready() -> void:
 	visible = false
 	set_holo_exponent(0.0)
 	
 	Global.add_effect.connect(func(effect):
 		if effect == "gravity":
-			visible = true
+			if get_parent().get_node("PlayerMesh").visible:
+				visible = true # don't make visible if the player has hidden
 			var _fade_in = create_tween()
 			_fade_in.tween_method(set_holo_exponent, 0.0, 1.0, 0.5))
 	Global.remove_effect.connect(func(effect):

@@ -149,7 +149,13 @@ var _strafe_target = 0.0
 var _elongate_target = 0.0
 var _blend_state = _blend_target
 
+var _time_since_on_floor = 0.0
+
 func _physics_process(delta: float) -> void:
+	if is_on_floor():
+		_time_since_on_floor = 0.0
+	else:
+		_time_since_on_floor += delta
 	# Handle animations
 	var _query_fs = _fs
 	var _query_ss = _ss # query strafe state
@@ -218,7 +224,7 @@ func _physics_process(delta: float) -> void:
 		$PlayerMesh.position.y += 0.35
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
 		velocity.y -= 24.0 * delta
-		if Input.is_action_just_pressed("move_up") and velocity.y > -2.0 and velocity.y < 2.0:
+		if Input.is_action_just_pressed("move_up") and _time_since_on_floor < 0.2:
 			velocity.y = 8.0
 		if (!Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_right") and 
 			!Input.is_action_pressed("move_forward") and !Input.is_action_pressed("move_back")):

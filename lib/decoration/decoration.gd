@@ -66,12 +66,16 @@ func set_dye_channel(material_name: String, albedo_color: Color):
 		if "albedo_color" in _m:
 			_m.albedo_color = albedo_color
 
+var last_rotator = null
+
 func _spawn_rotators() -> void:
 	_clear_arrows()
 	
 	var _arr_rotate_x = GizmoRotation.new()
 	_arr_rotate_x.rotation_vector = Vector3(1, 0, 0)
 	_arr_rotate_x.dragger_axis = "X"
+	_arr_rotate_x.mouse_entered.connect(func():
+		last_rotator = _arr_rotate_x)
 	add_child(_arr_rotate_x)
 	arrows.append(_arr_rotate_x)
 	_arr_rotate_x.set_color(Color.RED)
@@ -79,6 +83,8 @@ func _spawn_rotators() -> void:
 	var _arr_rotate_y = GizmoRotation.new()
 	_arr_rotate_y.rotation_vector = Vector3(0, 1, 0)
 	_arr_rotate_y.dragger_axis = "X"
+	_arr_rotate_y.mouse_entered.connect(func():
+		last_rotator = _arr_rotate_y)
 	add_child(_arr_rotate_y)
 	arrows.append(_arr_rotate_y)
 	_arr_rotate_y.set_color(Color.BLUE)
@@ -86,6 +92,8 @@ func _spawn_rotators() -> void:
 	var _arr_rotate_z = GizmoRotation.new()
 	_arr_rotate_z.rotation_vector = Vector3(0, 0, 1)
 	_arr_rotate_z.dragger_axis = "X"
+	_arr_rotate_z.mouse_entered.connect(func():
+		last_rotator = _arr_rotate_z)
 	add_child(_arr_rotate_z)
 	arrows.append(_arr_rotate_z)
 	_arr_rotate_z.set_color(Color.GREEN)

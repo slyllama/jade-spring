@@ -167,6 +167,15 @@ const DecoData = {
 		"preview_y_rotation": 35,
 		"tags": ["Architecture"]
 	},
+	"honeycomb": {
+		"name": "Honeycomb",
+		"scene": "res://decorations/janthiri_bee/honeycomb/honeycomb.tscn",
+		"cursor_model": "res://decorations/janthiri_bee/honeycomb/honeycomb.glb",
+		"preview_scale": 0.42,
+		"model_offset": Vector3(0, 0.5, 0),
+		"preview_y_rotation": 35,
+		"tags": ["Architecture"]
+	},
 	"kaineng_cobble_floor": {
 		"name": "Kaineng Cobble Floor",
 		"scene": "res://decorations/kaineng_cobble_floor/kaineng_cobble_floor.tscn",
