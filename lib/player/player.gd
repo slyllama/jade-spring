@@ -236,7 +236,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
 		velocity.z = lerp(velocity.z, _target_velocity.z, Utilities.critical_lerp(delta, 15.0))
 	else:
-		$PlayerMesh.position.y = 0.0
 		axis_lock_linear_x = false
 		axis_lock_linear_z = false
 		velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
@@ -271,6 +270,8 @@ func _physics_process(delta: float) -> void:
 				$PlayerMesh.rotation.z,
 				_direction.z * 0.4,
 				smoothing * 0.2 * delta)
+		else:
+			$PlayerMesh.rotation.z = 0.0	
 	
 	# Interpolating camera movements on physics tick seems to be smoother when
 	# playing with unlimited frames
@@ -291,6 +292,9 @@ func _process(delta: float) -> void:
 		if !"gravity" in Global.current_effects:
 			_strafe_target = lerp(_strafe_target, -_direction.z, 5.2 * delta)
 			_elongate_target = lerp(_elongate_target, _direction.y * 1.2, 3.7 * delta)
+		else:
+			_elongate_target = 0.0
+			_strafe_target = 0.5
 	else: # gently reset when locking position
 		_blend_state = lerp(_blend_state, 0.0, 2.0 * delta)
 		if !"gravity" in Global.current_effects:

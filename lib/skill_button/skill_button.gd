@@ -81,9 +81,9 @@ const TOOLTIPS = {
 		"title": "Reset Decoration",
 		"description": "Reset rotation and scale of decoration."
 	},
-	"safe_point": {
-		"title": "I'm Stuck",
-		"description": "Teleport back to Ratchet"
+	"toggle_gravity": {
+		"title": "((Toggle Gravity))",
+		"description": "((Description for toggle gravity.))"
 	},
 	"rotate_left": {
 		"title": "Rotate Left",

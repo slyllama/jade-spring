@@ -14,7 +14,7 @@ func get_jump_scale() -> float:
 
 func set_holo_exponent(val: float) -> void:
 	val = ease(val, 2.0)
-	var _e = 0.5 + (1 - val) * 15.5
+	var _e = 0.1 + (1 - val) * 15.1
 	holo_material.set_shader_parameter("holo_exponent", _e)
 
 func _input(_event: InputEvent) -> void:

@@ -10,9 +10,9 @@ gradient = SubResource("Gradient_c7vgy")
 fill_to = Vector2(0, 1)
 
 [resource]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_rrxxg")
-shader_parameter/base_color = Color(0.507517, 5.85751e-05, 0.439069, 1)
-shader_parameter/holo_exponent = 2.0
-shader_parameter/uv_scale = 150.0
+shader_parameter/base_color = Color(0.223782, 0.0005948, 0.495977, 1)
+shader_parameter/holo_exponent = 0.1
+shader_parameter/uv_scale = 200.0
 shader_parameter/holo_texture = SubResource("GradientTexture2D_vcyr2")

@@ -15,7 +15,7 @@ func set_default_skills(audio = true) -> void:
 	$Box/Skill2.switch_skill("deco_test")
 	$Box/Skill3.switch_skill("delete")
 	$Box/Skill4.switch_skill("eyedropper")
-	$Box/Skill5.switch_skill("safe_point")
+	$Box/Skill5.switch_skill("toggle_gravity")
 	
 	if _p == "game_start" or _p == "pick_weeds":
 		$Box/Skill1.set_enabled(false)
@@ -234,10 +234,7 @@ func skill_used(skill_id: String) -> void:
 			# Rotation snapping
 			if Global.snapping: $Box/Skill3.switch_skill("snap_disable")
 			else:  $Box/Skill3.switch_skill("snap_enable")
-			
 			$Box/Skill4.switch_skill("empty")
-		"safe_point":
-			Global.go_to_safe_point()
 		"snap_enable":
 			$Box/Skill3.switch_skill("snap_disable")
 			Global.snapping = true
@@ -259,6 +256,9 @@ func skill_used(skill_id: String) -> void:
 			Global.roll_right_90.emit()
 		"debug_skill":
 			Global.debug_skill_used.emit()
+		"toggle_gravity":
+			if "gravity" in Global.current_effects: Global.remove_effect.emit("gravity")
+			else: Global.add_effect.emit("gravity")
 #endregion
 
 func _process(delta: float) -> void:
