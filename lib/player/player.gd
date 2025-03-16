@@ -223,17 +223,15 @@ func _physics_process(delta: float) -> void:
 		$PlayerMesh.global_position = $Spider/Armature/Skeleton3D/Cylinder.global_position
 		$PlayerMesh.position.y += 0.35
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
-		velocity.y -= 24.0 * delta
+		if !is_on_floor():
+			velocity.y -= 24.0 * delta
 		if (Input.is_action_just_pressed("move_up")
-			and _time_since_on_floor < 0.2 and !Global.deco_pane_open):
+			and _time_since_on_floor < 0.2 and !Global.deco_pane_open
+			and !get_viewport().gui_get_focus_owner() is LineEdit):
 			velocity.y = 8.0
-		if (!Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_right") and 
-			!Input.is_action_pressed("move_forward") and !Input.is_action_pressed("move_back")):
-			axis_lock_linear_x = true
-			axis_lock_linear_z = true
-		else:
-			axis_lock_linear_x = false
-			axis_lock_linear_z = false
+		#else:
+			#axis_lock_linear_x = false
+			#axis_lock_linear_z = false
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
 		velocity.z = lerp(velocity.z, _target_velocity.z, Utilities.critical_lerp(delta, 15.0))
 	else:
@@ -242,6 +240,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
 		velocity.y = lerp(velocity.y, _target_velocity.y, smoothing * 0.5 * delta * smooth_mod)
 		velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta * smooth_mod)
+	
 	move_and_slide()
 	
 	Global.player_position = global_position
@@ -255,10 +254,18 @@ func _physics_process(delta: float) -> void:
 		if $Camera.rotation_degrees.y < 0:
 			$Camera.rotation_degrees.y += 360.0;
 		
-		$PlayerMesh.rotation.y = lerp_angle(
-			$PlayerMesh.rotation.y,
-			$Camera.rotation.y - _initial_y_rotation + PI,
-			smoothing * 0.6 * delta)
+		# Rotate the player mesh (and spider) to match the player's
+		# direction - lerps faster when gravity is enabled
+		if !"gravity" in Global.current_effects:
+			$PlayerMesh.rotation.y = lerp_angle(
+				$PlayerMesh.rotation.y,
+				$Camera.rotation.y - _initial_y_rotation + PI,
+				Utilities.critical_lerp(delta, smoothing * 0.6))
+		else:
+			$PlayerMesh.rotation.y = lerp_angle(
+				$PlayerMesh.rotation.y,
+				$Camera.rotation.y - _initial_y_rotation + PI,
+				Utilities.critical_lerp(delta, smoothing * 2.0))
 		$Spider.rotation.y = $PlayerMesh.rotation.y
 	
 	if Global.can_move:

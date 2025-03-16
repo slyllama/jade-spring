@@ -8,6 +8,14 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"honey_drips": {
+		"name": "Honey Drips",
+		"scene": "res://decorations/janthiri_bee/honey_drips/honey_drips.tscn",
+		"cursor_model": "res://decorations/janthiri_bee/honey_drips/honey_drips.glb",
+		"preview_scale": 0.5,
+		"preview_v_offset": 1.6,
+		"tags": ["Architecture"]
+	},
 	"small_boulder": {
 		"name": "Small Boulder",
 		"scene": "res://decorations/small_boulder/deco_small_boulder.tscn",

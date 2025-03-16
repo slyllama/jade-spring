@@ -14,8 +14,9 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"description": "I can't move at the moment!"
 	},
 	"gravity": {
-		"title": "((Gravity))",
-		"description": "((Jumping puzzle physics.))"
+		"texture": "toggle_gravity",
+		"title": "Gravity",
+		"description": "I'm bound by the laws of physics."
 	},
 	"decorating": {
 		"texture": "decorating",
