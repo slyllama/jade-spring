@@ -36,6 +36,10 @@ _subresources={
 "mat_honey": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/janthiri_bee/honey_drips/materials/mat_honey_drips.tres"
+},
+"mat_honey_strand": {
+"use_external/enabled": true,
+"use_external/path": "res://decorations/janthiri_bee/honey_drips/materials/mat_honey_strands.tres"
 }
 }
 }

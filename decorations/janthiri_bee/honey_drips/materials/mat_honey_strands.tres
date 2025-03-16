@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://2mmxbn3l5tqt"]
+
+[ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_nk4ys"]
+[ext_resource type="Texture2D" uid="uid://r8hesmuwmqp7" path="res://decorations/janthiri_bee/honey_drips/materials/textures/honey_strand.png" id="2_74bbv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nk4ys")
+shader_parameter/albedo = Color(0.6, 0.6, 0.6, 1)
+shader_parameter/distance_fade_min = 11.0
+shader_parameter/distance_fade_max = 10.0
+shader_parameter/alpha_scissor_threshold = 0.6
+shader_parameter/alpha_antialiasing_edge = null
+shader_parameter/backlight = 0.5
+shader_parameter/specularity = 0.0
+shader_parameter/normal_strength = 1.0
+shader_parameter/texture_albedo = ExtResource("2_74bbv")
