@@ -248,7 +248,7 @@ func _physics_process(delta: float) -> void:
 	_fs = _query_fs
 	
 	$Camera.rotation_degrees.y = fmod($Camera.rotation_degrees.y, 360.0);
-	if velocity.length() > 1.0:
+	if Vector3(velocity * Vector3(1, 0, 1)).length() > 1.0:
 		# "Naturalise" rotations of both camera and mesh by subtracting
 		# 360deg until they are each less than 360deg
 		if $Camera.rotation_degrees.y < 0:
