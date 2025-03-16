@@ -8,6 +8,13 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"rata_sum_slab": {
+		"name": "Rata Sum Slab",
+		"scene": "res://decorations/rata_sum/slab/rata_sum_slab.tscn",
+		"cursor_model": "res://decorations/rata_sum/slab/rata_sum_slab.glb",
+		"preview_scale": 0.9,
+		"tags": ["Architecture", "Asura"]
+	},
 	"honey_drips": {
 		"name": "Honey Drips",
 		"scene": "res://decorations/janthiri_bee/honey_drips/honey_drips.tscn",
@@ -360,6 +367,6 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Asura"]
 	},
 }

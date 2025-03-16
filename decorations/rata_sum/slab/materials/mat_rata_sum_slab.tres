@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://c03mvu14vyroy"]
+
+[ext_resource type="Shader" path="res://decorations/materials/shaders/shader_multires_rock.gdshader" id="1_fvph1"]
+[ext_resource type="Texture2D" uid="uid://yecekcg77s84" path="res://decorations/rata_sum/slab/materials/textures/rata_sum_slab_mask.jpg" id="2_c4mvv"]
+[ext_resource type="Texture2D" uid="uid://b8r7xo4bv6a7y" path="res://decorations/rata_sum/slab/materials/textures/rata_sum_slab_norm.jpg" id="3_mxr4y"]
+[ext_resource type="Texture2D" uid="uid://mycf4akhf2ov" path="res://decorations/lantern/materials/textures/rock_norm.jpg" id="3_w2qyn"]
+[ext_resource type="Texture2D" uid="uid://bditqch1uxous" path="res://decorations/rata_sum/slab/materials/textures/rata_sum_slab_overlay.jpg" id="5_2v2re"]
+[ext_resource type="Texture2D" uid="uid://cejwijfwr6xsg" path="res://maps/seitung/materials/textures/grass_base_diff.jpg" id="5_fekov"]
+[ext_resource type="Texture2D" uid="uid://c2we08mbthjms" path="res://decorations/lantern/materials/textures/rock_diff.jpg" id="6_s10lt"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fvph1")
+shader_parameter/overlay_color = Color(0.5451, 0.69204, 0.79, 1)
+shader_parameter/overlay_exponent = 0.75
+shader_parameter/overlay_uv_scale = 2.0
+shader_parameter/uv_scale = 2.5
+shader_parameter/darken = 1.0
+shader_parameter/rock_texture = ExtResource("6_s10lt")
+shader_parameter/normal_multires_texture = ExtResource("3_mxr4y")
+shader_parameter/normal_rock_texture = ExtResource("3_w2qyn")
+shader_parameter/lighten_texture = ExtResource("2_c4mvv")
+shader_parameter/overlay_texture = ExtResource("5_fekov")
+shader_parameter/overlay_mask = ExtResource("5_2v2re")

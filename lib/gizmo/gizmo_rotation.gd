@@ -10,6 +10,7 @@ const Dragger = preload("res://lib/dragger/dragger.tscn")
 
 var active = false
 var enabled = false
+var mouse_down = false
 
 var rotate_visual: Node3D
 var axis_stick = CSGBox3D.new()
@@ -34,6 +35,10 @@ func _configure_grabber(grabber: Area3D) -> void:
 	
 	grabber.input_event.connect(func(_c, _e, _p, _n, _i):
 		if Input.is_action_just_pressed("left_click") and get_parent().last_rotator == self:
+			if mouse_down: 
+				print("[GizmoRotation] rejecting duplicate.")
+				return
+			mouse_down = true # prevent duplicates
 			var _d = Dragger.instantiate()
 			if dragger_axis == "X":
 				_d.axis = _d.Axis.X
@@ -92,6 +97,10 @@ func destroy() -> void:
 	scale_out_tween.tween_property(
 		rotate_visual, "scale", Vector3(0.01, 0.01, 0.01), 0.15)
 	scale_out_tween.tween_callback(queue_free)
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_released("left_click") and enabled:
+		mouse_down = false
 
 func _ready() -> void:
 	enabled = true

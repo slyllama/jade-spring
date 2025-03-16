@@ -108,7 +108,7 @@ func get_effect_qty(effect: String) -> int:
 	return(_qty)
 
 ##### Decoration signals and parameters
-const DecoTags = [ "None", "Architecture", "Foliage", "Cantha" ]
+const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura" ]
 const DecoData = preload("res://lib/decoration/deco_data.gd").new().DecoData
 
 enum {
@@ -165,6 +165,7 @@ signal transform_mode_changed(transform_mode)
 const SNAP_INCREMENT = 0.5
 
 var decorations = [] # references to decorations will populate here
+var highlighted_decoration: Decoration = null
 var active_decoration: Decoration = null # decoration currently being adjusted
 var queued_decoration = "none" # next decoration that will be placed
 var tool_mode = TOOL_MODE_NONE

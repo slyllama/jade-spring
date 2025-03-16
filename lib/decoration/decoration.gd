@@ -21,13 +21,14 @@ var dye_materials = {}
 var cull_distance = 24.0
 var distance_to_player = 0.0
 var mouse_in_box = false
+var outlined = false
 
 func set_outline(state = true) -> void:
 	if state:
 		for _i in 2: await get_tree().process_frame # give the cursor a chance to be readded
-		if Global.cursor_active:
-			outline_mat.set_shader_parameter("outline_color", Color.WHITE)
-			outline_mat.set_shader_parameter("outline_width", 0.5)
+		if Global.cursor_active and Global.highlighted_decoration == self:
+			outline_mat.set_shader_parameter("outline_color", Color.GREEN_YELLOW)
+			outline_mat.set_shader_parameter("outline_width", 0.35)
 	else:
 		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
 		outline_mat.set_shader_parameter("outline_width", 0)
@@ -230,6 +231,7 @@ func _ready() -> void:
 	set_outline(false)
 
 	Global.adjustment_started.connect(func(): # disable input picking for ALL decorations
+		set_outline(false)
 		if collision_box != null:
 			collision_box.set_collision_layer_value(1, false)
 			collision_box.set_collision_layer_value(2, false)
@@ -310,6 +312,7 @@ func _ready() -> void:
 				_spawn_arrows())
 		
 		collision_box.mouse_entered.connect(func():
+			Global.highlighted_decoration = self
 			mouse_in_box = true
 			if !Global.tool_mode == Global.TOOL_MODE_PLACE:
 				set_outline()
