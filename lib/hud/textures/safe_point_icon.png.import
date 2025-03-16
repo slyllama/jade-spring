@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://isii65k2mmsa"
-path="res://.godot/imported/safe_point.png-ca0c0da877616ec79f1c13a15dd90e01.ctex"
+uid="uid://cxf0yv63f2a8b"
+path="res://.godot/imported/safe_point_icon.png-009e73598d7880114c36e0e05adb8364.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/skill_button/textures/safe_point.png"
-dest_files=["res://.godot/imported/safe_point.png-ca0c0da877616ec79f1c13a15dd90e01.ctex"]
+source_file="res://lib/hud/textures/safe_point_icon.png"
+dest_files=["res://.godot/imported/safe_point_icon.png-009e73598d7880114c36e0e05adb8364.ctex"]
 
 [params]
 

@@ -10,6 +10,7 @@ size = Vector3(5, 0.5, 5)
 script = ExtResource("1_wiwg7")
 id = "kaineng_cobble_floor"
 collision_box = NodePath("Body")
+disable_culling = true
 custom_lod = false
 
 [node name="KainengCobbleFloor" parent="." instance=ExtResource("2_c0x23")]

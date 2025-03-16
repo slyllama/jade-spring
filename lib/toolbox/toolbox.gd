@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var _eyedropper_last_used = false
+
 func clear_skills(audio = true) -> void:
 	if audio:
 		$SkillSwap.play()
@@ -78,11 +80,12 @@ func _ready() -> void:
 	Global.deco_placement_started.connect(func():
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel")
-		if !Global.mouse_3d_override_rotation:
-			$Box/Skill2.switch_skill("rotate_left")
-			$Box/Skill3.switch_skill("rotate_right")
-			$Box/Skill4.switch_skill("roll_left")
-			$Box/Skill5.switch_skill("roll_right"))
+		if !Global.mouse_3d_override_rotation and !_eyedropper_last_used:
+			$Box/Skill1.switch_skill("rotate_left")
+			$Box/Skill2.switch_skill("rotate_right")
+			#$Box/Skill4.switch_skill("roll_left")
+			#$Box/Skill5.switch_skill("roll_right")
+		_eyedropper_last_used = false)
 	
 	Global.deco_deleted.connect(func():
 		await get_tree().process_frame
@@ -104,6 +107,7 @@ func _ready() -> void:
 	
 	Global.deco_sampled.connect(func(data):
 		Global.set_cursor(false)
+		_eyedropper_last_used = true
 		await get_tree().process_frame
 		Global.queued_decoration = data.id
 		Global.tool_mode = Global.TOOL_MODE_PLACE

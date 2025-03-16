@@ -9,9 +9,11 @@ const TEST_DIALOGUE = {
 		"options": {
 			"day": "Turn the skies to day.",
 			"night": "Rotate the heavens to the night.",
+			"rotate": "Rotate the sun.",
 			"dismiss": "Dismiss."
 		}
 	},
+	"rotate": { "reference": "_entry" },
 	"day": { "reference": "_exit" },
 	"night": { "reference": "_exit" },
 	"dismiss": { "reference": "_exit" }
@@ -35,6 +37,8 @@ func _on_interacted() -> void:
 			play_animation()
 			await get_tree().create_timer(0.5).timeout
 			Global.command_sent.emit("/time=day")
+		elif id == "rotate":
+			Global.command_sent.emit("/rotatesun")
 		elif id == "night":
 			Global.generic_area_entered.emit()
 			if !$FX.playing: $FX.play()

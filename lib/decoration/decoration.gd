@@ -206,7 +206,7 @@ func _ready() -> void:
 		if Global.DecoData[id].cull == "NEVER":
 			cull_distance = 10000
 		elif Global.DecoData[id].cull == "AGGRESSIVE":
-			cull_distance /= 2.0
+			cull_distance *= 0.75
 	
 	if disable_culling:
 		cull_distance = 10000

@@ -14,4 +14,5 @@ render_priority = 0
 shader = ExtResource("1_ymx8l")
 shader_parameter/base_color = Color(1, 0.0654908, 0.87215, 1)
 shader_parameter/holo_exponent = 2.0
+shader_parameter/uv_scale = 200.0
 shader_parameter/holo_texture = SubResource("GradientTexture2D_vcyr2")

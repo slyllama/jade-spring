@@ -51,6 +51,7 @@ func update_roster_visibility(pos: int) -> void:
 		$BugsText.visible = true
 		$BugsBar.visible = true
 	if pos >= 3:
+		$StoryText.visible = false
 		$DVText.visible = true
 		$DVBar.visible = true
 

@@ -20,7 +20,6 @@ const TEXTURES = { # associations with texture paths
 	"snap_forbidden": preload("res://lib/skill_button/textures/snap_forbidden.png"),
 	"transform_mode": preload("res://lib/skill_button/textures/transform_mode.png"),
 	"reset_adjustment": preload("res://lib/skill_button/textures/reset_adjustment.png"),
-	"safe_point": preload("res://lib/skill_button/textures/safe_point.png"),
 	"fishing_left": preload("res://lib/skill_button/textures/fishing_left.png"),
 	"fishing_right": preload("res://lib/skill_button/textures/fishing_right.png"),
 	"roll_left": preload("res://lib/skill_button/textures/roll_minus_90.png"),
@@ -28,7 +27,8 @@ const TEXTURES = { # associations with texture paths
 	"rotate_left": preload("res://lib/skill_button/textures/rotate_minus_90.png"),
 	"rotate_right": preload("res://lib/skill_button/textures/rotate_90.png"),
 	"eyedropper": preload("res://lib/skill_button/textures/duplicate.png"),
-	"adjust_mode_translate": preload("res://lib/skill_button/textures/move_scale.png")
+	"adjust_mode_translate": preload("res://lib/skill_button/textures/move_scale.png"),
+	"toggle_gravity": preload("res://lib/skill_button/textures/toggle_gravity.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 
@@ -82,8 +82,8 @@ const TOOLTIPS = {
 		"description": "Reset rotation and scale of decoration."
 	},
 	"toggle_gravity": {
-		"title": "((Toggle Gravity))",
-		"description": "((Description for toggle gravity.))"
+		"title": "Toggle Gravity",
+		"description": "Turn physics on or off. Useful for jumping puzzles!"
 	},
 	"rotate_left": {
 		"title": "Rotate Left",

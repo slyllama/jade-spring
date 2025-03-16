@@ -224,7 +224,8 @@ func _physics_process(delta: float) -> void:
 		$PlayerMesh.position.y += 0.35
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
 		velocity.y -= 24.0 * delta
-		if Input.is_action_just_pressed("move_up") and _time_since_on_floor < 0.2:
+		if (Input.is_action_just_pressed("move_up")
+			and _time_since_on_floor < 0.2 and !Global.deco_pane_open):
 			velocity.y = 8.0
 		if (!Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_right") and 
 			!Input.is_action_pressed("move_forward") and !Input.is_action_pressed("move_back")):

@@ -93,6 +93,9 @@ func _input(_event: InputEvent) -> void:
 	
 	# Fill the command line with the last-used command
 	if Input.is_action_just_pressed("ui_up"):
+		if !Global.debug_enabled: # enable debug first, if it hasn't been already
+			Global.debug_enabled = true
+			Global.debug_toggled.emit()
 		_debug_cmd_gain_focus()
 		$TopLevel/DebugEntry.text = Global.last_command
 		await get_tree().process_frame
@@ -255,3 +258,6 @@ func _on_camera_button_down() -> void:
 func _on_camera_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("right_click"):
 		OS.shell_open(ProjectSettings.globalize_path("user://save"))
+
+func _on_safe_point_button_down() -> void:
+	Global.go_to_safe_point()
