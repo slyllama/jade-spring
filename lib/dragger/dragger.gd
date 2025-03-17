@@ -86,5 +86,5 @@ func _process(delta: float) -> void:
 	_accumulated_ratio += ratio
 	if _accumulated_ratio > 1.2 or _accumulated_ratio < - 1.2:
 		_accumulated_ratio = 0.0
-		if play_tick:
+		if play_tick and !Global.snapping:
 			$Tick.play()

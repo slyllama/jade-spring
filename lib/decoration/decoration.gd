@@ -253,7 +253,8 @@ func _ready() -> void:
 		set_outline(false))
 	
 	Global.snapping_enabled.connect(func():
-		if Global.active_decoration == self:
+		if (Global.active_decoration == self
+			and Global.adjustment_mode == Global.ADJUSTMENT_MODE_TRANSLATE):
 			var _new_snapped_pos = Vector3(
 				snapped(global_position.x, 0.25),
 				snapped(global_position.y, 0.25),

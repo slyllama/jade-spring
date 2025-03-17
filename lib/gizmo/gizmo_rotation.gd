@@ -14,10 +14,12 @@ var mouse_down = false
 
 var rotate_visual: Node3D
 var axis_stick = CSGBox3D.new()
+var tick_sound = AudioStreamPlayer.new()
 
 var mat = ShaderMaterial.new()
 var color: Color
 var accumulated_ratio = 0.0
+
 signal mouse_entered
 
 func set_color(get_color: Color, dim = 0.5) -> void:
@@ -68,10 +70,12 @@ func _configure_grabber(grabber: Area3D) -> void:
 				if !is_global:
 					if Global.snapping:
 						if accumulated_ratio > 5.0:
+							tick_sound.play()
 							get_parent().rotate_object_local(
 								rotation_vector, deg_to_rad(22.5))
 							accumulated_ratio = 0.0
 						elif accumulated_ratio < -5.0:
+							tick_sound.play()
 							get_parent().rotate_object_local(
 								rotation_vector, -deg_to_rad(22.5))
 							accumulated_ratio = 0.0
@@ -106,6 +110,10 @@ func _ready() -> void:
 	enabled = true
 	rotate_visual = RotatorMesh.instantiate()
 	add_child(rotate_visual)
+	
+	add_child(tick_sound)
+	tick_sound.set_stream(load("res://generic/sounds/tick.ogg"))
+	tick_sound.volume_db = 12.0
 	
 	# Replace the imported StaticBody3D with an Area3D
 	# (Could've instanced the important scene but whatever, LMAO)
