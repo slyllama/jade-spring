@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=36 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
@@ -16,6 +16,8 @@
 [ext_resource type="Animation" uid="uid://drnyvaqxqitn" path="res://lib/player/anims/elongate.res" id="10_1iq62"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="12_q5b4w"]
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="13_ll3l2"]
+[ext_resource type="AudioStream" uid="uid://epp6yeu72175" path="res://lib/player/sounds/jump.ogg" id="17_o537a"]
+[ext_resource type="AudioStream" uid="uid://bn281paaf27ko" path="res://lib/player/sounds/walk.ogg" id="18_443tu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hn77j"]
 radius = 0.2
@@ -201,9 +203,18 @@ one_shot = true
 [node name="SprintSoundPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -3.2
 
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_o537a")
+volume_db = 1.0
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_443tu")
+volume_db = 1.0
+
 [node name="HeartTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="SprintSoundCD" to="." method="_on_sprint_sound_cd_timeout"]
+[connection signal="finished" from="Walk" to="." method="_on_walk_finished"]
 [connection signal="timeout" from="HeartTimer" to="." method="_on_heart_timer_timeout"]

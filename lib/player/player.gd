@@ -24,6 +24,7 @@ var can_play_sprint_sound = true
 @export var base_speed: float = 3.0
 @export var smoothing: float = 7.0
 var smooth_mod = 1.0 # acceleration smoothing - to be modified by command
+var walking = false
 
 @onready var anim: AnimationPlayer = get_node("PlayerMesh/AnimationPlayer")
 @onready var engine_bone: BoneAttachment3D = get_node("PlayerMesh/JadeArmature/Skeleton3D/EngineRing1")
@@ -160,14 +161,7 @@ func _physics_process(delta: float) -> void:
 	var _query_fs = _fs
 	var _query_ss = _ss # query strafe state
 	if Input.is_action_just_pressed("move_forward"): _query_fs += 1
-	#if Input.is_action_just_pressed("move_up"): _query_fs += 1
-	#if Input.is_action_just_pressed("move_left"): _query_fs += 1
-	#if Input.is_action_just_pressed("move_right"): _query_fs += 1
-	
 	if Input.is_action_just_released("move_forward"): _query_fs -= 1
-	#if Input.is_action_just_released("move_up"): _query_fs -= 1
-	#if Input.is_action_just_released("move_left"): _query_fs -= 1
-	#if Input.is_action_just_released("move_right"): _query_fs -= 1
 	
 	if _query_fs > 0 and _fs == 0:
 		_blend_target = -1.0
@@ -225,9 +219,19 @@ func _physics_process(delta: float) -> void:
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
 		if !is_on_floor():
 			velocity.y -= 24.0 * delta
+		else:
+			if Vector3(velocity * Vector3(1, 0, 1)).length() > 1.0:
+				if !walking:
+					walking = true
+					$Walk.play()
+			else:
+				walking = false
 		if (Input.is_action_just_pressed("move_up")
 			and _time_since_on_floor < 0.2 and !Global.deco_pane_open
 			and !get_viewport().gui_get_focus_owner() is LineEdit):
+			$Jump.pitch_scale = 0.9 + rng.randf() * 0.2
+			$Jump.play()
+			walking = false
 			velocity.y = 8.0
 		#else:
 			#axis_lock_linear_x = false
@@ -235,6 +239,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
 		velocity.z = lerp(velocity.z, _target_velocity.z, Utilities.critical_lerp(delta, 15.0))
 	else:
+		if walking:
+			walking = false
 		axis_lock_linear_x = false
 		axis_lock_linear_z = false
 		velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
@@ -330,3 +336,11 @@ func _on_heart_timer_timeout() -> void:
 	if hearts_playing:
 		hearts_playing = false
 		$PlayerMesh/HeartParticles.emitting = false
+
+var rng = RandomNumberGenerator.new()
+
+func _on_walk_finished() -> void:
+	if !walking: return
+	$Walk.pitch_scale = 0.8 + rng.randf() * 0.4
+	$Walk.volume_db = linear_to_db(0.8 + rng.randf() * 0.2)
+	$Walk.play()

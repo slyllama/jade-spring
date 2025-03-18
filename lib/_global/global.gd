@@ -220,6 +220,11 @@ func play_flash(screen_position: Vector2) -> void:
 
 ##### Execution
 
+func _init() -> void:
+	# Initialise Steam
+	var init_steam: Dictionary = Steam.steamInitEx(true, 3561310)
+	print("[Steam] Validating... " + str(init_steam))
+
 func _ready() -> void:
 	Utilities.set_master_vol(0.0)
 	
@@ -235,6 +240,9 @@ func _ready() -> void:
 			get_window().content_scale_factor = 2.0
 			retina_scale = 2
 		get_window().size *= retina_scale
+
+func _process(_delta):
+	Steam.run_callbacks() # process Steam
 
 func _on_click_sound() -> void:
 	$Click.play()
