@@ -5,22 +5,22 @@ extends CanvasLayer
 signal completed
 signal canceled
 
-@export var width = 330.0
-@export var threshold = 45.0
+@export var width = 250.0
+@export var threshold = 34.0
 @export var move_speed = 1.95
 
 @export var fish_min_speed = 1.3
 @export var fish_max_speed = 1.95
 @export var fish_min_time = 0.65
 @export var fish_max_time = 2.7
-@export var progress_increase_rate = 0.17
-@export var progress_decrease_rate = 0.15
+@export var progress_increase_rate = 0.31
+@export var progress_decrease_rate = 0.20
 
 @onready var center_pos = _get_center()
 
 var fish_speed = 0.0
 var rng = RandomNumberGenerator.new()
-var progress = 35.0
+var progress = 39.0
 var dir = 1
 
 var fishing_left_down = false
@@ -133,7 +133,7 @@ func _ready() -> void:
 	Global.action_cam_disable.emit()
 	Global.set_cursor(false)
 	
-	$BG/CenterMarker/DispulsionFX.anim_in(0.35)
+	$BG/CenterMarker/DispulsionFX.anim_in(0.18)
 	
 	resize()
 	switch_direction()
@@ -169,7 +169,7 @@ func _process(delta: float) -> void:
 	var _s = 0.0 # position change
 	if diff < threshold: _s = progress_increase_rate
 	else: _s = -progress_decrease_rate
-	progress += _s * delta * 60.0
+	progress += _s * Utilities.critical_lerp(delta, 60.0)
 	
 	if progress > 99.9:
 		has_succeeded = true
@@ -178,8 +178,8 @@ func _process(delta: float) -> void:
 		Global.fishing_canceled.emit()
 	progress = clamp(progress, 0.0, 100.0)
 	
-	_smoothed_progress = lerp(_smoothed_progress, progress, Utilities.critical_lerp(delta, 20.0))
-	$BG/Progress.value = _smoothed_progress
+	#_smoothed_progress = lerp(_smoothed_progress, progress, Utilities.critical_lerp(delta, 50.0))
+	$BG/Progress.value = progress
 
 func _on_timer_timeout() -> void:
 	switch_direction()

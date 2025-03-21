@@ -47,7 +47,6 @@ texture = ExtResource("5_p21x7")
 script = ExtResource("1_6qcg4")
 
 [node name="Underlay" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,10 +65,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -253.0
-offset_top = -430.0
-offset_right = 253.0
-offset_bottom = -91.0
+offset_left = -189.75
+offset_top = -366.0
+offset_right = 189.75
+offset_bottom = -111.75
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_386hq")
@@ -85,9 +84,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -0.5
-offset_top = -171.0
+offset_top = -126.25
 offset_right = 0.5
-offset_bottom = -170.0
+offset_bottom = -125.25
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -160,17 +159,17 @@ text = "Proceed"
 
 [node name="Progress" type="ProgressBar" parent="BG"]
 use_parent_material = true
-custom_minimum_size = Vector2(160, 14)
+custom_minimum_size = Vector2(160, 10)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = -99.0
-offset_right = 169.0
-offset_bottom = -85.0
+offset_left = -126.75
+offset_top = -74.25
+offset_right = 130.25
+offset_bottom = -63.25
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxEmpty_ce8pe")
@@ -181,14 +180,14 @@ show_percentage = false
 
 [node name="Player" type="Sprite2D" parent="BG"]
 use_parent_material = true
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_7bdy4")
 
 [node name="Fish" type="Sprite2D" parent="BG"]
 texture_filter = 4
 use_parent_material = true
-position = Vector2(0, 168)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, 127)
+scale = Vector2(0.375, 0.375)
 texture = ExtResource("5_nbblc")
 
 [connection signal="completed" from="." to="." method="_on_completed"]
