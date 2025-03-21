@@ -3,6 +3,7 @@ extends Node2D
 
 const SPIN_RATE = 0.4
 var spin_rate = SPIN_RATE
+var target_alpha = 1.0
 
 signal anim_out_complete
 
@@ -17,7 +18,8 @@ signal anim_out_complete
 func _set_spin_rate_ratio(ratio: float) -> void:
 	spin_rate = SPIN_RATE * ratio
 
-func anim_in() -> void: # animate in
+func anim_in(set_target_alpha = 1.0) -> void: # animate in
+	target_alpha = set_target_alpha
 	modulate.a = 0.0
 	visible = true
 	
@@ -35,7 +37,7 @@ func anim_in() -> void: # animate in
 	
 	var mod_tween = create_tween()
 	mod_tween.tween_property(
-		self, "modulate:a", 1.0, anim_duration
+		self, "modulate:a", target_alpha, anim_duration
 	).set_ease(Tween.EASE_IN_OUT)
 	mod_tween.set_parallel()
 

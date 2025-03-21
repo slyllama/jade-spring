@@ -5,22 +5,22 @@ extends CanvasLayer
 signal completed
 signal canceled
 
-@export var width := 240.0
-@export var threshold := 65.0
-@export var move_speed := 1.5
+@export var width = 330.0
+@export var threshold = 45.0
+@export var move_speed = 1.95
 
-@export var fish_min_speed := 1.3
-@export var fish_max_speed := 1.95
-@export var fish_min_time := 0.65
-@export var fish_max_time := 2.7
-@export var progress_increase_rate := 0.23
-@export var progress_decrease_rate := 0.17
+@export var fish_min_speed = 1.3
+@export var fish_max_speed = 1.95
+@export var fish_min_time = 0.65
+@export var fish_max_time = 2.7
+@export var progress_increase_rate = 0.17
+@export var progress_decrease_rate = 0.15
 
 @onready var center_pos = _get_center()
 
 var fish_speed = 0.0
 var rng = RandomNumberGenerator.new()
-var progress = 50.0
+var progress = 35.0
 var dir = 1
 
 var fishing_left_down = false
@@ -97,6 +97,7 @@ func _input(_event: InputEvent) -> void:
 			_on_tutorial_done()
 
 func _ready() -> void:
+	$Underlay.queue_free()
 	Global.skill_button_down.connect(func(id):
 		if id == "fishing_left": fishing_left_down = true
 		if id == "fishing_right": fishing_right_down = true)
@@ -132,13 +133,13 @@ func _ready() -> void:
 	Global.action_cam_disable.emit()
 	Global.set_cursor(false)
 	
-	$BG/CenterMarker/DispulsionFX.anim_in()
+	$BG/CenterMarker/DispulsionFX.anim_in(0.35)
 	
 	resize()
 	switch_direction()
 	$BG/Progress.value = progress
 
-var _smoothed_progress = 0.0
+@export var _smoothed_progress = progress
 
 var _d = 0.0
 func _process(delta: float) -> void:
@@ -170,7 +171,7 @@ func _process(delta: float) -> void:
 	else: _s = -progress_decrease_rate
 	progress += _s * delta * 60.0
 	
-	if progress > 99.5:
+	if progress > 99.9:
 		has_succeeded = true
 		end()
 	elif progress < 0.5:

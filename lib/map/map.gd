@@ -2,6 +2,7 @@ extends Node3D
 # Map
 # Base class for map functionalirt
 
+const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 var picking_disabled_objects: Array[StaticBody3D] = []
 
 # Re-enable mouse event-disabled static bodies
@@ -47,6 +48,9 @@ func _ready() -> void:
 				Global.add_effect.emit("gravity")
 		elif cmd == "/rotatesun":
 			$Sky/Sun.global_rotation_degrees.y += 45.0
+		elif cmd == "/fish":
+			var _f = FishingInstance.instantiate()
+			add_child(_f)
 		)
 	
 	# Apply settings

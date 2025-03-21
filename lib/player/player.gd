@@ -18,6 +18,8 @@ const SPRINT_SOUNDS = [
 	preload("res://lib/player/sounds/jade_sprint_5.ogg")
 ]
 
+var rng = RandomNumberGenerator.new()
+
 const DgFX = preload("res://lib/dispersion_golem/dg_fx.tscn")
 var can_play_sprint_sound = true
 
@@ -36,7 +38,6 @@ var _sprint_multiplier := 1.0
 var _target_velocity := Vector3.ZERO
 
 func play_jade_sound() -> void:
-	var rng = RandomNumberGenerator.new()
 	var _ind = rng.randi_range(0, JADE_SOUNDS.size() - 1)
 	
 	var sound = AudioStreamPlayer.new()
@@ -336,8 +337,6 @@ func _on_heart_timer_timeout() -> void:
 	if hearts_playing:
 		hearts_playing = false
 		$PlayerMesh/HeartParticles.emitting = false
-
-var rng = RandomNumberGenerator.new()
 
 func _on_walk_finished() -> void:
 	if !walking: return

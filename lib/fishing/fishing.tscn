@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://b0ampettqcu60"]
 
 [ext_resource type="Script" path="res://lib/fishing/fishing.gd" id="1_6qcg4"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_7cxp0"]
 [ext_resource type="Texture2D" uid="uid://cnkmwhjhb5h2j" path="res://lib/fishing/textures/base_asuran.png" id="2_386hq"]
 [ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="2_y3on4"]
 [ext_resource type="Texture2D" uid="uid://8e006712v0us" path="res://lib/fishing/textures/marker.png" id="3_7bdy4"]
 [ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="3_151ui"]
-[ext_resource type="Texture2D" uid="uid://dd8ram7ugtnj6" path="res://lib/hud/side_panel/textures/progress_base.png" id="4_7ig0d"]
 [ext_resource type="Texture2D" uid="uid://b5tfug8y7dm74" path="res://lib/fishing/textures/fish.png" id="5_nbblc"]
 [ext_resource type="Texture2D" uid="uid://b2wgxou5ddeax" path="res://lib/hud/side_panel/textures/progress_filled_purple.png" id="5_p21x7"]
 [ext_resource type="PackedScene" uid="uid://d070iet1hdc2c" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.tscn" id="8_mvgxp"]
@@ -17,12 +17,6 @@ shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 3.0
 shader_parameter/arrow_reduce_alpha = false
 shader_parameter/paint_mask = ExtResource("3_151ui")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4ydp"]
-texture = ExtResource("4_7ig0d")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5g53"]
-texture = ExtResource("5_p21x7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ny808"]
 shader = ExtResource("2_y3on4")
@@ -44,8 +38,24 @@ border_blend = true
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbype"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce8pe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5g53"]
+texture = ExtResource("5_p21x7")
+
 [node name="Fishing" type="CanvasLayer"]
 script = ExtResource("1_6qcg4")
+
+[node name="Underlay" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7cxp0")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -56,41 +66,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -482.0
-offset_top = -448.0
-offset_right = 483.0
-offset_bottom = 9.0
+offset_left = -253.0
+offset_top = -430.0
+offset_right = 253.0
+offset_bottom = -91.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_386hq")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="Progress" type="ProgressBar" parent="BG"]
-use_parent_material = true
-custom_minimum_size = Vector2(160, 14)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -177.5
-offset_top = -180.0
-offset_right = 177.5
-offset_bottom = -166.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxTexture_q4ydp")
-theme_override_styles/fill = SubResource("StyleBoxTexture_o5g53")
-step = 0.0
-value = 35.0
-show_percentage = false
-
-[node name="Player" type="Sprite2D" parent="BG"]
-use_parent_material = true
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_7bdy4")
 
 [node name="CenterMarker" type="Control" parent="BG"]
 use_parent_material = true
@@ -101,14 +85,16 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -0.5
-offset_top = -250.0
+offset_top = -171.0
 offset_right = 0.5
-offset_bottom = -249.0
+offset_bottom = -170.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
 [node name="DispulsionFX" parent="BG/CenterMarker" instance=ExtResource("8_mvgxp")]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(0, 1)
 
 [node name="TutorialPanel" type="Panel" parent="BG/CenterMarker"]
 material = SubResource("ShaderMaterial_ny808")
@@ -172,20 +158,38 @@ layout_mode = 2
 size_flags_vertical = 10
 text = "Proceed"
 
-[node name="Fish" type="Node2D" parent="BG"]
+[node name="Progress" type="ProgressBar" parent="BG"]
 use_parent_material = true
+custom_minimum_size = Vector2(160, 14)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -99.0
+offset_right = 169.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_ce8pe")
+theme_override_styles/fill = SubResource("StyleBoxTexture_o5g53")
+step = 0.0
+value = 50.0
+show_percentage = false
 
-[node name="FishSprite" type="TextureRect" parent="BG/Fish"]
+[node name="Player" type="Sprite2D" parent="BG"]
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_7bdy4")
+
+[node name="Fish" type="Sprite2D" parent="BG"]
 texture_filter = 4
 use_parent_material = true
-offset_left = -30.0
-offset_top = -19.0
-offset_right = 87.0
-offset_bottom = 58.0
+position = Vector2(0, 168)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_nbblc")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="completed" from="." to="." method="_on_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
