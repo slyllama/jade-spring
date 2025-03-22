@@ -141,10 +141,12 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()
-		elif _cmd == "/storypanel":
-			var _sp = StoryPanel.instantiate()
-			add_child(_sp)
-			_sp.open())
+		elif _cmd == "/hint":
+			Global.play_hint("test_hint", { 
+				"title": "((Test Hint))",
+				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
+			}, get_viewport().get_mouse_position())
+		)
 	
 	Global.debug_toggled.connect(func():
 		if visible:

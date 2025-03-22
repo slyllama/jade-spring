@@ -61,7 +61,8 @@ const DEFAULT_DATA = {
 	"deposited_weeds": 0,
 	"karma": 0,
 	"fishing_tutorial_played": false,
-	"unlocked_decorations": []
+	"unlocked_decorations": [],
+	"hints_played": []
 }
 var data = {}
 

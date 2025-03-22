@@ -218,6 +218,19 @@ func play_flash(screen_position: Vector2) -> void:
 	_f.z_index = 100
 	hud.get_node("TopLevel").add_child(_f)
 
+const Hint = preload("res://lib/hint/hint.tscn")
+func play_hint(id: String, data: Dictionary, position: Vector2, play_once = false) -> void:
+	if play_once:
+		if id in Save.data.hints_played:
+			print("[Global] discarding already-played hint '" + id + "'")
+			return # already played
+		Save.data.hints_played.append(id)
+	
+	var _hint = Hint.instantiate()
+	hud.get_node("TopLevel").add_child(_hint)
+	_hint.position = position
+	_hint.set_text(data)
+
 ##### Execution
 
 func _init() -> void:

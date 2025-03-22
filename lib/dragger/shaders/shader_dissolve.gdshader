@@ -15,7 +15,7 @@ void fragment() {
 	}
 
 	if (paint_exponent >= 10.0) {
-		COLOR.a = 0.0;
+		discard;
 	}
 	
 	if (arrow_reduce_alpha) {

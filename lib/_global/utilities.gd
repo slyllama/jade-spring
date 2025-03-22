@@ -42,6 +42,14 @@ func point_in_wb(point: Vector3) -> bool:
 		return(false)
 	else: return(true)
 
+func get_binding_str(input_binding) -> String:
+	var key_string = ""
+	if InputMap.has_action(input_binding):
+		if InputMap.action_get_events(input_binding)[0] is InputEventKey:
+			key_string = OS.get_keycode_string(
+				InputMap.action_get_events(input_binding)[0].physical_keycode)
+	return(key_string)
+
 func get_time() -> String:
 	var time = Time.get_time_dict_from_system()
 	return("%02d:%02d:%02d" % [time.hour, time.minute, time.second])

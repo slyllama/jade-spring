@@ -1,10 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=31 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_qd7v5"]
 [ext_resource type="PackedScene" uid="uid://d070iet1hdc2c" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.tscn" id="3_dgqi3"]
 [ext_resource type="Material" uid="uid://wv0q1g0bmi10" path="res://lib/dragger/materials/mat_dissolve.tres" id="4_0j0el"]
+[ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="4_0043e"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="5_wd3md"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="6_an5xe"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="6_l431d"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="7_13bqe"]
@@ -14,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c6bptaa3p8mka" path="res://lib/attenuator/textures/energy_effects.png" id="12_a26c3"]
 [ext_resource type="Texture2D" uid="uid://dcyqub4vhl6r4" path="res://lib/attenuator/textures/arrow.png" id="12_ceq7c"]
 [ext_resource type="Shader" path="res://lib/attenuator/materials/shaders/shader_energy_wobble.gdshader" id="12_tj5i4"]
-[ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="13_dfsye"]
 [ext_resource type="Texture2D" uid="uid://cknjydpsd20w8" path="res://lib/attenuator/textures/dragon.png" id="13_oio82"]
 [ext_resource type="Texture2D" uid="uid://cf7ril0yniapq" path="res://lib/attenuator/textures/arrow_hover.png" id="13_yshcl"]
 [ext_resource type="AudioStream" uid="uid://comrowg2td5v1" path="res://generic/sounds/disabled.ogg" id="14_e0ud8"]
@@ -23,6 +24,14 @@
 [ext_resource type="AudioStream" uid="uid://p27he2puiuwj" path="res://lib/attenuator/sounds/attenuator_success.ogg" id="15_vld85"]
 [ext_resource type="Texture2D" uid="uid://j2u6itfbl3mi" path="res://lib/attenuator/textures/glyphs/jormag.png" id="16_qdpey"]
 [ext_resource type="Texture2D" uid="uid://bfd1m6uyrf648" path="res://lib/attenuator/textures/dragon_orbs.png" id="20_04yj8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwvft"]
+shader = ExtResource("4_0043e")
+shader_parameter/paint_exponent = 0.0
+shader_parameter/alpha = 1.0
+shader_parameter/uv_scale = 1.0
+shader_parameter/arrow_reduce_alpha = false
+shader_parameter/paint_mask = ExtResource("5_wd3md")
 
 [sub_resource type="Gradient" id="Gradient_cvck5"]
 
@@ -47,7 +56,7 @@ shader_parameter/dissolve_value = 1.0
 shader_parameter/wobble_scale = 0.1
 shader_parameter/strength = 0.03
 shader_parameter/color = Color(0.75, 0.75, 0.75, 1)
-shader_parameter/noise = ExtResource("13_dfsye")
+shader_parameter/noise = ExtResource("5_wd3md")
 
 [node name="Attenuator" type="CanvasLayer"]
 layer = 4
@@ -69,7 +78,7 @@ stretch_mode = 1
 [node name="DispulsionFX" parent="." instance=ExtResource("3_dgqi3")]
 
 [node name="Base" type="TextureRect" parent="."]
-material = ExtResource("4_0j0el")
+material = SubResource("ShaderMaterial_cwvft")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -280,13 +289,13 @@ texture = ExtResource("16_qdpey")
 
 [node name="Orb" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
-rotation = 160.813
+rotation = 1897.31
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("20_04yj8")
 
 [node name="Orb2" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
-rotation = -211.358
+rotation = -2642.36
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("20_04yj8")
 flip_h = true
