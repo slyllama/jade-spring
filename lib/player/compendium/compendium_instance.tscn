@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://dorw6p3tytl73"]
+
+[ext_resource type="PackedScene" uid="uid://cd84jvgxkmvxo" path="res://lib/player/compendium/meshes/compendium.glb" id="1_b31tb"]
+
+[node name="Compendium" instance=ExtResource("1_b31tb")]
+
+[node name="Skeleton3D" parent="BookSkeleton" index="0"]
+bones/0/position = Vector3(-0.0002686, 0.131965, 0.0377681)
+bones/0/rotation = Quaternion(0.127581, 0.35216, -0.926793, 0.0275708)
+bones/1/rotation = Quaternion(0.541675, 0.45452, 0.541675, -0.45452)
+bones/3/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
+bones/4/rotation = Quaternion(-1.54049e-08, 0.707107, 0.707107, -1.4816e-08)
+bones/6/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
+bones/7/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
+bones/8/rotation = Quaternion(-0.766044, 0.642788, 3.2741e-08, 5.83458e-08)
+bones/11/rotation = Quaternion(-1.06985e-07, 1.55615e-07, 0.707107, 0.707107)
+bones/13/rotation = Quaternion(0.596368, -0.379928, -0.596368, -0.379928)
+bones/13/scale = Vector3(1, 1.1, 1)
+bones/14/rotation = Quaternion(0.422618, 1.85146e-08, -1.18153e-08, 0.906308)
+bones/14/scale = Vector3(1, 1.3, 1)
+bones/15/rotation = Quaternion(-0.104528, 5.61872e-09, 3.74581e-09, 0.994522)
+bones/15/scale = Vector3(1, 2, 1)
+
+[node name="ConnectionBinding" parent="BookSkeleton/Skeleton3D" index="0"]
+transform = Transform3D(-0.984042, 0.605688, -0.232804, -0.309385, -0.833971, -0.707639, -0.580656, -0.58211, 0.771579, -0.228294, 0.169359, 0.00326188)
+
+[node name="CornerPiece" parent="BookSkeleton/Skeleton3D" index="1"]
+transform = Transform3D(-0.975729, -0.0289096, -0.217064, 0.168478, -0.732315, -0.659795, -0.139885, -0.680352, 0.719412, -0.258596, 0.0837222, 0.104578)
+
+[node name="CornerPiece_002" parent="BookSkeleton/Skeleton3D" index="2"]
+transform = Transform3D(0.217064, -0.0289097, -0.975729, 0.659795, -0.732315, 0.168478, -0.719412, -0.680352, -0.139885, -0.199568, 0.263144, -0.0910561)
+
+[node name="Cover" parent="BookSkeleton/Skeleton3D" index="3"]
+transform = Transform3D(-0.975729, -0.0289096, -0.217064, 0.168478, -0.732315, -0.659795, -0.139885, -0.680352, 0.719412, -0.0312025, 0.141252, 0.0369519)
+
+[node name="FrontPiece" parent="BookSkeleton/Skeleton3D" index="4"]
+transform = Transform3D(-0.975729, -0.0289096, -0.217064, 0.168478, -0.732315, -0.659795, -0.139885, -0.680352, 0.719412, -0.139519, 0.151416, 0.0135922)
+
+[node name="FrontRim" parent="BookSkeleton/Skeleton3D" index="5"]
+transform = Transform3D(-0.975729, -0.0289096, -0.217064, 0.168478, -0.732315, -0.659795, -0.139885, -0.680352, 0.719412, -0.139469, 0.152669, 0.0147562)
+
+[node name="CornerPiece_001" parent="BookSkeleton/Skeleton3D" index="6"]
+transform = Transform3D(-0.217064, 0.306553, 0.926773, -0.659795, -0.745774, 0.092149, 0.719412, -0.591478, 0.364143, 0.186906, 0.0643754, 0.221253)
+
+[node name="CornerPiece_003" parent="BookSkeleton/Skeleton3D" index="7"]
+transform = Transform3D(0.926773, 0.306552, 0.217064, 0.0921492, -0.745774, 0.659795, 0.364142, -0.591478, -0.719412, 0.245934, 0.243797, 0.0256191)
+
+[node name="Cover_001" parent="BookSkeleton/Skeleton3D" index="8"]
+transform = Transform3D(0.926773, 0.306553, 0.217064, 0.0921488, -0.745774, 0.659795, 0.364143, -0.591478, -0.719412, 0.0283362, 0.137168, 0.0511709)
+
+[node name="Cube_001" parent="BookSkeleton/Skeleton3D" index="9"]
+transform = Transform3D(-0.926773, 0.306553, -0.217064, -0.092149, -0.745774, -0.659795, -0.364143, -0.591478, 0.719412, 0.0986103, 0.163451, 0.096479)
+
+[node name="Cube_001" parent="BookSkeleton/Skeleton3D/Cube_001" index="0"]
+blend_shapes/Squash = 0.10472
+
+[node name="Spine" parent="BookSkeleton/Skeleton3D" index="10"]
+transform = Transform3D(-0.965926, 0.140963, -0.217064, 0.0387532, -0.750446, -0.659795, -0.255902, -0.645725, 0.719412, -0.000268601, 0.131965, 0.0377681)
+
+[node name="Spine_001" parent="BookSkeleton/Skeleton3D" index="11"]
+transform = Transform3D(-0.965926, 0.140963, -0.217064, 0.0387532, -0.750446, -0.659795, -0.255902, -0.645725, 0.719412, -0.00259462, 0.144348, 0.0484231)

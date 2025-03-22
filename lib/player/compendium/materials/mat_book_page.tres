@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://wvgw3jmi1b5j"]
+
+[ext_resource type="Shader" path="res://lib/player/compendium/materials/shaders/shader_book_dissolve.gdshader" id="1_p67p6"]
+[ext_resource type="Texture2D" uid="uid://bqk04v5swt80m" path="res://lib/player/compendium/materials/textures/pages_emit.jpg" id="2_l0p43"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_p67p6")
+shader_parameter/baseColor = Color(0.9, 0.9, 0.9, 1)
+shader_parameter/baseColorTexture = ExtResource("2_l0p43")
+shader_parameter/dissolveSlider = 0.677036
+shader_parameter/dissolveNoiseScale = 10.0
+shader_parameter/edgeNoiseScale = 0.0
+shader_parameter/edgesThickness = 0.05
+shader_parameter/edgeColor = Color(0.325436, 0.145392, 0.71255, 1)
+shader_parameter/edgeEmissionSlider = 1.0
+shader_parameter/enable_dissolve_animation = false
+shader_parameter/animation_speed = 1.0
+shader_parameter/animation_intensity = 0.2
