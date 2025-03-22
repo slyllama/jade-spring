@@ -1,9 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://gx4w1cghsw55"]
+[gd_scene load_steps=9 format=3 uid="uid://gx4w1cghsw55"]
 
 [ext_resource type="Script" path="res://lib/player/compendium/compendium.gd" id="1_0iv6w"]
 [ext_resource type="PackedScene" uid="uid://dorw6p3tytl73" path="res://lib/player/compendium/compendium_instance.tscn" id="1_2g1eu"]
+[ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="3_v38ec"]
+
+[sub_resource type="Curve" id="Curve_7ogwj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1jepn"]
+curve = SubResource("Curve_7ogwj")
+
+[sub_resource type="Gradient" id="Gradient_ek25v"]
+colors = PackedColorArray(0.320432, 0.000649765, 0.85035, 1, 0.891083, 0.511508, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c0pjc"]
+gradient = SubResource("Gradient_ek25v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_17t5g"]
+emission_shape_scale = Vector3(0.08, 0.08, 0.08)
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.7
+scale_max = 1.5
+color_initial_ramp = SubResource("GradientTexture1D_c0pjc")
+alpha_curve = SubResource("CurveTexture_1jepn")
 
 [node name="Compendium" type="Node3D"]
 script = ExtResource("1_0iv6w")
 
 [node name="Compendium" parent="." instance=ExtResource("1_2g1eu")]
+
+[node name="Stars" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.284223, 0)
+amount = 12
+preprocess = 2.0
+speed_scale = 0.6
+process_material = SubResource("ParticleProcessMaterial_17t5g")
+draw_pass_1 = ExtResource("3_v38ec")

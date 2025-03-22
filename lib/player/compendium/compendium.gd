@@ -16,12 +16,25 @@ func _set_dissolve_value(value: float) -> void:
 		open()
 
 func _ready() -> void:
-	if !Engine.is_editor_hint():
-		open()
-	else:
+	Global.adjustment_started.connect(open)
+	Global.deco_placement_started.connect(open)
+	Global.deco_deletion_started.connect(open)
+	
+	Global.adjustment_canceled.connect(close)
+	Global.adjustment_applied.connect(close)
+	Global.deco_placement_canceled.connect(close)
+	Global.deco_deletion_canceled.connect(close)
+	
+	if Engine.is_editor_hint():
 		anim.play("float")
+	else:
+		visible = false
 
 func open() -> void:
+	if !visible:
+		visible = true
+	
+	$Stars.emitting = true
 	var dissolve_tween = create_tween()
 	dissolve_tween.tween_method(_set_dissolve_value, 1.0, 0.0, 0.8)
 	
@@ -29,16 +42,11 @@ func open() -> void:
 	anim.set_blend_time("open", "float", 0.6)
 	await dissolve_tween.finished
 	anim.play("float")
-	
-	await get_tree().create_timer(2.0).timeout
-	close()
 
 func close() -> void:
+	$Stars.emitting = false
 	anim.set_blend_time("float", "open", 0.2)
 	anim.play_backwards("float")
 	
 	var dissolve_tween = create_tween()
 	dissolve_tween.tween_method(_set_dissolve_value, 0.0, 1.0, 0.8)
-	
-	await get_tree().create_timer(1.0).timeout
-	open()

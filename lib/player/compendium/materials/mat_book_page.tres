@@ -6,9 +6,9 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_p67p6")
-shader_parameter/baseColor = Color(0.9, 0.9, 0.9, 1)
+shader_parameter/baseColor = Color(0.7, 0.7, 0.7, 1)
 shader_parameter/baseColorTexture = ExtResource("2_l0p43")
-shader_parameter/dissolveSlider = 0.677036
+shader_parameter/dissolveSlider = 0.0
 shader_parameter/dissolveNoiseScale = 10.0
 shader_parameter/edgeNoiseScale = 0.0
 shader_parameter/edgesThickness = 0.05

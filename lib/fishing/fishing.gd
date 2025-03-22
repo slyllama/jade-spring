@@ -139,9 +139,8 @@ func _ready() -> void:
 	switch_direction()
 	$BG/Progress.value = progress
 
-@export var _smoothed_progress = progress
-
 var _d = 0.0
+
 func _process(delta: float) -> void:
 	if has_completed or !has_started: return
 	if _d < 0.45: # short delay before starting
@@ -178,7 +177,6 @@ func _process(delta: float) -> void:
 		Global.fishing_canceled.emit()
 	progress = clamp(progress, 0.0, 100.0)
 	
-	#_smoothed_progress = lerp(_smoothed_progress, progress, Utilities.critical_lerp(delta, 50.0))
 	$BG/Progress.value = progress
 
 func _on_timer_timeout() -> void:
