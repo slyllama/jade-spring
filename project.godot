@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Jade Spring"
+config/version="1.0b"
 run/main_scene="res://lib/main_menu/main_menu.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="seitung"
+config/custom_user_dir_name="jade-spring"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)

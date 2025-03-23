@@ -48,12 +48,12 @@ var STORY_POINT_SCRIPT = {
 		"title": "3. Free Reign",
 		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them. And they managed to get the renovation system operational again! Now we can go back to renewing the life and joy of this garden as we continue to clean it up. <All decoration tools are now available to you! You can place, and delete items, move, scale, rotate, and duplicate them, and unlock special decorations with Karma earnt from doing tough jobs around the garden. Speak to Ratchet if you want to know more. Enjoy the Jade Spring!>",
 		"objective": "((3. Free Reign))"
-	}
+	}	
 }
 
 const FILE_PATH = "user://save/save.dat"
 const DEFAULT_DATA = {
-	"v1.21a": true,
+	"v1.0b": true,
 	"story_point": "game_start",
 	"crumbs": [],
 	"crumb_count": {},
