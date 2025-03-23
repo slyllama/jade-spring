@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://8ueipmr7i7e7"]
 
 [ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_gikqv"]
-[ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="1_qgg7a"]
 [ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="1_uq2h6"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="2_lynph"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_ovc2o"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="3_3hmh0"]
 [ext_resource type="Script" path="res://lib/hint/hint.gd" id="3_p8n2g"]
+[ext_resource type="Texture2D" uid="uid://bqv2uq0udej43" path="res://lib/hint/textures/hint_arrow.png" id="7_d27fy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hk4fa"]
 shader = ExtResource("1_gikqv")
@@ -20,21 +20,12 @@ shader_parameter/paint_mask = ExtResource("2_ovc2o")
 bg_color = Color(0, 0, 0, 0.901961)
 
 [node name="Hint" type="Panel"]
-clip_children = 2
 material = SubResource("ShaderMaterial_hk4fa")
 offset_right = 300.0
 offset_bottom = 120.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fth6l")
 script = ExtResource("3_p8n2g")
-
-[node name="Koru" type="Sprite2D" parent="."]
-modulate = Color(0.128344, 0.128344, 0.128344, 1)
-use_parent_material = true
-position = Vector2(213, 44)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_qgg7a")
-flip_h = true
 
 [node name="VBox" type="VBoxContainer" parent="."]
 use_parent_material = true
@@ -92,5 +83,77 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "Use [Q] to descend, and [E] to ascend."
 fit_content = true
+
+[node name="Arrow_S" type="TextureRect" parent="."]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -12.0
+offset_right = 96.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 1.5708
+mouse_filter = 2
+texture = ExtResource("7_d27fy")
+expand_mode = 1
+
+[node name="Arrow_N" type="TextureRect" parent="."]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+rotation = -1.5708
+mouse_filter = 2
+texture = ExtResource("7_d27fy")
+expand_mode = 1
+
+[node name="Arrow_W" type="TextureRect" parent="."]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -32.0
+offset_right = 47.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_d27fy")
+expand_mode = 1
+
+[node name="Arrow_E" type="TextureRect" parent="."]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -32.0
+offset_right = 10.0
+offset_bottom = 32.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_d27fy")
+expand_mode = 1
+flip_h = true
 
 [connection signal="button_down" from="VBox/Header/CloseButton" to="." method="_on_close_button_button_down"]

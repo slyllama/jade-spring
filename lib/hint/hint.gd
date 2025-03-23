@@ -9,6 +9,19 @@ func set_text(data: Dictionary) -> void:
 	var _flip = false
 	var _token = ""
 	
+	if "anchor_preset" in data:
+		set_anchors_preset(data.anchor_preset)
+	
+	if "arrow" in data:
+		if data.arrow == "left":
+			$Arrow_W.visible = true
+		elif data.arrow == "right":
+			$Arrow_E.visible = true
+		elif data.arrow == "up":
+			$Arrow_N.visible = true
+		elif data.arrow == "down":
+			$Arrow_S.visible = true
+	
 	for _c in data.text:
 		if _c == "|":
 			_tokens.append(_token)

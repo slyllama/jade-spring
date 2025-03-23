@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://fqasq1ggshha"]
+[gd_scene load_steps=8 format=3 uid="uid://fqasq1ggshha"]
 
 [ext_resource type="Script" path="res://lib/loader/loader.gd" id="1_kyod5"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_qx7v1"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_stjvc"]
+[ext_resource type="Texture2D" uid="uid://dsouup0n217ja" path="res://lib/loader/textures/keymap.png" id="5_0o7k2"]
 [ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="5_tj3c3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83o4o"]
@@ -71,6 +72,41 @@ grow_vertical = 0
 texture = ExtResource("2_stjvc")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="InputMap" type="TextureRect" parent="Decorations"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.5
+offset_top = -189.0
+offset_right = 394.5
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0o7k2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InputMapTitle" type="RichTextLabel" parent="Decorations/InputMap"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -580.0
+offset_top = -48.0
+offset_right = 580.0
+offset_bottom = -7.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.585062, 0.585062, 0.585062, 1)
+theme_override_constants/line_separation = -4
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Default Input Map[/center]"
+scroll_active = false
 
 [node name="Disclaimer" type="RichTextLabel" parent="Decorations"]
 clip_contents = false

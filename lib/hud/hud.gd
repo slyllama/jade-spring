@@ -144,8 +144,10 @@ func _ready() -> void:
 		elif _cmd == "/hint":
 			Global.play_hint("test_hint", { 
 				"title": "((Test Hint))",
+				"arrow": "up",
+				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
 				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
-			}, get_viewport().get_mouse_position())
+			}, Vector2(get_window().size.x / Global.retina_scale / 2.0 - 150.0, get_window().size.y / Global.retina_scale / 2.0))
 		)
 	
 	Global.debug_toggled.connect(func():
