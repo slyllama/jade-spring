@@ -34,6 +34,8 @@ var current_effects = [ ]
 var foliage_count = 0
 var in_exclusive_ui = false
 var last_command = ""
+var load_debug_next = false # the next map loaded by the loader will be the debug map if this is true
+var map_name = ""
 var mouse_3d_position = Utilities.BIGVEC3
 var mouse_3d_override_rotation = null
 var mouse_3d_x_rotation = 0.0
@@ -45,7 +47,7 @@ var orbit_sensitivity_multiplier = 1.0
 var player_position = Vector3.ZERO
 var player_y_rotation = 0.0
 var popup_open = false
-var retina_scale = 1
+var retina_scale = 1.0
 var rocking_out = false
 var safe_point: Marker3D
 var settings_open = false

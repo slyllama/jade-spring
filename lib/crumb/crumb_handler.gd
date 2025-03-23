@@ -13,6 +13,7 @@ var RNG = RandomNumberGenerator.new()
 
 # Save crumb types and positions to file
 func save_crumbs() -> void:
+	if Global.map_name == "debug": return
 	Save.data.crumbs = []
 	for _n in get_children():
 		if _n is Crumb:
@@ -27,6 +28,7 @@ func save_crumbs() -> void:
 func load_crumbs() -> void:
 	for _n in get_children(): # clear
 		_n.queue_free()
+	if Global.map_name == "debug": return
 	
 	for _c in Save.data.crumbs:
 		if _c.type == "bug":
@@ -63,7 +65,8 @@ func _ready() -> void:
 			if !_n.type in totals:
 				totals[_n.type] = 0
 			totals[_n.type] += 1
-	totals.weed -= 1
+	if "weed" in totals:
+		totals.weed -= 1
 	
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/karmastats":

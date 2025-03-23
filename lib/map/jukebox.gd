@@ -37,6 +37,7 @@ func load_track() -> void:
 		return
 
 func _ready() -> void:
+	volume_db = -80.0
 	space_timer.one_shot = true
 	add_child(space_timer)
 	
@@ -47,14 +48,14 @@ func _ready() -> void:
 	
 	# `enabled` only disables music, not sound effects
 	if !music_enabled: return
-	if track_list == []: return
+	if track_list == []:
+		print("[Jukebox] music not configured.")
+		return
 	tracks = track_list.duplicate()
 	
 	await get_tree().create_timer(2.0).timeout
 	load_track()
 
-func _process(delta: float) -> void:
-	volume_db = lerp(
-		volume_db,
-		linear_to_db(clamp(volume_set, 0.0, 0.34) * clamp(ease(Global.target_music_ratio, 3.6), 0.001, 1.0)),
-		delta * 2.0)
+func _process(_delta: float) -> void:
+	if track_list == []: return
+	volume_db = linear_to_db(clamp(volume_set, 0.0, 0.34) * clamp(ease(Global.target_music_ratio, 3.6), 0.001, 1.0))

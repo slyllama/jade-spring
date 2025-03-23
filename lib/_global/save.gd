@@ -16,7 +16,8 @@ const STORY_POINTS = [
 	"clear_bugs",
 	"ratchet_dv",
 	"clear_dv",
-	"free_reign"
+	"free_reign",
+	"debug"
 ]
 
 var STORY_POINT_SCRIPT = {
@@ -48,7 +49,11 @@ var STORY_POINT_SCRIPT = {
 		"title": "3. Free Reign",
 		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them. And they managed to get the renovation system operational again! Now we can go back to renewing the life and joy of this garden as we continue to clean it up. <All decoration tools are now available to you! You can place, and delete items, move, scale, rotate, and duplicate them, and unlock special decorations with Karma earnt from doing tough jobs around the garden. Speak to Ratchet if you want to know more. Enjoy the Jade Spring!>",
 		"objective": "((3. Free Reign))"
-	}	
+	},
+	"debug": {
+		"title": "((Debug Map))",
+		"objective": "Map for testing."
+	}
 }
 
 const FILE_PATH = "user://save/save.dat"
@@ -64,7 +69,7 @@ const DEFAULT_DATA = {
 	"unlocked_decorations": [],
 	"hints_played": []
 }
-var data = {}
+var data = DEFAULT_DATA.duplicate(true)
 
 func has_sufficient_karma(amount: int) -> bool:
 	if data.karma - amount >= 0: return(true)
@@ -103,6 +108,9 @@ func advance_story() -> void:
 		save_to_file()
 
 func load_from_file() -> void:
+	if Global.map_name == "debug":
+		data = DEFAULT_DATA.duplicate(true)
+		return
 	if FileAccess.file_exists(FILE_PATH):
 		first_run = false
 		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
@@ -116,6 +124,9 @@ func reset() -> void:
 	save_to_file()
 
 func save_to_file() -> void:
+	if Global.map_name == "debug":
+		print("[Save] debug map; not saving.")
+		return
 	for _fx in Global.current_effects:
 		if _fx.contains("weed"):
 			Save.data.weeds = int(_fx.split("=")[1])

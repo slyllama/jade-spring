@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgrakybin27gf"]
+
+[ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
+[ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
+[ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="3_pk05h"]
+[ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="3_yxrhj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
+panorama = ExtResource("3_pk05h")
+
+[sub_resource type="Sky" id="Sky_1mh13"]
+sky_material = SubResource("PanoramaSkyMaterial_3jmvg")
+
+[sub_resource type="Environment" id="Environment_ypasr"]
+background_mode = 2
+sky = SubResource("Sky_1mh13")
+ambient_light_source = 2
+ambient_light_color = Color(0.304708, 0.361277, 0.212145, 1)
+ambient_light_sky_contribution = 0.29
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.1
+glow_enabled = true
+glow_intensity = 0.65
+glow_strength = 0.45
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.72343, 0.716248, 0.696738, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 15.0
+fog_depth_end = 30.0
+volumetric_fog_density = 0.01
+adjustment_enabled = true
+adjustment_saturation = 1.09
+
+[node name="Map" instance=ExtResource("1_whgid")]
+script = ExtResource("2_n4fpp")
+
+[node name="Sky" parent="." index="0"]
+environment = SubResource("Environment_ypasr")
+
+[node name="Dragonvoid" parent="." index="12" instance=ExtResource("3_yxrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.20696, -4.84288e-08, 2.20572)

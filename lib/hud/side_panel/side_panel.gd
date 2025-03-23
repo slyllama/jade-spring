@@ -106,6 +106,7 @@ func _ready() -> void:
 		proc_story())
 	
 	Save.karma_changed.connect(func():
+		if !"karma" in Save.data: return
 		$Details/DetailsBox/StatsBox/KarmaCount.text = str(Save.data.karma) + " Karma"
 		if karma_fist_load:
 			Global.play_flash(

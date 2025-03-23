@@ -20,6 +20,7 @@ func _reset_map() -> void:
 func _transition():
 	if transitioning: return
 	transitioning = true
+	
 	Save.load_from_file()
 	await get_tree().process_frame
 	
@@ -38,6 +39,10 @@ func _transition():
 func _ready() -> void:
 	$Decorations.modulate.a = 0.0
 	$Spinner.visible = true
+	
+	if Global.load_debug_next:
+		target_scene = "res://maps/debug/debug.tscn"
+	Global.load_debug_next = false
 	
 	var _deco_fade_in = create_tween()
 	_deco_fade_in.tween_property($Decorations, "modulate:a", 1.0, 0.2)

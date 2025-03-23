@@ -3,7 +3,10 @@ extends Node3D
 # Base class for map functionalirt
 
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
+const Karma = preload("res://lib/karma/karma.tscn")
+
 var picking_disabled_objects: Array[StaticBody3D] = []
+var rng = RandomNumberGenerator.new()
 
 # Re-enable mouse event-disabled static bodies
 func reset_picking_disabled_objects() -> void:
@@ -11,10 +14,32 @@ func reset_picking_disabled_objects() -> void:
 		_n.input_ray_pickable = true
 	picking_disabled_objects = []
 
+func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
+	for _i in amount:
+		var _a = deg_to_rad(360.0 / amount * _i + rng.randf() * 45.0)
+		var _offset = Vector3(radius * cos(_a), 0, radius * sin(_a))
+		
+		var _k = Karma.instantiate()
+		add_child(_k)
+		_k.global_position = orb_position + _offset
+		_k.global_position.y = 2.0
+		await get_tree().create_timer(0.025).timeout
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_debug"):
 		Global.debug_enabled = !Global.debug_enabled
 		Global.debug_toggled.emit()
+
+func set_marker_pos() -> void: # set the position of the story marker
+	match Save.data.story_point:
+		"game_start": $StoryMarker.position = $Pulley.position
+		"pick_weeds": $StoryMarker.position = $WeedBin.get_node("Collision").global_position
+		"clear_bugs": $StoryMarker.global_position = $Discombobulator/SpatialText.global_position - Vector3(0, 1.9, 0)
+		"ratchet_dv": $StoryMarker.position = $Pulley.position
+		"clear_dv": $StoryMarker.position = $ChargingStation.position + Vector3(-0.4, 0, 0)
+		"free_reign": $StoryMarker.position = Vector3(0, -20, 0)
+		"debug": $StoryMarker.position = Vector3(0, -20, 0)
+		"_": $StoryMarker.position = Vector3(0, -20, 0) # hide under map
 
 func _ready() -> void:
 	# Set initial state
@@ -22,6 +47,7 @@ func _ready() -> void:
 	Global.debug_toggled.emit()
 	Global.deco_pane_open = false # reset
 	Global.dialogue_open = false # reset
+	Global.spawn_karma.connect(spawn_karma)
 	
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/hidecrumbs":
@@ -51,7 +77,24 @@ func _ready() -> void:
 		elif cmd == "/fish":
 			var _f = FishingInstance.instantiate()
 			add_child(_f)
+		elif cmd == "/cinematic=on":
+			Input.action_press("toggle_debug")
+			Global.command_sent.emit("/playersmooth=0.3")
+			Global.command_sent.emit("/speedratio=0.65")
+			Global.command_sent.emit("/orbitsmooth=0.16")
+		elif cmd == "/cinematic=off":
+			Global.command_sent.emit("/playersmooth=1.0")
+			Global.command_sent.emit("/speedratio=1.0")
+			Global.command_sent.emit("/orbitsmooth=1.0")
+		elif "/spawnkarma=" in cmd:
+			var _count = int(cmd.replace("/spawnkarma=", ""))
+			_count = clamp(_count, 0, 25)
+			spawn_karma(_count, Global.player_position)
 		)
+	
+	Save.story_advanced.connect(set_marker_pos)
+	await get_tree().process_frame
+	set_marker_pos()
 	
 	# Apply settings
 	SettingsHandler.setting_changed.connect(func(parameter):
@@ -109,6 +152,7 @@ func _ready() -> void:
 	Global.can_move = true
 	
 	# Fade volume in and play music after a short delay
+	Utilities.set_master_vol(0.0)
 	await get_tree().create_timer(0.5).timeout
 	var vol_tween = create_tween()
 	vol_tween.tween_method(

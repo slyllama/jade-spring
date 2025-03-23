@@ -81,6 +81,11 @@ func _get_decoration_list() -> Array:
 	return(_decoration_save_data)
 
 func _save_decorations() -> void:
+	if Global.map_name != "seitung":
+		print("[DecoHandler] debug map; not saving.")
+		return
+	else:
+		print("-------SAVING DECORATIONS-------")
 	var _decoration_save_data = _get_decoration_list()
 	var _file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	_file.store_var(_decoration_save_data)
@@ -123,7 +128,6 @@ func _ready() -> void:
 	# Commands (useful for debugging)
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/cleardeco":
-			Global.announcement_sent.emit("((Cleared decorations))")
 			_clear_decorations()
 		elif _cmd == "/loaddeco":
 			Global.announcement_sent.emit("((Loaded decorations from file))")
@@ -138,5 +142,5 @@ func _ready() -> void:
 		elif _cmd == "/getdecocount":
 			print(get_deco_count()))
 	
-	await get_tree().process_frame # needs a frame to avoid duplication
-	_save_decorations()
+	#await get_tree().process_frame # needs a frame to avoid duplication
+	#_save_decorations()

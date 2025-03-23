@@ -147,7 +147,7 @@ func _ready() -> void:
 				"arrow": "up",
 				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
 				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
-			}, Vector2(get_window().size.x / Global.retina_scale / 2.0 - 150.0, get_window().size.y / Global.retina_scale / 2.0))
+			}, Utilities.get_screen_center(Vector2(0, 96)))
 		)
 	
 	Global.debug_toggled.connect(func():
@@ -209,10 +209,11 @@ func _process(_delta: float) -> void:
 	$Debug.text += ("\nPrimitives: "
 		+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)))
 	$Debug.text += "\n"
+	$Debug.text += ("\nLoaded map: " + str(Global.map_name))
 	$Debug.text += ("\nTool mode: " + str(Global.tool_identities[Global.tool_mode]))
 	$Debug.text += ("\nFoliage count: " + str(Global.foliage_count))
 	$Debug.text += ("\nStory step: " + str(Save.data.story_point))
-	$Debug.text += ("\nIn exclusive UI: " + str(Global.in_exclusive_ui))
+	$Debug.text += ("\nExclusive UI: " + str(Global.in_exclusive_ui))
 	if Global.mouse_3d_position != Utilities.BIGVEC3:
 		$Debug.text += ("\n[color=yellow]Cursor 3D position: "
 			+ str(Utilities.fmt_vec3(Global.mouse_3d_position)) + "[/color]")

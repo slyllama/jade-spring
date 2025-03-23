@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-const LOADER_SCENE = "res://lib/loader/loader.tscn"
 const DECO_DATA_PATH = "user://save/deco.dat"
+var LOADER_SCENE = "res://lib/loader/loader.tscn"
 var rng = RandomNumberGenerator.new()
 
 @onready var focus: Button
@@ -61,6 +61,13 @@ func play() -> void:
 	
 	fade_tween.tween_callback(func():
 		get_tree().change_scene_to_file(LOADER_SCENE))
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("debug_action"):
+		if !can_interact or ngc_open: return
+		Global.load_debug_next = true
+		Global.map_name = "debug"
+		play()
 
 func _ready() -> void:
 	# Clear lingering effects which shouldn't be persistent
@@ -137,6 +144,7 @@ func _process(delta: float) -> void:
 func _on_play_button_down() -> void:
 	if !can_interact or ngc_open: return
 	Global.click_sound.emit()
+	Global.map_name = "seitung"
 	$NewGameContainer.open()
 	ngc_open = true
 
@@ -154,6 +162,7 @@ func _on_settings_button_down() -> void:
 func _on_continue_button_down() -> void:
 	if !can_interact or ngc_open: return
 	Global.click_sound.emit()
+	Global.map_name = "seitung"
 	Global.start_params.new_save = false
 	play()
 
