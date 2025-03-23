@@ -1,13 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6kvxy3mhfso3"]
+[gd_scene load_steps=16 format=3 uid="uid://c6kvxy3mhfso3"]
 
 [ext_resource type="Texture2D" uid="uid://be87557001j28" path="res://lib/hud/screen_effects/textures/bug_overlay.png" id="1_5cg80"]
 [ext_resource type="Shader" path="res://lib/hud/screen_effects/shaders/shader_screen_fx.gdshader" id="1_diqkw"]
 [ext_resource type="Script" path="res://lib/hud/screen_effects/screen_effects.gd" id="1_momb4"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_hbd12"]
 [ext_resource type="Texture2D" uid="uid://bdl3ocb44powe" path="res://lib/hud/screen_effects/textures/splatter_mask.jpg" id="2_sv67w"]
+[ext_resource type="Texture2D" uid="uid://kl8rmamvk4hh" path="res://lib/hud/screen_effects/textures/debug_overlay.png" id="5_rn3j2"]
 [ext_resource type="Texture2D" uid="uid://wjxdrde88kpf" path="res://lib/hud/screen_effects/textures/dragonvoid_overlay.png" id="6_ln4dv"]
 [ext_resource type="Shader" path="res://lib/hud/screen_effects/shaders/shader_anime.gdshader" id="7_c2qk6"]
 [ext_resource type="Texture2D" uid="uid://pcdu4s7kntsv" path="res://lib/hud/screen_effects/textures/anime.png" id="7_uiyq1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nql0"]
+shader = ExtResource("1_diqkw")
+shader_parameter/alpha_exponent = 0.2
+shader_parameter/swirl_texture = ExtResource("2_sv67w")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kp0xq"]
 shader = ExtResource("1_diqkw")
@@ -43,6 +49,17 @@ grow_vertical = 2
 texture = ExtResource("2_hbd12")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="Debug" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_7nql0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_rn3j2")
+expand_mode = 1
 
 [node name="Bugs" type="TextureRect" parent="."]
 visible = false

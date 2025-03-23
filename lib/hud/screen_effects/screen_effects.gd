@@ -34,6 +34,11 @@ func _ready() -> void:
 	$Bugs.visible = false
 	$Dragonvoid.visible = false
 	
+	if Global.map_name == "debug":
+		$Debug.visible = true
+	else:
+		$Debug.visible = false
+	
 	get_window().focus_exited.connect(func():
 		if $Anime.material.get_shader_parameter("modulate_a") > 0.0:
 			var _f = create_tween()
