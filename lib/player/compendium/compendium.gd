@@ -16,6 +16,8 @@ func _set_dissolve_value(value: float) -> void:
 		open()
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	Global.adjustment_started.connect(open)
 	Global.deco_placement_started.connect(open)
 	Global.deco_deletion_started.connect(open)

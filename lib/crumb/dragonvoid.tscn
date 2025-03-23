@@ -61,7 +61,7 @@ render_priority = 2
 shader = ExtResource("4_05r8m")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/uv_scale = Vector2(3.6, 0.43)
-shader_parameter/exponent = 0.1
+shader_parameter/exponent = 0.45
 shader_parameter/time_scale = 0.07
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
@@ -98,19 +98,20 @@ process_material = SubResource("ParticleProcessMaterial_6ksov")
 draw_pass_1 = SubResource("PlaneMesh_m4kwj")
 
 [node name="VisualArea" parent="." instance=ExtResource("3_ytxy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.497651, 0)
 mesh = SubResource("CylinderMesh_3fip3")
 
-[node name="SpatialText" parent="." instance=ExtResource("6_hdk5x")]
+[node name="Icon" parent="." instance=ExtResource("6_hdk5x")]
 transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 2.91916, 0)
 aabb = AABB(-0.2, -0.311328, -0.2, 0.4, 0.4, 0.4)
-spatial_string = "Dragonvoid"
+spatial_string = ""
 override_settings = true
 
-[node name="Title" parent="SpatialText/FG" index="1"]
+[node name="Title" parent="Icon/FG" index="1"]
 clip_contents = false
+text = ""
 
-[node name="CollectionIcon" type="TextureRect" parent="SpatialText/FG/Title" index="1"]
+[node name="CollectionIcon" type="TextureRect" parent="Icon/FG/Title" index="1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -123,10 +124,20 @@ offset_right = 21.0
 offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("8_l0y0y")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Text" parent="." instance=ExtResource("6_hdk5x")]
+transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 2.91916, 0)
+aabb = AABB(-0.2, -0.311328, -0.2, 0.4, 0.4, 0.4)
+spatial_string = "Dragonvoid"
+
+[node name="Title" parent="Text/FG" index="1"]
+clip_contents = false
+
 [connection signal="interacted" from="." to="." method="interact"]
 
-[editable path="SpatialText"]
+[editable path="Icon"]
+[editable path="Text"]

@@ -195,8 +195,8 @@ fill_to = Vector2(0, 1)
 render_priority = 2
 shader = ExtResource("8_qtji3")
 shader_parameter/color = Color(0.64, 0.47072, 0.1984, 1)
-shader_parameter/uv_scale = Vector2(3.6, 0.43)
-shader_parameter/exponent = 0.5
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/exponent = 2.0
 shader_parameter/time_scale = 0.07
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
@@ -220,7 +220,7 @@ type = "weed"
 area_radius = 0.6
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.411037, -0.0123786, -0.911534, -0.0531852, 0.997879, -0.0375339, 0.910066, 0.063908, 0.409507, 0, 0, 0)
+transform = Transform3D(-0.391588, 0.0476996, 0.918903, -0.0674929, 0.994476, -0.0803844, -0.917662, -0.093497, -0.386206, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]
@@ -261,7 +261,6 @@ attenuation_filter_cutoff_hz = 10000.0
 
 [node name="VisualArea" parent="." instance=ExtResource("7_ec7aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-visible = false
 mesh = SubResource("CylinderMesh_6ljul")
 
 [connection signal="interacted" from="." to="." method="interact"]

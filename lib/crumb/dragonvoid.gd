@@ -11,16 +11,28 @@ func clear() -> void:
 	Global.bug_crumb_left.emit()
 	super()
 
+func proc_story() -> void:
+	var _p = Save.data.story_point
+	if (_p == "game_start" or _p == "pick_weeds"
+		or _p == "clear_bugs" or _p == "ratchet_dv"):
+		$VisualArea.visible = false
+	else: $VisualArea.visible = true
+
 func process_custom_data() -> void:
 	super()
-	$SpatialText/FG/Title/CollectionIcon.texture = load(
+	$Icon/FG/Title/CollectionIcon.texture = load(
 		"res://lib/hud/fx_list/textures/fx_d_" + custom_data + ".png")
-	$SpatialText/FG/Title.text = ("[center]Dragonvoid\nof "
+	$Text/FG/Title.text = ("[center]Dragonvoid\nof "
 		+ Utilities.DRAGON_DATA[custom_data].name + "[/center]")
 
 func _ready() -> void:
 	super()
 	$DragonvoidArc/AnimationPlayer.play("Wobble")
+	
+	if !Engine.is_editor_hint():
+		Save.story_advanced.connect(proc_story)
+		proc_story()
+	
 	body_entered.connect(func(body):
 		#if Save.data.story_point == "game_start": return # not unlocked yet
 		if body is CharacterBody3D:

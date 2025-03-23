@@ -17,6 +17,9 @@ func _ready() -> void:
 	super()
 	if Engine.is_editor_hint(): return
 	
+	Save.story_advanced.connect(proc_story)
+	proc_story()
+	
 	body_entered.connect(func(body):
 		#if Save.data.story_point == "game_start": return # not unlocked yet
 		if body is CharacterBody3D:

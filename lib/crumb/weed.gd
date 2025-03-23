@@ -30,9 +30,9 @@ func _ready() -> void:
 		if body is CharacterBody3D:
 			Global.weed_crumb_left.emit())
 	
-	#if !Engine.is_editor_hint():
-		#Save.story_advanced.connect(proc_story)
-		#proc_story()
+	if !Engine.is_editor_hint():
+		Save.story_advanced.connect(proc_story)
+		proc_story()
 
 func interact() -> void:
 	if Save.data.story_point == "game_start":
