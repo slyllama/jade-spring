@@ -152,8 +152,15 @@ var _elongate_target = 0.0
 var _blend_state = _blend_target
 
 var _time_since_on_floor = 0.0
+var _gravity_last_in_current_effects = false
 
 func _physics_process(delta: float) -> void:
+	#if !_gravity_last_in_current_effects and "gravity" in Global.current_effects:
+		#velocity.y = 3.0
+	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
+		_elongate_target = 2.0
+		velocity.y = 4.0
+	
 	if is_on_floor():
 		_time_since_on_floor = 0.0
 	else:
@@ -294,6 +301,7 @@ func _physics_process(delta: float) -> void:
 		$Camera.global_position.y, global_position.y, smoothing * delta)
 	$Camera.global_position.x = global_position.x
 	$Camera.global_position.z = global_position.z
+	_gravity_last_in_current_effects = "gravity" in Global.current_effects
 
 var _target_jump_anim = 0.0
 
