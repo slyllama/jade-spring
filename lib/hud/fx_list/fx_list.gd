@@ -87,7 +87,7 @@ func update() -> void:
 			var _desc = _data.description
 			if _qty > 0:
 				_desc = "[color=yellow](" + str(_qty) + ")[/color] " + _data.description
-			_n.set_tip_text(_data.title, _desc)
+			_n.set_tip_text(_data.title, _desc, _qty)
 		add_child(_n)
 
 func add_effect(id) -> void:

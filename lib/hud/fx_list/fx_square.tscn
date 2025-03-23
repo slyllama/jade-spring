@@ -8,11 +8,17 @@ script/source = "extends TextureRect
 var mouse_in_square = false
 var text_is_set = false # has text been assigned?
 
-func set_tip_text(get_title: String, get_description: String):
+func set_tip_text(get_title: String, get_description: String, get_qty = 0):
 	text_is_set = true
 	$Tooltip.visible = true
 	$Tooltip.text = \"[font_size=18]\" + get_title + \"[/font_size]\\n\" + get_description
 	$Tooltip.size.y = 0
+	
+	if get_qty == 0:
+		$Quantity.visible = false
+	else:
+		$Quantity.visible = true
+		$Quantity.text = \"[right]\" + str(get_qty) + \"[/right]\"
 
 func _ready() -> void:
 	$Tooltip.visible = false
@@ -82,6 +88,23 @@ text = "((Title))
 [i]Description.[/i]"
 fit_content = true
 scroll_active = false
+
+[node name="Quantity" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.235294)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[right]#[/right]"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
