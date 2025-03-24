@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=96 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -54,7 +54,6 @@
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
 [ext_resource type="PackedScene" uid="uid://dgxqwx2186efc" path="res://decorations/flower_patch/deco_blue_flowers.tscn" id="37_wlchm"]
-[ext_resource type="PackedScene" uid="uid://c2skr78sqgxln" path="res://decorations/rocket/deco_rocket.tscn" id="38_nvn2d"]
 [ext_resource type="PackedScene" uid="uid://cugqflilfm1ps" path="res://decorations/rocks/pancake_rocks.glb" id="38_rijwn"]
 [ext_resource type="PackedScene" uid="uid://y8jctjwecoos" path="res://decorations/roof_pavilion/roof_pavilion.tscn" id="39_anqa6"]
 [ext_resource type="PackedScene" uid="uid://dmqlnx8l6lfhf" path="res://decorations/flower_patch/deco_yellow_flowers.tscn" id="42_h33ht"]
@@ -219,7 +218,7 @@ script = ExtResource("2_7lwj0")
 environment = ExtResource("3_e4u8p")
 
 [node name="Sun" parent="Sky" index="0"]
-transform = Transform3D(0.596923, 0.307163, -0.74117, -0.190429, 0.951653, 0.241025, 0.779371, -0.00273339, 0.626557, 0, 3, 0)
+transform = Transform3D(0.767856, 0.297363, -0.567426, -0.190429, 0.951653, 0.241026, 0.611665, -0.0770188, 0.787359, 0, 3, 0)
 directional_shadow_blend_splits = true
 
 [node name="SunNight" type="DirectionalLight3D" parent="Sky" index="1"]
@@ -333,7 +332,7 @@ autoplay = true
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -10.1414, 0.40909, -1.48433)
 
 [node name="DecoBambooCluster18" parent="DecoHandler" index="1" instance=ExtResource("7_s7skb")]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -0.879082, 0.185525, 4.89327)
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0.0419366, 0.0559557, 7.65529)
 
 [node name="DecoBambooCluster2" parent="DecoHandler" index="2" instance=ExtResource("7_s7skb")]
 transform = Transform3D(0.202719, 0, 1.04553, 0, 1.065, 0, -1.04553, 0, 0.202719, -8.17855, -0.0653976, -5.69457)
@@ -828,31 +827,27 @@ custom_lod = null
 transform = Transform3D(0.999661, 0.0260199, 0, -0.0260199, 0.999661, 0, 0, 0, 1, -6.2725, 0.112226, 5.34846)
 custom_lod = null
 
-[node name="Rocket" parent="DecoHandler" index="131" instance=ExtResource("38_nvn2d")]
-transform = Transform3D(-1.30182, 0, 0.745165, 0, 1.5, 0, -0.745165, 0, -1.30182, -8.50885, -0.888163, 15.5949)
-custom_lod = null
-
-[node name="DecoSmallBoulder7" parent="DecoHandler" index="132" instance=ExtResource("18_8cm4w")]
+[node name="DecoSmallBoulder7" parent="DecoHandler" index="131" instance=ExtResource("18_8cm4w")]
 transform = Transform3D(1.975, 0, 0, 0, 1.975, 0, 0, 0, 1.975, 4.31044, 0.428463, 7.20198)
 custom_lod = null
 
-[node name="DecoPancakeRocks4" parent="DecoHandler" index="133" instance=ExtResource("54_iuxex")]
+[node name="DecoPancakeRocks4" parent="DecoHandler" index="132" instance=ExtResource("54_iuxex")]
 transform = Transform3D(0.528094, 0, 1.24242, 0, 1.35, 0, -1.24242, 0, 0.528094, 7.14662, 0.22585, 7.53581)
 custom_lod = null
 
-[node name="RoofPavilion" parent="DecoHandler" index="134" instance=ExtResource("39_anqa6")]
+[node name="RoofPavilion" parent="DecoHandler" index="133" instance=ExtResource("39_anqa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60315, 6.47672, -1.47149)
 
-[node name="RoofPavilion2" parent="DecoHandler" index="135" instance=ExtResource("39_anqa6")]
+[node name="RoofPavilion2" parent="DecoHandler" index="134" instance=ExtResource("39_anqa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60315, 6.47672, 3.89267)
 
-[node name="RoofPavilion3" parent="DecoHandler" index="136" instance=ExtResource("39_anqa6")]
+[node name="RoofPavilion3" parent="DecoHandler" index="135" instance=ExtResource("39_anqa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, -1.47149)
 
-[node name="RoofPavilion4" parent="DecoHandler" index="137" instance=ExtResource("39_anqa6")]
+[node name="RoofPavilion4" parent="DecoHandler" index="136" instance=ExtResource("39_anqa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, 3.89267)
 
-[node name="DecoIndoorLamp3" parent="DecoHandler" index="138" instance=ExtResource("29_32tvc")]
+[node name="DecoIndoorLamp3" parent="DecoHandler" index="137" instance=ExtResource("29_32tvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39738, 3.47498, -3.30966)
 
 [node name="PancakeRocks" parent="Decoration" index="0" instance=ExtResource("38_rijwn")]
