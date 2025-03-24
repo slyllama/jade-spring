@@ -13,12 +13,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x7hru"]
 render_priority = 0
 shader = ExtResource("2_5nw6f")
-shader_parameter/albedo = Color(0.7, 0.7, 0.7, 1)
+shader_parameter/albedo = Color(0.6, 0.6, 0.6, 1)
 shader_parameter/distance_fade_min = 15.0
 shader_parameter/distance_fade_max = 13.0
 shader_parameter/alpha_scissor_threshold = 0.6
 shader_parameter/alpha_antialiasing_edge = 0.2
-shader_parameter/backlight = 0.25
+shader_parameter/backlight = 0.5
 shader_parameter/specularity = 0.0
 shader_parameter/normal_strength = 1.0
 shader_parameter/texture_albedo = ExtResource("3_xjqgm")
@@ -220,7 +220,7 @@ type = "weed"
 area_radius = 0.6
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.391588, 0.0476996, 0.918903, -0.0674929, 0.994476, -0.0803844, -0.917662, -0.093497, -0.386206, 0, 0, 0)
+transform = Transform3D(0.563521, -0.0148217, 0.825968, -0.0781297, 0.994401, 0.0711486, -0.822398, -0.104626, 0.559208, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]

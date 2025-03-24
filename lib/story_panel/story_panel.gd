@@ -6,14 +6,10 @@ func _set_shader_value(val: float) -> void: # 0-1
 	var _e = ease(val, 0.2)
 	$Base.material.set_shader_parameter("paint_mask_exponent", (1 - _e) * 10)
 
-func open(
-	title = "((Title))",
-	description = "((Description))",
-	sticker = load("res://generic/textures/stickers/sticker_placeholder.png")):
+func open(title = "((Title))", description = "((Description))"):
 	$Base/Content/Title.text = "[center]" + title + "[/center]"
 	# Includes shortcuts for second paragraph
 	$Base/Content/Description.text = description.replace("<", "\n[font_size=9] [/font_size]\n[color=white]").replace(">", "[/color]")
-	$Base/Content/Sticker.texture = sticker
 	$PlayDialogue.play()
 	
 	Global.story_panel_open = true
@@ -34,6 +30,16 @@ func open(
 func close():
 	if closed: return # should only happen once
 	closed = true
+	
+	if Save.data.story_point == "game_start":
+		print("HELLO??")
+		Global.play_hint("test_hint", { 
+				"title": "((Test Hint))",
+				"arrow": "up",
+				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
+				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
+			}, Utilities.get_screen_center(Vector2(0, get_window().size.y * Global.retina_scale * 0.5 - 200.0)))
+	
 	Global.story_panel_open = false
 	Global.close_story_panel.emit()
 	

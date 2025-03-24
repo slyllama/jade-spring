@@ -24,7 +24,6 @@ var STORY_POINT_SCRIPT = {
 	"game_start": {
 		"title": "1. A Helping Hand",
 		"description": "Nayos was tough on the Commander and I; a Kryptis turret-blast left my Jade Bot plating cracked and my servos badly damaged. Repair and recovery is a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long! Though perhaps, as I rehabilitate here, I too can help build some\u00ADthing meaningful. <Talk to Ratchet about tending to the garden!>",
-		"sticker": load('res://generic/textures/stickers/sticker_warning.png'),
 		"objective": "Talk to the steward golem Ratchet about tending to the garden."
 	},
 	"pick_weeds": {

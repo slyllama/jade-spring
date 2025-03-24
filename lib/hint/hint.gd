@@ -1,4 +1,4 @@
-extends Panel
+class_name HintPanel extends Panel
 
 func _set_dissolve(value: float) -> void:
 	material.set_shader_parameter("paint_exponent", (1.0 - ease(value, 0.2)) * 10.0)
@@ -55,4 +55,5 @@ func _ready() -> void:
 	fade_in.tween_method(_set_dissolve, 0.0, 1.0, 0.3)
 
 func _on_close_button_button_down() -> void:
+	Global.click_sound.emit()
 	close()

@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=16 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
 [ext_resource type="Shader" path="res://lib/main_menu/title_card/shaders/shader_logo.gdshader" id="2_kddfe"]
 [ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="3_k2g0f"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_k137k"]
-[ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="4_mtkmt"]
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="5_flg4a"]
 [ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="8_f8vq4"]
 
@@ -59,7 +58,7 @@ modulate_color = Color(0.581033, 0.581033, 0.581033, 1)
 
 [sub_resource type="Animation" id="Animation_umuac"]
 resource_name = "Enter"
-length = 0.5
+length = 0.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -76,26 +75,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Base/JadeWings:position")
+tracks/1/path = NodePath("JadeWings:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(2, 0.4),
-"update": 0,
-"values": [Vector2(25.5, 88), Vector2(25.5, 70)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base/Sticker:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(238, 0), Vector2(238, 25)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uu45f"]
@@ -115,26 +102,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Base/JadeWings:position")
+tracks/1/path = NodePath("JadeWings:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(25.5, 88)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base/Sticker:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(276.5, 58)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gyjes"]
@@ -184,39 +159,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Done"
-
-[node name="JadeWings" type="TextureRect" parent="Base"]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -315.0
-offset_top = 88.0
-offset_right = 315.0
-offset_bottom = 214.0
-grow_horizontal = 2
-texture = ExtResource("3_k2g0f")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Sticker" type="TextureRect" parent="Base"]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -234.0
-offset_right = 96.0
-offset_bottom = -74.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mtkmt")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="TemplateButton" type="Button" parent="Base"]
 visible = false
@@ -272,6 +214,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
+
+[node name="JadeWings" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+use_parent_material = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -202.0
+offset_right = 315.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k2g0f")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Player" type="AnimationPlayer" parent="."]
 libraries = {

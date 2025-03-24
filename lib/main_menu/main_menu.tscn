@@ -307,11 +307,11 @@ script = ExtResource("14_n67d6")
 
 [node name="TestEnvironment" type="RichTextLabel" parent="."]
 clip_contents = false
-offset_left = 16.0
-offset_top = 32.0
-offset_right = 494.0
-offset_bottom = 67.0
-theme_override_colors/default_color = Color(0.6, 0.6, 0.6, 1)
+offset_left = 67.0
+offset_top = 12.0
+offset_right = 545.0
+offset_bottom = 47.0
+theme_override_colors/default_color = Color(0.795682, 0.635, 0.232168, 1)
 theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true

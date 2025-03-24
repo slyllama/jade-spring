@@ -9,5 +9,4 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_color = Color(0.838897, 0.838897, 0.838897, 1)
 albedo_texture = ExtResource("1_7v5ld")
-metallic_specular = 0.0
 uv1_scale = Vector3(12, 12, 12)

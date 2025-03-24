@@ -112,6 +112,7 @@ func close() -> void:
 	closed.emit()
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_val, 1.0, -1.0, 0.3)
+	$Player.play_backwards("Enter")
 	
 	await fade_tween.finished
 	await get_tree().process_frame
