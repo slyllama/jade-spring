@@ -23,6 +23,7 @@
 /savedata		Save data to file
 /screenshot		Take a screenshot
 /speedratio=X	Set the player's speed to ratio X of its base speed
+/togglebook		Toggle compendium visibility
 
 /enableattn		Enable Attenuator (good for if story hasn't spawned it yet)
 /disableattn	Disable Attenuator

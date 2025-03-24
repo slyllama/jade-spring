@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://gx4w1cghsw55"]
+[gd_scene load_steps=16 format=3 uid="uid://gx4w1cghsw55"]
 
 [ext_resource type="Script" path="res://lib/player/compendium/compendium.gd" id="1_0iv6w"]
 [ext_resource type="PackedScene" uid="uid://dorw6p3tytl73" path="res://lib/player/compendium/compendium_instance.tscn" id="1_2g1eu"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="3_v38ec"]
+[ext_resource type="Shader" path="res://lib/decoration/decoration_pane/deco_perview/rune/materials/shaders/shader_rune.gdshader" id="4_firbb"]
+[ext_resource type="Texture2D" uid="uid://cao40khyl4nrr" path="res://lib/player/compendium/materials/textures/rune_safe_zones.png" id="5_ip61s"]
 
 [sub_resource type="Curve" id="Curve_7ogwj"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -31,10 +33,32 @@ scale_max = 1.5
 color_initial_ramp = SubResource("GradientTexture1D_c0pjc")
 alpha_curve = SubResource("CurveTexture_1jepn")
 
+[sub_resource type="Gradient" id="Gradient_7l6k5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1qmht"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wihvp"]
+seamless = true
+color_ramp = SubResource("Gradient_7l6k5")
+noise = SubResource("FastNoiseLite_1qmht")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6n4ph"]
+render_priority = -1
+shader = ExtResource("4_firbb")
+shader_parameter/rune = ExtResource("5_ip61s")
+shader_parameter/wobble_tex = SubResource("NoiseTexture2D_wihvp")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wb850"]
+material = SubResource("ShaderMaterial_6n4ph")
+size = Vector2(1.1, 1.1)
+
 [node name="Compendium" type="Node3D"]
 script = ExtResource("1_0iv6w")
 
 [node name="Compendium" parent="." instance=ExtResource("1_2g1eu")]
+
+[node name="OffsetAnchor" type="Marker3D" parent="Compendium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="Stars" type="GPUParticles3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.284223, 0)
@@ -43,3 +67,9 @@ preprocess = 2.0
 speed_scale = 0.6
 process_material = SubResource("ParticleProcessMaterial_17t5g")
 draw_pass_1 = ExtResource("3_v38ec")
+
+[node name="Rune" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144551, 0)
+top_level = true
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_wb850")

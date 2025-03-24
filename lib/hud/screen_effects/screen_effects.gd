@@ -27,6 +27,13 @@ func _input(_event: InputEvent) -> void:
 	elif Input.is_action_just_released("sprint"):
 		var _f = create_tween()
 		_f.tween_method(_set_anime_alpha, 0.5, 0.0, 0.1)
+	
+	if Input.is_action_just_pressed("toggle_hud"):
+		if $Debug.visible:
+			$Debug.visible = false
+		else:
+			if Global.map_name == "debug":
+				$Debug.visible = true
 
 func _ready() -> void:
 	_set_bugs_exponent(10.0)
@@ -43,6 +50,13 @@ func _ready() -> void:
 		if $Anime.material.get_shader_parameter("modulate_a") > 0.0:
 			var _f = create_tween()
 			_f.tween_method(_set_anime_alpha, 0.5, 0.0, 0.1))
+	
+	Global.command_sent.connect(func(cmd):
+		if cmd == "/screenshot":
+			$Debug.visible = false
+			for _x in 2: await get_tree().process_frame
+			if Global.map_name == "debug":
+				$Debug.visible = true)
 	
 	Global.dragonvoid_crumb_entered.connect(func():
 		dv_state = true

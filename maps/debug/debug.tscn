@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgrakybin27gf"]
+[gd_scene load_steps=7 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
 [ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="3_pk05h"]
-[ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="3_yxrhj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("3_pk05h")
@@ -41,6 +40,3 @@ script = ExtResource("2_n4fpp")
 
 [node name="Sky" parent="." index="0"]
 environment = SubResource("Environment_ypasr")
-
-[node name="Dragonvoid" parent="." index="12" instance=ExtResource("3_yxrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.20696, -4.84288e-08, 2.20572)
