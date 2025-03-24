@@ -62,7 +62,12 @@ func set_window_mode(window_mode: String) -> void:
 		if window_mode == "full_screen": get_window().mode = Window.MODE_FULLSCREEN
 		elif window_mode == "maximized": get_window().mode = Window.MODE_MAXIMIZED
 		elif window_mode == "exclusive_full_screen": get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
-		else: get_window().mode = Window.MODE_WINDOWED
+		elif window_mode == "1920x1080_windowed":
+			get_window().mode = Window.MODE_WINDOWED
+			get_window().set_size(Vector2i(1920, 1080) * Global.retina_scale)
+		else:
+			get_window().mode = Window.MODE_WINDOWED
+			get_window().set_size(Vector2i(1280, 720) * Global.retina_scale)
 
 func get_user_vol() -> float:
 	if "volume" in SettingsHandler.settings:

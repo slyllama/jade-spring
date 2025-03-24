@@ -142,7 +142,6 @@ orbit_smoothing = 18.0
 zoom_increment = 0.2
 max_zoom_in = 0.0
 max_zoom_out = 3.5
-v_offset = 0.6
 excluded_collision_objects = [NodePath("..")]
 clamp_x_upper = 30.0
 

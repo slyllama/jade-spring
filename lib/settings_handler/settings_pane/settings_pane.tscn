@@ -67,7 +67,7 @@ color = Color(1, 1, 1, 0)
 layout_mode = 2
 title = "Window mode"
 id = "window_mode"
-options = Array[String](["windowed", "maximized", "full_screen", "exclusive_full_screen"])
+options = Array[String](["windowed", "1920x1080_windowed", "maximized", "full_screen", "exclusive_full_screen"])
 default_option = "windowed"
 
 [node name="FPSCap" parent="Container/SC/Contents" index="3" instance=ExtResource("3_b7vwo")]

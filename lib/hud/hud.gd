@@ -91,6 +91,9 @@ func _input(_event: InputEvent) -> void:
 		if !$TopLevel/DebugEntry.has_focus():
 			_debug_cmd_gain_focus()
 	
+	if Input.is_action_just_pressed("last_cmd"):
+		Global.command_sent.emit(Global.last_command)
+	
 	# Fill the command line with the last-used command
 	if Input.is_action_just_pressed("ui_up"):
 		if !Global.debug_enabled: # enable debug first, if it hasn't been already

@@ -7,7 +7,7 @@ const MMOOrbitHandler = preload("res://addons/mmo_camera/orbit_handler.gd")
 @export_range(0, 100, 0.01, "suffix:m", "hide_slider") var zoom_increment = 0.25
 @export_range(0, 100, 0.1, "suffix:m", "hide_slider") var max_zoom_in = 0.5
 @export_range(0, 100, 0.1, "suffix:m", "hide_slider") var max_zoom_out = 1.5
-@export_range(0, 100, 0.1, "suffix:m", "hide_slider") var v_offset = 0.4
+@export_range(-10, 10, 0.1, "suffix:m", "hide_slider") var v_offset = 0.4
 
 @export var ignore_exclusive_ui := false
 @export var excluded_collision_objects: Array[PhysicsBody3D]
