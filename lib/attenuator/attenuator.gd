@@ -230,6 +230,7 @@ func _on_close_button_down() -> void:
 	close()
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint(): return
 	$Dragon/Orb.rotation_degrees += delta * 10.0
 	$Dragon/Orb2.rotation_degrees -= delta * 14.0
 	

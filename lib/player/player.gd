@@ -336,6 +336,8 @@ func _process(delta: float) -> void:
 	
 	var _target_pitch_scale: float = (1.0
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)
+	if "gravity" in Global.current_effects:
+		_target_pitch_scale = 0.7
 	$EngineSound.pitch_scale = lerp($EngineSound.pitch_scale, _target_pitch_scale, 0.07)
 
 func _on_sprint_sound_cd_timeout() -> void:

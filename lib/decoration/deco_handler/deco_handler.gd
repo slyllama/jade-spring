@@ -100,6 +100,8 @@ func _ready() -> void:
 	default_deco_data = _get_decoration_list()
 	
 	Global.deco_deleted.connect($DeleteSound.play)
+	if Global.start_params.new_save:
+		_save_decorations() # commit reset decorations
 	
 	Global.adjustment_applied.connect(func():
 		if Global.current_gadget:
@@ -107,6 +109,7 @@ func _ready() -> void:
 	
 	# Load saved decorations or reset them depending on parameters passed from the main menu
 	if Global.start_params.new_save:
+		print("doing this")
 		_load_decorations(default_deco_data)
 	else: _load_decorations(_load_decoration_file())
 	
