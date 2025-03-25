@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/deco_button.gd" id="1_4whpl"]
 [ext_resource type="Texture2D" uid="uid://bbhenn7y3oyg" path="res://lib/hud/fx_list/textures/fx_decorating.png" id="2_q0rj1"]
-[ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="3_d3jtc"]
+[ext_resource type="Texture2D" uid="uid://d4f674uacncup" path="res://lib/hud/textures/icon_tick.png" id="3_07u1v"]
 [ext_resource type="AudioStream" uid="uid://d0n1puuixbtlj" path="res://lib/ui_container/sounds/hover.ogg" id="4_ms12t"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="5_oworf"]
 
@@ -108,11 +108,10 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Karma" type="TextureRect" parent="."]
-visible = false
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 8
-texture = ExtResource("3_d3jtc")
+texture = ExtResource("3_07u1v")
 expand_mode = 1
 stretch_mode = 5
 

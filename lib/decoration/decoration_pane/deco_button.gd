@@ -3,7 +3,11 @@ extends HBoxContainer
 const ICONS = {
 	"foliage": preload("res://lib/hud/fx_list/textures/fx_weed.png"),
 	"utility": preload("res://lib/hud/fx_list/textures/fx_utility.png"),
-	"furniture": preload("res://lib/hud/fx_list/textures/fx_furniture.png")
+	"furniture": preload("res://lib/hud/fx_list/textures/fx_furniture.png"),
+	
+	"karma": preload("res://lib/hud/textures/icon_karma.png"),
+	"karma_insufficient": preload("res://lib/hud/textures/icon_karma_insufficient.png"),
+	"tick": preload("res://lib/hud/textures/icon_tick.png")
 }
 signal clicked
 
@@ -15,8 +19,11 @@ func set_text(text: String) -> void:
 
 func set_cost(cost: int) -> void:
 	$Cost.text = str(cost)
+	$Karma.texture = ICONS.karma
 	$Cost.visible = true
-	$Karma.visible = true
+	if cost > Save.data.karma:
+		$Cost.modulate = Color(1, 0.428, 0.34)
+		$Karma.texture = ICONS.karma_insufficient
 
 func _on_button_button_down() -> void:
 	$Click.play()

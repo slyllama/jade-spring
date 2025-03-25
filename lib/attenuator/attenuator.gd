@@ -96,6 +96,13 @@ func select_dragon(forward = true) -> void:
 			render()
 	_set_prev_next_keys()
 
+func _reset_dim() -> void: # reset fail-state dim to original
+	var _dt = create_tween()
+	_dt.tween_method(
+		_set_base_darkness,
+		$Base.material.get_shader_parameter("darken"),
+		0.0, 0.1)
+
 func render() -> void:
 	place = 0
 	present_glyph()
@@ -264,16 +271,16 @@ func _process(delta: float) -> void:
 		+ "\npassing = " + str(passing))
 
 func _on_reset_button_down() -> void:
-	var _dt = create_tween()
-	_dt.tween_method(
-		_set_base_darkness, $Base.material.get_shader_parameter("darken"), 0.0, 0.1)
+	_reset_dim()
 	Global.click_sound.emit()
 	render()
 
 func _on_next_button_down() -> void:
+	_reset_dim()
 	Global.click_sound.emit()
 	select_dragon()
 
 func _on_previous_button_down() -> void:
+	_reset_dim()
 	Global.click_sound.emit()
 	select_dragon(false)

@@ -17,6 +17,6 @@ void fragment() {
 
 	if (paint_exponent >= 10.0) { discard; }
 	if (arrow_reduce_alpha) { COLOR.a *= 0.67; }
-	
+
 	COLOR.rgb *= 1.0 - darken;
 }
