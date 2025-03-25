@@ -32,6 +32,7 @@ shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 4.0
 shader_parameter/arrow_reduce_alpha = false
+shader_parameter/darken = 0.0
 shader_parameter/paint_mask = ExtResource("5_wd3md")
 
 [sub_resource type="Gradient" id="Gradient_cvck5"]
@@ -265,14 +266,12 @@ stretch_mode = 0
 flip_h = true
 
 [node name="Close" type="Button" parent="Base/ControlContainer"]
-use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 10
 focus_mode = 0
 text = "Close"
 
 [node name="Reset" type="Button" parent="Base/ControlContainer"]
-use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 8
 focus_mode = 0
@@ -325,13 +324,13 @@ texture = ExtResource("16_qdpey")
 
 [node name="Orb" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
-rotation = 2387.28
+rotation = 2773.03
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("20_04yj8")
 
 [node name="Orb2" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
-rotation = -3329.67
+rotation = -3868.88
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("20_04yj8")
 flip_h = true

@@ -5,6 +5,7 @@ uniform float paint_exponent: hint_range(0.0, 10.0) = 1.0;
 uniform float alpha: hint_range(0.0, 1.0) = 1.0;
 uniform float uv_scale = 1.0;
 uniform bool arrow_reduce_alpha = true;
+uniform float darken: hint_range(0.0, 1.0) = 0.0;
 
 void fragment() {
 	float paint_mask_value = texture(paint_mask, UV * vec2(uv_scale)).r;
@@ -14,11 +15,8 @@ void fragment() {
 		COLOR.a *= paint_mask_value * alpha;
 	}
 
-	if (paint_exponent >= 10.0) {
-		discard;
-	}
+	if (paint_exponent >= 10.0) { discard; }
+	if (arrow_reduce_alpha) { COLOR.a *= 0.67; }
 	
-	if (arrow_reduce_alpha) {
-		COLOR.a *= 0.67; // reduce alpha (so you can see behind the arrows
-	}
+	COLOR.rgb *= 1.0 - darken;
 }

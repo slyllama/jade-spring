@@ -43,10 +43,18 @@ func _set_ee_paint_exponent(val: float) -> void:
 	$Base/EEUpper.material.set_shader_parameter("dissolve_value", val)
 
 func _set_paint_exponent(val: float) -> void:
+	# These are set separately because they shouldn't be dimmed
+	# (options are always available)
+	$Base/ControlContainer/Reset.self_modulate.a = 1.0 - val
+	$Base/ControlContainer/Close.self_modulate.a = 1.0 - val
+	
 	$Base.material.set_shader_parameter("paint_exponent", ease(val, 2.0) * 10.0)
 	$Base/EEUpper.material.set_shader_parameter("dissolve_value", 1.0 - ease(val, 2.0))
 	$Base/Cursor.material.set_shader_parameter("alpha", (1.0 - val) * 0.65)
 	$Base/KeyContainer.material.set_shader_parameter("paint_exponent", ease(val, 2.0))
+
+func _set_base_darkness(val: float) -> void:
+	$Base.material.set_shader_parameter("darken", val)
 
 func present_glyph() -> void: # present a glyph based on the current Elder Dragon
 	for _n in glyph_box.get_children():
@@ -109,13 +117,14 @@ func render() -> void:
 		_n.modulate = _i.color
 		_n.mouse_entered.connect(func():
 			moused_note_y_pos = _n.global_position.y)
-		if _d == 0:
-			moused_note_y_pos = _n.global_position.y # initial set
 		_n.played.connect(func():
 			var played_note = KEY_INDICES[_n.id]
 			var correct_note = TUNES[current_dragon][place]
 			if played_note != correct_note:
 				if passing:
+					# FAIL
+					var _dt = create_tween()
+					_dt.tween_method(_set_base_darkness, 0.0, 0.5, 0.1)
 					$Disabled.play()
 					Global.play_flash(
 						$Base/ControlContainer/Reset.global_position + Vector2(60, 16))
@@ -129,6 +138,7 @@ func render() -> void:
 				$Click.play()
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
+					# SUCCESS
 					Global.remove_effect.emit("discombobulator")
 					Global.add_effect.emit("d_" + current_dragon)
 					$Success.play()
@@ -136,6 +146,10 @@ func render() -> void:
 					await $Dragon.reveal_complete
 					Global.player.update_golem_effects()
 					close()
+			
+			if _d == 0:
+				print("doing this")
+				moused_note_y_pos = _n.global_position.y # initial set
 		)
 		$Base/KeyContainer.add_child(_n)
 		_n.set_pills_size(TUNES[current_dragon].size())
@@ -184,6 +198,7 @@ func _adv_blank_place() -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	_set_base_darkness(0.0)
 	Global.target_music_ratio = 0.0
 	
 	Global.can_move = false
@@ -248,6 +263,9 @@ func _process(delta: float) -> void:
 		+ "\npassing = " + str(passing))
 
 func _on_reset_button_down() -> void:
+	var _dt = create_tween()
+	_dt.tween_method(
+		_set_base_darkness, $Base.material.get_shader_parameter("darken"), 0.0, 0.1)
 	Global.click_sound.emit()
 	render()
 
