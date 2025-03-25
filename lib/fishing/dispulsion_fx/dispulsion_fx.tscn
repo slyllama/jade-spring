@@ -39,11 +39,11 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_pvm8o")
 
 [node name="InnerCircle" type="Sprite2D" parent="."]
-rotation = 597.672
+rotation = 604.158
 texture = ExtResource("1_it5o2")
 
 [node name="OuterCircle" type="Sprite2D" parent="."]
-rotation = -299.633
+rotation = -302.876
 texture = ExtResource("2_7mvrm")
 
 [node name="Motes" type="GPUParticles2D" parent="."]

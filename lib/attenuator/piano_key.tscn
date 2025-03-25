@@ -25,6 +25,7 @@ max_polyphony = 3
 use_parent_material = true
 custom_minimum_size = Vector2(204, 0)
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("3_1jv21")
 texture_pressed = ExtResource("4_1towa")
 ignore_texture_size = true

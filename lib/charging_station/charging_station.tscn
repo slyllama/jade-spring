@@ -21,7 +21,7 @@ material = SubResource("StandardMaterial3D_4f2fh")
 [node name="ChargingStation" instance=ExtResource("1_02rig")]
 script = ExtResource("2_0owda")
 active = false
-radius = 1.0
+radius = 1.01
 show_area = true
 
 [node name="Collision" parent="." index="0"]

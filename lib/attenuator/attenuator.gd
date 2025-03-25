@@ -35,17 +35,18 @@ var place = 0
 var target_track
 var passing = true
 var has_closed = false
+var moused_note_y_pos = 0.0
 
 @onready var glyph_box: TextureRect = $Base/ControlContainer/GlyphContainer
 
-func _set_ee_paint_exponent(val: float, include_dragon = false) -> void:
+func _set_ee_paint_exponent(val: float) -> void:
 	$Base/EEUpper.material.set_shader_parameter("dissolve_value", val)
-	if include_dragon:
-		$Dragon.material.set_shader_parameter("dissolve_value", val)
 
 func _set_paint_exponent(val: float) -> void:
-	$Base.material.set_shader_parameter("paint_exponent", val)
-	$Base/KeyContainer.material.set_shader_parameter("paint_exponent", val)
+	$Base.material.set_shader_parameter("paint_exponent", ease(val, 2.0) * 10.0)
+	$Base/EEUpper.material.set_shader_parameter("dissolve_value", 1.0 - ease(val, 2.0))
+	$Base/Cursor.material.set_shader_parameter("alpha", (1.0 - val) * 0.65)
+	$Base/KeyContainer.material.set_shader_parameter("paint_exponent", ease(val, 2.0))
 
 func present_glyph() -> void: # present a glyph based on the current Elder Dragon
 	for _n in glyph_box.get_children():
@@ -106,6 +107,10 @@ func render() -> void:
 		_n.id = _d
 		_n.note_name = KEY_INDICES[_d]
 		_n.modulate = _i.color
+		_n.mouse_entered.connect(func():
+			moused_note_y_pos = _n.global_position.y)
+		if _d == 0:
+			moused_note_y_pos = _n.global_position.y # initial set
 		_n.played.connect(func():
 			var played_note = KEY_INDICES[_n.id]
 			var correct_note = TUNES[current_dragon][place]
@@ -128,7 +133,7 @@ func render() -> void:
 					Global.add_effect.emit("d_" + current_dragon)
 					$Success.play()
 					$Dragon.reveal(current_dragon)
-					await get_tree().create_timer(2.0).timeout
+					await $Dragon.reveal_complete
 					Global.player.update_golem_effects()
 					close()
 		)
@@ -166,13 +171,11 @@ func close() -> void:
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	closed.emit()
 	
-	var fade_tween = create_tween()
-	fade_tween.tween_method(_set_paint_exponent, 0.0, 10.0, 0.2)
-	var ee_fade_tween = create_tween()
-	ee_fade_tween.tween_method(_set_ee_paint_exponent.bind(true), 1.0, 0.0, 0.3)
 	$DispulsionFX.anim_out()
-	await $DispulsionFX.anim_out_complete
+	var fade_tween = create_tween()
+	fade_tween.tween_method(_set_paint_exponent, 0.0, 1.0, 0.2)
 	
+	await $DispulsionFX.anim_out_complete
 	queue_free()
 
 func _adv_blank_place() -> void:
@@ -195,9 +198,10 @@ func _ready() -> void:
 	render()
 	_set_prev_next_keys()
 	
+	$DispulsionFX.anim_duration = 0.15
 	$DispulsionFX.anim_in()
 	var fade_tween = create_tween()
-	fade_tween.tween_method(_set_paint_exponent, 10.0, 0.0, 0.3)
+	fade_tween.tween_method(_set_paint_exponent, 1.0, 0.0, 0.3)
 	var ee_fade_tween = create_tween()
 	ee_fade_tween.tween_method(_set_ee_paint_exponent, 0.0, 1.0, 0.3)
 
@@ -221,6 +225,12 @@ func _process(delta: float) -> void:
 	
 	$Dragon.position.x = $Base.position.x + $Base.size.x / 2.0
 	$Dragon.position.y = $Base.position.y + $Base.size.y / 2.0
+	
+	# Cursor follows mouse and highlights the whole row
+	$Base/Cursor.global_position.y = lerp(
+		$Base/Cursor.global_position.y,
+		moused_note_y_pos,
+		Utilities.critical_lerp(delta, 55.0))
 	
 	for _n in glyph_box.get_children():
 		_n.position.x = glyph_box.size.x / 2.0
