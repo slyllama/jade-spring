@@ -234,7 +234,6 @@ func play_hint(id: String, data: Dictionary, position: Vector2, play_once = fals
 			print("[Global] discarding already-played hint '" + id + "'")
 			return # already played
 		Save.data.hints_played.append(id)
-		print("playing hint")
 	
 	var _hint = Hint.instantiate()
 	hud.get_node("TopLevel").add_child(_hint)

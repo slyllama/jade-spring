@@ -8,6 +8,12 @@ const Karma = preload("res://lib/karma/karma.tscn")
 var picking_disabled_objects: Array[StaticBody3D] = []
 var rng = RandomNumberGenerator.new()
 
+# Set on setting change and on time change
+func update_saturation() -> void:
+	var _v = SettingsHandler.settings.saturation
+	var _s = 0.9 + 0.6 * _v
+	$Sky.environment.adjustment_saturation = _s
+
 # Re-enable mouse event-disabled static bodies
 func reset_picking_disabled_objects() -> void:
 	for _n in picking_disabled_objects:
@@ -118,6 +124,8 @@ func _ready() -> void:
 			"vsync":
 				if _value == "on": DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 				else: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+			"saturation":
+				update_saturation()
 			"aa":
 				if _value == "msaa_(4x)_with_fxaa":
 					get_viewport().msaa_3d = Viewport.MSAA_4X

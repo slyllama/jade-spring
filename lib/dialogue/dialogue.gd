@@ -64,6 +64,7 @@ func render_block(block_data: Dictionary) -> void:
 		if _b is Button:
 			var _t = create_tween()
 			_t.tween_property(_b, "modulate:a", 1.0, 0.2)
+			_b.tree_exiting.connect(_t.kill)
 			await get_tree().create_timer(0.07).timeout
 
 func _set_buttons_enabled(state: bool) -> void:
@@ -79,9 +80,6 @@ func open() -> void:
 	$PlayDialogue.play()
 	if "_entry" in data:
 		render_block(data._entry)
-	#if "_texture" in data:
-		#$Base/Sticker.texture = load(
-			#"res://generic/textures/stickers/" + str(data._texture) + ".png")
 	
 	$Player.play("Enter")
 	var fade_tween = create_tween()
@@ -107,6 +105,7 @@ func close() -> void:
 		if _b is Button:
 			var _t = create_tween()
 			_t.tween_property(_b, "modulate:a", 0.0, 0.1)
+			_b.tree_exiting.connect(_t.kill)
 			await get_tree().create_timer(0.03).timeout
 	
 	closed.emit()

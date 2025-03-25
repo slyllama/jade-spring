@@ -26,6 +26,7 @@ func _ready() -> void:
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color.BLACK)
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.BLACK)
 			for _n in $Decoration/LightRays.get_children(): _n.visible = false
+			update_saturation()
 		elif _cmd == "/time=day":
 			Global.time_of_day = "day"
 			$Sky.environment = DAY_ENV
@@ -35,6 +36,7 @@ func _ready() -> void:
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color("#005193"))
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.WHITE)
 			for _n in $Decoration/LightRays.get_children(): _n.visible = true
+			update_saturation()
 	)
 
 const OCEAN_Z_MIN = 4.5

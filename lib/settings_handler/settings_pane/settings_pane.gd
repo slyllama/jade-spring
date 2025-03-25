@@ -6,7 +6,7 @@ var qc
 func open(silent = false) -> void:
 	super(silent)
 	$PreventFocus.visible = false
-	$Container/Done.grab_focus()
+	$Container/DoneResetBox/Done.grab_focus()
 	Global.settings_open = true
 	Global.action_cam_disable.emit()
 
@@ -81,3 +81,5 @@ func _on_bindings_pane_closed() -> void:
 	moveable = true
 func _on_bindings_pane_opened() -> void:
 	moveable = false
+func _on_reset_button_down() -> void:
+	SettingsHandler.reset()

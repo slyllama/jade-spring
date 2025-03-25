@@ -32,3 +32,4 @@ fog_height = 1.0
 fog_depth_begin = 19.0
 fog_depth_end = 25.0
 volumetric_fog_density = 0.01
+adjustment_enabled = true
