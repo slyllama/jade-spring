@@ -155,7 +155,6 @@ func render() -> void:
 					close()
 			
 			if _d == 0:
-				print("doing this")
 				moused_note_y_pos = _n.global_position.y # initial set
 		)
 		$Base/KeyContainer.add_child(_n)

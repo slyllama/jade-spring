@@ -6,7 +6,7 @@ const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 @export var area_radius := 1.2
 @export var interact_when_proximal := true
 @export var can_click := false
-@export var area_height = 4.0
+@export var area_height = 8.0
 @export var custom_data = "" # used for things like Dragonvoid (Elder Dragon assignment)
 
 var cursor_in_crumb = false

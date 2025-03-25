@@ -48,6 +48,7 @@ func _on_save_press() -> void:
 func _on_quit_button_down() -> void:
 	if !Global.in_exclusive_ui:
 		AudioServer.set_bus_volume_db(0, -80)
+		Save.data.karma += Global.assigned_karma
 		Global.command_sent.emit("/savedata")
 		close()
 		get_tree().change_scene_to_file("res://lib/main_menu/main_menu.tscn")

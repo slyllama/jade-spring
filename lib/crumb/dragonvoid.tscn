@@ -83,7 +83,6 @@ input_ray_pickable = false
 script = ExtResource("1_xg3mb")
 type = "dragonvoid"
 area_radius = 0.7
-area_height = 8.0
 
 [node name="DragonvoidArc" parent="." instance=ExtResource("2_xs588")]
 transform = Transform3D(0.410926, -0.911669, 0, 0.911669, 0.410926, 0, 0, 0, 1, 2.37039, 2.11277, 0)

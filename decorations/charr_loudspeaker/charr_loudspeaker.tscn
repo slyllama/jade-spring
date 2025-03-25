@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfy7b0oimuu33"]
+[gd_scene load_steps=6 format=3 uid="uid://dfy7b0oimuu33"]
 
 [ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_bg2bo"]
 [ext_resource type="PackedScene" uid="uid://b04nd7eys7svp" path="res://decorations/charr_loudspeaker/charr_loudspeaker.glb" id="2_l0w7d"]
 [ext_resource type="PackedScene" uid="uid://ul2xkcw6fjv5" path="res://decorations/charr_loudspeaker/quaver.tscn" id="3_qs8cm"]
 [ext_resource type="Texture2D" uid="uid://dinmdecfnvu6m" path="res://decorations/charr_loudspeaker/materials/textures/almorra_decal.png" id="4_77437"]
-[ext_resource type="PackedScene" uid="uid://kt2evf8a1gsv" path="res://lib/rock_out/rock_out.tscn" id="5_kiq1o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5ag2"]
 size = Vector3(0.905273, 1.57593, 0.278809)
@@ -34,6 +33,3 @@ layers = 512
 size = Vector3(0.9, 0.1, 0.9)
 texture_albedo = ExtResource("4_77437")
 cull_mask = 1048064
-
-[node name="RockOut" parent="." instance=ExtResource("5_kiq1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)

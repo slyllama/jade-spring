@@ -10,6 +10,7 @@ func _on_pick_up_area_body_entered(body: Node3D) -> void:
 	if picked_up: return
 	if body is CharacterBody3D:
 		picked_up = true
+		Global.assigned_karma -= 1
 		Save.add_karma(1)
 		
 		$DespawnTimer.start()

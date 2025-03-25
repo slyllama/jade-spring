@@ -15,8 +15,8 @@ extends HBoxContainer
 @onready var selected_option = default_option
 @export var info_tooltip = ""
 
-func _parse_id(id: String) -> String:
-	return(id.capitalize().replace("Msaa", "MSAA").replace("Fxaa", "FXAA"))
+func _parse_id(get_id: String) -> String:
+	return(get_id.capitalize().replace("Msaa", "MSAA").replace("Fxaa", "FXAA"))
 
 # Update displayed value
 func _refresh() -> void:

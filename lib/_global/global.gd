@@ -16,6 +16,9 @@ var kv_weed = 5
 var kv_bug = 10
 var kv_dragonvoid = 15
 
+# Karma is added here when spawned, then subtracted when collected. The remainder is added to the player's Karma count
+var assigned_karma = 0
+
 var bindings_saved_initial = false # make sure this is only done once during game run-time
 var bindings_pane_open = false
 var camera_basis: Basis

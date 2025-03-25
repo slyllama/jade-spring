@@ -15,6 +15,7 @@ func reset_picking_disabled_objects() -> void:
 	picking_disabled_objects = []
 
 func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
+	Global.assigned_karma += amount
 	for _i in amount:
 		var _a = deg_to_rad(360.0 / amount * _i + rng.randf() * 45.0)
 		var _offset = Vector3(radius * cos(_a), 0, radius * sin(_a))
@@ -47,6 +48,7 @@ func _ready() -> void:
 	Global.debug_toggled.emit()
 	Global.deco_pane_open = false # reset
 	Global.dialogue_open = false # reset
+	Global.assigned_karma = 0
 	Global.spawn_karma.connect(spawn_karma)
 	
 	Global.command_sent.connect(func(cmd):
