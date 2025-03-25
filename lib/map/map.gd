@@ -116,6 +116,19 @@ func _ready() -> void:
 			"vsync":
 				if _value == "on": DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 				else: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+			"aa":
+				if _value == "msaa_(4x)_with_fxaa":
+					get_viewport().msaa_3d = Viewport.MSAA_4X
+					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
+				elif _value == "msaa_(4x)":
+					get_viewport().msaa_3d = Viewport.MSAA_4X
+					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+				elif _value == "msaa_(2x)":
+					get_viewport().msaa_3d = Viewport.MSAA_2X
+					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+				else:
+					get_viewport().msaa_3d = Viewport.MSAA_DISABLED
+					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 	)
 	SettingsHandler.refresh(["volume"])
 	

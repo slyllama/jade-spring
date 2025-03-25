@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://di6uc8guyh2tr"]
+[gd_scene load_steps=4 format=3 uid="uid://di6uc8guyh2tr"]
 
 [ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="1_eo82w"]
 [ext_resource type="Script" path="res://lib/settings_handler/settings_pane/settings_dropdown.gd" id="1_jvcfa"]
+[ext_resource type="Texture2D" uid="uid://dk63fvrvvpjy0" path="res://lib/hud/textures/warning.png" id="3_73ebc"]
 
 [node name="SettingsDropdown" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -9,6 +10,7 @@ offset_right = 320.0
 offset_bottom = 27.0
 theme = ExtResource("1_eo82w")
 script = ExtResource("1_jvcfa")
+info_tooltip = null
 
 [node name="Title" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(120, 0)
@@ -27,5 +29,14 @@ size_flags_vertical = 4
 mouse_filter = 1
 flat = false
 alignment = 0
+
+[node name="Info" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(26, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("3_73ebc")
+expand_mode = 1
+stretch_mode = 6
 
 [connection signal="about_to_popup" from="Menu" to="." method="_on_menu_about_to_popup"]

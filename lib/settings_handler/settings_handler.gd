@@ -15,7 +15,8 @@ const DEFAULT_SETTINGS = {
 	"action_camera": "off_by_default",
 	"fps_cap": 60,
 	"vsync": "on",
-	"fov": 0.63
+	"fov": 0.63,
+	"aa": "msaa_(4x)_with_fxaa"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

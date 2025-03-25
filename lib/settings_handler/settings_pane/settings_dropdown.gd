@@ -13,19 +13,26 @@ extends HBoxContainer
 @export var options: Array[String]
 @export var default_option = ""
 @onready var selected_option = default_option
+@export var info_tooltip = ""
+
+func _parse_id(id: String) -> String:
+	return(id.capitalize().replace("Msaa", "MSAA").replace("Fxaa", "FXAA"))
 
 # Update displayed value
 func _refresh() -> void:
-	$Menu.text = str(selected_option).capitalize()
+	$Menu.text = _parse_id(str(selected_option))
 
 func _ready() -> void:
+	if info_tooltip != "" and info_tooltip:
+		$Info.tooltip_text = info_tooltip
+		$Info.visible = true
 	$Title.text = title + ":"
 	
 	if Engine.is_editor_hint(): return
 	
 	# Populate based on exported variables and refresh
 	for option in options:
-		$Menu.get_popup().add_item(str(option).capitalize())
+		$Menu.get_popup().add_item(_parse_id(str(option)))
 	_refresh()
 	
 	# Update settings (and display) when an option is selected from the list
