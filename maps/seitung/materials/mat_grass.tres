@@ -22,6 +22,7 @@ uniform sampler2D rock_normal_texture: filter_linear_mipmap, repeat_enable, hint
 uniform float grass_base_multiplier = 0.45;
 uniform float normal_strength = 1.0;
 uniform float grass_add_multiplier = 0.7;
+uniform float dirt_uv_multiplier = 1.55;
 
 vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
 	float cosa = cos(rotation);
@@ -44,7 +45,7 @@ void fragment() {
 	vec3 grass_normal = texture(grass_normal_texture, UV * uv_scale).rgb;
 	vec3 rock_normal = texture(rock_texture, UV * 11.0).rgb;
 
-	vec3 dirt = texture(dirt_texture, UV * uv_scale * 1.55).rgb;
+	vec3 dirt = texture(dirt_texture, UV * uv_scale * dirt_uv_multiplier).rgb;
 
 	ALBEDO = mix(grass_base * grass_base_multiplier, grass_add * grass_add_multiplier, blend_noise);
 	ALBEDO = mix(ALBEDO, dirt, dirt_blend);
@@ -87,9 +88,10 @@ load_path = "res://.godot/imported/grass_base_diff.jpg-671630e1b73b22edad8750846
 render_priority = 0
 shader = SubResource("Shader_e2vv8")
 shader_parameter/uv_scale = 13.0
-shader_parameter/grass_base_multiplier = 2.0
-shader_parameter/normal_strength = 1.0
+shader_parameter/grass_base_multiplier = 1.25
+shader_parameter/normal_strength = 0.2
 shader_parameter/grass_add_multiplier = 0.3
+shader_parameter/dirt_uv_multiplier = 2.0
 shader_parameter/grass_texture_base = SubResource("CompressedTexture2D_2ipm5")
 shader_parameter/grass_texture_add = SubResource("CompressedTexture2D_f68cj")
 shader_parameter/grass_normal_texture = SubResource("CompressedTexture2D_t6j0b")

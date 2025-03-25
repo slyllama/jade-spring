@@ -261,12 +261,12 @@ can_click = true
 custom_data = null
 
 [node name="Weed2" parent="CrumbHandler" index="3" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.437273, 0, -0.899329, 0, 1, 0, 0.899329, 0, -0.437273, -10.0037, 0.551414, 1.40742)
+transform = Transform3D(-0.437273, 0, -0.899329, 0, 1, 0, 0.899329, 0, -0.437273, -9.71634, 0.551414, 1.70325)
 can_click = true
 custom_data = null
 
 [node name="Weed3" parent="CrumbHandler" index="4" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -7.86756, 0.164885, 3.2023)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -7.89782, 0.188219, 4.86797)
 can_click = true
 custom_data = null
 
@@ -276,7 +276,7 @@ can_click = true
 custom_data = null
 
 [node name="Weed6" parent="CrumbHandler" index="6" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -0.409044, 0.644752, 1.27307)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, 0.151906, 0.644752, 1.69192)
 can_click = true
 custom_data = null
 
@@ -720,7 +720,7 @@ transform = Transform3D(-0.416256, -0.0482055, 0.907969, 0.0533311, 0.99558, 0.0
 custom_lod = null
 
 [node name="LushGrass4" parent="DecoHandler" index="102" instance=ExtResource("29_2q5vg")]
-transform = Transform3D(0.874264, 0, 0.48545, 0, 1, 0, -0.48545, 0, 0.874264, -6.87002, 0.280794, 1.84035)
+transform = Transform3D(0.993075, -0.0181155, 0.116079, 0.017993, 0.999836, 0.00210318, -0.116098, 0, 0.993238, -5.21606, 0.263276, 1.83775)
 custom_lod = null
 
 [node name="LushGrass5" parent="DecoHandler" index="103" instance=ExtResource("29_2q5vg")]
@@ -992,7 +992,8 @@ mesh = SubResource("PlaneMesh_by7kg")
 [node name="Light" type="OmniLight3D" parent="Decoration/PlatformInner/Waypoint" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309663, 0)
 light_color = Color(0.689667, 1, 0.62, 1)
-omni_range = 4.0
+light_energy = 1.2
+omni_range = 4.5
 omni_attenuation = 0.0
 
 [node name="Bees" type="AudioStreamPlayer3D" parent="Decoration/PlatformInner/Waypoint" index="22"]
@@ -1125,7 +1126,7 @@ reset_on_interact = false
 transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)
 
 [node name="StoryMarker" parent="." index="14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461254, -5.00618, 0.0370162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 
 [node name="WorldBoundaries" type="StaticBody3D" parent="." index="15"]
 collision_layer = 136

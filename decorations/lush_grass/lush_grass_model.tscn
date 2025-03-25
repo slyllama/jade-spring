@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4i8r033odf3t"]
+[gd_scene load_steps=6 format=3 uid="uid://c4i8r033odf3t"]
 
 [ext_resource type="Script" path="res://decorations/lush_grass/lush_grass_model.gd" id="1_omx5w"]
 [ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="1_q1u6k"]
 [ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="2_3b8rm"]
+[ext_resource type="Texture2D" uid="uid://xkm0o3y7uf4i" path="res://maps/seitung/materials/textures/moss_mask.png" id="2_krevg"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_v3vrn"]
 transform_format = 1
@@ -14,6 +15,16 @@ buffer = PackedFloat32Array(-3.02064, 0, 4.37755, -0.43394, 0, 4.09121, 0, 0, -4
 
 [node name="LushGrassModel" type="Node3D"]
 script = ExtResource("1_omx5w")
+
+[node name="RockDecal" type="Decal" parent="."]
+size = Vector3(6, 2, 6)
+texture_albedo = ExtResource("2_krevg")
+modulate = Color(0.227172, 0.383729, 0.115889, 1)
+upper_fade = 0.01
+distance_fade_enabled = true
+distance_fade_begin = 9.0
+distance_fade_length = 0.5
+cull_mask = 8
 
 [node name="FoliageSpawner" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71084, 0, -0.732631)

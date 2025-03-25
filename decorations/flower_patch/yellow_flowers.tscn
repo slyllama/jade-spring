@@ -14,7 +14,6 @@ buffer = PackedFloat32Array(2.53691, 0, -1.6359, 0.642116, 0, 2.32202, 0, 0, 1.6
 [node name="YellowFlowers" type="Node3D"]
 
 [node name="FlowerSpawner3" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 layers = 2
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_t2xj7")
