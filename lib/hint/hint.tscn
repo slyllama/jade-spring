@@ -14,6 +14,7 @@ shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 0.3
 shader_parameter/arrow_reduce_alpha = false
+shader_parameter/darken = 0.0
 shader_parameter/paint_mask = ExtResource("2_ovc2o")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fth6l"]

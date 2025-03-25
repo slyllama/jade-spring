@@ -33,11 +33,11 @@ func close():
 	
 	if Save.data.story_point == "game_start":
 		Global.play_hint("test_hint", { 
-				"title": "((Test Hint))",
+				"title": "Jade Bot Movement",
 				"arrow": "up",
 				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
 				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
-			}, Utilities.get_screen_center(Vector2(0, get_window().size.y * Global.retina_scale * 0.5 - 200.0)), true)
+			}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.25 - 50)), true)
 	
 	Global.story_panel_open = false
 	Global.close_story_panel.emit()

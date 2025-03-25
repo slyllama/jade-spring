@@ -298,10 +298,11 @@ const DecoData = {
 	"weeping_willow": {
 		"name": "Weeping Willow",
 		"scene": "res://decorations/weeping_willow/deco_weeping_willow.tscn",
-		"cursor_model": "res://decorations/weeping_willow/meshes/weeping_willow.glb",
-		"preview_scale": 0.38,
+		"cursor_model": "res://decorations/weeping_willow/weeping_willow_instance.tscn",
+		"preview_scale": 0.30,
+		"preview_y_rotation": 215,
+		"model_offset": Vector3(1.0, 0, 0),
 		"preview_v_offset": -0.5,
-		"preview_h_offset": -0.1,
 		"tags": ["Foliage"]
 	},
 	"simple_roof_piece": {

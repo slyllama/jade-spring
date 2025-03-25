@@ -141,10 +141,10 @@ script = ExtResource("1_lnnkv")
 orbit_smoothing = 18.0
 zoom_increment = 0.2
 max_zoom_in = 0.0
-max_zoom_out = 3.0
+max_zoom_out = 4.0
 v_offset = 0.7
 excluded_collision_objects = [NodePath("..")]
-clamp_x_upper = 30.0
+clamp_x_upper = 50.0
 
 [node name="Listener" type="AudioListener3D" parent="Camera"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.0263149, 0)
