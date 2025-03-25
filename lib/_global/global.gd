@@ -262,6 +262,19 @@ func _ready() -> void:
 			get_window().content_scale_factor = 2.0
 			retina_scale = 2
 		get_window().size *= retina_scale
+	get_window().min_size = Vector2i(
+		floor(1280 * Global.retina_scale) - 1,
+		floor(720 * Global.retina_scale) - 1)
+	
+	await get_tree().process_frame
+	get_window().size_changed.connect(func():
+		get_window().position.x += 1
+		await get_tree().process_frame
+		if get_window().mode == Window.MODE_MAXIMIZED:
+			SettingsHandler.update("window_mode", "maximized")
+		elif get_window().mode == Window.MODE_WINDOWED:
+			if !SettingsHandler.settings.window_mode == "windowed":
+				SettingsHandler.update("window_mode", "windowed"))
 
 func _process(_delta):
 	Steam.run_callbacks() # process Steam

@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=4 uid="uid://dm88qsqr4e6bj"]
+[gd_scene load_steps=32 format=4 uid="uid://dm88qsqr4e6bj"]
 
 [ext_resource type="Script" path="res://lib/crumb/weed.gd" id="1_lklqf"]
 [ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="2_5nw6f"]
+[ext_resource type="Texture2D" uid="uid://cdxm1sr6ya75i" path="res://lib/crumb/weed/materials/textures/weed_floor_decal.png" id="2_sniks"]
 [ext_resource type="Texture2D" uid="uid://butxx6fv7oeaf" path="res://lib/crumb/weed/materials/textures/weed_alpha.png" id="3_xjqgm"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_rqa4i"]
 [ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://decorations/fountain/water_splash/textures/splash_mask.png" id="5_gjm0t"]
@@ -219,8 +220,19 @@ script = ExtResource("1_lklqf")
 type = "weed"
 area_radius = 0.6
 
+[node name="RockDecal" type="Decal" parent="."]
+transform = Transform3D(1.16775, 0, 0, 0, 1.16775, 0, 0, 0, 1.16775, 0, 0, 0)
+size = Vector3(2, 0.5, 2)
+texture_albedo = ExtResource("2_sniks")
+modulate = Color(0.9, 0.7413, 0.486, 1)
+upper_fade = 0.01
+distance_fade_enabled = true
+distance_fade_begin = 6.0
+distance_fade_length = 0.5
+cull_mask = 8
+
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0817364, 0.0596144, -0.994869, 0.0440875, 0.997449, 0.0561468, 0.995678, -0.039272, -0.0841561, 0, 0, 0)
+transform = Transform3D(0.613741, 0.041594, -0.788411, -0.063099, 0.998001, 0.00353171, 0.786982, 0.0475804, 0.615138, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]
