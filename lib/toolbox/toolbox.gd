@@ -18,6 +18,7 @@ func set_default_skills(audio = true) -> void:
 	$Box/Skill3.switch_skill("delete")
 	$Box/Skill4.switch_skill("eyedropper")
 	$Box/Skill5.switch_skill("toggle_gravity")
+	$Box/Skill6.switch_skill("ping")
 	
 	if _p == "game_start" or _p == "pick_weeds":
 		$Box/Skill1.set_enabled(false)
@@ -263,6 +264,8 @@ func skill_used(skill_id: String) -> void:
 		"toggle_gravity":
 			if "gravity" in Global.current_effects: Global.remove_effect.emit("gravity")
 			else: Global.add_effect.emit("gravity")
+		"ping":
+			Global.command_sent.emit("/ping")
 #endregion
 
 func _process(delta: float) -> void:

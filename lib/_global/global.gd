@@ -272,9 +272,11 @@ func _ready() -> void:
 		await get_tree().process_frame
 		if get_window().mode == Window.MODE_MAXIMIZED:
 			SettingsHandler.update("window_mode", "maximized")
+			SettingsHandler.save_to_file()
 		elif get_window().mode == Window.MODE_WINDOWED:
 			if !SettingsHandler.settings.window_mode == "windowed":
-				SettingsHandler.update("window_mode", "windowed"))
+				SettingsHandler.update("window_mode", "windowed")
+				SettingsHandler.save_to_file())
 
 func _process(_delta):
 	Steam.run_callbacks() # process Steam

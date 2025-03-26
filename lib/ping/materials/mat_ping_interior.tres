@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bllwlnjd2dmy6"]
+
+[ext_resource type="Shader" uid="uid://dacrmsnkmn6s5" path="res://lib/ping/materials/shaders/shader_ping.tres" id="1_gq26g"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gq26g")
+shader_parameter/color_1 = Color(0.87882, 0.871254, 1, 1)
+shader_parameter/color_2 = Color(1, 0.515177, 0.942987, 1)

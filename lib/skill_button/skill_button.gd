@@ -116,6 +116,10 @@ const TOOLTIPS = {
 	"fishing_right": {
 		"title": "Adjust Right",
 		"description": "Move the Attenuation gauge right."
+	},
+	"ping": {
+		"title": "Garden Sense",
+		"description": "Use radar to find the nearest weeds, bugs, and Dragonvoid which need dealing with."
 	}
 }
 

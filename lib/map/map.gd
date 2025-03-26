@@ -4,6 +4,7 @@ extends Node3D
 
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
+const Ping = preload("res://lib/ping/ping.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
@@ -15,6 +16,23 @@ func update_saturation() -> void:
 	var _v = SettingsHandler.settings.saturation
 	var _s = 0.9 + 0.6 * _v
 	$Sky.environment.adjustment_saturation = _s
+
+func fire_ping(count = 1) -> void:
+	$Jukebox/Ping.play()
+	var dist_lookup = {}
+	var dist_table = []
+	for _c: Node3D in $CrumbHandler.get_children():
+		var _d = snapped(_c.global_position.distance_to(Global.player_position), 0.001)
+		dist_lookup[_d] = _c
+		dist_table.append(_d)
+	dist_table.sort()
+	for _d in count:
+		var _pos = dist_lookup[dist_table[_d]].global_position
+		var _ping = Ping.instantiate()
+		add_child(_ping)
+		_ping.top_level = true
+		_ping.global_position = $Player.global_position
+		_ping.look_at(_pos)
 
 # Re-enable mouse event-disabled static bodies
 func reset_picking_disabled_objects() -> void:
@@ -70,6 +88,8 @@ func _ready() -> void:
 			$Sky.environment = DAY_ENV
 			$Sky/Sun.visible = true
 			update_saturation()
+		elif cmd == "/ping":
+			fire_ping(3)
 		elif cmd == "/hidecrumbs":
 			for _c in $CrumbHandler.get_children():
 				_c.visible = false
