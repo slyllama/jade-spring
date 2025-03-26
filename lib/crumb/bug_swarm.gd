@@ -45,6 +45,9 @@ func interact() -> void:
 		or Save.data.story_point == "free_reign"):
 		if "discombobulator" in Global.current_effects:
 			var _f = FishingInstance.instantiate()
+			_f.fish_min_speed = 1.1 # make a little easier than Dragonvoid
+			_f.fish_max_speed = 1.15
+			_f.progress_decrease_rate = 0.38
 			_f.completed.connect(clear)
 			_f.canceled.connect(func():
 				Global.remove_effect.emit("discombobulator"))

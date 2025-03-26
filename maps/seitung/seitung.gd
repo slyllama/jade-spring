@@ -3,8 +3,7 @@ extends "res://lib/map/map.gd"
 @onready var toolbox = get_node("HUD/Toolbox")
 var y_target = 0.0
 
-const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
-const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
+
 
 func _ready() -> void:
 	$Landscape/LandscapeCol.set_collision_layer_value(2, true)
@@ -18,9 +17,8 @@ func _ready() -> void:
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/time=night":
-			Global.time_of_day = "night"
-			$Sky.environment = NIGHT_ENV
-			$Sky/Sun.visible = false
+			$Sky/SunNight.visible = true
+			$Sky/OceanSunNight.visible = true
 			$Sky/SunNight.visible = true
 			$Sky/OceanSunNight.visible = true
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color.BLACK)
@@ -28,9 +26,8 @@ func _ready() -> void:
 			for _n in $Decoration/LightRays.get_children(): _n.visible = false
 			update_saturation()
 		elif _cmd == "/time=day":
-			Global.time_of_day = "day"
-			$Sky.environment = DAY_ENV
-			$Sky/Sun.visible = true
+			$Sky/SunNight.visible = false
+			$Sky/OceanSunNight.visible = false
 			$Sky/SunNight.visible = false
 			$Sky/OceanSunNight.visible = false
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color("#005193"))

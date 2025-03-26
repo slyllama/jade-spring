@@ -98,6 +98,8 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	$Underlay.queue_free()
+	$BG/CenterMarker/TutorialPanel/VBox/Done.disabled = true
+	
 	Global.skill_button_down.connect(func(id):
 		if id == "fishing_left": fishing_left_down = true
 		if id == "fishing_right": fishing_right_down = true)
@@ -119,8 +121,10 @@ func _ready() -> void:
 		Save.save_to_file()
 		has_started = true
 	else:
-		$BG/CenterMarker/TutorialPanel/VBox/Done.grab_focus()
 		Save.data.fishing_tutorial_played = true
+		for _x in 2: await get_tree().process_frame
+		$BG/CenterMarker/TutorialPanel/VBox/Done.disabled = false
+		$BG/CenterMarker/TutorialPanel/VBox/Done.grab_focus()
 	
 	get_window().size_changed.connect(resize)
 	Global.fishing_canceled.connect(end)

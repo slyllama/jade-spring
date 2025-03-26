@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cugqflilfm1ps" path="res://decorations/rocks/pancake_rocks.glb" id="3_sve6d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uxsrd"]
-size = Vector3(2.21286, 0.399902, 2.1167)
+size = Vector3(1.90789, 0.364868, 2.14087)
 
 [node name="DecoPancakeRocks" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_j01fy")
 id = "pancake_rocks"
-collision_box = NodePath("Body")
+collision_box = NodePath("")
 
 [node name="RockDecal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513527, 0, -0.954277)
@@ -33,10 +33,10 @@ cull_mask = 8
 
 [node name="PancakeRocks" parent="." instance=ExtResource("3_sve6d")]
 
-[node name="Body" type="Area3D" parent="."]
+[node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0706329, 0.199707, -0.0349121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390491, 0.18219, -0.0469969)
 shape = SubResource("BoxShape3D_uxsrd")

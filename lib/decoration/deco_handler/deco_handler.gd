@@ -84,8 +84,6 @@ func _save_decorations() -> void:
 	if Global.map_name != "seitung":
 		print("[DecoHandler] debug map; not saving.")
 		return
-	else:
-		print("-------SAVING DECORATIONS-------")
 	var _decoration_save_data = _get_decoration_list()
 	var _file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	_file.store_var(_decoration_save_data)

@@ -4,6 +4,8 @@ extends Node3D
 
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
+const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
+const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
 var picking_disabled_objects: Array[StaticBody3D] = []
 var rng = RandomNumberGenerator.new()
@@ -58,7 +60,17 @@ func _ready() -> void:
 	Global.spawn_karma.connect(spawn_karma)
 	
 	Global.command_sent.connect(func(cmd):
-		if cmd == "/hidecrumbs":
+		if cmd == "/time=night":
+			Global.time_of_day = "night"
+			$Sky.environment = NIGHT_ENV
+			$Sky/Sun.visible = false
+			update_saturation()
+		elif cmd == "/time=day":
+			Global.time_of_day = "day"
+			$Sky.environment = DAY_ENV
+			$Sky/Sun.visible = true
+			update_saturation()
+		elif cmd == "/hidecrumbs":
 			for _c in $CrumbHandler.get_children():
 				_c.visible = false
 				Global.announcement_sent.emit("((Hiding crumbs.))")
@@ -84,6 +96,12 @@ func _ready() -> void:
 			$Sky/Sun.global_rotation_degrees.y += 45.0
 		elif cmd == "/fish":
 			var _f = FishingInstance.instantiate()
+			add_child(_f)
+		elif cmd == "/easyfish":
+			var _f = FishingInstance.instantiate()
+			_f.fish_min_speed = 1.1
+			_f.fish_max_speed = 1.15
+			_f.progress_decrease_rate = 0.38
 			add_child(_f)
 		elif cmd == "/cinematic=on":
 			Input.action_press("toggle_debug")
