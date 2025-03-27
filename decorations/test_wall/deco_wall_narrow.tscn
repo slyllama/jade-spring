@@ -11,6 +11,7 @@ script = ExtResource("1_464y2")
 wall_color = Color(0.694259, 0.839996, 0.923155, 1)
 id = "simple_wall_narrow"
 collision_box = NodePath("Body")
+disable_culling = true
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 3

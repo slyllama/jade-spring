@@ -274,7 +274,7 @@ func _ready() -> void:
 			SettingsHandler.update("window_mode", "maximized")
 			SettingsHandler.save_to_file()
 		elif get_window().mode == Window.MODE_WINDOWED:
-			if !SettingsHandler.settings.window_mode == "windowed":
+			if !SettingsHandler.settings.window_mode == "windowed" and !SettingsHandler.settings.window_mode == "windowed_(1080p)":
 				SettingsHandler.update("window_mode", "windowed")
 				SettingsHandler.save_to_file())
 

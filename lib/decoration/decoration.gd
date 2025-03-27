@@ -9,7 +9,7 @@ const OutlineMaterial = preload("res://generic/materials/mat_outline.tres")
 @export var id = ""
 @export var collision_box: CollisionObject3D
 @export var disable_culling = false
-@export var custom_lod = true
+@export var custom_lod = false
 
 var outline_mat: ShaderMaterial
 var last_position: Vector3
@@ -18,7 +18,7 @@ var last_rotation: Vector3
 var arrows = []
 var transform_type = TRANSFORM_TYPE_TRANSLATE # translation, rotation, or scale
 var dye_materials = {}
-var cull_distance = 24.0
+var cull_distance = 32.0
 var distance_to_player = 0.0
 var mouse_in_box = false
 var outlined = false

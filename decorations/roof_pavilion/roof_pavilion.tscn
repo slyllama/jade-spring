@@ -10,7 +10,7 @@ data = PackedVector3Array(-2.58459, -2.58459, 2.58459, -1.91775, -1.4745, -1.917
 script = ExtResource("1_jse4a")
 id = "roof_pavilion"
 collision_box = NodePath("Body")
-custom_lod = false
+disable_culling = true
 
 [node name="RoofPavilion" parent="." instance=ExtResource("1_3oqw1")]
 

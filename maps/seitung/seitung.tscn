@@ -271,7 +271,7 @@ can_click = true
 custom_data = null
 
 [node name="Weed4" parent="CrumbHandler" index="5" instance=ExtResource("5_e2aho")]
-transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -4.77608, 0.0851234, 7.37172)
+transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -4.58147, 0.0851234, 7.31277)
 can_click = true
 custom_data = null
 
