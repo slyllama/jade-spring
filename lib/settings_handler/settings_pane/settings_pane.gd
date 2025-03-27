@@ -83,3 +83,24 @@ func _on_bindings_pane_opened() -> void:
 	moveable = false
 func _on_reset_button_down() -> void:
 	SettingsHandler.reset()
+
+func _on_gp_low_button_down() -> void:
+	SettingsHandler.update("aa", "disabled")
+	SettingsHandler.update("foliage_density", "low")
+	SettingsHandler.update("fps_cap", "unlimited")
+	SettingsHandler.update("bloom", "off")
+	SettingsHandler.save_to_file()
+
+func _on_gp_normal_button_down() -> void:
+	SettingsHandler.update("aa", "msaa_(4x)")
+	SettingsHandler.update("foliage_density", "high")
+	SettingsHandler.update("fps_cap", "60fps")
+	SettingsHandler.update("bloom", "on")
+	SettingsHandler.save_to_file()
+
+func _on_gp_high_button_down() -> void:
+	SettingsHandler.update("aa", "msaa_(4x)_with_fxaa")
+	SettingsHandler.update("foliage_density", "ultra")
+	SettingsHandler.update("fps_cap", "60fps")
+	SettingsHandler.update("bloom", "on")
+	SettingsHandler.save_to_file()
