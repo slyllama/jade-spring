@@ -10,7 +10,8 @@ size = Vector3(1.90789, 0.364868, 2.14087)
 [node name="DecoPancakeRocks" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_j01fy")
 id = "pancake_rocks"
-collision_box = NodePath("")
+collision_box = NodePath("Body")
+custom_lod = true
 
 [node name="RockDecal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513527, 0, -0.954277)

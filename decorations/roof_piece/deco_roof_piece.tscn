@@ -10,6 +10,7 @@ points = PackedVector3Array(-1.29102, -0.5, 0.187553, 1.32684, 1.01376, -0.83180
 script = ExtResource("1_uky7w")
 id = "simple_roof_piece"
 collision_box = NodePath("Body")
+disable_culling = true
 
 [node name="Body" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

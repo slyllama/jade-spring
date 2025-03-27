@@ -11,6 +11,7 @@ script = ExtResource("1_ry2n0")
 wall_color = Color(0.788115, 0.894418, 0.83338, 1)
 id = "simple_windowed_wall"
 collision_box = NodePath("Body")
+disable_culling = true
 
 [node name="WallWithWindow" parent="." instance=ExtResource("3_7408g")]
 

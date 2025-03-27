@@ -7,8 +7,8 @@ const MAX_FOV = 90
 const DEFAULT_SETTINGS = { 
 	"music_vol": 0.85, # ratio (1.0),
 	"volume": 1.0,
-	"window_mode": "full_screen",
-	"foliage_density": "ultra",
+	"window_mode": "exclusive_full_screen",
+	"foliage_density": "high",
 	"bloom": "on",
 	"orbit_sensitivity": 0.5,
 	"labels": "hide",
@@ -16,7 +16,7 @@ const DEFAULT_SETTINGS = {
 	"fps_cap": 60,
 	"vsync": "on",
 	"fov": 0.63,
-	"aa": "msaa_(4x)_with_fxaa",
+	"aa": "msaa_(4x)",
 	"saturation": 0.32
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
