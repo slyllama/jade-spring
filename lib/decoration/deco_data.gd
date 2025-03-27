@@ -13,7 +13,8 @@ const DecoData = {
 		"scene": "res://decorations/rata_sum/slab/rata_sum_slab.tscn",
 		"cursor_model": "res://decorations/rata_sum/slab/rata_sum_slab.glb",
 		"preview_scale": 0.9,
-		"tags": ["Architecture", "Asura"]
+		"tags": ["Architecture", "Asura"],
+		"unlock_value": 17
 	},
 	"honey_drips": {
 		"name": "Honey Drips",
@@ -21,7 +22,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/janthiri_bee/honey_drips/honey_drips.glb",
 		"preview_scale": 0.5,
 		"preview_v_offset": 1.6,
-		"tags": ["Architecture"]
+		"tags": ["Architecture"],
+		"unlock_value": 25
 	},
 	"small_boulder": {
 		"name": "Small Boulder",
@@ -37,7 +39,6 @@ const DecoData = {
 		"preview_scale": 0.70,
 		"preview_y_rotation": 180,
 		"preview_h_offset": -0.1,
-		"unlock_value": 2,
 		"tags": ["Architecture"]
 	},
 	"waterfall_fountain": {
@@ -47,7 +48,8 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.34,
 		"preview_v_offset": 0.29,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha"],
+		"unlock_value": 30
 	},
 	"shing_jea_arch": {
 		"name": "Shing Jea Arch",
@@ -57,8 +59,7 @@ const DecoData = {
 		"preview_y_rotation": 115,
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.4,
-		"tags": ["Architecture", "Cantha"],
-		"unlock_value": 10
+		"tags": ["Architecture", "Cantha"]
 	},
 	"aetherblade_craft": {
 		"name": "Aetherblade Craft",
@@ -68,7 +69,8 @@ const DecoData = {
 		"preview_y_rotation": 190,
 		"preview_v_offset": -0.4,
 		"tags": [],
-		"cull": "NEVER"
+		"cull": "NEVER",
+		"unlock_value": 31
 	},
 	"bloodstone_impacted_pillar": {
 		"name": "Bloodstone Pillar",
@@ -135,7 +137,8 @@ const DecoData = {
 		"preview_scale": 1.9,
 		"model_offset": Vector3(0, 0.2, 0),
 		"preview_y_rotation": 180,
-		"tags": [ ]
+		"tags": [],
+		"unlock_value": 25
 	},
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
@@ -161,7 +164,8 @@ const DecoData = {
 		"preview_scale": 1.0,
 		"preview_v_offset": -0.45,
 		"preview_y_rotation": 180,
-		"tags": ["Utilities"]
+		"tags": ["Utilities"],
+		"unlock_value": 35
 	},
 	"tussock": {
 		"name": "Tussock",
@@ -190,7 +194,8 @@ const DecoData = {
 		"model_offset": Vector3(0, 0.2, 0),
 		"y_rotation": 90,
 		"preview_y_rotation": 140,
-		"tags": ["Architecture"]
+		"tags": ["Architecture"],
+		"unlock_value": 25
 	},
 	"kaineng_cobble_floor": {
 		"name": "Kaineng Cobble Floor",
@@ -199,7 +204,8 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture"]
+		"tags": ["Architecture"],
+		"unlock_value": 13
 	},
 	"kaineng_cobble_stairs": {
 		"name": "Kaineng Cobble Stairs",
@@ -208,7 +214,8 @@ const DecoData = {
 		"preview_scale": 0.45,
 		"preview_y_rotation": 35,
 		"preview_v_offset": 0.3,
-		"tags": ["Architecture"]
+		"tags": ["Architecture"],
+		"unlock_value": 13
 	},
 	"roof_pavilion": {
 		"name": "Roof Pavilion",
@@ -234,7 +241,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/rusted_ac_unit/rusted_ac_unit.glb",
 		"preview_scale": 1.2,
 		"preview_y_rotation": 35,
-		"tags": ["Cantha", "Furniture"]
+		"tags": ["Cantha", "Furniture"],
+		"unlock_value": 25
 	},
 	"plaster_wall": {
 		"name": "Plaster Wall",
@@ -335,7 +343,7 @@ const DecoData = {
 		"preview_y_rotation": 250,
 		"preview_v_offset": 0.5,
 		"tags": ["Furniture"],
-		"unlock_value": 30
+		"unlock_value": 25
 	},
 	"autumnal_shrub": {
 		"name": "Autumnal Shrub",
@@ -368,6 +376,7 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture", "Asura"]
+		"tags": ["Architecture", "Asura"],
+		"unlock_value": 21
 	},
 }

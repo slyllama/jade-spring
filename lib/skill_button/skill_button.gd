@@ -28,7 +28,8 @@ const TEXTURES = { # associations with texture paths
 	"rotate_right": preload("res://lib/skill_button/textures/rotate_90.png"),
 	"eyedropper": preload("res://lib/skill_button/textures/duplicate.png"),
 	"adjust_mode_translate": preload("res://lib/skill_button/textures/move_scale.png"),
-	"toggle_gravity": preload("res://lib/skill_button/textures/toggle_gravity.png")
+	"toggle_gravity": preload("res://lib/skill_button/textures/toggle_gravity.png"),
+	"ping": preload("res://lib/skill_button/textures/ping.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 

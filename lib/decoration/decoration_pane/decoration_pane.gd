@@ -31,7 +31,8 @@ func _update_unlock_button(id: String) -> void:
 				$ActionsBox/Unlock.disabled = false
 			else:
 				$ActionsBox/Unlock.disabled = true
-				$ActionsBox/Unlock.tooltip_text = "((Insufficient Karma.))"
+				$ActionsBox/Unlock.tooltip_text = "Insufficient Karma."
+				# TODO: this is where a hint would show up for the first time
 			$ActionsBox/PlaceDecoration.disabled = true
 		else:
 			$ActionsBox/Unlock.visible = false

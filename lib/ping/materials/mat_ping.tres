@@ -7,3 +7,4 @@ render_priority = 0
 shader = ExtResource("1_hkkya")
 shader_parameter/color_1 = Color(0.24988, 0.000605, 0.603425, 1)
 shader_parameter/color_2 = Color(0.881838, 0.000374, 0.826861, 1)
+shader_parameter/master_alpha = 1.0
