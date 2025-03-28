@@ -70,7 +70,9 @@ func proc_story() -> void:
 		update_roster_visibility(3)
 	elif _p == "clear_dv":
 		update_roster_visibility(3)
-	elif _p == "free_reign":
+	elif _p == "gratitude":
+		update_roster_visibility(3)
+	elif _p == "stewardship":
 		update_roster_visibility(4)
 	
 	if _p in Save.STORY_POINT_SCRIPT:

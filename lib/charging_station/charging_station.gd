@@ -5,7 +5,7 @@ var in_ui = false
 
 func proc_story() -> void:
 	var _sp = Save.data.story_point
-	if _sp == "clear_dv" or _sp == "free_reign":
+	if _sp == "clear_dv" or _sp == "gratitude" or _sp == "stewardship":
 		visible = true
 		active = true
 	else:
