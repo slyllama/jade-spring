@@ -20,8 +20,12 @@ func _ready() -> void:
 	Save.story_advanced.connect(proc_story)
 	proc_story()
 	
+	Global.close_story_panel.connect(func():
+		if overlaps_body(Global.player):
+			Global.bug_crumb_entered.emit())
+	
 	body_entered.connect(func(body):
-		#if Save.data.story_point == "game_start": return # not unlocked yet
+		if Global.in_exclusive_ui: return
 		if body is CharacterBody3D:
 			if !$BugEntry.playing:
 				$BugEntry.pitch_scale = 0.9 + rng.randf() * 0.2
@@ -30,7 +34,7 @@ func _ready() -> void:
 			Global.bug_crumb_entered.emit())
 	
 	body_exited.connect(func(body):
-		#if Save.data.story_point == "game_start": return # not unlocked yet
+		if Global.in_exclusive_ui: return
 		if body is CharacterBody3D:
 			Global.bug_crumb_left.emit())
 

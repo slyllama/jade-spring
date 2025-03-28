@@ -56,6 +56,10 @@ func update_roster_visibility(pos: int) -> void:
 	if pos >= 4:
 		$StoryText.visible = false
 
+func fade_in(time = 0.9) -> void:
+	var _fade_tween = create_tween()
+	_fade_tween.tween_property(self, "modulate:a", 1.0, time)
+
 func proc_story() -> void:
 	# Update sidebar with story contents when the story is advanced
 	var _p = Save.data.story_point # story point shorthand
@@ -83,6 +87,8 @@ func proc_story() -> void:
 				$StoryText.text += " (" + str(Global.crumb_handler.totals.bug - Save.data.crumb_count.bug) + "/" + str(Save.OBJECTIVE_PEST_COUNT) + ")"
 
 func _ready() -> void:
+	modulate.a = 0.0
+	
 	Global.crumbs_updated.connect(func():
 		for _i in 3: await get_tree().process_frame
 		if "bug" in Save.data.crumb_count and "bug" in Global.crumb_handler.totals:
@@ -102,6 +108,10 @@ func _ready() -> void:
 		if !first_load:
 			first_load = true)
 	
+	Global.close_story_panel.connect(func():
+		if Save.data.story_point == "game_start":
+			fade_in(1.5))
+	
 	Save.story_advanced.connect(func():
 		Global.play_flash($StoryText.global_position + Vector2(40, 30))
 		proc_story())
@@ -115,6 +125,9 @@ func _ready() -> void:
 	
 	Save.karma_changed.emit()
 	karma_fist_load = true
+	
+	if !Global.start_params.new_save:
+		fade_in()
 
 var _j = 0.0
 

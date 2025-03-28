@@ -10,7 +10,7 @@ func open(title = "((Title))", description = "((Description))"):
 	$Base/Content/Title.text = "[center]" + title + "[/center]"
 	# Includes shortcuts for second paragraph
 	$Base/Content/Description.text = description.replace("<", "\n[font_size=9] [/font_size]\n[color=white]").replace(">", "[/color]")
-	$PlayDialogue.play()
+	#$PlayDialogue.play()
 	
 	Global.story_panel_open = true
 	Global.action_cam_disable.emit()
@@ -32,12 +32,12 @@ func close():
 	closed = true
 	
 	if Save.data.story_point == "game_start":
-		Global.play_hint("test_hint", { 
+		Global.play_hint("movement", { 
 				"title": "Jade Bot Movement",
 				"arrow": "up",
 				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
 				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
-			}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.25 - 50)), true)
+			}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.25 - 30)), true)
 	
 	Global.story_panel_open = false
 	Global.close_story_panel.emit()

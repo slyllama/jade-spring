@@ -50,10 +50,19 @@ func _ready() -> void:
 	var _mat = material.duplicate(true)
 	material = _mat # unique material
 	
+	$Flash.visible = true
+	
 	await get_tree().process_frame
 	var fade_in = create_tween()
 	fade_in.tween_method(_set_dissolve, 0.0, 1.0, 0.3)
+	
+	var flash_out = create_tween()
+	flash_out.tween_property($Flash, "modulate:a", 0.0, 0.3)
 
 func _on_close_button_button_down() -> void:
+	Global.click_sound.emit()
+	close()
+
+func _on_dismiss_button_down() -> void:
 	Global.click_sound.emit()
 	close()

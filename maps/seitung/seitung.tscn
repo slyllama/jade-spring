@@ -352,7 +352,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07721, 0.607584, -10.0079)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15857, 0.703732, 13.1967)
 
 [node name="Dragonvoid" parent="CrumbHandler" index="30" instance=ExtResource("35_f6q0j")]
-transform = Transform3D(-0.93045, 0, 0.36642, 0, 1, 0, -0.36642, 0, -0.93045, -6.21566, 0.323193, 1.2553)
+transform = Transform3D(-0.93045, 0, 0.36642, 0, 1, 0, -0.36642, 0, -0.93045, -6.26371, 0.323193, 2.11964)
 can_click = true
 custom_data = null
 
@@ -1258,3 +1258,4 @@ transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777
 
 [node name="ChargingStation" parent="." index="16" instance=ExtResource("64_xbvsq")]
 transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494, -8.40679, 0.276039, 0.582495)
+radius = 1.0

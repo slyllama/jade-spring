@@ -62,6 +62,16 @@ func proc_story() -> void:
 		$Toolbox.visible = false
 	else:
 		$Toolbox.visible = true
+	
+	if Save.data.story_point == "pick_weeds":
+		Global.play_hint("tasks", { 
+				"title": "Ratchet's Tasks",
+				"arrow": "left",
+				"anchor_preset": Control.LayoutPreset.PRESET_TOP_RIGHT,
+				"text": "The tasks Ratchet has for you will be presented here, along with your total progress in cleaning the garden!"
+			}, Utilities.get_screen_center(
+				Vector2(get_viewport().size.x / Global.retina_scale * 0.5 - 460,
+				40 - get_viewport().size.y / Global.retina_scale * 0.5)), true)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -183,6 +193,7 @@ func _ready() -> void:
 	$Underlay.queue_free()
 	
 	await get_tree().create_timer(0.51).timeout
+	
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
 	_fade_tween.tween_callback($TopLevel/FG.queue_free)

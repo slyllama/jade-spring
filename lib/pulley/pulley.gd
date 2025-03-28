@@ -139,8 +139,8 @@ const dv_charge = {
 	}
 }
 
-
 func _ready() -> void:
+	super()
 	# Quick fix to an ambient occlusion issue
 	$PulleyMesh/GolemSkeleton/Skeleton3D/ArmBase_L/ArmBase_L.rotation_degrees.y = 180.0
 	$PulleyMesh/GolemSkeleton/Skeleton3D/Armpivot_L/Armpivot_L.rotation_degrees.y = 180.0

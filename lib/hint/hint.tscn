@@ -23,7 +23,7 @@ bg_color = Color(0, 0, 0, 0.901961)
 [node name="Hint" type="Panel"]
 material = SubResource("ShaderMaterial_hk4fa")
 offset_right = 300.0
-offset_bottom = 120.0
+offset_bottom = 140.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fth6l")
 script = ExtResource("3_p8n2g")
@@ -35,9 +35,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = 10.0
+offset_top = 12.0
 offset_right = -10.0
-offset_bottom = -10.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -84,6 +84,13 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "Use [Q] to descend, and [E] to ascend."
 fit_content = true
+
+[node name="Dismiss" type="Button" parent="VBox"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 10
+mouse_filter = 1
+text = "Dismiss"
 
 [node name="Arrow_S" type="TextureRect" parent="."]
 visible = false
@@ -157,4 +164,16 @@ texture = ExtResource("7_d27fy")
 expand_mode = 1
 flip_h = true
 
+[node name="Flash" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.588235)
+
 [connection signal="button_down" from="VBox/Header/CloseButton" to="." method="_on_close_button_button_down"]
+[connection signal="button_down" from="VBox/Dismiss" to="." method="_on_dismiss_button_down"]

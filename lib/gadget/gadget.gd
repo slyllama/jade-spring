@@ -59,6 +59,13 @@ func _ready() -> void:
 	$VisualArea.mesh.top_radius = radius
 	$VisualArea.mesh.bottom_radius = radius
 	_set_tint_color(tint_color)
+	
+	Global.close_story_panel.connect(func():
+		if overlaps_body(Global.player):
+			Global.current_gadget = self
+			in_range = true
+			if active:
+				Global.generic_area_entered.emit())
 
 func _input(_event: InputEvent) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE: return
@@ -71,7 +78,7 @@ func _input(_event: InputEvent) -> void:
 				Global.generic_area_left.emit()
 
 func _on_body_entered(body: Node3D) -> void:
-	if Global.current_crumb: return
+	if Global.current_crumb or Global.in_exclusive_ui: return
 	if body is CharacterBody3D:
 		Global.current_gadget = self
 		in_range = true

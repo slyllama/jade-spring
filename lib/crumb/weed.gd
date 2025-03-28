@@ -20,13 +20,19 @@ func _ready() -> void:
 	$WeedMesh.rotation_degrees.z = rng.randf() * 10.0 - 5.0
 	var _scale_factor = rng.randf_range(1.0, 1.3)
 	$WeedMesh.scale *= _scale_factor
-	
 	$Foam.emitting = false
+	
+	Global.close_story_panel.connect(func():
+		if pickable and overlaps_body(Global.player):
+			Global.weed_crumb_entered.emit())
+	
 	body_entered.connect(func(body):
+		if Global.in_exclusive_ui: return
 		if pickable and body is CharacterBody3D:
 			Global.weed_crumb_entered.emit())
 	
 	body_exited.connect(func(body):
+		if Global.in_exclusive_ui: return
 		if body is CharacterBody3D:
 			Global.weed_crumb_left.emit())
 	
@@ -48,6 +54,13 @@ func interact() -> void:
 	$LeafSound.pitch_scale = _pitch
 	$LeafSound.play()
 	$Player.play("clear")
+	
+	Global.play_hint("picked_weeds", { 
+				"title": "Picked Weeds",
+				"arrow": "down",
+				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
+				"text": "Weeds that you have picked (along with any other effects and items) will appear here."
+			}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.5 - 300)), true)
 	
 	await $Player.animation_finished
 	clear()

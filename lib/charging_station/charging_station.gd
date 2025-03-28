@@ -1,3 +1,4 @@
+@tool
 extends "res://lib/gadget/gadget.gd"
 
 const AttenuatorUI = preload("res://lib/attenuator/attenuator.tscn")
