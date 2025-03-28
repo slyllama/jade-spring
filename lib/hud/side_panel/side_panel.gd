@@ -70,6 +70,8 @@ func proc_story() -> void:
 		update_roster_visibility(3)
 	elif _p == "clear_dv":
 		update_roster_visibility(3)
+	elif _p == "ratchet_gratitude":
+		update_roster_visibility(3)
 	elif _p == "gratitude":
 		update_roster_visibility(3)
 	elif _p == "stewardship":

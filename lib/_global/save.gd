@@ -16,6 +16,7 @@ const STORY_POINTS = [
 	"clear_bugs",
 	"ratchet_dv",
 	"clear_dv",
+	"ratchet_gratitude",
 	"gratitude",
 	"stewardship",
 	"debug"
@@ -45,10 +46,14 @@ var STORY_POINT_SCRIPT = {
 		"title": "3. Banishing the Void",
 		"objective": "Attune a coil of Raw Dispersion Flux using Ratchet’s Makeshift Attunement Gadget. Use it to dispel a column of Dragonvoid."
 	},
-	"gratitude": {
-		"title": "4. Gratitude",
-		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them; they managed to get the renovation system operational again! <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them You can unlock special decorations with Karma earnt from helping clear the garden.>",
+	"ratchet_gratitude": {
+		"title": "4. Ratchet's Gratitude",
+		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them; they managed to get the renovation system operational again! <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them You can unlock special decorations with Karma earnt from helping clear the garden. Oh - and it looks like Ratchet has something they want to talk to you about!>",
 		"objective": "Ratchet has something to speak to you about!"
+	},
+	"gratitude": {
+		"title": "4. Ratchet's Gratitude",
+		"objective": "((Ratchet's gratitude.))"
 	},
 	"stewardship": {
 		"title": "5. Stewardship",
@@ -177,7 +182,7 @@ func _ready() -> void:
 		elif (Save.data.story_point == "clear_dv"
 			and Global.crumb_handler.totals.dragonvoid - Save.data.crumb_count.dragonvoid >= OBJECTIVE_DV_COUNT):
 			advance_story()
-			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["gratitude"])
+			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_gratitude"])
 	)
 
 func _notification(what):

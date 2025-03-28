@@ -42,6 +42,7 @@ func interact() -> void:
 	elif (Save.data.story_point == "clear_bugs" 
 		or Save.data.story_point == "ratchet_dv"
 		or Save.data.story_point == "clear_dv"
+		or Save.data.story_point == "ratchet_gratitude"
 		or Save.data.story_point == "gratitude"
 		or Save.data.story_point == "stewardship"):
 		if "discombobulator" in Global.current_effects:
