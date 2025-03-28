@@ -47,12 +47,20 @@ func _ready() -> void:
 	collision.shape = shape
 	add_child(collision)
 	
+	if Engine.is_editor_hint(): return
+	
+	Global.close_story_panel.connect(func():
+		if overlaps_body(Global.player):
+			Global.current_crumb = self)
+	
 	body_entered.connect(func(body):
+		if Global.in_exclusive_ui: return
 		if body is CharacterBody3D:
 			await get_tree().process_frame
 			Global.current_crumb = self)
 	
 	body_exited.connect(func(body):
+		if Global.in_exclusive_ui: return
 		if body is CharacterBody3D:
 			Global.current_crumb = null)
 	

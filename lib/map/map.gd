@@ -141,6 +141,7 @@ func _ready() -> void:
 	Save.story_advanced.connect(set_marker_pos)
 	await get_tree().process_frame
 	set_marker_pos()
+	get_window().request_attention()
 	
 	# Apply settings
 	SettingsHandler.setting_changed.connect(func(parameter):

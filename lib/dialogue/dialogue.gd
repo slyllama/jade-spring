@@ -76,6 +76,7 @@ func open() -> void:
 	Global.can_move = false
 	Global.dialogue_open = true
 	Global.action_cam_disable.emit()
+	Global.dismiss_hints()
 	
 	$PlayDialogue.play()
 	if "_entry" in data:

@@ -223,11 +223,14 @@ func play_flash(screen_position: Vector2) -> void:
 	_f.z_index = 100
 	hud.get_node("TopLevel").add_child(_f)
 
-const Hint = preload("res://lib/hint/hint.tscn")
-func play_hint(id: String, data: Dictionary, position: Vector2, play_once = false) -> void:
+func dismiss_hints() -> void:
 	for _h in hud.get_node("TopLevel").get_children():
 		if _h is HintPanel:
 			_h.close()
+
+const Hint = preload("res://lib/hint/hint.tscn")
+func play_hint(id: String, data: Dictionary, position: Vector2, play_once = false) -> void:
+	dismiss_hints()
 	
 	if play_once:
 		if id in Save.data.hints_played:

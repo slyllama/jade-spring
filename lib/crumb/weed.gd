@@ -22,10 +22,6 @@ func _ready() -> void:
 	$WeedMesh.scale *= _scale_factor
 	$Foam.emitting = false
 	
-	Global.close_story_panel.connect(func():
-		if pickable and overlaps_body(Global.player):
-			Global.weed_crumb_entered.emit())
-	
 	body_entered.connect(func(body):
 		if Global.in_exclusive_ui: return
 		if pickable and body is CharacterBody3D:
@@ -39,6 +35,10 @@ func _ready() -> void:
 	if !Engine.is_editor_hint():
 		Save.story_advanced.connect(proc_story)
 		proc_story()
+		
+		Global.close_story_panel.connect(func():
+			if pickable and overlaps_body(Global.player):
+				Global.weed_crumb_entered.emit())
 
 func interact() -> void:
 	if Save.data.story_point == "game_start":
