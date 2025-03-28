@@ -244,8 +244,8 @@ fill_to = Vector2(0, 1)
 render_priority = 2
 shader = ExtResource("8_qtji3")
 shader_parameter/color = Color(0.64, 0.47072, 0.1984, 1)
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/exponent = 2.0
+shader_parameter/uv_scale = Vector2(1, 0.3)
+shader_parameter/exponent = 1.4
 shader_parameter/time_scale = 0.07
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
@@ -279,7 +279,7 @@ distance_fade_length = 0.5
 cull_mask = 8
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.308492, -0.0377522, 0.950478, -0.0602867, 0.997979, 0.020072, -0.949315, -0.0511091, -0.310144, 0, 0, 0)
+transform = Transform3D(0.60038, 0.0335979, -0.799009, 0.0365223, 0.996923, 0.0693631, 0.798881, -0.0708259, 0.597305, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]

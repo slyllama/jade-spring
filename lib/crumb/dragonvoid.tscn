@@ -97,7 +97,7 @@ process_material = SubResource("ParticleProcessMaterial_6ksov")
 draw_pass_1 = SubResource("PlaneMesh_m4kwj")
 
 [node name="VisualArea" parent="." instance=ExtResource("3_ytxy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.497651, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CylinderMesh_3fip3")
 
 [node name="Icon" parent="." instance=ExtResource("6_hdk5x")]
