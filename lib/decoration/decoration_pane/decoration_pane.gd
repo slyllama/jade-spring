@@ -180,6 +180,11 @@ func _ready() -> void:
 	var _scroll_bar: VScrollBar = $Container/ScrollBox.get_v_scroll_bar()
 	_scroll_bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	
+	# Close the decoration pane if the story panel is opened
+	# This shouldn't really come up in normal use
+	Global.summon_story_panel.connect(func(_data): close())
+	Global.dialogue_opened.connect(close)
+	
 	# Let the game know the popup has been closed (especially for CameraHandler)
 	tag_list.get_popup().visibility_changed.connect(func():
 		if !tag_list.get_popup().visible:

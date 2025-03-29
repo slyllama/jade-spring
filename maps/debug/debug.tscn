@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgrakybin27gf"]
+[gd_scene load_steps=15 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
 [ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bh3h8snrh07d5" path="res://lib/gadget/weed_bin.tscn" id="7_xcl0p"]
 [ext_resource type="PackedScene" uid="uid://3lblxj6dgvuv" path="res://decorations/autumnal_tree/deco_autumnal_tree.tscn" id="8_xp2h4"]
 [ext_resource type="PackedScene" uid="uid://ceqye8xeeqf64" path="res://decorations/lush_grass/lush_grass.tscn" id="9_v1c7u"]
+[ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="11_gxohq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("3_pk05h")
@@ -77,3 +78,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56445, -4.84288e-08, -0.33
 
 [node name="ChargingStation" parent="." index="13" instance=ExtResource("4_nnm10")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 3)
+
+[node name="Discombobulator" parent="." index="14" instance=ExtResource("11_gxohq")]
+transform = Transform3D(-0.666337, 0, 0.74565, 0, 1, 0, -0.74565, 0, -0.666337, -6.65852, -4.84288e-08, 5.71795)

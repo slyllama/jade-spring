@@ -20,6 +20,14 @@ func _ready() -> void:
 	Save.story_advanced.connect(proc_story)
 	proc_story()
 	
+	Global.summon_story_panel.connect(func(_data):
+		if overlaps_body(Global.player):
+			Global.generic_area_left.emit())
+	
+	Global.close_story_panel.connect(func():
+		if overlaps_body(Global.player):
+			Global.generic_area_entered.emit())
+	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/enableattn":
 			visible = true

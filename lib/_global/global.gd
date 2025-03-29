@@ -71,6 +71,8 @@ signal crumbs_updated
 signal command_sent(string)
 signal debug_toggled
 signal debug_skill_used
+signal dialogue_opened
+signal dialogue_closed
 signal dragonvoid_crumb_entered
 signal dragonvoid_crumb_left
 signal fishing_started
@@ -85,6 +87,7 @@ signal remove_effect(id)
 signal rock_out_started
 signal rock_out_ended
 signal rock_out_beat
+signal settings_pane_opened
 signal skill_button_down(id: String)
 signal skill_button_up(id: String)
 signal spawn_karma(amount: int, location: Vector3)

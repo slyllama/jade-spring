@@ -46,6 +46,10 @@ func close() -> void:
 	await fade_out.finished
 	queue_free()
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("right_click"):
+		close()
+
 func _ready() -> void:
 	var _mat = material.duplicate(true)
 	material = _mat # unique material

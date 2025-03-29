@@ -76,6 +76,7 @@ func open() -> void:
 	Global.can_move = false
 	Global.dialogue_open = true
 	Global.action_cam_disable.emit()
+	Global.dialogue_opened.emit()
 	Global.dismiss_hints()
 	
 	$PlayDialogue.play()
@@ -99,6 +100,8 @@ func open() -> void:
 func close() -> void:
 	if has_closed: return
 	has_closed = true
+	
+	Global.dialogue_closed.emit()
 	
 	# Fade buttons out one-by-one
 	for _b: Node in $Base/Box.get_children():

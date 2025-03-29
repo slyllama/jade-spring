@@ -20,6 +20,7 @@ func open() -> void:
 	$PaperSound.play()
 	# Convince gadgets that this is a story panel so that they can't be hovered
 	Global.summon_story_panel.emit({})
+	Global.action_cam_disable.emit()
 	Global.story_panel_open = true
 	var _fade = create_tween()
 	_fade.tween_method(_set_dissolve_value, 0.0, 1.0, 0.2)
@@ -27,11 +28,13 @@ func open() -> void:
 func close() -> void:
 	Global.story_panel_open = false
 	Global.close_story_panel.emit()
+	Global.action_cam_enable.emit()
+	
 	var _fade = create_tween()
 	_fade.tween_method(_set_dissolve_value, 1.0, 0.0, 0.2)
 	_fade.tween_callback(queue_free)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		Global.in_exclusive_ui = true
 		await get_tree().process_frame
@@ -39,6 +42,8 @@ func _input(event: InputEvent) -> void:
 		Global.in_exclusive_ui = false
 
 func _ready() -> void:
+	Global.settings_pane_opened.connect(close)
+	
 	dissolve_value = 1.0
 	open()
 

@@ -69,7 +69,7 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE: return
-	if !Global.can_move: return
+	if !Global.can_move or Global.story_panel_open: return
 	if Input.is_action_just_pressed("interact"):
 		if active and in_range and Global.current_gadget == self:
 			interacted.emit()

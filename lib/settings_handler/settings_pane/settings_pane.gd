@@ -8,6 +8,7 @@ func open(silent = false) -> void:
 	$PreventFocus.visible = false
 	$Container/DoneResetBox/Done.grab_focus()
 	Global.settings_open = true
+	Global.settings_pane_opened.emit()
 	Global.action_cam_disable.emit()
 
 func close() -> void:
@@ -36,6 +37,8 @@ func _ready() -> void:
 	# Volume needs to be set independently because its setting update isn't
 	# pinged on start (to prevent an awkward spike in volume)
 	$Container/SC/Contents/Volume.set_value_silent(Utilities.get_user_vol())
+	
+	Global.summon_story_panel.connect(func(_data): close())
 	
 	SettingsHandler.setting_changed.connect(func(_param):
 		if _param == "fov":

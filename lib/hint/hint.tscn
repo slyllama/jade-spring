@@ -90,7 +90,7 @@ use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 10
 mouse_filter = 1
-text = "Dismiss"
+text = "Dismiss (Right-Click)"
 
 [node name="Arrow_S" type="TextureRect" parent="."]
 visible = false

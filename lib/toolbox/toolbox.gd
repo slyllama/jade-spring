@@ -78,14 +78,17 @@ func _ready() -> void:
 		$SkillSwap.volume_db = linear_to_db(1)
 	)
 	
+	Global.summon_story_panel.connect(func(_data): clear_skills(false))
+	Global.close_story_panel.connect(func(): set_default_skills(false))
+	Global.dialogue_opened.connect(func(): clear_skills(false))
+	Global.dialogue_closed.connect(func(): set_default_skills(false))
+	
 	Global.deco_placement_started.connect(func():
 		clear_skills()
 		$Box/Skill6.switch_skill("cancel")
 		if !Global.mouse_3d_override_rotation and !_eyedropper_last_used:
 			$Box/Skill1.switch_skill("rotate_left")
 			$Box/Skill2.switch_skill("rotate_right")
-			#$Box/Skill4.switch_skill("roll_left")
-			#$Box/Skill5.switch_skill("roll_right")
 		_eyedropper_last_used = false)
 	
 	Global.deco_deleted.connect(func():

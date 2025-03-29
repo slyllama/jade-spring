@@ -117,9 +117,15 @@ const no_dv_charge = {
 
 const gift_letter = {
 	"_entry": {
-		"string": "((Gift letter.))",
+		"string": "Ahhh; y-you're still in one piece. (RELIEF REGISTERED.) You've really helped-d-d make this place into a g-gem of Cantha.",
 		"options" : {
-			"exit": "((Exit.))"
+			"commander": "I can't wait until the Commander can see this. Thanks, Ratchet."
+		}
+	},
+	"commander": {
+		"string": "N-n-no, thank (YOU). Oh, my m-master has something for you, should you choose to s-stay around and clear everything out-t-t.",
+		"options": {
+			"exit": "(Take Ratchet's letter.)"
 		}
 	},
 	"exit": {
@@ -176,12 +182,14 @@ func _on_interacted() -> void:
 			or "d_primordus" in Global.current_effects or "d_kralkatorrik" in Global.current_effects):
 			spawn_dialogue(dv_charge)
 		else: spawn_dialogue(no_dv_charge)
-	elif Save.data.story_point == "ratchet_gratitude":
+	elif Save.data.story_point == "ratchet_gratitude" or Save.data.story_point == "gratitude":
 		# This needs to be manual so that we can call back to open the letter
 		var _d = Dialogue.instantiate()
 		_d.data = gift_letter
 		Global.hud.add_child(_d)
 		_d.closed.connect(func():
-			Save.advance_story()
-			Global.generic_area_entered.emit())
+			if Save.data.story_point == "ratchet_gratitude":
+				Save.advance_story() # only advance once (on the right story step)!
+			await get_tree().process_frame
+			Global.command_sent.emit("/giftletter"))
 		_d.open()

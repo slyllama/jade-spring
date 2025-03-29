@@ -25,6 +25,14 @@ func proc_story() -> void:
 		$Collision.visible = true
 
 func _ready() -> void:
+	Global.summon_story_panel.connect(func(_data):
+		if $Collision.overlaps_body(Global.player):
+			Global.generic_area_left.emit())
+	
+	Global.close_story_panel.connect(func():
+		if $Collision.overlaps_body(Global.player):
+			Global.generic_area_entered.emit())
+	
 	Save.story_advanced.connect(proc_story)
 	proc_story()
 

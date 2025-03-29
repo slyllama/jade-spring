@@ -60,6 +60,8 @@ func _ready() -> void:
 	$JadeWingsBase/JadeWings.modulate.a = 0.0
 	$JadeWingsBase/JadeWings.position.y = 10.0
 	$Base/Content/Done.grab_focus()
+	
+	Global.settings_pane_opened.connect(close)
 
 func _process(_delta: float) -> void:
 	$JadeWingsBase.global_position = (

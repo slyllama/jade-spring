@@ -20,7 +20,7 @@ func _ready() -> void:
 	Save.story_advanced.connect(proc_story)
 	proc_story()
 	
-	Global.close_story_panel.connect(func():
+	Global.summon_story_panel.connect(func(_data):
 		if overlaps_body(Global.player):
 			Global.bug_crumb_left.emit())
 	
@@ -51,7 +51,8 @@ func interact() -> void:
 		or Save.data.story_point == "clear_dv"
 		or Save.data.story_point == "ratchet_gratitude"
 		or Save.data.story_point == "gratitude"
-		or Save.data.story_point == "stewardship"):
+		or Save.data.story_point == "stewardship"
+		or Save.data.story_point == "debug"):
 		if "discombobulator" in Global.current_effects:
 			var _f = FishingInstance.instantiate()
 			_f.fish_min_speed = 1.1 # make a little easier than Dragonvoid
