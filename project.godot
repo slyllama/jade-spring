@@ -27,6 +27,7 @@ Global="*res://lib/_global/global.tscn"
 Utilities="*res://lib/_global/utilities.gd"
 SettingsHandler="*res://lib/settings_handler/settings_handler.tscn"
 Save="*res://lib/_global/save.gd"
+SteamHandler="*res://lib/_global/steam_handler.tscn"
 
 [debug]
 

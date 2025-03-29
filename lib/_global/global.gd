@@ -248,11 +248,6 @@ func play_hint(id: String, data: Dictionary, position: Vector2, play_once = fals
 
 ##### Execution
 
-func _init() -> void:
-	# Initialise Steam
-	var init_steam: Dictionary = Steam.steamInitEx(true, 3561310)
-	print("[Steam] Validating... " + str(init_steam))
-
 func _ready() -> void:
 	Utilities.set_master_vol(0.0)
 	
