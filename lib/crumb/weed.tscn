@@ -269,7 +269,7 @@ type = "weed"
 area_radius = 0.6
 
 [node name="RockDecal" type="Decal" parent="."]
-size = Vector3(2.4, 0.5, 2.4)
+size = Vector3(2, 0.5, 2)
 texture_albedo = ExtResource("2_sniks")
 modulate = Color(0.9, 0.7413, 0.486, 1)
 upper_fade = 0.01
@@ -279,7 +279,7 @@ distance_fade_length = 0.5
 cull_mask = 8
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.60038, 0.0335979, -0.799009, 0.0365223, 0.996923, 0.0693631, 0.798881, -0.0708259, 0.597305, 0, 0, 0)
+transform = Transform3D(0.971138, 0.0133235, -0.238148, -0.027265, 0.998095, -0.0553435, 0.236957, 0.0602393, 0.969651, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]

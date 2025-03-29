@@ -23,18 +23,23 @@ func _ready() -> void:
 	$Foam.emitting = false
 	
 	body_entered.connect(func(body):
-		if Global.in_exclusive_ui: return
+		if Global.story_panel_open: return
 		if pickable and body is CharacterBody3D:
 			Global.weed_crumb_entered.emit())
 	
 	body_exited.connect(func(body):
-		if Global.in_exclusive_ui: return
+		if Global.story_panel_open: return
 		if body is CharacterBody3D:
 			Global.weed_crumb_left.emit())
 	
 	if !Engine.is_editor_hint():
 		Save.story_advanced.connect(proc_story)
 		proc_story()
+		
+		Global.summon_story_panel.connect(func(_data):
+			if pickable and overlaps_body(Global.player):
+				Global.weed_crumb_left.emit()
+		)
 		
 		Global.close_story_panel.connect(func():
 			if pickable and overlaps_body(Global.player):

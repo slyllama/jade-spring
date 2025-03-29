@@ -16,6 +16,7 @@
 /addkarma=X		Add X Karma (negatives permitted)
 /collision=off	Disable player collisions
 /collision=on	Enable player collisions
+/giftletter		Test out the gift letter
 /gravity		Toggle jumping puzzle physics
 /karmastats		Print Karma statistics
 /printsavedata	Print all save data

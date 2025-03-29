@@ -22,19 +22,22 @@ func _ready() -> void:
 	
 	Global.close_story_panel.connect(func():
 		if overlaps_body(Global.player):
+			Global.bug_crumb_left.emit())
+	
+	Global.close_story_panel.connect(func():
+		if overlaps_body(Global.player):
 			Global.bug_crumb_entered.emit())
 	
 	body_entered.connect(func(body):
-		if Global.in_exclusive_ui: return
+		if Global.story_panel_open: return
 		if body is CharacterBody3D:
 			if !$BugEntry.playing:
 				$BugEntry.pitch_scale = 0.9 + rng.randf() * 0.2
 				$BugEntry.play()
-			
 			Global.bug_crumb_entered.emit())
 	
 	body_exited.connect(func(body):
-		if Global.in_exclusive_ui: return
+		if Global.story_panel_open: return
 		if body is CharacterBody3D:
 			Global.bug_crumb_left.emit())
 

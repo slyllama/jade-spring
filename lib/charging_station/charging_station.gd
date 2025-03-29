@@ -16,6 +16,7 @@ func proc_story() -> void:
 
 func _ready() -> void:
 	super()
+	if Engine.is_editor_hint(): return
 	Save.story_advanced.connect(proc_story)
 	proc_story()
 	

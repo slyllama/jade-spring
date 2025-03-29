@@ -190,6 +190,7 @@ func _on_completed() -> void:
 	Global.fishing_canceled.emit()
 
 func _on_tutorial_done() -> void:
+	if has_started: return # can't click twice
 	Global.click_sound.emit()
 	has_started = true
 	var tut_fade_tween = create_tween()

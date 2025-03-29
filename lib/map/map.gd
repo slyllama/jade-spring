@@ -5,6 +5,7 @@ extends Node3D
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
 const Ping = preload("res://lib/ping/ping.tscn")
+const GiftLetter = preload("res://lib/gift_letter/gift_letter.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
@@ -139,6 +140,9 @@ func _ready() -> void:
 			var _count = int(cmd.replace("/spawnkarma=", ""))
 			_count = clamp(_count, 0, 25)
 			spawn_karma(_count, Global.player_position)
+		elif cmd == "/giftletter":
+			var _g = GiftLetter.instantiate()
+			Global.hud.get_node("TopLevel").add_child(_g)
 		)
 	
 	Save.story_advanced.connect(set_marker_pos)

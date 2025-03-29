@@ -33,17 +33,21 @@ func _ready() -> void:
 		Save.story_advanced.connect(proc_story)
 		proc_story()
 		
+		Global.summon_story_panel.connect(func(_data):
+			if overlaps_body(Global.player):
+				Global.dragonvoid_crumb_left.emit())
+		
 		Global.close_story_panel.connect(func():
 			if overlaps_body(Global.player):
 				Global.dragonvoid_crumb_entered.emit())
 	
 	body_entered.connect(func(body):
-		if Global.in_exclusive_ui: return
+		if Global.story_panel_open: return
 		if body is CharacterBody3D:
 			Global.dragonvoid_crumb_entered.emit())
 	
 	body_exited.connect(func(body):
-		if Global.in_exclusive_ui: return
+		if Global.story_panel_open: return
 		if body is CharacterBody3D:
 			Global.dragonvoid_crumb_left.emit())
 

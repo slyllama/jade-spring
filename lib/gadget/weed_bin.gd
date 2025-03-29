@@ -15,6 +15,10 @@ func proc_story() -> void:
 func _ready() -> void:
 	Save.story_advanced.connect(proc_story)
 	proc_story()
+	
+	Global.summon_story_panel.connect(func(_data):
+		if $Collision.overlaps_body(Global.player):
+			Global.generic_area_left.emit())
 
 func _on_bin_interacted() -> void:
 	if Global.get_effect_qty("weed") > 0:

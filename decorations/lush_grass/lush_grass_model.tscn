@@ -16,11 +16,10 @@ buffer = PackedFloat32Array(-3.02064, 0, 4.37755, -0.43394, 0, 4.09121, 0, 0, -4
 [node name="LushGrassModel" type="Node3D"]
 script = ExtResource("1_omx5w")
 
-[node name="RockDecal" type="Decal" parent="."]
+[node name="MossDecal" type="Decal" parent="."]
 size = Vector3(6, 2, 6)
 texture_albedo = ExtResource("2_krevg")
 modulate = Color(0.227172, 0.383729, 0.115889, 1)
-upper_fade = 0.01
 distance_fade_enabled = true
 distance_fade_begin = 9.0
 distance_fade_length = 0.5

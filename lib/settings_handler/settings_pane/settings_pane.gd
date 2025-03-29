@@ -94,13 +94,13 @@ func _on_gp_low_button_down() -> void:
 func _on_gp_normal_button_down() -> void:
 	SettingsHandler.update("aa", "msaa_(4x)")
 	SettingsHandler.update("foliage_density", "high")
-	SettingsHandler.update("fps_cap", "60fps")
+	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
 	SettingsHandler.save_to_file()
 
 func _on_gp_high_button_down() -> void:
 	SettingsHandler.update("aa", "msaa_(4x)_with_fxaa")
 	SettingsHandler.update("foliage_density", "ultra")
-	SettingsHandler.update("fps_cap", "60fps")
+	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
 	SettingsHandler.save_to_file()

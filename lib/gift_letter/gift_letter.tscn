@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceasnql6pvyyj"]
+
+[ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_5o2c8"]
+[ext_resource type="Texture2D" uid="uid://bcvp2eedr7svs" path="res://lib/gift_letter/textures/base.png" id="1_7db6k"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_0hanp"]
+[ext_resource type="Script" path="res://lib/gift_letter/gift_letter.gd" id="4_1oosv"]
+[ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="5_b6or1"]
+[ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="6_n1wla"]
+[ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="7_66y1s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qs42b"]
+shader = ExtResource("1_5o2c8")
+shader_parameter/paint_exponent = 0.0
+shader_parameter/alpha = 1.0
+shader_parameter/uv_scale = 0.75
+shader_parameter/arrow_reduce_alpha = false
+shader_parameter/darken = 0.0
+shader_parameter/paint_mask = ExtResource("2_0hanp")
+
+[node name="GiftLetter" type="TextureRect"]
+material = SubResource("ShaderMaterial_qs42b")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.5
+offset_top = -185.5
+offset_right = 400.5
+offset_bottom = 185.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7db6k")
+expand_mode = 1
+script = ExtResource("4_1oosv")
+
+[node name="Title" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -131.0
+offset_right = 308.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.28, 0.180367, 0.1092, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "((This Is Debug Text))"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Copy" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -99.0
+offset_right = 308.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.28, 0.180367, 0.1092, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "((If this text makes it into the public build, we're in hot water. 'Cause listen kiddo, I'm about to give you some advice that would have every three-letter federal agency on your tail if they found out that you held this sacred knowledge. So - you play chess, right? Oh, you don't? Well, I don't care. Anyway, say you're playing chess, and you start losing. Yeah, I forget about that 'en pleasant' all the time too, or whatever it's called. Now what they don't tell you is that - get this - you can just start eating the pieces. Eat their rook, maybe try a couple of pawns. Now the tables are turning; now the shoe's on the other foot.))"
+
+[node name="CloseButton" type="TextureButton" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.5
+offset_top = 31.5
+offset_right = -86.5
+offset_bottom = 51.5
+grow_horizontal = 0
+texture_normal = ExtResource("5_b6or1")
+texture_hover = ExtResource("6_n1wla")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaperSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_66y1s")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="button_down" from="CloseButton" to="." method="_on_close_button_button_down"]
