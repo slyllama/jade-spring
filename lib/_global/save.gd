@@ -16,7 +16,9 @@ const STORY_POINTS = [
 	"clear_bugs",
 	"ratchet_dv",
 	"clear_dv",
-	"free_reign",
+	"ratchet_gratitude",
+	"gratitude",
+	"stewardship",
 	"debug"
 ]
 
@@ -36,18 +38,26 @@ var STORY_POINT_SCRIPT = {
 		"objective": "Use Raw Dispersion Flux from Ratchet's shed to clear out pests spoiling the garden."
 	},
 	"ratchet_dv": {
-		"title": "2. Pesky Pests",
+		"title": "3. Banishing the Void",
 		"description": "My communicator is buzzing; it's a message from Ratchet. 'I believe that I've established a solution for the Dragonvoid incursion blocking all our devices and systems. Please come and visit me at your earliest convenience so that we can clear out these blights once and for all.' <Speak to Ratchet about their efforts in solving the Dragonvoid problem.>",
 		"objective": "Speak to Ratchet about their efforts in solving the Dragonvoid problem."
 	},
 	"clear_dv": {
-		"title": "2. Pesky Pests",
+		"title": "3. Banishing the Void",
 		"objective": "Attune a coil of Raw Dispersion Flux using Ratchet’s Makeshift Attunement Gadget. Use it to dispel a column of Dragonvoid."
 	},
-	"free_reign": {
-		"title": "3. Free Reign",
-		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them. And they managed to get the renovation system operational again! Now we can go back to renewing the life and joy of this garden as we continue to clean it up. <All decoration tools are now available to you! You can place, and delete items, move, scale, rotate, and duplicate them, and unlock special decorations with Karma earnt from doing tough jobs around the garden. Speak to Ratchet if you want to know more. Enjoy the Jade Spring!>",
-		"objective": "((3. Free Reign))"
+	"ratchet_gratitude": {
+		"title": "4. Ratchet's Gratitude",
+		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them; they managed to get the renovation system operational again! <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them You can unlock special decorations with Karma earnt from helping clear the garden. Oh - and it looks like Ratchet has something they want to talk to you about!>",
+		"objective": "Ratchet has something to speak to you about!"
+	},
+	"gratitude": {
+		"title": "4. Ratchet's Gratitude",
+		"objective": "((Ratchet's gratitude.))"
+	},
+	"stewardship": {
+		"title": "5. Stewardship",
+		"objective": "((Stewardship.))"
 	},
 	"debug": {
 		"title": "((Debug Map))",
@@ -149,7 +159,11 @@ func _ready() -> void:
 			print(Save.data)
 		elif "/addkarma=" in _cmd:
 			var _k = int(_cmd.replace("/addkarma=", ""))
-			add_karma(_k))
+			add_karma(_k)
+		elif _cmd == "/advancestory":
+			advance_story()
+			Global.crumbs_updated.emit()
+		)
 	
 	Global.crumbs_updated.connect(func():
 		for _i in 3: await get_tree().process_frame
@@ -168,7 +182,7 @@ func _ready() -> void:
 		elif (Save.data.story_point == "clear_dv"
 			and Global.crumb_handler.totals.dragonvoid - Save.data.crumb_count.dragonvoid >= OBJECTIVE_DV_COUNT):
 			advance_story()
-			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["free_reign"])
+			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_gratitude"])
 	)
 
 func _notification(what):

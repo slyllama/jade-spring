@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	Global.command_sent.emit("/cleardeco")
 	Global.current_effects = []
-	Save.data.story_point = "free_reign"
+	Save.data.story_point = "stewardship"
 	Save.advance_story()
 	
 	Global.command_sent.emit("/enableattn")

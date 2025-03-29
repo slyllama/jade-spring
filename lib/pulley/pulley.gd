@@ -115,6 +115,18 @@ const no_dv_charge = {
 	}
 }
 
+const gift_letter = {
+	"_entry": {
+		"string": "((Gift letter.))",
+		"options" : {
+			"exit": "((Exit.))"
+		}
+	},
+	"exit": {
+		"reference": "_exit"
+	}
+}
+
 const dv_charge = {
 	"_entry": {
 		"string": "Beep... Static... Buzz...",
@@ -164,3 +176,12 @@ func _on_interacted() -> void:
 			or "d_primordus" in Global.current_effects or "d_kralkatorrik" in Global.current_effects):
 			spawn_dialogue(dv_charge)
 		else: spawn_dialogue(no_dv_charge)
+	elif Save.data.story_point == "ratchet_gratitude":
+		# This needs to be manual so that we can call back to open the letter
+		var _d = Dialogue.instantiate()
+		_d.data = gift_letter
+		Global.hud.add_child(_d)
+		_d.closed.connect(func():
+			Save.advance_story()
+			Global.generic_area_entered.emit())
+		_d.open()

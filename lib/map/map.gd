@@ -1,6 +1,6 @@
 extends Node3D
 # Map
-# Base class for map functionalirt
+# Base class for map functionality
 
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
@@ -8,6 +8,7 @@ const Ping = preload("res://lib/ping/ping.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
+const HIDDEN_POS = Vector3(0, -20, 0) # hide story marker far away
 var picking_disabled_objects: Array[StaticBody3D] = []
 var rng = RandomNumberGenerator.new()
 
@@ -64,9 +65,11 @@ func set_marker_pos() -> void: # set the position of the story marker
 		"clear_bugs": $StoryMarker.global_position = $Discombobulator/SpatialText.global_position - Vector3(0, 1.9, 0)
 		"ratchet_dv": $StoryMarker.position = $Pulley.position
 		"clear_dv": $StoryMarker.position = $ChargingStation.position + Vector3(-0.4, 0, 0)
-		"free_reign": $StoryMarker.position = Vector3(0, -20, 0)
-		"debug": $StoryMarker.position = Vector3(0, -20, 0)
-		"_": $StoryMarker.position = Vector3(0, -20, 0) # hide under map
+		"ratchet_gratitude": $StoryMarker.position = $Pulley.position
+		"gratitude": $StoryMarker.position = HIDDEN_POS
+		"stewardship": $StoryMarker.position = HIDDEN_POS # hide under map
+		"debug": $StoryMarker.position = HIDDEN_POS # hide under map
+		"_": $StoryMarker.position = HIDDEN_POS # hide under map
 
 func _ready() -> void:
 	# Set initial state
