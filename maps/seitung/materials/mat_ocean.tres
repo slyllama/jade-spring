@@ -13,7 +13,8 @@ uniform sampler2D normal_b: hint_normal;
 uniform sampler2D light_foam: filter_linear_mipmap, repeat_enable;
 uniform vec2 uv_scale = vec2(1.0);
 uniform float speed_scale = 1.0;
-uniform float normal_strength = 1.0;
+uniform float normal_strength_a: hint_range(0.0, 1.0) = 1.0;
+uniform float normal_strength_b: hint_range(0.0, 1.0) = 1.0;
 uniform float foam_exponent = 3.0;
 uniform sampler2D alpha_mask: hint_default_black;
 
@@ -24,18 +25,17 @@ float fresnel(float amount, vec3 normal, vec3 view) {
 
 void fragment() {
 	vec2 uv = UV * uv_scale;
-	vec3 normal_map = texture(normal_a, uv + TIME * 0.01 * speed_scale).rgb * 0.4;
-	normal_map += texture(normal_b, uv * 1.1 - TIME * 0.005 * speed_scale).rgb * 0.7;
+	vec3 normal_map = texture(normal_a, uv + TIME * 0.01 * speed_scale).rgb * normal_strength_a;
+	normal_map += texture(normal_b, uv - TIME * 0.01 * speed_scale).rgb * normal_strength_b;
 
-	float foam_mix = pow(texture(light_foam, uv - TIME * 0.012 * speed_scale).r, foam_exponent);
-	ALBEDO = mix(primary_color.rgb, foam_color.rgb, foam_mix);
-	ALBEDO += vec3(fresnel(4.0, NORMAL, VIEW));
-	ALBEDO += pow(texture(alpha_mask, UV).g, 2.0);
+	float foam_mix = pow(texture(light_foam, uv).r, foam_exponent) * fresnel(2.0, NORMAL, VIEW);
+	ALBEDO = mix(primary_color.rgb, foam_color.rgb, clamp(foam_mix, 0.0, 1.0));
+	ALBEDO += vec3(fresnel(5.0, NORMAL, VIEW));
+	ALBEDO += pow(texture(alpha_mask, UV).g, 0.9);
 	ALPHA = clamp((1.0 - texture(alpha_mask, UV).r) * 0.75 + foam_mix, 0.0, 1.0);
 
 	NORMAL_MAP = normal_map;
-	NORMAL_MAP_DEPTH = normal_strength;
-	ROUGHNESS = roughness;
+	ROUGHNESS = clamp(roughness + fresnel(2.0, NORMAL, VIEW), 0.0, 1.0);
 	//SPECULAR = 0.2;
 }
 "
@@ -80,12 +80,13 @@ noise = SubResource("FastNoiseLite_57d6i")
 [resource]
 render_priority = 0
 shader = SubResource("Shader_nlaf5")
-shader_parameter/primary_color = Color(0, 0.317647, 0.576471, 1)
+shader_parameter/primary_color = Color(0, 0.307838, 0.559849, 1)
 shader_parameter/foam_color = Color(1, 1, 1, 1)
 shader_parameter/roughness = 0.2
-shader_parameter/uv_scale = Vector2(24, 24)
-shader_parameter/speed_scale = 0.5
-shader_parameter/normal_strength = 2.0
+shader_parameter/uv_scale = Vector2(6, 8)
+shader_parameter/speed_scale = 1.2
+shader_parameter/normal_strength_a = 0.45
+shader_parameter/normal_strength_b = 0.7
 shader_parameter/foam_exponent = 3.0
 shader_parameter/normal_a = SubResource("NoiseTexture2D_l83jr")
 shader_parameter/normal_b = SubResource("NoiseTexture2D_eakwi")

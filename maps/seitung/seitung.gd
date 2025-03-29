@@ -30,7 +30,7 @@ func _ready() -> void:
 			$Sky/OceanSunNight.visible = false
 			$Sky/SunNight.visible = false
 			$Sky/OceanSunNight.visible = false
-			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color("#005193"))
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color("#004e8f"))
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.WHITE)
 			for _n in $Decoration/LightRays.get_children(): _n.visible = true
 			update_saturation()
