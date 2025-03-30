@@ -6,6 +6,7 @@ const APP_ID = 3561310
 @onready var user_id = Steam.get_current_steam_id()
 
 @export var show_debug = true
+var stats_loaded = false
 
 func printd(debug_str: String) -> void:
 	if show_debug:
@@ -14,7 +15,9 @@ func printd(debug_str: String) -> void:
 func _on_steam_stats_ready(game: int, result: int, _user: int) -> void:
 	printd("Stats callback (" + str(game) + " -> " + str(result) + ")")
 	
-	if result == Steam.RESULT_OK and game == APP_ID: printd("Stats callback success!")
+	if result == Steam.RESULT_OK and game == APP_ID:
+		printd("Stats callback success!")
+		stats_loaded = true
 	else: printd("Stats callback error.")
 
 func _init() -> void:
@@ -27,3 +30,17 @@ func _ready() -> void:
 	
 	await get_tree().process_frame
 	Steam.requestUserStats(Steam.get_current_steam_id())
+	
+	Global.command_sent.connect(func(cmd):
+		if stats_loaded:
+			# Stats commands
+			if cmd == "/printteststat":
+				printd("karma_earned: " + str(Steam.getStatInt("karma_earned")))
+			elif cmd == "/incrementteststat":
+				Steam.setStatInt("karma_earned", Steam.getStatInt("karma_earned") + 1)
+				Global.command_sent.emit("/printteststat")
+			elif cmd == "/printtestachieve":
+				printd(str(Steam.getAchievement("story_completion")))
+		else:
+			printd("Stats weren't successfully loaded.")
+	)

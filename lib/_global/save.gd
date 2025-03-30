@@ -134,7 +134,7 @@ func reset() -> void:
 
 func save_to_file() -> void:
 	if Global.map_name == "debug":
-		print("[Save] debug map; not saving.")
+		#print("[Save] debug map; not saving.")
 		return
 	for _fx in Global.current_effects:
 		if _fx.contains("weed"):
