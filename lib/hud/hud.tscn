@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://bx0omalga0s0k" path="res://lib/hud/announcement/announcement.tscn" id="9_6p63t"]
 [ext_resource type="PackedScene" uid="uid://bvh87e5dxhdg8" path="res://lib/decoration/decoration_pane/decoration_pane.tscn" id="9_qacaq"]
 [ext_resource type="Texture2D" uid="uid://dgvxowegr8bu3" path="res://lib/hud/side_panel/textures/side_panel_minor_separator.png" id="10_hvlxk"]
-[ext_resource type="Texture2D" uid="uid://bq7uy8v7vpum8" path="res://lib/hud/textures/interact_indicator_hover.png" id="13_4sao5"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="14_7wyoj"]
-[ext_resource type="Texture2D" uid="uid://dlff8ygba3xfx" path="res://lib/hud/textures/interact_indicator.png" id="14_dlrg2"]
+[ext_resource type="Texture2D" uid="uid://df7e581ca3tbi" path="res://lib/hud/textures/interact_base.png" id="14_i0rys"]
 [ext_resource type="Script" path="res://lib/hud/interact_indicator.gd" id="15_yinsv"]
 [ext_resource type="PackedScene" uid="uid://fx684833x53q" path="res://lib/hud/state_indicator/state_indicator.tscn" id="16_s3yhc"]
+[ext_resource type="FontFile" uid="uid://b6r7pypxn4inf" path="res://generic/fonts/libertinus_sans.otf" id="17_31p10"]
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="18_0n0fc"]
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
@@ -43,14 +43,7 @@ shader_parameter/lod = 0.95
 shader_parameter/mask = SubResource("GradientTexture2D_1ic73")
 shader_parameter/mask2 = SubResource("GradientTexture2D_h7w5p")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agwb6"]
-content_margin_left = 5.0
-content_margin_right = 5.0
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkc2r"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ryxhn")
@@ -208,20 +201,19 @@ alignment = 1
 layer = 2
 
 [node name="InteractIndicator" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(56, 56)
+custom_minimum_size = Vector2(237, 92)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = 147.0
-offset_right = 28.0
-offset_bottom = 203.0
+offset_left = 68.0
+offset_top = 33.0
+offset_right = 305.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("14_dlrg2")
-texture_hover = ExtResource("13_4sao5")
+texture_normal = ExtResource("14_i0rys")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("15_yinsv")
@@ -244,31 +236,25 @@ mouse_filter = 2
 texture = ExtResource("14_7wyoj")
 expand_mode = 1
 
-[node name="InputKeyBox" type="HBoxContainer" parent="InteractIndicator"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -12.0
-offset_bottom = 7.0
-grow_horizontal = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="InputKey" type="RichTextLabel" parent="InteractIndicator/InputKeyBox"]
+[node name="Text" type="RichTextLabel" parent="InteractIndicator"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
+offset_left = 22.0
+offset_top = 43.0
+offset_right = 221.0
+offset_bottom = 65.0
 mouse_filter = 1
-theme_override_colors/default_color = Color(0.68, 0.68, 0.68, 1)
-theme_override_fonts/normal_font = ExtResource("2_yply7")
-theme_override_font_sizes/normal_font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_agwb6")
+theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_fonts/normal_font = ExtResource("17_31p10")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkc2r")
 bbcode_enabled = true
-text = "[center]#[/center]"
-fit_content = true
+text = "Interact"
 scroll_active = false
 autowrap_mode = 0
 
 [node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
+visible = false
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5

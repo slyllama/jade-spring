@@ -145,6 +145,7 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.598754, 0)
 shape = SubResource("CylinderShape3D_gmgfv")
 
+[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
 [connection signal="interacted" from="Collision" to="." method="_on_bin_interacted"]
 
 [editable path="Collision/SpatialText"]

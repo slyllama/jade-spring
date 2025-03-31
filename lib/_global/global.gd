@@ -36,6 +36,7 @@ var dialogue_open = false
 var current_effects = [ ]
 var foliage_count = 0
 var in_exclusive_ui = false
+var interact_hint = "Interact"
 var last_command = ""
 var load_debug_next = false # the next map loaded by the loader will be the debug map if this is true
 var map_name = ""

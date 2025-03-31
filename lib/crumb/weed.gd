@@ -22,6 +22,10 @@ func _ready() -> void:
 	$WeedMesh.scale *= _scale_factor
 	$Foam.emitting = false
 	
+	Global.weed_crumb_entered.connect(func():
+		if Save.data.story_point != "game_start":
+			Global.interact_hint = "Pick Weed")
+	
 	body_entered.connect(func(body):
 		if Global.story_panel_open: return
 		if pickable and body is CharacterBody3D:

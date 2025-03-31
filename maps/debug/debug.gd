@@ -2,6 +2,7 @@ extends "res://lib/map/map.gd"
 
 func _ready() -> void:
 	super()
+	$PulleyMesh/AnimationPlayer.play("Base")
 	
 	Global.hud.get_node("SidePanel").modulate.a = 1.0 # just for debug
 	
@@ -18,3 +19,6 @@ func _ready() -> void:
 	Global.command_sent.emit("/enableattn")
 	await get_tree().create_timer(0.2).timeout # race condition?
 	Global.add_effect.emit("discombobulator")
+
+func _process(delta: float) -> void:
+	$PulleyMesh.rotation.y += delta * 2.1

@@ -34,9 +34,8 @@ func set_text(data: Dictionary) -> void:
 	var _text = ""
 	for _t in _tokens:
 		if _t[0] == "@": # this is an input binding token
-			_text += ("[color=#ffc573][u]("
-				+ Utilities.get_binding_str(_t.replace("@", ""))
-				+ ")[/u][/color]")
+			_text += Utilities.format_binding(
+				Utilities.get_binding_str(_t.replace("@", "")))
 		else: _text += _t
 	$VBox/Body.text = _text
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgrakybin27gf"]
+[gd_scene load_steps=33 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
 [ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://3lblxj6dgvuv" path="res://decorations/autumnal_tree/deco_autumnal_tree.tscn" id="8_xp2h4"]
 [ext_resource type="PackedScene" uid="uid://ceqye8xeeqf64" path="res://decorations/lush_grass/lush_grass.tscn" id="9_v1c7u"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="11_gxohq"]
+[ext_resource type="PackedScene" uid="uid://ihnnrs54ttba" path="res://lib/pulley/meshes/pulley.glb" id="12_2asoh"]
+[ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="13_w7wln"]
+[ext_resource type="Shader" uid="uid://cr660gpb0btrf" path="res://lib/player/materials/shaders/shader_engine_glow.tres" id="14_fh2hh"]
+[ext_resource type="PackedScene" uid="uid://bp20w7u5bdeoa" path="res://maps/seitung/meshes/wp_base.glb" id="15_uc0l8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("3_pk05h")
@@ -42,6 +46,67 @@ fog_depth_end = 30.0
 volumetric_fog_density = 0.01
 adjustment_enabled = true
 adjustment_saturation = 1.09
+
+[sub_resource type="Gradient" id="Gradient_ab0nn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqkxy"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rvepw"]
+seamless = true
+color_ramp = SubResource("Gradient_ab0nn")
+noise = SubResource("FastNoiseLite_oqkxy")
+
+[sub_resource type="Gradient" id="Gradient_1hotj"]
+offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rb7yi"]
+gradient = SubResource("Gradient_1hotj")
+
+[sub_resource type="Gradient" id="Gradient_akrqd"]
+offsets = PackedFloat32Array(0.0380117, 0.24269, 0.549708, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.211429, 0.211429, 0.211429, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1swkn"]
+gradient = SubResource("Gradient_akrqd")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ud8gl"]
+render_priority = 0
+shader = ExtResource("13_w7wln")
+shader_parameter/uv_scale = Vector2(1, 0.5)
+shader_parameter/albedo = null
+shader_parameter/ray_mask_texture = SubResource("NoiseTexture2D_rvepw")
+shader_parameter/x_gradient_texture = SubResource("GradientTexture2D_rb7yi")
+shader_parameter/y_gradient_texture = SubResource("GradientTexture2D_1swkn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ny3k5"]
+material = SubResource("ShaderMaterial_ud8gl")
+size = Vector2(0.32, 1)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_4uvcy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_37k17"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q7mfp"]
+seamless = true
+color_ramp = SubResource("Gradient_4uvcy")
+noise = SubResource("FastNoiseLite_37k17")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_00gk1"]
+render_priority = -2
+shader = ExtResource("14_fh2hh")
+shader_parameter/glow_color = Color(0.449252, 0.970457, 1, 1)
+shader_parameter/wobble_size = 0.2
+shader_parameter/wobble_intensity = 0.03
+shader_parameter/speed_scale = 0.1
+shader_parameter/noise = SubResource("NoiseTexture2D_q7mfp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_w4wo5"]
+material = SubResource("ShaderMaterial_00gk1")
+size = Vector2(0.8, 1.6)
 
 [node name="Map" instance=ExtResource("1_whgid")]
 script = ExtResource("2_n4fpp")
@@ -81,3 +146,18 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Discombobulator" parent="." index="14" instance=ExtResource("11_gxohq")]
 transform = Transform3D(-0.666337, 0, 0.74565, 0, 1, 0, -0.74565, 0, -0.666337, -6.65852, -4.84288e-08, 5.71795)
+
+[node name="PulleyMesh" parent="." index="15" instance=ExtResource("12_2asoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -10)
+
+[node name="Ray" type="MeshInstance3D" parent="PulleyMesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_ny3k5")
+
+[node name="Glow" type="MeshInstance3D" parent="PulleyMesh/Ray" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("QuadMesh_w4wo5")
+
+[node name="wp_base" parent="." index="16" instance=ExtResource("15_uc0l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)

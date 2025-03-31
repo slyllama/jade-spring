@@ -34,6 +34,9 @@ const DRAGON_DATA = {
 	}
 }
 
+func format_binding(binding: String) -> String:
+	return("[color=#ffc573](" + binding + ")[/color]")
+
 func get_screen_center(offset = Vector2.ZERO) -> Vector2:
 	return(Vector2(get_window().size.x / Global.retina_scale / 2.0 - 150.0,
 		get_window().size.y / Global.retina_scale / 2.0) + offset)
