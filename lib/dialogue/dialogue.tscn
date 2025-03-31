@@ -124,7 +124,6 @@ script = ExtResource("1_pyvfo")
 
 [node name="Base" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-clip_children = 2
 material = SubResource("ShaderMaterial_xmdcj")
 custom_minimum_size = Vector2(681, 0)
 anchors_preset = 8
@@ -133,9 +132,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -340.5
-offset_top = -307.0
+offset_top = -364.0
 offset_right = 340.5
-offset_bottom = 277.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jry7x")
@@ -178,6 +177,31 @@ text = "A man has fallen into the river in Lego City! Start the new rescue helic
 alignment = 0
 autowrap_mode = 2
 
+[node name="Title" type="RichTextLabel" parent="Base"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = -114.0
+offset_right = 283.5
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]((Dialogue Title))[/center]"
+fit_content = true
+scroll_active = false
+
 [node name="Box" type="VBoxContainer" parent="Base"]
 use_parent_material = true
 layout_mode = 1
@@ -213,7 +237,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
+color = Color(0, 0, 0, 0)
 
 [node name="JadeWings" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -224,9 +248,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -315.0
-offset_top = -202.0
+offset_top = -272.0
 offset_right = 315.0
-offset_bottom = -76.0
+offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_k2g0f")

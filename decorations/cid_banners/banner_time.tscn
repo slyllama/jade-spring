@@ -10,7 +10,6 @@
 script = ExtResource("1_dakct")
 id = "cid_time_banner"
 collision_box = NodePath("Body")
-custom_lod = false
 
 [node name="BannerTimeGadget" parent="." instance=ExtResource("2_77unr")]
 

@@ -38,5 +38,6 @@ func _on_bin_interacted() -> void:
 	Global.remove_effect.emit("weed")
 
 func _on_collision_body_entered(body: Node3D) -> void:
-	if Save.data.story_point != "game_start" and Save.data.weeds > 0:
-		Global.interact_hint = "Deposit Weeds"
+	if body is CharacterBody3D:
+		if Save.data.story_point != "game_start" and Save.data.weeds > 0:
+			Global.interact_hint = "Deposit Weeds"

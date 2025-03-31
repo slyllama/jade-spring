@@ -4,6 +4,7 @@ extends "res://lib/gadget/gadget.gd"
 signal otter_animation_finished
 
 const TEST_DIALOGUE = {
+	"title": "Cid's Time Banner",
 	"_entry": {
 		"string": "The echo of the otter - at once a memory, a premonition, and a whisper cradled by the breeze of the present - gently calls to you.",
 		"options": {

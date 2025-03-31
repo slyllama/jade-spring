@@ -14,7 +14,7 @@ void fragment() {
 	ALPHA *= texture(noise_texture, UV * noise_scale + TIME * vec2(-0.01, -0.02)).r;
 	ALPHA *= alpha;
 	ALBEDO = vec3(1.0);
-	
+
 	{
 		float fade_distance = length(VERTEX);
 		const vec3 magic = vec3(0.06711056, 0.00583715, 52.9829189);

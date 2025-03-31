@@ -6,6 +6,7 @@ const APP_ID = 3561310
 @onready var user_id = Steam.get_current_steam_id()
 
 @export var show_debug = true
+var steam_loaded = false
 var stats_loaded = false
 
 func printd(debug_str: String) -> void:
@@ -22,13 +23,17 @@ func _on_steam_stats_ready(game: int, result: int, _user: int) -> void:
 
 func _init() -> void:
 	var init_steam: Dictionary = Steam.steamInitEx(true, APP_ID)
+	if init_steam.status == Steam.STEAM_API_INIT_RESULT_OK:
+		steam_loaded = true
 	printd("Validating... " + str(init_steam))
 
 func _ready() -> void:
+	await get_tree().process_frame
+	if !steam_loaded:
+		return
 	Steam.current_stats_received.connect(_on_steam_stats_ready)
 	Steam.user_stats_received.connect(_on_steam_stats_ready)
 	
-	await get_tree().process_frame
 	Steam.requestUserStats(Steam.get_current_steam_id())
 	
 	Global.command_sent.connect(func(cmd):

@@ -22,11 +22,12 @@ func _set_dragonvoid_exponent(val) -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("sprint"):
+		if get_window().gui_get_focus_owner() is LineEdit: return
 		var _f = create_tween()
 		_f.tween_method(_set_anime_alpha, 0.0, 0.5, 0.1)
 	elif Input.is_action_just_released("sprint"):
 		var _f = create_tween()
-		_f.tween_method(_set_anime_alpha, 0.5, 0.0, 0.1)
+		_f.tween_method(_set_anime_alpha, $Anime.material.get_shader_parameter("modulate_a"), 0.0, 0.1)
 	
 	if Input.is_action_just_pressed("toggle_hud"):
 		if $Debug.visible:

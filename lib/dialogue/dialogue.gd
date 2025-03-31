@@ -80,6 +80,10 @@ func open() -> void:
 	Global.dismiss_hints()
 	
 	$PlayDialogue.play()
+	if "title" in data:
+		$Base/Title.text = "[center]" + data.title + "[/center]"
+	else:
+		$Base/Title.text = ""
 	if "_entry" in data:
 		render_block(data._entry)
 	

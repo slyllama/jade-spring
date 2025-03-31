@@ -96,6 +96,11 @@ func subtract_karma(amount: int) -> void:
 		save_to_file()
 		karma_changed.emit()
 
+# Is the player at or after this story point?
+func is_at_story_point(story_point: String) -> bool:
+	print("story_point: " + story_point + " -> " + str(STORY_POINTS.find(story_point)))
+	return(false)
+
 func is_save_valid() -> bool:
 	if FileAccess.file_exists(FILE_PATH):
 		var _f = FileAccess.open(FILE_PATH, FileAccess.READ)
@@ -163,6 +168,9 @@ func _ready() -> void:
 		elif _cmd == "/advancestory":
 			advance_story()
 			Global.crumbs_updated.emit()
+		elif "/ifstory=" in _cmd:
+			var story_point = _cmd.replace("/ifstory=", "")
+			is_at_story_point(story_point)
 		)
 	
 	Global.crumbs_updated.connect(func():

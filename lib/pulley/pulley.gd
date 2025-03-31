@@ -3,7 +3,7 @@ extends "res://lib/gadget/gadget.gd"
 # Script for the character Pulley-4!
 
 const intro_dialogue_data = {
-	#"_texture": "sticker_pulley",
+	"title": "Ratchet",
 	"_entry": {
 		"string": "(Curse t-t-this infuriating, abhorrent... why won’t it just...) Oh, f-f-friend, good morning! The overnight magnetic realignment h-h-helped, did it?",
 		"options": {
@@ -34,6 +34,7 @@ const intro_dialogue_data = {
 }
 
 const pick_weeds_alt_dialogue = {
+	"title": "Ratchet",
 	"_entry": {
 		"string": "(Ratchet is mumbling to themselves as they consult data on their heads-up display.)",
 		"options": {
@@ -62,6 +63,7 @@ const pick_weeds_alt_dialogue = {
 }
 
 const clear_bugs_alt_dialogue = {
+	"title": "Ratchet",
 	"_entry": {
 		"string": "(Ratchet is rapidly mumbling esoteric-sounding calculations.)",
 		"options": {
@@ -80,6 +82,7 @@ const clear_bugs_alt_dialogue = {
 }
 
 const dv_intro_dialogue = {
+	"title": "Ratchet",
 	"_entry": {
 		"string": "(Ratchet is looking more smug than a Snaff Prize winner.)",
 		"options": {
@@ -104,6 +107,7 @@ const dv_intro_dialogue = {
 }
 
 const no_dv_charge = {
+	"title": "Ratchet",
 	"_entry": {
 		"string": "Your c-c-circuit functions are stable... no energy spikes... no anomalies... you mustn't have used t-t-the Attenuator yet, huh. N-no, it's perfectly safe.",
 		"options": {
@@ -116,6 +120,7 @@ const no_dv_charge = {
 }
 
 const gift_letter = {
+	"title": "Ratchet",
 	"_entry": {
 		"string": "Ahhh; y-you're still in one piece. (RELIEF REGISTERED.) You've really helped-d-d make this place into a g-gem of Cantha.",
 		"options" : {
@@ -134,6 +139,7 @@ const gift_letter = {
 }
 
 const dv_charge = {
+	"title": "Ratchet",
 	"_entry": {
 		"string": "Beep... Static... Buzz...",
 		"options": {
