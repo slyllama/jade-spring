@@ -238,7 +238,7 @@ func play_hint(id: String, data: Dictionary, position: Vector2, play_once = fals
 	
 	if play_once:
 		if id in Save.data.hints_played:
-			print("[Global] discarding already-played hint '" + id + "'")
+			#print("[Global] discarding already-played hint '" + id + "'")
 			return # already played
 		Save.data.hints_played.append(id)
 	

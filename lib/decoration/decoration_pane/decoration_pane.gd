@@ -132,7 +132,11 @@ func render(tag = "None", custom_data = []) -> void:
 			_item.set_icon("furniture")
 		
 		_item.clicked.connect(func():
-			current_id = _d
+			# Prevent the same model from loadingtwice
+			var _already_loaded = false
+			if _d == current_id: _already_loaded = true
+			else: current_id = _d
+			
 			preview.current_id = current_id
 			var _p = _dl.scene
 			_update_unlock_button(_d)
@@ -141,8 +145,9 @@ func render(tag = "None", custom_data = []) -> void:
 			if _d == "light_ray":
 				_p = "res://decorations/light_ray/light_ray_cursor.glb"
 			$DecoTitle.text = "[center]" + _dl.name + "[/center]"
-			preview.load_model(
-				_p, _dl.preview_scale, _get_y_rotation(_dl)))
+			if !_already_loaded:
+				preview.load_model(
+					_p, _dl.preview_scale, _get_y_rotation(_dl)))
 		
 		_c += 1
 	

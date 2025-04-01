@@ -8,6 +8,7 @@ signal karma_changed
 const OBJECTIVE_WEED_COUNT = 3
 const OBJECTIVE_PEST_COUNT = 2
 const OBJECTIVE_DV_COUNT = 1
+const GIFT_STORY_POINT = "clear_bugs" # gift will unlock past this point - debugging
 var first_run = true
 
 const STORY_POINTS = [
@@ -107,10 +108,8 @@ func has_dv_charge() -> bool:
 func is_at_story_point(story_point: String) -> bool:
 	var _check_idx = STORY_POINTS.find(story_point)
 	var _save_idx = STORY_POINTS.find(data.story_point)
-	if _check_idx >= _save_idx:
-		return(true)
-	else:
-		return(false)
+	if _save_idx >= _check_idx: return(true)
+	else: return(false)
 
 func is_save_valid() -> bool:
 	if FileAccess.file_exists(FILE_PATH):

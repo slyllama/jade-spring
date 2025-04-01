@@ -108,9 +108,9 @@ func _ready() -> void:
 	SettingsHandler.setting_changed.connect(func(parameter):
 		var _value = SettingsHandler.settings[parameter]
 		if parameter == "show_gift_item":
-			#if Save.is_at_story_point("stewardship"):
-			if _value == "show": toggle_gift_visibility(true)
-			else: toggle_gift_visibility(false)
+			if Save.is_at_story_point(Save.GIFT_STORY_POINT):
+				if _value == "show": toggle_gift_visibility(true)
+				else: toggle_gift_visibility(false)
 	)
 	
 	# Spawn/clear golems in different circumstances

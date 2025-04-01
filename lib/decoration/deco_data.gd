@@ -67,7 +67,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/rocket/rocket.tscn",
 		"preview_scale": 0.19,
 		"preview_y_rotation": 190,
-		"preview_v_offset": -0.4,
+		"preview_v_offset": -0.6,
 		"tags": [],
 		"cull": "NEVER",
 		"unlock_value": 31

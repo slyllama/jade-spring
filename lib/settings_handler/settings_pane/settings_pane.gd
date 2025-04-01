@@ -1,9 +1,9 @@
 extends "res://lib/ui_container/ui_container.gd"
 
-const QuitConfirmation = preload("res://lib/hud/quit_confirmation/quit_confirmation.tscn")
-var qc
-
 func open(silent = false) -> void:
+	if !Save.is_at_story_point(Save.GIFT_STORY_POINT) or get_parent().name == "MainMenu":
+		$Container/SC/Contents/ShowGift.visible = false
+	
 	super(silent)
 	$PreventFocus.visible = false
 	$Container/DoneResetBox/Done.grab_focus()
@@ -39,6 +39,12 @@ func _ready() -> void:
 	$Container/SC/Contents/Volume.set_value_silent(Utilities.get_user_vol())
 	
 	Global.summon_story_panel.connect(func(_data): close())
+	
+	Save.story_advanced.connect(func():
+		if Save.is_at_story_point(Save.GIFT_STORY_POINT):
+			$Container/SC/Contents/ShowGift.visible = true
+			SettingsHandler.update("show_gift_item", "show")
+			SettingsHandler.refresh())
 	
 	SettingsHandler.setting_changed.connect(func(_param):
 		if _param == "fov":
