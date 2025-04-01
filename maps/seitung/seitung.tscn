@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=92 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -11,11 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bp20w7u5bdeoa" path="res://maps/seitung/meshes/wp_base.glb" id="8_alpya"]
 [ext_resource type="Texture2D" uid="uid://cans3a54doa6c" path="res://maps/seitung/materials/textures/cliff_norm.jpg" id="8_vn5ie"]
 [ext_resource type="PackedScene" uid="uid://bxj3pc7r8l63r" path="res://lib/pulley/pulley.tscn" id="9_2e7lr"]
-[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="9_dtw6c"]
 [ext_resource type="PackedScene" uid="uid://b863y1yeckqfh" path="res://decorations/autumnal_shrub/deco_autumnal_shrub.tscn" id="10_g35cq"]
 [ext_resource type="PackedScene" uid="uid://blrcrw8wkf6uu" path="res://decorations/weeping_willow/deco_weeping_willow.tscn" id="10_gcd6s"]
 [ext_resource type="PackedScene" uid="uid://bvhx4oidrcb5n" path="res://maps/seitung/meshes/landscape.glb" id="10_vndj8"]
-[ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="10_waumt"]
 [ext_resource type="PackedScene" uid="uid://1ma6van4rays" path="res://decorations/building_platform/deco_building_platform.tscn" id="11_e4s8j"]
 [ext_resource type="PackedScene" uid="uid://gum06jfkpxrp" path="res://decorations/platform_stairs/deco_platform_stairs.tscn" id="12_1v6u6"]
 [ext_resource type="Texture2D" uid="uid://crd06m4fc15fh" path="res://maps/seitung/textures/moss_decal.png" id="13_1ga72"]
@@ -76,19 +74,6 @@ normal_texture = ExtResource("8_vn5ie")
 uv1_scale = Vector3(16, 16, 16)
 distance_fade_min_distance = 20.0
 distance_fade_max_distance = 30.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11m6v"]
-albedo_color = Color(0.5, 0.5, 0.5, 1)
-albedo_texture = ExtResource("9_dtw6c")
-normal_enabled = true
-normal_scale = 0.2
-normal_texture = ExtResource("10_waumt")
-uv1_scale = Vector3(80, 80, 80)
-
-[sub_resource type="QuadMesh" id="QuadMesh_kt5au"]
-material = SubResource("StandardMaterial3D_11m6v")
-size = Vector2(80, 80)
-orientation = 1
 
 [sub_resource type="Gradient" id="Gradient_ab0nn"]
 
@@ -377,11 +362,7 @@ transform = Transform3D(-0.995881, 0, 0.0906672, 0, 1, 0, -0.0906672, 0, -0.9958
 
 [node name="FloorMesh" parent="Floor" index="1"]
 transform = Transform3D(1.25, 0, 0, 0, 1.20741, -0.12941, 0, 0.323524, 0.482963, 0, -5.3804, 30.919)
-surface_material_override/0 = SubResource("StandardMaterial3D_ixf13")
-
-[node name="FloorMesh2" type="MeshInstance3D" parent="Floor" index="2"]
-transform = Transform3D(1.25, 0, 0, 0, 1.20741, 0.12941, 0, -0.323524, 0.482963, 0, -5.3804, 30.3578)
-mesh = SubResource("QuadMesh_kt5au")
+visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_ixf13")
 
 [node name="Ambience" parent="." index="5"]

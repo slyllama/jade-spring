@@ -22,7 +22,9 @@ func _ready() -> void:
 			$Sky/SunNight.visible = true
 			$Sky/OceanSunNight.visible = true
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color.BLACK)
-			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.BLACK)
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.WHITE * 0.55)
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("normal_strength_a", 0.43)
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("normal_strength_b", 0.7)
 			for _n in $Decoration/LightRays.get_children(): _n.visible = false
 			update_saturation()
 		elif _cmd == "/time=day":
@@ -30,8 +32,10 @@ func _ready() -> void:
 			$Sky/OceanSunNight.visible = false
 			$Sky/SunNight.visible = false
 			$Sky/OceanSunNight.visible = false
-			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color("#004e8f"))
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("primary_color", Color("#003743"))
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("foam_color", Color.WHITE)
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("normal_strength_a", 0.49)
+			$Landscape/Sea.get_active_material(0).set_shader_parameter("normal_strength_b", 0.75)
 			for _n in $Decoration/LightRays.get_children(): _n.visible = true
 			update_saturation()
 	)

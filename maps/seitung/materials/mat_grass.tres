@@ -1,66 +1,11 @@
-[gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://c521u7d0r3sk1"]
+[gd_resource type="ShaderMaterial" load_steps=14 format=3 uid="uid://c521u7d0r3sk1"]
 
 [ext_resource type="Texture2D" uid="uid://c5sldoo7exwou" path="res://maps/seitung/materials/textures/landscape_mask.jpg" id="1_dmdua"]
+[ext_resource type="Shader" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_dp4rp"]
 [ext_resource type="Texture2D" uid="uid://cans3a54doa6c" path="res://maps/seitung/materials/textures/cliff_norm.jpg" id="2_tvhp6"]
 [ext_resource type="Texture2D" uid="uid://cbreo445y1ow7" path="res://maps/seitung/materials/textures/cliff_diff.jpg" id="2_ysiw3"]
-
-[sub_resource type="Shader" id="Shader_e2vv8"]
-code = "shader_type spatial;
-
-uniform float uv_scale = 18.0;
-uniform sampler2D grass_texture_base: source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D grass_texture_add: source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D grass_normal_texture: filter_linear_mipmap, repeat_enable, hint_normal;
-uniform sampler2D blend_noise_texture: filter_linear_mipmap, repeat_enable, hint_default_black;
-
-uniform sampler2D dirt_texture: source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D dirt_mask_texture: filter_linear_mipmap, hint_default_black;
-
-uniform sampler2D rock_texture: source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D rock_normal_texture: filter_linear_mipmap, repeat_enable, hint_normal;
-
-uniform float grass_base_multiplier = 0.45;
-uniform float normal_strength = 1.0;
-uniform float grass_add_multiplier = 0.7;
-uniform float dirt_uv_multiplier = 1.55;
-
-vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
-	float cosa = cos(rotation);
-	float sina = sin(rotation);
-	uv -= pivot;
-	return vec2(
-		cosa * uv.x - sina * uv.y,
-		cosa * uv.y + sina * uv.x
-	) + pivot;
-}
-
-void fragment() {
-	float blend_noise = texture(blend_noise_texture, UV).r;
-	float dirt_blend = texture(dirt_mask_texture, UV).b;
-	float light_blend = texture(dirt_mask_texture, UV).r;
-	float rock_blend = texture(dirt_mask_texture, UV).g;
-
-	vec3 grass_base = texture(grass_texture_base, UV * uv_scale).rgb;
-	vec3 grass_add = texture(grass_texture_add, rotate_uv(UV, vec2(0.5), PI / 2.0) * uv_scale * 0.5).rgb;
-	vec3 grass_normal = texture(grass_normal_texture, UV * uv_scale).rgb;
-	vec3 rock_normal = texture(rock_texture, UV * 11.0).rgb;
-
-	vec3 dirt = texture(dirt_texture, UV * uv_scale * dirt_uv_multiplier).rgb;
-
-	ALBEDO = mix(grass_base * grass_base_multiplier, grass_add * grass_add_multiplier, blend_noise);
-	ALBEDO = mix(ALBEDO, dirt, dirt_blend);
-	
-	ALBEDO = mix(ALBEDO, texture(rock_texture, UV * 11.0).rgb * 1.63, rock_blend * 1.45);
-	
-	ALBEDO *= (1.0 + light_blend);
-	
-	NORMAL_MAP = grass_normal;
-	NORMAL_MAP = mix(NORMAL_MAP, rock_normal, rock_blend);
-	
-	NORMAL_MAP_DEPTH = normal_strength;
-	SPECULAR = 0.0;
-}
-"
+[ext_resource type="Texture2D" uid="uid://btilod4esjjdo" path="res://maps/seitung/materials/textures/sand_diff.jpg" id="5_061rn"]
+[ext_resource type="Texture2D" uid="uid://dngdwwem8f1i5" path="res://maps/seitung/materials/textures/sand_mask.jpg" id="6_pvp0f"]
 
 [sub_resource type="Gradient" id="Gradient_qv4sk"]
 
@@ -86,12 +31,13 @@ load_path = "res://.godot/imported/grass_base_diff.jpg-671630e1b73b22edad8750846
 
 [resource]
 render_priority = 0
-shader = SubResource("Shader_e2vv8")
+shader = ExtResource("1_dp4rp")
 shader_parameter/uv_scale = 13.0
 shader_parameter/grass_base_multiplier = 1.25
 shader_parameter/normal_strength = 0.2
 shader_parameter/grass_add_multiplier = 0.3
 shader_parameter/dirt_uv_multiplier = 2.0
+shader_parameter/sand_uv_scale = 12.0
 shader_parameter/grass_texture_base = SubResource("CompressedTexture2D_2ipm5")
 shader_parameter/grass_texture_add = SubResource("CompressedTexture2D_f68cj")
 shader_parameter/grass_normal_texture = SubResource("CompressedTexture2D_t6j0b")
@@ -100,3 +46,5 @@ shader_parameter/dirt_texture = SubResource("CompressedTexture2D_0rf7j")
 shader_parameter/dirt_mask_texture = ExtResource("1_dmdua")
 shader_parameter/rock_texture = ExtResource("2_ysiw3")
 shader_parameter/rock_normal_texture = ExtResource("2_tvhp6")
+shader_parameter/sand_mask = ExtResource("6_pvp0f")
+shader_parameter/sand_diff = ExtResource("5_061rn")
