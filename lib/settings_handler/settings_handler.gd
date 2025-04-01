@@ -17,7 +17,8 @@ const DEFAULT_SETTINGS = {
 	"vsync": "on",
 	"fov": 0.63,
 	"aa": "msaa_(4x)",
-	"saturation": 0.32
+	"saturation": 0.32,
+	"show_gift_item": false
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

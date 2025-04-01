@@ -28,7 +28,7 @@ void fragment() {
 	vec3 normal_map = texture(normal_a, uv + TIME * 0.01 * speed_scale).rgb * normal_strength_a;
 	normal_map += texture(normal_b, uv - TIME * 0.01 * speed_scale).rgb * normal_strength_b;
 
-	float foam_mix = pow(texture(light_foam, uv).r, foam_exponent) * fresnel(2.0, NORMAL, VIEW) * 2.5;
+	float foam_mix = pow(texture(light_foam, UV * 8.0).r, foam_exponent) * fresnel(2.0, NORMAL, VIEW) * 2.5;
 	foam_mix = clamp(foam_mix, 0.0, 1.0);
 	ALBEDO = mix(primary_color.rgb, foam_color.rgb, clamp(foam_mix, 0.0, 1.0));
 	ALBEDO += vec3(fresnel(5.0, NORMAL, VIEW));
@@ -37,7 +37,6 @@ void fragment() {
 
 	NORMAL_MAP = normal_map;
 	ROUGHNESS = clamp(roughness + fresnel(2.0, NORMAL, VIEW), 0.0, 1.0);
-	//SPECULAR = 0.2;
 }
 "
 
@@ -84,7 +83,7 @@ shader = SubResource("Shader_nlaf5")
 shader_parameter/primary_color = Color(9.62615e-08, 0.217126, 0.261974, 1)
 shader_parameter/foam_color = Color(1, 1, 1, 1)
 shader_parameter/roughness = 0.02
-shader_parameter/uv_scale = Vector2(8, 16)
+shader_parameter/uv_scale = Vector2(10, 20)
 shader_parameter/speed_scale = 1.2
 shader_parameter/normal_strength_a = 0.49
 shader_parameter/normal_strength_b = 0.75

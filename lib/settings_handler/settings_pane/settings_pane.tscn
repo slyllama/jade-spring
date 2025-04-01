@@ -157,13 +157,20 @@ id = "labels"
 options = Array[String](["show", "hide"])
 default_option = "hide"
 
-[node name="TitleSeparator4" type="ColorRect" parent="Container/SC/Contents" index="14"]
+[node name="ShowGift" parent="Container/SC/Contents" index="14" instance=ExtResource("3_b7vwo")]
+layout_mode = 2
+title = "Show gift item"
+id = "show_gift_item"
+options = Array[String](["show", "hide"])
+default_option = "hide"
+
+[node name="TitleSeparator4" type="ColorRect" parent="Container/SC/Contents" index="15"]
 custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Subtitle2" type="RichTextLabel" parent="Container/SC/Contents" index="15"]
+[node name="Subtitle2" type="RichTextLabel" parent="Container/SC/Contents" index="16"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -179,30 +186,30 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator3" type="ColorRect" parent="Container/SC/Contents" index="16"]
+[node name="TitleSeparator3" type="ColorRect" parent="Container/SC/Contents" index="17"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Bindings" type="Button" parent="Container/SC/Contents" index="17"]
+[node name="Bindings" type="Button" parent="Container/SC/Contents" index="18"]
 layout_mode = 2
 text = "Input Bindings"
 
-[node name="TitleSeparator7" type="ColorRect" parent="Container/SC/Contents" index="18"]
+[node name="TitleSeparator7" type="ColorRect" parent="Container/SC/Contents" index="19"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="ActionCamera" parent="Container/SC/Contents" index="19" instance=ExtResource("3_b7vwo")]
+[node name="ActionCamera" parent="Container/SC/Contents" index="20" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Action camera"
 id = "action_camera"
 options = Array[String](["on_by_default", "off_by_default"])
 default_option = "off_by_default"
 
-[node name="Title" type="RichTextLabel" parent="Container/SC/Contents" index="20"]
+[node name="Title" type="RichTextLabel" parent="Container/SC/Contents" index="21"]
 visible = false
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
@@ -215,18 +222,18 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="OrbitSensitivity" parent="Container/SC/Contents" index="21" instance=ExtResource("4_q7g3p")]
+[node name="OrbitSensitivity" parent="Container/SC/Contents" index="22" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Orbit sensitivity"
 id = "orbit_sensitivity"
 
-[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="22"]
+[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="23"]
 custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="23"]
+[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="24"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -242,18 +249,18 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="24"]
+[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="25"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Volume" parent="Container/SC/Contents" index="25" instance=ExtResource("4_q7g3p")]
+[node name="Volume" parent="Container/SC/Contents" index="26" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Volume"
 id = "volume"
 
-[node name="MusicVol" parent="Container/SC/Contents" index="26" instance=ExtResource("4_q7g3p")]
+[node name="MusicVol" parent="Container/SC/Contents" index="27" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Music volume"
 id = "music_vol"

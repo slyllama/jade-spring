@@ -91,8 +91,27 @@ func _input(_event: InputEvent) -> void:
 			$SprintSoundPlayer.stream = SPRINT_SOUNDS.pick_random()
 			$SprintSoundPlayer.play()
 
+var gift_state = false
+
+func toggle_gift_visibility(state: bool) -> void:
+	gift_state = state
+	$PlayerMesh/JadeArmature/Skeleton3D/PlushBase.visible = state
+	$PlayerMesh/JadeArmature/Skeleton3D/PlushBorder.visible = state
+	$PlayerMesh/JadeArmature/Skeleton3D/PlushEars.visible = state
+	$PlayerMesh/JadeArmature/Skeleton3D/PlushSides.visible = state
+	$PlayerMesh/JadeArmature/Skeleton3D/PlushTail.visible = state
+
 func _ready() -> void:
+	toggle_gift_visibility(false)
 	$Spider/AnimationPlayer.play("walk")
+	
+	SettingsHandler.setting_changed.connect(func(parameter):
+		var _value = SettingsHandler.settings[parameter]
+		if parameter == "show_gift_item":
+			#if Save.is_at_story_point("stewardship"):
+			if _value == "show": toggle_gift_visibility(true)
+			else: toggle_gift_visibility(false)
+	)
 	
 	# Spawn/clear golems in different circumstances
 	Global.debug_skill_used.connect(spawn_dgolems)
@@ -155,8 +174,6 @@ var _time_since_on_floor = 0.0
 var _gravity_last_in_current_effects = false
 
 func _physics_process(delta: float) -> void:
-	#if !_gravity_last_in_current_effects and "gravity" in Global.current_effects:
-		#velocity.y = 3.0
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
 		_elongate_target = 2.0
 		velocity.y = 4.0

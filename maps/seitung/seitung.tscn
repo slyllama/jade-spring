@@ -988,31 +988,34 @@ transform = Transform3D(4.62076, -1.45776, 0.572855, 1.90982, 3.50421, -1.4717, 
 [node name="SmallBoulder" parent="Decoration" index="30" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(-0.999691, 0, -0.0248508, 0, 1, 0, 0.0248508, 0, -0.999691, -9.51969, -0.306166, 8.48266)
 
-[node name="SmallBoulder2" parent="Decoration" index="31" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder9" parent="Decoration" index="31" instance=ExtResource("16_0ijtd")]
+transform = Transform3D(-2.09715, 0, 0.681163, 0, 2.205, 0, -0.681163, 0, -2.09715, -15.2505, -0.415935, 12.9525)
+
+[node name="SmallBoulder2" parent="Decoration" index="32" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(0.658904, 0, -1.03863, 0, 1.54, 0, 1.03863, 0, 0.658904, -11.9682, -0.367718, 6.83031)
 
-[node name="SmallBoulder3" parent="Decoration" index="32" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder3" parent="Decoration" index="33" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.72817, -0.979063, 0.234261, 0.882062, 1.24833, -1.28982, 0.48519, 1.21783, 1.51046, -6.20262, -0.39578, -12.0408)
 
-[node name="SmallBoulder4" parent="Decoration" index="33" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder4" parent="Decoration" index="34" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.460502, -0.324509, -9.84375)
 
-[node name="SmallBoulder6" parent="Decoration" index="34" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder6" parent="Decoration" index="35" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(2.90764, -0.334668, -0.658498, 0, 2.67442, -1.35922, 0.738663, 1.31737, 2.59209, -1.84065, 1.2881, -13.4357)
 
-[node name="SmallBoulder8" parent="Decoration" index="35" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder8" parent="Decoration" index="36" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(-1.72711, 0, 2.45297, 0, 4.205, 0, -2.45297, 0, -1.72711, -1.64112, 2.19651, -15.4365)
 
-[node name="SmallBoulder7" parent="Decoration" index="36" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder7" parent="Decoration" index="37" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(3, 0, 0, 0, 2.27589, -0.332481, 0, 0.253794, 2.98152, -5.58931, 4.50096, -15.7732)
 
-[node name="SmallBoulder5" parent="Decoration" index="37" instance=ExtResource("16_0ijtd")]
+[node name="SmallBoulder5" parent="Decoration" index="38" instance=ExtResource("16_0ijtd")]
 transform = Transform3D(1.39185, 0, 1.43623, 0, 2, 0, -1.43623, 0, 1.39185, -9.66382, -0.198896, -10.7931)
 
-[node name="StuccoWall" parent="Decoration" index="38" instance=ExtResource("22_v0qyq")]
+[node name="StuccoWall" parent="Decoration" index="39" instance=ExtResource("22_v0qyq")]
 transform = Transform3D(-6.33815e-08, 0, 1.45, 0, 1.45, 0, -1.45, 0, -6.33815e-08, 14.204, -0.598527, 0.28502)
 
-[node name="PlatformInner" parent="Decoration" index="39" instance=ExtResource("8_alpya")]
+[node name="PlatformInner" parent="Decoration" index="40" instance=ExtResource("8_alpya")]
 transform = Transform3D(0.999519, 0.0310095, 0, -0.0310095, 0.999519, 0, 0, 0, 1, -9.78259, 0.429223, 2.8401)
 
 [node name="Waypoint" parent="Decoration/PlatformInner" index="0" instance=ExtResource("49_v10af")]
@@ -1052,7 +1055,7 @@ attenuation_filter_cutoff_hz = 10000.0
 [node name="PlatformOuter" parent="Decoration/PlatformInner" index="4" instance=ExtResource("8_alpya")]
 transform = Transform3D(1.48079, -0.000397209, -0.239267, -0.000596002, 0.999988, -0.00742312, 0.239267, 0.00494876, 1.48078, 0, -0.203, 0)
 
-[node name="Decals" type="Node3D" parent="Decoration" index="41"]
+[node name="Decals" type="Node3D" parent="Decoration" index="42"]
 
 [node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
@@ -1127,7 +1130,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="42"]
+[node name="Motes" type="GPUParticles3D" parent="Decoration" index="43"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
 amount = 120
 lifetime = 2.0
@@ -1137,7 +1140,7 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_jylj6")
 draw_pass_1 = SubResource("PlaneMesh_kqvoi")
 
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="43"]
+[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="44"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
 amount = 120
 lifetime = 2.0
