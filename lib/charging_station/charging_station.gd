@@ -4,6 +4,10 @@ extends "res://lib/gadget/gadget.gd"
 const AttenuatorUI = preload("res://lib/attenuator/attenuator.tscn")
 var in_ui = false
 
+func _update_interact_text() -> void:
+	if "discombobulator" in Global.current_effects:
+			Global.interact_hint = "Attune"
+
 func proc_story() -> void:
 	var _sp = Save.data.story_point
 	if (_sp == "clear_dv" or _sp == "gratitude"
@@ -20,12 +24,17 @@ func _ready() -> void:
 	Save.story_advanced.connect(proc_story)
 	proc_story()
 	
+	body_entered.connect(func(body):
+		if body == Global.player:
+			_update_interact_text())
+	
 	Global.summon_story_panel.connect(func(_data):
 		if overlaps_body(Global.player):
 			Global.generic_area_left.emit())
 	
 	Global.close_story_panel.connect(func():
 		if overlaps_body(Global.player):
+			_update_interact_text()
 			Global.generic_area_entered.emit())
 	
 	Global.command_sent.connect(func(_cmd):

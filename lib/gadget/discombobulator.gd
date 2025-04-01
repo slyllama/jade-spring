@@ -32,7 +32,12 @@ func _ready() -> void:
 	
 	Global.close_story_panel.connect(func():
 		if $Collision.overlaps_body(Global.player):
+			Global.interact_hint = "Rummage"
 			Global.generic_area_entered.emit())
+	
+	$Collision.body_entered.connect(func(body):
+		if body == Global.player:
+			Global.interact_hint = "Rummage")
 	
 	Save.story_advanced.connect(proc_story)
 	proc_story()
@@ -60,7 +65,9 @@ func _on_collision_interacted() -> void:
 	Global.hud.add_child(_d)
 	_d.open()
 	
-	_d.closed.connect(Global.generic_area_entered.emit)
+	_d.closed.connect(func():
+		Global.interact_hint = "Rummage"
+		Global.generic_area_entered.emit())
 	_d.block_played.connect(func(id):
 		if id == "discombobulator":
 			Global.add_effect.emit("discombobulator")

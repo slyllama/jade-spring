@@ -3,7 +3,7 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 
 const N1 = "This streak of Dragonvoid casts a looming shadow over the garden."
-const N2 = "I'll need Attuned Dispersion Flux to dispel it."
+const N2 = "I'll need the correct Attuned Dispersion Flux to dispel it."
 
 func clear() -> void:
 	#Global.announcement_sent.emit("The air lightens as the Flux disperses the somber void.")
@@ -11,10 +11,12 @@ func clear() -> void:
 	Global.bug_crumb_left.emit()
 	super()
 
+func _update_interact_text():
+	if Save.is_at_story_point("clear_dv") and Save.has_dv_charge():
+		Global.interact_hint = "Dispel"
+
 func proc_story() -> void:
-	var _p = Save.data.story_point
-	if (_p == "game_start" or _p == "pick_weeds"
-		or _p == "clear_bugs" or _p == "ratchet_dv"):
+	if !Save.is_at_story_point("clear_dv"):
 		$VisualArea.visible = false
 	else: $VisualArea.visible = true
 
@@ -39,11 +41,13 @@ func _ready() -> void:
 		
 		Global.close_story_panel.connect(func():
 			if overlaps_body(Global.player):
+				_update_interact_text()
 				Global.dragonvoid_crumb_entered.emit())
 	
 	body_entered.connect(func(body):
 		if Global.story_panel_open: return
 		if body is CharacterBody3D:
+			_update_interact_text()
 			Global.dragonvoid_crumb_entered.emit())
 	
 	body_exited.connect(func(body):

@@ -34,8 +34,8 @@ var STORY_POINT_SCRIPT = {
 	},
 	"clear_bugs": {
 		"title": "2. Pesky Pests",
-		"description": "Bugs and pests are Ratchet's great nemeses, but I have some tricks up my sleeve to deal with them. In the shed are coils of Raw Dispersion Flux supplied from Rata Sum; by activating them near bug swarms, I can disturb the air currents and safely clear them out! <Collect Raw Dispersion Flux from Ratchet's shed and use it to scatter pest clouds. Once the carrier golems are following you, interact with a pest cloud and follow the node that appears with your slider to disperse the Flux and clear out the bugs.>",
-		"objective": "Use Raw Dispersion Flux from Ratchet's shed to clear out pests spoiling the garden."
+		"description": "Bugs and pests are Ratchet's great nemeses, but I have some tricks up my sleeve. In the shed are coils of Raw Dispersion Flux supplied from Rata Sum; by activating them near bug swarms, I can disturb the air currents and safely clear them out! <Collect Raw Dispersion Flux from Ratchet's shed and use it to scatter pest clouds. Once the carrier golems are following you, interact with a pest cloud to disperse the Flux and clear out the bugs.>",
+		"objective": "Use Raw Dispersion Flux from Ratchet's shed to clear out pests."
 	},
 	"ratchet_dv": {
 		"title": "3. Banishing the Void",
@@ -96,10 +96,21 @@ func subtract_karma(amount: int) -> void:
 		save_to_file()
 		karma_changed.emit()
 
+func has_dv_charge() -> bool:
+	var _has = false
+	for _fx in Global.current_effects:
+		if "d_" in _fx:
+			_has = true
+	return(_has)
+
 # Is the player at or after this story point?
 func is_at_story_point(story_point: String) -> bool:
-	print("story_point: " + story_point + " -> " + str(STORY_POINTS.find(story_point)))
-	return(false)
+	var _check_idx = STORY_POINTS.find(story_point)
+	var _save_idx = STORY_POINTS.find(data.story_point)
+	if _check_idx >= _save_idx:
+		return(true)
+	else:
+		return(false)
 
 func is_save_valid() -> bool:
 	if FileAccess.file_exists(FILE_PATH):

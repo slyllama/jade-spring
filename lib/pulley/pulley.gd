@@ -169,6 +169,13 @@ func _ready() -> void:
 	$PulleyMesh/GolemSkeleton/Skeleton3D/ArmBase_L/ArmBase_L.rotation_degrees.y = 180.0
 	$PulleyMesh/GolemSkeleton/Skeleton3D/Armpivot_L/Armpivot_L.rotation_degrees.y = 180.0
 	$PulleyMesh/AnimationPlayer.play("Base")
+	
+	Global.dialogue_closed.connect(func():
+		if overlaps_body(Global.player):
+			Global.interact_hint = "Talk")
+	
+	body_entered.connect(func(body): if body is CharacterBody3D:
+		Global.interact_hint = "Talk")
 
 func _on_interacted() -> void:
 	if Global.in_exclusive_ui or Global.dialogue_open: return

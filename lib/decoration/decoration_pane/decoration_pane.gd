@@ -27,7 +27,7 @@ func _update_unlock_button(id: String) -> void:
 			var _data = Global.DecoData[id]
 			$ActionsBox/Unlock.visible = true
 			$ActionsBox/Unlock.text = "(" + str(_data.unlock_value) + ") Unlock"
-			if _data.unlock_value < Save.data.karma:
+			if _data.unlock_value <= Save.data.karma:
 				$ActionsBox/Unlock.disabled = false
 			else:
 				$ActionsBox/Unlock.disabled = true

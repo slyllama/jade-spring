@@ -1,5 +1,7 @@
 class_name HintPanel extends Panel
 
+var has_closed = false
+
 func _set_dissolve(value: float) -> void:
 	material.set_shader_parameter("paint_exponent", (1.0 - ease(value, 0.2)) * 10.0)
 
@@ -40,6 +42,11 @@ func set_text(data: Dictionary) -> void:
 	$VBox/Body.text = _text
 
 func close() -> void:
+	if has_closed: # prevent from closing twice
+		return
+	else:
+		has_closed = true
+	
 	var fade_out = create_tween()
 	fade_out.tween_method(_set_dissolve, 1.0, 0.0, 0.3)
 	await fade_out.finished
