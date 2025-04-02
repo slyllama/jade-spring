@@ -14,7 +14,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_llcq0"]
 shader = ExtResource("3_ocfdl")
-shader_parameter/grain_strength = 0.35
+shader_parameter/grain_strength = 0.25
 shader_parameter/vignette_feather = 0.27
 shader_parameter/vignette_midpoint = 0.46
 shader_parameter/vignette_alpha = 0.75

@@ -19,6 +19,8 @@ func _ready() -> void:
 	for _n in _get_all_children(self):
 		if _n is MeshInstance3D:
 			for _m in _n.get_surface_override_material_count():
+				if !_n.get_active_material(_m):
+					continue
 				var _original_material = _n.get_active_material(_m)
 				var _xray_mat = XRAY_MAT.duplicate()
 				if "albedo_texture" in _original_material:

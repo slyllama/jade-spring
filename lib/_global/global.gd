@@ -119,7 +119,7 @@ func get_effect_qty(effect: String) -> int:
 
 ##### Decoration signals and parameters
 const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura" ]
-const DecoData = preload("res://lib/decoration/deco_data.gd").new().DecoData
+var DecoData = {}
 
 enum {
 	TOOL_MODE_NONE,
@@ -248,10 +248,27 @@ func play_hint(id: String, data: Dictionary, position: Vector2, play_once = fals
 	_hint.position = position
 	_hint.set_text(data)
 
+const EXPN_PATH_PREFIX = "res://expansions/"
+
+func load_expn(id: String) -> void:
+	var expn_path = EXPN_PATH_PREFIX + id
+	var _e = load(expn_path + "/expn_data.gd").data
+	var expn_data = _e.duplicate(true)
+	
+	for _d in expn_data:
+		var deco_path = expn_path + "/" + _d
+		expn_data[_d].scene = deco_path + "/" + _d + ".tscn"
+		expn_data[_d].cursor_model = deco_path + "/" + _d + "_mesh.tscn"
+		DecoData[_d] = expn_data[_d]
+
 ##### Execution
 
 func _ready() -> void:
 	Utilities.set_master_vol(0.0)
+	
+	var _d = preload("res://lib/decoration/deco_data.gd").new()
+	DecoData = _d.DecoData.duplicate(true)
+	load_expn("elegance")
 	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:

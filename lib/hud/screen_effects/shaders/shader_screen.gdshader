@@ -23,7 +23,7 @@ void fragment() {
 	float b = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE * b_displacement), 0.0).b;
 	
 	COLOR = vec4(r, g, b, 1.0);
-	COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), texture(grain_mask, UV).r * grain_strength);
+	COLOR = mix(COLOR, vec4(1.0, 1.0, 1.0, 1.0), texture(grain_mask, UV).r * grain_strength);
 	float vignette = circle(UV, vignette_midpoint, vignette_feather);
 	COLOR = mix(COLOR, vec4(vec3(0.0), 1.0), vignette * vignette_alpha);
 }

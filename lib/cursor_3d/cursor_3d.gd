@@ -30,7 +30,9 @@ func set_cursor_tint(color: Color):
 	for _n in Utilities.get_all_children(target):
 		if _n is MeshInstance3D:
 			for _i in _n.get_surface_override_material_count():
-				_n.get_active_material(_i).set_shader_parameter("albedo", color)
+				if _n.get_active_material(_i):
+					_n.get_active_material(_i).set_shader_parameter(
+						"albedo", color)
 
 func set_radius(radius: float) -> void:
 	current_radius = radius

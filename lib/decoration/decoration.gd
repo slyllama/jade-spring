@@ -216,6 +216,9 @@ func _ready() -> void:
 	for _n in Utilities.get_all_children(self):
 		if _n is MeshInstance3D:
 			var _valid = true
+			if !_n.get_active_material(0):
+				print("[Decoration] '" + id + "' missing active material, skipping.")
+				continue
 			var _mat = _n.get_active_material(0).duplicate()
 			_n.set_surface_override_material(0, _mat)
 			if _mat is ShaderMaterial:
