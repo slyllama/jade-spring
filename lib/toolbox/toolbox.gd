@@ -265,8 +265,11 @@ func skill_used(skill_id: String) -> void:
 		"debug_skill":
 			Global.debug_skill_used.emit()
 		"toggle_gravity":
-			if "gravity" in Global.current_effects: Global.remove_effect.emit("gravity")
-			else: Global.add_effect.emit("gravity")
+			if "gravity" in Global.current_effects:
+				Global.remove_effect.emit("gravity")
+			else:
+				Global.gravity_entered.emit()
+				Global.add_effect.emit("gravity")
 		"ping":
 			Global.command_sent.emit("/ping")
 #endregion

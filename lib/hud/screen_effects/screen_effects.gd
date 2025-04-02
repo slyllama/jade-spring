@@ -7,15 +7,18 @@ var dv_state = false
 var bug_tween: Tween
 var dv_tween: Tween
 
-func _set_anime_alpha(val) -> void:
+func _set_aberration(val: float) -> void:
+	$ScreenShader.material.set_shader_parameter("displacement", val)
+
+func _set_anime_alpha(val: float) -> void:
 	$Anime.material.set_shader_parameter("modulate_a", val)
 
-func _set_bugs_exponent(val) -> void:
+func _set_bugs_exponent(val: float) -> void:
 	var _e = ease(val, 2.0)
 	_e = 0.8 + 9.2 * _e
 	$Bugs.material.set_shader_parameter("alpha_exponent", _e)
 
-func _set_dragonvoid_exponent(val) -> void:
+func _set_dragonvoid_exponent(val: float) -> void:
 	var _e = ease(val, 2.0)
 	_e = 0.8 + 9.2 * _e
 	$Dragonvoid.material.set_shader_parameter("alpha_exponent", _e)
@@ -41,6 +44,7 @@ func _ready() -> void:
 	_set_dragonvoid_exponent(10.0)
 	$Bugs.visible = false
 	$Dragonvoid.visible = false
+	$Underlay.visible = false
 	
 	if Global.map_name == "debug":
 		$Debug.visible = true
@@ -92,3 +96,7 @@ func _ready() -> void:
 		
 		bug_tween.tween_callback(func():
 			if !bug_state: $Bugs.visible = false))
+	
+	Global.gravity_entered.connect(func():
+		var abr_tween = create_tween()
+		abr_tween.tween_method(_set_aberration, 7.0, 0.0, 0.45))

@@ -80,6 +80,7 @@ signal fishing_started
 signal fishing_canceled
 signal generic_area_entered
 signal generic_area_left
+signal gravity_entered
 signal hearts_emit # shortcut - emit from anywhere to spawn hearts
 signal jade_bot_sound
 signal move_player(new_position: Vector3) # function - moves the player
