@@ -3,8 +3,6 @@ extends "res://lib/map/map.gd"
 @onready var toolbox = get_node("HUD/Toolbox")
 var y_target = 0.0
 
-
-
 func _ready() -> void:
 	$Landscape/LandscapeCol.set_collision_layer_value(2, true)
 	var _dg = load(

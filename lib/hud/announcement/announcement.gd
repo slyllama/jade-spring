@@ -6,23 +6,17 @@ func play(announcement: String) -> void:
 	text = "[center]" + announcement + "[/center]"
 	visible = true
 	$Timer.stop()
-	
-	if !active:
-		modulate.a = 0
-		var fade_in = create_tween()
-		fade_in.tween_property(self, "modulate:a", 1.0, 0.1)
 	active = true
 	$Timer.start()
 
 func _ready() -> void:
 	Global.announcement_sent.connect(play)
 
+func _process(delta):
+	if !active and modulate.a > 0.0:
+		modulate.a -= Utilities.critical_lerp(delta, 1.5)
+	elif active and modulate.a < 1.0:
+		modulate.a += Utilities.critical_lerp(delta, 8.0)
+
 func _on_timer_timeout() -> void:
-	
 	active = false
-	var fade_out = create_tween()
-	fade_out.tween_property(self, "modulate:a", 0.0, 0.4)
-	fade_out.tween_callback(func():
-		if !active:
-			active = false
-			visible = false)
