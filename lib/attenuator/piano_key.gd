@@ -8,6 +8,7 @@ const KEY_DOWN_TEX = preload("res://lib/attenuator/textures/piano_key_press.png"
 
 var alpha = 0.0
 var pills: Array[TextureRect] = []
+var is_disabled = false
 signal played
 
 @export var pitch = 1.0:
@@ -31,17 +32,23 @@ func assign_track(notes: Array) -> void:
 			pills[int(note)].texture = FILL_TEX
 			pills[int(note)].get_node("Glow").visible = true
 
+func disable() -> void:
+	is_disabled = true
+	$Button.disabled = true
+
 func _ready() -> void:
 	modulate = Color("b13087")
 	$NoteIdent.texture = load("res://lib/attenuator/textures/notes/note_" + note_name[0] + ".png")
 	$Rect.queue_free()
 
 func _on_button_down() -> void:
+	if is_disabled: return
 	modulate = HIGHLIGHT
 	$Note.play()
 	played.emit()
 
 func _on_mouse_entered() -> void:
+	if is_disabled: return
 	modulate.a = 2.0
 	$Button.self_modulate = Color.DARK_SLATE_GRAY
 	if Input.is_action_pressed("left_click"):
@@ -55,6 +62,7 @@ func _on_button_mouse_exited() -> void:
 	$Button.texture_normal = KEY_UP_TEX
 
 func _on_button_button_up() -> void:
+	if is_disabled: return
 	$Button.texture_normal = KEY_UP_TEX
 
 func _process(delta: float) -> void:

@@ -20,17 +20,17 @@ func reveal(current_dragon: String) -> void:
 		_set_paint_value, 0.0, 1.0, 0.12)
 	paint_tween.set_parallel()
 	
-	await get_tree().create_timer(1.4).timeout
-	
-	var scale_tween2 = create_tween()
-	scale_tween2.tween_property(
-		self, "scale", Vector2(0.8, 0.8), 0.22).set_ease(Tween.EASE_IN_OUT)
-	var paint_tween2 = create_tween()
-	paint_tween2.tween_method(
-		_set_paint_value, 1.0, 0.0, 0.22)
-	paint_tween2.set_parallel()
-	
-	await paint_tween2.finished
+	#await get_tree().create_timer(1.4).timeout
+	#
+	#var scale_tween2 = create_tween()
+	#scale_tween2.tween_property(
+		#self, "scale", Vector2(0.8, 0.8), 0.22).set_ease(Tween.EASE_IN_OUT)
+	#var paint_tween2 = create_tween()
+	#paint_tween2.tween_method(
+		#_set_paint_value, 1.0, 0.0, 0.22)
+	#paint_tween2.set_parallel()
+	#
+	#await paint_tween2.finished
 	reveal_complete.emit()
 
 func _ready() -> void:

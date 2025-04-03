@@ -104,6 +104,11 @@ func _reset_dim() -> void: # reset fail-state dim to original
 		0.0, 0.1)
 
 func render() -> void:
+	# Reset from success state
+	$Base/ControlContainer/ArrowBox/Previous.disabled = false
+	$Base/ControlContainer/ArrowBox/Next.disabled = false
+	$Base/ControlContainer/Reset.disabled = false
+	
 	place = 0
 	present_glyph()
 	var _title = Utilities.DRAGON_DATA[current_dragon].name
@@ -132,7 +137,7 @@ func render() -> void:
 					# FAIL
 					var _dt = create_tween()
 					_dt.tween_method(_set_base_darkness, 0.0, 0.5, 0.1)
-					$Disabled.play()
+					#$Disabled.play()
 					Global.play_flash(
 						$Base/ControlContainer/Reset.global_position + Vector2(60, 16))
 					var ee_fade_tween = create_tween()
@@ -148,17 +153,26 @@ func render() -> void:
 					# SUCCESS
 					Global.remove_effect.emit("discombobulator")
 					Global.add_effect.emit("d_" + current_dragon)
+					for _o in $Base/KeyContainer.get_children():
+						_o.disable()
+					
+					# Disable and hide various keys - the inverse has to be done too
+					$Base/Cursor.visible = false
+					$Base/ControlContainer/ArrowBox/Previous.disabled = true
+					$Base/ControlContainer/ArrowBox/Next.disabled = true
+					$Base/ControlContainer/Reset.disabled = true
+					
 					$Success.play()
 					$Dragon.reveal(current_dragon)
+					
 					await $Dragon.reveal_complete
 					Global.player.update_golem_effects()
-					close()
-			
-			if _d == 0:
-				moused_note_y_pos = _n.global_position.y # initial set
+					#close()
 		)
 		$Base/KeyContainer.add_child(_n)
 		_n.set_pills_size(TUNES[current_dragon].size())
+		if _d == 0:
+			moused_note_y_pos = _n.global_position.y # initial set
 		_d += 1
 	
 	var _c = 0
@@ -203,6 +217,8 @@ func _adv_blank_place() -> void:
 		place += 1
 
 func _ready() -> void:
+	$Base/Cursor.visible = true
+	
 	if Engine.is_editor_hint(): return
 	_set_base_darkness(0.0)
 	Global.target_music_ratio = 0.0
@@ -252,7 +268,7 @@ func _process(delta: float) -> void:
 	$Base/Cursor.global_position.y = lerp(
 		$Base/Cursor.global_position.y,
 		moused_note_y_pos,
-		Utilities.critical_lerp(delta, 55.0))
+		Utilities.critical_lerp(delta, 70.0))
 	
 	for _n in glyph_box.get_children():
 		_n.position.x = glyph_box.size.x / 2.0

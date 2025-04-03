@@ -35,7 +35,7 @@ func set_default_skills(audio = true) -> void:
 		$Box/Skill4.set_enabled(false)
 		$Box/Skill5.set_enabled(false)
 		$Box/Skill6.set_enabled(true)
-	elif Save.is_at_story_point("gratitude"):
+	if Save.is_at_story_point("gratitude"):
 		$Box/Skill1.set_enabled()
 		$Box/Skill2.set_enabled()
 		$Box/Skill3.set_enabled()
