@@ -153,6 +153,9 @@ func switch_skill(get_id: String) -> void:
 		set_tip_text(TOOLTIPS[id].title, TOOLTIPS[id].description)
 	else: set_tip_text(title, description)
 	
+	if get_id == "empty":
+		set_enabled()
+	
 	await $Animation.animation_finished
 	$Animation.play_backwards("squeeze")
 

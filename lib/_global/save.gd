@@ -8,7 +8,7 @@ signal karma_changed
 const OBJECTIVE_WEED_COUNT = 3
 const OBJECTIVE_PEST_COUNT = 2
 const OBJECTIVE_DV_COUNT = 1
-const GIFT_STORY_POINT = "clear_bugs" # gift will unlock past this point - debugging
+const GIFT_STORY_POINT = "gratitude" # gift will unlock past this point - debugging
 var first_run = true
 
 const STORY_POINTS = [
@@ -49,7 +49,7 @@ var STORY_POINT_SCRIPT = {
 	},
 	"ratchet_gratitude": {
 		"title": "4. Ratchet's Gratitude",
-		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them; they managed to get the renovation system operational again! <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them You can unlock special decorations with Karma earnt from helping clear the garden. Oh - and it looks like Ratchet has something they want to talk to you about!>",
+		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them; they managed to get the renovation system operational again! <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them You can unlock special decorations with Karma earned from helping clear the garden. Oh - and it looks like Ratchet has something they want to talk to you about!>",
 		"objective": "Ratchet has something to speak to you about!"
 	},
 	"gratitude": {
@@ -192,14 +192,20 @@ func _ready() -> void:
 		if (Save.data.story_point == "pick_weeds"
 			and Save.data.deposited_weeds >= OBJECTIVE_WEED_COUNT):
 			advance_story()
+			
+			await get_tree().create_timer(0.5).timeout # delay before the story panel opens
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["clear_bugs"])
 		elif (Save.data.story_point == "clear_bugs"
 			and Global.crumb_handler.totals.bug - Save.data.crumb_count.bug >= OBJECTIVE_PEST_COUNT):
 			advance_story()
+			
+			await get_tree().create_timer(0.5).timeout # delay before the story panel opens
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_dv"])
 		elif (Save.data.story_point == "clear_dv"
 			and Global.crumb_handler.totals.dragonvoid - Save.data.crumb_count.dragonvoid >= OBJECTIVE_DV_COUNT):
 			advance_story()
+			
+			await get_tree().create_timer(0.5).timeout # delay before the story panel opens
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_gratitude"])
 	)
 

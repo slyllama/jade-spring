@@ -14,9 +14,6 @@ func _set_dissolve_value(value: float):
 	material.set_shader_parameter("paint_exponent", _exp)
 
 func open() -> void:
-	if Engine.is_editor_hint():
-		return
-	
 	$PaperSound.play()
 	# Convince gadgets that this is a story panel so that they can't be hovered
 	Global.summon_story_panel.emit({})
@@ -42,6 +39,10 @@ func _input(_event: InputEvent) -> void:
 		Global.in_exclusive_ui = false
 
 func _ready() -> void:
+	if Global.story_panel_open:
+		queue_free()
+		return
+	
 	Global.settings_pane_opened.connect(close)
 	
 	dissolve_value = 1.0

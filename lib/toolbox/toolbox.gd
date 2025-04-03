@@ -20,16 +20,28 @@ func set_default_skills(audio = true) -> void:
 	$Box/Skill5.switch_skill("toggle_gravity")
 	$Box/Skill6.switch_skill("ping")
 	
-	if _p == "game_start" or _p == "pick_weeds":
+	# All skills are disable by default
+	$Box/Skill1.set_enabled(false)
+	$Box/Skill2.set_enabled(false)
+	$Box/Skill3.set_enabled(false)
+	$Box/Skill4.set_enabled(false)
+	$Box/Skill5.set_enabled(false)
+	$Box/Skill6.set_enabled(false)
+	
+	if Save.is_at_story_point("clear_bugs"):
 		$Box/Skill1.set_enabled(false)
 		$Box/Skill2.set_enabled(false)
 		$Box/Skill3.set_enabled(false)
 		$Box/Skill4.set_enabled(false)
-	else:
+		$Box/Skill5.set_enabled(false)
+		$Box/Skill6.set_enabled(true)
+	elif Save.is_at_story_point("gratitude"):
 		$Box/Skill1.set_enabled()
 		$Box/Skill2.set_enabled()
 		$Box/Skill3.set_enabled()
 		$Box/Skill4.set_enabled()
+		$Box/Skill5.set_enabled()
+		$Box/Skill6.set_enabled()
 	
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.queued_decoration = "none"
