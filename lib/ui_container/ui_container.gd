@@ -7,7 +7,11 @@ var mouse_in_ui = false
 signal opened
 signal closed
 
-@export var title = "Title"
+@export var title = "Title":
+	get: return(title)
+	set(_val):
+		title = _val
+		$Container/TitleContainer/Title.text = _val
 @export var closeable = true
 @export var moveable = true
 var is_open = false

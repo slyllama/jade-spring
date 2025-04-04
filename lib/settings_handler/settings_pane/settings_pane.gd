@@ -87,10 +87,8 @@ func _process(delta: float) -> void:
 func _on_bindings_button_down() -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:
 		return
-	if !$BindingsPane.is_open:
-		$BindingsPane.open()
-	else:
-		$BindingsPane.close()
+	if !$BindingsPane.is_open: $BindingsPane.open()
+	else: $BindingsPane.close()
 
 func _on_bindings_pane_closed() -> void: 
 	moveable = true

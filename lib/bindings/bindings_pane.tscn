@@ -36,7 +36,7 @@ theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_n83lq")
-text = "Display"
+text = "Movement"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -177,6 +177,7 @@ mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
 [node name="ResetInputs" type="Button" parent="Container" index="5"]
+modulate = Color(1, 0.54902, 0.509804, 1)
 layout_mode = 2
 text = "Reset Inputs"
 
