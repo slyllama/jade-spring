@@ -1,16 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d33ilqq0c1mwg"]
+[gd_scene load_steps=5 format=3 uid="uid://d33ilqq0c1mwg"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_lk5ru"]
 [ext_resource type="Script" path="res://lib/main_menu/new_game_container.gd" id="2_cge2a"]
 [ext_resource type="Texture2D" uid="uid://dp1j524j5uwre" path="res://generic/textures/stickers/sticker_warning.png" id="3_1hji7"]
-[ext_resource type="Script" path="res://lib/lang/lang_rich_text_label.gd" id="3_1q04v"]
-[ext_resource type="Script" path="res://lib/lang/string_translation.gd" id="4_5gyhf"]
 [ext_resource type="Texture2D" uid="uid://b45yqtf7u0sha" path="res://lib/hud/textures/folder_icon.png" id="4_ua847"]
-
-[sub_resource type="Resource" id="Resource_eivpr"]
-script = ExtResource("4_5gyhf")
-language = 0
-translation = "[center]sina open e musi sin la, sina weka musi lon sina![/center]"
 
 [node name="NewGameContainer" instance=ExtResource("1_lk5ru")]
 custom_minimum_size = Vector2(400, 450)
@@ -26,8 +19,6 @@ layout_mode = 2
 bbcode_enabled = true
 text = "[center]Starting a new game will reset any existing save.[/center]"
 fit_content = true
-script = ExtResource("3_1q04v")
-string_translation = SubResource("Resource_eivpr")
 
 [node name="Sticker" type="TextureRect" parent="Container" index="4"]
 custom_minimum_size = Vector2(0, 256)
@@ -64,5 +55,5 @@ text = "Cancel"
 
 [connection signal="button_down" from="Container/NGBox/NewGameButton" to="." method="_on_new_game_button_down"]
 [connection signal="button_down" from="Container/NGBox/Folder" to="." method="_on_folder_button_down"]
-[connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_down"]
 [connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_button_down"]
+[connection signal="button_down" from="Container/CancelButton" to="." method="_on_cancel_button_down"]

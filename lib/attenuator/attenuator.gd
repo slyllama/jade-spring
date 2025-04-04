@@ -238,7 +238,6 @@ func _ready() -> void:
 		two_oct.append({"float": _i.float * 2.0 + 8.0, "color": _i.color})
 	two_oct.append({"float": notes[0].float * 4.0 + 24.0, "color": notes[0].color})
 	
-	$Open.play()
 	render()
 	_set_prev_next_keys()
 	

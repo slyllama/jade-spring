@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="3_k2g0f"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_k137k"]
 [ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="5_flg4a"]
-[ext_resource type="AudioStream" uid="uid://ce6p72xpyc776" path="res://generic/sounds/whistle.ogg" id="7_caefa"]
+[ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="8_f8vq4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xmdcj"]
 shader = ExtResource("2_kddfe")
@@ -263,6 +263,6 @@ libraries = {
 }
 
 [node name="PlayDialogue" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_caefa")
+stream = ExtResource("8_f8vq4")
 
 [connection signal="button_down" from="Base/Done" to="." method="_on_done_button_down"]

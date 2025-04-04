@@ -123,8 +123,7 @@ func _ready() -> void:
 		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()
 	
-	$Nodule.global_position = Vector2(
-		get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16)
+	$Nodule.global_position = Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16)
 	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(

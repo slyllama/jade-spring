@@ -109,16 +109,9 @@ func _ready() -> void:
 		var _value = SettingsHandler.settings[parameter]
 		if parameter == "show_gift_item":
 			if Save.is_at_story_point(Save.GIFT_STORY_POINT):
-				if _value == "show":
-					print("showing the gift")
-					toggle_gift_visibility(true)
-				else:
-					toggle_gift_visibility(false))
-	
-	Save.story_advanced.connect(func():
-		if (Save.is_at_story_point("stewardship")
-			and SettingsHandler.settings.show_gift_item == "show"):
-			toggle_gift_visibility(true))
+				if _value == "show": toggle_gift_visibility(true)
+				else: toggle_gift_visibility(false)
+	)
 	
 	# Spawn/clear golems in different circumstances
 	Global.debug_skill_used.connect(spawn_dgolems)
