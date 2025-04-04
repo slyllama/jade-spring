@@ -10,11 +10,12 @@
 
 [sub_resource type="GDScript" id="GDScript_yonmy"]
 script/source = "@tool
-extends Button
+extends LangButton
 
 const ORIGINAL_ALPHA = 0.6
 
 func _ready():
+	super()
 	modulate.a = ORIGINAL_ALPHA
 
 func _on_mouse_entered() -> void:
@@ -27,7 +28,7 @@ func _on_mouse_exited() -> void:
 "
 
 [node name="MMButton" type="Button"]
-modulate = Color(1, 1, 1, 0.588235)
+modulate = Color(1, 1, 1, 0.6)
 offset_right = 256.0
 offset_bottom = 32.0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)

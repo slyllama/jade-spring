@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=35 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://iyp6udkipvdq" path="res://lib/attenuator/textures/cursor_bar.png" id="16_0v5q4"]
 [ext_resource type="Texture2D" uid="uid://j2u6itfbl3mi" path="res://lib/attenuator/textures/glyphs/jormag.png" id="16_qdpey"]
 [ext_resource type="Texture2D" uid="uid://bfd1m6uyrf648" path="res://lib/attenuator/textures/dragon_orbs.png" id="20_04yj8"]
+[ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="26_54eh3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cwvft"]
 shader = ExtResource("4_0043e")
@@ -341,6 +342,10 @@ stream = ExtResource("14_e0ud8")
 
 [node name="Success" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_vld85")
+volume_db = -3.0
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_54eh3")
 volume_db = -3.0
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]

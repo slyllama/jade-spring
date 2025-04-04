@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=34 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
 [ext_resource type="Texture2D" uid="uid://b14riwre77y4l" path="res://lib/main_menu/title_card/textures/h_sep.png" id="6_b4g4g"]
+[ext_resource type="Script" path="res://lib/lang/string_translation.gd" id="7_btnvp"]
 [ext_resource type="Texture2D" uid="uid://b45yqtf7u0sha" path="res://lib/hud/textures/folder_icon.png" id="7_n6dqo"]
 [ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
@@ -19,7 +20,28 @@
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="11_ctlnu"]
 [ext_resource type="PackedScene" uid="uid://d33ilqq0c1mwg" path="res://lib/main_menu/new_game_container.tscn" id="12_0oh4d"]
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="14_n67d6"]
+[ext_resource type="Script" path="res://lib/lang/lang_rich_text_label.gd" id="17_13i8a"]
 [ext_resource type="AudioStream" uid="uid://cmphyt1yte74c" path="res://generic/sounds/swish.ogg" id="19_lck14"]
+
+[sub_resource type="Resource" id="Resource_jsf8x"]
+script = ExtResource("7_btnvp")
+language = 0
+translation = "open e musi"
+
+[sub_resource type="Resource" id="Resource_o5fla"]
+script = ExtResource("7_btnvp")
+language = 0
+translation = "open e musi sin"
+
+[sub_resource type="Resource" id="Resource_naf0s"]
+script = ExtResource("7_btnvp")
+language = 0
+translation = "nasin ilo mute"
+
+[sub_resource type="Resource" id="Resource_cphxb"]
+script = ExtResource("7_btnvp")
+language = 0
+translation = "pini e musi"
 
 [sub_resource type="Curve" id="Curve_2imnw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -48,6 +70,16 @@ scale_max = 0.4
 color_ramp = SubResource("GradientTexture1D_n1hpr")
 alpha_curve = SubResource("CurveTexture_lrj7w")
 turbulence_enabled = true
+
+[sub_resource type="Resource" id="Resource_doay4"]
+script = ExtResource("7_btnvp")
+language = 0
+translation = "[center]nasin ijo pi ArenaNet li wile lipu ni: '© ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
+
+[sub_resource type="Resource" id="Resource_cmwjc"]
+script = ExtResource("7_btnvp")
+language = 0
+translation = "pana e f3 tawa open e ma pali."
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_jagjv")
@@ -142,14 +174,13 @@ layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="ContinueButton" parent="Container/Box" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(208, 0)
 layout_mode = 2
 text = "Continue"
 alignment = 2
+string_translation = SubResource("Resource_jsf8x")
 
 [node name="Folder" parent="Container/Box" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(27, 27)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -180,9 +211,9 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 alignment = 1
+string_translation = SubResource("Resource_o5fla")
 
 [node name="Separator3" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
@@ -193,10 +224,10 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="SettingsButton" parent="Container" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 text = "Settings"
 alignment = 1
+string_translation = SubResource("Resource_naf0s")
 
 [node name="Separator2" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
@@ -207,10 +238,10 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="QuitButton" parent="Container" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 text = "Quit"
 alignment = 1
+string_translation = SubResource("Resource_cphxb")
 
 [node name="Separator" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
@@ -287,8 +318,10 @@ theme_override_colors/default_color = Color(0.37, 0.37, 0.37, 1)
 theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
+text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.'[/center]"
 scroll_active = false
+script = ExtResource("17_13i8a")
+string_translation = SubResource("Resource_doay4")
 
 [node name="Version" type="RichTextLabel" parent="."]
 clip_contents = false
@@ -316,6 +349,8 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Press F3 for test environment."
 scroll_active = false
+script = ExtResource("17_13i8a")
+string_translation = SubResource("Resource_cmwjc")
 
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(0.5, 0.5, 0.5, 1)

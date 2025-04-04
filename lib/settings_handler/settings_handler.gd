@@ -18,7 +18,8 @@ const DEFAULT_SETTINGS = {
 	"fov": 0.63,
 	"aa": "msaa_(4x)",
 	"saturation": 0.32,
-	"show_gift_item": "hide"
+	"show_gift_item": "show",
+	"language": "english"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

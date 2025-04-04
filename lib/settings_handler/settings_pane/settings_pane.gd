@@ -18,6 +18,11 @@ func close() -> void:
 	SettingsHandler.save_to_file()
 	super()
 
+func _update_fov_text() -> void:
+	$Container/SC/Contents/FOV/Title.text = (
+		$Container/SC/Contents/FOV.title_text
+		+ " (" + str(SettingsHandler.get_fov_deg()) + Utilities.DEG + ")")
+
 func _input(event: InputEvent) -> void:
 	super(event)
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -42,14 +47,15 @@ func _ready() -> void:
 	
 	Save.story_advanced.connect(func():
 		if Save.is_at_story_point(Save.GIFT_STORY_POINT):
-			$Container/SC/Contents/ShowGift.visible = true
-			SettingsHandler.update("show_gift_item", "show")
-			SettingsHandler.refresh())
+			$Container/SC/Contents/ShowGift.visible = true)
+	
+	Language.language_changed.connect(func(_lang):
+		await get_tree().process_frame
+		_update_fov_text())
 	
 	SettingsHandler.setting_changed.connect(func(_param):
 		if _param == "fov":
-			var _fov = SettingsHandler.settings.fov
-			$Container/SC/Contents/FOV/Title.text = "FOV (" + str(SettingsHandler.get_fov_deg()) + "):")
+			_update_fov_text())
 
 func _on_save_press() -> void:
 	close()

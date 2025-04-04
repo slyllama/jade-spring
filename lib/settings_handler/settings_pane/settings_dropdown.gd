@@ -3,6 +3,13 @@ extends HBoxContainer
 # SettingsDropdown
 # Multi-choice options in the settings menu!
 
+@export var title_translation: StringTranslation:
+	get: return(title_translation)
+	set(_t):
+		if !_t: return
+		title_translation = _t
+		$Title.string_translation = _t
+
 @export var title = "Setting":
 	get():
 		return(title)
@@ -16,7 +23,7 @@ extends HBoxContainer
 @export var info_tooltip = ""
 
 func _parse_id(get_id: String) -> String:
-	return(get_id.capitalize().replace("Msaa", "MSAA").replace("Fxaa", "FXAA"))
+	return(get_id.capitalize().replace("Msaa", "MSAA").replace("Fxaa", "FXAA").replace("Toki Pona", "toki pona"))
 
 # Update displayed value
 func _refresh() -> void:
