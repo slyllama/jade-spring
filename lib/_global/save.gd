@@ -8,7 +8,7 @@ signal karma_changed
 const OBJECTIVE_WEED_COUNT = 3
 const OBJECTIVE_PEST_COUNT = 2
 const OBJECTIVE_DV_COUNT = 1
-const GIFT_STORY_POINT = "gratitude" # gift will unlock past this point - debugging
+const GIFT_STORY_POINT = "stewardship" # gift will unlock past this point - debugging
 var first_run = true
 
 const STORY_POINTS = [

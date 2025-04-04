@@ -25,9 +25,13 @@ const TUNES = {
 	"mordremoth": [
 		"a1", "_", "c2", "b1", "_", "c2", "e2", "_", "c2", "b1", "_", "c2" ],
 	"zhaitan": [
-		"e2", "_", "b1", "c2", "_", "a1", "b1", "_", "b1" ]
+		"e2", "_", "b1", "c2", "_", "a1", "b1", "_", "b1" ],
+	"kralkatorrik": [
+		"a1", "_", "a1", "e1", "f1", "_", "b1", "_", "a1", "b1", "c2", "b1" ],
+	"jormag": [
+		"e1", "c1", "a1", "e2", "_", "f2", "b1" ]
 }
-const TUNES_ORDER = [ "primordus", "soo_won", "mordremoth", "zhaitan" ]
+const TUNES_ORDER = [ "primordus", "soo_won", "mordremoth", "zhaitan", "kralkatorrik", "jormag" ]
 
 var current_dragon = "primordus"
 var two_oct = notes.duplicate()
@@ -107,6 +111,7 @@ func render() -> void:
 	# Reset from success state
 	$Base/ControlContainer/ArrowBox/Previous.disabled = false
 	$Base/ControlContainer/ArrowBox/Next.disabled = false
+	$Base/Marker.visible = true
 	$Base/ControlContainer/Reset.disabled = false
 	
 	place = 0
@@ -161,6 +166,7 @@ func render() -> void:
 					$Base/ControlContainer/ArrowBox/Previous.disabled = true
 					$Base/ControlContainer/ArrowBox/Next.disabled = true
 					$Base/ControlContainer/Reset.disabled = true
+					$Base/Marker.visible = false
 					
 					$Success.play()
 					$Dragon.reveal(current_dragon)
