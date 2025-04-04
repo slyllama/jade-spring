@@ -186,7 +186,7 @@ func _ready() -> void:
 					get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 	)
-	SettingsHandler.refresh(["volume"])
+	SettingsHandler.refresh(["volume", "window_mode"])
 	
 	Global.cursor_enabled.connect(func(data):
 		await get_tree().process_frame

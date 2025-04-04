@@ -224,6 +224,7 @@ func _adv_blank_place() -> void:
 
 func _ready() -> void:
 	$Base/Cursor.visible = true
+	$OpenSound.play()
 	
 	if Engine.is_editor_hint(): return
 	_set_base_darkness(0.0)

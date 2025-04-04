@@ -53,7 +53,7 @@ func _ready() -> void:
 		match parameter:
 			"window_mode": Utilities.set_window_mode(_value)
 	)
-	SettingsHandler.refresh(["volume"])
+	SettingsHandler.refresh(["volume", "window_mode"])
 	
 	_reset_map()
 	ResourceLoader.load_threaded_request(target_scene)

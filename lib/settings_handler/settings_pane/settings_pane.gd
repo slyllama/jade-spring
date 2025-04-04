@@ -1,5 +1,11 @@
 extends "res://lib/ui_container/ui_container.gd"
 
+func _update_fov_text() -> void:
+	$Container/SC/Contents/FOV/Title.text = (
+		$Container/SC/Contents/FOV.title
+		+ " (" + str(SettingsHandler.get_fov_deg())
+		+ Utilities.DEG + ")")
+
 func open(silent = false) -> void:
 	if !Save.is_at_story_point(Save.GIFT_STORY_POINT) or get_parent().name == "MainMenu":
 		$Container/SC/Contents/ShowGift.visible = false
@@ -44,12 +50,12 @@ func _ready() -> void:
 		if Save.is_at_story_point(Save.GIFT_STORY_POINT):
 			$Container/SC/Contents/ShowGift.visible = true
 			SettingsHandler.update("show_gift_item", "show")
-			SettingsHandler.refresh())
+			SettingsHandler.refresh(["window_mode"]))
 	
 	SettingsHandler.setting_changed.connect(func(_param):
 		if _param == "fov":
 			var _fov = SettingsHandler.settings.fov
-			$Container/SC/Contents/FOV/Title.text = "FOV (" + str(SettingsHandler.get_fov_deg()) + "):")
+			_update_fov_text())
 
 func _on_save_press() -> void:
 	close()
