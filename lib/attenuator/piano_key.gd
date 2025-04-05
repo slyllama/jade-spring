@@ -20,6 +20,10 @@ signal played
 @export var note_name = "_"
 @export var id = -1 # to be replaced with array ID
 
+func set_pills_color(color: Color) -> void:
+	for _p in pills:
+		_p.modulate = color
+
 func set_pills_size(pills_size: int) -> void:
 	for _i in pills_size:
 		var _r: TextureRect = $Rect.duplicate()

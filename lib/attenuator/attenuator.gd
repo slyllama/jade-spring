@@ -156,6 +156,8 @@ func render() -> void:
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
 					# SUCCESS
+					$Dragon/TextContents/Quote.text = "[center]" + Utilities.DRAGON_DATA[current_dragon].quote + "[/center]"
+					
 					Global.remove_effect.emit("discombobulator")
 					Global.add_effect.emit("d_" + current_dragon)
 					for _o in $Base/KeyContainer.get_children():
@@ -173,10 +175,10 @@ func render() -> void:
 					
 					await $Dragon.reveal_complete
 					Global.player.update_golem_effects()
-					#close()
 		)
 		$Base/KeyContainer.add_child(_n)
 		_n.set_pills_size(TUNES[current_dragon].size())
+		_n.set_pills_color(Utilities.DRAGON_DATA[current_dragon].color)
 		if _d == 0:
 			moused_note_y_pos = _n.global_position.y # initial set
 		_d += 1
@@ -214,6 +216,9 @@ func close() -> void:
 	$DispulsionFX.anim_out()
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_exponent, 0.0, 1.0, 0.2)
+	var text_fade = create_tween()
+	text_fade.tween_property($Dragon/TextContents, "modulate:a", 0.0, 0.12)
+	text_fade.set_parallel()
 	
 	await $DispulsionFX.anim_out_complete
 	queue_free()

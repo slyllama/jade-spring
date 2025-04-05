@@ -11,29 +11,23 @@ func _set_color(color: Color) -> void:
 func reveal(current_dragon: String) -> void:
 	_set_color(Utilities.DRAGON_DATA[current_dragon].color)
 	
-	scale = Vector2(0.8, 0.8)
 	var scale_tween = create_tween()
 	scale_tween.tween_property(
 		self, "scale", Vector2(0.5, 0.5), 0.12).set_ease(Tween.EASE_IN_OUT)
+	
 	var paint_tween = create_tween()
 	paint_tween.tween_method(
 		_set_paint_value, 0.0, 1.0, 0.12)
 	paint_tween.set_parallel()
 	
-	#await get_tree().create_timer(1.4).timeout
-	#
-	#var scale_tween2 = create_tween()
-	#scale_tween2.tween_property(
-		#self, "scale", Vector2(0.8, 0.8), 0.22).set_ease(Tween.EASE_IN_OUT)
-	#var paint_tween2 = create_tween()
-	#paint_tween2.tween_method(
-		#_set_paint_value, 1.0, 0.0, 0.22)
-	#paint_tween2.set_parallel()
-	#
-	#await paint_tween2.finished
+	var text_fade = create_tween()
+	text_fade.tween_property($TextContents, "modulate:a", 1.0, 0.12)
+	text_fade.set_parallel()
+	
 	reveal_complete.emit()
 
 func _ready() -> void:
+	$TextContents.modulate.a = 0.0
 	var _mat = material.duplicate(true)
 	material = _mat
 	_set_paint_value(0.0)

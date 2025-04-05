@@ -10,27 +10,33 @@ const BIGVEC3 = Vector3(BIGNUM, BIGNUM, BIGNUM)
 const DRAGON_DATA = {
 	"jormag": {
 		"name": "Jormag",
-		"color": Color("90d6d0")
+		"color": Color("90d6d0"),
+		"quote": "Today I obliterate the balance that chains us together."
 	},
 	"kralkatorrik": {
 		"name": "Kralkatorrik",
-		"color": Color("dc6cb5")
+		"color": Color("dc6cb5"),
+		"quote": "Blind! Lost! Your world ends!"
 	},
 	"mordremoth": {
 		"name": "Mordremoth",
-		"color": Color("85ab37")
+		"color": Color("85ab37"),
+		"quote": "You are a part of me, or you are nothing."
 	},
 	"primordus": {
 		"name": "Primordus",
-		"color": Color("e9694c")
+		"color": Color("e9694c"),
+		"quote": "We. Are. Fire!"
 	},
 	"soo_won": {
 		"name": "Soo-Won",
-		"color": Color("4da3bf")
+		"color": Color("4da3bf"),
+		"quote": "Darkness is a blessing. Close your eyes, and feel it wash over you."
 	},
 	"zhaitan": {
 		"name": "Zhaitan",
-		"color": Color("57375c")
+		"color": Color(0.697, 0.529, 0.708),
+		"quote": "You've chosen a terrible time to be heroes."
 	}
 }
 
