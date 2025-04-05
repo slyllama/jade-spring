@@ -117,7 +117,7 @@ func _ready() -> void:
 			fade_in(1.5))
 	
 	Save.story_advanced.connect(func():
-		Global.play_flash($StoryText.global_position + Vector2(40, 30))
+		#Global.play_flash($StoryText.global_position + Vector2(40, 30))
 		proc_story())
 	
 	Save.karma_changed.connect(func():

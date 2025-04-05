@@ -157,6 +157,7 @@ func render() -> void:
 				if place == TUNES[current_dragon].size() - 1 and passing:
 					# SUCCESS
 					$Dragon/TextContents/Quote.text = "[center]" + Utilities.DRAGON_DATA[current_dragon].quote + "[/center]"
+					Global.ripple.emit() # used for emitting screen effects
 					
 					Global.remove_effect.emit("discombobulator")
 					Global.add_effect.emit("d_" + current_dragon)

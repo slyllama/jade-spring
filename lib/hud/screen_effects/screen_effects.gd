@@ -9,6 +9,16 @@ var dv_val = 1.0
 var bug_tween: Tween
 var dv_tween: Tween
 
+func _ripple() -> void:
+	var ripple_tween = create_tween()
+	ripple_tween.tween_method(_set_ripple, 0.0, 1.0, 5.0)
+
+func _set_ripple(val: float) -> void:
+	var _e = ease(val, 0.2)
+	$ScreenShader.material.set_shader_parameter("ripple_force", (1 - _e) * 0.026)
+	$ScreenShader.material.set_shader_parameter("ripple_size", _e * 2.0)
+	$ScreenShader.material.set_shader_parameter("displacement", 1 - _e)
+
 func _aberrate() -> void:
 	var abr_tween = create_tween()
 	abr_tween.tween_method(_set_aberration, 7.0, 0.0, 0.45)
@@ -108,4 +118,5 @@ func _ready() -> void:
 		bug_tween.tween_callback(func():
 			if !bug_state: $Bugs.visible = false))
 	
+	Global.ripple.connect(_ripple)
 	Global.gravity_entered.connect(_aberrate)

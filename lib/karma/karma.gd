@@ -14,8 +14,8 @@ func _on_pick_up_area_body_entered(body: Node3D) -> void:
 		Save.add_karma(1)
 		
 		$DespawnTimer.start()
+		Global.karma_collected.emit()
 		$Orb/Stars.emitting = true
-		$Collect.play()
 		var scale_tween = create_tween()
 		scale_tween.tween_property($Orb, "scale", Vector3(0.01, 0.01, 0.01), 0.07)
 		

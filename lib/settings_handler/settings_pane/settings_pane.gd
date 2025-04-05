@@ -49,7 +49,6 @@ func _ready() -> void:
 	Save.story_advanced.connect(func():
 		if Save.is_at_story_point(Save.GIFT_STORY_POINT):
 			$Container/SC/Contents/ShowGift.visible = true
-			SettingsHandler.update("show_gift_item", "show")
 			SettingsHandler.refresh(["window_mode"]))
 	
 	SettingsHandler.setting_changed.connect(func(_param):

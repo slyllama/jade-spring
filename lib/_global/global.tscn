@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://l4rm0sut0ia0"]
+[gd_scene load_steps=4 format=3 uid="uid://l4rm0sut0ia0"]
 
 [ext_resource type="Script" path="res://lib/_global/global.gd" id="1_bx37s"]
 [ext_resource type="AudioStream" uid="uid://bjdutdjfx2x1v" path="res://lib/ui_container/sounds/click.ogg" id="2_4wn1a"]
+[ext_resource type="AudioStream" uid="uid://cf4vigsxqembu" path="res://lib/karma/sounds/karma_collect.ogg" id="3_a5myb"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_bx37s")
@@ -9,5 +10,10 @@ script = ExtResource("1_bx37s")
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4wn1a")
 volume_db = 5.0
+
+[node name="KarmaCollect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a5myb")
+volume_db = -3.0
+max_polyphony = 2
 
 [connection signal="click_sound" from="." to="." method="_on_click_sound"]

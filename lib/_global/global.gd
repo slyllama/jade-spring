@@ -3,6 +3,7 @@ extends Node
 var start_params = { "new_save" = false }
 
 const SPAWN_RADIUS = 2.0 # protect area around spawn point
+var rng = RandomNumberGenerator.new()
 
 var camera: Camera3D # reference for ray projections
 var crumb_handler: CrumbHandler
@@ -64,6 +65,7 @@ signal action_cam_enable # procs action cam
 signal action_cam_disable # procs action cam
 
 signal announcement_sent(get_text)
+signal ripple
 signal bindings_updated
 signal bug_crumb_entered
 signal bug_crumb_left
@@ -83,6 +85,7 @@ signal generic_area_left
 signal gravity_entered
 signal hearts_emit # shortcut - emit from anywhere to spawn hearts
 signal jade_bot_sound
+signal karma_collected
 signal move_player(new_position: Vector3) # function - moves the player
 signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
@@ -269,6 +272,11 @@ func _ready() -> void:
 	var _d = preload("res://lib/decoration/deco_data.gd").new()
 	DecoData = _d.DecoData.duplicate(true)
 	load_expn("elegance")
+	
+	karma_collected.connect(func():
+		var _p = 0.9 + rng.randf() * 0.2 # pitch variance
+		$KarmaCollect.pitch_scale = _p
+		$KarmaCollect.play())
 	
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:

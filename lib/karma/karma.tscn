@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://css5f06cjlswq"]
+[gd_scene load_steps=26 format=3 uid="uid://css5f06cjlswq"]
 
 [ext_resource type="Script" path="res://lib/karma/karma.gd" id="1_7siie"]
 [ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_i10le"]
 [ext_resource type="Texture2D" uid="uid://begdpwr5l122o" path="res://lib/player/materials/textures/jade_mask.jpg" id="2_hua5p"]
 [ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="4_k1v8w"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="4_ma66g"]
-[ext_resource type="AudioStream" uid="uid://cf4vigsxqembu" path="res://lib/karma/sounds/karma_collect.ogg" id="6_vb0t3"]
 [ext_resource type="Texture2D" uid="uid://cjxn2j2i148cd" path="res://lib/karma/textures/ring.png" id="6_vvvmv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq1by"]
@@ -148,9 +147,6 @@ shape = SubResource("CylinderShape3D_ksru4")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="Collect" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6_vb0t3")
 
 [connection signal="body_entered" from="Orb/PickUpArea" to="." method="_on_pick_up_area_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

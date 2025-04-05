@@ -35,7 +35,7 @@ func set_default_skills(audio = true) -> void:
 		$Box/Skill4.set_enabled(false)
 		$Box/Skill5.set_enabled(false)
 		$Box/Skill6.set_enabled(true)
-	if Save.is_at_story_point("gratitude"):
+	if Save.is_at_story_point("ratchet_gratitude"):
 		$Box/Skill1.set_enabled()
 		$Box/Skill2.set_enabled()
 		$Box/Skill3.set_enabled()
@@ -279,6 +279,7 @@ func skill_used(skill_id: String) -> void:
 		"toggle_gravity":
 			if "gravity" in Global.current_effects:
 				Global.remove_effect.emit("gravity")
+				Global.ripple.emit()
 			else:
 				Global.gravity_entered.emit()
 				Global.add_effect.emit("gravity")

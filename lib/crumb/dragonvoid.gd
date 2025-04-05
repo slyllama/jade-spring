@@ -8,6 +8,7 @@ const N2 = "I'll need the correct Attuned Dispersion Flux to dispel it."
 func clear() -> void:
 	#Global.announcement_sent.emit("The air lightens as the Flux disperses the somber void.")
 	Global.remove_effect.emit("d_" + custom_data)
+	Global.ripple.emit()
 	Global.bug_crumb_left.emit()
 	super()
 
