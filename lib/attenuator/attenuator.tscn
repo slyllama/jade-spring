@@ -323,7 +323,7 @@ script = ExtResource("15_k3slj")
 
 [node name="Rune" type="Sprite2D" parent="Dragon"]
 use_parent_material = true
-position = Vector2(10, 40)
+position = Vector2(10, 74)
 texture = ExtResource("16_qdpey")
 
 [node name="Orb" type="Sprite2D" parent="Dragon"]
@@ -366,6 +366,27 @@ theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "[center]Sensing the attunement, the malignant void tears viciously into the land. To help re-balance the garden, you must clear it soon.[/center]"
 
+[node name="DragonTitle" type="RichTextLabel" parent="Dragon/TextContents"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.0
+offset_top = -106.0
+offset_right = 233.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "[center]ELDER DRAGON[/center]"
+
 [node name="Quote" type="RichTextLabel" parent="Dragon/TextContents"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -373,9 +394,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -273.0
-offset_top = -112.0
+offset_top = -82.0
 offset_right = 273.0
-offset_bottom = -4.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

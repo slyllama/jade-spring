@@ -126,7 +126,7 @@ collision_mask = 9
 input_ray_pickable = false
 motion_mode = 1
 slide_on_ceiling = false
-wall_min_slide_angle = 0.785398
+wall_min_slide_angle = 1.0472
 floor_stop_on_slope = false
 script = ExtResource("1_wipkt")
 

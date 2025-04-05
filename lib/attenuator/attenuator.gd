@@ -156,6 +156,8 @@ func render() -> void:
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
 					# SUCCESS
+					$Dragon/TextContents/DragonTitle.text = ("[center]"
+						+ str(Utilities.DRAGON_DATA[current_dragon].name).to_upper() + "[/center]")
 					$Dragon/TextContents/Quote.text = "[center]" + Utilities.DRAGON_DATA[current_dragon].quote + "[/center]"
 					Global.ripple.emit() # used for emitting screen effects
 					

@@ -68,6 +68,7 @@ func interact() -> void:
 			#return
 		if "d_" + custom_data in Global.current_effects:
 			var _f = FishingInstance.instantiate()
+			$Blight.play()
 			_f.completed.connect(clear)
 			_f.canceled.connect(func():
 				Global.remove_effect.emit("d_" + custom_data))
