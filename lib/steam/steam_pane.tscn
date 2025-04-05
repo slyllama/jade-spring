@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3fmul7liil3q"]
+
+[ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_fjtii"]
+[ext_resource type="Script" path="res://lib/steam/steam_pane.gd" id="2_ia0vl"]
+[ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="3_3qujk"]
+[ext_resource type="PackedScene" uid="uid://cu38ucrqi2xdo" path="res://lib/steam/stats_column.tscn" id="4_picwt"]
+[ext_resource type="Texture2D" uid="uid://wtf7lya3rupu" path="res://lib/hud/textures/steam_icon.png" id="4_v3lyv"]
+[ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="6_6lexo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtmrk"]
+bg_color = Color(0, 0.0509804, 0.105882, 0.901961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.897813, 0.897813, 0.897813, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofa3g"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm5k5"]
+content_margin_bottom = 8.0
+
+[node name="SteamPane" instance=ExtResource("1_fjtii")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_jtmrk")
+script = ExtResource("2_ia0vl")
+title = "Steam"
+
+[node name="DecorationSE" type="TextureRect" parent="." index="0"]
+modulate = Color(0.087286, 0.151066, 0.177802, 1)
+layout_mode = 0
+offset_left = 151.0
+offset_top = 244.0
+offset_right = 401.0
+offset_bottom = 539.0
+mouse_filter = 2
+texture = ExtResource("3_3qujk")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="Icon" type="TextureRect" parent="Container/TitleContainer" index="0"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_v3lyv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CScroll" type="ScrollContainer" parent="Container" index="3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CBox" type="VBoxContainer" parent="Container/CScroll" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="LogSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ofa3g")
+text = "Garden Log"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TitleSeparator2" type="ColorRect" parent="Container/CScroll/CBox" index="1"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="LogContext" type="RichTextLabel" parent="Container/CScroll/CBox" index="2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sm5k5")
+text = "Statistics aggregated from total play-time."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="C1" parent="Container/CScroll/CBox" index="3" instance=ExtResource("4_picwt")]
+layout_mode = 2
+
+[node name="C2" parent="Container/CScroll/CBox" index="4" instance=ExtResource("4_picwt")]
+layout_mode = 2
+
+[node name="C3" parent="Container/CScroll/CBox" index="5" instance=ExtResource("4_picwt")]
+layout_mode = 2
+
+[node name="Spinner" type="Sprite2D" parent="." index="4"]
+position = Vector2(200, 240)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_6lexo")

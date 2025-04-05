@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu38ucrqi2xdo"]
+
+[ext_resource type="Script" path="res://lib/steam/stats_column.gd" id="1_34s47"]
+
+[node name="StatsColumn" type="HBoxContainer"]
+theme_override_constants/separation = 24
+script = ExtResource("1_34s47")
+
+[node name="L" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleL" type="RichTextLabel" parent="L"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="AmountL" type="RichTextLabel" parent="L"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="R" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleR" type="RichTextLabel" parent="R"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="AmountR" type="RichTextLabel" parent="R"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

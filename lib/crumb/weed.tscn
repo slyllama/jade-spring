@@ -279,7 +279,7 @@ distance_fade_length = 0.5
 cull_mask = 8
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.588935, -0.024441, 0.807811, -0.000522277, 0.999554, 0.0298616, -0.80818, 0.0171646, -0.588685, 0, 0, 0)
+transform = Transform3D(-0.961142, -0.0928286, -0.259978, -0.085465, 0.995557, -0.0395118, 0.26249, -0.0157575, -0.964806, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]

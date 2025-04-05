@@ -4,6 +4,10 @@ extends Crumb
 var rng = RandomNumberGenerator.new()
 var pickable = true
 
+func clear() -> void:
+	super()
+	Steam.setStatInt("weeds_picked", Steam.getStatInt("weeds_picked") + 1)
+
 func proc_story() -> void:
 	var _p = Save.data.story_point
 	if _p == "game_start":

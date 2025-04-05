@@ -185,3 +185,8 @@ func _on_settings_pane_closed() -> void:
 
 func _on_folder_button_down() -> void:
 	OS.shell_open(ProjectSettings.globalize_path("user://save"))
+
+func _on_steam_button_down() -> void:
+	if $SettingsPane.is_open:
+		$SettingsPane.close()
+	$SteamPane.open()

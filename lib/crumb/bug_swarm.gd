@@ -6,6 +6,7 @@ func clear() -> void:
 	#Global.announcement_sent.emit("The burst of Raw Dispersion Flux scatters these pests to the Four Winds!")
 	Global.bug_crumb_left.emit()
 	Global.remove_effect.emit("discombobulator")
+	Steam.setStatInt("bugs_cleared", Steam.getStatInt("bugs_cleared") + 1)
 	super()
 
 func proc_story() -> void:
