@@ -44,7 +44,7 @@ func reset_picking_disabled_objects() -> void:
 
 func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
 	Global.assigned_karma += amount
-	Steam.setStatInt("karma_earned", Steam.getStatInt("karma_earned") + amount)
+	SteamHandler.add_to_stat("karma_earned", amount)
 	for _i in amount:
 		var _a = deg_to_rad(360.0 / amount * _i + rng.randf() * 45.0)
 		var _offset = Vector3(radius * cos(_a), 0, radius * sin(_a))

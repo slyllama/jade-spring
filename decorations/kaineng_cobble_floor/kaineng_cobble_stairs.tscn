@@ -10,7 +10,6 @@ data = PackedVector3Array(-2.48399, -0.489429, 0.489429, -2.48399, -0.359641, -0
 script = ExtResource("1_b0i8v")
 id = "kaineng_cobble_stairs"
 collision_box = NodePath("Body")
-custom_lod = false
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 3

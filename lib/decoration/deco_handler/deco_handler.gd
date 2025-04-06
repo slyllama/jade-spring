@@ -35,7 +35,7 @@ func place_decoration(data: Dictionary) -> void:
 	Global.command_sent.emit("/savedeco")
 	
 	await get_tree().process_frame
-	Steam.setStatInt("decos_placed", Steam.getStatInt("decos_placed") + 1)
+	SteamHandler.add_to_stat("decos_placed")
 	_d.start_adjustment()
 
 # Clear all decorations from the world

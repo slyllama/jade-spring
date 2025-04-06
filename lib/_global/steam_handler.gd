@@ -21,6 +21,12 @@ func printd(debug_str: String) -> void:
 	if show_debug:
 		print("[Steam] " + debug_str)
 
+func add_to_stat(stat: String, amount = 1) -> void:
+	if !steam_loaded:
+		printd("Couldn't add to stat '" + stat + "'.")
+		return
+	Steam.setStatInt(stat, Steam.getStatInt(stat) + amount)
+
 func refresh_stats() -> void:
 	if !steam_loaded: return
 	Steam.requestUserStats(Steam.get_current_steam_id())

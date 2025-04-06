@@ -62,6 +62,9 @@ func get_karma_stats() -> void:
 func _ready() -> void:
 	for _n in get_children():
 		if _n is Crumb:
+			if !_n.visible:
+				_n.queue_free()
+				continue
 			if !_n.type in totals:
 				totals[_n.type] = 0
 			totals[_n.type] += 1

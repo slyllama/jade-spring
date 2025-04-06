@@ -32,7 +32,7 @@ func close() -> void:
 	_fade.tween_callback(queue_free)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("right_click"):
 		Global.in_exclusive_ui = true
 		await get_tree().process_frame
 		close()
