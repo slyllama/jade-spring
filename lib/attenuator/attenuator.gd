@@ -60,6 +60,11 @@ func _set_paint_exponent(val: float) -> void:
 func _set_base_darkness(val: float) -> void:
 	$Base.material.set_shader_parameter("darken", val)
 
+func _set_banner_value(val: float) -> void:
+	var _e = ease(val, 0.2)
+	$SuccessBanner.material.set_shader_parameter("alpha", val)
+	$SuccessBanner.material.set_shader_parameter("paint_exponent", 0.01 + (1 - _e) * 9.0)
+
 func present_glyph() -> void: # present a glyph based on the current Elder Dragon
 	for _n in glyph_box.get_children():
 		_n.queue_free()
@@ -69,7 +74,7 @@ func present_glyph() -> void: # present a glyph based on the current Elder Drago
 	glyph_sprite.use_parent_material = true
 	glyph_sprite.texture = load(
 		"res://lib/attenuator/textures/glyphs/" + current_dragon + ".png")
-	$Dragon/Rune.texture = load( # TODO: streamline this
+	$SuccessBanner/Rune.texture = load( # TODO: streamline this
 		"res://lib/attenuator/textures/glyphs/" + current_dragon + ".png")
 	glyph_box.add_child(glyph_sprite)
 	
@@ -114,6 +119,10 @@ func render() -> void:
 	$Base/Marker.visible = true
 	$Base/ControlContainer/Reset.disabled = false
 	
+	$SuccessBanner.visible = false
+	_set_banner_value(0.0)
+	_set_paint_exponent(0.0)
+	
 	place = 0
 	present_glyph()
 	var _title = Utilities.DRAGON_DATA[current_dragon].name
@@ -142,7 +151,6 @@ func render() -> void:
 					# FAIL
 					var _dt = create_tween()
 					_dt.tween_method(_set_base_darkness, 0.0, 0.5, 0.1)
-					#$Disabled.play()
 					Global.play_flash(
 						$Base/ControlContainer/Reset.global_position + Vector2(60, 16))
 					var ee_fade_tween = create_tween()
@@ -156,9 +164,11 @@ func render() -> void:
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
 					# SUCCESS
-					$Dragon/TextContents/DragonTitle.text = ("[center]"
+					$SuccessBanner/DragonTitle.text = ("[center]"
 						+ str(Utilities.DRAGON_DATA[current_dragon].name).to_upper() + "[/center]")
-					$Dragon/TextContents/Quote.text = "[center]" + Utilities.DRAGON_DATA[current_dragon].quote + "[/center]"
+					$SuccessBanner/Quote.text = ("[center]" + Utilities.LDQUO
+						+ Utilities.DRAGON_DATA[current_dragon].quote
+						+ Utilities.RDQUO + "[/center]")
 					Global.ripple.emit() # used for emitting screen effects
 					
 					Global.remove_effect.emit("discombobulator")
@@ -174,16 +184,17 @@ func render() -> void:
 					$Base/Marker.visible = false
 					
 					$Success.play()
-					$Dragon.reveal(current_dragon)
+					$SuccessBanner.visible = true
+					_set_base_darkness(0.86)
+					var banner_tween = create_tween()
+					banner_tween.tween_method(_set_banner_value, 0.0, 1.0, 0.2)
 					
-					await $Dragon.reveal_complete
 					Global.player.update_golem_effects()
 		)
 		$Base/KeyContainer.add_child(_n)
 		_n.set_pills_size(TUNES[current_dragon].size())
 		_n.set_pills_color(Utilities.DRAGON_DATA[current_dragon].color)
-		if _d == 0:
-			moused_note_y_pos = _n.global_position.y # initial set
+		if _d == 0: moused_note_y_pos = _n.global_position.y # initial set
 		_d += 1
 	
 	var _c = 0
@@ -219,9 +230,8 @@ func close() -> void:
 	$DispulsionFX.anim_out()
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_set_paint_exponent, 0.0, 1.0, 0.2)
-	var text_fade = create_tween()
-	text_fade.tween_property($Dragon/TextContents, "modulate:a", 0.0, 0.12)
-	text_fade.set_parallel()
+	
+	# TODO: banner fading goes here
 	
 	await $DispulsionFX.anim_out_complete
 	queue_free()
@@ -258,26 +268,17 @@ func _ready() -> void:
 	ee_fade_tween.tween_method(_set_ee_paint_exponent, 0.0, 1.0, 0.3)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		close()
-	if Input.is_action_just_pressed("ui_accept"):
-		render() #TODO: debug testing re-loading
+	if Input.is_action_just_pressed("ui_cancel"): close()
 
-func _on_close_button_down() -> void:
-	close()
+func _on_close_button_down() -> void: close()
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
-	$Dragon/Orb.rotation_degrees += delta * 10.0
-	$Dragon/Orb2.rotation_degrees -= delta * 14.0
-	
-	if Engine.is_editor_hint(): return
 	
 	$DispulsionFX.position.x = $Base.position.x + $Base.size.x / 2.0
-	$DispulsionFX.position.y = $Base.position.y + 140.0
-	
-	$Dragon.position.x = $Base.position.x + $Base.size.x / 2.0
-	$Dragon.position.y = $Base.position.y + $Base.size.y / 2.0
+	$DispulsionFX.position.y = $Base.position.y + 300.0
+	$SuccessBanner.position.x = $Base.position.x + $Base.size.x / 2.0
+	$SuccessBanner.position.y = $Base.position.y + $Base.size.y / 2.0
 	
 	# Cursor follows mouse and highlights the whole row
 	$Base/Cursor.global_position.y = lerp(

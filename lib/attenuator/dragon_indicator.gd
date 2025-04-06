@@ -9,7 +9,7 @@ func _set_color(color: Color) -> void:
 	material.set_shader_parameter("color", color)
 
 func reveal(current_dragon: String) -> void:
-	_set_color(Utilities.DRAGON_DATA[current_dragon].color)
+	#_set_color(Utilities.DRAGON_DATA[current_dragon].color)
 	
 	var scale_tween = create_tween()
 	scale_tween.tween_property(

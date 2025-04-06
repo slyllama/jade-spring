@@ -4,6 +4,8 @@ extends Node
 
 const DEG = "[char=0x000000B0]"
 const TICK = "[char=0x00002713]"
+const LDQUO = "[char=0x0000201C]"
+const RDQUO = "[char=0x0000201D]"
 const BIGNUM = -9999
 const BIGVEC3 = Vector3(BIGNUM, BIGNUM, BIGNUM)
 
