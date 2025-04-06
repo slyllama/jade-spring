@@ -253,75 +253,59 @@ custom_data = null
 
 [node name="Weed3" parent="CrumbHandler" index="4" instance=ExtResource("5_e2aho")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -7.89782, -0.109571, 4.86797)
-visible = false
 can_click = true
 custom_data = null
 
 [node name="Weed4" parent="CrumbHandler" index="5" instance=ExtResource("5_e2aho")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -4.58147, 0.0851234, 7.31277)
-visible = false
 can_click = true
 custom_data = null
 
 [node name="Weed6" parent="CrumbHandler" index="6" instance=ExtResource("5_e2aho")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, 0.151906, 0.644752, 1.69192)
-visible = false
 can_click = true
 custom_data = null
 
 [node name="Weed7" parent="CrumbHandler" index="7" instance=ExtResource("5_e2aho")]
 transform = Transform3D(-0.942402, 0, 0.334482, 0.00102162, 0.999995, 0.0028784, -0.33448, 0.00305432, -0.942398, 1.56853, 0.491441, 6.54419)
-visible = false
 can_click = true
 custom_data = null
 
 [node name="Weed9" parent="CrumbHandler" index="8" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06798, 0.317763, -6.98955)
-visible = false
 
 [node name="Weed10" parent="CrumbHandler" index="9" instance=ExtResource("5_e2aho")]
 transform = Transform3D(0.801014, 0, -0.598646, 0, 1, 0, 0.598646, 0, 0.801014, -0.610155, 0.265081, -6.98955)
-visible = false
 
 [node name="Weed12" parent="CrumbHandler" index="10" instance=ExtResource("5_e2aho")]
 transform = Transform3D(0.801014, 0, -0.598646, 0, 1, 0, 0.598646, 0, 0.801014, 2.34584, 0.395716, -7.64475)
-visible = false
 
 [node name="Weed13" parent="CrumbHandler" index="11" instance=ExtResource("5_e2aho")]
 transform = Transform3D(0.357863, 0, -0.933774, 0, 1, 0, 0.933774, 0, 0.357863, 2.45922, 0.164654, -5.3562)
-visible = false
 
 [node name="Weed11" parent="CrumbHandler" index="12" instance=ExtResource("5_e2aho")]
 transform = Transform3D(0.801014, 0, -0.598646, 0, 1, 0, 0.598646, 0, 0.801014, -0.549327, 0.206426, -4.97084)
-visible = false
 
 [node name="Weed14" parent="CrumbHandler" index="13" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46816, 0.218348, 8.70212)
-visible = false
 
 [node name="Weed15" parent="CrumbHandler" index="14" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76216, -0.172937, 11.9421)
-visible = false
 
 [node name="Weed16" parent="CrumbHandler" index="15" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01823, -0.216093, 13.3214)
-visible = false
 
 [node name="Weed17" parent="CrumbHandler" index="16" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64735, -0.23217, -9.86763)
-visible = false
 
 [node name="Weed18" parent="CrumbHandler" index="17" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5145, -0.0163086, -9.385)
-visible = false
 
 [node name="Weed19" parent="CrumbHandler" index="18" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41485, 0.0422199, 9.9929)
-visible = false
 
 [node name="Weed20" parent="CrumbHandler" index="19" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53779, 0.605422, 7.24115)
-visible = false
 
 [node name="BugSwarm" parent="CrumbHandler" index="20" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.70683, 0.698459, 8.58063)
@@ -334,31 +318,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91197, 1.92322, 3.59943)
 
 [node name="BugSwarm4" parent="CrumbHandler" index="23" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89035, 1.53366, -2.66542)
-visible = false
 
 [node name="BugSwarm5" parent="CrumbHandler" index="24" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23029, 1.74595, 1.38721)
-visible = false
 
 [node name="BugSwarm6" parent="CrumbHandler" index="25" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77579, 0.954165, -5.00083)
-visible = false
 
 [node name="BugSwarm7" parent="CrumbHandler" index="26" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29462, 0.704712, -8.76389)
-visible = false
 
 [node name="BugSwarm8" parent="CrumbHandler" index="27" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0349, 1.2174, -8.70574)
-visible = false
 
 [node name="BugSwarm9" parent="CrumbHandler" index="28" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07721, 0.607584, -10.0079)
-visible = false
 
 [node name="BugSwarm10" parent="CrumbHandler" index="29" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15857, 0.703732, 13.1967)
-visible = false
 
 [node name="Dragonvoid" parent="CrumbHandler" index="30" instance=ExtResource("35_f6q0j")]
 transform = Transform3D(-0.93045, 0, 0.36642, 0, 1, 0, -0.36642, 0, -0.93045, -6.26371, 0.323193, 2.11964)
@@ -377,15 +354,12 @@ custom_data = null
 
 [node name="Dragonvoid4" parent="CrumbHandler" index="33" instance=ExtResource("35_f6q0j")]
 transform = Transform3D(0.586726, 0, -0.809786, 0, 1, 0, 0.809786, 0, 0.586726, -0.702717, -0.244715, 13.2629)
-visible = false
 
 [node name="Dragonvoid5" parent="CrumbHandler" index="34" instance=ExtResource("35_f6q0j")]
 transform = Transform3D(0.986529, 0, -0.163584, 0, 1, 0, 0.163584, 0, 0.986529, -1.00166, 1.03967, -1.63769)
-visible = false
 
 [node name="Dragonvoid6" parent="CrumbHandler" index="35" instance=ExtResource("35_f6q0j")]
 transform = Transform3D(-0.995881, 0, 0.0906672, 0, 1, 0, -0.0906672, 0, -0.995881, 4.9172, 0.214816, -7.94428)
-visible = false
 
 [node name="FloorMesh" parent="Floor" index="1"]
 transform = Transform3D(1.25, 0, 0, 0, 1.20741, -0.12941, 0, 0.323524, 0.482963, 0, -5.3804, 30.919)

@@ -164,6 +164,7 @@ func render() -> void:
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
 					# SUCCESS
+					$SuccessBanner/Base.self_modulate = Utilities.DRAGON_DATA[current_dragon].color
 					$SuccessBanner/DragonTitle.text = ("[center]"
 						+ str(Utilities.DRAGON_DATA[current_dragon].name).to_upper() + "[/center]")
 					$SuccessBanner/Quote.text = ("[center]" + Utilities.LDQUO
