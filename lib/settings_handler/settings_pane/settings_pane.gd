@@ -64,6 +64,7 @@ func _on_quit_button_down() -> void:
 		AudioServer.set_bus_volume_db(0, -80)
 		Save.data.karma += Global.assigned_karma
 		Global.command_sent.emit("/savedata")
+		SteamHandler.store_stats()
 		close()
 		get_tree().change_scene_to_file("res://lib/main_menu/main_menu.tscn")
 

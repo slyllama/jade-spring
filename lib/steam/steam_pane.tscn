@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3fmul7liil3q"]
+[gd_scene load_steps=11 format=3 uid="uid://d3fmul7liil3q"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_fjtii"]
 [ext_resource type="Script" path="res://lib/steam/steam_pane.gd" id="2_ia0vl"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="3_3qujk"]
 [ext_resource type="PackedScene" uid="uid://cu38ucrqi2xdo" path="res://lib/steam/stats_column.tscn" id="4_picwt"]
 [ext_resource type="Texture2D" uid="uid://wtf7lya3rupu" path="res://lib/hud/textures/steam_icon.png" id="4_v3lyv"]
+[ext_resource type="PackedScene" uid="uid://cjg7pcyuthw28" path="res://lib/steam/achievements/achievement_box.tscn" id="6_0jxwi"]
 [ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="6_6lexo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtmrk"]
@@ -57,9 +58,9 @@ size_flags_vertical = 3
 [node name="CBox" type="VBoxContainer" parent="Container/CScroll" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 0
+theme_override_constants/separation = 2
 
-[node name="LogSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="0"]
+[node name="StatsSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -80,7 +81,7 @@ layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="LogContext" type="RichTextLabel" parent="Container/CScroll/CBox" index="2"]
+[node name="StatsContext" type="RichTextLabel" parent="Container/CScroll/CBox" index="2"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -100,6 +101,37 @@ layout_mode = 2
 
 [node name="C3" parent="Container/CScroll/CBox" index="5" instance=ExtResource("4_picwt")]
 layout_mode = 2
+
+[node name="SectionSeparator" type="ColorRect" parent="Container/CScroll/CBox" index="6"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="AchieveSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ofa3g")
+text = "Achievements"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TitleSeparator3" type="ColorRect" parent="Container/CScroll/CBox" index="8"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="AchievementBox" parent="Container/CScroll/CBox" index="9" instance=ExtResource("6_0jxwi")]
+layout_mode = 2
+achievement_id = "story_completion"
 
 [node name="Spinner" type="Sprite2D" parent="." index="4"]
 position = Vector2(200, 240)

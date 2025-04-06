@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjg7pcyuthw28"]
+
+[ext_resource type="Script" path="res://lib/steam/achievements/achievement_box.gd" id="1_6k7wy"]
+[ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="2_f1rs6"]
+
+[node name="AchievementBox" type="HBoxContainer"]
+offset_right = 588.0
+offset_bottom = 64.0
+theme_override_constants/separation = 12
+script = ExtResource("1_6k7wy")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_f1rs6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="TextBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+text = "((Achievement Title))"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Description" type="RichTextLabel" parent="TextBox"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "((Achievement Subtitle))"
+fit_content = true
+scroll_active = false

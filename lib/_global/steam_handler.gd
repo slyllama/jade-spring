@@ -9,6 +9,15 @@ const APP_ID = 3561310
 var steam_loaded = false
 signal stats_refreshed
 
+const Achievements = {
+	"story_completion": {
+		"title": "A Good Day's Work",
+		"desc": "Complete all of Ratchet's garden-clearing objectives.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/story_completion_unearned.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/story_completion_earned.jpg")
+	}
+}
+
 var stats = {
 	"karma_earned" = 0,
 	"weeds_picked" = 0,
@@ -21,11 +30,25 @@ func printd(debug_str: String) -> void:
 	if show_debug:
 		print("[Steam] " + debug_str)
 
+func get_achievment_completion(achievement: String) -> int:
+	if !steam_loaded: return(-1)
+	if Steam.getAchievement(achievement).achieved: return(1)
+	else: return(0)
+
 func add_to_stat(stat: String, amount = 1) -> void:
 	if !steam_loaded:
 		printd("Couldn't add to stat '" + stat + "'.")
 		return
 	Steam.setStatInt(stat, Steam.getStatInt(stat) + amount)
+
+func complete_achievement(achievement: String) -> void:
+	if !steam_loaded: return
+	Steam.setAchievement(achievement)
+	Steam.storeStats()
+
+func store_stats() -> void:
+	if !steam_loaded: return
+	Steam.storeStats()
 
 func refresh_stats() -> void:
 	if !steam_loaded: return
@@ -55,16 +78,9 @@ func _ready() -> void:
 	Steam.user_stats_received.connect(_on_steam_stats_ready)
 	Steam.requestUserStats(Steam.get_current_steam_id())
 	
-	#Global.command_sent.connect(func(cmd):
-		#if stats_loaded:
+	Global.command_sent.connect(func(cmd):
+		if steam_loaded:
 			## Stats commands
-			#if cmd == "/printteststat":
-				#printd("karma_earned: " + str(Steam.getStatInt("karma_earned")))
-			#elif cmd == "/incrementteststat":
-				#Steam.setStatInt("karma_earned", Steam.getStatInt("karma_earned") + 1)
-				#Global.command_sent.emit("/printteststat")
-			#elif cmd == "/printtestachieve":
-				#printd(str(Steam.getAchievement("story_completion")))
-		#else:
-			#printd("Stats weren't successfully loaded.")
-	#)
+			if cmd == "/clearachieve":
+				Steam.clearAchievement("story_completion")
+				Steam.storeStats())

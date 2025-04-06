@@ -205,6 +205,13 @@ func _ready() -> void:
 			and Global.crumb_handler.totals.dragonvoid - Save.data.crumb_count.dragonvoid >= OBJECTIVE_DV_COUNT):
 			advance_story()
 			
+			# ACHIEVEMENT - STORY COMPLETION
+			if SteamHandler.get_achievment_completion("story_completion") < 1:
+				print("Qualifies for story completion achievement.")
+				if Save.is_at_story_point("ratchet_gratitude"):
+					SteamHandler.complete_achievement("story_completion")
+					print("Story completion achievement earned!")
+			
 			await get_tree().create_timer(0.5).timeout # delay before the story panel opens
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_gratitude"])
 	)
@@ -214,4 +221,7 @@ func _notification(what):
 		if Save.data != {}: # only save if there is something to save
 			Save.data.karma += Global.assigned_karma
 			save_to_file()
+			
+			SteamHandler.store_stats()
+			await get_tree().process_frame
 		get_tree().quit() # default behavior

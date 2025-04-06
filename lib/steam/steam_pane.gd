@@ -14,6 +14,8 @@ func open(silent = false) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SteamHandler.stats_refreshed.connect(func():
+		print(Steam.getAchievement("story_completion"))
+		
 		is_ready = true
 		$Spinner.visible = false
 		$Container/CScroll.visible = true

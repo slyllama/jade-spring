@@ -39,6 +39,7 @@ func _input(_event: InputEvent) -> void:
 		Global.in_exclusive_ui = false
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	if Global.story_panel_open:
 		queue_free()
 		return
