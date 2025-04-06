@@ -72,10 +72,8 @@ func _process(delta: float) -> void:
 	super(delta)
 	# Prevent settings buttons from gaining focus while orbiting
 	
-	if Global.tool_mode != Global.TOOL_MODE_NONE:
-		$Container/SC/Contents/Bindings.disabled = true
-	else:
-		$Container/SC/Contents/Bindings.disabled = false
+	if Global.tool_mode != Global.TOOL_MODE_NONE: $Container/SC/Contents/Bindings.disabled = true
+	else: $Container/SC/Contents/Bindings.disabled = false
 	
 	if Global.camera_orbiting:
 		if !$PreventFocus.visible:

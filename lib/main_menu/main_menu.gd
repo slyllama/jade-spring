@@ -52,6 +52,9 @@ func play() -> void:
 	$FG.modulate.a = 0.0
 	can_interact = false
 	
+	$SettingsPane.close()
+	$SteamPane.close()
+	
 	var fade_tween = create_tween()
 	fade_tween.tween_property($FG, "modulate:a", 1.0, 0.35)
 	var music_tween = create_tween()

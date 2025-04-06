@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0mwf4noofaci"
-path="res://.godot/imported/story_completion_unearned.jpg-c9d726a2c9daaea5dd1796e699e25c45.ctex"
+uid="uid://imp1ipev318"
+path="res://.godot/imported/story_completion.jpg-20a6ab6f7df13e69784babaa953eaeef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/steam/achievements/icons/story_completion_unearned.jpg"
-dest_files=["res://.godot/imported/story_completion_unearned.jpg-c9d726a2c9daaea5dd1796e699e25c45.ctex"]
+source_file="res://lib/steam/achievements/icons/story_completion.jpg"
+dest_files=["res://.godot/imported/story_completion.jpg-20a6ab6f7df13e69784babaa953eaeef.ctex"]
 
 [params]
 

@@ -1,5 +1,6 @@
 extends "res://lib/ui_container/ui_container.gd"
 
+const AchievementBox = preload("res://lib/steam/achievements/achievement_box.tscn")
 var is_ready = false
 
 func open(silent = false) -> void:
@@ -13,6 +14,11 @@ func open(silent = false) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for _a in SteamHandler.AchievementsList:
+		var _ab = AchievementBox.instantiate()
+		_ab.achievement_id = _a
+		$Container/CScroll/CBox.add_child(_ab)
+	
 	SteamHandler.stats_refreshed.connect(func():
 		print(Steam.getAchievement("story_completion"))
 		
@@ -43,3 +49,6 @@ func _process(delta: float) -> void:
 	$Spinner.rotation += delta * 2.0
 	if $Spinner.rotation >= 2 * PI:
 		$Spinner.rotation = 0
+
+func _on_reset_button_down() -> void:
+	Global.command_sent.emit("/clearstats")

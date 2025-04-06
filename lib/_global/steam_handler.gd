@@ -9,12 +9,52 @@ const APP_ID = 3561310
 var steam_loaded = false
 signal stats_refreshed
 
+const AchievementsList = [
+	"story_completion",
+	"game_completion",
+	"homesteader",
+	"architect",
+	"twilight_peace"
+]
+
+const StatsList = [
+	"karma_earned",
+	"weeds_picked",
+	"bugs_cleared",
+	"void_dispelled",
+	"decos_placed"
+]
+
 const Achievements = {
 	"story_completion": {
 		"title": "A Good Day's Work",
 		"desc": "Complete all of Ratchet's garden-clearing objectives.",
-		"icon_unearned": preload("res://lib/steam/achievements/icons/story_completion_unearned.jpg"),
+		"icon_unearned": preload("res://lib/steam/achievements/icons/story_completion.jpg"),
 		"icon_earned": preload("res://lib/steam/achievements/icons/story_completion_earned.jpg")
+	},
+	"game_completion": {
+		"title": "Spring Clean",
+		"desc": "Clear the garden of all weeds, pests, and Dragonvoid.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/game_completion.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/game_completion_earned.jpg")
+	},
+	"twilight_peace": {
+		"title": "Twilight's Peace",
+		"desc": "Make night fall over the Jade Spring.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/twilight_peace.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/twilight_peace_earned.jpg")
+	},
+	"homesteader": {
+		"title": "Homesteader",
+		"desc": "Place 25 decorations.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/homesteader.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/homesteader_earned.jpg")
+	},
+	"architect": {
+		"title": "Architect",
+		"desc": "Place 50 decorations.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/architect.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/architect_earned.jpg")
 	}
 }
 
@@ -34,6 +74,10 @@ func get_achievment_completion(achievement: String) -> int:
 	if !steam_loaded: return(-1)
 	if Steam.getAchievement(achievement).achieved: return(1)
 	else: return(0)
+
+func get_stat(stat: String) -> int:
+	if !steam_loaded: return(-1)
+	return(Steam.getStatInt(stat))
 
 func add_to_stat(stat: String, amount = 1) -> void:
 	if !steam_loaded:
@@ -81,6 +125,8 @@ func _ready() -> void:
 	Global.command_sent.connect(func(cmd):
 		if steam_loaded:
 			## Stats commands
-			if cmd == "/clearachieve":
-				Steam.clearAchievement("story_completion")
-				Steam.storeStats())
+			if cmd == "/clearstats":
+				Steam.resetAllStats(true)
+				await get_tree().process_frame
+				get_tree().quit()
+	)

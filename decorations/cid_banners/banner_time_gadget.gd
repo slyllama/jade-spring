@@ -41,6 +41,12 @@ func _on_interacted() -> void:
 		elif id == "rotate":
 			Global.command_sent.emit("/rotatesun")
 		elif id == "night":
+			# Proc achievement
+			if SteamHandler.get_achievment_completion("twilight_peace") == 0:
+				SteamHandler.complete_achievement("twilight_peace")
+			else:
+				print("already done or steam unavailable")
+			
 			Global.generic_area_entered.emit()
 			if !$FX.playing: $FX.play()
 			in_range = true

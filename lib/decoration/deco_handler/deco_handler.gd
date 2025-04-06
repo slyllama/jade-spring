@@ -6,6 +6,9 @@ const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
 const FILE_PATH = "user://save/deco.dat"
 var default_deco_data = {}
 
+var eligible_for_homesteader = false
+var eligible_for_architect = false
+
 func get_deco_count() -> Dictionary:
 	var _d = {}
 	for _n in get_children():
@@ -35,7 +38,16 @@ func place_decoration(data: Dictionary) -> void:
 	Global.command_sent.emit("/savedeco")
 	
 	await get_tree().process_frame
+	
 	SteamHandler.add_to_stat("decos_placed")
+	if SteamHandler.get_stat("decos_placed") >= 25 and eligible_for_homesteader:
+		# Manual call for passing "Homesteader" achievement
+		eligible_for_homesteader = false
+		SteamHandler.store_stats()
+	if SteamHandler.get_stat("decos_placed") >= 50 and eligible_for_architect:
+		# Manual call for passing "Architect" achievement
+		eligible_for_architect = false
+		SteamHandler.store_stats()
 	_d.start_adjustment()
 
 # Clear all decorations from the world
@@ -98,6 +110,12 @@ func _ready() -> void:
 			Global.decorations.append(_n)
 	default_deco_data = _get_decoration_list()
 	
+	# Strict eligibility for achievements
+	if SteamHandler.get_achievment_completion("homesteader") == 0:
+		eligible_for_homesteader = true
+	if SteamHandler.get_achievment_completion("architect") == 0:
+		eligible_for_architect = true
+	
 	Global.deco_deleted.connect($DeleteSound.play)
 	if Global.start_params.new_save:
 		_save_decorations() # commit reset decorations
@@ -142,6 +160,3 @@ func _ready() -> void:
 			_get_decoration_list()
 		elif _cmd == "/getdecocount":
 			print(get_deco_count()))
-	
-	#await get_tree().process_frame # needs a frame to avoid duplication
-	#_save_decorations()

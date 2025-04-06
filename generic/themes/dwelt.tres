@@ -137,20 +137,20 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g1o1"]
 bg_color = Color(0, 0, 0, 0)
-border_width_right = 8
-border_color = Color(0.374139, 0.374139, 0.374139, 1)
+border_width_right = 6
+border_color = Color(1, 1, 1, 0.117647)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28o1j"]
 bg_color = Color(0, 0, 0, 0)
-border_width_right = 8
-border_color = Color(0.644663, 0.644664, 0.644663, 1)
+border_width_right = 6
+border_color = Color(1, 1, 1, 0.235294)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh5rp"]
 bg_color = Color(0, 0, 0, 0)
-border_width_right = 8
+border_width_right = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73cfk"]
-content_margin_left = 12.0
+content_margin_left = 15.0
 bg_color = Color(0, 0, 0, 0)
 
 [resource]
