@@ -415,6 +415,7 @@ volume_db = -3.0
 
 [node name="OpenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_oesam")
+stream_paused = true
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/ArrowBox/Previous" to="." method="_on_previous_button_down"]

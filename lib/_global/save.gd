@@ -49,7 +49,7 @@ var STORY_POINT_SCRIPT = {
 	},
 	"ratchet_gratitude": {
 		"title": "4. Ratchet's Gratitude",
-		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them; they managed to get the renovation system operational again! <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them You can unlock special decorations with Karma earned from helping clear the garden. Oh - and it looks like Ratchet has something they want to talk to you about!>",
+		"description": "Ratchet passed off the worst of the work to me, but I can hardly blame them; they managed to get the renovation system operational again! <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them. You can unlock special decorations with Karma earned from helping clear the garden. Oh - and it looks like Ratchet has something they want to talk to you about!>",
 		"objective": "Ratchet has something to speak to you about!"
 	},
 	"gratitude": {
