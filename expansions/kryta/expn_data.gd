@@ -11,5 +11,11 @@ const data = {
 		"preview_scale": 1.2,
 		"preview_v_offset": 0.1,
 		"tags": ["Architecture", "Kryta"]
+	},
+	"simple_bookcase": {
+		"name": "Simple Bookscase",
+		"preview_scale": 1.2,
+		"preview_v_offset": -0.4,
+		"tags": ["Architecture", "Kryta"]
 	}
 }

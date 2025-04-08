@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4jmbbp4h1rq0"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_vjiw0"]
+[ext_resource type="PackedScene" uid="uid://2b748i84cwaf" path="res://expansions/kryta/simple_bookcase/simple_bookcase_mesh.glb" id="2_27uff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_st5rg"]
+size = Vector3(1.4353, 1.69727, 0.53833)
+
+[node name="SimpleBookcase" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_vjiw0")
+id = "simple_bookcase"
+collision_box = NodePath("Body")
+
+[node name="SimpleBookcase" parent="." instance=ExtResource("2_27uff")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858398, 0.00598145)
+shape = SubResource("BoxShape3D_st5rg")

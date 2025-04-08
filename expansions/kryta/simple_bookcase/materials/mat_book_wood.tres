@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dt37jhy3pdo2s"]
+
+[ext_resource type="Shader" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_wood.gdshader" id="1_efuci"]
+[ext_resource type="Texture2D" uid="uid://b0k6k5mw0pvd2" path="res://maps/seitung/materials/textures/weathered_wood_norm.jpg" id="2_nebvp"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_rolhc"]
+[ext_resource type="Texture2D" uid="uid://b0mdc72lwfjl2" path="res://maps/seitung/materials/textures/weathered_wood_diff.jpg" id="3_owujr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_efuci")
+shader_parameter/base_color = Color(0.91, 0.82264, 0.8008, 1)
+shader_parameter/occlusion_color = Color(0.190942, 0.584119, 0.648239, 1)
+shader_parameter/occlusion_intensity = 1.0
+shader_parameter/occlusion_multiplier = 1.0
+shader_parameter/uv_scale = 4.0
+shader_parameter/saturation = 1.1
+shader_parameter/multiplier = 0.6
+shader_parameter/exponent = 2.0
+shader_parameter/wood_texture = ExtResource("3_owujr")
+shader_parameter/wood_normal_texture = ExtResource("2_nebvp")
+shader_parameter/occlusion_mask = ExtResource("2_rolhc")
