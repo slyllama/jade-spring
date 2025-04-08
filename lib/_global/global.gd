@@ -261,12 +261,12 @@ func load_expn(id: String) -> void:
 	for _d in expn_data:
 		var deco_path = expn_path + "/" + _d
 		expn_data[_d].scene = deco_path + "/" + _d + ".tscn"
-		var cursor_tscn = deco_path + "/" + _d + "_mesh.tscn"
-		if FileAccess.file_exists(cursor_tscn):
-			expn_data[_d].cursor_model = cursor_tscn
+		var cursor_path
+		if "cursor_suffix" in expn_data[_d]:
+			cursor_path = deco_path + "/" + _d + "_mesh." + expn_data[_d].cursor_suffix
 		else:
-			var cursor_glb = deco_path + "/" + _d + "_mesh.glb"
-			expn_data[_d].cursor_model = cursor_glb
+			cursor_path = deco_path + "/" + _d + "_mesh.glb"
+		expn_data[_d].cursor_model = cursor_path
 		DecoData[_d] = expn_data[_d]
 
 ##### Execution

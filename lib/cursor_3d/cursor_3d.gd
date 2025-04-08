@@ -55,7 +55,6 @@ func activate(get_data: Dictionary) -> void:
 	# Cursor tint and radius is ignored if a custom model is used
 	if "custom_model" in data:
 		xray = XRayMesh.new()
-		print(data.custom_model)
 		var model = data.custom_model.instantiate()
 		xray.add_child(model)
 		add_child(xray)

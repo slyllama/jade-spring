@@ -9,6 +9,7 @@ const data = {
 	"test_deco": {
 		"name": "Test Decoration",
 		"preview_scale": 0.9,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha"],
+		"cursor_suffix": "tscn"
 	}
 }
