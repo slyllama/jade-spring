@@ -13,7 +13,6 @@ height = 0.7
 script = ExtResource("1_mbryx")
 id = "janthiri_bee"
 collision_box = NodePath("Body")
-custom_lod = false
 
 [node name="JanthiriBee" parent="." instance=ExtResource("2_m8xkx")]
 script = ExtResource("3_q04mg")

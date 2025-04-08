@@ -47,7 +47,8 @@ func open(silent = false) -> void:
 	Global.deco_pane_open = true
 	super(silent)
 	last_deco_count = Global.deco_handler.get_deco_count()
-	render(selected_tag)
+	
+	update_costs()
 
 func close():
 	Global.deco_pane_open = false
@@ -78,6 +79,13 @@ func start_decoration_placement(id: String) -> void:
 			"highlight_on_decoration": false})
 	
 	Global.deco_placement_started.emit()
+
+func update_costs() -> void:
+	for _b in buttons:
+		var _n = buttons[_b]
+		var _data = Global.DecoData[_n.id]
+		if "unlock_value" in _data and !_n.id in Save.data.unlocked_decorations:
+			_n.set_cost(_data.unlock_value)
 
 func render(tag = "None", custom_data = []) -> void:
 	for _n in buttons:
@@ -112,15 +120,16 @@ func render(tag = "None", custom_data = []) -> void:
 	for _d in id_list:
 		# Get decoration data from Global.DecoData and use it to make buttons
 		var _item = DecoButton.instantiate()
+		_item.id = _d
 		var _dl = Global.DecoData[_d]
 		
 		var _button_text = "  " + _dl.name
 		if _d in last_deco_count:
 			_button_text += " (" + str(last_deco_count[_d]) + ")"
 		_item.set_text(_button_text)
-		if "unlock_value" in _dl and !_d in Save.data.unlocked_decorations:
-			_item.set_cost(_dl.unlock_value)
-			
+		
+		update_costs()
+		
 		buttons[_d] = _item
 		$Container/ScrollBox/ScrollVBox.add_child(_item)
 		
@@ -201,6 +210,9 @@ func _ready() -> void:
 		render(selected_tag)
 		_refresh())
 	_refresh()
+	
+	await get_tree().process_frame
+	render(selected_tag)
 
 func _process(delta: float) -> void:
 	super(delta)

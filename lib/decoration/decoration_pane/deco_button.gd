@@ -11,6 +11,8 @@ const ICONS = {
 }
 signal clicked
 
+@export var id = ""
+
 func set_icon(icon: String) -> void:
 	$Icon.texture = ICONS[icon]
 
