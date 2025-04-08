@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chahy2nudd2qh"
-path.s3tc="res://.godot/imported/book_diff.png-af4566e5d0c2becf7c99d615732a9f03.s3tc.ctex"
+uid="uid://c48ux75j22lsq"
+path.s3tc="res://.godot/imported/book_diff.jpg-0a9c8b6c6876ab8709f940d14a08d4a6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://expansions/kryta/simple_bookcase/materials/textures/book_diff.png"
-dest_files=["res://.godot/imported/book_diff.png-af4566e5d0c2becf7c99d615732a9f03.s3tc.ctex"]
+source_file="res://expansions/kryta/simple_bookcase/materials/textures/book_diff.jpg"
+dest_files=["res://.godot/imported/book_diff.jpg-0a9c8b6c6876ab8709f940d14a08d4a6.s3tc.ctex"]
 
 [params]
 
