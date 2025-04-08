@@ -109,6 +109,7 @@ text = "[center]Default Input Map[/center]"
 scroll_active = false
 
 [node name="Disclaimer" type="RichTextLabel" parent="Decorations"]
+visible = false
 clip_contents = false
 layout_mode = 1
 anchors_preset = 7

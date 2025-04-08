@@ -121,7 +121,7 @@ func get_effect_qty(effect: String) -> int:
 	return(_qty)
 
 ##### Decoration signals and parameters
-const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura" ]
+const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura", "Kryta" ]
 var DecoData = {}
 
 enum {
@@ -261,7 +261,12 @@ func load_expn(id: String) -> void:
 	for _d in expn_data:
 		var deco_path = expn_path + "/" + _d
 		expn_data[_d].scene = deco_path + "/" + _d + ".tscn"
-		expn_data[_d].cursor_model = deco_path + "/" + _d + "_mesh.tscn"
+		var cursor_tscn = deco_path + "/" + _d + "_mesh.tscn"
+		if FileAccess.file_exists(cursor_tscn):
+			expn_data[_d].cursor_model = cursor_tscn
+		else:
+			var cursor_glb = deco_path + "/" + _d + "_mesh.glb"
+			expn_data[_d].cursor_model = cursor_glb
 		DecoData[_d] = expn_data[_d]
 
 ##### Execution
@@ -272,6 +277,7 @@ func _ready() -> void:
 	var _d = preload("res://lib/decoration/deco_data.gd").new()
 	DecoData = _d.DecoData.duplicate(true)
 	load_expn("elegance")
+	load_expn("kryta")
 	
 	karma_collected.connect(func():
 		var _p = 0.9 + rng.randf() * 0.2 # pitch variance

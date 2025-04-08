@@ -231,19 +231,27 @@ func _on_search_focus_entered() -> void:
 func _on_search_focus_exited() -> void:
 	Global.can_move = true
 
+var search_clear_flag = false
+
 func _on_search_text_changed(new_text: String) -> void:
-	#if new_text.length() > 0 and new_text.length() < 3:
-		#render("Empty")
-		#return # too short
+	if $Container/SearchContainer/Search.text.length() == 0:
+		search_clear_flag = true
+	
 	var _decos = []
+	var found = 0
 	for _d in Global.DecoData:
 		if Global.DecoData[_d].name.findn(new_text) > -1:
 			_decos.append(_d)
-	render("None", _decos)
+			found += 1
+	if found > 0: render("None", _decos)
+	else: render("Empty")
 
 func _on_clear_search_button_down() -> void:
 	$Container/SearchContainer/Search.set_text("")
 	render(selected_tag)
 
 func _on_load_on_timeout_timeout() -> void:
+	if search_clear_flag:
+		search_clear_flag = false
+		render(selected_tag)
 	_load_model()

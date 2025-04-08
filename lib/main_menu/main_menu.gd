@@ -50,6 +50,7 @@ func _set_title_card_pos() -> void:
 func play() -> void:
 	$FG.visible = true
 	$FG.modulate.a = 0.0
+	$Nodule.visible = false
 	can_interact = false
 	
 	$SettingsPane.close()
