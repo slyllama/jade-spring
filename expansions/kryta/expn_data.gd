@@ -16,6 +16,13 @@ const data = {
 		"name": "Simple Bookscase",
 		"preview_scale": 1.2,
 		"preview_v_offset": -0.4,
+		"preview_y_rotation": 260,
+		"tags": ["Architecture", "Kryta"]
+	},
+	"krytan_side_table": {
+		"name": "Krytan Side Table",
+		"preview_scale": 1.2,
+		"preview_v_offset": -0.4,
 		"tags": ["Architecture", "Kryta"]
 	}
 }

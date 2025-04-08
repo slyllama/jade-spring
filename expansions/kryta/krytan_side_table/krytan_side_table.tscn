@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpmebvn4okm0p"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_sid38"]
+[ext_resource type="PackedScene" uid="uid://l7r531i123m7" path="res://expansions/kryta/krytan_side_table/krytan_side_table_mesh.glb" id="2_1if6f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3av1k"]
+height = 0.117805
+radius = 0.658671
+
+[node name="KrytanSideTable" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_sid38")
+id = "krytan_side_table"
+collision_box = NodePath("Body")
+
+[node name="KrytanSideTable" parent="." instance=ExtResource("2_1if6f")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00643, 0)
+shape = SubResource("CylinderShape3D_3av1k")
