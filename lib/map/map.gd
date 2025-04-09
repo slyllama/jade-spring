@@ -24,11 +24,16 @@ func fire_ping(count = 1) -> void:
 	var dist_lookup = {}
 	var dist_table = []
 	for _c: Node3D in $CrumbHandler.get_children():
+		if "custom_data" in _c:
+			if _c.custom_data == "ignore":
+				continue # don't include the safe weed under the map
 		var _d = snapped(_c.global_position.distance_to(Global.player_position), 0.001)
 		dist_lookup[_d] = _c
 		dist_table.append(_d)
 	dist_table.sort()
 	for _d in count:
+		if count > dist_table.size():
+			continue # don't do anything when there aren't enough crumbs left
 		var _pos = dist_lookup[dist_table[_d]].global_position
 		var _ping = Ping.instantiate()
 		add_child(_ping)
@@ -94,7 +99,7 @@ func _ready() -> void:
 			$Sky/Sun.visible = true
 			update_saturation()
 		elif cmd == "/ping":
-			fire_ping(3)
+			fire_ping()
 		elif cmd == "/hidecrumbs":
 			for _c in $CrumbHandler.get_children():
 				_c.visible = false

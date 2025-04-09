@@ -234,7 +234,7 @@ target_position = Vector3(0, -5, 0)
 [node name="_BufferWeed" parent="CrumbHandler" index="0" instance=ExtResource("5_e2aho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
 can_click = true
-custom_data = null
+custom_data = "ignore"
 
 [node name="Weed" parent="CrumbHandler" index="1" instance=ExtResource("5_e2aho")]
 transform = Transform3D(0.478508, 0, 0.878083, 0, 1, 0, -0.878083, 0, 0.478508, -6.00118, 0.450742, -0.321994)
