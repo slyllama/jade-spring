@@ -68,8 +68,13 @@ const EFFECTS_LIST = { # TODO: use images instead
 func _get_texture(tex_id) -> Texture2D:
 	return(load("res://lib/hud/fx_list/textures/fx_" + tex_id + ".png"))
 
+var last_effects = []
+
 func update() -> void:
+	last_effects = []
 	for _n in get_children():
+		if "id" in _n:
+			last_effects.append(_n.id)
 		_n.queue_free()
 	for _f in Global.current_effects:
 		var _qty = 0
@@ -78,6 +83,7 @@ func update() -> void:
 			_f = _f.split("=")[0] # for quantitative effects
 		var _data = EFFECTS_LIST[_f]
 		var _n = FXSquare.instantiate()
+		_n.id = _f
 		
 		# Load textures
 		if "texture" in _data: _n.texture = _get_texture(_data.texture)
@@ -89,6 +95,11 @@ func update() -> void:
 				_desc = "[color=yellow](" + str(_qty) + ")[/color] " + _data.description
 			_n.set_tip_text(_data.title, _desc, _qty)
 		add_child(_n)
+		
+		if !_f in last_effects:
+			if "d_" in _f:
+				await get_tree().process_frame
+				Global.play_flash(_n.global_position)
 
 func add_effect(id) -> void:
 	if !id in Global.current_effects:

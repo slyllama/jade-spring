@@ -11,6 +11,8 @@ script/source = "extends TextureRect
 var mouse_in_square = false
 var text_is_set = false # has text been assigned?
 
+@export var id = \"\"
+
 func set_tip_text(get_title: String, get_description: String, get_qty = 0):
 	text_is_set = true
 	$Tooltip.visible = true
@@ -23,8 +25,19 @@ func set_tip_text(get_title: String, get_description: String, get_qty = 0):
 		$Quantity.visible = true
 		$Quantity.text = \"[right]\" + str(get_qty) + \"[/right]\"
 
+func highlight(color = Color.WHITE) -> void:
+	$FXHighlight.visible = true
+	$FXHighlight.material.set_shader_parameter(\"color\", color)
+
 func _ready() -> void:
 	$Tooltip.visible = false
+	var _mat = $FXHighlight.material.duplicate()
+	$FXHighlight.material = _mat # make unique for unique colors
+	
+	if \"d_\" in id:
+		var color = Utilities.DRAGON_DATA[id.replace(\"d_\", \"\")].color
+		$FXHighlight/Motes.process_material.color = color
+		highlight(color)
 
 func _process(_delta: float) -> void:
 	if !text_is_set: return
@@ -127,19 +140,19 @@ bbcode_enabled = true
 text = "[right]#[/right]"
 
 [node name="FXHighlight" parent="." instance=ExtResource("2_hxrsb")]
+visible = false
 z_index = -10
 material = SubResource("ShaderMaterial_budet")
-custom_minimum_size = Vector2(64, 96)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -55.0
-offset_right = 34.0
-offset_bottom = 41.0
+offset_left = -24.0
+offset_top = -54.0
+offset_right = 24.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 
