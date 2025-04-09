@@ -226,6 +226,7 @@ func close() -> void:
 	Global.can_move = true
 	Global.in_exclusive_ui = false
 	Global.tool_mode = Global.TOOL_MODE_NONE
+	Global.dismiss_hints()
 	closed.emit()
 	
 	$DispulsionFX.anim_out()
@@ -267,6 +268,13 @@ func _ready() -> void:
 	fade_tween.tween_method(_set_paint_exponent, 1.0, 0.0, 0.3)
 	var ee_fade_tween = create_tween()
 	ee_fade_tween.tween_method(_set_ee_paint_exponent, 0.0, 1.0, 0.3)
+	
+	Global.play_hint("movement", { 
+		"title": "Dragon Attunement",
+		"arrow": "left",
+		"anchor_preset": Control.LayoutPreset.PRESET_CENTER,
+		"text": "Use the arrows on the right to select the correct Elder Dragon for the Dragonvoid you want to clear."
+	}, Utilities.get_screen_center(Vector2(120, -130)))
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"): close()
@@ -310,9 +318,11 @@ func _on_reset_button_down() -> void:
 func _on_next_button_down() -> void:
 	_reset_dim()
 	Global.click_sound.emit()
+	Global.dismiss_hints()
 	select_dragon()
 
 func _on_previous_button_down() -> void:
 	_reset_dim()
 	Global.click_sound.emit()
+	Global.dismiss_hints()
 	select_dragon(false)
