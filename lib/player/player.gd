@@ -177,6 +177,7 @@ var _blend_state = _blend_target
 
 var _time_since_on_floor = 0.0
 var _gravity_last_in_current_effects = false
+var _double_jump_state = 0
 
 func _physics_process(delta: float) -> void:
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
@@ -185,6 +186,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor():
 		_time_since_on_floor = 0.0
+		_double_jump_state = 0
 	else:
 		_time_since_on_floor += delta
 	# Handle animations
@@ -248,7 +250,7 @@ func _physics_process(delta: float) -> void:
 		$PlayerMesh.position.y += 0.35
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
 		if !is_on_floor():
-			velocity.y -= 24.0 * delta
+			velocity.y -= 27.0 * delta
 		else:
 			if Vector3(velocity * Vector3(1, 0, 1)).length() > 1.0:
 				if !walking:
@@ -256,13 +258,18 @@ func _physics_process(delta: float) -> void:
 					$Walk.play()
 			else:
 				walking = false
-		if (Input.is_action_just_pressed("move_up")
-			and _time_since_on_floor < 0.2 and !Global.deco_pane_open
-			and !get_viewport().gui_get_focus_owner() is LineEdit):
-			$Jump.pitch_scale = 0.9 + rng.randf() * 0.2
-			$Jump.play()
-			walking = false
-			velocity.y = 8.0
+		if Input.is_action_just_pressed("move_up"):
+			if !Global.deco_pane_open and !get_viewport().gui_get_focus_owner() is LineEdit:
+				if _time_since_on_floor < 0.35 and _double_jump_state < 2:
+					$Jump.pitch_scale = 0.9 + rng.randf() * 0.2
+					$Jump.play()
+					walking = false
+					
+					if _double_jump_state == 1: velocity.x = 30.0
+					else: velocity.y = 8.0
+					
+					_double_jump_state += 1
+		
 		#else:
 			#axis_lock_linear_x = false
 			#axis_lock_linear_z = false

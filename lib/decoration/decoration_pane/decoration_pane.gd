@@ -128,10 +128,9 @@ func render(tag = "None", custom_data = []) -> void:
 			_button_text += " (" + str(last_deco_count[_d]) + ")"
 		_item.set_text(_button_text)
 		
-		update_costs()
-		
 		buttons[_d] = _item
 		$Container/ScrollBox/ScrollVBox.add_child(_item)
+		update_costs()
 		
 		if "Foliage" in _dl.tags:
 			_item.set_icon("foliage")
