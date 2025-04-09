@@ -13,20 +13,17 @@ func get_jump_scale() -> float:
 	return($Tree.get("parameters/jump_scale/add_amount"))
 
 func set_holo_exponent(val: float) -> void:
-	val = ease(val, 2.0)
-	var _e = 0.1 + (1 - val) * 15.1
-	holo_material.set_shader_parameter("holo_exponent", _e)
+	holo_material.set_shader_parameter("alpha", val)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug_action"):
 		if "gravity" in Global.current_effects:
-			if visible:
-				visible = false
-			else:
-				visible = true
+			if visible: visible = false
+			else: visible = true
 
 func _ready() -> void:
 	visible = false
+	holo_material.set_shader_parameter("use_alpha", true)
 	set_holo_exponent(0.0)
 	
 	Global.add_effect.connect(func(effect):

@@ -246,6 +246,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply gravity
 	if "gravity" in Global.current_effects:
+		$Collision.position.y = -0.08
 		$PlayerMesh.global_position = $Spider/Armature/Skeleton3D/Cylinder.global_position
 		$PlayerMesh.position.y += 0.35
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
@@ -265,17 +266,15 @@ func _physics_process(delta: float) -> void:
 					$Jump.play()
 					walking = false
 					
-					if _double_jump_state == 1: velocity.x = 30.0
+					if _double_jump_state == 1: velocity.y = 9.0
 					else: velocity.y = 8.0
 					
 					_double_jump_state += 1
 		
-		#else:
-			#axis_lock_linear_x = false
-			#axis_lock_linear_z = false
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
 		velocity.z = lerp(velocity.z, _target_velocity.z, Utilities.critical_lerp(delta, 15.0))
 	else:
+		$Collision.position.y = 0
 		if walking:
 			walking = false
 		axis_lock_linear_x = false

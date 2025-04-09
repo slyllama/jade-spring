@@ -8,7 +8,7 @@
 script = ExtResource("1_cyphn")
 
 [node name="PingMesh" parent="." instance=ExtResource("1_r1map")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, -0.1)
 
 [node name="PingMeshInterior" parent="PingMesh" instance=ExtResource("3_g115p")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 1.3, 0, 0, 0)

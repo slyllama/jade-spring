@@ -1,18 +1,13 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://qonwj4jrpven"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qonwj4jrpven"]
 
-[ext_resource type="Shader" path="res://lib/dispersion_golem/materials/shaders/shader_holo_blades.gdshader" id="1_rrxxg"]
-
-[sub_resource type="Gradient" id="Gradient_c7vgy"]
-offsets = PackedFloat32Array(0.475472, 0.501887)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vcyr2"]
-gradient = SubResource("Gradient_c7vgy")
-fill_to = Vector2(0, 1)
+[ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_spider.gdshader" id="1_nqhcm"]
 
 [resource]
 render_priority = 1
-shader = ExtResource("1_rrxxg")
-shader_parameter/base_color = Color(0.223782, 0.0005948, 0.495977, 1)
-shader_parameter/holo_exponent = 0.1
-shader_parameter/uv_scale = 200.0
-shader_parameter/holo_texture = SubResource("GradientTexture2D_vcyr2")
+shader = ExtResource("1_nqhcm")
+shader_parameter/color = Color(0.88, 0, 0.821333, 1)
+shader_parameter/color_2 = Color(0.585328, 0.427756, 1, 1)
+shader_parameter/fresnel_amount = 3.0
+shader_parameter/fresnel_exponent = 1.0
+shader_parameter/alpha_lower_clamp = 0.2
+shader_parameter/alpha = 1.0
