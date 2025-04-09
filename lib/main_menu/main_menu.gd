@@ -7,7 +7,6 @@ var rng = RandomNumberGenerator.new()
 @onready var focus: Button
 var can_interact = true
 var ngc_open = false # new game container open
-var _light_ray_target_alpha = 0.01
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -44,7 +43,10 @@ func set_up_nodule() -> void:
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
 func _set_title_card_pos() -> void:
-	$TitleCard.global_position = $Container/Padding.global_position + Vector2(230, -20)
+	$TitleCard.global_position = $Container/Padding.global_position + Vector2(140, -20)
+
+func _get_nodule_position() -> Vector2:
+	return(Vector2(get_window().size.x / 2.0 / Global.retina_scale - 180.0, focus.global_position.y + 16))
 
 # Fade and transition into loader scene or custom scene (if it is set)
 func play() -> void:
@@ -82,7 +84,6 @@ func _ready() -> void:
 	# Free the mouse if we've come from action camera mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	$LightRay.modulate.a = 0.01
 	$FG.visible = true
 	$FG.modulate.a = 1.0
 	$Container/Box/InvalidWarning.visible = false
@@ -127,7 +128,7 @@ func _ready() -> void:
 		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()
 	
-	$Nodule.global_position = Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16)
+	$Nodule.global_position = _get_nodule_position()
 	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(
@@ -136,13 +137,27 @@ func _ready() -> void:
 	$Music.play()
 
 func _process(delta: float) -> void:
-	$LightRay.modulate.a = lerp($LightRay.modulate.a, _light_ray_target_alpha, delta * 6.0)
+	var _screen_center = get_viewport().size / 2.0
+	var _mouse_offset = _screen_center - get_viewport().get_mouse_position()
+	var parallax_offset = _mouse_offset / Vector2(get_viewport().size) * 2.0
+	$Raiqqo.global_position = lerp(
+		$Raiqqo.global_position,
+		_screen_center + parallax_offset * 3.0,
+		Utilities.critical_lerp(delta, 3.0))
+	$RaiqqoFG.global_position = lerp(
+		$RaiqqoFG.global_position,
+		_screen_center + parallax_offset * 5.5,
+		Utilities.critical_lerp(delta, 4.0))
+	
+	var scale_diff = get_window().size.x / 1280.0 * 0.5
+	$Raiqqo.scale = Vector2(scale_diff, scale_diff)
+	$RaiqqoFG.scale = Vector2(scale_diff, scale_diff)
 	
 	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
 		$Nodule.position,
-		Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16),
+		_get_nodule_position(),
 		Utilities.critical_lerp(delta, 30.0))
 
 func _on_play_button_down() -> void:
@@ -180,9 +195,6 @@ func _on_new_game_button_pressed() -> void:
 	$NewGameContainer.close()
 	Global.start_params.new_save = true
 	play()
-
-func _on_timer_timeout() -> void:
-	_light_ray_target_alpha = 0.036 + 0.03 * rng.randf()
 
 func _on_settings_pane_closed() -> void:
 	$Container/SettingsButton.grab_focus()

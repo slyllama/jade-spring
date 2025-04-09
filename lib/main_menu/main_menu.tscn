@@ -1,13 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=35 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_g05lm"]
+[ext_resource type="Texture2D" uid="uid://bogvulvj6f750" path="res://lib/main_menu/title_card/textures/menu_placeholder.png" id="3_jgde5"]
 [ext_resource type="Texture2D" uid="uid://di4tqbaloy431" path="res://generic/textures/light_ray.png" id="3_nclce"]
 [ext_resource type="PackedScene" uid="uid://col3bfw2kkxf0" path="res://lib/main_menu/mm_button.tscn" id="3_v0okn"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
+[ext_resource type="Texture2D" uid="uid://74fmkp1tmlxy" path="res://lib/main_menu/title_card/textures/menu_placeholder_fg.png" id="5_sqi22"]
+[ext_resource type="Texture2D" uid="uid://328fu30p0okw" path="res://lib/main_menu/title_card/textures/menu_placeholder_glow.png" id="6_2gust"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
 [ext_resource type="Texture2D" uid="uid://b14riwre77y4l" path="res://lib/main_menu/title_card/textures/h_sep.png" id="6_b4g4g"]
+[ext_resource type="Texture2D" uid="uid://c30axj0jdot2d" path="res://lib/main_menu/title_card/textures/menu_placeholder_tool.png" id="6_uykci"]
 [ext_resource type="Texture2D" uid="uid://b45yqtf7u0sha" path="res://lib/hud/textures/folder_icon.png" id="7_n6dqo"]
 [ext_resource type="AudioStream" uid="uid://c0p75na57ljl1" path="res://lib/main_menu/sounds/mus_daffodils.ogg" id="7_or2me"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="8_2jq05"]
@@ -22,6 +26,45 @@
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="14_n67d6"]
 [ext_resource type="AudioStream" uid="uid://cmphyt1yte74c" path="res://generic/sounds/swish.ogg" id="19_lck14"]
 [ext_resource type="Texture2D" uid="uid://wtf7lya3rupu" path="res://lib/hud/textures/steam_icon.png" id="20_w84r5"]
+
+[sub_resource type="Animation" id="Animation_oi65x"]
+resource_name = "glow"
+length = 3.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.470588), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kyuja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xt81s"]
+_data = {
+"RESET": SubResource("Animation_kyuja"),
+"glow": SubResource("Animation_oi65x")
+}
 
 [sub_resource type="Curve" id="Curve_2imnw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -45,8 +88,8 @@ direction = Vector3(4, 1, 0)
 initial_velocity_min = 10.0
 initial_velocity_max = 40.0
 gravity = Vector3(0, -20, 0)
-scale_min = 0.3
-scale_max = 0.4
+scale_min = 0.2
+scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_5i8mt")
 alpha_curve = SubResource("CurveTexture_4ult3")
 turbulence_enabled = true
@@ -65,22 +108,6 @@ mouse_filter = 2
 texture = ExtResource("2_8eqi1")
 expand_mode = 1
 stretch_mode = 6
-
-[node name="LightRay" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.0784314)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_nclce")
-expand_mode = 1
-stretch_mode = 6
-
-[node name="Timer" type="Timer" parent="LightRay"]
-wait_time = 0.7
-autostart = true
 
 [node name="DecorationNE" type="TextureRect" parent="."]
 modulate = Color(0.1, 0.1, 0.1, 1)
@@ -111,15 +138,58 @@ texture = ExtResource("2_g05lm")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Raiqqo" type="Sprite2D" parent="."]
+position = Vector2(652, 363)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jgde5")
+
+[node name="RaiqqoGlow" type="Sprite2D" parent="Raiqqo"]
+texture = ExtResource("6_2gust")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Raiqqo/RaiqqoGlow"]
+libraries = {
+"": SubResource("AnimationLibrary_xt81s")
+}
+autoplay = "glow"
+
+[node name="RaiqqoTool" type="Sprite2D" parent="Raiqqo"]
+texture = ExtResource("6_uykci")
+
+[node name="RaiqqoFG" type="Sprite2D" parent="."]
+position = Vector2(652, 363)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_sqi22")
+
+[node name="Motes" type="GPUParticles2D" parent="RaiqqoFG"]
+position = Vector2(224, 226)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_0vfhr")
+texture = ExtResource("9_g8hmh")
+lifetime = 4.0
+preprocess = 5.0
+
+[node name="LightRay" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.0784314)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_nclce")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Container" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -79.0
+offset_left = -390.0
 offset_top = -205.0
-offset_right = 79.0
+offset_right = -40.0
 offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -143,15 +213,7 @@ stretch_mode = 5
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="ContinueButton" parent="Container/Box" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
-custom_minimum_size = Vector2(208, 0)
-layout_mode = 2
-text = "Continue"
-alignment = 2
-
 [node name="Folder" parent="Container/Box" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(27, 27)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -162,12 +224,18 @@ alignment = 1
 icon_alignment = 1
 expand_icon = true
 
+[node name="ContinueButton" parent="Container/Box" instance=ExtResource("3_v0okn")]
+custom_minimum_size = Vector2(208, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Continue"
+
 [node name="InvalidWarning" type="TextureRect" parent="Container/Box"]
 visible = false
 modulate = Color(0.9, 0.9, 0.9, 0.588235)
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 tooltip_text = "Invalid save detected."
 texture = ExtResource("8_suxxi")
 expand_mode = 1
@@ -182,9 +250,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
-alignment = 1
 
 [node name="Separator3" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
@@ -195,10 +261,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="SettingsButton" parent="Container" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 text = "Settings"
-alignment = 1
 
 [node name="Separator2" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
@@ -209,10 +273,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="QuitButton" parent="Container" instance=ExtResource("3_v0okn")]
-modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
 text = "Quit"
-alignment = 1
 
 [node name="Separator" type="TextureRect" parent="Container"]
 self_modulate = Color(1, 1, 1, 0.352941)
@@ -258,61 +320,47 @@ texture = ExtResource("9_4yys3")
 
 [node name="TitleCard" parent="." instance=ExtResource("6_aye18")]
 position = Vector2(0, 48)
-scale = Vector2(0.57, 0.57)
-
-[node name="Motes" type="GPUParticles2D" parent="TitleCard"]
-position = Vector2(0, 416)
-amount = 16
-process_material = SubResource("ParticleProcessMaterial_0vfhr")
-texture = ExtResource("9_g8hmh")
-lifetime = 4.0
-preprocess = 5.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_or2me")
 volume_db = -6.0
 
-[node name="Blur" type="TextureRect" parent="."]
-z_as_relative = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -622.0
-offset_top = -97.0
-offset_right = -231.0
-offset_bottom = 29.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("8_2jq05")
-expand_mode = 1
-
 [node name="Disclaimer" type="RichTextLabel" parent="."]
+visible = false
 clip_contents = false
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -425.0
-offset_top = -73.0
-offset_right = 425.0
+offset_left = 21.0
+offset_top = -57.0
+offset_right = -21.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/default_color = Color(0.37, 0.37, 0.37, 1)
 theme_override_constants/line_separation = -4
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
 scroll_active = false
 
 [node name="Version" type="RichTextLabel" parent="."]
+modulate = Color(0.5, 0.5, 0.5, 1)
 clip_contents = false
-offset_left = 16.0
-offset_top = 12.0
-offset_right = 494.0
-offset_bottom = 47.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -98.0
+offset_right = 315.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 18
@@ -323,9 +371,9 @@ script = ExtResource("14_n67d6")
 
 [node name="TestEnvironment" type="RichTextLabel" parent="."]
 clip_contents = false
-offset_left = 67.0
+offset_left = 16.0
 offset_top = 12.0
-offset_right = 545.0
+offset_right = 494.0
 offset_bottom = 47.0
 theme_override_colors/default_color = Color(0.795682, 0.635, 0.232168, 1)
 theme_override_constants/line_separation = -4
@@ -336,20 +384,39 @@ scroll_active = false
 
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(0.5, 0.5, 0.5, 1)
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -144.0
-offset_top = -130.0
-offset_right = 144.0
-offset_bottom = -89.0
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = 175.0
+offset_right = -21.0
+offset_bottom = 216.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 texture = ExtResource("8_rr48m")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Blur" type="TextureRect" parent="Logo"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -63.0
+offset_right = 195.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_2jq05")
+expand_mode = 1
 
 [node name="CloseButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(20, 20)
@@ -367,15 +434,18 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="SteamButton" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(20, 20)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -76.0
-offset_top = 16.0
-offset_right = -56.0
-offset_bottom = 36.0
-grow_horizontal = 0
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -103.0
+offset_right = -78.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("20_w84r5")
 ignore_texture_size = true
 stretch_mode = 0
@@ -408,9 +478,8 @@ stream = ExtResource("19_lck14")
 volume_db = -80.0
 max_polyphony = 2
 
-[connection signal="timeout" from="LightRay/Timer" to="." method="_on_timer_timeout"]
-[connection signal="button_down" from="Container/Box/ContinueButton" to="." method="_on_continue_button_down"]
 [connection signal="button_down" from="Container/Box/Folder" to="." method="_on_folder_button_down"]
+[connection signal="button_down" from="Container/Box/ContinueButton" to="." method="_on_continue_button_down"]
 [connection signal="button_down" from="Container/PlayButton" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Container/SettingsButton" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="Container/QuitButton" to="." method="_on_quit_button_down"]
