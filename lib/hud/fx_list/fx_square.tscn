@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhchag2gp2u2f"]
+[gd_scene load_steps=11 format=3 uid="uid://dhchag2gp2u2f"]
 
 [ext_resource type="Texture2D" uid="uid://cn3kubvy6lfnd" path="res://lib/hud/fx_list/textures/fx_immobile.png" id="1_vgnib"]
+[ext_resource type="PackedScene" uid="uid://cqnm3s2nn64yw" path="res://lib/hud/fx_highlight/fx_highlight.tscn" id="2_hxrsb"]
+[ext_resource type="Shader" path="res://lib/hud/fx_highlight/materials/shader_fx_highlight.gdshader" id="3_c1m5e"]
+[ext_resource type="Texture2D" uid="uid://bxwf077rna4qb" path="res://lib/hud/fx_highlight/materials/textures/glow_mask.png" id="4_3m05q"]
 
 [sub_resource type="GDScript" id="GDScript_r0by1"]
 script/source = "extends TextureRect
@@ -58,6 +61,23 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="Gradient" id="Gradient_7majf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v3jhb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7qpo3"]
+seamless = true
+color_ramp = SubResource("Gradient_7majf")
+noise = SubResource("FastNoiseLite_v3jhb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_budet"]
+shader = ExtResource("3_c1m5e")
+shader_parameter/wobble_intensity = 1.0
+shader_parameter/wobble_time = 1.0
+shader_parameter/color = Color(0.916854, 0.398202, 0.0858102, 1)
+shader_parameter/glow_texture = ExtResource("4_3m05q")
+shader_parameter/wobble_texture = SubResource("NoiseTexture2D_7qpo3")
+
 [node name="FXSquare" type="TextureRect"]
 custom_minimum_size = Vector2(32, 32)
 offset_right = 24.0
@@ -105,6 +125,23 @@ theme_override_constants/shadow_outline_size = 8
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[right]#[/right]"
+
+[node name="FXHighlight" parent="." instance=ExtResource("2_hxrsb")]
+z_index = -10
+material = SubResource("ShaderMaterial_budet")
+custom_minimum_size = Vector2(64, 96)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -55.0
+offset_right = 34.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

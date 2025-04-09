@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://cqnm3s2nn64yw"]
+
+[ext_resource type="Shader" path="res://lib/hud/fx_highlight/materials/shader_fx_highlight.gdshader" id="1_m0y1x"]
+[ext_resource type="Texture2D" uid="uid://bxwf077rna4qb" path="res://lib/hud/fx_highlight/materials/textures/glow_mask.png" id="2_st6tw"]
+[ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="4_4ajsk"]
+
+[sub_resource type="Gradient" id="Gradient_7majf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v3jhb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7qpo3"]
+seamless = true
+color_ramp = SubResource("Gradient_7majf")
+noise = SubResource("FastNoiseLite_v3jhb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o4k4e"]
+shader = ExtResource("1_m0y1x")
+shader_parameter/wobble_intensity = 1.0
+shader_parameter/wobble_time = 1.0
+shader_parameter/color = Color(0.828975, 0.214109, 0, 1)
+shader_parameter/glow_texture = ExtResource("2_st6tw")
+shader_parameter/wobble_texture = SubResource("NoiseTexture2D_7qpo3")
+
+[sub_resource type="Curve" id="Curve_snv4y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yltns"]
+curve = SubResource("Curve_snv4y")
+
+[sub_resource type="Gradient" id="Gradient_noo4i"]
+colors = PackedColorArray(1, 0.6, 0, 1, 0.9, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_25pwy"]
+gradient = SubResource("Gradient_noo4i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fblxg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 0, 16)
+direction = Vector3(0.1, 1, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.1
+scale_max = 0.2
+color_ramp = SubResource("GradientTexture1D_25pwy")
+alpha_curve = SubResource("CurveTexture_yltns")
+
+[node name="FXHighlight" type="ColorRect"]
+material = SubResource("ShaderMaterial_o4k4e")
+custom_minimum_size = Vector2(64, 96)
+offset_right = 56.0
+offset_bottom = 96.0
+mouse_filter = 2
+
+[node name="Motes" type="GPUParticles2D" parent="."]
+position = Vector2(28, 48)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_fblxg")
+texture = ExtResource("4_4ajsk")
+lifetime = 4.0
+preprocess = 5.0

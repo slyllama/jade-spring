@@ -27,13 +27,13 @@
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_lrj7w"]
+[sub_resource type="CurveTexture" id="CurveTexture_4ult3"]
 curve = SubResource("Curve_2imnw")
 
 [sub_resource type="Gradient" id="Gradient_rq8mr"]
 colors = PackedColorArray(0.1305, 0.87, 0.463275, 1, 0.564963, 0.789489, 1.54018e-06, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1hpr"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5i8mt"]
 gradient = SubResource("Gradient_rq8mr")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0vfhr"]
@@ -47,8 +47,8 @@ initial_velocity_max = 40.0
 gravity = Vector3(0, -20, 0)
 scale_min = 0.3
 scale_max = 0.4
-color_ramp = SubResource("GradientTexture1D_n1hpr")
-alpha_curve = SubResource("CurveTexture_lrj7w")
+color_ramp = SubResource("GradientTexture1D_5i8mt")
+alpha_curve = SubResource("CurveTexture_4ult3")
 turbulence_enabled = true
 
 [node name="MainMenu" type="CanvasLayer"]
