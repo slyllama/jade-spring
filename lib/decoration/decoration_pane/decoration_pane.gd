@@ -47,8 +47,11 @@ func open(silent = false) -> void:
 	Global.deco_pane_open = true
 	super(silent)
 	last_deco_count = Global.deco_handler.get_deco_count()
+	$Container/SearchContainer/Search.text = last_search_term
 	
+	_load_model()
 	update_costs()
+	_update_unlock_button(current_id)
 
 func close():
 	Global.deco_pane_open = false
@@ -243,10 +246,13 @@ func _on_search_focus_exited() -> void:
 	Global.can_move = true
 
 var search_clear_flag = false
+var last_search_term = ""
 
 func _on_search_text_changed(new_text: String) -> void:
 	if $Container/SearchContainer/Search.text.length() == 0:
 		search_clear_flag = true
+	
+	last_search_term = new_text
 	
 	var _decos = []
 	var found = 0
@@ -259,6 +265,7 @@ func _on_search_text_changed(new_text: String) -> void:
 
 func _on_clear_search_button_down() -> void:
 	$Container/SearchContainer/Search.set_text("")
+	last_search_term = ""
 	render(selected_tag)
 
 func _on_load_on_timeout_timeout() -> void:

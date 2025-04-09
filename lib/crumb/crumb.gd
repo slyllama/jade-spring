@@ -31,6 +31,7 @@ func clear() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if !interact_when_proximal: return
+	if custom_data == "ignore": return
 	if Global.current_crumb != self or Global.in_exclusive_ui: return
 	if Input.is_action_just_pressed("interact"):
 		if Global.tool_mode == Global.TOOL_MODE_NONE:
