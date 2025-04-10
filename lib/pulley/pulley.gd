@@ -128,7 +128,7 @@ const gift_letter = {
 		}
 	},
 	"commander": {
-		"string": "N-n-no, thank (YOU). Oh, my m-master has something for you, should you choose to s-stay around and clear everything out-t-t.",
+		"string": "Thank (YOU). Oh, and: my m-master has something for you, should you choose to s-stay around and clear everything out-t-t.",
 		"options": {
 			"exit": "(Take Ratchet's letter.)"
 		}

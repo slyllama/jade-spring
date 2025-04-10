@@ -68,7 +68,7 @@ func interact() -> void:
 	$Player.play("clear")
 	
 	Global.play_hint("picked_weeds", { 
-				"title": "Picked Weeds",
+				"title": "Picked weeds",
 				"arrow": "down",
 				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
 				"text": "Weeds that you have picked (along with any other effects and items) will appear here."
