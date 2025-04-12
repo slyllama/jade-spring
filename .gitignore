@@ -1,3 +1,4 @@
+addons/godot-jolt
 .godot/
 build/*
 *.tmp

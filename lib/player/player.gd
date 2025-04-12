@@ -182,7 +182,7 @@ var _double_jump_state = 0
 func _physics_process(delta: float) -> void:
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
 		_elongate_target = 2.0
-		velocity.y = 4.0
+		velocity.y = 1.0
 	
 	if is_on_floor():
 		_time_since_on_floor = 0.0
