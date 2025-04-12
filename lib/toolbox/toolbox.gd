@@ -43,6 +43,14 @@ func set_default_skills(audio = true) -> void:
 		$Box/Skill5.set_enabled()
 		$Box/Skill6.set_enabled()
 	
+	if Global.override_lock_tools: # make all decorations available for debug testing
+		$Box/Skill1.set_enabled()
+		$Box/Skill2.set_enabled()
+		$Box/Skill3.set_enabled()
+		$Box/Skill4.set_enabled()
+		$Box/Skill5.set_enabled()
+		$Box/Skill6.set_enabled()
+	
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.queued_decoration = "none"
 	Global.set_cursor(false)
@@ -89,6 +97,11 @@ func _ready() -> void:
 		set_default_skills(false)
 		$SkillSwap.volume_db = linear_to_db(1)
 	)
+	
+	Global.command_sent.connect(func(_c):
+		if _c == "/unlocktools":
+			Global.override_lock_tools = true
+			set_default_skills(false))
 	
 	Global.summon_story_panel.connect(func(_data): clear_skills(false))
 	Global.close_story_panel.connect(func(): set_default_skills(false))

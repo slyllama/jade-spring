@@ -28,6 +28,7 @@
 /screenshot		Take a screenshot
 /speedratio=X	Set the player's speed to ratio X of its base speed
 /togglebook		Toggle compendium visibility
+/unlocktools	Make all tools available
 
 /enableattn		Enable Attenuator (good for if story hasn't spawned it yet)
 /disableattn	Disable Attenuator

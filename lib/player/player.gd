@@ -268,7 +268,6 @@ func _physics_process(delta: float) -> void:
 					
 					if _double_jump_state == 1: velocity.y = 9.0
 					else: velocity.y = 8.0
-					
 					_double_jump_state += 1
 		
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))

@@ -40,6 +40,7 @@ var in_exclusive_ui = false
 var interact_hint = "Interact"
 var last_command = ""
 var load_debug_next = false # the next map loaded by the loader will be the debug map if this is true
+var override_lock_tools = false
 var map_name = ""
 var mouse_3d_position = Utilities.BIGVEC3
 var mouse_3d_override_rotation = null
@@ -283,7 +284,7 @@ func _ready() -> void:
 		var _p = 0.9 + rng.randf() * 0.2 # pitch variance
 		$KarmaCollect.pitch_scale = _p
 		$KarmaCollect.play())
-	
+
 	# Set up retina
 	if DisplayServer.screen_get_size().x > 2000:
 		# macOS already configures the cursor for retina
