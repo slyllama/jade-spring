@@ -21,9 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://gx4w1cghsw55" path="res://lib/player/compendium/compendium.tscn" id="19_fw2jq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lchpp"]
-margin = 0.1
-radius = 0.146178
-height = 0.458298
+radius = 0.15
+height = 0.4
 
 [sub_resource type="Curve" id="Curve_jlsfb"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
