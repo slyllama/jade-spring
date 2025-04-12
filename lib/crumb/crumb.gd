@@ -34,7 +34,8 @@ func _input(_event: InputEvent) -> void:
 	if custom_data == "ignore": return
 	if Global.current_crumb != self or Global.in_exclusive_ui: return
 	if Input.is_action_just_pressed("interact"):
-		if Global.tool_mode == Global.TOOL_MODE_NONE:
+		if (Global.tool_mode == Global.TOOL_MODE_NONE
+			and !Global.settings_open and !get_window().gui_get_focus_owner()):
 			interacted.emit()
 
 func _ready() -> void:

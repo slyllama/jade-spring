@@ -28,6 +28,14 @@ func _set_input_name(_val):
 func get_key() -> InputEvent:
 	return(InputMap.action_get_events(action)[0])
 
+func get_controller_input() -> Variant:
+	if InputMap.action_get_events(action).size() > 1:
+		var _a = InputMap.action_get_events(action)[1]
+		if !_a is InputEventKey: # TODO: not sure if this is actually necessary
+			return(_a)
+		else: return(null)
+	else: return(null)
+
 func assign_key(key: InputEvent) -> void:
 	InputMap.action_erase_events(action)
 	InputMap.action_add_event(action, key)

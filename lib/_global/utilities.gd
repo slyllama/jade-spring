@@ -8,6 +8,7 @@ const LDQUO = "[char=0x0000201C]"
 const RDQUO = "[char=0x0000201D]"
 const BIGNUM = -9999
 const BIGVEC3 = Vector3(BIGNUM, BIGNUM, BIGNUM)
+var controller_map = { } # controller map doesn't change
 
 const DRAGON_DATA = {
 	"jormag": {

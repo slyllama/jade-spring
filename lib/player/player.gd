@@ -180,6 +180,8 @@ var _gravity_last_in_current_effects = false
 var _double_jump_state = 0
 
 func _physics_process(delta: float) -> void:
+	#print(Input.get_action_strength("axis_move_right"))
+	#
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
 		_elongate_target = 2.0
 		velocity.y = 1.0
@@ -209,8 +211,24 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("move_back"): _direction.x = -1
 	else: _direction.x = 0
 	
-	if Input.is_action_pressed("move_right"): _direction.z = 1
-	elif Input.is_action_pressed("move_left"): _direction.z = -1
+	if Input.get_action_strength("axis_move_forward") > 0.001:
+		_direction.x = Input.get_action_strength("axis_move_forward")
+	elif Input.is_action_pressed("move_forward"):
+		_direction.x = 1
+	elif Input.get_action_strength("axis_move_back") > 0.001:
+		_direction.x = -Input.get_action_strength("axis_move_back")
+	elif Input.is_action_pressed("move_back"):
+		_direction.x = -1
+	else: _direction.x = 0
+	
+	if Input.get_action_strength("axis_move_right") > 0.001:
+		_direction.z = Input.get_action_strength("axis_move_right")
+	elif Input.is_action_pressed("move_right"):
+		_direction.z = 1
+	elif Input.get_action_strength("axis_move_left") > 0.001:
+		_direction.z = -Input.get_action_strength("axis_move_left")
+	elif Input.is_action_pressed("move_left"):
+		_direction.z = -1
 	else: _direction.z = 0
 	
 	if !"gravity" in Global.current_effects:

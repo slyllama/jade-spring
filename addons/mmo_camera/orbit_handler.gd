@@ -134,12 +134,19 @@ func _process(delta: float) -> void:
 	# Process relative mouse movement (_mouse_delta)
 	# This is handled here instead of _input() because handling without delta
 	# causes strange behaviour at low frame rates
+	target_rotation.y -= Input.get_action_raw_strength("axis_camera_yaw_right") * Global.orbit_sensitivity_multiplier * 10.0
+	target_rotation.y += Input.get_action_raw_strength("axis_camera_yaw_left") * Global.orbit_sensitivity_multiplier * 10.0
+	target_rotation.x -= Input.get_action_raw_strength("axis_camera_pitch_down") * Global.orbit_sensitivity_multiplier * 4.0
+	target_rotation.x += Input.get_action_raw_strength("axis_camera_pitch_up") * Global.orbit_sensitivity_multiplier * 4.0
+	
 	if orbiting:
 		target_rotation.x -= _mouse_delta.y * Global.orbit_sensitivity_multiplier
-		if get_parent().clamp_x: target_rotation.x = clamp(
-			target_rotation.x, get_parent().clamp_x_lower, get_parent().clamp_x_upper)
 		target_rotation.y -= _mouse_delta.x * Global.orbit_sensitivity_multiplier
-		if get_parent().clamp_y: target_rotation.y = clamp(
-			target_rotation.y, get_parent().clamp_y_lower, get_parent().clamp_y_upper)
+	
+	if get_parent().clamp_x: target_rotation.x = clamp(
+		target_rotation.x, get_parent().clamp_x_lower, get_parent().clamp_x_upper)
+	if get_parent().clamp_y: target_rotation.y = clamp(
+		target_rotation.y, get_parent().clamp_y_lower, get_parent().clamp_y_upper)
+	
 	smooth_rotation = lerp(smooth_rotation, target_rotation, delta * get_parent().orbit_smoothing * smooth_modifier)
 	_mouse_delta = Vector2.ZERO

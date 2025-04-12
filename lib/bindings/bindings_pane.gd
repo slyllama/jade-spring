@@ -20,6 +20,10 @@ func _set_all_enabled(state = true) -> void:
 		_n.get_node("Key").disabled = !state
 		_n.enabled = state
 
+func _append_controller_map() -> void:
+	for _a in Utilities.controller_map:
+		InputMap.action_add_event(_a, Utilities.controller_map[_a])
+
 func _apply_input_map() -> void:
 	for _n: KeyUI in bind_nodes:
 		for _i in input_map:
@@ -46,6 +50,8 @@ func _ready() -> void:
 	if !Global.bindings_saved_initial:
 		for _n: KeyUI in bind_nodes:
 			Global.default_input_map[_n.action] = _n.get_key().duplicate()
+			if _n.get_controller_input():
+				Utilities.controller_map[_n.action] = _n.get_controller_input()
 		Global.bindings_saved_initial = true
 	
 	for _n: KeyUI in bind_nodes:
@@ -61,6 +67,8 @@ func _ready() -> void:
 		for _n: KeyUI in bind_nodes:
 			_n.assign_key(_n.get_key())
 		_update_input_map()
+	
+	_append_controller_map()
 
 func _on_done_button_down() -> void:
 	close()

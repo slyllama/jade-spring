@@ -105,7 +105,7 @@ func _input(_event: InputEvent) -> void:
 		Global.command_sent.emit(Global.last_command)
 	
 	# Fill the command line with the last-used command
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("debug_fill_last_cmd"):
 		if !Global.debug_enabled: # enable debug first, if it hasn't been already
 			Global.debug_enabled = true
 			Global.debug_toggled.emit()
@@ -154,13 +154,6 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()
-		elif _cmd == "/hint":
-			Global.play_hint("test_hint", { 
-				"title": "Jade Bot Movement",
-				"arrow": "up",
-				"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
-				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
-			}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.25 - 50)))
 		)
 	
 	Global.debug_toggled.connect(func():
