@@ -24,5 +24,11 @@ const data = {
 		"preview_scale": 1.2,
 		"preview_v_offset": -0.4,
 		"tags": ["Architecture", "Kryta"]
+	},
+	"krytan_dining_chair": {
+		"name": "Krytan Dining Chair",
+		"preview_scale": 1.2,
+		"preview_v_offset": -0.4,
+		"tags": ["Architecture", "Kryta"]
 	}
 }

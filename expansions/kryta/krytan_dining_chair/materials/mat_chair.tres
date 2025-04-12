@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://2o7gdngdf4cq"]
+
+[ext_resource type="Texture2D" uid="uid://c1afvqw51st1l" path="res://expansions/kryta/krytan_dining_chair/materials/textures/chair_diff.jpg" id="1_307lt"]
+[ext_resource type="Texture2D" uid="uid://nfyonxjwnib0" path="res://expansions/kryta/krytan_dining_chair/materials/textures/chair_norm.jpg" id="2_ktg7o"]
+
+[resource]
+albedo_texture = ExtResource("1_307lt")
+metallic_specular = 0.2
+roughness = 0.75
+normal_enabled = true
+normal_texture = ExtResource("2_ktg7o")

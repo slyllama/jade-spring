@@ -20,9 +20,10 @@
 [ext_resource type="AudioStream" uid="uid://bn281paaf27ko" path="res://lib/player/sounds/walk.ogg" id="18_443tu"]
 [ext_resource type="PackedScene" uid="uid://gx4w1cghsw55" path="res://lib/player/compendium/compendium.tscn" id="19_fw2jq"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_bb4vq"]
-height = 0.4
-radius = 0.18
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lchpp"]
+margin = 0.1
+radius = 0.146178
+height = 0.458298
 
 [sub_resource type="Curve" id="Curve_jlsfb"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -132,10 +133,10 @@ floor_stop_on_slope = false
 script = ExtResource("1_wipkt")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-shape = SubResource("CylinderShape3D_bb4vq")
+shape = SubResource("CapsuleShape3D_lchpp")
 
 [node name="Spider" parent="." instance=ExtResource("4_81ee3")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.382746, 0)
+transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 0, -0.382746, 0)
 
 [node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("excluded_collision_objects")]
 script = ExtResource("1_lnnkv")
@@ -152,7 +153,7 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.02
 current = true
 
 [node name="PlayerMesh" parent="." instance=ExtResource("4_0sx7s")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-0.85, 0, -1.28346e-07, 0, 0.85, 0, 1.28346e-07, 0, -0.85, 0, 0, 0)
 
 [node name="Compendium" parent="PlayerMesh" instance=ExtResource("19_fw2jq")]
 transform = Transform3D(1.45, -7.10543e-15, 8.52651e-14, 0, 1.3546, 0.51727, 5.68434e-14, -0.51727, 1.3546, -0.0818188, -0.098934, 0.594162)
