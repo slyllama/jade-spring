@@ -24,13 +24,15 @@ func set_up_nodule() -> void:
 	$Container/Box/ContinueButton.focus_entered.connect(func():
 		$Swish.play()
 		focus = $Container/Box/ContinueButton)
-	
 	$Container/PlayButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/PlayButton)
 	$Container/SettingsButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/SettingsButton)
+	$Container/AchievementsButton.mouse_entered.connect(func():
+		$Swish.play()
+		focus = $Container/AchievementsButton)
 	$Container/QuitButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/QuitButton)
@@ -43,6 +45,7 @@ func set_up_nodule() -> void:
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
 func _set_title_card_pos() -> void:
+	update_graphic_position = true
 	$TitleCard.global_position = $Container/Padding.global_position + Vector2(140, -20)
 
 func _get_nodule_position() -> Vector2:
@@ -136,20 +139,28 @@ func _ready() -> void:
 	await vol_tween.finished
 	$Music.play()
 
+var update_graphic_position = false # if true, will instantly update graphics (without lerping) on the next frame
+
 func _process(delta: float) -> void:
-	var _screen_center = get_viewport().size / 2.0
+	var _screen_center = get_viewport().size / 2.0 / Global.retina_scale
 	var _mouse_offset = _screen_center - get_viewport().get_mouse_position()
-	var parallax_offset = _mouse_offset / Vector2(get_viewport().size) * 2.0
+	var _parallax_offset = _mouse_offset / Vector2(get_viewport().size) * Vector2(2.0, 0.6)
+	
+	if update_graphic_position:
+		$Raiqqo.global_position = _screen_center + _parallax_offset * 3.0
+		$RaiqqoFG.global_position = _screen_center + _parallax_offset * 5.5
+		update_graphic_position = false
+	
 	$Raiqqo.global_position = lerp(
 		$Raiqqo.global_position,
-		_screen_center + parallax_offset * 3.0,
+		_screen_center + _parallax_offset * 3.0,
 		Utilities.critical_lerp(delta, 3.0))
 	$RaiqqoFG.global_position = lerp(
 		$RaiqqoFG.global_position,
-		_screen_center + parallax_offset * 5.5,
+		_screen_center + _parallax_offset * 5.5,
 		Utilities.critical_lerp(delta, 4.0))
 	
-	var scale_diff = get_window().size.x / 1280.0 * 0.5
+	var scale_diff = get_window().size.x / 1280.0 * 0.5 / Global.retina_scale
 	$Raiqqo.scale = Vector2(scale_diff, scale_diff)
 	$RaiqqoFG.scale = Vector2(scale_diff, scale_diff)
 	
@@ -202,7 +213,7 @@ func _on_settings_pane_closed() -> void:
 func _on_folder_button_down() -> void:
 	OS.shell_open(ProjectSettings.globalize_path("user://save"))
 
-func _on_steam_button_down() -> void:
+func _on_achievements_button_button_down() -> void:
 	if $SettingsPane.is_open:
 		$SettingsPane.close()
 	$SteamPane.open()

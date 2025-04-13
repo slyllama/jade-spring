@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bogvulvj6f750"
-path="res://.godot/imported/menu_placeholder.png-a5668528191fbc6ce8b0e7ab0da12041.ctex"
+uid="uid://cix2qavmmlkle"
+path="res://.godot/imported/mm_raiqqo.png-14f1fb65738f5f39637a2fa7feb62a6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/main_menu/title_card/textures/menu_placeholder.png"
-dest_files=["res://.godot/imported/menu_placeholder.png-a5668528191fbc6ce8b0e7ab0da12041.ctex"]
+source_file="res://lib/main_menu/title_card/textures/mm_raiqqo.png"
+dest_files=["res://.godot/imported/mm_raiqqo.png-14f1fb65738f5f39637a2fa7feb62a6e.ctex"]
 
 [params]
 

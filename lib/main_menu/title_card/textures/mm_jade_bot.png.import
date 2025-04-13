@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://328fu30p0okw"
-path="res://.godot/imported/menu_placeholder_glow.png-63101dce59f3562b4f2c4dd881301b5f.ctex"
+uid="uid://qw3d40jmd50l"
+path="res://.godot/imported/mm_jade_bot.png-fb12e852172c0167025e09382397c838.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/main_menu/title_card/textures/menu_placeholder_glow.png"
-dest_files=["res://.godot/imported/menu_placeholder_glow.png-63101dce59f3562b4f2c4dd881301b5f.ctex"]
+source_file="res://lib/main_menu/title_card/textures/mm_jade_bot.png"
+dest_files=["res://.godot/imported/mm_jade_bot.png-fb12e852172c0167025e09382397c838.ctex"]
 
 [params]
 
