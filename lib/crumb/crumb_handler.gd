@@ -6,6 +6,7 @@ const BugSwarm = preload("res://lib/crumb/bug_swarm.tscn")
 const Weed = preload("res://lib/crumb/weed.tscn")
 const Dragonvoid = preload("res://lib/crumb/dragonvoid.tscn")
 const Nettles = preload("res://lib/crumb/weed/nettles.glb")
+const GiftLetter = preload("res://lib/gift_letter/gift_letter.tscn")
 const DRAGONS = ["kralkatorrik", "soo_won", "primordus", "jormag", "zhaitan", "mordremoth"]
 
 var totals = {}
@@ -45,12 +46,30 @@ func load_crumbs() -> void:
 			_n.global_position = _c.position
 			_n.rotation = _c.rotation
 
+func get_remaining() -> int:
+	var remaining_weeds = totals.weed - Save.data.deposited_weeds
+	var remaining_bugs = Save.data.crumb_count.bug
+	var remaining_dv = Save.data.crumb_count.dragonvoid
+	return(remaining_weeds + remaining_bugs + remaining_dv)
+
 func update_crumb_count() -> void:
 	var _get_crumb_count = {"bug": 0, "weed": 0, "dragonvoid": 0}
 	for _n in get_children():
 		if _n is Crumb:
 			_get_crumb_count[_n.type] += 1
 	Save.data.crumb_count = _get_crumb_count
+	
+	print("Remaining: " + str(get_remaining()))
+	if get_remaining() == 0:
+		# Gift letter and story advancing
+		var _g = GiftLetter.instantiate()
+		_g.set_text("((Game completion!))")
+		Global.hud.get_node("TopLevel").add_child(_g)
+		Save.advance_story()
+		
+		# Proc achievement if the player doesn't have it already
+		if SteamHandler.get_achievment_completion("game_completion") == 0:
+			SteamHandler.complete_achievement("game_completion")
 
 func get_karma_stats() -> void:
 	var _out = "weed = " + str(totals.weed) + " @ " + str(Global.kv_weed) + " = " + str(totals.weed * Global.kv_weed)

@@ -74,7 +74,7 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 		$Floor.visible = false
 	
 	$ModelBase.rotation_degrees.y = current_y_rotation
-	ResourceLoader.load_threaded_request(path)
+	ResourceLoader.load_threaded_request(path, "", false, ResourceLoader.CACHE_MODE_IGNORE)
 
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
