@@ -1,9 +1,7 @@
 extends Node
 
-# Will look for the scene in
-#   res://expansions/<expansion>/<decoration>/<decoration>.tscn
-# and the cursor in
-#   res://expansions/<expansion>/<decoration>/<decoration>_mesh.tscn
+# Will look for the scene in res://expansions/<expansion>/<decoration>/<decoration>.tscn
+# and the cursor in res://expansions/<expansion>/<decoration>/<decoration>_mesh.tscn
 
 const data = {
 	"krytan_luxurious_rug": {
@@ -27,8 +25,9 @@ const data = {
 	},
 	"krytan_dining_chair": {
 		"name": "Krytan Dining Chair",
-		"preview_scale": 1.2,
+		"preview_scale": 1.5,
 		"preview_v_offset": -0.4,
+		"preview_y_rotation": -90,
 		"tags": ["Architecture", "Kryta"]
 	}
 }

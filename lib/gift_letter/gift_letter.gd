@@ -13,6 +13,9 @@ func _set_dissolve_value(value: float):
 	var _exp = (1.0 - ease(value, 2.0)) * 4.0
 	material.set_shader_parameter("paint_exponent", _exp)
 
+func set_text(get_text: String) -> void:
+	$Copy.text = get_text
+
 func open() -> void:
 	$PaperSound.play()
 	# Convince gadgets that this is a story panel so that they can't be hovered

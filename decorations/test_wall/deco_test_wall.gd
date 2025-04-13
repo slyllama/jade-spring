@@ -12,12 +12,6 @@ func _ready() -> void:
 	assign_dye_channel("wall_ornament")
 	set_dye_channel("wall_ornament", wall_color)
 	super()
-	#for _n in Utilities.get_all_children($Wall):
-		#if _n is MeshInstance3D:
-			#var _m = _n.get_active_material(0)
-			#if _m is StandardMaterial3D:
-				#if "ornament" in _m.resource_path:
-					#_m.albedo_color = Color(0.299, 0.461, 0.471)
 
 var _e = 0.0
 func _process(delta: float) -> void:
@@ -30,5 +24,5 @@ func _process(delta: float) -> void:
 		if _e >= 0.2:
 			_e = 0
 			#var _dist = global_position.distance_to(Global.player_position)
-			if distance_to_player >= 11.0: $Wall.visible = false
+			if distance_to_player >= 13.5: $Wall.visible = false
 			else: $Wall.visible = true
