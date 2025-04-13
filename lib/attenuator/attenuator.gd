@@ -5,7 +5,7 @@ signal closed
 
 const PianoKey = preload("res://lib/attenuator/piano_key.tscn")
 
-const notes = [
+const NOTES = [
 	{"float": 0.0,  "color": Color.CADET_BLUE},	# C
 	{"float": 1.0,  "color": Color.WHITE},		# D
 	{"float": 2.1,  "color": Color.WHITE},		# E
@@ -14,27 +14,41 @@ const notes = [
 	{"float": 5.5,  "color": Color.WHITE},		# A
 	{"float": 7.2,  "color": Color.WHITE},		# B
 ]
+const NOTE_FILES = [
+	preload("res://lib/attenuator/sounds/c1.ogg"),
+	preload("res://lib/attenuator/sounds/d1.ogg"),
+	preload("res://lib/attenuator/sounds/e1.ogg"),
+	preload("res://lib/attenuator/sounds/f1.ogg"),
+	preload("res://lib/attenuator/sounds/g1.ogg"),
+	preload("res://lib/attenuator/sounds/a1.ogg"),
+	preload("res://lib/attenuator/sounds/b1.ogg"),
+	preload("res://lib/attenuator/sounds/c2.ogg"),
+	preload("res://lib/attenuator/sounds/d2.ogg"),
+	preload("res://lib/attenuator/sounds/e2.ogg"),
+	preload("res://lib/attenuator/sounds/f2.ogg"),
+	preload("res://lib/attenuator/sounds/g2.ogg"),
+	preload("res://lib/attenuator/sounds/a2.ogg"),
+	preload("res://lib/attenuator/sounds/b2.ogg"),
+	preload("res://lib/attenuator/sounds/c3.ogg")
+]
 const KEY_INDICES = [
 	"c1", "d1", "e1", "f1", "g1", "a1", "b1",
 	"c2", "d2", "e2", "f2", "g2", "a2", "b2", "c2" ]
 const TUNES = {
-	"primordus": [
-		"_", "a1", "a2", "b2", "b2", "_", "e2", "g2", "a2", "e2" ],
-	"soo_won": [
-		"d1", "e1", "f1", "e1", "f1", "g1", "a1", "f1", "d1", "g1", "e1", "c1" ],
-	"mordremoth": [
-		"a1", "_", "c2", "b1", "_", "c2", "e2", "_", "c2", "b1", "_", "c2" ],
-	"zhaitan": [
-		"e2", "_", "b1", "c2", "_", "a1", "b1", "_", "b1" ],
-	"kralkatorrik": [
-		"a1", "_", "a1", "e1", "f1", "_", "b1", "_", "a1", "b1", "c2", "b1" ],
-	"jormag": [
-		"e1", "c1", "a1", "e2", "_", "f2", "b1" ]
+	"primordus": [ "_", "a1", "a2", "b2", "b2", "_", "e2", "g2", "a2", "e2" ],
+	"soo_won": [ "d1", "e1", "f1", "e1", "f1", "g1", "a1", "f1", "d1", "g1", "e1", "c1" ],
+	"mordremoth": [ "a1", "_", "c2", "b1", "_", "c2", "e2", "_", "c2", "b1", "_", "c2" ],
+	"zhaitan": [ "e2", "_", "b1", "c2", "_", "a1", "b1", "_", "b1" ],
+	"kralkatorrik": [ "a1", "_", "a1", "e1", "f1", "_", "b1", "_", "a1", "b1", "c2", "b1" ],
+	"jormag": [ "e1", "c1", "a1", "e2", "_", "f2", "b1" ]
+}
+const SUCCESS_TUNES = {
+	"mordremoth": preload("res://lib/attenuator/sounds/mordremoth_success.ogg")
 }
 const TUNES_ORDER = [ "primordus", "soo_won", "mordremoth", "zhaitan", "kralkatorrik", "jormag" ]
 
 var current_dragon = "primordus"
-var two_oct = notes.duplicate()
+var two_oct = NOTES.duplicate()
 var place = 0
 var target_track
 var passing = true
@@ -137,7 +151,7 @@ func render() -> void:
 	var _d = 0
 	for _i in two_oct:
 		var _n = PianoKey.instantiate()
-		_n.pitch = 1.0 + _i.float * (1.0 / 8.0)
+		_n.get_node("Note").stream = NOTE_FILES[_d]
 		_n.id = _d
 		_n.note_name = KEY_INDICES[_d]
 		_n.modulate = _i.color
@@ -189,8 +203,15 @@ func render() -> void:
 					_set_base_darkness(0.86)
 					var banner_tween = create_tween()
 					banner_tween.tween_method(_set_banner_value, 0.0, 1.0, 0.2)
-					
 					Global.player.update_golem_effects()
+					
+					# Play the appropriate success tune (if one exists)
+					await get_tree().create_timer(0.35).timeout
+					if current_dragon in SUCCESS_TUNES:
+						var _success_tune = AudioStreamPlayer.new()
+						_success_tune.stream = SUCCESS_TUNES[current_dragon]
+						add_child(_success_tune)
+						_success_tune.play()
 		)
 		$Base/KeyContainer.add_child(_n)
 		_n.set_pills_size(TUNES[current_dragon].size())
@@ -255,9 +276,9 @@ func _ready() -> void:
 	Global.action_cam_disable.emit()
 	Global.tool_mode = Global.TOOL_MODE_FISH
 	
-	for _i in notes:
+	for _i in NOTES:
 		two_oct.append({"float": _i.float * 2.0 + 8.0, "color": _i.color})
-	two_oct.append({"float": notes[0].float * 4.0 + 24.0, "color": notes[0].color})
+	two_oct.append({"float": NOTES[0].float * 4.0 + 24.0, "color": NOTES[0].color})
 	
 	render()
 	_set_prev_next_keys()

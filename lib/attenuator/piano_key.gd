@@ -11,12 +11,6 @@ var pills: Array[TextureRect] = []
 var is_disabled = false
 signal played
 
-@export var pitch = 1.0:
-	get: return(pitch)
-	set(_val):
-		pitch = _val
-		$Note.pitch_scale = pitch
-
 @export var note_name = "_"
 @export var id = -1 # to be replaced with array ID
 

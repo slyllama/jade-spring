@@ -18,7 +18,7 @@
 [ext_resource type="Shader" path="res://lib/attenuator/materials/shaders/shader_energy_wobble.gdshader" id="12_tj5i4"]
 [ext_resource type="Texture2D" uid="uid://cf7ril0yniapq" path="res://lib/attenuator/textures/arrow_hover.png" id="13_yshcl"]
 [ext_resource type="Texture2D" uid="uid://bggnkyljip2sf" path="res://lib/attenuator/textures/arrow_disabled.png" id="14_q6c1q"]
-[ext_resource type="AudioStream" uid="uid://p27he2puiuwj" path="res://lib/attenuator/sounds/attenuator_success.ogg" id="15_vld85"]
+[ext_resource type="AudioStream" uid="uid://p27he2puiuwj" path="res://lib/attenuator/sounds/success.ogg" id="15_vld85"]
 [ext_resource type="Texture2D" uid="uid://iyp6udkipvdq" path="res://lib/attenuator/textures/cursor_bar.png" id="16_0v5q4"]
 [ext_resource type="Texture2D" uid="uid://j2u6itfbl3mi" path="res://lib/attenuator/textures/glyphs/jormag.png" id="16_qdpey"]
 [ext_resource type="FontFile" uid="uid://dg6p5pxhkf6ui" path="res://generic/fonts/libertinus_sans_italic.otf" id="23_ms5uu"]
