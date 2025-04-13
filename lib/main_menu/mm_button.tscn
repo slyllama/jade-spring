@@ -3,10 +3,13 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8k2s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g38ef"]
+content_margin_right = 40.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_upn0w"]
+content_margin_right = 40.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdvxs"]
+content_margin_right = 40.0
 
 [sub_resource type="GDScript" id="GDScript_yonmy"]
 script/source = "@tool
@@ -27,7 +30,7 @@ func _on_mouse_exited() -> void:
 "
 
 [node name="MMButton" type="Button"]
-modulate = Color(1, 1, 1, 0.588235)
+modulate = Color(1, 1, 1, 0.6)
 offset_right = 256.0
 offset_bottom = 32.0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -40,7 +43,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_g38ef")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_upn0w")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vdvxs")
 text = "New Game"
-alignment = 0
+alignment = 2
 script = SubResource("GDScript_yonmy")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

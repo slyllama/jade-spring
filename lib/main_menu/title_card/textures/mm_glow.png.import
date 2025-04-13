@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b14riwre77y4l"
-path="res://.godot/imported/h_sep.png-fef97895b2f312e08063dcf616a3f186.ctex"
+uid="uid://dnuuulsg57qtl"
+path="res://.godot/imported/mm_glow.png-a03b3f93af063cc040d685c2a0453417.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/main_menu/title_card/textures/h_sep.png"
-dest_files=["res://.godot/imported/h_sep.png-fef97895b2f312e08063dcf616a3f186.ctex"]
+source_file="res://lib/main_menu/title_card/textures/mm_glow.png"
+dest_files=["res://.godot/imported/mm_glow.png-a03b3f93af063cc040d685c2a0453417.ctex"]
 
 [params]
 

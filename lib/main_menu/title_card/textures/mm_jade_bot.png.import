@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2dqd7dkg5uu3"
-path="res://.godot/imported/jade_3.png-cb47f3d2bd9a4340d1814519dc3ee503.ctex"
+uid="uid://qw3d40jmd50l"
+path="res://.godot/imported/mm_jade_bot.png-fb12e852172c0167025e09382397c838.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/main_menu/title_card/textures/jade_3.png"
-dest_files=["res://.godot/imported/jade_3.png-cb47f3d2bd9a4340d1814519dc3ee503.ctex"]
+source_file="res://lib/main_menu/title_card/textures/mm_jade_bot.png"
+dest_files=["res://.godot/imported/mm_jade_bot.png-fb12e852172c0167025e09382397c838.ctex"]
 
 [params]
 

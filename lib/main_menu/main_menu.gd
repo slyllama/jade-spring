@@ -7,7 +7,6 @@ var rng = RandomNumberGenerator.new()
 @onready var focus: Button
 var can_interact = true
 var ngc_open = false # new game container open
-var _light_ray_target_alpha = 0.01
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -25,13 +24,15 @@ func set_up_nodule() -> void:
 	$Container/Box/ContinueButton.focus_entered.connect(func():
 		$Swish.play()
 		focus = $Container/Box/ContinueButton)
-	
 	$Container/PlayButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/PlayButton)
 	$Container/SettingsButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/SettingsButton)
+	$Container/AchievementsButton.mouse_entered.connect(func():
+		$Swish.play()
+		focus = $Container/AchievementsButton)
 	$Container/QuitButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/QuitButton)
@@ -44,7 +45,11 @@ func set_up_nodule() -> void:
 	_f.tween_property($Nodule, "modulate:a", 1.0, 0.2)
 
 func _set_title_card_pos() -> void:
-	$TitleCard.global_position = $Container/Padding.global_position + Vector2(230, -20)
+	update_graphic_position = true
+	$TitleCard.global_position = $Container/Padding.global_position + Vector2(140, -20)
+
+func _get_nodule_position() -> Vector2:
+	return(Vector2(get_window().size.x / 2.0 / Global.retina_scale - 180.0, focus.global_position.y + 16))
 
 # Fade and transition into loader scene or custom scene (if it is set)
 func play() -> void:
@@ -82,7 +87,11 @@ func _ready() -> void:
 	# Free the mouse if we've come from action camera mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	$LightRay.modulate.a = 0.01
+	if SteamHandler.steam_loaded:
+		$Container/AchievementsButton.visible = true
+	Steam.user_stats_received.connect(func(_i, _j, _k):
+		$Container/AchievementsButton.visible = true)
+	
 	$FG.visible = true
 	$FG.modulate.a = 1.0
 	$Container/Box/InvalidWarning.visible = false
@@ -127,7 +136,7 @@ func _ready() -> void:
 		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()
 	
-	$Nodule.global_position = Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16)
+	$Nodule.global_position = _get_nodule_position()
 	
 	var vol_tween = create_tween()
 	vol_tween.tween_method(
@@ -135,14 +144,36 @@ func _ready() -> void:
 	await vol_tween.finished
 	$Music.play()
 
+var update_graphic_position = false # if true, will instantly update graphics (without lerping) on the next frame
+
 func _process(delta: float) -> void:
-	$LightRay.modulate.a = lerp($LightRay.modulate.a, _light_ray_target_alpha, delta * 6.0)
+	var _screen_center = get_viewport().size / 2.0 / Global.retina_scale
+	var _mouse_offset = _screen_center - get_viewport().get_mouse_position()
+	var _parallax_offset = _mouse_offset / Vector2(get_viewport().size) * Vector2(2.0, 0.6)
+	
+	if update_graphic_position:
+		$Raiqqo.global_position = _screen_center + _parallax_offset * 3.0
+		$RaiqqoFG.global_position = _screen_center + _parallax_offset * 5.5
+		update_graphic_position = false
+	
+	$Raiqqo.global_position = lerp(
+		$Raiqqo.global_position,
+		_screen_center + _parallax_offset * 3.0,
+		Utilities.critical_lerp(delta, 3.0))
+	$RaiqqoFG.global_position = lerp(
+		$RaiqqoFG.global_position,
+		_screen_center + _parallax_offset * 5.5,
+		Utilities.critical_lerp(delta, 4.0))
+	
+	var scale_diff = get_window().size.x / 1280.0 * 0.5 / Global.retina_scale
+	$Raiqqo.scale = Vector2(scale_diff, scale_diff)
+	$RaiqqoFG.scale = Vector2(scale_diff, scale_diff)
 	
 	if !can_interact or ngc_open: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
 		$Nodule.position,
-		Vector2(get_window().size.x / 2.0 / Global.retina_scale, focus.global_position.y + 16),
+		_get_nodule_position(),
 		Utilities.critical_lerp(delta, 30.0))
 
 func _on_play_button_down() -> void:
@@ -181,16 +212,13 @@ func _on_new_game_button_pressed() -> void:
 	Global.start_params.new_save = true
 	play()
 
-func _on_timer_timeout() -> void:
-	_light_ray_target_alpha = 0.036 + 0.03 * rng.randf()
-
 func _on_settings_pane_closed() -> void:
 	$Container/SettingsButton.grab_focus()
 
 func _on_folder_button_down() -> void:
 	OS.shell_open(ProjectSettings.globalize_path("user://save"))
 
-func _on_steam_button_down() -> void:
+func _on_achievements_button_button_down() -> void:
 	if $SettingsPane.is_open:
 		$SettingsPane.close()
 	$SteamPane.open()

@@ -13,10 +13,12 @@ orientation = 2
 [node name="Ray" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
 cast_shadow = 0
+visibility_range_end = 20.0
 mesh = SubResource("PlaneMesh_b841u")
 
 [node name="Marker" type="Sprite3D" parent="."]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 2.6, 0)
+visibility_range_end = 20.0
 modulate = Color(0.65, 0.65, 0.65, 1)
 billboard = 1
 render_priority = 3

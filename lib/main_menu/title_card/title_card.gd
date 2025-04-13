@@ -39,7 +39,6 @@ func _ready() -> void:
 	
 	$Dust.emitting = true
 	$ClipBase/ClipMotes.emitting = true
-	$JadeBotRoot/Anim.play("Float")
 	
 	var words_2_tween = create_tween()
 	words_2_tween.tween_method(
