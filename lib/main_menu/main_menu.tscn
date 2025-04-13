@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
 [ext_resource type="Texture2D" uid="uid://di4tqbaloy431" path="res://generic/textures/light_ray.png" id="3_nclce"]
 [ext_resource type="PackedScene" uid="uid://col3bfw2kkxf0" path="res://lib/main_menu/mm_button.tscn" id="3_v0okn"]
-[ext_resource type="Texture2D" uid="uid://cix2qavmmlkle" path="res://lib/main_menu/title_card/textures/mm_raiqqo.png" id="4_bh8me"]
+[ext_resource type="Texture2D" uid="uid://cix2qavmmlkle" path="res://lib/main_menu/title_card/textures/mm_raiqquo.png" id="4_bh8me"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
 [ext_resource type="Texture2D" uid="uid://dnuuulsg57qtl" path="res://lib/main_menu/title_card/textures/mm_glow.png" id="5_xq5di"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
@@ -214,6 +214,7 @@ layout_mode = 2
 text = "Settings"
 
 [node name="AchievementsButton" parent="Container" instance=ExtResource("3_v0okn")]
+visible = false
 layout_mode = 2
 text = "Achievements"
 

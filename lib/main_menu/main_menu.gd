@@ -87,6 +87,11 @@ func _ready() -> void:
 	# Free the mouse if we've come from action camera mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
+	if SteamHandler.steam_loaded:
+		$Container/AchievementsButton.visible = true
+	Steam.user_stats_received.connect(func(_i, _j, _k):
+		$Container/AchievementsButton.visible = true)
+	
 	$FG.visible = true
 	$FG.modulate.a = 1.0
 	$Container/Box/InvalidWarning.visible = false
