@@ -59,7 +59,6 @@ func update_crumb_count() -> void:
 			_get_crumb_count[_n.type] += 1
 	Save.data.crumb_count = _get_crumb_count
 	
-	print("Remaining: " + str(get_remaining()))
 	if get_remaining() == 0:
 		# Gift letter and story advancing
 		if "gratitude" in Save.data.story_point:

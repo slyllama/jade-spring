@@ -128,10 +128,10 @@ func _process(delta: float) -> void:
 			snapped($Drag/Pick.global_position.z, Global.SNAP_INCREMENT)
 		)
 	
-	
 	if (Global.safe_point.global_position.distance_to(get_parent().global_position) < Global.SPAWN_RADIUS
 		or !Utilities.point_in_wb(get_parent().global_position)):
-		get_parent().global_position = _last_position
+		if Global.map_name != "debug":
+			get_parent().global_position = _last_position
 	else: _last_position = get_parent().global_position
 	
 	if dragging:

@@ -80,6 +80,15 @@ input_binding = "skill_6"
 stream = ExtResource("5_fb1ma")
 max_polyphony = 2
 
+[node name="MarkerRestPos" type="Control" parent="."]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 357.0
+offset_top = 627.0
+offset_right = 361.0
+offset_bottom = 631.0
+
 [connection signal="clicked" from="Box/Skill1" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill2" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill3" to="." method="skill_used"]

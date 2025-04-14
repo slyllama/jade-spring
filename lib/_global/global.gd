@@ -66,13 +66,13 @@ signal action_cam_enable # procs action cam
 signal action_cam_disable # procs action cam
 
 signal announcement_sent(get_text)
-signal ripple
 signal bindings_updated
 signal bug_crumb_entered
 signal bug_crumb_left
 signal click_sound
 signal crumbs_updated
 signal command_sent(string)
+signal controller_skill(node)
 signal debug_toggled
 signal debug_skill_used
 signal dialogue_opened
@@ -90,6 +90,7 @@ signal karma_collected
 signal move_player(new_position: Vector3) # function - moves the player
 signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
+signal ripple
 signal rock_out_started
 signal rock_out_ended
 signal rock_out_beat

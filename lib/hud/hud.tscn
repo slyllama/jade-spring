@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=34 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="18_0n0fc"]
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
+[ext_resource type="PackedScene" uid="uid://b0blxymb4wob0" path="res://lib/controller_cursor/controller_cursor.tscn" id="24_40fv2"]
 
 [sub_resource type="Gradient" id="Gradient_rfne7"]
 
@@ -382,6 +383,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ControllerCursor" parent="TopLevel" instance=ExtResource("24_40fv2")]
 
 [node name="InteractEnter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_hhimw")

@@ -5,9 +5,9 @@ class_name SaveHandler extends Node
 signal story_advanced
 signal karma_changed
 
-const OBJECTIVE_WEED_COUNT = 3
-const OBJECTIVE_PEST_COUNT = 2
-const OBJECTIVE_DV_COUNT = 1
+const OBJECTIVE_WEED_COUNT = 5
+const OBJECTIVE_PEST_COUNT = 3
+const OBJECTIVE_DV_COUNT = 2
 const GIFT_STORY_POINT = "stewardship" # gift will unlock past this point - debugging
 var first_run = true
 

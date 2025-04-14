@@ -52,6 +52,8 @@ func open(silent = false) -> void:
 	_load_model()
 	update_costs()
 	_update_unlock_button(current_id)
+	
+	$Container/ScrollBox/ScrollVBox.get_children()[0].grab_focus()
 
 func close():
 	Global.deco_pane_open = false

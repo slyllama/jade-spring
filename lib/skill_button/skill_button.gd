@@ -184,6 +184,14 @@ func _ready() -> void:
 	$Tooltip.visible = false
 	set_tip_text(title, description)
 	
+	Global.controller_skill.connect(func(_node):
+		if _node == self:
+			if Global.bindings_pane_open or Global.dialogue_open: return
+			if Global.popup_open or !binding_validated or !enabled: return
+			fx_down()
+			await get_tree().process_frame
+			_on_button_up())
+	
 	_display_binding()
 	Global.bindings_updated.connect(_display_binding)
 

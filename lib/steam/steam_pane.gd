@@ -20,8 +20,6 @@ func _ready() -> void:
 		$Container/CScroll/CBox.add_child(_ab)
 	
 	SteamHandler.stats_refreshed.connect(func():
-		print(Steam.getAchievement("story_completion"))
-		
 		is_ready = true
 		$Spinner.visible = false
 		$Container/CScroll.visible = true
