@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceasnql6pvyyj"]
+[gd_scene load_steps=10 format=3 uid="uid://ceasnql6pvyyj"]
 
 [ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_5o2c8"]
 [ext_resource type="Texture2D" uid="uid://bcvp2eedr7svs" path="res://lib/gift_letter/textures/base.png" id="1_7db6k"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_0hanp"]
 [ext_resource type="Script" path="res://lib/gift_letter/gift_letter.gd" id="4_1oosv"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="5_b6or1"]
+[ext_resource type="FontFile" uid="uid://dg6p5pxhkf6ui" path="res://generic/fonts/libertinus_sans_italic.otf" id="5_ynogy"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="6_n1wla"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="7_66y1s"]
 
@@ -33,6 +34,7 @@ grow_vertical = 2
 texture = ExtResource("1_7db6k")
 expand_mode = 1
 script = ExtResource("4_1oosv")
+metadata/_edit_vertical_guides_ = [474.0]
 
 [node name="Title" type="RichTextLabel" parent="."]
 use_parent_material = true
@@ -42,14 +44,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -99.0
-offset_top = -135.0
-offset_right = 308.0
-offset_bottom = -103.0
+offset_left = -165.5
+offset_top = -141.0
+offset_right = 308.5
+offset_bottom = -109.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_colors/default_color = Color(0.28, 0.180367, 0.1092, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "Thank You for Tending the Jade Spring"
 scroll_active = false
@@ -63,21 +65,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.5
-offset_top = -93.5
-offset_right = 308.5
-offset_bottom = 131.5
+offset_left = -165.5
+offset_top = -104.5
+offset_right = 298.5
+offset_bottom = 168.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_colors/default_color = Color(0.28, 0.180367, 0.1092, 1)
-theme_override_font_sizes/normal_font_size = 16
+theme_override_colors/default_color = Color(0.1, 0.0644167, 0.039, 1)
+theme_override_fonts/italics_font = ExtResource("5_ynogy")
+theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "Dear Steward. We would like to convey our appreciation for your hard work in helping to purify and reinvigorate Jade Spring. This place has endured over many long ages, but has grown weary and decrepit ever since the Jade Wind - at least until you and Ratchet came to walk these lands. You have proven yourself a gentle and worthy steward, and are welcome to decorate the garden as you please. 
 [font_size=5] [/font_size]
-[color=711b08]We would also be most grateful if you were to clear the remaining weeds, bugs, and Dragonvoid. Should you do so, I have a small gift that we would be honoured to offer you.[/color]
+[color=711b08]We would also be most grateful if you were to clear the remaining weeds, bugs, and Dragonvoid. Should you do so, I have a small gift that we would be honoured to impart.[/color]
 [font_size=5] [/font_size]
-Raiqqo."
+[i]Raiqqo.[/i]"
 
 [node name="CloseButton" type="TextureButton" parent="."]
 use_parent_material = true

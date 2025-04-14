@@ -257,6 +257,6 @@ controller_focus_mode={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.5, 0.5, 0.5, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 anti_aliasing/quality/msaa_3d=2
 anti_aliasing/quality/screen_space_aa=1

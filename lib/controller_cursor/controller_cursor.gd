@@ -19,7 +19,7 @@ func focus_on(node: Node, node_offset = Vector2.ZERO) -> void:
 	current_focus = node
 	target_position = node.global_position + node_offset
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("controller_focus_mode"):
 		if get_window().gui_get_focus_owner(): return
 		offset.y = 0.0

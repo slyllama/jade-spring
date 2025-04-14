@@ -7,7 +7,7 @@ signal karma_changed
 
 const OBJECTIVE_WEED_COUNT = 5
 const OBJECTIVE_PEST_COUNT = 3
-const OBJECTIVE_DV_COUNT = 2
+const OBJECTIVE_DV_COUNT = 1
 const GIFT_STORY_POINT = "stewardship" # gift will unlock past this point - debugging
 var first_run = true
 
@@ -49,12 +49,12 @@ var STORY_POINT_SCRIPT = {
 	},
 	"ratchet_gratitude": {
 		"title": "4. Ratchet's Gratitude",
-		"description": "As the dragon's tesseract collapses into static, my communicator starts to buzz again. 'Excelsior! Marvelous! Systems rebooting... engaged and operational. We'll be able to clear out the rest of this Void as we go.' <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them. You can unlock special decorations with Karma earned from helping clear the garden. Oh - and it looks like Ratchet has something they want to talk to you about!>",
-		"objective": "Ratchet has something to speak to you about!"
+		"description": "As the dragon's tesseract collapses into static, my communicator starts to buzz again. 'Excelsior! Marvelous! Systems rebooting... engaged and operational. We'll be able to clear out the rest of this Void as we go.' <All decoration tools are now available to you! You can place and delete items, move, scale, rotate, and duplicate them. You can unlock special decorations with Karma earned from helping clear the garden. Oh - and it looks like Ratchet has something they want to discuss with you!>",
+		"objective": "With the Dragonvoid problem well on its way to being solved, Ratchet has something to speak to you about."
 	},
 	"gratitude": {
 		"title": "4. Ratchet's Gratitude",
-		"objective": "((Ratchet's gratitude.))"
+		"objective": "Jade Spring is well on its way to being fully cleansed."
 	},
 	"stewardship": {
 		"title": "5. Stewardship",
