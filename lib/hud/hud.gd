@@ -19,10 +19,10 @@ func _render_crumb_debug() -> String:
 	var _s = ""
 	if Global.current_crumb != null:
 		_s += ("\n[color=yellow]Proximal crumb: "
-			+ str(Global.current_crumb) + "[/color]")
+			+ str(Global.current_crumb.name) + "[/color]")
 	if Global.current_gadget != null:
 		_s += ("\n[color=yellow]Proximal Gadget: "
-			+ str(Global.current_gadget) + "[/color]")
+			+ str(Global.current_gadget.name) + "[/color]")
 	return(_s)
 
 func get_debug_has_focus() -> bool:
@@ -213,28 +213,14 @@ func _process(_delta: float) -> void:
 	if Global.debug_enabled:
 		$Debug.text = "[right]"
 		$Debug.text += _render_fps()
-		$Debug.text += "\n(" + Utilities.fmt_vec3(Global.player_position) + ")"
-		$Debug.text += ("\nPrimitives: "
-			+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)))
+		#$Debug.text += "\n(" + Utilities.fmt_vec3(Global.player_position) + ")"
+		$Debug.text += (" ("
+			+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)) + ")")
 		$Debug.text += "\n"
-		$Debug.text += ("\nLoaded map: " + str(Global.map_name))
-		$Debug.text += ("\nTool mode: " + str(Global.tool_identities[Global.tool_mode]))
-		$Debug.text += ("\nFoliage count: " + str(Global.foliage_count))
-		$Debug.text += ("\nStory step: " + str(Save.data.story_point))
-		$Debug.text += ("\nKarma: " + str(Save.data.karma) + " (" + str(Global.assigned_karma) + " uncollected)")
-		$Debug.text += ("\nExclusive UI: " + str(Global.in_exclusive_ui))
-		if Global.mouse_3d_position != Utilities.BIGVEC3:
-			$Debug.text += ("\n[color=yellow]Cursor 3D position: "
-				+ str(Utilities.fmt_vec3(Global.mouse_3d_position)) + "[/color]")
+		$Debug.text += ("\n" + str(Global.tool_identities[Global.tool_mode]))
+		$Debug.text += ("\nSave.STORY_POINTS." + str(Save.data.story_point))
 		$Debug.text += "\n"
-		if Global.decorations != []:
-			$Debug.text += "\n" + str(Global.decorations.size()) + " decoration(s)"
-		if Global.active_decoration != null:
-			$Debug.text += ("\n[color=yellow]Active decoration: "
-				+ str(Global.active_decoration) + "[/color]")
-		if Global.queued_decoration != "none":
-			$Debug.text += ("\n[color=yellow]Queued decoration: "
-				+ str(Global.queued_decoration) + "[/color]")
+		if Global.in_exclusive_ui: $Debug.text += ("\n[color=yellow]Exclusive UI[/color]")
 		
 		$Debug.text += _render_crumb_debug()
 		$Debug.text += "[/right]"

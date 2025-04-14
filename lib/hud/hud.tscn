@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=33 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -44,6 +44,11 @@ shader_parameter/mask = SubResource("GradientTexture2D_1ic73")
 shader_parameter/mask2 = SubResource("GradientTexture2D_h7w5p")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkc2r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sruav"]
+bg_color = Color(0, 0, 0, 0.196078)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsocp"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ryxhn")
@@ -357,14 +362,16 @@ modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -30.0
-offset_right = 359.0
-offset_bottom = -5.0
+offset_left = 15.0
+offset_top = -35.0
+offset_right = 369.0
+offset_bottom = -10.0
 grow_vertical = 0
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_yply7")
 theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_sruav")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hsocp")
 placeholder_text = "Enter command:"
 
 [node name="FG" type="ColorRect" parent="TopLevel"]

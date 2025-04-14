@@ -55,6 +55,9 @@ func update_roster_visibility(pos: int) -> void:
 		$DVBar.visible = true
 	if pos >= 4:
 		$StoryText.visible = false
+		for _n in get_tree().get_nodes_in_group("Roster"):
+			_n.visible = false
+		$Completion.visible = true
 
 func fade_in(time = 0.9) -> void:
 	var _fade_tween = create_tween()

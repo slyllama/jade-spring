@@ -22,20 +22,19 @@ func _ready() -> void:
 
 func _on_bin_interacted() -> void:
 	if Global.get_effect_qty("weed") > 0:
+		Global.spawn_karma.emit(Global.get_effect_qty("weed") * Global.kv_weed, global_position)
+		Save.data.deposited_weeds += Global.get_effect_qty("weed")
+		Global.crumbs_updated.emit()
+		Save.data.weeds = 0
+		Global.remove_effect.emit("weed")
+		
 		$Foam.emitting = true
 		$LeafSound.play()
 		await get_tree().create_timer(0.3).timeout
 		$Foam.emitting = false
-	else: # do weed stuff
-		Global.announcement_sent.emit(
-			"This bin is hungry for some weeds and rotting shrubs.")
-	
-	Global.spawn_karma.emit(Global.get_effect_qty("weed") * Global.kv_weed, global_position)
-	Save.data.deposited_weeds += Global.get_effect_qty("weed")
-	
-	Global.crumbs_updated.emit()
-	Save.data.weeds = 0
-	Global.remove_effect.emit("weed")
+	else:
+		if Save.data.story_point != "stewardship":
+			Global.announcement_sent.emit("This bin is hungry for some weeds and rotting shrubs.")
 
 func _on_collision_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:

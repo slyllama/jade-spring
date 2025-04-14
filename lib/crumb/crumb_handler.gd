@@ -62,14 +62,17 @@ func update_crumb_count() -> void:
 	print("Remaining: " + str(get_remaining()))
 	if get_remaining() == 0:
 		# Gift letter and story advancing
-		var _g = GiftLetter.instantiate()
-		_g.set_text("((Game completion!))")
-		Global.hud.get_node("TopLevel").add_child(_g)
-		Save.advance_story()
+		if "gratitude" in Save.data.story_point:
+			var _g = GiftLetter.instantiate()
+			_g.set_text("((Game completion!))")
+			Global.hud.get_node("TopLevel").add_child(_g)
+			if Save.data.story_point == "ratchet_gratitude":
+				Save.data.story_point = "gratitude" # skip to the correct story step if we're behind
+			Save.advance_story()
 		
-		# Proc achievement if the player doesn't have it already
-		if SteamHandler.get_achievment_completion("game_completion") == 0:
-			SteamHandler.complete_achievement("game_completion")
+			# Proc achievement if the player doesn't have it already
+			if SteamHandler.get_achievment_completion("game_completion") == 0:
+				SteamHandler.complete_achievement("game_completion")
 
 func get_karma_stats() -> void:
 	var _out = "weed = " + str(totals.weed) + " @ " + str(Global.kv_weed) + " = " + str(totals.weed * Global.kv_weed)

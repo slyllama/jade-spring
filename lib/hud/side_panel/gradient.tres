@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ddh75o1b4csod"]
+
+[ext_resource type="Texture2D" uid="uid://cmq3a01pn8uh1" path="res://lib/hud/side_panel/materials/textures/side_panel_gradient.tres" id="1_mm2ou"]
+
+[resource]
+content_margin_left = 24.0
+content_margin_top = 2.0
+content_margin_bottom = 1.0
+texture = ExtResource("1_mm2ou")

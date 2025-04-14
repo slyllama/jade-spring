@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://gokqv1eo16nh"]
+[gd_scene load_steps=22 format=3 uid="uid://gokqv1eo16nh"]
 
 [ext_resource type="Script" path="res://lib/hud/side_panel/side_panel.gd" id="1_xy7kn"]
 [ext_resource type="Shader" path="res://lib/hud/side_panel/materials/shaders/shader_panel_gradient.gdshader" id="2_xwfhn"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cfb7i61lbowa0" path="res://lib/hud/side_panel/textures/side_panel_separator.png" id="7_rlga1"]
 [ext_resource type="Texture2D" uid="uid://b3cek2svfjg6j" path="res://lib/hud/textures/icon_count.png" id="8_sm7pe"]
 [ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="9_cafge"]
+[ext_resource type="StyleBox" uid="uid://ddh75o1b4csod" path="res://lib/hud/side_panel/gradient.tres" id="10_n04xy"]
+[ext_resource type="Texture2D" uid="uid://cnowmk0g403s5" path="res://lib/story_marker/textures/story_marker_small.png" id="12_1fach"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fqi0m"]
 shader = ExtResource("2_xwfhn")
@@ -44,11 +46,11 @@ content_margin_left = 2.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83i4h"]
-content_margin_left = 24.0
-content_margin_top = 2.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18w8f"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 24.0
 content_margin_bottom = 1.0
-texture = ExtResource("3_0npe3")
 
 [node name="SidePanel" type="VBoxContainer"]
 custom_minimum_size = Vector2(290, 0)
@@ -214,7 +216,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/normal_font_size = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
+theme_override_styles/normal = ExtResource("10_n04xy")
 text = " "
 fit_content = true
 scroll_active = false
@@ -223,51 +225,77 @@ scroll_active = false
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
+theme_override_styles/normal = ExtResource("10_n04xy")
 text = "Garden Roster (Total Progress)"
 fit_content = true
 scroll_active = false
 
-[node name="WeedsText" type="RichTextLabel" parent="."]
+[node name="WeedsText" type="RichTextLabel" parent="." groups=["Roster"]]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
+theme_override_styles/normal = ExtResource("10_n04xy")
 text = "Compost weeds"
 fit_content = true
 scroll_active = false
 
-[node name="WeedsBar" parent="." instance=ExtResource("4_7d8f4")]
+[node name="WeedsBar" parent="." groups=["Roster"] instance=ExtResource("4_7d8f4")]
 layout_mode = 2
 
-[node name="BugsText" type="RichTextLabel" parent="."]
+[node name="BugsText" type="RichTextLabel" parent="." groups=["Roster"]]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
+theme_override_styles/normal = ExtResource("10_n04xy")
 text = "Clear invasive pests"
 fit_content = true
 scroll_active = false
 
-[node name="BugsBar" parent="." instance=ExtResource("4_7d8f4")]
+[node name="BugsBar" parent="." groups=["Roster"] instance=ExtResource("4_7d8f4")]
 layout_mode = 2
 
-[node name="DVText" type="RichTextLabel" parent="."]
+[node name="DVText" type="RichTextLabel" parent="." groups=["Roster"]]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
+theme_override_styles/normal = ExtResource("10_n04xy")
 text = "Disperse Dragonvoid"
 fit_content = true
 scroll_active = false
 
-[node name="DVBar" parent="." instance=ExtResource("4_7d8f4")]
+[node name="DVBar" parent="." groups=["Roster"] instance=ExtResource("4_7d8f4")]
 layout_mode = 2
+
+[node name="Completion" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("10_n04xy")
+
+[node name="CompleteBox" type="HBoxContainer" parent="Completion"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Completion/CompleteBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("12_1fach")
+expand_mode = 1
+
+[node name="CompleteText" type="RichTextLabel" parent="Completion/CompleteBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/outline_size = 5
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_18w8f")
+text = "The Jade Spring has been purified."
+fit_content = true
+scroll_active = false
 
 [node name="B_L" type="RichTextLabel" parent="."]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxTexture_83i4h")
+theme_override_styles/normal = ExtResource("10_n04xy")
 text = " "
 fit_content = true
 scroll_active = false

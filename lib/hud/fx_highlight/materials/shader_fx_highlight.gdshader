@@ -14,4 +14,3 @@ void fragment() {
 	wobble_tex += texture(glow_texture, UV * 1.2 - vec2(0.12) + uv * wobble_intensity * 0.20).rgba * vec4(color, 1.0);
 	COLOR = mix(plain_tex, wobble_tex, texture(glow_texture, UV).r);
 }
-
