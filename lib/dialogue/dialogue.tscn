@@ -211,10 +211,10 @@ anchor_bottom = 1.0
 offset_left = 59.0
 offset_top = 239.0
 offset_right = -55.0
-offset_bottom = -126.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 2
 
 [node name="Text" type="RichTextLabel" parent="Base/Box"]
 use_parent_material = true

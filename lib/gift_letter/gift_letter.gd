@@ -48,7 +48,6 @@ func _ready() -> void:
 		return
 	
 	Global.settings_pane_opened.connect(close)
-	
 	dissolve_value = 1.0
 	open()
 

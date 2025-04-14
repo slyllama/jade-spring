@@ -163,6 +163,70 @@ const dv_charge = {
 	}
 }
 
+const raiqqo_dialogue = {
+	"title": "Ratchet",
+	"_entry": {
+		"string": "A good day in the Jade Spring - especially now that awful b-b-buzzing has d-dialed back a little.",
+		"options": {
+			"saved_1": "Raiqqo saved me; he repaired me and made me whole again. And yet... I recall so little of what happened.",
+			"return_1": "I'm glad we've been able to restore some order to this place before Raiqqo got back. That was thoughtful of him to leave a letter.",
+			"commander_1": "I can't wait till the Commander sees what we've done here. They could use a break.",
+			"done": "(Done for now.)"
+		}
+	},
+	"saved_1": {
+		"string": "Rai is a cap-pable one; a t-true Static, huh.",
+		"options": {
+			"saved_2": "(...)"
+		}
+	},
+	"saved_2": {
+		"string": "He said the same t-thing as when he patched me up - that we were b-both solely practical endeavors, n-nothing more.",
+		"options": {
+			"saved_3": "(...)"
+		}
+	},
+	"saved_3": {
+		"string": "But we both know that isn't true.",
+		"options": {
+			"_entry": "(Discuss more with Ratchet.)"
+		}
+	},
+	"return_1": {
+		"string": "Well, the letter and the gift-t-t... Don't tell him I d-divulged this—",
+		"options": {
+			"return_2": "(...)"
+		}
+	},
+	"return_2": {
+		"string": "—But... Rai thinks you have 'perhaps a little more than a little merit'; h-his words, not mine.",
+		"options": {
+			"return_3": "(...)"
+		}
+	},
+	"return_3": {
+		"string": "He would like t-to have you around with him, part-time at-t-t least.",
+		"options": {
+			"_entry": "(Discuss more with Ratchet.)"
+		}
+	},
+	"commander_1": {
+		"string": "I've heard t-the rocks are stirring in the isles of T-t-Tyria they wander. When they return, p-perhaps they can speak to us of t-the talking bears.",
+		"options": {
+			"commander_2": "(...)"
+		}
+	},
+	"commander_2": {
+		"string": "Rai wonders if they are m-much different from the snow bears; I've only retained t-the vaguest memories of the Shiverpeaks.",
+		"options": {
+			"_entry": "(Discuss more with Ratchet.)"
+		}
+	},
+	"done": {
+		"reference": "_exit"
+	}
+}
+
 func _ready() -> void:
 	super()
 	# Quick fix to an ambient occlusion issue
@@ -195,7 +259,7 @@ func _on_interacted() -> void:
 			or "d_primordus" in Global.current_effects or "d_kralkatorrik" in Global.current_effects):
 			spawn_dialogue(dv_charge)
 		else: spawn_dialogue(no_dv_charge)
-	elif Save.data.story_point == "ratchet_gratitude" or Save.data.story_point == "gratitude":
+	elif Save.data.story_point == "ratchet_gratitude":
 		# This needs to be manual so that we can call back to open the letter
 		var _d = Dialogue.instantiate()
 		_d.data = gift_letter
@@ -206,3 +270,5 @@ func _on_interacted() -> void:
 			await get_tree().process_frame
 			Global.command_sent.emit("/giftletter"))
 		_d.open()
+	elif Save.data.story_point == "gratitude":
+		spawn_dialogue(raiqqo_dialogue)
