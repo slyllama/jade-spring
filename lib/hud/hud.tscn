@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=35 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxf0yv63f2a8b" path="res://lib/hud/textures/safe_point_icon.png" id="5_reoex"]
 [ext_resource type="Texture2D" uid="uid://bs4mey7d6ut4j" path="res://lib/hud/textures/camera_icon.png" id="5_ycds6"]
 [ext_resource type="Texture2D" uid="uid://couvfdq0mtm6p" path="res://lib/hud/textures/settings_icon.png" id="6_n0v1s"]
+[ext_resource type="Texture2D" uid="uid://e31bn5sybi1s" path="res://lib/hud/textures/bug_icon.png" id="6_n1qy2"]
 [ext_resource type="PackedScene" uid="uid://7s701kqjqy22" path="res://lib/hud/fx_list/fx_list.tscn" id="7_5oqpl"]
 [ext_resource type="PackedScene" uid="uid://gokqv1eo16nh" path="res://lib/hud/side_panel/side_panel.tscn" id="7_6qwis"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="7_w7sr0"]
@@ -114,6 +115,8 @@ texture = ExtResource("1_8jsj4")
 expand_mode = 1
 flip_v = true
 
+[node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
+
 [node name="CornerButtons" type="HBoxContainer" parent="."]
 offset_left = 8.0
 offset_top = 8.0
@@ -136,6 +139,15 @@ texture_normal = ExtResource("6_n0v1s")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="ReportBug" type="TextureButton" parent="CornerButtons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Report bugs, request features, or check out more information about Jade Spring."
+texture_normal = ExtResource("6_n1qy2")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="SafePoint" type="TextureButton" parent="CornerButtons"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
@@ -153,8 +165,6 @@ tooltip_text = "Take a screenshot. (Right-click to open screenshots folder.)"
 texture_normal = ExtResource("5_ycds6")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
 
 [node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
 visible = false
@@ -390,6 +400,7 @@ color = Color(0, 0, 0, 1)
 stream = ExtResource("20_hhimw")
 
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]
+[connection signal="button_down" from="CornerButtons/ReportBug" to="." method="_on_report_bug_button_down"]
 [connection signal="button_down" from="CornerButtons/SafePoint" to="." method="_on_safe_point_button_down"]
 [connection signal="gui_input" from="CornerButtons/SafePoint" to="." method="_on_camera_gui_input"]
 [connection signal="button_down" from="CornerButtons/Camera" to="." method="_on_camera_button_down"]

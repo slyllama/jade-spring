@@ -206,7 +206,7 @@ func render() -> void:
 					Global.player.update_golem_effects()
 					
 					# Play the appropriate success tune (if one exists)
-					await get_tree().create_timer(0.35).timeout
+					await get_tree().create_timer(0.25).timeout
 					if current_dragon in SUCCESS_TUNES:
 						var _success_tune = AudioStreamPlayer.new()
 						_success_tune.stream = SUCCESS_TUNES[current_dragon]

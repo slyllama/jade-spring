@@ -54,7 +54,7 @@ var STORY_POINT_SCRIPT = {
 	},
 	"gratitude": {
 		"title": "4. Ratchet's Gratitude",
-		"objective": "Jade Spring is well on its way to being fully cleansed."
+		"objective": "The garden air is clearer than ever, and the Jade Spring is well on its way to being fully cleansed."
 	},
 	"stewardship": {
 		"title": "5. Stewardship",
