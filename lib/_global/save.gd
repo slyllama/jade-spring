@@ -11,6 +11,14 @@ const OBJECTIVE_DV_COUNT = 1
 const GIFT_STORY_POINT = "stewardship" # gift will unlock past this point - debugging
 var first_run = true
 
+const RATCHET_SECONDARY_DIALOGUE = [
+	"pick_weeds_alt",
+	"clear_bugs_alt",
+	"no_dv_charge",
+	"dv_charge",
+	"raiqqo"
+]
+
 const STORY_POINTS = [
 	"game_start",
 	"pick_weeds",
@@ -77,7 +85,8 @@ const DEFAULT_DATA = {
 	"karma": 0,
 	"fishing_tutorial_played": false,
 	"unlocked_decorations": [],
-	"hints_played": []
+	"hints_played": [],
+	"dialogue_played": [] # only dialogue with an 'ID' field is added here
 }
 var data = DEFAULT_DATA.duplicate(true)
 

@@ -115,7 +115,9 @@ func _ready() -> void:
 			var _image = get_viewport().get_texture().get_image()
 			var _time_string = Time.get_datetime_string_from_system(
 				).replace(":", "-").replace("T", " ")
-			_image.save_png("user://save/Screenshot " + _time_string + ".png")
+			if !DirAccess.dir_exists_absolute("user://save/screenshots"):
+				DirAccess.make_dir_absolute("user://save/screenshots")
+			_image.save_png("user://save/screenshots/Screenshot " + _time_string + ".png")
 			Global.hud.show_hud()
 		elif cmd == "/gravity":
 			if "gravity" in Global.current_effects:

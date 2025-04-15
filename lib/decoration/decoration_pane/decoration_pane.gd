@@ -6,7 +6,9 @@ const DecoButton = preload("res://lib/decoration/decoration_pane/deco_button.tsc
 @onready var preview = get_node("Base/PreviewContainer/PreviewViewport/DecoPreview") # shortcut
 @onready var tag_list = get_node("Container/TagContainer/TagMenu") # preview
 @export var default_tag = "None"
+
 @onready var selected_tag = default_tag
+@onready var categories = $Container/ScrollBox/ScrollVBox/Categories
 
 var current_id = "fountain" # default
 var buttons = {} # associate buttons with IDs
@@ -91,12 +93,17 @@ func update_costs() -> void:
 			_n.set_cost(_data.unlock_value)
 
 func render(tag = "None", custom_data = []) -> void:
-	for _n in buttons:
-		buttons[_n].queue_free()
+	for _n in buttons: buttons[_n].queue_free()
 	buttons = {}
 	
-	var id_list = []
+	if tag == "None":
+		$Container/ScrollBox/ScrollVBox/ClearCategory.visible = false
+		categories.visible = true
+	else:
+		$Container/ScrollBox/ScrollVBox/ClearCategory.visible = true
+		categories.visible = false
 	
+	var id_list = []
 	if custom_data.size() > 0:
 		for _d in custom_data:
 			id_list.append(_d)
@@ -253,7 +260,6 @@ func _on_search_text_changed(new_text: String) -> void:
 		search_clear_flag = true
 	
 	last_search_term = new_text
-	
 	var _decos = []
 	var found = 0
 	for _d in Global.DecoData:
@@ -262,10 +268,14 @@ func _on_search_text_changed(new_text: String) -> void:
 			found += 1
 	if found > 0: render("None", _decos)
 	else: render("Empty")
+	
+	if new_text.length() > 0:
+		categories.visible = false
 
 func _on_clear_search_button_down() -> void:
 	$Container/SearchContainer/Search.set_text("")
 	last_search_term = ""
+	$Container/TagContainer/TagMenu.text = "None"
 	render(selected_tag)
 
 func _on_load_on_timeout_timeout() -> void:
@@ -273,3 +283,12 @@ func _on_load_on_timeout_timeout() -> void:
 		search_clear_flag = false
 		render(selected_tag)
 	_load_model()
+
+func _on_category_button_down(category_id: String) -> void:
+	print("category_id: " + category_id)
+	$Container/TagContainer/TagMenu.text = category_id
+	render(category_id)
+
+func _on_clear_category_button_down() -> void:
+	$Container/TagContainer/TagMenu.text = "None"
+	render()

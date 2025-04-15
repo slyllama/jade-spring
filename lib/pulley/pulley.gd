@@ -34,6 +34,7 @@ const intro_dialogue_data = {
 }
 
 const pick_weeds_alt_dialogue = {
+	"id": "pick_weeds_alt",
 	"title": "Ratchet",
 	"_entry": {
 		"string": "(Ratchet is mumbling to themselves as they consult data on their heads-up display.)",
@@ -63,6 +64,7 @@ const pick_weeds_alt_dialogue = {
 }
 
 const clear_bugs_alt_dialogue = {
+	"id": "clear_bugs_alt",
 	"title": "Ratchet",
 	"_entry": {
 		"string": "(Ratchet is rapidly mumbling esoteric-sounding calculations.)",
@@ -107,6 +109,7 @@ const dv_intro_dialogue = {
 }
 
 const no_dv_charge = {
+	"id": "no_dv_charge",
 	"title": "Ratchet",
 	"_entry": {
 		"string": "Your c-c-circuit functions are stable... no energy spikes... no anomalies... you mustn't have used t-t-the Attenuator yet, huh. N-no, it's perfectly safe.",
@@ -139,6 +142,7 @@ const gift_letter = {
 }
 
 const dv_charge = {
+	"id": "dv_charge",
 	"title": "Ratchet",
 	"_entry": {
 		"string": "Beep... Static... Buzz...",
@@ -164,6 +168,7 @@ const dv_charge = {
 }
 
 const raiqqo_dialogue = {
+	"id": "raiqqo",
 	"title": "Ratchet",
 	"_entry": {
 		"string": "A good day in the Jade Spring - especially now that awful b-b-buzzing has d-dialed back a little.",

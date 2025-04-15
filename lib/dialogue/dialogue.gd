@@ -121,6 +121,17 @@ func close() -> void:
 	fade_tween.tween_method(_set_paint_val, 1.0, -1.0, 0.3)
 	$Player.play_backwards("Enter")
 	
+	if "id" in data:
+		if !data.id in Save.data.dialogue_played:
+			Save.data.dialogue_played.append(data.id)
+			Save.save_to_file()
+			
+			var _secondary_dialogue_complete = true
+			for _id in Save.RATCHET_SECONDARY_DIALOGUE:
+				if !_id in Save.data.dialogue_played:
+					_secondary_dialogue_complete = false
+			print("Secondary dialogue complete: " + str(_secondary_dialogue_complete))
+	
 	await fade_tween.finished
 	await get_tree().process_frame
 	Global.dialogue_open = false

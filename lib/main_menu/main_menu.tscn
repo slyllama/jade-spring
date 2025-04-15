@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=31 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -88,6 +88,9 @@ scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_5i8mt")
 alpha_curve = SubResource("CurveTexture_4ult3")
 turbulence_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_furok"]
+content_margin_right = 40.0
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_jagjv")
@@ -204,6 +207,7 @@ color = Color(1, 1, 1, 0)
 [node name="ContinueButton" parent="Container/Box" instance=ExtResource("3_v0okn")]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_furok")
 text = "Continue"
 
 [node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=22 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -12,7 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="8_q6jje"]
 [ext_resource type="Texture2D" uid="uid://ccrjdhca3foth" path="res://lib/hud/state_indicator/textures/hud_ornament.png" id="9_5igfo"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="9_flj3d"]
+[ext_resource type="Texture2D" uid="uid://ddf7lnvqoof4j" path="res://lib/decoration/decoration_pane/textures/category_rata_sum.png" id="12_jf21r"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="13_hkm37"]
+[ext_resource type="Texture2D" uid="uid://dn34df7xwhjf1" path="res://lib/decoration/decoration_pane/textures/category_rata_sum_hover.png" id="13_xbt47"]
+[ext_resource type="Texture2D" uid="uid://dyq1g7mobp533" path="res://lib/decoration/decoration_pane/textures/category_kryta.png" id="14_jtxkh"]
+[ext_resource type="Texture2D" uid="uid://dqbketio46o2g" path="res://lib/decoration/decoration_pane/textures/category_kryta_hover.png" id="15_4v3ny"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -231,11 +235,41 @@ size_flags_vertical = 3
 theme = ExtResource("7_r3py3")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5unaw")
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="ScrollVBox" type="VBoxContainer" parent="Container/ScrollBox" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
+
+[node name="ClearCategory" type="Button" parent="Container/ScrollBox/ScrollVBox" index="0"]
+layout_mode = 2
+text = "Clear Category"
+
+[node name="Categories" type="VBoxContainer" parent="Container/ScrollBox/ScrollVBox" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RataSum" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories" index="0"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture_normal = ExtResource("12_jf21r")
+texture_hover = ExtResource("13_xbt47")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Kryta" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories" index="1"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture_normal = ExtResource("14_jtxkh")
+texture_hover = ExtResource("15_4v3ny")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SmallGap2" type="ColorRect" parent="Container/ScrollBox/ScrollVBox" index="2"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="ActionsBox" type="HBoxContainer" parent="." index="4"]
 layout_mode = 1
@@ -326,6 +360,9 @@ one_shot = true
 [connection signal="focus_exited" from="Container/SearchContainer/Search" to="." method="_on_search_focus_exited"]
 [connection signal="text_changed" from="Container/SearchContainer/Search" to="." method="_on_search_text_changed"]
 [connection signal="button_down" from="Container/SearchContainer/ClearSearch" to="." method="_on_clear_search_button_down"]
+[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/ClearCategory" to="." method="_on_clear_category_button_down"]
+[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/RataSum" to="." method="_on_category_button_down" binds= ["Asura"]]
+[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Kryta" to="." method="_on_category_button_down" binds= ["Kryta"]]
 [connection signal="button_down" from="ActionsBox/Close" to="." method="close"]
 [connection signal="button_down" from="ActionsBox/Unlock" to="." method="_on_unlock_button_down"]
 [connection signal="button_down" from="ActionsBox/PlaceDecoration" to="." method="_on_place_decoration_button_down"]
