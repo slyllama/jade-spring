@@ -20,8 +20,8 @@ shader_parameter/vignette_midpoint = 0.46
 shader_parameter/vignette_alpha = 0.75
 shader_parameter/displacement = 0.0
 shader_parameter/ripple_center = Vector2(0.5, 0.5)
-shader_parameter/ripple_force = 0.003
-shader_parameter/ripple_size = 0.455
+shader_parameter/ripple_force = 0.01
+shader_parameter/ripple_size = 0.0
 shader_parameter/ripple_feather = 0.0
 shader_parameter/grain_mask = ExtResource("4_i0jfh")
 

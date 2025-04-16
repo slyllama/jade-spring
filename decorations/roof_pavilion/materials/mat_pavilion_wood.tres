@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b1lqmbptuiugv"]
+
+[ext_resource type="Texture2D" uid="uid://b0mdc72lwfjl2" path="res://maps/seitung/materials/textures/weathered_wood_diff.jpg" id="1_rkq27"]
+[ext_resource type="Texture2D" uid="uid://b0k6k5mw0pvd2" path="res://maps/seitung/materials/textures/weathered_wood_norm.jpg" id="2_11fix"]
+
+[resource]
+albedo_texture = ExtResource("1_rkq27")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_11fix")

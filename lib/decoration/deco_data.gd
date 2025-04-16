@@ -12,7 +12,7 @@ const DecoData = {
 		"name": "Rata Sum Slab",
 		"scene": "res://decorations/rata_sum/slab/rata_sum_slab.tscn",
 		"cursor_model": "res://decorations/rata_sum/slab/rata_sum_slab.glb",
-		"preview_scale": 0.9,
+		"preview_scale": 1.3,
 		"tags": ["Architecture", "Asura"],
 		"unlock_value": 17
 	},
@@ -221,7 +221,7 @@ const DecoData = {
 		"name": "Roof Pavilion",
 		"scene": "res://decorations/roof_pavilion/roof_pavilion.tscn",
 		"cursor_model": "res://decorations/roof_pavilion/roof_pavilion.glb",
-		"preview_scale": 0.34,
+		"preview_scale": 0.37,
 		"preview_y_rotation": 35,
 		"preview_v_offset": 0.3,
 		"tags": ["Architecture"]
@@ -373,10 +373,18 @@ const DecoData = {
 		"name": "Rata Sum Floor",
 		"scene": "res://decorations/rata_sum/floor/floor.tscn",
 		"cursor_model": "res://decorations/rata_sum/floor/floor.glb",
-		"preview_scale": 0.42,
+		"preview_scale": 0.45,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
 		"tags": ["Architecture", "Asura"],
 		"unlock_value": 21
+	},
+	"elegant_pedestal": {
+		"name": "Elegant Pedestal",
+		"scene": "res://decorations/elegant_pedestal/elegant_pedestal.tscn",
+		"cursor_model": "res://decorations/elegant_pedestal/elegant_pedestal_mesh.tscn",
+		"preview_scale": 0.6,
+		"model_offset": Vector3(0, 0.5, 0),
+		"tags": ["Cantha"]
 	},
 }
