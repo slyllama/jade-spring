@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxj3pc7r8l63r"]
+[gd_scene load_steps=24 format=3 uid="uid://bxj3pc7r8l63r"]
 
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_7ikog"]
 [ext_resource type="Script" path="res://lib/pulley/pulley.gd" id="2_8d48b"]
@@ -69,6 +69,14 @@ shader_parameter/noise = SubResource("NoiseTexture2D_1t7wh")
 material = SubResource("ShaderMaterial_8mwt3")
 size = Vector2(0.8, 1.6)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qksg3"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sr26b"]
+material = SubResource("StandardMaterial3D_qksg3")
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Pulley" instance=ExtResource("1_7ikog")]
 transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 0, 0)
 script = ExtResource("2_8d48b")
@@ -104,5 +112,11 @@ mesh = SubResource("QuadMesh_f178q")
 
 [node name="VisualArea" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="QuestMarker" type="MeshInstance3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("BoxMesh_sr26b")
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]
