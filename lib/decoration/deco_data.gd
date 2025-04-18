@@ -318,9 +318,9 @@ const DecoData = {
 		"scene": "res://decorations/roof_piece/deco_roof_piece.tscn",
 		"cursor_model": "res://decorations/roof_piece/roof_piece_base.tscn",
 		"y_rotation": -90,
-		"preview_scale": 0.8,
+		"preview_scale": 0.56,
 		"preview_y_rotation": 215,
-		"model_offset": Vector3(0, 0, 0.6),
+		"model_offset": Vector3(0, 0.1, 0.6),
 		"tags": ["Architecture", "Cantha"]
 	},
 	"simple_roof_corner_piece": {

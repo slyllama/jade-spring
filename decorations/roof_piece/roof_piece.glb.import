@@ -33,17 +33,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"mat_roof_lod": {
+"mat_pavilion": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/roof_piece/materials/mat_roof_tiles_lod.tres"
-},
-"mat_tiles": {
-"use_external/enabled": true,
-"use_external/path": "res://decorations/roof_piece/materials/mat_roof_tiles.tres"
-},
-"mat_tiles_generic": {
-"use_external/enabled": true,
-"use_external/path": "res://decorations/roof_piece/materials/mat_roof_cords.tres"
+"use_external/path": "res://decorations/roof_pavilion/materials/mat_pavilion_tiles.tres"
 },
 "mat_wood_generic": {
 "use_external/enabled": true,
