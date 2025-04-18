@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dr5spfxmjub67"]
+
+[ext_resource type="Texture2D" uid="uid://d23eagewqaxy" path="res://decorations/tomato_plant/materials/textures/tomato_leaf.png" id="1_ikpn7"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.81, 0.6912, 0.4536, 1)
+albedo_texture = ExtResource("1_ikpn7")
+metallic_specular = 0.0
+backlight_enabled = true
+backlight = Color(0.364084, 0.364084, 0.364084, 1)
+distance_fade_mode = 2
+distance_fade_min_distance = 11.0

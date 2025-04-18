@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cscw3ttdmep1e"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_4lmck"]
+[ext_resource type="PackedScene" uid="uid://h1xtdyhewd7x" path="res://decorations/tomato_plant/tomato_plant.glb" id="2_qno80"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3cdlo"]
+height = 1.28132
+radius = 0.28835
+
+[node name="TomatoPlant" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_4lmck")
+id = "tomato_plant"
+collision_box = NodePath("Body")
+
+[node name="TomatoPlant" parent="." instance=ExtResource("2_qno80")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.631411, 0)
+shape = SubResource("CylinderShape3D_3cdlo")

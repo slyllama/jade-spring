@@ -157,6 +157,15 @@ const DecoData = {
 		"preview_y_rotation": 180,
 		"tags": ["Foliage", "Cantha"]
 	},
+	"tomato_plant": {
+		"name": "Tomato Plant",
+		"scene": "res://decorations/tomato_plant/tomato_plant.tscn",
+		"cursor_model": "res://decorations/tomato_plant/tomato_plant.glb",
+		"preview_scale": 1.3,
+		"preview_v_offset": -0.35,
+		"preview_y_rotation": 180,
+		"tags": ["Foliage", "Cantha"]
+	},
 	"cid_time_banner": {
 		"name": "Cid's Time Banner",
 		"scene": "res://decorations/cid_banners/banner_time.tscn",
