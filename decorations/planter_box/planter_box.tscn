@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb25hm2ebv0nn"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_cqru4"]
+[ext_resource type="PackedScene" uid="uid://7ob0kg6f281w" path="res://decorations/planter_box/planter_box.glb" id="2_s3lpg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ydun6"]
+size = Vector3(4.87305, 0.568115, 1.79858)
+
+[node name="PlanterBox" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_cqru4")
+id = "planter_box"
+collision_box = NodePath("Body")
+
+[node name="PlanterBox" parent="." instance=ExtResource("2_s3lpg")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.288696, 0)
+shape = SubResource("BoxShape3D_ydun6")

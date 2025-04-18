@@ -379,6 +379,15 @@ const DecoData = {
 		"tags": ["Architecture", "Asura"],
 		"unlock_value": 21
 	},
+	"planter_box": {
+		"name": "Planter Box",
+		"scene": "res://decorations/planter_box/planter_box.tscn",
+		"cursor_model": "res://decorations/planter_box/planter_box.glb",
+		"preview_scale": 0.45,
+		"model_offset": Vector3(0, 0.5, 0),
+		"preview_y_rotation": 35,
+		"tags": ["Architecture", "Cantha"]
+	},
 	"elegant_pedestal": {
 		"name": "Elegant Pedestal",
 		"scene": "res://decorations/elegant_pedestal/elegant_pedestal.tscn",
