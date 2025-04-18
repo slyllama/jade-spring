@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
 [ext_resource type="Texture2D" uid="uid://di4tqbaloy431" path="res://generic/textures/light_ray.png" id="3_nclce"]
 [ext_resource type="PackedScene" uid="uid://col3bfw2kkxf0" path="res://lib/main_menu/mm_button.tscn" id="3_v0okn"]
-[ext_resource type="Texture2D" uid="uid://cix2qavmmlkle" path="res://lib/main_menu/title_card/textures/mm_raiqquo.png" id="4_bh8me"]
+[ext_resource type="Texture2D" uid="uid://cix2qavmmlkle" path="res://lib/main_menu/title_card/textures/mm_raiqqo.png" id="4_bh8me"]
 [ext_resource type="PackedScene" uid="uid://pr2mjxwcnmao" path="res://lib/settings_handler/settings_pane/settings_pane.tscn" id="4_swp2s"]
 [ext_resource type="Texture2D" uid="uid://dnuuulsg57qtl" path="res://lib/main_menu/title_card/textures/mm_glow.png" id="5_xq5di"]
 [ext_resource type="PackedScene" uid="uid://d2xtvgd1tw1q7" path="res://lib/main_menu/title_card/title_card.tscn" id="6_aye18"]
@@ -21,6 +21,35 @@
 [ext_resource type="PackedScene" uid="uid://d33ilqq0c1mwg" path="res://lib/main_menu/new_game_container.tscn" id="12_0oh4d"]
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="14_n67d6"]
 [ext_resource type="AudioStream" uid="uid://cmphyt1yte74c" path="res://generic/sounds/swish.ogg" id="19_lck14"]
+
+[sub_resource type="Curve" id="Curve_2imnw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4ult3"]
+curve = SubResource("Curve_2imnw")
+
+[sub_resource type="Gradient" id="Gradient_rq8mr"]
+offsets = PackedFloat32Array(0, 0.516393, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.1305, 0.87, 0.463275, 1, 0.564963, 0.789489, 1.54018e-06, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5i8mt"]
+gradient = SubResource("Gradient_rq8mr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0vfhr"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(250, 250, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(4, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.2
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_5i8mt")
+alpha_curve = SubResource("CurveTexture_4ult3")
+turbulence_enabled = true
 
 [sub_resource type="Animation" id="Animation_kyuja"]
 length = 0.001
@@ -61,34 +90,6 @@ _data = {
 "glow": SubResource("Animation_oi65x")
 }
 
-[sub_resource type="Curve" id="Curve_2imnw"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_4ult3"]
-curve = SubResource("Curve_2imnw")
-
-[sub_resource type="Gradient" id="Gradient_rq8mr"]
-colors = PackedColorArray(0.1305, 0.87, 0.463275, 1, 0.564963, 0.789489, 1.54018e-06, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5i8mt"]
-gradient = SubResource("Gradient_rq8mr")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0vfhr"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(960, 540, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(4, 1, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 40.0
-gravity = Vector3(0, -20, 0)
-scale_min = 0.2
-scale_max = 0.3
-color_ramp = SubResource("GradientTexture1D_5i8mt")
-alpha_curve = SubResource("CurveTexture_4ult3")
-turbulence_enabled = true
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_furok"]
 content_margin_right = 40.0
 
@@ -113,6 +114,14 @@ position = Vector2(652, 363)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_bh8me")
 
+[node name="Motes" type="GPUParticles2D" parent="Raiqqo"]
+position = Vector2(286, 226)
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_0vfhr")
+texture = ExtResource("9_g8hmh")
+lifetime = 4.0
+preprocess = 5.0
+
 [node name="RaiqqoGlow" type="Sprite2D" parent="Raiqqo"]
 texture = ExtResource("5_xq5di")
 
@@ -127,14 +136,6 @@ self_modulate = Color(0.75, 0.75, 0.75, 1)
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_uywa6")
-
-[node name="Motes" type="GPUParticles2D" parent="RaiqqoFG"]
-position = Vector2(224, 226)
-amount = 16
-process_material = SubResource("ParticleProcessMaterial_0vfhr")
-texture = ExtResource("9_g8hmh")
-lifetime = 4.0
-preprocess = 5.0
 
 [node name="LightRay" type="TextureRect" parent="."]
 visible = false
