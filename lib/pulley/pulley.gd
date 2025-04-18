@@ -8,22 +8,25 @@ const ScriptData = preload("res://lib/pulley/script.gd")
 # point and (b) the dialogue ID isn't already in Save.dialogue_played.
 const story_point_positions = {
 	# [story point]: [ID] 
-	"game_start": "intro",
-	"pick_weeds": "pick_weeds_alt",
-	"clear_bugs": "clear_bugs_alt",
-	"clear_dv": "no_dv_charge",
-	"ratchet_dv": "dv_intro",
-	"gratitude": "raiqqo"
+	#"game_start": "intro",
+	"pick_weeds": ["pick_weeds_alt"],
+	"clear_bugs": ["clear_bugs_alt"],
+	"clear_dv": ["dv_charge", "no_dv_charge"],
+	#"ratchet_dv": "dv_intro",
+	"gratitude": ["raiqqo"]
 }
 
 # Check if the player has seen this dialogue before
 func check_freshness() -> void:
 	var _story_point: String = Save.data.story_point
 	if !_story_point in story_point_positions: return
-	if !story_point_positions[_story_point] in Save.data.dialogue_played:
-		$QuestMarker.visible = true
-	else:
-		$QuestMarker.visible = false
+	var _in = true
+	for _id in story_point_positions[_story_point]:
+		if !_id in Save.data.dialogue_played:
+			_in = false
+	
+	$QuestMarker.visible = !_in
+
 
 func _ready() -> void:
 	super()
@@ -82,9 +85,13 @@ func _on_interacted() -> void:
 		_d.data = ScriptData.raiqqo_dialogue
 		Global.hud.add_child(_d)
 		_d.closed.connect(func():
+			if !Save.data.story_point == "gratitude": return
 			var _all_dialogue_achieved = true
 			for _id in story_point_positions:
-				if !story_point_positions[_id] in Save.data.dialogue_played:
-					_all_dialogue_achieved = false
+				for _i in story_point_positions[_id]:
+					if !_i in Save.data.dialogue_played:
+						_all_dialogue_achieved = false
 			if _all_dialogue_achieved:
-				print("All dialogue done!"))
+				if SteamHandler.get_achievment_completion("my_friend_ratchet") == 0:
+					SteamHandler.complete_achievement("my_friend_ratchet"))
+		_d.open()

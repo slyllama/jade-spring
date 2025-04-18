@@ -14,6 +14,7 @@ const AchievementsList = [
 	"game_completion",
 	"homesteader",
 	"architect",
+	"my_friend_ratchet",
 	"twilight_peace"
 ]
 
@@ -43,6 +44,12 @@ const Achievements = {
 		"desc": "Make night fall over the Jade Spring.",
 		"icon_unearned": preload("res://lib/steam/achievements/icons/twilight_peace.jpg"),
 		"icon_earned": preload("res://lib/steam/achievements/icons/twilight_peace_earned.jpg")
+	},
+	"my_friend_ratchet": {
+		"title": "My Friend Ratchet",
+		"desc": "Hear everything Ratchet has to say.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/ratchet.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/ratchet_earned.jpg")
 	},
 	"homesteader": {
 		"title": "Homesteader",

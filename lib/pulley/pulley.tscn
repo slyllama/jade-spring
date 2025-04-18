@@ -125,7 +125,7 @@ mesh = SubResource("QuadMesh_f178q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="QuestMarker" type="MeshInstance3D" parent="." index="6"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.383317, 1.32855, 0.498127)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.8, 0)
 visible = false
 cast_shadow = 0
 mesh = SubResource("QuadMesh_fspdm")
