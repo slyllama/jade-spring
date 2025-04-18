@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bxj3pc7r8l63r"]
+[gd_scene load_steps=25 format=3 uid="uid://bxj3pc7r8l63r"]
 
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_7ikog"]
 [ext_resource type="Script" path="res://lib/pulley/pulley.gd" id="2_8d48b"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ihnnrs54ttba" path="res://lib/pulley/meshes/pulley.glb" id="5_p28vv"]
 [ext_resource type="Shader" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="6_skcqu"]
 [ext_resource type="Shader" uid="uid://cr660gpb0btrf" path="res://lib/player/materials/shaders/shader_engine_glow.tres" id="7_s6v5t"]
+[ext_resource type="Texture2D" uid="uid://bnetj6odpy3wc" path="res://lib/dialogue/textures/dialogue_indicator.png" id="8_hgclx"]
 
 [sub_resource type="Gradient" id="Gradient_7wybj"]
 
@@ -69,13 +70,23 @@ shader_parameter/noise = SubResource("NoiseTexture2D_1t7wh")
 material = SubResource("ShaderMaterial_8mwt3")
 size = Vector2(0.8, 1.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qksg3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qhoa"]
+render_priority = 2
+transparency = 1
+no_depth_test = true
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("8_hgclx")
+billboard_mode = 1
+distance_fade_mode = 2
+distance_fade_min_distance = 14.0
+distance_fade_max_distance = 13.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_sr26b"]
-material = SubResource("StandardMaterial3D_qksg3")
-size = Vector3(0.5, 0.5, 0.5)
+[sub_resource type="QuadMesh" id="QuadMesh_fspdm"]
+material = SubResource("StandardMaterial3D_4qhoa")
 
 [node name="Pulley" instance=ExtResource("1_7ikog")]
 transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 0, 0)
@@ -114,9 +125,9 @@ mesh = SubResource("QuadMesh_f178q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="QuestMarker" type="MeshInstance3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.383317, 1.32855, 0.498127)
 visible = false
 cast_shadow = 0
-mesh = SubResource("BoxMesh_sr26b")
+mesh = SubResource("QuadMesh_fspdm")
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]
