@@ -874,16 +874,16 @@ transform = Transform3D(0.528094, 0, 1.24242, 0, 1.35, 0, -1.24242, 0, 0.528094,
 custom_lod = null
 
 [node name="RoofPavilion" parent="DecoHandler" index="131" instance=ExtResource("39_anqa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60315, 6.47672, -1.47149)
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 5.60315, 6.47672, -1.47149)
 
 [node name="RoofPavilion2" parent="DecoHandler" index="132" instance=ExtResource("39_anqa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60315, 6.47672, 3.89267)
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 5.60315, 6.47672, 3.89267)
 
 [node name="RoofPavilion3" parent="DecoHandler" index="133" instance=ExtResource("39_anqa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, -1.47149)
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 10.5013, 6.47672, -1.47149)
 
 [node name="RoofPavilion4" parent="DecoHandler" index="134" instance=ExtResource("39_anqa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5013, 6.47672, 3.89267)
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 10.5013, 6.47672, 3.89267)
 
 [node name="DecoIndoorLamp3" parent="DecoHandler" index="135" instance=ExtResource("29_32tvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39738, 3.47498, -3.30966)

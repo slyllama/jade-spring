@@ -54,7 +54,6 @@ var player_position = Vector3.ZERO
 var player_y_rotation = 0.0
 var popup_open = false
 var retina_scale = 1.0
-var rocking_out = false
 var safe_point: Marker3D
 var settings_open = false
 var snapping = false # don't snap by default
@@ -91,9 +90,6 @@ signal move_player(new_position: Vector3) # function - moves the player
 signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
 signal ripple
-signal rock_out_started
-signal rock_out_ended
-signal rock_out_beat
 signal settings_pane_opened
 signal skill_button_down(id: String)
 signal skill_button_up(id: String)

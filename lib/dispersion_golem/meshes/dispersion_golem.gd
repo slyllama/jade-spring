@@ -12,6 +12,13 @@ const EMOTES = [
 func set_shader_pos(val: float) -> void:
 	spiral_mat.set_shader_parameter("h_position", val)
 
+func emote() -> void:
+	if rng.randf() < 0.25: return
+	var _mat: StandardMaterial3D = draw_pass.surface_get_material(0)
+	_mat.albedo_texture = EMOTES.pick_random()
+	await get_tree().create_timer(rng.randf_range(0.2, 1.5)).timeout
+	$Model/Emote.emitting = true
+
 func _ready() -> void:
 	visible = false
 	spiral_mat = $Spiral/Spiral.get_active_material(0).duplicate()
@@ -27,17 +34,8 @@ func _ready() -> void:
 	$Model/Tree.set("parameters/proc_appear/active",
 		AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	
-	Global.rock_out_started.connect(func():
-		if rng.randf() < 0.25: return
-		var _mat: StandardMaterial3D = draw_pass.surface_get_material(0)
-		_mat.albedo_texture = EMOTES.pick_random()
-		await get_tree().create_timer(rng.randf_range(1.0, 3.0)).timeout
-		$Model/Emote.emitting = true
-	)
-	
-	Global.rock_out_beat.connect(func():
-		$Anim.play("rock_out")
-	)
+	Global.fishing_started.connect(emote)
+	emote()
 	
 	await get_tree().process_frame
 	var spiral_tween = create_tween()
