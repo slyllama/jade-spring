@@ -43,7 +43,10 @@ const TUNES = {
 	"jormag": [ "e1", "c1", "a1", "e2", "_", "f2", "b1" ]
 }
 const SUCCESS_TUNES = {
-	"mordremoth": preload("res://lib/attenuator/sounds/mordremoth_success.ogg")
+	"mordremoth": preload("res://lib/attenuator/sounds/mordremoth_success.ogg"),
+	"soo_won": preload("res://lib/attenuator/sounds/soo_won_success.ogg"),
+	"primordus": preload("res://lib/attenuator/sounds/primordus_success.ogg"),
+	"kralkatorrik": preload("res://lib/attenuator/sounds/kralkatorrik_success.ogg")
 }
 const TUNES_ORDER = [ "primordus", "soo_won", "mordremoth", "zhaitan", "kralkatorrik", "jormag" ]
 
