@@ -315,6 +315,7 @@ parameters/test_blend/blend_position = -0.95739
 
 [node name="Decal" type="Decal" parent="PlayerMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3257, 0)
+visible = false
 size = Vector3(0.5, 2, 0.5)
 texture_albedo = ExtResource("4_i6xj3")
 modulate = Color(0.784314, 1, 0, 1)

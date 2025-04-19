@@ -162,7 +162,7 @@ plane = Plane(0, 0, 1, 0)
 plane = Plane(0, -1, 0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jm7j"]
-size = Vector3(50, 0.1, 6)
+size = Vector3(50, 1, 6)
 
 [node name="Map" instance=ExtResource("1_uym6y")]
 script = ExtResource("2_7lwj0")
@@ -317,6 +317,10 @@ transform = Transform3D(0.986529, 0, -0.163584, 0, 1, 0, 0.163584, 0, 0.986529, 
 
 [node name="Dragonvoid6" parent="CrumbHandler" index="35" instance=ExtResource("35_f6q0j")]
 transform = Transform3D(-0.995881, 0, 0.0906672, 0, 1, 0, -0.0906672, 0, -0.995881, 4.9172, 0.214816, -7.94428)
+
+[node name="Floor" parent="." index="4"]
+collision_layer = 10
+collision_mask = 10
 
 [node name="FloorMesh" parent="Floor" index="1"]
 transform = Transform3D(1.25, 0, 0, 0, 1.20741, -0.12941, 0, 0.323524, 0.482963, 0, -5.3804, 30.919)
@@ -1189,9 +1193,10 @@ transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494
 radius = 1.0
 
 [node name="OceanArea" type="Area3D" parent="." index="18"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141882, 17.3054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.770402, 17.7541)
 collision_layer = 1024
 collision_mask = 1024
+input_ray_pickable = false
 
 [node name="Collision" type="CollisionShape3D" parent="OceanArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0966399, -1.07909)
