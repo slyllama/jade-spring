@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=94 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -66,6 +66,7 @@
 [ext_resource type="AudioStream" uid="uid://cqa8swypim218" path="res://maps/seitung/sounds/mus_phantom.ogg" id="61_vie7w"]
 [ext_resource type="AudioStream" uid="uid://ded3ghoqlnt7g" path="res://maps/seitung/sounds/mus_winds.ogg" id="62_2xddo"]
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="64_xbvsq"]
+[ext_resource type="PackedScene" uid="uid://dv21oc6ficn0j" path="res://maps/seitung/meshes/cheap_hill.glb" id="66_1g36k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixf13"]
 albedo_color = Color(0.2, 0.2, 0.2, 1)
@@ -1195,44 +1196,47 @@ shape = SubResource("WorldBoundaryShape3D_x1c88")
 
 [node name="Hills" type="Node3D" parent="WorldBoundaries" index="5"]
 
-[node name="Rock" parent="WorldBoundaries/Hills" index="0" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-7.099, 0, -2.14414e-07, 0, 2.3, 0, 1.07192e-06, 0, -1.42, 2.44914, -4.53567, 48.0775)
-
-[node name="Rock2" parent="WorldBoundaries/Hills" index="1" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.0877378, -0.806011, 4.75906e-08, -2.06341, -17.6536, -4.77078, 45.2459)
-
-[node name="Rock4" parent="WorldBoundaries/Hills" index="2" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-1.86267, 0, 1.87222, 0, 2.555, 0, -3.62437, 0, -0.962191, -42.4968, -0.917976, 40.3189)
-
-[node name="Rock5" parent="WorldBoundaries/Hills" index="3" instance=ExtResource("14_fuojk")]
-transform = Transform3D(0.317428, -4.46066e-08, 2.61687, 0.775756, 5.91636, -0.0251178, -5.0053, 0.916959, 0.162064, -45.5485, -6.16118, 24.3608)
-
-[node name="Rock3" parent="WorldBoundaries/Hills" index="4" instance=ExtResource("14_fuojk")]
+[node name="Rock3" parent="WorldBoundaries/Hills" index="0" instance=ExtResource("14_fuojk")]
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
+
+[node name="Rock6" parent="WorldBoundaries/Hills" index="1" instance=ExtResource("14_fuojk")]
+transform = Transform3D(1.57473e-06, 6.79055e-11, -1.614, -0.519434, 2.60958, -2.0225e-08, 8.05427, 0.168297, 3.14257e-07, 48.0775, -6.02074, -2.44914)
+
+[node name="Rock8" parent="WorldBoundaries/Hills" index="2" instance=ExtResource("14_fuojk")]
+transform = Transform3D(7.10086, 0, -0.626777, 0, 4.96, 0, 4.91687, 0, 0.90518, 33.5158, -7.76456, -33.1879)
+
+[node name="Rock9" parent="WorldBoundaries/Hills" index="3" instance=ExtResource("14_fuojk")]
+transform = Transform3D(-7.61613e-07, 0, 1.42, 0, 2.3, 0, -7.099, 0, -1.52344e-07, -48.0775, -4.53567, 2.44914)
+
+[node name="Rock10" parent="WorldBoundaries/Hills" index="4" instance=ExtResource("14_fuojk")]
+transform = Transform3D(0.806011, -7.11252e-08, 2.06341, 0.84175, 2.49763, -0.0877378, -3.9048, 0.538409, 0.407007, -45.2459, -4.77078, -17.6536)
+
+[node name="CheapHill" parent="WorldBoundaries/Hills" index="5" instance=ExtResource("66_1g36k")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 7.40543, -0.659191, 52.0276)
+
+[node name="CheapHill5" parent="WorldBoundaries/Hills" index="6" instance=ExtResource("66_1g36k")]
+transform = Transform3D(-0.0505219, 0, -0.193514, 0, 0.35, 0, 0.193514, 0, -0.0505219, 26.2215, -1.53466, 49.6671)
+
+[node name="CheapHill7" parent="WorldBoundaries/Hills" index="7" instance=ExtResource("66_1g36k")]
+transform = Transform3D(-0.0757829, 0, -0.290271, 0, 0.335, 0, 0.290271, 0, -0.0757829, 50.1707, -1.53466, -23.7604)
+
+[node name="CheapHill3" parent="WorldBoundaries/Hills" index="8" instance=ExtResource("66_1g36k")]
+transform = Transform3D(-0.347962, 0, 0.0917917, 0, 0.195, 0, -0.125789, 0, -0.253918, -13.2024, -0.659191, 50.1932)
+
+[node name="CheapHill2" parent="WorldBoundaries/Hills" index="9" instance=ExtResource("66_1g36k")]
+transform = Transform3D(0.162478, 0, 0.349859, 0, 0.31, 0, -0.310001, 0, 0.183368, -25.676, -1.25925, 45.9158)
+
+[node name="CheapHill4" parent="WorldBoundaries/Hills" index="10" instance=ExtResource("66_1g36k")]
+transform = Transform3D(0.592069, 0, -0.211472, 0, 0.485, 0, 0.187338, 0, 0.668342, -53.6018, -1.25925, 43.8499)
+
+[node name="CheapHill6" parent="WorldBoundaries/Hills" index="11" instance=ExtResource("66_1g36k")]
+transform = Transform3D(0.252654, 0, -0.0829596, 0, 0.245, 0, 0.0799429, 0, 0.262188, -51.7893, -1.25925, 22.1944)
 
 [node name="Hills3" type="Node3D" parent="WorldBoundaries" index="6"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Rock" parent="WorldBoundaries/Hills3" index="0" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-7.099, 0, -2.14414e-07, 0, 2.3, 0, 1.07192e-06, 0, -1.42, 2.44914, -4.53567, 48.0775)
-
-[node name="Rock2" parent="WorldBoundaries/Hills3" index="1" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.0877378, -0.806011, 4.75906e-08, -2.06341, -17.6536, -4.77078, 45.2459)
-
-[node name="Rock4" parent="WorldBoundaries/Hills3" index="2" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-1.86267, 0, 1.87222, 0, 2.555, 0, -3.62437, 0, -0.962191, -42.4968, -0.917976, 40.3189)
-
 [node name="Hills2" type="Node3D" parent="WorldBoundaries" index="7"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-
-[node name="Rock" parent="WorldBoundaries/Hills2" index="0" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-7.099, 0, -2.14414e-07, 0, 2.3, 0, 1.07192e-06, 0, -1.42, 2.44914, -4.53567, 48.0775)
-
-[node name="Rock2" parent="WorldBoundaries/Hills2" index="1" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-3.9048, 0.538409, 0.407007, 0.84175, 2.49763, -0.0877378, -0.806011, 4.75906e-08, -2.06341, -17.6536, -4.77078, 45.2459)
-
-[node name="Rock3" parent="WorldBoundaries/Hills2" index="2" instance=ExtResource("14_fuojk")]
-transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
 
 [node name="ChargingStation" parent="." index="16" instance=ExtResource("64_xbvsq")]
 transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494, -8.40679, 0.276039, 0.582495)
