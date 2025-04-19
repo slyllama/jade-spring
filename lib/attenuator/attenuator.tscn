@@ -404,7 +404,6 @@ offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 10
-focus_mode = 0
 text = "Close"
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
