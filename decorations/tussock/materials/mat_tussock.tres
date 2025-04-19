@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qem1bg8th605" path="res://decorations/tussock/materials/textures/tussock_diff.png" id="2_se2mr"]
 
 [resource]
-render_priority = -1
+render_priority = 0
 shader = ExtResource("1_oqs7p")
 shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
 shader_parameter/distance_fade_min = 17.0

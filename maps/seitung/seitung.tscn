@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=89 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://mupvmfjtkmav" path="res://decorations/test_wall/deco_wall_narrow.tscn" id="19_liot0"]
 [ext_resource type="PackedScene" uid="uid://6xdrn3kee1v7" path="res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.tscn" id="20_st7yt"]
 [ext_resource type="Texture2D" uid="uid://cy52qmdusmtrs" path="res://maps/seitung/textures/rocks_decal.png" id="21_d2j4w"]
-[ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="22_d5lul"]
 [ext_resource type="PackedScene" uid="uid://d2a2ptt0rqp1i" path="res://maps/seitung/props/stucco_wall/plaster_wall.glb" id="22_v0qyq"]
 [ext_resource type="PackedScene" uid="uid://dkuds30etmrba" path="res://decorations/roof_corner/roof_corner.tscn" id="22_v2a5c"]
 [ext_resource type="PackedScene" uid="uid://cqgf0spk4ga2b" path="res://decorations/roof_piece/deco_roof_piece.tscn" id="23_jahvb"]
@@ -147,42 +146,6 @@ material = ExtResource("42_l2hym")
 size = Vector2(1.3, 2)
 orientation = 2
 
-[sub_resource type="Curve" id="Curve_qjpf4"]
-_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_r1sh7"]
-curve = SubResource("Curve_qjpf4")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jylj6"]
-emission_shape_scale = Vector3(3, 1, 3)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-gravity = Vector3(0, 0.1, 0)
-scale_min = 0.2
-scale_max = 0.4
-alpha_curve = SubResource("CurveTexture_r1sh7")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdk7r"]
-render_priority = 4
-transparency = 1
-shading_mode = 0
-specular_mode = 2
-disable_ambient_light = true
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("22_d5lul")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_kqvoi"]
-material = SubResource("StandardMaterial3D_tdk7r")
-size = Vector2(0.1, 0.1)
-orientation = 2
-
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u32uq"]
 plane = Plane(1, 0, 0, 0)
 
@@ -197,6 +160,9 @@ plane = Plane(0, 0, 1, 0)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_x1c88"]
 plane = Plane(0, -1, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jm7j"]
+size = Vector3(50, 0.1, 6)
 
 [node name="Map" instance=ExtResource("1_uym6y")]
 script = ExtResource("2_7lwj0")
@@ -1125,26 +1091,6 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="Motes" type="GPUParticles3D" parent="Decoration" index="43"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, -2.62199)
-amount = 120
-lifetime = 2.0
-preprocess = 5.0
-speed_scale = 0.5
-visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
-process_material = SubResource("ParticleProcessMaterial_jylj6")
-draw_pass_1 = SubResource("PlaneMesh_kqvoi")
-
-[node name="Motes2" type="GPUParticles3D" parent="Decoration" index="44"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.66024, 4.89839)
-amount = 120
-lifetime = 2.0
-preprocess = 5.0
-speed_scale = 0.5
-visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
-process_material = SubResource("ParticleProcessMaterial_jylj6")
-draw_pass_1 = SubResource("PlaneMesh_kqvoi")
-
 [node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)
 
@@ -1241,3 +1187,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 [node name="ChargingStation" parent="." index="16" instance=ExtResource("64_xbvsq")]
 transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494, -8.40679, 0.276039, 0.582495)
 radius = 1.0
+
+[node name="OceanArea" type="Area3D" parent="." index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141882, 17.3054)
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="Collision" type="CollisionShape3D" parent="OceanArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0966399, -1.07909)
+shape = SubResource("BoxShape3D_4jm7j")
