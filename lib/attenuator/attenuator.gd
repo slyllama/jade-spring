@@ -55,8 +55,10 @@ var two_oct = NOTES.duplicate()
 var place = 0
 var target_track
 var passing = true
+var succeeded = false
 var has_closed = false
 var moused_note_y_pos = 0.0
+var cursor_key: HBoxContainer # the current key the cursor is highlighting
 
 @onready var glyph_box: TextureRect = $Base/ControlContainer/GlyphContainer
 
@@ -134,6 +136,7 @@ func render() -> void:
 	$Base/ControlContainer/ArrowBox/Previous.disabled = false
 	$Base/ControlContainer/ArrowBox/Next.disabled = false
 	$Base/Marker.visible = true
+	$KeyCursor.visible = true
 	$Base/ControlContainer/Reset.disabled = false
 	
 	$SuccessBanner.visible = false
@@ -159,6 +162,7 @@ func render() -> void:
 		_n.note_name = KEY_INDICES[_d]
 		_n.modulate = _i.color
 		_n.mouse_entered.connect(func():
+			cursor_key = _n
 			moused_note_y_pos = _n.global_position.y)
 		_n.played.connect(func():
 			var played_note = KEY_INDICES[_n.id]
@@ -181,6 +185,7 @@ func render() -> void:
 			else:
 				if place == TUNES[current_dragon].size() - 1 and passing:
 					# SUCCESS
+					succeeded = true
 					$SuccessBanner/Base.self_modulate = Utilities.DRAGON_DATA[current_dragon].color
 					$SuccessBanner/DragonTitle.text = ("[center]"
 						+ str(Utilities.DRAGON_DATA[current_dragon].name).to_upper() + "[/center]")
@@ -196,10 +201,13 @@ func render() -> void:
 					
 					# Disable and hide various keys - the inverse has to be done too
 					$Base/Cursor.visible = false
+					$KeyCursor.visible = false
 					$Base/ControlContainer/ArrowBox/Previous.disabled = true
 					$Base/ControlContainer/ArrowBox/Next.disabled = true
 					$Base/ControlContainer/Reset.disabled = true
 					$Base/Marker.visible = false
+					
+					$SuccessBanner/Close2.grab_focus()
 					
 					$Success.play()
 					$SuccessBanner.visible = true
@@ -217,9 +225,12 @@ func render() -> void:
 						_success_tune.play()
 		)
 		$Base/KeyContainer.add_child(_n)
+		
 		_n.set_pills_size(TUNES[current_dragon].size())
 		_n.set_pills_color(Utilities.DRAGON_DATA[current_dragon].color)
-		if _d == 0: moused_note_y_pos = _n.global_position.y # initial set
+		if _d == 0:
+			cursor_key = _n
+			moused_note_y_pos = _n.global_position.y # initial set
 		_d += 1
 	
 	var _c = 0
@@ -243,6 +254,8 @@ func render() -> void:
 
 func close() -> void:
 	if has_closed: return
+	
+	cursor_key = null
 	await get_tree().process_frame # queue for next frame so settings doesn't open
 	has_closed = true
 	Global.target_music_ratio = 1.0
@@ -301,7 +314,39 @@ func _ready() -> void:
 	}, Utilities.get_screen_center(Vector2(120, -130)), true)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"): close()
+	if Input.is_action_just_pressed("ui_cancel"):
+		close()
+	
+	elif Input.is_action_just_pressed("move_left"):
+		if !succeeded:
+			_on_previous_button_down()
+	elif Input.is_action_just_pressed("move_right"):
+		if !succeeded:
+			_on_next_button_down()
+	
+	if !cursor_key: return
+	
+	# Play whatever key the cursor is on
+	if Input.is_action_just_pressed("interact"):
+		if !succeeded:
+			cursor_key.get_node("Note").play()
+			cursor_key.played.emit()
+		else:
+			close()
+	
+	# Move the cursor up and down, if it is able to
+	if Input.is_action_just_pressed("move_forward"): # up
+		var _keys = $Base/KeyContainer.get_children()
+		var _prev_key_idx = _keys.find(cursor_key) - 1
+		if _prev_key_idx >= 0:
+			cursor_key = _keys[_prev_key_idx]
+			moused_note_y_pos = _keys[_prev_key_idx].global_position.y
+	elif Input.is_action_just_pressed("move_back"): # down
+		var _keys = $Base/KeyContainer.get_children()
+		var _next_key_idx = _keys.find(cursor_key) + 1
+		if _next_key_idx < _keys.size():
+			cursor_key = _keys[_next_key_idx]
+			moused_note_y_pos = _keys[_next_key_idx].global_position.y
 
 func _on_close_button_down() -> void: close()
 
@@ -312,6 +357,12 @@ func _process(delta: float) -> void:
 	$DispulsionFX.position.y = $Base.position.y + 300.0
 	$SuccessBanner.position.x = $Base.position.x + $Base.size.x / 2.0
 	$SuccessBanner.position.y = $Base.position.y + $Base.size.y / 2.0
+	
+	if cursor_key: # move the key selector to the relevant key
+		$KeyCursor.global_position = lerp(
+			$KeyCursor.global_position,
+			cursor_key.global_position + Vector2(100, 14),
+			Utilities.critical_lerp(delta, 40.0))
 	
 	# Cursor follows mouse and highlights the whole row
 	$Base/Cursor.global_position.y = lerp(

@@ -11,6 +11,7 @@ render_priority = 0
 shader = ExtResource("1_e61dy")
 shader_parameter/albedo = Color(0.672597, 0.57077, 0.5026, 1)
 shader_parameter/ornament_albedo = Color(0.307308, 0.485823, 0.67081, 1)
+shader_parameter/ornament_uv_scale = 2.0
 shader_parameter/wood_uv_scale = 3.0
 shader_parameter/wood_texture = ExtResource("2_g33qt")
 shader_parameter/wood_normal_texture = ExtResource("2_agbqy")

@@ -9,6 +9,7 @@ const KEY_DOWN_TEX = preload("res://lib/attenuator/textures/piano_key_press.png"
 var alpha = 0.0
 var pills: Array[TextureRect] = []
 var is_disabled = false
+
 signal played
 
 @export var note_name = "_"

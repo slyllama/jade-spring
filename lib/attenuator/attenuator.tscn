@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene load_steps=33 format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://j2u6itfbl3mi" path="res://lib/attenuator/textures/glyphs/jormag.png" id="16_qdpey"]
 [ext_resource type="FontFile" uid="uid://dg6p5pxhkf6ui" path="res://generic/fonts/libertinus_sans_italic.otf" id="23_ms5uu"]
 [ext_resource type="Texture2D" uid="uid://43mp2cdjhy8h" path="res://lib/attenuator/textures/attunement_banner.png" id="23_q2mbi"]
+[ext_resource type="Texture2D" uid="uid://inll8yj8movt" path="res://lib/main_menu/textures/focus.png" id="25_1ia51"]
 [ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="26_oesam"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cwvft"]
@@ -415,6 +416,12 @@ volume_db = -3.0
 
 [node name="OpenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_oesam")
+
+[node name="KeyCursor" type="Sprite2D" parent="."]
+position = Vector2(306, 165)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_1ia51")
+flip_h = true
 
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/ArrowBox/Previous" to="." method="_on_previous_button_down"]
