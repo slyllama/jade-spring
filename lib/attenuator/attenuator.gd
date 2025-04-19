@@ -317,10 +317,10 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		close()
 	
-	elif Input.is_action_just_pressed("move_left"):
+	elif Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("ui_left"):
 		if !succeeded:
 			_on_previous_button_down()
-	elif Input.is_action_just_pressed("move_right"):
+	elif Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("ui_right"):
 		if !succeeded:
 			_on_next_button_down()
 	
@@ -335,13 +335,13 @@ func _input(_event: InputEvent) -> void:
 			close()
 	
 	# Move the cursor up and down, if it is able to
-	if Input.is_action_just_pressed("move_forward"): # up
+	if Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("ui_up"): # up
 		var _keys = $Base/KeyContainer.get_children()
 		var _prev_key_idx = _keys.find(cursor_key) - 1
 		if _prev_key_idx >= 0:
 			cursor_key = _keys[_prev_key_idx]
 			moused_note_y_pos = _keys[_prev_key_idx].global_position.y
-	elif Input.is_action_just_pressed("move_back"): # down
+	elif Input.is_action_just_pressed("move_back") or Input.is_action_just_pressed("ui_down"): # down
 		var _keys = $Base/KeyContainer.get_children()
 		var _next_key_idx = _keys.find(cursor_key) + 1
 		if _next_key_idx < _keys.size():
@@ -391,13 +391,26 @@ func _on_reset_button_down() -> void:
 	render()
 
 func _on_next_button_down() -> void:
+	if select_timeout: return
+	select_timeout = true
+	$SelectTimeout.start()
+	
 	_reset_dim()
 	Global.click_sound.emit()
 	Global.dismiss_hints()
 	select_dragon()
 
 func _on_previous_button_down() -> void:
+	if select_timeout: return
+	select_timeout = true
+	$SelectTimeout.start()
+	
 	_reset_dim()
 	Global.click_sound.emit()
 	Global.dismiss_hints()
 	select_dragon(false)
+
+# Prevent double-ups
+var select_timeout = false
+func _on_select_timeout() -> void:
+	select_timeout = false

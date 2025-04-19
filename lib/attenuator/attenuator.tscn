@@ -423,9 +423,14 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_1ia51")
 flip_h = true
 
+[node name="SelectTimeout" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="button_down" from="Base/Close" to="." method="_on_close_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/ArrowBox/Previous" to="." method="_on_previous_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/ArrowBox/Next" to="." method="_on_next_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/Close" to="." method="_on_close_button_down"]
 [connection signal="button_down" from="Base/ControlContainer/Reset" to="." method="_on_reset_button_down"]
 [connection signal="button_down" from="SuccessBanner/Close2" to="." method="_on_close_button_down"]
+[connection signal="timeout" from="SelectTimeout" to="." method="_on_select_timeout"]
