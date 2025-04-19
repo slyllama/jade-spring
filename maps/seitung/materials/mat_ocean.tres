@@ -1,55 +1,18 @@
 [gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://bjvh70xfkt3wx"]
 
 [ext_resource type="Texture2D" uid="uid://b8qfv5boxgf0s" path="res://maps/seitung/materials/textures/ocean_alpha_mask.jpg" id="1_ttv1q"]
+[ext_resource type="Shader" uid="uid://d0lxlmq8gekwj" path="res://maps/seitung/materials/shaders/shader_ocean.tres" id="1_yxsul"]
 
-[sub_resource type="Shader" id="Shader_nlaf5"]
-code = "shader_type spatial;
+[sub_resource type="Gradient" id="Gradient_7c6w3"]
+offsets = PackedFloat32Array(0.337696, 0.769634)
 
-uniform vec4 primary_color: source_color;
-uniform vec4 foam_color: source_color;
-uniform float roughness = 0.2;
-uniform sampler2D normal_a: hint_normal;
-uniform sampler2D normal_b: hint_normal;
-uniform sampler2D light_foam: filter_linear_mipmap, repeat_enable;
-uniform vec2 uv_scale = vec2(1.0);
-uniform float speed_scale = 1.0;
-uniform float normal_strength_a: hint_range(0.0, 1.0) = 1.0;
-uniform float normal_strength_b: hint_range(0.0, 1.0) = 1.0;
-uniform float foam_exponent = 3.0;
-uniform sampler2D alpha_mask: hint_default_black;
-
-float fresnel(float amount, vec3 normal, vec3 view) {
-	return pow((1.0 - clamp(
-		dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
-}
-
-void fragment() {
-	vec2 uv = UV * uv_scale;
-	vec3 normal_map = texture(normal_a, uv + TIME * 0.01 * speed_scale).rgb * normal_strength_a;
-	normal_map += texture(normal_b, uv - TIME * 0.01 * speed_scale).rgb * normal_strength_b;
-
-	float foam_mix = pow(texture(light_foam, UV * 8.0).r, foam_exponent) * fresnel(2.0, NORMAL, VIEW) * 2.5;
-	foam_mix = clamp(foam_mix, 0.0, 1.0);
-	ALBEDO = mix(primary_color.rgb, foam_color.rgb, clamp(foam_mix, 0.0, 1.0));
-	ALBEDO += vec3(fresnel(5.0, NORMAL, VIEW));
-	ALBEDO += pow(texture(alpha_mask, UV).g, 0.9);
-	ALPHA = clamp((1.0 - texture(alpha_mask, UV).r), 0.0, 1.0);
-
-	NORMAL_MAP = normal_map;
-	ROUGHNESS = clamp(roughness + fresnel(2.0, NORMAL, VIEW), 0.0, 1.0);
-}
-"
-
-[sub_resource type="Gradient" id="Gradient_11rlf"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0lw0v"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rpjf4"]
 noise_type = 2
-frequency = 0.02
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xhx5w"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gpj4w"]
 seamless = true
-color_ramp = SubResource("Gradient_11rlf")
-noise = SubResource("FastNoiseLite_0lw0v")
+color_ramp = SubResource("Gradient_7c6w3")
+noise = SubResource("FastNoiseLite_rpjf4")
 
 [sub_resource type="Gradient" id="Gradient_dijhg"]
 
@@ -57,7 +20,8 @@ noise = SubResource("FastNoiseLite_0lw0v")
 noise_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l83jr"]
-in_3d_space = true
+width = 1024
+height = 1024
 seamless = true
 as_normal_map = true
 bump_strength = 16.0
@@ -68,27 +32,27 @@ noise = SubResource("FastNoiseLite_1sfa5")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_57d6i"]
 noise_type = 2
-frequency = 0.002
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eakwi"]
+width = 1024
+height = 1024
 seamless = true
 as_normal_map = true
-bump_strength = 16.0
 color_ramp = SubResource("Gradient_2mtd6")
 noise = SubResource("FastNoiseLite_57d6i")
 
 [resource]
 render_priority = 0
-shader = SubResource("Shader_nlaf5")
-shader_parameter/primary_color = Color(9.62615e-08, 0.217126, 0.261974, 1)
-shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader = ExtResource("1_yxsul")
 shader_parameter/roughness = 0.02
-shader_parameter/uv_scale = Vector2(10, 20)
-shader_parameter/speed_scale = 1.2
-shader_parameter/normal_strength_a = 0.49
-shader_parameter/normal_strength_b = 0.75
+shader_parameter/speed_scale = 1.0
+shader_parameter/normal_strength = 0.6
 shader_parameter/foam_exponent = 2.0
+shader_parameter/metallic = 1.0
+shader_parameter/uv_scale = Vector2(14, 14)
+shader_parameter/primary_color = Color(0.0836, 0.170493, 0.19, 1)
+shader_parameter/foam_color = Color(0.782883, 0.93784, 0.898507, 1)
 shader_parameter/normal_a = SubResource("NoiseTexture2D_l83jr")
 shader_parameter/normal_b = SubResource("NoiseTexture2D_eakwi")
-shader_parameter/light_foam = SubResource("NoiseTexture2D_xhx5w")
+shader_parameter/light_foam = SubResource("NoiseTexture2D_gpj4w")
 shader_parameter/alpha_mask = ExtResource("1_ttv1q")

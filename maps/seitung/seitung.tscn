@@ -208,21 +208,11 @@ transform = Transform3D(0.767856, 0.374329, -0.519879, -0.190429, 0.908211, 0.37
 directional_shadow_blend_splits = true
 
 [node name="SunNight" type="DirectionalLight3D" parent="Sky" index="1"]
-transform = Transform3D(0.21437, -0.0409216, -0.975895, 0.262636, 0.964741, 0.0172379, 0.940781, -0.26, 0.217559, 0, 3, 0)
+transform = Transform3D(0.714161, -0.325747, 0.619567, 0.199024, 0.943083, 0.26643, -0.671092, -0.0669649, 0.738344, 0, 5.55933, 0)
 visible = false
 light_color = Color(0.82112, 0.6912, 0.96, 1)
-light_energy = 0.5
 shadow_enabled = true
 directional_shadow_blend_splits = true
-
-[node name="OceanSunNight" type="SpotLight3D" parent="Sky" index="2"]
-transform = Transform3D(0.198176, 0.0237427, -0.979879, 0.00481886, 0.999671, 0.0251969, 0.980155, -0.00971539, 0.197997, -36.3795, 3.25575, 33.761)
-light_energy = 100.0
-light_specular = 1.0
-light_cull_mask = 4293918724
-spot_range = 70.0
-spot_attenuation = 0.45
-spot_angle = 25.0
 
 [node name="Player" parent="." index="1"]
 transform = Transform3D(0.998077, 0, -0.0619893, 0, 1, 0, 0.0619893, 0, 0.998077, -2.96519, 2.9413, 2.49198)

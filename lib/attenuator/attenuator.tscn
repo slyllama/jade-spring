@@ -415,6 +415,7 @@ volume_db = -3.0
 
 [node name="OpenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_oesam")
+stream_paused = true
 
 [node name="KeyCursor" type="Sprite2D" parent="."]
 position = Vector2(306, 165)
