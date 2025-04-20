@@ -5,7 +5,7 @@ extends Node3D
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
 const Ping = preload("res://lib/ping/ping.tscn")
-const GiftLetter = preload("res://lib/gift_letter/gift_letter.tscn")
+const GiftLetter = preload("res://lib/letters/gift_letter.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0ampettqcu60"]
+[gd_scene load_steps=20 format=3 uid="uid://b0ampettqcu60"]
 
 [ext_resource type="Script" path="res://lib/fishing/fishing.gd" id="1_6qcg4"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_7cxp0"]
@@ -44,6 +44,45 @@ border_blend = true
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5g53"]
 texture = ExtResource("5_p21x7")
+
+[sub_resource type="Animation" id="Animation_x2yh5"]
+resource_name = "GLow"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.7745, 0.59, 1, 0.878431), Color(0.935, 0.22, 1, 0.878431), Color(0.7745, 0.59, 1, 0.878431)]
+}
+
+[sub_resource type="Animation" id="Animation_u4j83"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.5765, 0.23, 1, 0.878431)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6pm8"]
+_data = {
+"RESET": SubResource("Animation_u4j83"),
+"glow": SubResource("Animation_x2yh5")
+}
 
 [node name="Fishing" type="CanvasLayer"]
 script = ExtResource("1_6qcg4")
@@ -176,8 +215,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxEmpty_ce8pe")
 theme_override_styles/fill = SubResource("StyleBoxTexture_o5g53")
-step = 0.0
-value = 50.0
 show_percentage = false
 
 [node name="Player" type="Sprite2D" parent="BG"]
@@ -186,11 +223,33 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_7bdy4")
 
 [node name="Fish" type="Sprite2D" parent="BG"]
+z_index = 4
 texture_filter = 4
 use_parent_material = true
 position = Vector2(0, 127)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("5_nbblc")
+
+[node name="TestRect" type="ColorRect" parent="."]
+texture_filter = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = 175.0
+offset_right = 126.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5765, 0.23, 1, 0.878431)
+
+[node name="Anim" type="AnimationPlayer" parent="TestRect"]
+libraries = {
+"": SubResource("AnimationLibrary_c6pm8")
+}
+autoplay = "glow"
 
 [connection signal="completed" from="." to="." method="_on_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

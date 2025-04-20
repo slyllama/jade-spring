@@ -6,7 +6,7 @@ signal completed
 signal canceled
 
 @export var width = 250.0
-@export var threshold = 34.0
+@export var threshold = 35.0
 @export var move_speed = 1.95
 
 @export var fish_min_speed = 1.3
@@ -118,6 +118,8 @@ func _ready() -> void:
 	tut_fade_tween.tween_method(_set_tutorial_dissolve, 0.0, 1.0, 0.5)
 	tut_fade_tween.set_parallel()
 	
+	$TestRect.size.x = progress * 2.53
+	
 	if Save.data.fishing_tutorial_played: # go straight to gameplay if the tutorial has already played
 		$BG/CenterMarker/TutorialPanel.visible = false
 		Save.save_to_file()
@@ -143,11 +145,12 @@ func _ready() -> void:
 	
 	resize()
 	switch_direction()
-	$BG/Progress.value = progress
 
 var _d = 0.0
+var last_progress = 0.0
 
 func _process(delta: float) -> void:
+	last_progress = progress
 	if has_completed or !has_started: return
 	if _d < 0.45: # short delay before starting
 		_d += delta
@@ -174,16 +177,14 @@ func _process(delta: float) -> void:
 	var _s = 0.0 # position change
 	if diff < threshold: _s = progress_increase_rate
 	else: _s = -progress_decrease_rate
-	progress += _s * Utilities.critical_lerp(delta, 60.0)
+	progress += _s * Utilities.critical_lerp(delta, 55.0)
 	
 	if progress > 99.9:
 		has_succeeded = true
 		end()
 	elif progress < 0.5:
 		Global.fishing_canceled.emit()
-	progress = clamp(progress, 0.0, 100.0)
-	
-	$BG/Progress.value = progress
+	$TestRect.size.x = progress * 2.53
 
 func _on_timer_timeout() -> void:
 	switch_direction()

@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://ceasnql6pvyyj"]
+
+[ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_2c2wh"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_m8ifj"]
+[ext_resource type="Texture2D" uid="uid://bcvp2eedr7svs" path="res://lib/letters/textures/base.png" id="3_ouxyi"]
+[ext_resource type="Script" path="res://lib/letters/letter.gd" id="4_chw4r"]
+[ext_resource type="FontFile" uid="uid://dg6p5pxhkf6ui" path="res://generic/fonts/libertinus_sans_italic.otf" id="5_0ewhi"]
+[ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="6_3d6q6"]
+[ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="7_2e8ej"]
+[ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="8_1qfr3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qs42b"]
+shader = ExtResource("1_2c2wh")
+shader_parameter/paint_exponent = 0.0
+shader_parameter/alpha = 1.0
+shader_parameter/uv_scale = 0.75
+shader_parameter/arrow_reduce_alpha = false
+shader_parameter/darken = 0.0
+shader_parameter/paint_mask = ExtResource("2_m8ifj")
+
+[node name="GiftLetter" type="TextureRect"]
+material = SubResource("ShaderMaterial_qs42b")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.5
+offset_top = -185.5
+offset_right = 400.5
+offset_bottom = 185.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ouxyi")
+expand_mode = 1
+script = ExtResource("4_chw4r")
+metadata/_edit_vertical_guides_ = [474.0]
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 94.0
+offset_top = 45.0
+offset_right = -92.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="RichTextLabel" parent="Container"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]((Title))[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Copy" type="RichTextLabel" parent="Container"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.1, 0.0644167, 0.039, 1)
+theme_override_constants/line_separation = -2
+theme_override_fonts/italics_font = ExtResource("5_0ewhi")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "((Copy text.))"
+fit_content = true
+
+[node name="CloseButton" type="TextureButton" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.5
+offset_top = 31.5
+offset_right = -86.5
+offset_bottom = 51.5
+grow_horizontal = 0
+texture_normal = ExtResource("6_3d6q6")
+texture_hover = ExtResource("7_2e8ej")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaperSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1qfr3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="button_down" from="CloseButton" to="." method="_on_close_button_button_down"]

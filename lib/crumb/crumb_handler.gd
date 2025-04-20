@@ -6,7 +6,7 @@ const BugSwarm = preload("res://lib/crumb/bug_swarm.tscn")
 const Weed = preload("res://lib/crumb/weed.tscn")
 const Dragonvoid = preload("res://lib/crumb/dragonvoid.tscn")
 const Nettles = preload("res://lib/crumb/weed/nettles.glb")
-const GiftLetter = preload("res://lib/gift_letter/gift_letter.tscn")
+const GiftLetter = preload("res://lib/letters/gift_letter.tscn")
 const DRAGONS = ["kralkatorrik", "soo_won", "primordus", "jormag", "zhaitan", "mordremoth"]
 
 var totals = {}

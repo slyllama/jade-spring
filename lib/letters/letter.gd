@@ -1,6 +1,17 @@
 @tool
 extends TextureRect
 
+@export var title = "((Title))":
+	get: return(title)
+	set(_val):
+		$Container/Title.text = _val
+		title = _val
+@export_multiline var copy = "((Copy text.))":
+	get: return(copy)
+	set(_val):
+		$Container/Copy.text = _val
+		copy = _val
+
 @export_range(0.0, 1.0) var dissolve_value = 1.0:
 	get: return(dissolve_value)
 	set(value):
@@ -21,6 +32,7 @@ func open() -> void:
 	# Convince gadgets that this is a story panel so that they can't be hovered
 	Global.summon_story_panel.emit({})
 	Global.action_cam_disable.emit()
+	Global.flowers_show.emit()
 	Global.story_panel_open = true
 	var _fade = create_tween()
 	_fade.tween_method(_set_dissolve_value, 0.0, 1.0, 0.2)
@@ -29,6 +41,7 @@ func close() -> void:
 	Global.story_panel_open = false
 	Global.close_story_panel.emit()
 	Global.action_cam_enable.emit()
+	Global.flowers_hide.emit()
 	
 	var _fade = create_tween()
 	_fade.tween_method(_set_dissolve_value, 1.0, 0.0, 0.2)

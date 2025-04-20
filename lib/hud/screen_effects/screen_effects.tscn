@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6kvxy3mhfso3"]
+[gd_scene load_steps=22 format=3 uid="uid://c6kvxy3mhfso3"]
 
 [ext_resource type="Texture2D" uid="uid://be87557001j28" path="res://lib/hud/screen_effects/textures/bug_overlay.png" id="1_5cg80"]
 [ext_resource type="Shader" path="res://lib/hud/screen_effects/shaders/shader_screen_fx.gdshader" id="1_diqkw"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://wjxdrde88kpf" path="res://lib/hud/screen_effects/textures/dragonvoid_overlay.png" id="6_ln4dv"]
 [ext_resource type="Shader" path="res://lib/hud/screen_effects/shaders/shader_anime.gdshader" id="7_c2qk6"]
 [ext_resource type="Texture2D" uid="uid://pcdu4s7kntsv" path="res://lib/hud/screen_effects/textures/anime.png" id="7_uiyq1"]
+[ext_resource type="Texture2D" uid="uid://cbqjjnj41tcww" path="res://lib/hud/screen_effects/textures/flowers.png" id="12_kp4ce"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="13_60mn6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_llcq0"]
 shader = ExtResource("3_ocfdl")
@@ -50,6 +52,11 @@ shader = ExtResource("7_c2qk6")
 shader_parameter/modulate_a = 0.0
 shader_parameter/noise = SubResource("NoiseTexture2D_6q7g2")
 shader_parameter/anime_texture = ExtResource("7_uiyq1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bse0l"]
+shader = ExtResource("1_diqkw")
+shader_parameter/alpha_exponent = 0.0
+shader_parameter/swirl_texture = ExtResource("13_60mn6")
 
 [node name="ScreenEffects" type="CanvasLayer"]
 script = ExtResource("1_momb4")
@@ -118,4 +125,70 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("7_uiyq1")
+expand_mode = 1
+
+[node name="Flowers" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_bse0l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Flower" type="TextureRect" parent="Flowers"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -347.0
+offset_bottom = 373.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("12_kp4ce")
+expand_mode = 1
+
+[node name="Flower2" type="TextureRect" parent="Flowers"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -347.0
+offset_right = 347.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 1.5708
+mouse_filter = 2
+texture = ExtResource("12_kp4ce")
+expand_mode = 1
+
+[node name="Flower3" type="TextureRect" parent="Flowers"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 347.0
+offset_right = 694.0
+offset_bottom = 373.0
+grow_vertical = 0
+rotation = 3.14159
+mouse_filter = 2
+texture = ExtResource("12_kp4ce")
+expand_mode = 1
+
+[node name="Flower4" type="TextureRect" parent="Flowers"]
+use_parent_material = true
+layout_mode = 1
+offset_top = 347.0
+offset_right = 347.0
+offset_bottom = 720.0
+rotation = 4.71239
+mouse_filter = 2
+texture = ExtResource("12_kp4ce")
 expand_mode = 1

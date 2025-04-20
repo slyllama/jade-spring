@@ -80,6 +80,8 @@ signal dragonvoid_crumb_entered
 signal dragonvoid_crumb_left
 signal fishing_started
 signal fishing_canceled
+signal flowers_show # flowers screen effect
+signal flowers_hide # flowers screen effect
 signal generic_area_entered
 signal generic_area_left
 signal gravity_entered

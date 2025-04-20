@@ -6,6 +6,8 @@ var bug_state = false
 var bug_val = 1.0
 var dv_state = false
 var dv_val = 1.0
+var flowers_state = false
+var flowers_val = 1.0
 var bug_tween: Tween
 var dv_tween: Tween
 
@@ -23,11 +25,31 @@ func _aberrate() -> void:
 	var abr_tween = create_tween()
 	abr_tween.tween_method(_set_aberration, 7.0, 0.0, 0.45)
 
+func _show_flowers() -> void:
+	flowers_state = true
+	$Flowers.visible = true
+	var fade_tween = create_tween()
+	fade_tween.tween_method(_set_flowers_exponent, flowers_val, 0.0, 0.1)
+
+func _hide_flowers() -> void:
+	flowers_state = false
+	var fade_tween = create_tween()
+	fade_tween.tween_method(_set_flowers_exponent, flowers_val, 1.0, 0.45)
+	fade_tween.tween_callback(func():
+		if !flowers_state:
+			$Flowers.visible = false)
+
 func _set_aberration(val: float) -> void:
 	$ScreenShader.material.set_shader_parameter("displacement", val)
 
 func _set_anime_alpha(val: float) -> void:
 	$Anime.material.set_shader_parameter("modulate_a", val)
+
+func _set_flowers_exponent(val: float) -> void:
+	flowers_val = val
+	var _e = ease(val, 2.0)
+	_e = 10.0 * _e
+	$Flowers.material.set_shader_parameter("alpha_exponent", _e)
 
 func _set_bugs_exponent(val: float) -> void:
 	bug_val = val
@@ -60,15 +82,15 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	_set_bugs_exponent(1.0)
 	_set_dragonvoid_exponent(1.0)
+	_set_flowers_exponent(1.0)
 	
 	$Bugs.visible = false
 	$Dragonvoid.visible = false
 	$Underlay.visible = false
+	$Flowers.visible = false
 	
-	if Global.map_name == "debug":
-		$Debug.visible = true
-	else:
-		$Debug.visible = false
+	if Global.map_name == "debug": $Debug.visible = true
+	else: $Debug.visible = false
 	
 	get_window().focus_exited.connect(func():
 		if $Anime.material.get_shader_parameter("modulate_a") > 0.0:
@@ -120,3 +142,5 @@ func _ready() -> void:
 	
 	Global.ripple.connect(_ripple)
 	Global.gravity_entered.connect(_aberrate)
+	Global.flowers_show.connect(_show_flowers)
+	Global.flowers_hide.connect(_hide_flowers)
