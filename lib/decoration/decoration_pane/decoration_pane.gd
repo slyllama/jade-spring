@@ -285,7 +285,6 @@ func _on_load_on_timeout_timeout() -> void:
 	_load_model()
 
 func _on_category_button_down(category_id: String) -> void:
-	print("category_id: " + category_id)
 	$Container/TagContainer/TagMenu.text = category_id
 	render(category_id)
 

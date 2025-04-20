@@ -132,7 +132,6 @@ func _ready() -> void:
 		else:
 			$Container/Box/ContinueButton.grab_focus()
 	else:
-		$Container/Separator5.visible = false
 		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()
 	
