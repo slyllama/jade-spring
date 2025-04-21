@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d2c7x33nne1j4"]
+
+[ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_jg0ou"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_qvcjy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jg0ou")
+shader_parameter/base_color = Color(0.138867, 0.0344265, 0.303215, 1)
+shader_parameter/swirl_color = Color(0.902009, 0.000144007, 0.750179, 1)
+shader_parameter/cloud_color = Color(0.911749, 0.864514, 0.960547, 1)
+shader_parameter/fresnel_color = Color(1.54018e-06, 0.60515, 0.898937, 1)
+shader_parameter/cloud_scale = 1.0
+shader_parameter/speed_scale = 0.02
+shader_parameter/emission_color = Color(0, 0, 0, 1)
+shader_parameter/clear_coat = true
+shader_parameter/fresnel_amount = 0.45
+shader_parameter/mask = ExtResource("2_qvcjy")

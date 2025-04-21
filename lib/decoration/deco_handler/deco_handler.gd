@@ -152,7 +152,6 @@ func _ready() -> void:
 			Global.announcement_sent.emit("((Loaded decorations from file))")
 			_load_decorations(_load_decoration_file())
 		elif _cmd == "/resetdeco":
-			Global.announcement_sent.emit("((Reset decorations to defaults))")
 			_load_decorations(default_deco_data)
 		elif _cmd == "/savedeco":
 			_save_decorations()

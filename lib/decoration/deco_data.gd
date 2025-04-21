@@ -388,6 +388,15 @@ const DecoData = {
 		"tags": ["Architecture", "Asura"],
 		"unlock_value": 21
 	},
+	"rata_sum_beacon": {
+		"name": "Rata Sum Beacon",
+		"scene": "res://decorations/rata_sum/beacon/rata_sum_beacon.tscn",
+		"cursor_model": "res://decorations/rata_sum/beacon/beacon.glb",
+		"preview_scale": 0.6,
+		"model_offset": Vector3(0, -0.45, 0),
+		"preview_y_rotation": 35,
+		"tags": ["Architecture", "Asura"]
+	},
 	"planter_box": {
 		"name": "Planter Box",
 		"scene": "res://decorations/planter_box/planter_box.tscn",

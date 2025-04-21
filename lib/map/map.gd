@@ -9,6 +9,7 @@ const GiftLetter = preload("res://lib/letters/gift_letter.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
+const KARMA_JITTER = 0.2
 const HIDDEN_POS = Vector3(0, -20, 0) # hide story marker far away
 var picking_disabled_objects: Array[StaticBody3D] = []
 var rng = RandomNumberGenerator.new()
@@ -52,7 +53,9 @@ func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
 	SteamHandler.add_to_stat("karma_earned", amount)
 	for _i in amount:
 		var _a = deg_to_rad(360.0 / amount * _i + rng.randf() * 45.0)
-		var _offset = Vector3(radius * cos(_a), 0, radius * sin(_a))
+		var _offset = Vector3(
+			radius * cos(_a) + rng.randf_range(0.0, KARMA_JITTER),
+			0, radius * sin(_a) + rng.randf_range(0.0, KARMA_JITTER))
 		
 		var _k = Karma.instantiate()
 		add_child(_k)
@@ -146,7 +149,7 @@ func _ready() -> void:
 			Global.command_sent.emit("/orbitsmooth=1.0")
 		elif "/spawnkarma=" in cmd:
 			var _count = int(cmd.replace("/spawnkarma=", ""))
-			_count = clamp(_count, 0, 25)
+			_count = clamp(_count, 0, 50)
 			spawn_karma(_count, Global.player_position)
 		elif cmd == "/giftletter":
 			var _g = GiftLetter.instantiate()

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dwdg6840g285e"]
+
+[ext_resource type="Shader" path="res://decorations/rata_sum/materials/shaders/shader_rata_sum_brick.gdshader" id="1_e36wj"]
+[ext_resource type="Texture2D" uid="uid://dcia4eoi1ipdw" path="res://decorations/rata_sum/materials/textures/brick_diff.jpg" id="2_6qk8c"]
+[ext_resource type="Texture2D" uid="uid://b7t4n8ukrlxyn" path="res://decorations/rata_sum/materials/textures/brick_norm.jpg" id="2_v87uq"]
+[ext_resource type="Texture2D" uid="uid://b66ps8x316fvs" path="res://decorations/rata_sum/beacon/materials/textures/beacon_brick_mask.jpg" id="3_2t84u"]
+[ext_resource type="Texture2D" uid="uid://chtxhoiilhplu" path="res://decorations/rata_sum/materials/textures/plaster_diff.jpg" id="4_1uw2j"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_e36wj")
+shader_parameter/uv_scale = 10.0
+shader_parameter/normal_strength = -1.0
+shader_parameter/albedo = Color(0.6, 0.552, 0.552, 1)
+shader_parameter/brick_texture = ExtResource("2_6qk8c")
+shader_parameter/plaster_texture = ExtResource("4_1uw2j")
+shader_parameter/brick_norm_texture = ExtResource("2_v87uq")
+shader_parameter/plaster_mask_texture = ExtResource("3_2t84u")

@@ -271,7 +271,7 @@ func _physics_process(delta: float) -> void:
 		if !is_on_floor():
 			velocity.y -= 27.0 * delta
 		else:
-			if Vector3(velocity * Vector3(1, 0, 1)).length() > 1.0:
+			if Vector3(velocity * Vector3(1, 0, 1)).length() > 1.5:
 				if !walking:
 					walking = true
 					$Walk.play()

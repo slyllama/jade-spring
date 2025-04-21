@@ -118,7 +118,7 @@ func _ready() -> void:
 	tut_fade_tween.tween_method(_set_tutorial_dissolve, 0.0, 1.0, 0.5)
 	tut_fade_tween.set_parallel()
 	
-	$TestRect.size.x = progress * 2.53
+	$BG/TestRect.size.x = progress * 2.53
 	
 	if Save.data.fishing_tutorial_played: # go straight to gameplay if the tutorial has already played
 		$BG/CenterMarker/TutorialPanel.visible = false
@@ -184,7 +184,7 @@ func _process(delta: float) -> void:
 		end()
 	elif progress < 0.5:
 		Global.fishing_canceled.emit()
-	$TestRect.size.x = progress * 2.53
+	$BG/TestRect.size.x = progress * 2.53
 
 func _on_timer_timeout() -> void:
 	switch_direction()
