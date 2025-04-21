@@ -16,15 +16,18 @@ var in_range = false
 	get: return(radius)
 	set(_val):
 		radius = _val
-		$Collision.shape.radius = radius
-		$VisualArea.mesh.top_radius = radius
-		$VisualArea.mesh.bottom_radius = radius
+		_set_radius(radius)
 
 @export var show_area = false:
 	get: return(show_area)
 	set(_val):
 		show_area = _val
 		$VisualArea.visible = show_area
+
+func _set_radius(_val) -> void:
+	$Collision.shape.radius = radius
+	$VisualArea.mesh.top_radius = radius
+	$VisualArea.mesh.bottom_radius = radius
 
 func _set_tint_color(_val) -> void:
 	var _mat = $VisualArea.get_active_material(0).duplicate()
@@ -48,7 +51,12 @@ func spawn_dialogue(data: Dictionary, advance = false) -> void:
 	_d.open()
 
 func _ready() -> void:
+	$VisualArea.visible = show_area
+	_set_tint_color(tint_color)
+	_set_radius(radius)
+	
 	if Engine.is_editor_hint(): return
+	
 	var _unique_mesh = $VisualArea.mesh.duplicate(true)
 	var _unique_collision = $Collision.shape.duplicate(true)
 	

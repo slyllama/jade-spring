@@ -98,7 +98,7 @@ size = Vector2(0.45, 0.45)
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_r1sh7"]
+[sub_resource type="CurveTexture" id="CurveTexture_81dca"]
 curve = SubResource("Curve_rl43g")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ng7wp"]
@@ -108,9 +108,9 @@ emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0.1, 0)
 scale_min = 0.2
 scale_max = 0.4
-alpha_curve = SubResource("CurveTexture_r1sh7")
+alpha_curve = SubResource("CurveTexture_81dca")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdk7r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb68g"]
 render_priority = 4
 transparency = 1
 shading_mode = 0
@@ -126,7 +126,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l62be"]
-material = SubResource("StandardMaterial3D_tdk7r")
+material = SubResource("StandardMaterial3D_kb68g")
 size = Vector2(0.1, 0.1)
 orientation = 2
 

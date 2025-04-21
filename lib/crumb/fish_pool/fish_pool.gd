@@ -1,0 +1,17 @@
+@tool
+extends Node3D
+
+func _update_interact_text() -> void:
+	if "discombobulator" in Global.current_effects:
+			Global.interact_hint = "Play With Fish"
+
+func _on_gadget_interacted() -> void:
+	if "discombobulator" in Global.current_effects:
+		pass # TODO: fish
+	else:
+		Global.announcement_sent.emit("These are protected fish, but they don't know that. All they want to do is eat.")
+
+func _on_gadget_body_entered(body: Node3D) -> void:
+	if Global.story_panel_open: return
+	if body is CharacterBody3D:
+		_update_interact_text()

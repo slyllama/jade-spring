@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgrakybin27gf"]
+[gd_scene load_steps=18 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
 [ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://3lblxj6dgvuv" path="res://decorations/autumnal_tree/deco_autumnal_tree.tscn" id="8_xp2h4"]
 [ext_resource type="PackedScene" uid="uid://ceqye8xeeqf64" path="res://decorations/lush_grass/lush_grass.tscn" id="9_v1c7u"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="11_gxohq"]
+[ext_resource type="PackedScene" uid="uid://de46fd3hmay40" path="res://lib/crumb/fish_pool/fish_pool.tscn" id="11_qydsd"]
+[ext_resource type="Material" uid="uid://qkiqh7av8afr" path="res://maps/debug/materials/mat_ocean.tres" id="12_micig"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("3_pk05h")
@@ -41,6 +43,14 @@ fog_depth_end = 30.0
 volumetric_fog_density = 0.01
 adjustment_enabled = true
 adjustment_saturation = 1.09
+
+[sub_resource type="QuadMesh" id="QuadMesh_f7mmb"]
+material = ExtResource("12_micig")
+size = Vector2(5, 5)
+orientation = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yfd71"]
+size = Vector3(5, 1, 5)
 
 [node name="Debug" instance=ExtResource("1_whgid")]
 script = ExtResource("2_n4fpp")
@@ -81,3 +91,22 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0,
 
 [node name="Discombobulator" parent="." index="14" instance=ExtResource("11_gxohq")]
 transform = Transform3D(-0.666337, 0, 0.74565, 0, 1, 0, -0.74565, 0, -0.666337, -6.6, 0.2, 5.5)
+
+[node name="FishPool" parent="." index="15" instance=ExtResource("11_qydsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73082, 0.0446002, 5.66072)
+
+[node name="FishPool2" parent="." index="16" instance=ExtResource("11_qydsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49282, 0.0446002, 7.3847)
+
+[node name="Ocean" type="MeshInstance3D" parent="." index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.01, 6)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_f7mmb")
+
+[node name="OceanArea" type="Area3D" parent="Ocean" index="0"]
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="Collision" type="CollisionShape3D" parent="Ocean/OceanArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_yfd71")

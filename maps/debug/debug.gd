@@ -17,3 +17,6 @@ func _ready() -> void:
 	Global.command_sent.emit("/enableattn")
 	await get_tree().create_timer(0.2).timeout # race condition?
 	Global.add_effect.emit("discombobulator")
+
+func _process(delta: float) -> void:
+	$FishPool.rotation_degrees.y += delta * 4.0
