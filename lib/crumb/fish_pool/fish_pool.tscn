@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://de46fd3hmay40"]
+[gd_scene load_steps=24 format=3 uid="uid://de46fd3hmay40"]
 
 [ext_resource type="Shader" path="res://lib/crumb/fish_pool/materials/shaders/shader_fish_pool.gdshader" id="1_riuof"]
 [ext_resource type="Script" path="res://lib/crumb/fish_pool/fish_pool.gd" id="1_ylqif"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b0cdm3nedqs1u" path="res://lib/crumb/fish_pool/materials/textures/fish_icon.png" id="4_skxi8"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="5_bltdk"]
 [ext_resource type="Texture2D" uid="uid://bbmysephk5v3m" path="res://lib/crumb/fish_pool/materials/textures/zzz.png" id="7_x5rc3"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="8_m4vch"]
 
 [sub_resource type="Gradient" id="Gradient_xfeo4"]
 
@@ -126,7 +127,7 @@ draw_pass_1 = SubResource("PlaneMesh_ltoaf")
 
 [node name="Icon" type="Sprite3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.5, 0)
-visibility_range_end = 6.0
+visibility_range_end = 11.0
 visibility_range_end_margin = 1.0
 visibility_range_fade_mode = 1
 billboard = 1
@@ -140,7 +141,7 @@ show_area = true
 tint_color = Color(0.30117, 0.707572, 0.84281, 1)
 
 [node name="SleepParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 cast_shadow = 0
 emitting = false
 amount = 4
@@ -148,5 +149,14 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_du6u3")
 draw_pass_1 = SubResource("QuadMesh_jfvf0")
 
+[node name="Title" parent="." instance=ExtResource("8_m4vch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+spatial_string = "Koi Fish"
+color = "yellow"
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="PoolGadget" to="." method="_on_gadget_body_entered"]
 [connection signal="interacted" from="PoolGadget" to="." method="_on_gadget_interacted"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
