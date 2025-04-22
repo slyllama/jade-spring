@@ -18,6 +18,7 @@
 /collision=off	Disable player collisions
 /collision=on	Enable player collisions
 /clearstats		Clear all Steam stats and achievements
+/emote			Emit Dispersion Golem emotes
 /giftletter		Test out the gift letter
 /giveflux		Give yourself some Dispersion Flux
 /gravity		Toggle jumping puzzle physics

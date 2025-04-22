@@ -20,6 +20,10 @@ func emote() -> void:
 	$Model/Emote.emitting = true
 
 func _ready() -> void:
+	Global.command_sent.connect(func(_cmd):
+		if _cmd == "/emote":
+			emote())
+	
 	visible = false
 	spiral_mat = $Spiral/Spiral.get_active_material(0).duplicate()
 	$Spiral/Spiral.set_surface_override_material(0, spiral_mat)

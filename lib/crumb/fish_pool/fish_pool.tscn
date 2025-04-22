@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://de46fd3hmay40"]
+[gd_scene load_steps=23 format=3 uid="uid://de46fd3hmay40"]
 
 [ext_resource type="Shader" path="res://lib/crumb/fish_pool/materials/shaders/shader_fish_pool.gdshader" id="1_riuof"]
 [ext_resource type="Script" path="res://lib/crumb/fish_pool/fish_pool.gd" id="1_ylqif"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="3_b8tps"]
 [ext_resource type="Texture2D" uid="uid://b0cdm3nedqs1u" path="res://lib/crumb/fish_pool/materials/textures/fish_icon.png" id="4_skxi8"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="5_bltdk"]
+[ext_resource type="Texture2D" uid="uid://bbmysephk5v3m" path="res://lib/crumb/fish_pool/materials/textures/zzz.png" id="7_x5rc3"]
 
 [sub_resource type="Gradient" id="Gradient_xfeo4"]
 
@@ -67,6 +68,44 @@ material = SubResource("StandardMaterial3D_tdk7r")
 size = Vector2(0.05, 0.2)
 orientation = 2
 
+[sub_resource type="Curve" id="Curve_xfi7s"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50303, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ir36t"]
+curve = SubResource("Curve_xfi7s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_du6u3"]
+emission_shape = 2
+emission_sphere_radius = 0.25
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.1, 0)
+scale_min = 0.5
+alpha_curve = SubResource("CurveTexture_ir36t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwnlo"]
+render_priority = 2
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("7_x5rc3")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+distance_fade_mode = 2
+distance_fade_min_distance = 9.0
+distance_fade_max_distance = 8.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_jfvf0"]
+material = SubResource("StandardMaterial3D_uwnlo")
+size = Vector2(0.35, 0.35)
+
 [node name="FishPool" type="Node3D"]
 script = ExtResource("1_ylqif")
 
@@ -86,11 +125,12 @@ process_material = SubResource("ParticleProcessMaterial_pyrrd")
 draw_pass_1 = SubResource("PlaneMesh_ltoaf")
 
 [node name="Icon" type="Sprite3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 1, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.5, 0)
 visibility_range_end = 6.0
 visibility_range_end_margin = 1.0
 visibility_range_fade_mode = 1
 billboard = 1
+render_priority = 4
 texture = ExtResource("4_skxi8")
 
 [node name="PoolGadget" parent="." instance=ExtResource("5_bltdk")]
@@ -98,6 +138,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376476, 0)
 radius = 0.8
 show_area = true
 tint_color = Color(0.30117, 0.707572, 0.84281, 1)
+
+[node name="SleepParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+cast_shadow = 0
+emitting = false
+amount = 4
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_du6u3")
+draw_pass_1 = SubResource("QuadMesh_jfvf0")
 
 [connection signal="body_entered" from="PoolGadget" to="." method="_on_gadget_body_entered"]
 [connection signal="interacted" from="PoolGadget" to="." method="_on_gadget_interacted"]

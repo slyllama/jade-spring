@@ -94,6 +94,7 @@ transform = Transform3D(-0.666337, 0, 0.74565, 0, 1, 0, -0.74565, 0, -0.666337, 
 
 [node name="FishPool" parent="." index="15" instance=ExtResource("11_qydsd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73082, 0.0446002, 5.66072)
+awake = false
 
 [node name="FishPool2" parent="." index="16" instance=ExtResource("11_qydsd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49282, 0.0446002, 7.3847)
