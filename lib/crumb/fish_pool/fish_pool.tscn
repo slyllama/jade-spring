@@ -117,6 +117,8 @@ mesh = SubResource("QuadMesh_gd6bq")
 
 [node name="Motes" type="GPUParticles3D" parent="Ripples"]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
+visibility_range_end = 11.0
+visibility_range_end_margin = 0.5
 amount = 15
 lifetime = 2.0
 preprocess = 5.0

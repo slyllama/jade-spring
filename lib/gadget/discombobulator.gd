@@ -7,10 +7,12 @@ const DIALOGUE_DATA = {
 		"string": "The maintenance shed is filled to the brim with tools and magitech alike: shovels, replacement golem parts, and jade battery cells, all neatly stowed and labeled. I should make sure to straighten up any crates that have gone awry before Ratchet wanders back in here again.",
 		"options": {
 			"discombobulator": "Take a coil of Raw Dispersion Flux.",
+			"fish_food": "Grab some fish food.",
 			"close": "I'm all sorted, thanks."
 		}
 	},
 	"discombobulator": { "reference": "_exit" },
+	"fish_food": { "reference": "_exit" },
 	"close": { "reference": "_exit" }
 }
 
@@ -72,6 +74,8 @@ func _on_collision_interacted() -> void:
 		if id == "discombobulator":
 			Global.add_effect.emit("discombobulator")
 			$GolemSound.play()
+		elif id == "fish_food":
+			Global.add_effect.emit("fish_food")
 		elif id == "clear":
 			Global.remove_effect.emit("discombobulator")
 			Global.remove_effect.emit("dv_charge")

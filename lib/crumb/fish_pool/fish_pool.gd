@@ -27,11 +27,13 @@ func set_awake(state = awake) -> void:
 
 func cooldown() -> void:
 	Global.spawn_karma.emit(
-		Global.kv_fish, global_position + Vector3(0, 0.2, 0))
+		rng.randi_range(Global.kv_fish_min, Global.kv_fish_max),
+		global_position + Vector3(0, 0.2, 0))
 	awake = false
 	set_awake()
 	
-	$CooldownTimer.wait_time = rng.randf_range(60.0, 120.0)
+	# 2 - 4 minute wait time
+	$CooldownTimer.wait_time = rng.randf_range(60.0 * 2, 60.0 * 4)
 	$CooldownTimer.start()
 
 func proc_story() -> void:
@@ -40,11 +42,14 @@ func proc_story() -> void:
 	set_awake()
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	Save.story_advanced.connect(proc_story)
+	await get_tree().process_frame
+	proc_story()
 
 func _update_interact_text() -> void:
 	if "discombobulator" in Global.current_effects:
-			Global.interact_hint = "Play With Fish"
+			Global.interact_hint = "Feed Fish"
 
 func _on_gadget_interacted() -> void:
 	if !awake:
@@ -52,11 +57,10 @@ func _on_gadget_interacted() -> void:
 			"These fish are just resting for now")
 		return
 	if Save.is_at_story_point("ratchet_gratitude"):
-		if "discombobulator" in Global.current_effects:
+		if "fish_food" in Global.current_effects:
+			Global.remove_effect.emit("fish_food")
 			var _f = FishingInstance.instantiate()
 			_f.completed.connect(cooldown)
-			_f.canceled.connect(func():
-				pass)
 			add_child(_f)
 		else:
 			Global.announcement_sent.emit(

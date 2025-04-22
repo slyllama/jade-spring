@@ -13,6 +13,10 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"title": "Immobile",
 		"description": "I can't move at the moment!"
 	},
+	"fish_food": {
+		"title": "((Fish Food))",
+		"description": "((Fish food.))"
+	},
 	"gravity": {
 		"texture": "toggle_gravity",
 		"title": "Gravity",

@@ -23,9 +23,11 @@ void fragment() {
 	SPECULAR = 0.0;
 	
 	{
+		// These have a much longer view distance so that the player can see
+		// (and wonder about) them from the spawn point
 		float fade_distance = length(VERTEX);
 		const vec3 magic = vec3(0.06711056, 0.00583715, 52.9829189);
-		float fade = clamp(smoothstep(11.0, 10.0, fade_distance), 0.0, 1.0);
+		float fade = clamp(smoothstep(20.0, 19.0, fade_distance), 0.0, 1.0);
 		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
 			discard;
 		}

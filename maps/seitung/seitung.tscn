@@ -1205,3 +1205,9 @@ shape = SubResource("BoxShape3D_4jm7j")
 
 [node name="FishPool" parent="." index="19" instance=ExtResource("67_qwrs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.73906, -4.84288e-08, 15.7748)
+
+[node name="FishPool2" parent="." index="20" instance=ExtResource("67_qwrs1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25243, 1.8999e-07, 15.3235)
+
+[node name="FishPool3" parent="." index="21" instance=ExtResource("67_qwrs1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34005, 1.8999e-07, 14.8658)

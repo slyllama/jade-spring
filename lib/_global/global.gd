@@ -16,7 +16,8 @@ var player: CharacterBody3D
 var kv_weed = 5
 var kv_bug = 10
 var kv_dragonvoid = 15
-var kv_fish = 17
+var kv_fish_min = 10
+var kv_fish_max = 20
 
 # Karma is added here when spawned, then subtracted when collected. The remainder is added to the player's Karma count
 var assigned_karma = 0
