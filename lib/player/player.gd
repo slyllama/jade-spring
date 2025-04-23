@@ -161,6 +161,10 @@ func _ready() -> void:
 		elif _cmd == "/collision=on":
 			$Collision.disabled = false
 			Global.announcement_sent.emit("((Collision re-enabled))")
+		elif _cmd == "/time=night":
+			$PlayerMesh/NightLight.visible = true
+		elif _cmd == "/time=day":
+			$PlayerMesh/NightLight.visible = false
 	)
 	
 	$PlayerMesh/HeartParticles.emitting = true

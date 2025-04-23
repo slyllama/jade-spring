@@ -293,6 +293,12 @@ draw_pass_1 = SubResource("PlaneMesh_l62be")
 [node name="Compendium" parent="PlayerMesh" instance=ExtResource("19_fw2jq")]
 transform = Transform3D(1.45, -7.10543e-15, 8.52651e-14, 0, 1.3546, 0.51727, 5.68434e-14, -0.51727, 1.3546, -0.0818188, -0.098934, 0.594162)
 
+[node name="NightLight" type="OmniLight3D" parent="PlayerMesh"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -1.77642e-07, 0, 1.17647)
+visible = false
+light_color = Color(0.7429, 0.85, 0.493, 1)
+omni_range = 3.0
+
 [node name="HeartParticles" parent="PlayerMesh" instance=ExtResource("4_bxjah")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.2, 0)
 emitting = false
