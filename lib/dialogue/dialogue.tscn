@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=24 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_cbex2"]
@@ -37,6 +37,9 @@ shader_parameter/paint_mask_texture = ExtResource("3_k137k")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbd0c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2irt3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8f38"]
+content_margin_bottom = 26.0
 
 [sub_resource type="Animation" id="Animation_umuac"]
 resource_name = "Enter"
@@ -196,21 +199,17 @@ offset_right = -55.0
 offset_bottom = -94.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 0
 
 [node name="Text" type="RichTextLabel" parent="Base/Box"]
 use_parent_material = true
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a8f38")
 text = "((Dialogue text))"
 fit_content = true
 scroll_active = false
-
-[node name="Padding" type="Control" parent="Base/Box"]
-use_parent_material = true
-custom_minimum_size = Vector2(0, 14)
-layout_mode = 2
 
 [node name="FG" type="ColorRect" parent="Base"]
 visible = false
