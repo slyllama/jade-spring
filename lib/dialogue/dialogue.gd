@@ -3,6 +3,9 @@ extends CanvasLayer
 signal closed
 signal block_played(id)
 
+const ICON_CANCEL = preload("res://lib/dialogue/textures/dialogue_cancel.png")
+const ICON_ACTION = preload("res://lib/dialogue/textures/dialogue_action.png")
+
 var has_closed = false
 var camera_last_orbiting = false
 
@@ -39,9 +42,16 @@ func render_block(block_data: Dictionary) -> void:
 	if "options" in block_data:
 		for _o in block_data.options:
 			var _b: Button = $Base/TemplateButton.duplicate()
+			var _b_data = data[_o]
 			_b.text = block_data.options[_o]
 			_b.visible = true
 			_b.modulate.a = 0.0
+			if "reference" in _b_data:
+				if _b_data.reference == "_exit":
+					_b.icon = ICON_CANCEL
+			if "type" in _b_data:
+				if _b_data.type == "action":
+					_b.icon = ICON_ACTION
 			$Base/Box.add_child(_b)
 			if !_first:
 				_first = true
@@ -81,7 +91,7 @@ func open() -> void:
 	
 	$PlayDialogue.play()
 	if "title" in data:
-		$Base/Title.text = "[center]" + data.title + "[/center]"
+		$Base/Title.text = data.title
 	else:
 		$Base/Title.text = ""
 	if "_entry" in data:
@@ -134,6 +144,7 @@ func close() -> void:
 	queue_free()
 
 func _ready() -> void:
+	$Underlay.queue_free()
 	$Base.modulate.a = 1.0
 
 func _process(_delta: float) -> void:

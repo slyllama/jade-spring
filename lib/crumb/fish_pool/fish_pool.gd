@@ -17,6 +17,7 @@ func set_awake(state = awake) -> void:
 	#$PoolGadget.active = state
 	#$PoolGadget.visible = state
 	$Ripples/Motes.visible = state
+	$KoiFish.visible = state
 	$SleepParticles.emitting = !state
 	if state:
 		$Title.spatial_string = "Le Fishe"
@@ -42,6 +43,8 @@ func proc_story() -> void:
 	set_awake()
 
 func _ready() -> void:
+	$KoiFish/AnimationPlayer.play("spin")
+	
 	if Engine.is_editor_hint(): return
 	Save.story_advanced.connect(proc_story)
 	await get_tree().process_frame

@@ -1,0 +1,43 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c7tmvsqjks14l"
+path="res://.godot/imported/koi_fish.glb-0f18591aeefa0231be7becc3da42c1ec.scn"
+
+[deps]
+
+source_file="res://lib/crumb/fish_pool/meshes/koi_fish.glb"
+dest_files=["res://.godot/imported/koi_fish.glb-0f18591aeefa0231be7becc3da42c1ec.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="KoiFish"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=60.0
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"mat_koi": {
+"use_external/enabled": true,
+"use_external/path": "res://lib/crumb/fish_pool/materials/mat_koi.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

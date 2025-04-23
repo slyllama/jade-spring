@@ -11,8 +11,14 @@ const DIALOGUE_DATA = {
 			"close": "I'm all sorted, thanks."
 		}
 	},
-	"discombobulator": { "reference": "_exit" },
-	"fish_food": { "reference": "_exit" },
+	"discombobulator": {
+		"type": "action",
+		"reference": "_exit"
+		},
+	"fish_food": {
+		"type": "action",
+		"reference": "_exit"
+	},
 	"close": { "reference": "_exit" }
 }
 
@@ -60,7 +66,7 @@ func _on_collision_interacted() -> void:
 		dialogue_data._entry["options"].erase("close")
 		dialogue_data._entry.options["clear"] = "I'd like to return my Golems. (Clears effects.)"
 		dialogue_data._entry.options["close"] = "I'm all sorted, thanks."
-		dialogue_data["clear"] = { "reference": "_exit" }
+		dialogue_data["clear"] = { "reference": "_exit", "type": "action" }
 	
 	var _d = Dialogue.instantiate()
 	_d.data = dialogue_data

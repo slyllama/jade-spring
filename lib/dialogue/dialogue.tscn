@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene load_steps=23 format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_cbex2"]
 [ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
 [ext_resource type="Shader" path="res://lib/main_menu/title_card/shaders/shader_logo.gdshader" id="2_kddfe"]
-[ext_resource type="Texture2D" uid="uid://c0wnqslsanjs2" path="res://lib/story_panel/textures/jade_wings.png" id="3_k2g0f"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_k137k"]
-[ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="5_flg4a"]
+[ext_resource type="Texture2D" uid="uid://i6ma73hg52p1" path="res://lib/dialogue/textures/dialogue_continue.png" id="6_udltf"]
 [ext_resource type="AudioStream" uid="uid://ca4kr2ly5riu1" path="res://generic/sounds/whistle.ogg" id="7_ccl3t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xmdcj"]
@@ -16,45 +16,27 @@ shader_parameter/mask_scale = 1.6
 shader_parameter/exposure = 1.0
 shader_parameter/paint_mask_texture = ExtResource("3_k137k")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vlji"]
-content_margin_left = 10.0
-content_margin_top = 12.0
-content_margin_right = 10.0
-content_margin_bottom = 12.0
-bg_color = Color(0.1, 0.1, 0.1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.1, 0.1, 0.1, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wt74q"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcyqg"]
-content_margin_left = 10.0
-content_margin_top = 12.0
-content_margin_right = 10.0
-content_margin_bottom = 12.0
-bg_color = Color(0.158472, 0.158472, 0.158472, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.621524, 0.621524, 0.621524, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53qfu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2v8d"]
-content_margin_left = 10.0
-content_margin_top = 12.0
-content_margin_right = 10.0
-content_margin_bottom = 12.0
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hntlb"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taymh"]
-content_margin_left = 10.0
-content_margin_top = 12.0
-content_margin_right = 10.0
-content_margin_bottom = 12.0
-texture = ExtResource("5_flg4a")
-region_rect = Rect2(781.5, 623, 573, 176)
-modulate_color = Color(0.581033, 0.581033, 0.581033, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1o16"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0l2fv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atlvh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyffi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qok78"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_npld5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbd0c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2irt3"]
 
 [sub_resource type="Animation" id="Animation_umuac"]
 resource_name = "Enter"
@@ -67,18 +49,6 @@ tracks/0/path = NodePath("Base:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("JadeWings:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -99,18 +69,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("JadeWings:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gyjes"]
 _data = {
@@ -121,6 +79,16 @@ _data = {
 [node name="Dialogue" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_pyvfo")
+
+[node name="Underlay" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cbex2")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Base" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -167,13 +135,26 @@ offset_top = 273.0
 offset_right = 635.0
 offset_bottom = 342.0
 mouse_filter = 1
-theme_override_colors/font_disabled_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_colors/font_disabled_color = Color(0.370365, 0.370364, 0.370364, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.50266, 0.82, 0.3772, 1)
+theme_override_colors/font_color = Color(0.535332, 0.771653, 0.443614, 1)
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 32
 theme_override_font_sizes/font_size = 16
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1vlji")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mcyqg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o2v8d")
-theme_override_styles/normal = SubResource("StyleBoxTexture_taymh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wt74q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_53qfu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hntlb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_r1o16")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_0l2fv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_atlvh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xyffi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qok78")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_npld5")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_dbd0c")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2irt3")
 text = "A man has fallen into the river in Lego City! Start the new rescue helicopter. HEY! Build the helicopter and off to the rescue. Prepare the lifeline, lower the stretcher, and make the rescue. The new Emergency Collection from Lego City!"
+icon = ExtResource("6_udltf")
 alignment = 0
 autowrap_mode = 2
 
@@ -186,19 +167,20 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -283.5
-offset_top = -114.0
+offset_top = -195.0
 offset_right = 283.5
-offset_bottom = -89.0
+offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.905064, 0.952262, 0.457834, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 2
-theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/normal_font_size = 27
 bbcode_enabled = true
-text = "[center]((Dialogue Title))[/center]"
+text = "((Dialogue Title))"
 fit_content = true
 scroll_active = false
 
@@ -209,28 +191,29 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 59.0
-offset_top = 239.0
+offset_top = 149.0
 offset_right = -55.0
-offset_bottom = -34.0
+offset_bottom = -94.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 8
 
 [node name="Text" type="RichTextLabel" parent="Base/Box"]
 use_parent_material = true
 layout_mode = 2
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 18
 text = "((Dialogue text))"
 fit_content = true
 scroll_active = false
 
 [node name="Padding" type="Control" parent="Base/Box"]
 use_parent_material = true
-custom_minimum_size = Vector2(0, 9)
+custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 
 [node name="FG" type="ColorRect" parent="Base"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -238,24 +221,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
-
-[node name="JadeWings" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-use_parent_material = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -315.0
-offset_top = -272.0
-offset_right = 315.0
-offset_bottom = -146.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_k2g0f")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="Player" type="AnimationPlayer" parent="."]
 libraries = {

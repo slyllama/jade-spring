@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cecbak3rd0ev5"]
+
+[ext_resource type="Texture2D" uid="uid://pf2jdah16dpf" path="res://lib/crumb/fish_pool/materials/textures/koi_diff.png" id="1_kpygy"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_kpygy")
+metallic_specular = 0.0
+distance_fade_mode = 2
+distance_fade_min_distance = 8.0
+distance_fade_max_distance = 7.0
