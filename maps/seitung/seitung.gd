@@ -32,6 +32,11 @@ func _ready() -> void:
 			$Landscape/Sea.get_active_material(0).set_shader_parameter("normal_strength", 0.6)
 			for _n in $Decoration/LightRays.get_children(): _n.visible = true
 			update_saturation()
+		elif _cmd == "/rotatesun":
+			if Global.time_of_day == "day":
+				$Sky/Sun.global_rotation_degrees.y += 33.0
+			else:
+				$Sky/SunNight.global_rotation_degrees.y += 33.0
 	)
 
 const OCEAN_Z_MIN = 4.5

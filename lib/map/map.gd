@@ -127,8 +127,6 @@ func _ready() -> void:
 				Global.remove_effect.emit("gravity")
 			else:
 				Global.add_effect.emit("gravity")
-		elif cmd == "/rotatesun":
-			$Sky/Sun.global_rotation_degrees.y += 45.0
 		elif cmd == "/fish":
 			var _f = FishingInstance.instantiate()
 			add_child(_f)

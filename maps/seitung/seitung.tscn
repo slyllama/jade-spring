@@ -183,7 +183,7 @@ shadow_enabled = true
 directional_shadow_blend_splits = true
 
 [node name="Player" parent="." index="1"]
-transform = Transform3D(0.998077, 0, -0.0619893, 0, 1, 0, 0.0619893, 0, 0.998077, -2.96519, 2.9413, 2.49198)
+transform = Transform3D(0.998077, 0, -0.0619893, 0, 1, 0, 0.0619893, 0, 0.998077, -3, 2, 2.5)
 
 [node name="YCast" type="RayCast3D" parent="Player" index="5"]
 visible = false

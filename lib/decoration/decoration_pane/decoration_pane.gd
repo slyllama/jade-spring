@@ -164,8 +164,12 @@ func render(tag = "None", custom_data = []) -> void:
 				_p = "res://decorations/light_ray/light_ray_cursor.glb"
 			$DecoTitle.text = "[center]" + _dl.name + "[/center]"
 			if !_already_loaded:
-				preview.load_model(
-					_p, _dl.preview_scale, _get_y_rotation(_dl)))
+				print("doing this")
+				$Base/PreviewContainer.visible = false
+				await get_tree().process_frame
+				preview.load_model(_p, _dl.preview_scale, _get_y_rotation(_dl))
+				for _i in 3: await get_tree().process_frame
+				$Base/PreviewContainer.visible = true)
 		
 		_c += 1
 	
