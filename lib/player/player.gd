@@ -355,6 +355,25 @@ func _physics_process(delta: float) -> void:
 var _target_jump_anim = 0.0
 
 func _process(delta: float) -> void:
+	if $Camera.axis.spring_length < 0.5:
+		if !Global.in_first_person:
+			Global.in_first_person = true
+			Global.first_person_entered.emit()
+			
+			$PlayerMesh/Stars.visible = false
+			$PlayerMesh/Compendium.visible = false
+			$Spider.visible = false
+	else:
+		if Global.in_first_person:
+			Global.in_first_person = false
+			Global.first_person_left.emit()
+			
+			$PlayerMesh/Stars.visible = true
+			if $PlayerMesh/Compendium.is_open:
+				$PlayerMesh/Compendium.visible = true
+			if "gravity" in Global.current_effects:
+				$Spider.visible = true
+	
 	$PlayerMesh/Stars.global_position = engine_bone.global_position
 	$Camera.popup_open = Global.popup_open
 	$Camera.mouse_in_ui = Global.mouse_in_ui

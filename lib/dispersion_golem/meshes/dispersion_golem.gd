@@ -24,6 +24,9 @@ func _ready() -> void:
 		if _cmd == "/emote":
 			emote())
 	
+	Global.first_person_entered.connect(func(): visible = false)
+	Global.first_person_left.connect(func(): visible = true)
+	
 	visible = false
 	spiral_mat = $Spiral/Spiral.get_active_material(0).duplicate()
 	$Spiral/Spiral.set_surface_override_material(0, spiral_mat)
@@ -44,4 +47,5 @@ func _ready() -> void:
 	await get_tree().process_frame
 	var spiral_tween = create_tween()
 	spiral_tween.tween_method(set_shader_pos, 1.0, -1.0, 1.0)
-	visible = true
+	if !Global.in_first_person:
+		visible = true
