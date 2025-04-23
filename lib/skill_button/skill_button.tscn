@@ -80,6 +80,7 @@ corner_radius_bottom_left = 2
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
+focus_mode = 0
 texture_normal = ExtResource("1_7h740")
 ignore_texture_size = true
 stretch_mode = 0

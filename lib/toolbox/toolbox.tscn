@@ -89,9 +89,14 @@ offset_top = 627.0
 offset_right = 361.0
 offset_bottom = 631.0
 
+[node name="GravityCD" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="clicked" from="Box/Skill1" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill2" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill3" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill4" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill5" to="." method="skill_used"]
 [connection signal="clicked" from="Box/Skill6" to="." method="skill_used"]
+[connection signal="timeout" from="GravityCD" to="." method="_on_gravity_cd_timeout"]

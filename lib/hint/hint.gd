@@ -1,5 +1,6 @@
 class_name HintPanel extends Panel
 
+var can_close = false
 var has_closed = false
 
 func _set_dissolve(value: float) -> void:
@@ -53,6 +54,7 @@ func close() -> void:
 	queue_free()
 
 func _input(_event: InputEvent) -> void:
+	if !can_close: return
 	if Input.is_action_just_pressed("right_click"):
 		close()
 
@@ -61,18 +63,23 @@ func _ready() -> void:
 	material = _mat # unique material
 	
 	$Flash.visible = true
-	
 	await get_tree().process_frame
+	
 	var fade_in = create_tween()
 	fade_in.tween_method(_set_dissolve, 0.0, 1.0, 0.3)
-	
 	var flash_out = create_tween()
 	flash_out.tween_property($Flash, "modulate:a", 0.0, 0.3)
+	flash_out.set_parallel()
+	
+	await fade_in.finished
+	can_close = true
 
 func _on_close_button_button_down() -> void:
+	if !can_close: return
 	Global.click_sound.emit()
 	close()
 
 func _on_dismiss_button_down() -> void:
+	if !can_close: return
 	Global.click_sound.emit()
 	close()

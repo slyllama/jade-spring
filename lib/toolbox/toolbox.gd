@@ -290,6 +290,9 @@ func skill_used(skill_id: String) -> void:
 		"debug_skill":
 			Global.debug_skill_used.emit()
 		"toggle_gravity":
+			$GravityCD.start()
+			if gravity_cd: return
+			gravity_cd = true
 			if "gravity" in Global.current_effects:
 				Global.remove_effect.emit("gravity")
 				Global.ripple.emit()
@@ -303,3 +306,8 @@ func skill_used(skill_id: String) -> void:
 func _process(delta: float) -> void:
 	if _cd > 0:
 		_cd -= delta
+
+var gravity_cd = false
+
+func _on_gravity_cd_timeout() -> void:
+	gravity_cd = false

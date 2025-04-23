@@ -154,6 +154,8 @@ func _ready() -> void:
 		elif cmd == "/giftletter":
 			var _g = GiftLetter.instantiate()
 			Global.hud.get_node("TopLevel").add_child(_g)
+		elif cmd == "/printorphans":
+			print_orphan_nodes()
 		)
 	
 	Save.story_advanced.connect(set_marker_pos)
@@ -201,9 +203,9 @@ func _ready() -> void:
 	
 	Global.cursor_enabled.connect(func(data):
 		await get_tree().process_frame
-		var _cursor = Cursor3D.new()
-		add_child(_cursor)
-		_cursor.activate(data))
+		var cursor = Cursor3D.new()
+		add_child(cursor)
+		cursor.activate(data))
 	
 	# Prevent static bodies from consuming mouse input while decoration
 	# manipulation is active (so the arrows can still be dragged even if the

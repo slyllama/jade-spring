@@ -14,8 +14,8 @@ var rng = RandomNumberGenerator.new()
 		awake = _val
 
 func set_awake(state = awake) -> void:
-	$PoolGadget.active = state
-	$PoolGadget.visible = state
+	#$PoolGadget.active = state
+	#$PoolGadget.visible = state
 	$Ripples/Motes.visible = state
 	$SleepParticles.emitting = !state
 	if state:
@@ -54,7 +54,7 @@ func _update_interact_text() -> void:
 func _on_gadget_interacted() -> void:
 	if !awake:
 		Global.announcement_sent.emit(
-			"These fish are just resting for now")
+			"The koi slumber for now.")
 		return
 	if Save.is_at_story_point("ratchet_gratitude"):
 		if "fish_food" in Global.current_effects:

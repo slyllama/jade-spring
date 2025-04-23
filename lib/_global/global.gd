@@ -277,6 +277,7 @@ func _ready() -> void:
 	Utilities.set_master_vol(0.0)
 	
 	var _d = preload("res://lib/decoration/deco_data.gd").new()
+	add_child(_d)
 	DecoData = _d.DecoData.duplicate(true)
 	load_expn("elegance")
 	load_expn("kryta")

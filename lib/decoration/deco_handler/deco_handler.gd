@@ -94,9 +94,8 @@ func _get_decoration_list() -> Array:
 	return(_decoration_save_data)
 
 func _save_decorations() -> void:
-	if Global.map_name != "seitung":
-		print("[DecoHandler] debug map; not saving.")
-		return
+	if Global.map_name != "seitung": return # not saving
+	
 	var _decoration_save_data = _get_decoration_list()
 	var _file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	_file.store_var(_decoration_save_data)

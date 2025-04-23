@@ -28,6 +28,9 @@ func set_text(get_text: String) -> void:
 	$Copy.text = get_text
 
 func open() -> void:
+	$Container/Title.text = title
+	$Container/Copy.text = copy
+	
 	$PaperSound.play()
 	# Convince gadgets that this is a story panel so that they can't be hovered
 	Global.summon_story_panel.emit({})
