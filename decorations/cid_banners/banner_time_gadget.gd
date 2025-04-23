@@ -14,9 +14,9 @@ const TEST_DIALOGUE = {
 			"dismiss": "Dismiss."
 		}
 	},
-	"rotate": { "reference": "_entry" },
-	"day": { "reference": "_exit" },
-	"night": { "reference": "_exit" },
+	"rotate": { "reference": "_entry", "type": "action" },
+	"day": { "reference": "_exit", "type": "action" },
+	"night": { "reference": "_exit", "type": "action" },
 	"dismiss": { "reference": "_exit" }
 }
 

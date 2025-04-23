@@ -273,6 +273,7 @@ func _on_search_text_changed(new_text: String) -> void:
 		categories.visible = false
 
 func _on_clear_search_button_down() -> void:
+	selected_tag = "None"
 	$Container/SearchContainer/Search.set_text("")
 	last_search_term = ""
 	$Container/TagContainer/TagMenu.text = "None"
