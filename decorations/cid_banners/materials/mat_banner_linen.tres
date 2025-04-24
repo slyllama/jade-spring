@@ -1,8 +1,8 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dlc2204yver4b"]
 
-[ext_resource type="Texture2D" uid="uid://dwm4txivsa808" path="res://decorations/cid_banners/materials/textures/linen_diff.jpg" id="1_lhbjb"]
+[ext_resource type="Texture2D" uid="uid://dbg2mkussdx" path="res://decorations/cid_banners/materials/textures/linen_diff.jpg" id="1_lhbjb"]
 
 [resource]
 albedo_texture = ExtResource("1_lhbjb")
 metallic_specular = 0.15
-uv1_scale = Vector3(1.5, 1.5, 1.5)
+uv1_scale = Vector3(3, 3, 3)

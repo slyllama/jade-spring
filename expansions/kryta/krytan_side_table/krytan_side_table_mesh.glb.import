@@ -35,7 +35,7 @@ _subresources={
 "materials": {
 "mat_cloth": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/cid_banners/materials/mat_banner_linen.tres"
+"use_external/path": "res://maps/seitung/materials/mat_lush_cloth.tres"
 },
 "mat_oak": {
 "use_external/enabled": true,

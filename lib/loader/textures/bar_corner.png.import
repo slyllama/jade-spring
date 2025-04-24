@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbg2mkussdx"
-path.s3tc="res://.godot/imported/linen_diff.jpg-dd0abe852c9765daee99bb88466467ef.s3tc.ctex"
+uid="uid://cya3vqt6dfo8y"
+path="res://.godot/imported/bar_corner.png-cc2e798ac54adac181876828023a9ea4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://decorations/cid_banners/materials/textures/linen_diff.jpg"
-dest_files=["res://.godot/imported/linen_diff.jpg-dd0abe852c9765daee99bb88466467ef.s3tc.ctex"]
+source_file="res://lib/loader/textures/bar_corner.png"
+dest_files=["res://.godot/imported/bar_corner.png-cc2e798ac54adac181876828023a9ea4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -71,19 +71,19 @@ func _process(delta: float) -> void:
 			if Save.first_run:
 				if has_loaded: return
 				has_loaded = true # only once
-				$Bar/ContinueButton.modulate.a = 0.0
+				$ContinueButton.modulate.a = 0.0
 				$Spinner.visible = false
-				$Bar/ContinueButton.visible = true
-				$Bar/ContinueButton.grab_focus()
+				$ContinueButton.visible = true
+				$ContinueButton.grab_focus()
 				
 				var fade_button = create_tween()
-				fade_button.tween_property($Bar/ContinueButton, "modulate:a", 1.0, 0.35)
+				fade_button.tween_property($ContinueButton, "modulate:a", 1.0, 0.35)
 				var fade_bar = create_tween()
 				fade_bar.tween_property($Bar, "self_modulate:a", 0.0, 0.35)
 				
 				var _flash = load("res://lib/flash/flash.tscn").instantiate()
-				_flash.position = ($Bar/ContinueButton.global_position
-					+ Vector2($Bar/ContinueButton.size.x / 2.0, 0))
+				_flash.position = ($ContinueButton.global_position
+					+ Vector2($ContinueButton.size.x / 2.0, 0))
 				add_child(_flash)
 			else:
 				_transition()

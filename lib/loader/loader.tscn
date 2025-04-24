@@ -1,15 +1,68 @@
-[gd_scene load_steps=8 format=3 uid="uid://fqasq1ggshha"]
+[gd_scene load_steps=18 format=3 uid="uid://fqasq1ggshha"]
 
 [ext_resource type="Script" path="res://lib/loader/loader.gd" id="1_kyod5"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_qx7v1"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_stjvc"]
 [ext_resource type="Texture2D" uid="uid://dsouup0n217ja" path="res://lib/loader/textures/keymap.png" id="5_0o7k2"]
+[ext_resource type="Texture2D" uid="uid://blbfpsk5e3r70" path="res://lib/loader/textures/loading_bar_texture.jpg" id="5_80mct"]
+[ext_resource type="Texture2D" uid="uid://cya3vqt6dfo8y" path="res://lib/loader/textures/bar_corner.png" id="5_tcpwq"]
 [ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="5_tj3c3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmvk1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4w2am"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d56j6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gkl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pg8m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83o4o"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x53ic"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5te03"]
+texture = ExtResource("5_80mct")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Animation" id="Animation_ut2me"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wqwce"]
+resource_name = "pulse"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_reekw"]
+_data = {
+"RESET": SubResource("Animation_ut2me"),
+"pulse": SubResource("Animation_wqwce")
+}
 
 [node name="Loader" type="CanvasLayer"]
 script = ExtResource("1_kyod5")
@@ -129,7 +182,32 @@ bbcode_enabled = true
 text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
 scroll_active = false
 
+[node name="ContinueButton" type="Button" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -187.0
+offset_right = 62.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.733333, 0.88, 0.704, 1)
+theme_override_colors/font_color = Color(0.65834, 0.65834, 0.65834, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pmvk1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4w2am")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d56j6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7gkl8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5pg8m")
+text = "Continue"
+
 [node name="Bar" type="ProgressBar" parent="."]
+clip_children = 2
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -141,24 +219,41 @@ offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxEmpty_83o4o")
-theme_override_styles/fill = SubResource("StyleBoxFlat_x53ic")
+theme_override_styles/fill = SubResource("StyleBoxTexture_5te03")
 show_percentage = false
 
-[node name="ContinueButton" type="Button" parent="Bar"]
-visible = false
+[node name="Corner" type="TextureRect" parent="Bar"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 69.0
+offset_bottom = 12.0
+mouse_filter = 2
+texture = ExtResource("5_tcpwq")
+expand_mode = 1
+flip_h = true
+
+[node name="Corner2" type="TextureRect" parent="Bar"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = -49.0
-offset_right = 62.0
-offset_bottom = -22.0
-grow_horizontal = 2
+offset_left = -72.0
+offset_top = -7.0
+offset_bottom = 7.0
+grow_horizontal = 0
 grow_vertical = 2
-text = "Continue"
+mouse_filter = 2
+texture = ExtResource("5_tcpwq")
+expand_mode = 1
+
+[node name="Anim" type="AnimationPlayer" parent="Bar"]
+libraries = {
+"": SubResource("AnimationLibrary_reekw")
+}
+autoplay = "pulse"
 
 [node name="Spinner" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
@@ -166,4 +261,4 @@ position = Vector2(-200, -200)
 scale = Vector2(0.67, 0.67)
 texture = ExtResource("5_tj3c3")
 
-[connection signal="button_down" from="Bar/ContinueButton" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="ContinueButton" to="." method="_on_continue_button_down"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbg2mkussdx"
-path.s3tc="res://.godot/imported/linen_diff.jpg-dd0abe852c9765daee99bb88466467ef.s3tc.ctex"
+uid="uid://cmkmws0qkwo4q"
+path.s3tc="res://.godot/imported/lush_cloth_diff.jpg-92510d29315a818aa190f8ac7b02ee04.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://decorations/cid_banners/materials/textures/linen_diff.jpg"
-dest_files=["res://.godot/imported/linen_diff.jpg-dd0abe852c9765daee99bb88466467ef.s3tc.ctex"]
+source_file="res://maps/seitung/materials/textures/lush_cloth_diff.jpg"
+dest_files=["res://.godot/imported/lush_cloth_diff.jpg-92510d29315a818aa190f8ac7b02ee04.s3tc.ctex"]
 
 [params]
 
