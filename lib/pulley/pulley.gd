@@ -8,25 +8,31 @@ const ScriptData = preload("res://lib/pulley/script.gd")
 # point and (b) the dialogue ID isn't already in Save.dialogue_played.
 const story_point_positions = {
 	# [story point]: [ID] 
-	#"game_start": "intro",
 	"pick_weeds": ["pick_weeds_alt"],
 	"clear_bugs": ["clear_bugs_alt"],
-	"clear_dv": ["dv_charge", "no_dv_charge"],
-	#"ratchet_dv": "dv_intro",
+	"clear_dv": ["no_dv_charge"],
+	"charged_dv": ["dv_charge"],
 	"gratitude": ["raiqqo"]
 }
 
 # Check if the player has seen this dialogue before
 func check_freshness() -> void:
 	var _story_point: String = Save.data.story_point
+	print("[Pulley] Checking freshness for '" + _story_point + "'.")
 	if !_story_point in story_point_positions: return
 	var _in = true
 	for _id in story_point_positions[_story_point]:
 		if !_id in Save.data.dialogue_played:
 			_in = false
 	
+	if !_in:
+		if _story_point == "charged_dv": # if player isn't holding any charged flux
+			if (!"d_zhaitan" in Global.current_effects and !"d_soo_won" in Global.current_effects
+				and !"d_mordremoth" in Global.current_effects and !"d_jormag" in Global.current_effects
+				and !"d_primordus" in Global.current_effects and !"d_kralkatorrik" in Global.current_effects):
+				_in = true
+	
 	$QuestMarker.visible = !_in
-
 
 func _ready() -> void:
 	super()
@@ -36,6 +42,8 @@ func _ready() -> void:
 	$PulleyMesh/AnimationPlayer.play("Base")
 	
 	Save.story_advanced.connect(check_freshness)
+	Global.check_freshness.connect(check_freshness)
+	
 	Global.dialogue_closed.connect(func():
 		await get_tree().process_frame
 		check_freshness())
@@ -60,13 +68,21 @@ func _on_interacted() -> void:
 		spawn_dialogue(ScriptData.clear_bugs_alt_dialogue)
 	elif Save.data.story_point == "ratchet_dv":
 		spawn_dialogue(ScriptData.dv_intro_dialogue, true)
-	
 	elif Save.data.story_point == "clear_dv":
+		spawn_dialogue(ScriptData.no_dv_charge)
+	
+	elif Save.data.story_point == "charged_dv":
+		print("checking this")
 		if ("d_zhaitan" in Global.current_effects or "d_soo_won" in Global.current_effects
 			or "d_mordremoth" in Global.current_effects or "d_jormag" in Global.current_effects
 			or "d_primordus" in Global.current_effects or "d_kralkatorrik" in Global.current_effects):
-			spawn_dialogue(ScriptData.dv_charge)
-		else: spawn_dialogue(ScriptData.no_dv_charge)
+			var _d = Dialogue.instantiate()
+			_d.data = ScriptData.dv_charge
+			Global.hud.add_child(_d)
+			_d.closed.connect(func():
+				if Save.data.story_point == "clear_dv":
+					Save.advance_story())
+			_d.open()
 	
 	elif Save.data.story_point == "ratchet_gratitude":
 		# This needs to be manual so that we can call back to open the letter

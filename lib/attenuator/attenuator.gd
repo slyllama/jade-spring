@@ -218,8 +218,12 @@ func render() -> void:
 					banner_tween.tween_method(_set_banner_value, 0.0, 1.0, 0.2)
 					Global.player.update_golem_effects()
 					
+					if Save.data.story_point == "clear_dv":
+						Save.advance_story()
+					
 					# Play the appropriate success tune (if one exists)
 					await get_tree().create_timer(0.25).timeout
+					Global.check_freshness.emit()
 					if current_dragon in SUCCESS_TUNES:
 						var _success_tune = AudioStreamPlayer.new()
 						_success_tune.stream = SUCCESS_TUNES[current_dragon]

@@ -25,6 +25,7 @@ const STORY_POINTS = [
 	"clear_bugs",
 	"ratchet_dv",
 	"clear_dv",
+	"charged_dv", # used for checking alternate dialogue in story
 	"ratchet_gratitude",
 	"gratitude",
 	"stewardship",
@@ -52,6 +53,10 @@ var STORY_POINT_SCRIPT = {
 		"objective": "Speak to Ratchet about their efforts in solving the Dragonvoid problem."
 	},
 	"clear_dv": {
+		"title": "3. Banishing the Void",
+		"objective": "Attune a coil of Raw Dispersion Flux using Ratchet’s Makeshift Attunement Gadget. Use it to dispel a column of Dragonvoid."
+	},
+	"charged_dv": {
 		"title": "3. Banishing the Void",
 		"objective": "Attune a coil of Raw Dispersion Flux using Ratchet’s Makeshift Attunement Gadget. Use it to dispel a column of Dragonvoid."
 	},
@@ -210,19 +215,20 @@ func _ready() -> void:
 			
 			await get_tree().create_timer(0.5).timeout # delay before the story panel opens
 			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_dv"])
-		elif (Save.data.story_point == "clear_dv"
-			and Global.crumb_handler.totals.dragonvoid - Save.data.crumb_count.dragonvoid >= OBJECTIVE_DV_COUNT):
-			advance_story()
+		elif Save.data.story_point == "clear_dv" or Save.data.story_point == "charged_dv":
+			if Global.crumb_handler.totals.dragonvoid - Save.data.crumb_count.dragonvoid >= OBJECTIVE_DV_COUNT:
+				if Save.data.story_point == "clear_dv": Save.data.story_point = "charged_dv"
+				advance_story()
 			
-			# ACHIEVEMENT - STORY COMPLETION
-			if SteamHandler.get_achievment_completion("story_completion") < 1:
-				print("Qualifies for story completion achievement.")
-				if Save.is_at_story_point("ratchet_gratitude"):
-					SteamHandler.complete_achievement("story_completion")
-					print("Story completion achievement earned!")
-			
-			await get_tree().create_timer(0.5).timeout # delay before the story panel opens
-			Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_gratitude"])
+				# ACHIEVEMENT - STORY COMPLETION
+				if SteamHandler.get_achievment_completion("story_completion") < 1:
+					print("Qualifies for story completion achievement.")
+					if Save.is_at_story_point("ratchet_gratitude"):
+						SteamHandler.complete_achievement("story_completion")
+						print("Story completion achievement earned!")
+				
+				await get_tree().create_timer(0.5).timeout # delay before the story panel opens
+				Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_gratitude"])
 	)
 
 func _notification(what):

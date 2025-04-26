@@ -90,6 +90,11 @@ func _set_buttons_enabled(state: bool) -> void:
 			_n.disabled = !state
 
 func open() -> void:
+	if Global.dialogue_open:
+		print("[Dialogue] Rejected dialogue as one is already open on this frame.")
+		queue_free()
+		return
+	
 	Global.can_move = false
 	Global.dialogue_open = true
 	Global.action_cam_disable.emit()

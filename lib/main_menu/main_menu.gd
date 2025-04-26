@@ -145,7 +145,7 @@ func _ready() -> void:
 
 var update_graphic_position = false # if true, will instantly update graphics (without lerping) on the next frame
 
-const BLUR_LOD = 1.3
+const BLUR_LOD = 1.1
 const BLUR_RATE = 2.0
 var target_bg_blur = 2.0
 @onready var bg_blur = target_bg_blur

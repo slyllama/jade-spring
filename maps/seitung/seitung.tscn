@@ -266,7 +266,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41485, 0.0422199, 9.9929)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53779, 0.605422, 7.24115)
 
 [node name="BugSwarm" parent="CrumbHandler" index="20" instance=ExtResource("7_gcgfd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.70683, 0.698459, 8.58063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.70683, 0.698459, 9.30504)
 
 [node name="BugSwarm2" parent="CrumbHandler" index="21" instance=ExtResource("7_gcgfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124689, 1.05133, 10.8447)

@@ -71,6 +71,7 @@ signal announcement_sent(get_text)
 signal bindings_updated
 signal bug_crumb_entered
 signal bug_crumb_left
+signal check_freshness # force Ratchet to check their story freshness
 signal click_sound
 signal crumbs_updated
 signal command_sent(string)

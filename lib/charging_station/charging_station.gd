@@ -9,9 +9,7 @@ func _update_interact_text() -> void:
 			Global.interact_hint = "Attune"
 
 func proc_story() -> void:
-	var _sp = Save.data.story_point
-	if (_sp == "clear_dv" or _sp == "gratitude"
-		or _sp == "ratchet_gratitude" or _sp == "stewardship"):
+	if Save.is_at_story_point("clear_dv"):
 		visible = true
 		active = true
 	else:

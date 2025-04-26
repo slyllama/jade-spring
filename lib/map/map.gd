@@ -75,6 +75,7 @@ func set_marker_pos() -> void: # set the position of the story marker
 		"clear_bugs": $StoryMarker.global_position = $Discombobulator/SpatialText.global_position - Vector3(0, 1.9, 0)
 		"ratchet_dv": $StoryMarker.position = $Pulley.position
 		"clear_dv": $StoryMarker.position = $ChargingStation.position + Vector3(-0.4, 0, 0)
+		"charged_dv": $StoryMarker.position = $ChargingStation.position + Vector3(-0.4, 0, 0)
 		"ratchet_gratitude": $StoryMarker.position = $Pulley.position
 		"gratitude": $StoryMarker.position = HIDDEN_POS
 		"stewardship": $StoryMarker.position = HIDDEN_POS # hide under map
