@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dgjgapvo7o75i" path="res://decorations/eepy_fence/warped_fence.glb" id="2_f7iuc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxwle"]
-size = Vector3(4.17578, 1.14984, 0.383789)
+size = Vector3(4.17578, 1.14984, 0.131836)
 
 [node name="DecoEepyFence" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_igumc")
@@ -16,7 +16,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58316, 0.0582543)
+transform = Transform3D(1, 0, 0, 0, 0.993758, -0.111556, 0, 0.111556, 0.993758, 0, 0.58316, 0.0582543)
 shape = SubResource("BoxShape3D_qxwle")
 
 [node name="WarpedFence" parent="." instance=ExtResource("2_f7iuc")]

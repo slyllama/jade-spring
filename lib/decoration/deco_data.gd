@@ -362,6 +362,14 @@ const DecoData = {
 		"preview_v_offset": -0.2,
 		"tags": ["Foliage"]
 	},
+	"drizzlewood_shrub": {
+		"name": "Drizzlewood Shrub",
+		"scene": "res://decorations/drizzlewood_shrub/drizzlewood_shrub.tscn",
+		"cursor_model": "res://decorations/drizzlewood_shrub/drizzlewood_shrub.glb",
+		"preview_scale": 1.1,
+		"preview_v_offset": -0.2,
+		"tags": ["Foliage"]
+	},
 	"autumnal_tree": {
 		"name": "Autumnal Tree",
 		"scene": "res://decorations/autumnal_tree/deco_autumnal_tree.tscn",

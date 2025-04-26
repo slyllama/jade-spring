@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=91 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -52,6 +52,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
 [ext_resource type="PackedScene" uid="uid://c2skr78sqgxln" path="res://decorations/rocket/deco_rocket.tscn" id="37_qek03"]
 [ext_resource type="PackedScene" uid="uid://dgxqwx2186efc" path="res://decorations/flower_patch/deco_blue_flowers.tscn" id="37_wlchm"]
+[ext_resource type="PackedScene" uid="uid://ebeyhxmk6bc1" path="res://decorations/drizzlewood_shrub/drizzlewood_shrub.tscn" id="38_b76kw"]
 [ext_resource type="PackedScene" uid="uid://cugqflilfm1ps" path="res://decorations/rocks/pancake_rocks.glb" id="38_rijwn"]
 [ext_resource type="PackedScene" uid="uid://y8jctjwecoos" path="res://decorations/roof_pavilion/roof_pavilion.tscn" id="39_anqa6"]
 [ext_resource type="PackedScene" uid="uid://dmqlnx8l6lfhf" path="res://decorations/flower_patch/deco_yellow_flowers.tscn" id="42_h33ht"]
@@ -852,6 +853,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39738, 3.47498, -3.30966)
 
 [node name="Rocket" parent="DecoHandler" index="136" instance=ExtResource("37_qek03")]
 transform = Transform3D(-1.11772, 0, -0.436682, 0, 1.2, 0, 0.436682, 0, -1.11772, -0.570524, -1.83838, 17.0443)
+
+[node name="DrizzlewoodShrub" parent="DecoHandler" index="137" instance=ExtResource("38_b76kw")]
+transform = Transform3D(1.435, 0, 0, 0, 1.435, 0, 0, 0, 1.435, -9.86417, 0.898026, 0.117653)
+
+[node name="DrizzlewoodShrub2" parent="DecoHandler" index="138" instance=ExtResource("38_b76kw")]
+transform = Transform3D(0.657944, 0, 1.54037, 0, 1.675, 0, -1.54037, 0, 0.657944, -12.2894, 1.02265, 1.94541)
 
 [node name="PancakeRocks" parent="Decoration" index="0" instance=ExtResource("38_rijwn")]
 transform = Transform3D(1.98271, 0.196091, 0.174417, 0, 1.32921, -1.49439, -0.262437, 1.48147, 1.31772, -8.55051, 2.60614, -13.8208)
