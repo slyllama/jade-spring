@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcdukpdiq4241"
+uid="uid://dba487hwtk4wf"
 path="res://.godot/imported/wall.glb-c3365e75492c8c2b38e2b6792a4df481.scn"
 
 [deps]
@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/wall.glb-c3365e75492c8c2b38e2b6792a4df481.scn
 [params]
 
 nodes/root_type=""
-nodes/root_name="Wall"
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -44,10 +44,6 @@ _subresources={
 "mat_wall_ornament": {
 "use_external/enabled": true,
 "use_external/path": "res://decorations/test_wall/materials/mat_wall_ornament.tres"
-},
-"wall_lod": {
-"use_external/enabled": true,
-"use_external/path": "res://decorations/test_wall/materials/mat_wall_lod.tres"
 }
 }
 }
