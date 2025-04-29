@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cknccdf2rvyk8"]
+[gd_scene load_steps=20 format=3 uid="uid://cknccdf2rvyk8"]
 
 [ext_resource type="Script" path="res://lib/crumb/dragonvoid.gd" id="1_xg3mb"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="2_xs588"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="6_hdk5x"]
 [ext_resource type="Texture2D" uid="uid://b1cawde2nbycs" path="res://generic/textures/collection_icon.png" id="8_l0y0y"]
 [ext_resource type="AudioStream" uid="uid://cure3oyp5314s" path="res://lib/crumb/dragonvoid/sounds/blight.ogg" id="9_lggxj"]
+[ext_resource type="AudioStream" uid="uid://cojngchumnq2x" path="res://lib/crumb/sounds/dv_ambience.ogg" id="10_0uf6v"]
 
 [sub_resource type="Curve" id="Curve_mmsoi"]
 _data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
@@ -140,6 +141,16 @@ clip_contents = false
 [node name="Blight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_lggxj")
 volume_db = -2.0
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.999519, -0.0310096, 0, 0.0310096, 0.999519, 0, 0, 0, 1, 0, 1, 0)
+stream = ExtResource("10_0uf6v")
+volume_db = 2.0
+max_db = 4.0
+pitch_scale = 1.1
+autoplay = true
+max_distance = 4.2
+attenuation_filter_cutoff_hz = 10000.0
 
 [connection signal="interacted" from="." to="." method="interact"]
 
