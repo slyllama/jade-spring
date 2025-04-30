@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwjxbhqhdxptd"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_w7kpg"]
+[ext_resource type="PackedScene" uid="uid://cscurunw8an0o" path="res://decorations/happy_cloud/happy_cloud.glb" id="2_dxtu1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfith"]
+size = Vector3(2.92578, 0.798828, 1.08008)
+
+[node name="HappyCloud" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_w7kpg")
+id = "happy_cloud"
+collision_box = NodePath("Body")
+
+[node name="HappyCloudMesh" parent="." instance=ExtResource("2_dxtu1")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0126953, 0.0654297, 0.0478516)
+shape = SubResource("BoxShape3D_xfith")

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c8ptxggjx2d5h"]
+
+[ext_resource type="Texture2D" uid="uid://b0mantkkfnvw4" path="res://decorations/happy_cloud/materials/textures/sab_norm.jpg" id="1_hbmny"]
+[ext_resource type="Texture2D" uid="uid://cx8r6hjx1ogua" path="res://decorations/happy_cloud/materials/textures/sab_diff.jpg" id="1_s5bkv"]
+
+[resource]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+albedo_texture = ExtResource("1_s5bkv")
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("1_hbmny")
+uv1_scale = Vector3(3, 3, 3)

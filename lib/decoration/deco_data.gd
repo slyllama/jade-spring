@@ -8,6 +8,14 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"happy_cloud": {
+		"name": "Happy Cloud",
+		"scene": "res://decorations/happy_cloud/happy_cloud.tscn",
+		"cursor_model": "res://decorations/happy_cloud/happy_cloud.glb",
+		"preview_scale": 0.8,
+		"preview_y_rotation": 180,
+		"tags": ["Architecture"]
+	},
 	"rata_sum_slab": {
 		"name": "Rata Sum Slab",
 		"scene": "res://decorations/rata_sum/slab/rata_sum_slab.tscn",
