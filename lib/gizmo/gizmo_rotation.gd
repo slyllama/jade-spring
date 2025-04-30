@@ -118,15 +118,15 @@ func _ready() -> void:
 	# Replace the imported StaticBody3D with an Area3D
 	# (Could've instanced the important scene but whatever, LMAO)
 	var _area = Area3D.new()
-	_area.add_child(rotate_visual.get_node("Cylinder/CollisionShape3D").duplicate(true))
+	_area.add_child(rotate_visual.get_node("Collision/CollisionShape3D").duplicate(true))
 	_area.set_collision_layer_value(1, false)
 	_area.set_collision_layer_value(5, true)
 	_area.set_collision_mask_value(1, false)
 	_area.set_collision_mask_value(5, true)
-	rotate_visual.get_node("Cylinder").queue_free()
+	rotate_visual.get_node("Collision").queue_free()
 	rotate_visual.add_child(_area)
 	
-	axis_stick.size = Vector3(0.02, 50.0, 0.02)
+	axis_stick.size = Vector3(0.01, 50.0, 0.01)
 	axis_stick.material_override = mat
 	rotate_visual.add_child(axis_stick)
 	axis_stick.visible = false
