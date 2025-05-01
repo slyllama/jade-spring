@@ -64,6 +64,7 @@ func spawn_karma(amount: int, orb_position: Vector3, radius = 1.0) -> void:
 		await get_tree().create_timer(0.025).timeout
 
 func _input(_event: InputEvent) -> void:
+	if !Global.debug_allowed: return
 	if Input.is_action_just_pressed("toggle_debug"):
 		Global.debug_enabled = !Global.debug_enabled
 		Global.debug_toggled.emit()

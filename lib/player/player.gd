@@ -82,6 +82,7 @@ func play_hearts() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug_action"):
+		if !Global.debug_allowed: return
 		$PlayerMesh.visible = !$PlayerMesh.visible
 	
 	if Input.is_action_just_pressed("sprint"):

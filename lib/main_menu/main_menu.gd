@@ -72,6 +72,7 @@ func play() -> void:
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
 func _input(_event: InputEvent) -> void:
+	if !Global.debug_allowed: return
 	if Input.is_action_just_pressed("debug_action"):
 		if !can_interact or ngc_open: return
 		Global.load_debug_next = true
@@ -79,6 +80,8 @@ func _input(_event: InputEvent) -> void:
 		play()
 
 func _ready() -> void:
+	if Global.debug_allowed: $DebugLabel.visible = true
+	
 	# Clear lingering effects which shouldn't be persistent
 	for _fx in Global.current_effects:
 		Global.current_effects.erase("discombobulator")

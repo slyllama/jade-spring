@@ -14,6 +14,9 @@ func open(silent = false) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if !Global.debug_allowed:
+		$Container/CScroll/CBox/ResetBox.visible = false
+	
 	for _a in SteamHandler.AchievementsList:
 		var _ab = AchievementBox.instantiate()
 		_ab.achievement_id = _a

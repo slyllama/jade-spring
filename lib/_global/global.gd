@@ -1,6 +1,7 @@
 extends Node
 
 var start_params = { "new_save" = false }
+var debug_allowed = false
 
 const SPAWN_RADIUS = 2.0 # protect area around spawn point
 var rng = RandomNumberGenerator.new()
@@ -276,6 +277,15 @@ func load_expn(id: String) -> void:
 		DecoData[_d] = expn_data[_d]
 
 ##### Execution
+
+func _init() -> void:
+	var debug_cmd = false
+	var args = Array(OS.get_cmdline_args())
+	if args.has("--debug=true"):
+		debug_cmd = true
+	if OS.is_debug_build() or debug_cmd:
+		debug_allowed = true
+	else: debug_allowed = false
 
 func _ready() -> void:
 	Utilities.set_master_vol(0.0)

@@ -16,6 +16,7 @@ func set_holo_exponent(val: float) -> void:
 	holo_material.set_shader_parameter("alpha", val)
 
 func _input(_event: InputEvent) -> void:
+	if !Global.debug_allowed: return
 	if Input.is_action_just_pressed("debug_action"):
 		if "gravity" in Global.current_effects:
 			if visible: visible = false
