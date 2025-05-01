@@ -62,9 +62,10 @@ func update_crumb_count() -> void:
 	if get_remaining() == 0:
 		# Gift letter and story advancing
 		if "gratitude" in Save.data.story_point:
-			var _g = GiftLetter.instantiate()
-			_g.set_text("((Game completion!))")
-			Global.hud.get_node("TopLevel").add_child(_g)
+			# TODO: game completion happens here
+			#var _g = GiftLetter.instantiate()
+			#_g.set_text("((Game completion!))")
+			#Global.hud.get_node("TopLevel").add_child(_g)
 			if Save.data.story_point == "ratchet_gratitude":
 				Save.data.story_point = "gratitude" # skip to the correct story step if we're behind
 			Save.advance_story()

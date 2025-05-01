@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=32 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -21,21 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://d33ilqq0c1mwg" path="res://lib/main_menu/new_game_container.tscn" id="12_0oh4d"]
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="14_n67d6"]
 [ext_resource type="AudioStream" uid="uid://cmphyt1yte74c" path="res://generic/sounds/swish.ogg" id="19_lck14"]
-
-[sub_resource type="Shader" id="Shader_g5c8m"]
-code = "shader_type canvas_item;
-
-uniform float lod: hint_range(0.0, 5) = 0.0;
-
-void fragment(){
-	vec4 color = textureLod(TEXTURE, UV, lod);
-	COLOR = color;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vihuq"]
-shader = SubResource("Shader_g5c8m")
-shader_parameter/lod = 1.0
 
 [sub_resource type="Curve" id="Curve_2imnw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -105,19 +90,7 @@ _data = {
 "glow": SubResource("Animation_oi65x")
 }
 
-[sub_resource type="Shader" id="Shader_rwrvn"]
-code = "shader_type canvas_item;
-
-uniform float lod: hint_range(0.0, 5) = 0.0;
-
-void fragment(){
-	vec4 color = textureLod(TEXTURE, UV, lod);
-	COLOR = color;
-}"
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7pqmc"]
-shader = SubResource("Shader_rwrvn")
-shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_furok"]
 content_margin_right = 40.0
@@ -138,9 +111,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Raiqqo" type="Sprite2D" parent="."]
-self_modulate = Color(0.45, 0.45, 0.45, 1)
 texture_filter = 4
-material = SubResource("ShaderMaterial_vihuq")
 position = Vector2(652, 363)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_bh8me")
@@ -163,7 +134,6 @@ libraries = {
 autoplay = "glow"
 
 [node name="RaiqqoFG" type="Sprite2D" parent="."]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_filter = 4
 material = SubResource("ShaderMaterial_7pqmc")
 position = Vector2(640, 360)

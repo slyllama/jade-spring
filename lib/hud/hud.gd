@@ -271,4 +271,4 @@ func _on_debug_entry_mouse_exited() -> void:
 	Global.mouse_in_ui = false
 
 func _on_report_bug_button_down() -> void:
-	OS.shell_open("https://slyllama.net")
+	OS.shell_open("https://slyllama.net/ticket/")

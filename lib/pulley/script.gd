@@ -232,3 +232,17 @@ const raiqqo_dialogue = {
 		"reference": "_exit"
 	}
 }
+
+const gift = {
+	"id": "gift",
+	"title": "Ratchet",
+	"_entry": {
+		"string": "((Receive gift.))",
+		"options": {
+			"exit": "((Receive gift.))"
+		}
+	},
+	"exit": {
+		"reference": "_exit"
+	}
+}

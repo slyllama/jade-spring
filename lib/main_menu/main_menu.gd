@@ -145,28 +145,10 @@ func _ready() -> void:
 
 var update_graphic_position = false # if true, will instantly update graphics (without lerping) on the next frame
 
-const BLUR_LOD = 1.1
-const BLUR_RATE = 2.0
-var target_bg_blur = 2.0
-@onready var bg_blur = target_bg_blur
-var target_fg_blur = 0.0
-@onready var fg_blur = target_fg_blur
-
 func _process(delta: float) -> void:
 	var _screen_center = get_viewport().size / 2.0 / Global.retina_scale
 	var _mouse_offset = _screen_center - get_viewport().get_mouse_position()
 	var _parallax_offset = _mouse_offset / Vector2(get_viewport().size) * Vector2(2.0, 0.6)
-	
-	bg_blur = lerp(bg_blur, target_bg_blur, Utilities.critical_lerp(delta, BLUR_RATE))
-	fg_blur = lerp(fg_blur, target_fg_blur, Utilities.critical_lerp(delta, BLUR_RATE))
-	$Raiqqo.material.set_shader_parameter("lod", bg_blur)
-	$RaiqqoFG.material.set_shader_parameter("lod", fg_blur)
-	if _mouse_offset.y < 0:
-		target_bg_blur = BLUR_LOD
-		target_fg_blur = 0.0
-	else:
-		target_bg_blur = 0.0
-		target_fg_blur = BLUR_LOD
 	
 	if update_graphic_position:
 		$Raiqqo.global_position = _screen_center + _parallax_offset * 3.0

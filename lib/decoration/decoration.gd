@@ -173,7 +173,7 @@ func apply_adjustment() -> void:
 		if collision_box:
 			collision_box.set_collision_layer_value(2, 1)
 		else:
-			print("[WARNING] collision box unassigned for " + str(id) + ".")
+			print("[Decoration] Collision box unassigned for " + str(id) + ".")
 		Global.command_sent.emit("/savedeco")
 	
 	await get_tree().process_frame

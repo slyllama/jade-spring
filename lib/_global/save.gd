@@ -16,7 +16,8 @@ const RATCHET_SECONDARY_DIALOGUE = [
 	"clear_bugs_alt",
 	"no_dv_charge",
 	"dv_charge",
-	"raiqqo"
+	"raiqqo",
+	"gift"
 ]
 
 const STORY_POINTS = [
@@ -71,6 +72,7 @@ var STORY_POINT_SCRIPT = {
 	},
 	"stewardship": {
 		"title": "5. Stewardship",
+		"description": "Thanks to your efforts (and Ratchet's diligent supervision), the mists of the Jade Spring now rest in wholeness and health. Raiqqo is away on his travels, but has left a small token of his appreciation with Ratchet.",
 		"objective": "((Stewardship.))"
 	},
 	"debug": {
@@ -222,10 +224,10 @@ func _ready() -> void:
 			
 				# ACHIEVEMENT - STORY COMPLETION
 				if SteamHandler.get_achievment_completion("story_completion") < 1:
-					print("Qualifies for story completion achievement.")
+					print("[Save] Qualifies for story completion achievement.")
 					if Save.is_at_story_point("ratchet_gratitude"):
 						SteamHandler.complete_achievement("story_completion")
-						print("Story completion achievement earned!")
+						print("[Save] Story completion achievement earned!")
 				
 				await get_tree().create_timer(0.5).timeout # delay before the story panel opens
 				Global.summon_story_panel.emit(STORY_POINT_SCRIPT["ratchet_gratitude"])

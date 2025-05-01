@@ -12,27 +12,37 @@ const story_point_positions = {
 	"clear_bugs": ["clear_bugs_alt"],
 	"clear_dv": ["no_dv_charge"],
 	"charged_dv": ["dv_charge"],
-	"gratitude": ["raiqqo"]
+	"gratitude": ["raiqqo"],
+	"stewardship": ["gift"]
 }
 
 # Check if the player has seen this dialogue before
 func check_freshness() -> void:
 	var _story_point: String = Save.data.story_point
-	print("[Pulley] Checking freshness for '" + _story_point + "'.")
 	if !_story_point in story_point_positions: return
 	var _in = true
 	for _id in story_point_positions[_story_point]:
 		if !_id in Save.data.dialogue_played:
 			_in = false
-	
 	if !_in:
 		if _story_point == "charged_dv": # if player isn't holding any charged flux
 			if (!"d_zhaitan" in Global.current_effects and !"d_soo_won" in Global.current_effects
 				and !"d_mordremoth" in Global.current_effects and !"d_jormag" in Global.current_effects
 				and !"d_primordus" in Global.current_effects and !"d_kralkatorrik" in Global.current_effects):
 				_in = true
-	
 	$QuestMarker.visible = !_in
+
+func check_dialogue_achieved() -> void:
+	if !Save.data.story_point == "stewardship": return
+	var _all_dialogue_achieved = true
+	for _id in story_point_positions:
+		for _i in story_point_positions[_id]:
+			if !_i in Save.data.dialogue_played:
+				_all_dialogue_achieved = false
+	if _all_dialogue_achieved:
+		print("[Pulley] All secondary dialogue read (I checked)!")
+		if SteamHandler.get_achievment_completion("my_friend_ratchet") == 0:
+			SteamHandler.complete_achievement("my_friend_ratchet")
 
 func _ready() -> void:
 	super()
@@ -72,7 +82,6 @@ func _on_interacted() -> void:
 		spawn_dialogue(ScriptData.no_dv_charge)
 	
 	elif Save.data.story_point == "charged_dv":
-		print("checking this")
 		if ("d_zhaitan" in Global.current_effects or "d_soo_won" in Global.current_effects
 			or "d_mordremoth" in Global.current_effects or "d_jormag" in Global.current_effects
 			or "d_primordus" in Global.current_effects or "d_kralkatorrik" in Global.current_effects):
@@ -100,14 +109,14 @@ func _on_interacted() -> void:
 		var _d = Dialogue.instantiate()
 		_d.data = ScriptData.raiqqo_dialogue
 		Global.hud.add_child(_d)
+		_d.open()
+	
+	elif Save.data.story_point == "stewardship":
+		var _d = Dialogue.instantiate()
+		_d.data = ScriptData.gift
+		Global.hud.add_child(_d)
 		_d.closed.connect(func():
-			if !Save.data.story_point == "gratitude": return
-			var _all_dialogue_achieved = true
-			for _id in story_point_positions:
-				for _i in story_point_positions[_id]:
-					if !_i in Save.data.dialogue_played:
-						_all_dialogue_achieved = false
-			if _all_dialogue_achieved:
-				if SteamHandler.get_achievment_completion("my_friend_ratchet") == 0:
-					SteamHandler.complete_achievement("my_friend_ratchet"))
+			check_dialogue_achieved()
+			if Save.data.story_point == "stewardship":
+				SettingsHandler.update("show_gift_item", "show"))
 		_d.open()
