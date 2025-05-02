@@ -25,7 +25,7 @@ void fragment() {
 		smoothstep(ripple_size - 0.2, ripple_size - 0.1, length(scaled_uv - ripple_center));
 	vec2 disp = normalize(scaled_uv - ripple_center) * ripple_force * mask;
 	//COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
-	
+
 	vec2 r_displacement = vec2(0.0, displacement);
 	vec2 g_displacement = vec2(displacement, 0.0);
 	vec2 b_displacement = vec2(-displacement, 0.0);
@@ -33,7 +33,7 @@ void fragment() {
 	float r = texture(SCREEN_TEXTURE, SCREEN_UV - disp + vec2(SCREEN_PIXEL_SIZE * r_displacement), 0.0).r;
 	float g = texture(SCREEN_TEXTURE, SCREEN_UV - disp + vec2(SCREEN_PIXEL_SIZE * g_displacement), 0.0).g;
 	float b = texture(SCREEN_TEXTURE, SCREEN_UV - disp + vec2(SCREEN_PIXEL_SIZE * b_displacement), 0.0).b;
-	
+
 	COLOR = vec4(r, g, b, 1.0);
 	COLOR = mix(COLOR, vec4(1.0, 1.0, 1.0, 1.0), texture(grain_mask, UV).r * grain_strength);
 	float vignette = circle(UV, vignette_midpoint, vignette_feather);
