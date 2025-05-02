@@ -240,6 +240,7 @@ func _on_menu_about_to_popup() -> void:
 	Global.popup_open = true
 
 func _on_unlock_button_down() -> void:
+	$UnlockSound.play()
 	Save.subtract_karma(Global.DecoData[current_id].unlock_value)
 	Save.data.unlocked_decorations.append(current_id)
 	Save.save_to_file()

@@ -8,14 +8,25 @@ const JADE_SOUNDS = [
 	preload("res://lib/player/sounds/jade_sound_8.ogg"),
 	preload("res://lib/player/sounds/jade_sound_5.ogg"),
 	preload("res://lib/player/sounds/jade_sound_7.ogg"),
-	preload("res://lib/player/sounds/jade_sound_6.ogg")
+	preload("res://lib/player/sounds/jade_sound_6.ogg"),
+	preload("res://lib/player/sounds/jade_sound_9.ogg"),
+	preload("res://lib/player/sounds/jade_sound_10.ogg"),
+	preload("res://lib/player/sounds/jade_sound_11.ogg"),
+	preload("res://lib/player/sounds/jade_sound_12.ogg"),
+	preload("res://lib/player/sounds/jade_sound_13.ogg"),
+	preload("res://lib/player/sounds/jade_sound_14.ogg"),
+	preload("res://lib/player/sounds/jade_sound_15.ogg"),
+	preload("res://lib/player/sounds/jade_sound_16.ogg"),
+	preload("res://lib/player/sounds/jade_sound_17.ogg"),
+	preload("res://lib/player/sounds/jade_sound_18.ogg"),
+	preload("res://lib/player/sounds/jade_sound_19.ogg"),
 ]
 
-const SPRINT_SOUNDS = [
-	preload("res://lib/player/sounds/jade_sprint_1.ogg"),
-	preload("res://lib/player/sounds/jade_sprint_2.ogg"),
-	preload("res://lib/player/sounds/jade_sprint_4.ogg"),
-	preload("res://lib/player/sounds/jade_sprint_5.ogg")
+@onready var SPRINT_SOUNDS = [
+	load("res://lib/player/sounds/jade_sprint_1.ogg"),
+	load("res://lib/player/sounds/jade_sprint_2.ogg"),
+	load("res://lib/player/sounds/jade_sprint_4.ogg"),
+	load("res://lib/player/sounds/jade_sprint_5.ogg")
 ]
 
 var rng = RandomNumberGenerator.new()
@@ -42,7 +53,10 @@ func play_jade_sound() -> void:
 	
 	var sound = AudioStreamPlayer.new()
 	sound.stream = JADE_SOUNDS[_ind]
-	sound.volume_db = linear_to_db(0.4)
+	if _ind >= 9: # accomodate different recording conditions
+		sound.volume_db = linear_to_db(0.54)
+	else:
+		sound.volume_db = linear_to_db(0.4)
 	sound.pitch_scale = 0.8 + 0.4 * rng.randf()
 	add_child(sound)
 	
@@ -103,6 +117,7 @@ func toggle_gift_visibility(state: bool) -> void:
 	$PlayerMesh/JadeArmature/Skeleton3D/PlushTail.visible = state
 
 func _ready() -> void:
+	SPRINT_SOUNDS.append_array(JADE_SOUNDS)
 	toggle_gift_visibility(false)
 	$Spider/AnimationPlayer.play("walk")
 	

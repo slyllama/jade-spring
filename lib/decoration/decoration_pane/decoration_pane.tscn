@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=23 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dn34df7xwhjf1" path="res://lib/decoration/decoration_pane/textures/category_rata_sum_hover.png" id="13_xbt47"]
 [ext_resource type="Texture2D" uid="uid://dyq1g7mobp533" path="res://lib/decoration/decoration_pane/textures/category_kryta.png" id="14_jtxkh"]
 [ext_resource type="Texture2D" uid="uid://dqbketio46o2g" path="res://lib/decoration/decoration_pane/textures/category_kryta_hover.png" id="15_4v3ny"]
+[ext_resource type="AudioStream" uid="uid://bqqopjd3412kv" path="res://generic/sounds/play_dialogue.ogg" id="18_4fup5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -354,6 +355,9 @@ expand_mode = 1
 [node name="LoadOnTimeout" type="Timer" parent="." index="7"]
 wait_time = 0.2
 one_shot = true
+
+[node name="UnlockSound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource("18_4fup5")
 
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
 [connection signal="focus_entered" from="Container/SearchContainer/Search" to="." method="_on_search_focus_entered"]
