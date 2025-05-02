@@ -12,6 +12,14 @@ const DRAGONS = ["kralkatorrik", "soo_won", "primordus", "jormag", "zhaitan", "m
 var totals = {}
 var RNG = RandomNumberGenerator.new()
 
+func get_dv_types() -> Array:
+	var types = []
+	for _n: Crumb in get_children():
+		if _n.type == "dragonvoid":
+			if !_n.custom_data in types:
+				types.append(_n.custom_data)
+	return(types)
+
 # Save crumb types and positions to file
 func save_crumbs() -> void:
 	if Global.map_name == "debug": return

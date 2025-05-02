@@ -257,6 +257,16 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
+[node name="IsOnMap" type="RichTextLabel" parent="Base/ControlContainer"]
+modulate = Color(0.762496, 0.944031, 0.466318, 1)
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/line_separation = -4
+bbcode_enabled = true
+text = "[center]Detected In Garden[/center]"
+fit_content = true
+scroll_active = false
+
 [node name="Close" type="Button" parent="Base/ControlContainer"]
 layout_mode = 2
 size_flags_vertical = 10

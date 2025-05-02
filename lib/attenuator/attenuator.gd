@@ -61,6 +61,7 @@ var succeeded = false
 var has_closed = false
 var moused_note_y_pos = 0.0
 var cursor_key: HBoxContainer # the current key the cursor is highlighting
+var session_types = [] # Dragonvoid types on the map
 
 @onready var glyph_box: TextureRect = $Base/ControlContainer/GlyphContainer
 
@@ -134,6 +135,14 @@ func _reset_dim() -> void: # reset fail-state dim to original
 		0.0, 0.1)
 
 func render() -> void:
+	session_types = Global.crumb_handler.get_dv_types()
+	if current_dragon in session_types:
+		$Base/ControlContainer/IsOnMap.text = "[center]Sensor Status: Detected[/center]"
+		$Base/ControlContainer/IsOnMap.modulate = Color("c2f177")
+	else:
+		$Base/ControlContainer/IsOnMap.text = "[center]Sensor Status: Not Detected[/center]"
+		$Base/ControlContainer/IsOnMap.modulate = Color("8f5e6e")
+	
 	# Reset from success state
 	$Base/ControlContainer/ArrowBox/Previous.disabled = false
 	$Base/ControlContainer/ArrowBox/Next.disabled = false
