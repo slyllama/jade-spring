@@ -288,6 +288,13 @@ func _init() -> void:
 	else: debug_allowed = false
 
 func _ready() -> void:
+	if !Engine.is_editor_hint():
+		DiscordRPC.app_id = 1367709882530140191
+		DiscordRPC.register_steam(3561310)
+		DiscordRPC.state = "In Menu"
+		DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+		DiscordRPC.refresh()
+	
 	Utilities.set_master_vol(0.0)
 	
 	var _d = preload("res://lib/decoration/deco_data.gd").new()

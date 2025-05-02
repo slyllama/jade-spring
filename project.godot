@@ -28,6 +28,7 @@ Utilities="*res://lib/_global/utilities.gd"
 SettingsHandler="*res://lib/settings_handler/settings_handler.tscn"
 Save="*res://lib/_global/save.gd"
 SteamHandler="*res://lib/_global/steam_handler.tscn"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [debug]
 
@@ -46,7 +47,7 @@ movie_writer/movie_file="D:/Repos/seitung-spring-clean/build/out.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/mmo_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/mmo_camera/plugin.cfg")
 
 [filesystem]
 

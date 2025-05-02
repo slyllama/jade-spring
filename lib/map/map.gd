@@ -21,7 +21,6 @@ func update_saturation() -> void:
 	$Sky.environment.adjustment_saturation = _s
 
 func fire_ping(count = 1) -> void:
-	$Jukebox/Ping.play()
 	var dist_lookup = {}
 	var dist_table = []
 	for _c: Node3D in $CrumbHandler.get_children():
@@ -32,6 +31,9 @@ func fire_ping(count = 1) -> void:
 		dist_lookup[_d] = _c
 		dist_table.append(_d)
 	dist_table.sort()
+	
+	if dist_table.size() <= 1: return
+	$Jukebox/Ping.play()
 	for _d in count:
 		if count > dist_table.size():
 			continue # don't do anything when there aren't enough crumbs left
@@ -91,6 +93,10 @@ func _ready() -> void:
 	Global.dialogue_open = false # reset
 	Global.assigned_karma = 0
 	Global.spawn_karma.connect(spawn_karma)
+	
+	if !Engine.is_editor_hint():
+		DiscordRPC.state = "Gardening and Building"
+		DiscordRPC.refresh()
 	
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/time=night":

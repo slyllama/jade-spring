@@ -82,6 +82,11 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	if Global.debug_allowed: $DebugLabel.visible = true
 	
+	if !Engine.is_editor_hint():
+		DiscordRPC.state = "In Menu"
+		DiscordRPC.details = ""
+		DiscordRPC.refresh()
+	
 	# Clear lingering effects which shouldn't be persistent
 	for _fx in Global.current_effects:
 		Global.current_effects.erase("discombobulator")

@@ -1,6 +1,8 @@
 addons/godot-jolt
+addons/discord-rpc-gd
 .godot/
 build/*
 *.tmp
 bus.tres
 export_presets.cfg
+
