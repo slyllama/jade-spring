@@ -5,6 +5,7 @@ extends CanvasLayer
 signal completed
 signal canceled
 
+@export var preload_mode = false # if true, plays without sound or tutorial
 @export var width = 250.0
 @export var threshold = 35.0
 @export var move_speed = 1.95
@@ -54,7 +55,8 @@ func end(instant = false):
 	if has_completed: return
 	has_completed = true
 	
-	Global.jade_bot_sound.emit()
+	if !preload_mode:
+		Global.jade_bot_sound.emit()
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	$BG/CenterMarker/DispulsionFX.anim_out()
 	
@@ -101,7 +103,6 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	$Underlay.queue_free()
-	$BG/CenterMarker/TutorialPanel/VBox/Done.disabled = true
 	
 	Global.skill_button_down.connect(func(id):
 		if id == "fishing_left": fishing_left_down = true
@@ -121,21 +122,24 @@ func _ready() -> void:
 	
 	$BG/TestRect.size.x = progress * 2.53
 	
-	if Save.data.fishing_tutorial_played: # go straight to gameplay if the tutorial has already played
-		$BG/CenterMarker/TutorialPanel.visible = false
-		Save.save_to_file()
-		has_started = true
-	else:
-		Save.data.fishing_tutorial_played = true
-		for _x in 2: await get_tree().process_frame
-		$BG/CenterMarker/TutorialPanel/VBox/Done.disabled = false
-		$BG/CenterMarker/TutorialPanel/VBox/Done.grab_focus()
+	if !preload_mode:
+		$BG/CenterMarker/TutorialPanel/VBox/Done.disabled = true
+		if Save.data.fishing_tutorial_played: # go straight to gameplay if the tutorial has already played
+			$BG/CenterMarker/TutorialPanel.visible = false
+			Save.save_to_file()
+			has_started = true
+		else:
+			Save.data.fishing_tutorial_played = true
+			for _x in 2: await get_tree().process_frame
+			$BG/CenterMarker/TutorialPanel/VBox/Done.disabled = false
+			$BG/CenterMarker/TutorialPanel/VBox/Done.grab_focus()
 	
 	get_window().size_changed.connect(resize)
 	Global.fishing_canceled.connect(end)
 	
 	Global.fishing_started.emit()
-	Global.jade_bot_sound.emit()
+	if !preload_mode:
+		Global.jade_bot_sound.emit()
 	Global.in_exclusive_ui = true
 	Global.can_move = false
 	Global.tool_mode = Global.TOOL_MODE_FISH

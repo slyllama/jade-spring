@@ -21,11 +21,9 @@ var loading_status: int
 var progress: Array[float]
 
 func _update_resource_loader() -> void:
-	if current_model_path == "": return
+	if current_model_path == "" or loaded: return
 	loading_status = ResourceLoader.load_threaded_get_status(current_model_path, progress)
 	match loading_status:
-		#ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			#pass
 		ResourceLoader.THREAD_LOAD_LOADED:
 			if !loaded:
 				var loaded_scene = ResourceLoader.load_threaded_get(current_model_path)
@@ -38,7 +36,9 @@ func _update_resource_loader() -> void:
 				scene_instance.scale = Vector3(
 					current_preview_scale, current_preview_scale, current_preview_scale)
 			loaded = true
-		ResourceLoader.THREAD_LOAD_FAILED: pass
+		ResourceLoader.THREAD_LOAD_FAILED:
+			print("[DecoPreview] Thread load failed!")
+			pass
 
 func clear_model() -> void:
 	target_rotation = Vector3.ZERO

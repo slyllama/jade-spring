@@ -41,6 +41,7 @@ func _ready():
 	# Load fishing for a frame
 	pdebug("Caching fishing.")
 	var _f = Fishing.instantiate()
+	_f.preload_mode = true
 	Global.hud.add_child(_f)
 	await get_tree().process_frame
 	_f.end(true) # use `true` to end instantly (i.e., no waiting)

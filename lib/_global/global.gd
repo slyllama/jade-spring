@@ -288,6 +288,15 @@ func _init() -> void:
 		debug_allowed = true
 	else: debug_allowed = false
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("print_all_nodes"):
+		if debug_allowed:
+			var _nc = 0
+			for _n in Utilities.get_all_children(get_tree().root):
+				print("  * " + str(_n) + " (" + str(_n.name) + ")")
+				_nc += 1
+			print("--- Finished with " + str(_nc) + " node(s) counted. ---")
+
 func _ready() -> void:
 	if !Engine.is_editor_hint():
 		DiscordRPC.app_id = 1367709882530140191
