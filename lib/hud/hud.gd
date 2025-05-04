@@ -188,6 +188,7 @@ func _ready() -> void:
 	$TopLevel/FG.visible = true
 	$Underlay.queue_free()
 	
+	await Global.shader_preload_complete
 	await get_tree().create_timer(0.51).timeout
 	
 	var _fade_tween = create_tween()
@@ -200,9 +201,6 @@ func _ready() -> void:
 	
 	Save.story_advanced.connect(proc_story)
 	proc_story()
-	
-	#Global.debug_enabled = true
-	#Global.debug_toggled.emit()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:
@@ -221,6 +219,7 @@ func _process(_delta: float) -> void:
 			+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)) + ")")
 		$Debug.text += "\n"
 		$Debug.text += ("\n" + str(Global.tool_identities[Global.tool_mode]))
+		$Debug.text += ("\n" + str(Utilities.fmt_vec3(Global.player_position)))
 		$Debug.text += ("\nSave.STORY_POINTS." + str(Save.data.story_point))
 		$Debug.text += "\n"
 		if Global.in_exclusive_ui: $Debug.text += ("\n[color=yellow]Exclusive UI[/color]")

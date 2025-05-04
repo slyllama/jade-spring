@@ -50,7 +50,7 @@ func _get_center() -> Vector2:
 		get_window().size.x / 2.0 / Global.retina_scale,
 		$BG/CenterMarker.global_position.y))
 
-func end():
+func end(instant = false):
 	if has_completed: return
 	has_completed = true
 	
@@ -58,13 +58,14 @@ func end():
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	$BG/CenterMarker/DispulsionFX.anim_out()
 	
-	await get_tree().create_timer(0.2).timeout
-	var fade_out = create_tween()
-	fade_out.tween_method(_set_dissolve, 1.0, 0.0, 0.5)
-	var tut_fade_tween = create_tween()
-	tut_fade_tween.tween_method(_set_tutorial_dissolve, 1.0, 0.0, 0.5)
-	tut_fade_tween.set_parallel()
-	await fade_out.finished
+	if !instant:
+		await get_tree().create_timer(0.2).timeout
+		var fade_out = create_tween()
+		fade_out.tween_method(_set_dissolve, 1.0, 0.0, 0.5)
+		var tut_fade_tween = create_tween()
+		tut_fade_tween.tween_method(_set_tutorial_dissolve, 1.0, 0.0, 0.5)
+		tut_fade_tween.set_parallel()
+		await fade_out.finished
 	
 	Global.in_exclusive_ui = false
 	Global.can_move = true

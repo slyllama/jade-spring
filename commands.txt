@@ -33,3 +33,8 @@
 
 /enableattn		Enable Attenuator (good for if story hasn't spawned it yet)
 /disableattn	Disable Attenuator
+
+### Startup arguments
+
+--debug=true		Make debug tools and commands available
+--preloadshaders=false	Skip precompilation of shaders - shaders will compile as-is

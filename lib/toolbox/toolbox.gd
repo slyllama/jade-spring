@@ -171,6 +171,7 @@ func _ready() -> void:
 		set_default_skills())
 	
 	$SkillSwap.volume_db = linear_to_db(0)
+	await Global.shader_preload_complete
 	set_default_skills()
 	await $SkillSwap.finished
 	$SkillSwap.volume_db = linear_to_db(1.0)

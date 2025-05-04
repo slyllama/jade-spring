@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jsxfgufgx7tk"]
+
+[ext_resource type="Script" path="res://lib/shader_preload/shader_preload.gd" id="1_dn2il"]
+
+[node name="ShaderPreload" type="Node"]
+script = ExtResource("1_dn2il")

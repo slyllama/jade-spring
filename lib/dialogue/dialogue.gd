@@ -123,7 +123,7 @@ func open() -> void:
 			_b.grab_focus()
 			break
 
-func close() -> void:
+func close(instant = false) -> void:
 	if has_closed: return
 	has_closed = true
 	
@@ -134,21 +134,23 @@ func close() -> void:
 	
 	Global.dialogue_closed.emit()
 	
-	# Fade buttons out one-by-one
-	for _b: Node in $Base/Box.get_children():
-		if !is_instance_valid(_b): continue
-		if _b is Button:
-			var _t = create_tween()
-			_t.tween_property(_b, "modulate:a", 0.0, 0.1)
-			_b.tree_exiting.connect(_t.kill)
-			await get_tree().create_timer(0.03).timeout
+	if !instant:
+		# Fade buttons out one-by-one
+		for _b: Node in $Base/Box.get_children():
+			if !is_instance_valid(_b): continue
+			if _b is Button:
+				var _t = create_tween()
+				_t.tween_property(_b, "modulate:a", 0.0, 0.1)
+				_b.tree_exiting.connect(_t.kill)
+				await get_tree().create_timer(0.03).timeout
 	
 	closed.emit()
-	var fade_tween = create_tween()
-	fade_tween.tween_method(_set_paint_val, 1.0, -1.0, 0.3)
-	$Player.play_backwards("Enter")
-	
-	await fade_tween.finished
+	if !instant:
+		var fade_tween = create_tween()
+		fade_tween.tween_method(_set_paint_val, 1.0, -1.0, 0.3)
+		$Player.play_backwards("Enter")
+		
+		await fade_tween.finished
 	await get_tree().process_frame
 	Global.dialogue_open = false
 	Global.can_move = true

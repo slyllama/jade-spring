@@ -18,6 +18,11 @@ func _ready() -> void:
 	Global.command_sent.emit("/enableattn")
 	await get_tree().create_timer(0.2).timeout # race condition?
 	Global.add_effect.emit("discombobulator")
+	
+	$Otter/AnimationPlayer.speed_scale = 0.75
+	$Otter/AnimationPlayer.animation_finished.connect(func(_anim):
+		$Otter/AnimationPlayer.play("spin"))
+	$Otter/AnimationPlayer.play("spin")
 
 func _process(delta: float) -> void:
 	$FishPool.rotation_degrees.y += delta * 4.0

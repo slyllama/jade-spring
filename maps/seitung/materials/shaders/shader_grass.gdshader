@@ -48,10 +48,10 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, texture(rock_texture, UV * 11.0).rgb * 1.63, rock_blend * 1.45);
 	ALBEDO = mix(ALBEDO, texture(sand_diff, UV * sand_uv_scale).rgb * 0.95, texture(sand_mask, UV).r);
 	ALBEDO *= (1.0 + light_blend);
-	
+
 	NORMAL_MAP = grass_normal;
 	NORMAL_MAP = mix(NORMAL_MAP, rock_normal, rock_blend);
-	
+
 	NORMAL_MAP_DEPTH = normal_strength;
 	SPECULAR = 0.0;
 }

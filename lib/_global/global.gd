@@ -100,6 +100,7 @@ signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
 signal ripple
 signal settings_pane_opened
+signal shader_preload_complete
 signal skill_button_down(id: String)
 signal skill_button_up(id: String)
 signal spawn_karma(amount: int, location: Vector3)

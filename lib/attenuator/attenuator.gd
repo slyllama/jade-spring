@@ -52,6 +52,8 @@ const SUCCESS_TUNES = {
 }
 const TUNES_ORDER = [ "primordus", "soo_won", "mordremoth", "zhaitan", "kralkatorrik", "jormag" ]
 
+@export var supress_hint = false
+
 var current_dragon = "primordus"
 var two_oct = NOTES.duplicate()
 var place = 0
@@ -267,7 +269,7 @@ func render() -> void:
 			_n.alpha = 1.0
 		await get_tree().create_timer(0.03).timeout
 
-func close() -> void:
+func close(instant = false) -> void:
 	if has_closed: return
 	
 	cursor_key = null
@@ -281,13 +283,12 @@ func close() -> void:
 	Global.dismiss_hints()
 	closed.emit()
 	
-	$DispulsionFX.anim_out()
-	var fade_tween = create_tween()
-	fade_tween.tween_method(_set_paint_exponent, 0.0, 1.0, 0.2)
+	if !instant:
+		$DispulsionFX.anim_out()
+		var fade_tween = create_tween()
+		fade_tween.tween_method(_set_paint_exponent, 0.0, 1.0, 0.2)
+		await $DispulsionFX.anim_out_complete
 	
-	# TODO: banner fading goes here
-	
-	await $DispulsionFX.anim_out_complete
 	queue_free()
 
 func _adv_blank_place() -> void:
@@ -321,12 +322,13 @@ func _ready() -> void:
 	var ee_fade_tween = create_tween()
 	ee_fade_tween.tween_method(_set_ee_paint_exponent, 0.0, 1.0, 0.3)
 	
-	Global.play_hint("attunement_arrows", { 
-		"title": "Dragon attunement",
-		"arrow": "left",
-		"anchor_preset": Control.LayoutPreset.PRESET_CENTER,
-		"text": "Use the arrows on the right to select the correct Elder Dragon for the Dragonvoid you want to attune to and clear."
-	}, Utilities.get_screen_center(Vector2(120, -130)), true)
+	if !supress_hint:
+		Global.play_hint("attunement_arrows", { 
+			"title": "Dragon attunement",
+			"arrow": "left",
+			"anchor_preset": Control.LayoutPreset.PRESET_CENTER,
+			"text": "Use the arrows on the right to select the correct Elder Dragon for the Dragonvoid you want to attune to and clear."
+		}, Utilities.get_screen_center(Vector2(120, -130)), true)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):

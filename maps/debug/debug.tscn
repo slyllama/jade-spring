@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgrakybin27gf"]
+[gd_scene load_steps=22 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
 [ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://qkiqh7av8afr" path="res://maps/debug/materials/mat_ocean.tres" id="12_micig"]
 [ext_resource type="Material" uid="uid://dig43sv6nmdtc" path="res://decorations/asuran_portal/materials/mat_asuran_portal.tres" id="13_dghcx"]
 [ext_resource type="PackedScene" uid="uid://hkj34yq516sa" path="res://decorations/asuran_portal/portal.glb" id="13_ruv05"]
+[ext_resource type="PackedScene" uid="uid://vuyjq6c67k5c" path="res://decorations/cid_banners/otter/otter.glb" id="15_cat3w"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("3_pk05h")
@@ -120,10 +121,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_yfd71")
 
 [node name="Portal" parent="." index="18" instance=ExtResource("13_ruv05")]
-transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 2.5, 0, 1.5)
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 6.4, 0, 1.5)
 
 [node name="PortalTest" type="MeshInstance3D" parent="Portal" index="9"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.05, 0)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_jb1hs")
 skeleton = NodePath("../..")
+
+[node name="Otter" parent="." index="19" instance=ExtResource("15_cat3w")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.596997, -4.84288e-08, 9.65461)
