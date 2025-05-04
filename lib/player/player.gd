@@ -117,6 +117,8 @@ func toggle_gift_visibility(state: bool) -> void:
 	$PlayerMesh/JadeArmature/Skeleton3D/PlushTail.visible = state
 
 func _ready() -> void:
+	$PlayerMesh/Karma.animate_out()
+	
 	SPRINT_SOUNDS.append_array(JADE_SOUNDS)
 	toggle_gift_visibility(false)
 	$Spider/AnimationPlayer.play("walk")

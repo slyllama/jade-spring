@@ -22,7 +22,7 @@ func _ready():
 	await get_tree().current_scene.ready
 	
 	var args = Array(OS.get_cmdline_args())
-	if args.has("--preloadshaders=false"):
+	if args.has("--preloadshaders=false") or Save.data.story_point != "game_start":
 		pdebug("Skipping shader preload.")
 		Global.shader_preload_complete.emit()
 		queue_free()
