@@ -131,12 +131,19 @@ func get_effect_qty(effect: String) -> int:
 ##### Decoration signals and parameters
 const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura", "Kryta" ]
 var DecoData = {}
+# [
+#	{
+#		"node": Decoration,
+#		"last_position": Vector3
+# ]
+var deco_selection_array = []
 
 enum {
 	TOOL_MODE_NONE,
 	TOOL_MODE_EYEDROPPER,
 	TOOL_MODE_ADJUST,
 	TOOL_MODE_SELECT,
+	TOOL_MODE_SELECT_MULTIPLE,
 	TOOL_MODE_DELETE,
 	TOOL_MODE_PLACE,
 	TOOL_MODE_FISH }
@@ -152,6 +159,7 @@ const tool_identities = [ # associations for debug printing
 	"TOOL_MODE_EYEDROPPER",
 	"TOOL_MODE_ADJUST",
 	"TOOL_MODE_SELECT",
+	"TOOL_MODE_SELECT_MULTIPLE",
 	"TOOL_MODE_DELETE",
 	"TOOL_MODE_PLACE",
 	"TOOL_MODE_FISH" ]

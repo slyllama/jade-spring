@@ -111,6 +111,10 @@ const TOOLTIPS = {
 	"ping": {
 		"title": "Garden Sense",
 		"description": "Use radar to find the nearest weeds, bugs, and Dragonvoid which need dealing with."
+	},
+	"select_multiple": {
+		"title": "((Select Multiple))",
+		"description": "((Select multiple.))"
 	}
 }
 

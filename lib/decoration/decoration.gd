@@ -333,6 +333,14 @@ func _ready() -> void:
 				if Global.tool_mode == Global.TOOL_MODE_SELECT:
 					Global.set_cursor(false)
 					start_adjustment()
+				elif Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
+					if !self in Global.deco_selection_array:
+						Global.deco_selection_array.push_front({
+							"node": self,
+							"last_position": position
+						})
+					else:
+						Global.deco_selection_array.erase(self)
 				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 					Global.deco_deleted.emit()
 					Global.decorations.erase(self)
@@ -358,3 +366,11 @@ func _process(delta: float) -> void:
 		else:
 			if !visible:
 				visible = true
+	
+	if !Global.active_decoration == self: return
+	if Global.tool_mode == Global.TOOL_MODE_ADJUST:
+		if Global.deco_selection_array.size() > 1:
+			var _pos_diff = last_position - position
+			for i in range(1, Global.deco_selection_array.size()):
+				var _sd = Global.deco_selection_array[i]
+				_sd.node.position = _sd.last_position - _pos_diff

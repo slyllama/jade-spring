@@ -126,11 +126,12 @@ func _ready() -> void:
 		clear_skills()
 		Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 		$Box/Skill1.switch_skill("accept")
-		$Box/Skill2.switch_skill("adjust_mode_rotate")
-		Global.snapping = false
-		if Global.transform_mode == Global.TRANSFORM_MODE_WORLD: $Box/Skill3.switch_skill("snap_enable")
-		else: $Box/Skill3.switch_skill("snap_forbidden")
-		$Box/Skill4.switch_skill("transform_mode")
+		if Global.deco_selection_array == []:
+			$Box/Skill2.switch_skill("adjust_mode_rotate")
+			Global.snapping = false
+			if Global.transform_mode == Global.TRANSFORM_MODE_WORLD: $Box/Skill3.switch_skill("snap_enable")
+			else: $Box/Skill3.switch_skill("snap_forbidden")
+			$Box/Skill4.switch_skill("transform_mode")
 		$Box/Skill5.switch_skill("reset_adjustment")
 		$Box/Skill6.switch_skill("cancel"))
 	
@@ -202,6 +203,7 @@ func skill_used(skill_id: String) -> void:
 				Global.selection_started.emit()
 				clear_skills()
 				$Box/Skill1.switch_skill("select")
+				$Box/Skill2.switch_skill("select_multiple")
 				get_button_by_id("select").set_highlight()
 				Global.action_cam_disable.emit()
 				Global.set_cursor()
@@ -211,6 +213,14 @@ func skill_used(skill_id: String) -> void:
 				Global.selection_canceled.emit()
 				Global.action_cam_enable.emit()
 				set_default_skills()
+		"select_multiple":
+			clear_skills(false)
+			$Box/Skill1.switch_skill("accept")
+			$Box/Skill6.switch_skill("cancel")
+			Global.selection_canceled.emit()
+			await get_tree().process_frame
+			Global.tool_mode = Global.TOOL_MODE_SELECT_MULTIPLE
+			Global.set_cursor() # restart cursor
 		"eyedropper":
 			if Global.tool_mode == Global.TOOL_MODE_NONE:
 				Global.tool_mode = Global.TOOL_MODE_EYEDROPPER
@@ -221,19 +231,29 @@ func skill_used(skill_id: String) -> void:
 				Global.action_cam_disable.emit()
 				Global.set_cursor()
 		"cancel":
+			for _sd in Global.deco_selection_array:
+				_sd.node.position = _sd.last_position
+			Global.deco_selection_array = []
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
 				Global.adjustment_canceled.emit()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
 				Global.deco_placement_canceled.emit()
 			elif Global.tool_mode == Global.TOOL_MODE_FISH:
 				Global.fishing_canceled.emit()
+			elif Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
+				Global.cursor_disabled.emit()
+				set_default_skills()
 			Global.action_cam_enable.emit()
 		"accept":
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:
+				Global.deco_selection_array = []
 				Global.adjustment_applied.emit()
 				set_default_skills()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
 				set_default_skills()
+			elif Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
+				Global.set_cursor(false)
+				Global.deco_selection_array[0].node.start_adjustment()
 			Global.action_cam_enable.emit()
 		"deco_test":
 			if !Global.deco_pane_open:
@@ -264,7 +284,6 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_mode = Global.ADJUSTMENT_MODE_ROTATE
 				Global.adjustment_mode_rotation.emit()
 			$Box/Skill2.switch_skill("adjust_mode_translate")
-			
 			# Rotation snapping
 			if Global.snapping: $Box/Skill3.switch_skill("snap_disable")
 			else:  $Box/Skill3.switch_skill("snap_enable")
