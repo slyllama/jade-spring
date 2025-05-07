@@ -129,10 +129,12 @@ func _ready() -> void:
 		if Global.deco_selection_array == []:
 			$Box/Skill2.switch_skill("adjust_mode_rotate")
 			Global.snapping = false
-			if Global.transform_mode == Global.TRANSFORM_MODE_WORLD: $Box/Skill3.switch_skill("snap_enable")
-			else: $Box/Skill3.switch_skill("snap_forbidden")
+			if Global.transform_mode == Global.TRANSFORM_MODE_WORLD:
+				$Box/Skill3.switch_skill("snap_enable")
+			else:
+				$Box/Skill3.switch_skill("snap_forbidden")
 			$Box/Skill4.switch_skill("transform_mode")
-		$Box/Skill5.switch_skill("reset_adjustment")
+			$Box/Skill5.switch_skill("reset_adjustment")
 		$Box/Skill6.switch_skill("cancel"))
 	
 	Global.deco_sampled.connect(func(data):
@@ -232,6 +234,7 @@ func skill_used(skill_id: String) -> void:
 				Global.set_cursor()
 		"cancel":
 			for _sd in Global.deco_selection_array:
+				_sd.node.set_selected(false)
 				_sd.node.position = _sd.last_position
 			Global.deco_selection_array = []
 			if Global.tool_mode == Global.TOOL_MODE_ADJUST:

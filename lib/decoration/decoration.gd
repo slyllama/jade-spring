@@ -23,9 +23,22 @@ var distance_to_player = 0.0
 var mouse_in_box = false
 var outlined = false
 
-func set_outline(state = true) -> void:
+var selected = false
+
+func set_selected(state = true) -> void:
+	selected = state
 	if state:
-		for _i in 2: await get_tree().process_frame # give the cursor a chance to be readded
+		for _i in 4: await get_tree().process_frame
+		outline_mat.set_shader_parameter("outline_color", Color.WHITE)
+		outline_mat.set_shader_parameter("outline_width", 0.5)
+	else:
+		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
+		outline_mat.set_shader_parameter("outline_width", 0)
+
+func set_outline(state = true) -> void:
+	if selected: return
+	if state:
+		for _i in 2: await get_tree().process_frame # give the cursor a chance to be re-added
 		if Global.cursor_active and Global.highlighted_decoration == self:
 			outline_mat.set_shader_parameter("outline_color", Color.GREEN_YELLOW)
 			outline_mat.set_shader_parameter("outline_width", 0.35)
@@ -160,6 +173,7 @@ func start_adjustment() -> void:
 		collision_box.set_collision_layer_value(2, 0)
 
 func apply_adjustment() -> void:
+	set_selected(false)
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
 		collision_box.set_collision_layer_value(1, true)
@@ -181,6 +195,7 @@ func apply_adjustment() -> void:
 	Global.mouse_in_ui = false
 
 func cancel_adjustment() -> void:
+	set_selected(false)
 	if collision_box != null:
 		collision_box.input_ray_pickable = true
 		collision_box.set_collision_layer_value(1, true)
@@ -334,13 +349,22 @@ func _ready() -> void:
 					Global.set_cursor(false)
 					start_adjustment()
 				elif Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
-					if !self in Global.deco_selection_array:
+					var _is_in_array = false
+					var _entry_in_array = null
+					for _f in Global.deco_selection_array:
+						if _f.node == self:
+							_entry_in_array = _f
+							_is_in_array = true
+							break
+					if !_is_in_array:
+						set_selected()
 						Global.deco_selection_array.push_front({
 							"node": self,
 							"last_position": position
 						})
 					else:
-						Global.deco_selection_array.erase(self)
+						Global.deco_selection_array.erase(_entry_in_array)
+						set_selected(false)
 				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 					Global.deco_deleted.emit()
 					Global.decorations.erase(self)
