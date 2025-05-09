@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cf4vigsxqembu" path="res://lib/karma/sounds/karma_collect.ogg" id="3_a5myb"]
 
 [node name="Global" type="Node"]
+process_mode = 3
 script = ExtResource("1_bx37s")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]

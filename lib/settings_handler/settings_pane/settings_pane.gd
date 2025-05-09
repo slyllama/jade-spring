@@ -20,7 +20,8 @@ func open(silent = false) -> void:
 func close() -> void:
 	Global.settings_open = false
 	$BindingsPane.close()
-	Global.action_cam_enable.emit()
+	if !get_tree().paused:
+		Global.action_cam_enable.emit()
 	SettingsHandler.save_to_file()
 	super()
 

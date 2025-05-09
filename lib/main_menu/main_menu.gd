@@ -15,6 +15,9 @@ func set_up_nodule() -> void:
 	$Container/PlayButton.focus_entered.connect(func():
 		$Swish.play()
 		focus = $Container/PlayButton)
+	$Container/CreditsButton.focus_entered.connect(func():
+		$Swish.play()
+		focus = $Container/CreditsButton)
 	$Container/SettingsButton.focus_entered.connect(func():
 		$Swish.play()
 		focus = $Container/SettingsButton)
@@ -27,6 +30,9 @@ func set_up_nodule() -> void:
 	$Container/PlayButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/PlayButton)
+	$Container/CreditsButton.mouse_entered.connect(func():
+		$Swish.play()
+		focus = $Container/CreditsButton)
 	$Container/SettingsButton.mouse_entered.connect(func():
 		$Swish.play()
 		focus = $Container/SettingsButton)
@@ -60,6 +66,7 @@ func play() -> void:
 	
 	$SettingsPane.close()
 	$SteamPane.close()
+	$CreditsContainer.close()
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_property($FG, "modulate:a", 1.0, 0.35)
@@ -137,8 +144,7 @@ func _ready() -> void:
 			$Container/Box/ContinueButton.disabled = true
 			$Container/Box/InvalidWarning.visible = true
 			$Container/PlayButton.grab_focus()
-		else:
-			$Container/Box/ContinueButton.grab_focus()
+		else: $Container/Box/ContinueButton.grab_focus()
 	else:
 		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()
@@ -229,3 +235,6 @@ func _on_achievements_button_button_down() -> void:
 	if $SettingsPane.is_open:
 		$SettingsPane.close()
 	$SteamPane.open()
+
+func _on_credits_button_button_down() -> void:
+	$CreditsContainer.open()

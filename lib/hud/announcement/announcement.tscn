@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://btvrdyrhkcuxb" path="res://lib/hud/announcement/textures/announce_bg.png" id="2_nts8i"]
 
 [node name="Announcement" type="RichTextLabel"]
+process_mode = 3
 clip_contents = false
 custom_minimum_size = Vector2(700, 50)
 anchors_preset = 8

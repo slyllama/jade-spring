@@ -18,6 +18,7 @@ border_blend = true
 content_margin_top = 3.0
 
 [node name="SettingsPane" instance=ExtResource("1_ssrkn")]
+process_mode = 3
 script = ExtResource("2_iwjpb")
 title = "Settings"
 

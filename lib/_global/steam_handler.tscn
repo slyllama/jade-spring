@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://lib/_global/steam_handler.gd" id="1_c7ljs"]
 
 [node name="SteamHandler" type="Node"]
+process_mode = 3
 script = ExtResource("1_c7ljs")

@@ -53,6 +53,7 @@ bg_color = Color(0, 0, 0, 0.196078)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsocp"]
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_ryxhn")
 
 [node name="Underlay" type="TextureRect" parent="."]
@@ -369,6 +370,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DebugEntry" type="LineEdit" parent="TopLevel"]
+process_mode = 3
 modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 2
 anchor_top = 1.0

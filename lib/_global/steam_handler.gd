@@ -129,9 +129,29 @@ func _ready() -> void:
 	Steam.user_stats_received.connect(_on_steam_stats_ready)
 	Steam.requestUserStats(Steam.get_current_steam_id())
 	
+	Steam.overlay_toggled.connect(func(active, _user_initiated, _app_id):
+		printd("Overlay toggled (" + str(active) + ")")
+		if active: # pause the game
+			for _i in 3: await get_tree().process_frame
+			if Global.debug_allowed:
+				Global.announcement_sent.emit("((Steam Overlay enabled))")
+			Global.action_cam_disable.emit()
+			get_tree().paused = true
+		else:
+			if Global.debug_allowed:
+				Global.announcement_sent.emit("((Steam Overlay disabled))")
+			for _i in 3: await get_tree().process_frame
+			get_tree().paused = false)
+	
 	Global.command_sent.connect(func(cmd):
 		if steam_loaded:
 			## Stats commands
+			if cmd == "/pause":
+				for _i in 3: await get_tree().process_frame
+				Global.action_cam_disable.emit()
+				get_tree().paused = true
+			if cmd == "/unpause":
+				get_tree().paused = false
 			if cmd == "/clearstats":
 				Steam.resetAllStats(true)
 				await get_tree().process_frame

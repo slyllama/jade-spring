@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://diso1rqxtpjaf"]
+
+[ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_ui66r"]
+[ext_resource type="Script" path="res://lib/main_menu/credits_container.gd" id="2_hwlbg"]
+[ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="2_ylvrc"]
+[ext_resource type="Script" path="res://lib/hud/version.gd" id="3_cxpuh"]
+
+[node name="CreditsContainer" instance=ExtResource("1_ui66r")]
+custom_minimum_size = Vector2(400, 600)
+script = ExtResource("2_hwlbg")
+title = "Credits"
+
+[node name="ContentScroll" type="ScrollContainer" parent="Container" index="3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Content" type="VBoxContainer" parent="Container/ContentScroll" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Version" type="RichTextLabel" parent="Container/ContentScroll/Content" index="0"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = -4
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[right][Version][/right]"
+fit_content = true
+scroll_active = false
+script = ExtResource("3_cxpuh")
+align_right = true
+
+[node name="Logo" type="TextureRect" parent="Container/ContentScroll/Content" index="1"]
+modulate = Color(0.6, 0.6, 0.6, 1)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("2_ylvrc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Padding" type="ColorRect" parent="Container/ContentScroll/Content" index="2"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Content" type="RichTextLabel" parent="Container/ContentScroll/Content" index="3"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=a9da42]Principal Character Design[/color][/center]
+[center]areyoshi[/center]
+[font_size=7] [/font_size]
+[center][color=a9da42]Quality Assurance[/color][/center]
+[center]areyoshi[/center]
+[center]Mika (RadioCats)[/center]
+[center]Ketpia[/center]
+
+[center][color=aaa]Godot 4.3 (Godot Engine contributors)[/color][/center]
+[center][color=aaa]GodotSteam (Gramps)[/color][/center]
+[center][color=aaa]DiscordRPC (vaporvee)[/color][/center]
+
+
+[center][color=777]© ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/color][/center]
+"
+fit_content = true
+
+[node name="Padding2" type="ColorRect" parent="Container/ContentScroll/Content" index="4"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TOC" type="Button" parent="Container/ContentScroll/Content" index="5"]
+layout_mode = 2
+text = "ArenaNet Content Terms of Use"
+
+[connection signal="button_down" from="Container/ContentScroll/Content/TOC" to="." method="_on_toc_button_down"]
