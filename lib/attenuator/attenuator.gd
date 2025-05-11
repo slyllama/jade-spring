@@ -236,10 +236,7 @@ func render() -> void:
 					await get_tree().create_timer(0.25).timeout
 					Global.check_freshness.emit()
 					if current_dragon in SUCCESS_TUNES:
-						var _success_tune = AudioStreamPlayer.new()
-						_success_tune.stream = SUCCESS_TUNES[current_dragon]
-						add_child(_success_tune)
-						_success_tune.play()
+						Global.override_track_play.emit(SUCCESS_TUNES[current_dragon])
 		)
 		$Base/KeyContainer.add_child(_n)
 		
@@ -275,13 +272,14 @@ func close(instant = false) -> void:
 	cursor_key = null
 	await get_tree().process_frame # queue for next frame so settings doesn't open
 	has_closed = true
-	Global.target_music_ratio = 1.0
 	
 	Global.can_move = true
 	Global.in_exclusive_ui = false
 	Global.tool_mode = Global.TOOL_MODE_NONE
 	Global.dismiss_hints()
+	
 	closed.emit()
+	Global.attenuator_closed.emit()
 	
 	if !instant:
 		$DispulsionFX.anim_out()
@@ -297,9 +295,9 @@ func _adv_blank_place() -> void:
 
 func _ready() -> void:
 	$Base/Cursor.visible = true
-	$OpenSound.play()
 	
 	if Engine.is_editor_hint(): return
+	$OpenSound.play()
 	_set_base_darkness(0.0)
 	Global.target_music_ratio = 0.0
 	

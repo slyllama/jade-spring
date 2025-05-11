@@ -69,6 +69,7 @@ signal action_cam_enable # procs action cam
 signal action_cam_disable # procs action cam
 
 signal announcement_sent(get_text)
+signal attenuator_closed
 signal bindings_updated
 signal bug_crumb_entered
 signal bug_crumb_left
@@ -96,6 +97,7 @@ signal hearts_emit # shortcut - emit from anywhere to spawn hearts
 signal jade_bot_sound
 signal karma_collected
 signal move_player(new_position: Vector3) # function - moves the player
+signal override_track_play(get_stream: AudioStreamOggVorbis) # see Jukebox
 signal add_effect(id) # more of a function signal - a shortcut to FXList
 signal remove_effect(id)
 signal ripple

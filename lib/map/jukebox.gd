@@ -14,6 +14,7 @@ var using_alt = false
 var volume_set = 0.0
 
 var space_timer = Timer.new()
+var override_track = AudioStreamPlayer.new()
 
 # Will randomly select tracks from `tracks` and swap them over to `tracks_alt`
 # until they have all been used up, and then do the same from `tracks_alt`;
@@ -36,10 +37,26 @@ func load_track() -> void:
 		if tracks_alt == []: using_alt = false
 		return
 
+func play_override(_get_stream: AudioStreamOggVorbis) -> void:
+	override_track.stream = _get_stream
+	override_track.play()
+
 func _ready() -> void:
+	Global.attenuator_closed.connect(func():
+		await get_tree().process_frame
+		if !override_track.playing:
+			Global.target_music_ratio = 1.0)
+	
+	Global.override_track_play.connect(play_override)
+	
+	override_track.finished.connect(func():
+		Global.target_music_ratio = 1.0)
+	
 	volume_db = -80.0
 	space_timer.one_shot = true
+	
 	add_child(space_timer)
+	add_child(override_track)
 	
 	space_timer.timeout.connect(load_track)
 	finished.connect(func():

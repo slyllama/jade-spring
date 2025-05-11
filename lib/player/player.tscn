@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=58 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://bn281paaf27ko" path="res://lib/player/sounds/walk.ogg" id="18_443tu"]
 [ext_resource type="PackedScene" uid="uid://gx4w1cghsw55" path="res://lib/player/compendium/compendium.tscn" id="19_fw2jq"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="20_1lkfq"]
+[ext_resource type="AudioStream" uid="uid://ke72j1fi3bla" path="res://lib/player/sounds/rushing_water.ogg" id="24_4yxld"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lchpp"]
 radius = 0.15
@@ -272,6 +273,11 @@ target_position = Vector3(0, -2, 0)
 collision_mask = 1024
 collide_with_areas = true
 script = ExtResource("5_eb87h")
+
+[node name="SplashSound" type="AudioStreamPlayer" parent="PlayerMesh/SplashTest"]
+stream = ExtResource("24_4yxld")
+volume_db = -80.0
+autoplay = true
 
 [node name="SplashArm" type="SpringArm3D" parent="PlayerMesh/SplashTest"]
 transform = Transform3D(-1.17647, 1.77641e-07, 0, 0, -5.14252e-08, -1.17647, -1.77641e-07, -1.17647, 5.14252e-08, 0, 0, 0)
