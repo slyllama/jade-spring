@@ -62,7 +62,7 @@ func _on_collision_interacted() -> void:
 		or "d_mordremoth" in Global.current_effects
 		or "d_jormag" in Global.current_effects
 		or "d_primordus" in Global.current_effects
-		or "discombobulator" in Global.current_effects):
+		or Global.get_effect_qty("discombobulator_qty") > 0):
 		dialogue_data._entry["options"].erase("close")
 		dialogue_data._entry.options["clear"] = "I'd like to return my Golems. (Clears effects.)"
 		dialogue_data._entry.options["close"] = "I'm all sorted, thanks."
@@ -81,11 +81,12 @@ func _on_collision_interacted() -> void:
 			Global.remove_effect.emit("discombobulator_qty")
 			for _i in 3:
 				Global.add_qty_effect("discombobulator_qty")
+			Global.player.update_golem_effects()
 			$GolemSound.play()
 		elif id == "fish_food":
 			Global.add_effect.emit("fish_food")
 		elif id == "clear":
-			Global.remove_effect.emit("discombobulator")
+			Global.remove_effect.emit("discombobulator_qty")
 			Global.remove_effect.emit("dv_charge")
 			Global.remove_effect.emit("d_soo_won")
 			Global.remove_effect.emit("d_kralkatorrik")

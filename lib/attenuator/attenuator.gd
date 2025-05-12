@@ -208,7 +208,6 @@ func render() -> void:
 					Global.ripple.emit() # used for emitting screen effects
 					
 					#Global.remove_effect.emit("discombobulator")
-					Global.play_flux_sound()
 					Global.add_effect.emit("d_" + current_dragon)
 					for _o in $Base/KeyContainer.get_children():
 						_o.disable()
@@ -228,7 +227,6 @@ func render() -> void:
 					_set_base_darkness(0.86)
 					var banner_tween = create_tween()
 					banner_tween.tween_method(_set_banner_value, 0.0, 1.0, 0.2)
-					Global.player.update_golem_effects()
 					
 					if Save.data.story_point == "clear_dv":
 						Save.advance_story()
@@ -297,6 +295,7 @@ func close(instant = false) -> void:
 		fade_tween.tween_method(_set_paint_exponent, 0.0, 1.0, 0.2)
 		await $DispulsionFX.anim_out_complete
 	
+	Global.player.update_golem_effects()
 	queue_free()
 
 func _adv_blank_place() -> void:

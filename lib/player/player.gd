@@ -75,7 +75,7 @@ func clear_dgolems() -> void:
 			_n.queue_free()
 
 func update_golem_effects() -> void:
-	if Utilities.has_dv_charge() or "discombobulator" in Global.current_effects:
+	if Utilities.has_dv_charge() or Global.get_effect_qty("discombobulator_qty") > 0:
 		spawn_dgolems()
 	else: clear_dgolems()
 

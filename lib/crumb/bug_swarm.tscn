@@ -30,10 +30,10 @@ shader_parameter/distance_fade_max = null
 shader_parameter/mask_texture = ExtResource("7_kbu2g")
 shader_parameter/vertical_mask = SubResource("GradientTexture2D_e28v7")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_1yhbg"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_2km25"]
 material = SubResource("ShaderMaterial_ugaig")
-top_radius = 0.9
-bottom_radius = 0.9
+top_radius = 0.6
+bottom_radius = 0.6
 height = 0.2
 radial_segments = 32
 rings = 0
@@ -43,7 +43,7 @@ cap_bottom = false
 [node name="BugSwarm" type="Area3D"]
 input_ray_pickable = false
 script = ExtResource("1_5hoe5")
-area_radius = 0.9
+area_radius = 0.6
 
 [node name="BugSwarmProp" parent="." instance=ExtResource("2_y2aqg")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0)
@@ -61,7 +61,7 @@ stream = ExtResource("4_1u0f8")
 volume_db = -9.0
 
 [node name="VisualArea" parent="." instance=ExtResource("5_43y53")]
-mesh = SubResource("CylinderMesh_1yhbg")
+mesh = SubResource("CylinderMesh_2km25")
 
 [node name="SpatialText" parent="." instance=ExtResource("6_oqvb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -252,10 +252,10 @@ shader_parameter/distance_fade_max = null
 shader_parameter/mask_texture = ExtResource("9_hjyqp")
 shader_parameter/vertical_mask = SubResource("GradientTexture2D_ov7ee")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_6ljul"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_w56ai"]
 material = SubResource("ShaderMaterial_c531e")
-top_radius = 0.9
-bottom_radius = 0.9
+top_radius = 0.6
+bottom_radius = 0.6
 height = 0.15
 radial_segments = 32
 rings = 0
@@ -266,7 +266,7 @@ cap_bottom = false
 input_ray_pickable = false
 script = ExtResource("1_lklqf")
 type = "weed"
-area_radius = 0.6
+area_radius = 0.3
 
 [node name="RockDecal" type="Decal" parent="."]
 size = Vector3(2, 0.5, 2)
@@ -279,7 +279,7 @@ distance_fade_length = 0.5
 cull_mask = 8
 
 [node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.733091, 0.028461, 0.679535, -0.0170206, 0.998043, -0.0601631, -0.679918, -0.0556711, -0.731172, 0, 0, 0)
+transform = Transform3D(0.789891, 0.041569, -0.611837, 0.00664426, 0.997061, 0.0763195, 0.613211, -0.0643493, 0.787293, 0, 0, 0)
 skeleton = NodePath("Core")
 
 [node name="Core" type="MeshInstance3D" parent="WeedMesh"]
@@ -323,6 +323,6 @@ attenuation_filter_cutoff_hz = 10000.0
 
 [node name="VisualArea" parent="." instance=ExtResource("7_ec7aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_6ljul")
+mesh = SubResource("CylinderMesh_w56ai")
 
 [connection signal="interacted" from="." to="." method="interact"]
