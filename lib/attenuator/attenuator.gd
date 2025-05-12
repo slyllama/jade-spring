@@ -208,6 +208,7 @@ func render() -> void:
 					Global.ripple.emit() # used for emitting screen effects
 					
 					Global.remove_effect.emit("discombobulator")
+					Global.play_flux_sound()
 					Global.add_effect.emit("d_" + current_dragon)
 					for _o in $Base/KeyContainer.get_children():
 						_o.disable()

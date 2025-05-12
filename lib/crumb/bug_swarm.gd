@@ -5,7 +5,6 @@ var rng = RandomNumberGenerator.new()
 func clear() -> void:
 	#Global.announcement_sent.emit("The burst of Raw Dispersion Flux scatters these pests to the Four Winds!")
 	Global.bug_crumb_left.emit()
-	Global.remove_effect.emit("discombobulator")
 	SteamHandler.add_to_stat("bugs_cleared")
 	super()
 
@@ -15,8 +14,8 @@ func proc_story() -> void:
 	else: $VisualArea.visible = true
 
 func _update_interact_text() -> void:
-	if "discombobulator" in Global.current_effects:
-			Global.interact_hint = "Clear Bugs"
+	if Global.get_effect_qty("discombobulator_qty") > 0:
+		Global.interact_hint = "Clear Bugs"
 
 func _ready() -> void:
 	super()
@@ -53,14 +52,17 @@ func interact() -> void:
 		Global.announcement_sent.emit("Noisy bugs flick incessantly about me, sending my sensors haywire.")
 		return
 	else:
-		if "discombobulator" in Global.current_effects:
+		if Global.get_effect_qty("discombobulator_qty") > 0:
+			var _new_qty = Global.get_effect_qty("discombobulator_qty") - 1
+			Global.remove_effect.emit("discombobulator_qty")
+			Global.play_flux_sound()
+			for _i in _new_qty: Global.add_qty_effect("discombobulator_qty")
+			
 			var _f = FishingInstance.instantiate()
 			_f.fish_min_speed = 1.1 # make a little easier than Dragonvoid
 			_f.fish_max_speed = 1.15
 			_f.progress_decrease_rate = 0.38
 			_f.completed.connect(clear)
-			_f.canceled.connect(func():
-				Global.remove_effect.emit("discombobulator"))
 			add_child(_f)
 		else:
 			$Disabled.play()

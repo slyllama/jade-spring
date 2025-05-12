@@ -18,7 +18,7 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_bbigo")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq848"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75qgl"]
 render_priority = 2
 shader = ExtResource("3_xu3to")
 shader_parameter/color = Color(1, 0.482353, 0, 1)
@@ -51,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
 
 [node name="VisualArea" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.5)
-surface_material_override/0 = SubResource("ShaderMaterial_kq848")
+surface_material_override/0 = SubResource("ShaderMaterial_75qgl")
 
 [node name="Placeholder" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)

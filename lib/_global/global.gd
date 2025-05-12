@@ -287,6 +287,9 @@ func load_expn(id: String) -> void:
 		expn_data[_d].cursor_model = cursor_path
 		DecoData[_d] = expn_data[_d]
 
+func play_flux_sound() -> void:
+	$DiscombobulatorUse.play()
+
 ##### Execution
 
 func _init() -> void:

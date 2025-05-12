@@ -78,7 +78,9 @@ func _on_collision_interacted() -> void:
 		Global.generic_area_entered.emit())
 	_d.block_played.connect(func(id):
 		if id == "discombobulator":
-			Global.add_effect.emit("discombobulator")
+			Global.remove_effect.emit("discombobulator_qty")
+			for _i in 3:
+				Global.add_qty_effect("discombobulator_qty")
 			$GolemSound.play()
 		elif id == "fish_food":
 			Global.add_effect.emit("fish_food")

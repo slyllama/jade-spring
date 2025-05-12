@@ -5,8 +5,8 @@ const AttenuatorUI = preload("res://lib/attenuator/attenuator.tscn")
 var in_ui = false
 
 func _update_interact_text() -> void:
-	if "discombobulator" in Global.current_effects:
-			Global.interact_hint = "Attune"
+	if Global.get_effect_qty("discombobulator_qty") > 0:
+		Global.interact_hint = "Attune"
 
 func proc_story() -> void:
 	if Save.is_at_story_point("clear_dv"):
@@ -47,16 +47,21 @@ func _ready() -> void:
 
 func _on_interacted() -> void:
 	if in_ui: return # don't open multiple
-	
-	if !"discombobulator" in Global.current_effects:
+
+	if Global.get_effect_qty("discombobulator_qty") > 0:
+		var _new_qty = Global.get_effect_qty("discombobulator_qty") - 1
+		Global.remove_effect.emit("discombobulator_qty")
+		Global.play_flux_sound()
+		for _i in _new_qty: Global.add_qty_effect("discombobulator_qty")
+		
+		in_ui = true
+		var _ui = AttenuatorUI.instantiate()
+		Global.hud.get_node("TopLevel").add_child(_ui)
+		_ui.closed.connect(func():
+			in_ui = false
+			in_range = true
+			Global.generic_area_entered.emit()
+			Global.action_cam_enable.emit())
+	else:
 		Global.announcement_sent.emit("This attunement gadget charges Raw Dispersion Flux.")
 		return
-	
-	in_ui = true
-	var _ui = AttenuatorUI.instantiate()
-	Global.hud.get_node("TopLevel").add_child(_ui)
-	_ui.closed.connect(func():
-		in_ui = false
-		in_range = true
-		Global.generic_area_entered.emit()
-		Global.action_cam_enable.emit())

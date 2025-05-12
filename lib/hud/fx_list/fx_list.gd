@@ -32,6 +32,11 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"title": "Raw Dispersion Flux",
 		"description": "I'm equipped for clearing out bugs."
 	},
+	"discombobulator_qty": {
+		"texture": "discombobulator",
+		"title": "Raw Dispersion Flux",
+		"description": "I'm equipped for clearing out bugs."
+	},
 	"weed": {
 		"texture": "weed",
 		"title": "Picked Weed",

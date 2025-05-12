@@ -7,7 +7,7 @@ func _ready() -> void:
 	
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/giveflux":
-			Global.add_effect.emit("discombobulator")
+			Global.add_qty_effect("discombobulator_qty")
 		)
 	
 	Global.command_sent.emit("/resetdeco")
@@ -17,7 +17,6 @@ func _ready() -> void:
 	
 	Global.command_sent.emit("/enableattn")
 	await get_tree().create_timer(0.2).timeout # race condition?
-	Global.add_effect.emit("discombobulator")
 	
 	$Otter/AnimationPlayer.speed_scale = 0.75
 	$Otter/AnimationPlayer.animation_finished.connect(func(_anim):
