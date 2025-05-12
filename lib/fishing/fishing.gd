@@ -161,9 +161,9 @@ func _process(delta: float) -> void:
 		_d += delta
 		return
 	
-	if Input.is_action_pressed("move_left") or fishing_left_down:
+	if Input.is_action_pressed("move_left") or fishing_left_down or Input.is_action_pressed("ui_left"):
 		$BG/Player.global_position.x -= move_speed * delta * 60.0
-	elif Input.is_action_pressed("move_right") or fishing_right_down:
+	elif Input.is_action_pressed("move_right") or fishing_right_down or Input.is_action_pressed("ui_right"):
 		$BG/Player.global_position.x += move_speed * delta * 60.0
 	
 	$BG/Fish.global_position.x += fish_speed * delta * 60.0
