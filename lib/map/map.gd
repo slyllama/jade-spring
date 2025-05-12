@@ -91,6 +91,7 @@ func _ready() -> void:
 	Global.debug_toggled.emit()
 	Global.deco_pane_open = false # reset
 	Global.dialogue_open = false # reset
+	Global.attenuator_open = false # reset
 	Global.assigned_karma = 0
 	Global.spawn_karma.connect(spawn_karma)
 	

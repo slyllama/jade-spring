@@ -23,6 +23,7 @@ var kv_fish_max = 20
 # Karma is added here when spawned, then subtracted when collected. The remainder is added to the player's Karma count
 var assigned_karma = 0
 
+var attenuator_open = false
 var bindings_saved_initial = false # make sure this is only done once during game run-time
 var bindings_pane_open = false
 var camera_basis: Basis

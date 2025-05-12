@@ -75,13 +75,7 @@ func clear_dgolems() -> void:
 			_n.queue_free()
 
 func update_golem_effects() -> void:
-	if ("d_kralkatorrik" in Global.current_effects
-		or "d_soo_won" in Global.current_effects
-		or "d_zhaitan" in Global.current_effects
-		or "d_mordremoth" in Global.current_effects
-		or "d_jormag" in Global.current_effects
-		or "d_primordus" in Global.current_effects
-		or "discombobulator" in Global.current_effects):
+	if Utilities.has_dv_charge() or "discombobulator" in Global.current_effects:
 		spawn_dgolems()
 	else: clear_dgolems()
 

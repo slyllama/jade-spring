@@ -207,7 +207,7 @@ func render() -> void:
 						+ Utilities.RDQUO + "[/center]")
 					Global.ripple.emit() # used for emitting screen effects
 					
-					Global.remove_effect.emit("discombobulator")
+					#Global.remove_effect.emit("discombobulator")
 					Global.play_flux_sound()
 					Global.add_effect.emit("d_" + current_dragon)
 					for _o in $Base/KeyContainer.get_children():
@@ -274,6 +274,7 @@ func close(instant = false) -> void:
 	await get_tree().process_frame # queue for next frame so settings doesn't open
 	has_closed = true
 	
+	Global.attenuator_open = false
 	Global.can_move = true
 	Global.in_exclusive_ui = false
 	Global.tool_mode = Global.TOOL_MODE_NONE
@@ -281,6 +282,14 @@ func close(instant = false) -> void:
 	
 	closed.emit()
 	Global.attenuator_closed.emit()
+	
+	if Utilities.has_dv_charge():
+		Global.play_hint("charged_dv", { 
+			"title": "Holding Charged Flux",
+			"arrow": "down",
+			"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
+			"text": "You are holding Attuned Dispersion Flux. Interact with the corresponding Dragonvoid blight to dispel it!"
+		}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.5 - 300)), true)
 	
 	if !instant:
 		$DispulsionFX.anim_out()
@@ -303,6 +312,7 @@ func _ready() -> void:
 	Global.target_music_ratio = 0.0
 	
 	Global.can_move = false
+	Global.attenuator_open = true
 	Global.in_exclusive_ui = true
 	Global.action_cam_disable.emit()
 	Global.tool_mode = Global.TOOL_MODE_FISH
@@ -323,7 +333,7 @@ func _ready() -> void:
 	
 	if !supress_hint:
 		Global.play_hint("attunement_arrows", { 
-			"title": "Dragon attunement",
+			"title": "Dragon Attunement",
 			"arrow": "left",
 			"anchor_preset": Control.LayoutPreset.PRESET_CENTER,
 			"text": "Use the arrows on the right to select the correct Elder Dragon for the Dragonvoid you want to attune to and clear."

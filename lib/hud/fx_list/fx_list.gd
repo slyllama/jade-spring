@@ -14,8 +14,9 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"description": "I can't move at the moment!"
 	},
 	"fish_food": {
-		"title": "((Fish Food))",
-		"description": "((Fish food.))"
+		"title": "Fish Food",
+		"texture": "fish_food",
+		"description": "For the koi on the shore, who are either eating or sleeping."
 	},
 	"gravity": {
 		"texture": "toggle_gravity",

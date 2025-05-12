@@ -58,6 +58,16 @@ func point_in_wb(point: Vector3) -> bool:
 		return(false)
 	else: return(true)
 
+func has_dv_charge() -> bool: # is the player holding on to any kind of Dragonvoid charge?
+	if ("d_kralkatorrik" in Global.current_effects
+		or "d_soo_won" in Global.current_effects
+		or "d_zhaitan" in Global.current_effects
+		or "d_mordremoth" in Global.current_effects
+		or "d_jormag" in Global.current_effects
+		or "d_primordus" in Global.current_effects):
+		return(true)
+	else: return(false)
+
 func get_binding_str(input_binding) -> String:
 	var key_string = ""
 	if InputMap.has_action(input_binding):

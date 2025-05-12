@@ -50,7 +50,8 @@ func _ready() -> void:
 	Global.override_track_play.connect(play_override)
 	
 	override_track.finished.connect(func():
-		Global.target_music_ratio = 1.0)
+		if !Global.attenuator_open:
+			Global.target_music_ratio = 1.0)
 	
 	volume_db = -80.0
 	space_timer.one_shot = true
