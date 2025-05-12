@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://csw05era1cash"]
+
+[ext_resource type="Shader" path="res://decorations/canthan_carpet/materials/shaders/shader_canthan_carpet.gdshader" id="1_rx5bo"]
+[ext_resource type="Texture2D" uid="uid://i8xp521j8ci3" path="res://decorations/canthan_carpet/materials/textures/carpet_mask.jpg" id="2_n32bv"]
+[ext_resource type="Texture2D" uid="uid://cmkmws0qkwo4q" path="res://maps/seitung/materials/textures/lush_cloth_diff.jpg" id="2_qactw"]
+[ext_resource type="Texture2D" uid="uid://7j1fxu0i4cwi" path="res://maps/seitung/materials/textures/lush_cloth_norm.jpg" id="3_d7xfx"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="5_d34ch"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_rx5bo")
+shader_parameter/stain_strength = 0.25
+shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/stain_albedo = Color(0.754798, 0.519118, 0.381784, 1)
+shader_parameter/uv_scale = 4.0
+shader_parameter/cloth_diff = ExtResource("2_qactw")
+shader_parameter/mask = ExtResource("2_n32bv")
+shader_parameter/stain_mask = ExtResource("5_d34ch")
+shader_parameter/cloth_norm = ExtResource("3_d7xfx")

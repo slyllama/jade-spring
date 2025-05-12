@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_spider.gdshader" id="1_nqhcm"]
 
 [resource]
-render_priority = 1
+render_priority = 2
 shader = ExtResource("1_nqhcm")
 shader_parameter/color = Color(0.88, 0, 0.821333, 1)
 shader_parameter/color_2 = Color(0.585328, 0.427756, 1, 1)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://jc6swuya6p2y"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_3trrg"]
+[ext_resource type="PackedScene" uid="uid://dfntcr3jwb6fh" path="res://decorations/canthan_carpet/canthan_carpet.tscn" id="2_6jpjw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yux2q"]
+size = Vector3(5, 0.02, 5)
+
+[node name="DecoCanthanCarpet" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_3trrg")
+id = "canthan_carpet"
+collision_box = NodePath("Body")
+
+[node name="CanthanCarpet" parent="." instance=ExtResource("2_6jpjw")]
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+shape = SubResource("BoxShape3D_yux2q")

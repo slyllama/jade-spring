@@ -224,6 +224,15 @@ const DecoData = {
 		"tags": ["Architecture"],
 		"unlock_value": 13
 	},
+	"canthan_carpet": {
+		"name": "Canthan Carpet",
+		"scene": "res://decorations/canthan_carpet/deco_canthan_carpet.tscn",
+		"cursor_model": "res://decorations/canthan_carpet/canthan_carpet.tscn",
+		"preview_scale": 0.42,
+		"model_offset": Vector3(0, 0.5, 0),
+		"preview_y_rotation": 35,
+		"tags": ["Architecture", "Cantha"]
+	},
 	"kaineng_cobble_stairs": {
 		"name": "Kaineng Cobble Stairs",
 		"scene": "res://decorations/kaineng_cobble_floor/kaineng_cobble_stairs.tscn",

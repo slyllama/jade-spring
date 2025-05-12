@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfntcr3jwb6fh"]
+
+[ext_resource type="PackedScene" uid="uid://urynwuauq83e" path="res://decorations/canthan_carpet/carpet.glb" id="1_qvfku"]
+
+[node name="CanthanCarpet" type="Node3D"]
+
+[node name="carpet" parent="." instance=ExtResource("1_qvfku")]
