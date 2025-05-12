@@ -1,7 +1,7 @@
 extends "res://lib/ui_container/ui_container.gd"
 
 var bind_nodes = []
-const PATH = "user://save/map.dat"
+const PATH = "user://map.dat"
 
 var input_map = { }
 

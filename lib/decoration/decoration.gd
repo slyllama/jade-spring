@@ -5,6 +5,7 @@ enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
 const GizmoArrow = preload("res://lib/gizmo/gizmo_arrow/gizmo_arrow.tscn")
 const OutlineMaterial = preload("res://generic/materials/mat_outline.tres")
+const SelectionIcon = preload("res://lib/decoration/selection_icon.gd")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
@@ -23,15 +24,19 @@ var distance_to_player = 0.0
 var mouse_in_box = false
 var outlined = false
 
+@onready var selection_icon = SelectionIcon.new()
 var selected = false
 
 func set_selected(state = true) -> void:
 	selected = state
+	Global.click_sound.emit()
 	if state:
 		for _i in 4: await get_tree().process_frame
+		selection_icon.set_active()
 		outline_mat.set_shader_parameter("outline_color", Color.WHITE)
 		outline_mat.set_shader_parameter("outline_width", 0.5)
 	else:
+		selection_icon.set_active(false)
 		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
 		outline_mat.set_shader_parameter("outline_width", 0)
 
@@ -217,6 +222,7 @@ func cancel_adjustment() -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	add_child(selection_icon)
 	
 	if "cull" in Global.DecoData[id]:
 		if Global.DecoData[id].cull == "NEVER":

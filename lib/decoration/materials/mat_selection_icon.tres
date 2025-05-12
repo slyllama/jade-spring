@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://tcs4lskw78r6"]
+
+[ext_resource type="Texture2D" uid="uid://bs0q6kx81u58w" path="res://lib/hud/textures/settings_icon_outline.png" id="1_vslnn"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.1
+alpha_antialiasing_mode = 0
+no_depth_test = true
+shading_mode = 0
+albedo_texture = ExtResource("1_vslnn")
+billboard_mode = 1
+billboard_keep_scale = true

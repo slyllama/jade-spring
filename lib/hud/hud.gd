@@ -260,9 +260,9 @@ func _on_camera_button_down() -> void:
 
 func _on_camera_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("right_click"):
-		if !DirAccess.dir_exists_absolute("user://save/screenshots"):
-			DirAccess.make_dir_absolute("user://save/screenshots")
-		OS.shell_open(ProjectSettings.globalize_path("user://save/screenshots"))
+		if !DirAccess.dir_exists_absolute("user://screenshots"):
+			DirAccess.make_dir_absolute("user://screenshots")
+		OS.shell_open(ProjectSettings.globalize_path("user://screenshots"))
 
 func _on_safe_point_button_down() -> void:
 	Global.go_to_safe_point()

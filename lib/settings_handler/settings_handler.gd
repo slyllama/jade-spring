@@ -1,7 +1,7 @@
 extends Node
 # SettingsHandler
 # Handles the management and updating of settings
-const FILE_PATH = "user://save/settings.dat"
+const FILE_PATH = "user://settings.dat"
 const MIN_FOV = 55
 const MAX_FOV = 90
 const DEFAULT_SETTINGS = { 

@@ -893,6 +893,9 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 10.498, 2.7659, 3.72664
 [node name="DecoCanthanCarpet2" parent="DecoHandler" index="148" instance=ExtResource("42_3nsp6")]
 transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 10.498, 2.7659, -1.00332)
 
+[node name="DrizzlewoodShrub3" parent="DecoHandler" index="149" instance=ExtResource("38_b76kw")]
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, -8.81685, -0.176049, 4.58868)
+
 [node name="PancakeRocks" parent="Decoration" index="0" instance=ExtResource("38_rijwn")]
 transform = Transform3D(1.98271, 0.196091, 0.174417, 0, 1.32921, -1.49439, -0.262437, 1.48147, 1.31772, -8.55051, 2.60614, -13.8208)
 

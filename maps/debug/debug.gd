@@ -22,6 +22,10 @@ func _ready() -> void:
 	$Otter/AnimationPlayer.animation_finished.connect(func(_anim):
 		$Otter/AnimationPlayer.play("spin"))
 	$Otter/AnimationPlayer.play("spin")
+	
+	var _m = load("res://lib/decoration/selection_icon.gd").new()
+	add_child(_m)
+	_m.position.y = 1.0
 
 func _process(delta: float) -> void:
 	$FishPool.rotation_degrees.y += delta * 4.0
