@@ -96,13 +96,6 @@ func render(tag = "None", custom_data = []) -> void:
 	for _n in buttons: buttons[_n].queue_free()
 	buttons = {}
 	
-	if tag == "None":
-		$Container/ScrollBox/ScrollVBox/ClearCategory.visible = false
-		categories.visible = true
-	else:
-		$Container/ScrollBox/ScrollVBox/ClearCategory.visible = true
-		categories.visible = false
-	
 	var id_list = []
 	if custom_data.size() > 0:
 		for _d in custom_data:
@@ -171,6 +164,13 @@ func render(tag = "None", custom_data = []) -> void:
 				$Base/PreviewContainer.visible = true)
 		
 		_c += 1
+		
+		if tag == "None" or _c == 0:
+			$Container/ScrollBox/ScrollVBox/ClearCategory.visible = false
+			categories.visible = true
+		else:
+			$Container/ScrollBox/ScrollVBox/ClearCategory.visible = true
+			categories.visible = false
 	
 	preview.clear_model()
 	preview.current_id = current_id
@@ -294,5 +294,6 @@ func _on_category_button_down(category_id: String) -> void:
 	render(category_id)
 
 func _on_clear_category_button_down() -> void:
+	selected_tag = "None"
 	$Container/TagContainer/TagMenu.text = "None"
 	render()

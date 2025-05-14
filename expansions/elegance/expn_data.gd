@@ -6,10 +6,5 @@ extends Node
 #   res://expansions/<expansion>/<decoration><decoration>_mesh.tscn
 
 const data = {
-	"test_deco": {
-		"name": "Test Decoration",
-		"preview_scale": 0.9,
-		"tags": ["Architecture", "Cantha"],
-		"cursor_suffix": "tscn"
-	}
+
 }

@@ -27,7 +27,8 @@ const TEXTURES = { # associations with texture paths
 	"eyedropper": preload("res://lib/skill_button/textures/duplicate.png"),
 	"adjust_mode_translate": preload("res://lib/skill_button/textures/move_scale.png"),
 	"toggle_gravity": preload("res://lib/skill_button/textures/toggle_gravity.png"),
-	"ping": preload("res://lib/skill_button/textures/ping.png")
+	"ping": preload("res://lib/skill_button/textures/ping.png"),
+	"select_multiple": preload("res://lib/skill_button/textures/select_multiple.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
 
@@ -113,8 +114,8 @@ const TOOLTIPS = {
 		"description": "Use radar to find the nearest weeds, bugs, and Dragonvoid which need dealing with."
 	},
 	"select_multiple": {
-		"title": "((Select Multiple))",
-		"description": "((Select multiple.))"
+		"title": "Select Multiple",
+		"description": "Add multiple decorations to selection (and move them as a group)."
 	}
 }
 
