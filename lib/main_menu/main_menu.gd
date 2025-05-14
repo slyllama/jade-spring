@@ -89,7 +89,7 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	if Global.debug_allowed: $DebugLabel.visible = true
 	
-	if !Engine.is_editor_hint():
+	if !Engine.is_editor_hint() and DiscordRPC.get_is_discord_working():
 		DiscordRPC.state = "In Menu"
 		DiscordRPC.details = ""
 		DiscordRPC.refresh()

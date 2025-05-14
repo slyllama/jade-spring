@@ -148,8 +148,9 @@ func advance_story() -> void:
 		save_to_file()
 		
 		# Discord updating
-		DiscordRPC.details = STORY_POINT_SCRIPT[data.story_point].title
-		DiscordRPC.refresh()
+		if DiscordRPC.get_is_discord_working():
+			DiscordRPC.details = STORY_POINT_SCRIPT[data.story_point].title
+			DiscordRPC.refresh()
 
 func load_from_file() -> void:
 	if Global.map_name == "debug":
@@ -162,8 +163,9 @@ func load_from_file() -> void:
 		file.close()
 		
 		# Discord updating
-		DiscordRPC.details = STORY_POINT_SCRIPT[data.story_point].title
-		DiscordRPC.refresh()
+		if DiscordRPC.get_is_discord_working():
+			DiscordRPC.details = STORY_POINT_SCRIPT[data.story_point].title
+			DiscordRPC.refresh()
 	else: reset()
 
 func reset() -> void:
@@ -243,7 +245,8 @@ func _ready() -> void:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		DiscordRPC.refresh()
+		if DiscordRPC.get_is_discord_working():
+			DiscordRPC.refresh()
 		
 		if Save.data != {}: # only save if there is something to save
 			Save.data.karma += Global.assigned_karma

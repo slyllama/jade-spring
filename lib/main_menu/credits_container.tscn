@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="3_cxpuh"]
 
 [node name="CreditsContainer" instance=ExtResource("1_ui66r")]
-custom_minimum_size = Vector2(400, 600)
+offset_right = 400.0
+offset_bottom = 500.0
 script = ExtResource("2_hwlbg")
 title = "Credits"
 
@@ -50,13 +51,17 @@ color = Color(1, 1, 1, 0)
 [node name="Content" type="RichTextLabel" parent="Container/ContentScroll/Content" index="3"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center][color=a9da42]Principal Character Design[/color][/center]
+text = "[center][color=a9da42]A Guild Wars 2 Fan Game[/color][/center]
+[center]With gratitude to ArenaNet[/center]
+[font_size=7] [/font_size]
+[center][color=777]*  *  *[/color][/center]
+[center][color=a9da42]Principal Character Design[/color][/center]
 [center]areyoshi[/center]
 [font_size=7] [/font_size]
 [center][color=a9da42]Quality Assurance[/color][/center]
 [center]areyoshi[/center]
+[center]ketpia[/center]
 [center]Mika (RadioCats)[/center]
-[center]Ketpia[/center]
 
 [center][color=aaa]Godot 4.3 (Godot Engine contributors)[/color][/center]
 [center][color=aaa]GodotSteam (Gramps)[/color][/center]
@@ -72,8 +77,8 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="TOC" type="Button" parent="Container/ContentScroll/Content" index="5"]
+[node name="TOC" type="Button" parent="Container" index="4"]
 layout_mode = 2
 text = "ArenaNet Content Terms of Use"
 
-[connection signal="button_down" from="Container/ContentScroll/Content/TOC" to="." method="_on_toc_button_down"]
+[connection signal="button_down" from="Container/TOC" to="." method="_on_toc_button_down"]
