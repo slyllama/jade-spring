@@ -2,7 +2,6 @@ extends RichTextLabel
 # Version
 # Display the game's version number
 
-const Version = preload("res://version.gd")
 @export var align_right = false
 
 func _display_version() -> void:

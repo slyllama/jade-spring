@@ -221,7 +221,6 @@ func _process(_delta: float) -> void:
 		$Debug.text += ("\n" + str(Global.tool_identities[Global.tool_mode]))
 		#$Debug.text += ("\n" + str(Utilities.fmt_vec3(Global.player_position)))
 		$Debug.text += ("\nSave.STORY_POINTS." + str(Save.data.story_point))
-		$Debug.text += ("\n[color=#ddd]Global.deco_selection_array.size() = " + str(Global.deco_selection_array.size()) + "[/color]")
 		$Debug.text += "\n"
 		if Global.in_exclusive_ui: $Debug.text += ("\n[color=yellow]Exclusive UI[/color]")
 		

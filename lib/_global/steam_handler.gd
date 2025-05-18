@@ -88,7 +88,6 @@ func get_stat(stat: String) -> int:
 
 func add_to_stat(stat: String, amount = 1) -> void:
 	if !steam_loaded:
-		printd("Couldn't add to stat '" + stat + "'.")
 		return
 	Steam.setStatInt(stat, Steam.getStatInt(stat) + amount)
 
@@ -116,6 +115,10 @@ func _on_steam_stats_ready(game: int, result: int, _user: int) -> void:
 	else: printd("Stats callback error.")
 
 func _init() -> void:
+	if Version.TARGET != "steam":
+		steam_loaded = false
+		return
+	
 	var init_steam: Dictionary = Steam.steamInitEx(true, APP_ID)
 	if init_steam.status == Steam.STEAM_API_INIT_RESULT_OK:
 		steam_loaded = true
