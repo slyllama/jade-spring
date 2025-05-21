@@ -70,12 +70,3 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_update_resource_loader()
-
-func _on_test_button_down() -> void:
-	if current_model_path != "":
-		close()
-		return
-	material.set_shader_parameter("dissolve_value", 0.0)
-	loaded = false
-	for _i in 3: await get_tree().process_frame
-	load_model("res://lib/player/meshes/jade_bot.glb", "AnimationPlayer")
