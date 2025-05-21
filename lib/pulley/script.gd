@@ -12,7 +12,7 @@ const intro_dialogue_data = {
 	"new_bot": {
 		"string": "M-m-magnificent! So uh, well... want to t-take them for a spin... give them a stretch?",
 		"options": {
-			"icky": "A stretch, huh - sounds like someone has an icky job lined up for an idle set of jade rods."
+			"icky": "A stretch, huh - sounds like someone has an unpleasant job lined up for an idle set of jade rods."
 		}
 	},
 	"icky": {
@@ -36,7 +36,7 @@ const pick_weeds_alt_dialogue = {
 	"id": "pick_weeds_alt",
 	"title": "Ratchet",
 	"_entry": {
-		"string": "(Ratchet is mumbling to themselves as they consult data on their heads-up display.)",
+		"string": "(Ratchet is mumbling to themself as they consult data on their heads-up display.)",
 		"options": {
 			"interference": "What's with the interference?",
 			"ship": "How are your ship repairs coming along, Ratchet?",
@@ -53,7 +53,13 @@ const pick_weeds_alt_dialogue = {
 	"ship": {
 		"string": "Ship-p-p is... sixty-five percent optimal! Dents g-g-gone; engine calibration underway. Thanks, friend; that craft will n-never have t-t-to experience Aetherblade misconduct again.",
 		"options": {
-			"done": "I'm so happy to hear that, Ratchet. You deserve that; I wouldn't be here recovering if it weren't for you, that's for sure.",
+			"keep_ship": "(...)"
+		}
+	},
+	"keep_ship": {
+		"string": "The m-m-master thinks it should stay here a wh-while longer. Just in case h-he ever has g-g-guests to entert-t-tain and impress.",
+		"options": {
+			"done": "It's a conversation starter, that's for sure.",
 			"_entry": "(Ask Ratchet more.)"
 		}
 	},
@@ -92,7 +98,7 @@ const dv_intro_dialogue = {
 		}
 	},
 	"communicator": {
-		"string": "Standard g-g-golem operating procedure. Now! T-t-take the Raw Dispersion Flux; we're going to attune it in this genius m-machine I've developed.",
+		"string": "Standard g-g-golem operating procedure. Now! T-t-take the Raw Dispersion Flux; we're going to attune it in this genius m-machine I've been developing.",
 		"options": {
 			"procedure": "(...)"
 		}
@@ -148,7 +154,7 @@ const dv_charge = {
 	"_entry": {
 		"string": "Beep... Static... Buzz...",
 		"options": {
-			"weird": "I feel... a little faint, Ratchet. Is this attuning thing... safe?"
+			"weird": "I feel... a little faint, Ratchet. Are you really sure this attuning thing is... safe?"
 		}
 	},
 	"weird": {
@@ -160,7 +166,13 @@ const dv_charge = {
 	"safe": {
 		"string": "O-oh... I mean... yes, yes, it's entirely s-s-safe. It just incurs, well... a small m-m-memory leak. Noted for next t-time.",
 		"options": {
-			"done": "I hope so; my mind... it's scrambled."
+			"qa": "I hope so; my mind... it's scrambled."
+		}
+	},
+	"qa": {
+		"string": "D-d-don’t w-worry, friend. The master h-h-helped with qu-quality assurance! You’ll f-feel better af-after clearing the Dragonvoid.",
+		"options": {
+			"done": "Okay. I trust you."
 		}
 	},
 	"done": {
@@ -174,10 +186,17 @@ const raiqqo_dialogue = {
 	"_entry": {
 		"string": "A good day in the Jade Spring - especially now that awful b-b-buzzing has d-dialed back a little.",
 		"options": {
-			"saved_1": "Raiqqo saved me; he repaired me and made me whole again. And yet... I recall so little of what happened.",
+			"raiqqo": "Ratchet, can you tell me more about Raiqqo? Why does an Asura tend to a garden in Cantha?",
+			"saved_1": "Raiqqo saved me; he repaired me and made me whole again. There are some things I still can't fully recall leading up to my damage. He must have had his work cut out for him",
 			"return_1": "I'm glad we've been able to restore some order to this place before Raiqqo got back. That was thoughtful of him to leave a letter.",
 			"commander_1": "I can't wait till the Commander sees what we've done here. They could use a break.",
 			"done": "(Done for now.)"
+		}
+	},
+	"raiqqo": {
+		"string": "Cer-Certainly. Master Raiqqo is an en-enthusiastic-ic-ic admirer of Cantha. He m-may have been a bit obnoxious in his pur-pursuit of a plot of land... but his engineering skills have proven use-useful to some l-l-locals. Th-They've learned to tolerate him.",
+		"options": {
+			"_entry": "(Discuss more with Ratchet.)"
 		}
 	},
 	"saved_1": {
@@ -187,7 +206,7 @@ const raiqqo_dialogue = {
 		}
 	},
 	"saved_2": {
-		"string": "He said the same t-thing as when he patched me up - that we were b-both solely practical endeavors, n-nothing more.",
+		"string": "He said the same t-thing about you as when he first patched me up - that we were b-both solely practical endeavors, n-nothing more.",
 		"options": {
 			"saved_3": "(...)"
 		}
@@ -207,11 +226,11 @@ const raiqqo_dialogue = {
 	"return_2": {
 		"string": "—But... Rai thinks you have 'perhaps a little more than a little merit'; h-his words, not mine.",
 		"options": {
-			"return_3": "(...)"
+			"return_3": "That attitude sounds more Asuran than his letter did."
 		}
 	},
 	"return_3": {
-		"string": "He would like t-to have you around with him, part-time at-t-t least.",
+		"string": "Ah, the p-power of p-p-proofreading.",
 		"options": {
 			"_entry": "(Discuss more with Ratchet.)"
 		}
@@ -223,7 +242,7 @@ const raiqqo_dialogue = {
 		}
 	},
 	"commander_2": {
-		"string": "Rai wonders if they are m-much different from the snow bears; I've only retained t-the vaguest memories of the Shiverpeaks.",
+		"string": "Master Raiqqo wonders if they are m-much different from the snow bears; I've only retained t-the vaguest memories of the Shiverpeaks.",
 		"options": {
 			"_entry": "(Discuss more with Ratchet.)"
 		}

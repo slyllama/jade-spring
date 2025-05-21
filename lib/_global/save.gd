@@ -36,7 +36,7 @@ const STORY_POINTS = [
 var STORY_POINT_SCRIPT = {
 	"game_start": {
 		"title": "1. A Helping Hand",
-		"description": "Nayos was tough on the Commander and I; a Kryptis turret-blast left my Jade Bot plating cracked and my servos badly damaged. Repair and recovery is a slow process and, as grateful as I am for my jade tech\u00ADnicians, it pains me to be away from the Commander for so long! Though perhaps, as I rehabilitate here, I too can help build some\u00ADthing meaningful. <Talk to Ratchet about tending to the garden!>",
+		"description": "Nayos was tough on the Commander and I; a Kryptis turret-blast left my Jade Bot plating cracked and my servos badly damaged. When I first came back online I had little clue as to where I was, but I have since learned that this place is the Jade Spring, a secluded garden overseen by a golem named Ratchet. I'd like to show my appreciation for the safe haven that has been provided to me during my rehabilitation. Perhaps while I am here, I too can help build something meaningful. <Talk to Ratchet about tending to the garden!>",
 		"objective": "Talk to the steward golem Ratchet about tending to the garden."
 	},
 	"pick_weeds": {
