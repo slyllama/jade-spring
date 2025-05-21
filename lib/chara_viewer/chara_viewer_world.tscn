@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://5uv13e8nik8y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7skuw"]
+
+[sub_resource type="Sky" id="Sky_lyj34"]
+sky_material = SubResource("ProceduralSkyMaterial_7skuw")
+
+[sub_resource type="Environment" id="Environment_n7vcf"]
+background_mode = 2
+sky = SubResource("Sky_lyj34")
+
+[node name="CharaViewerWorld" type="Node3D"]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.35)
+fov = 35.0
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n7vcf")
+
+[node name="Sun" type="DirectionalLight3D" parent="Sky"]
+transform = Transform3D(0.854314, 0.259879, -0.450123, 0, 0.866025, 0.5, 0.519758, -0.427157, 0.739857, 0, 1, 0)
+
+[node name="Root" type="Node3D" parent="."]

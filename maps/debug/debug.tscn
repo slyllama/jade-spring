@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgrakybin27gf"]
+[gd_scene load_steps=26 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
 [ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="3_pk05h"]
+[ext_resource type="PackedScene" uid="uid://ojc8qc8s76mg" path="res://lib/chara_viewer/chara_viewer.tscn" id="4_lgy8c"]
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="4_nnm10"]
 [ext_resource type="PackedScene" uid="uid://dm88qsqr4e6bj" path="res://lib/crumb/weed.tscn" id="4_ra8uq"]
 [ext_resource type="PackedScene" uid="uid://1f5jt3pugxvq" path="res://lib/crumb/bug_swarm.tscn" id="6_d41iy"]
@@ -68,6 +69,19 @@ script = ExtResource("2_n4fpp")
 
 [node name="Sky" parent="." index="1"]
 environment = SubResource("Environment_ypasr")
+
+[node name="CharaViewer" parent="HUD" index="18" instance=ExtResource("4_lgy8c")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -256.0
+offset_right = 504.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Weed" parent="CrumbHandler" index="0" instance=ExtResource("4_ra8uq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -1.3)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://ojc8qc8s76mg"]
+
+[ext_resource type="PackedScene" uid="uid://5uv13e8nik8y" path="res://lib/chara_viewer/chara_viewer_world.tscn" id="1_iw627"]
+[ext_resource type="Shader" path="res://generic/materials/shaders/shader_simple_dissolve.gdshader" id="1_tm618"]
+[ext_resource type="Script" path="res://lib/chara_viewer/chara_viewer.gd" id="1_uhl1e"]
+
+[sub_resource type="Gradient" id="Gradient_w6g4o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7uhds"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fypyl"]
+color_ramp = SubResource("Gradient_w6g4o")
+noise = SubResource("FastNoiseLite_7uhds")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvwdy"]
+shader = ExtResource("1_tm618")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_fypyl")
+
+[node name="CharaViewer" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_jvwdy")
+custom_minimum_size = Vector2(500, 500)
+offset_right = 512.0
+offset_bottom = 512.0
+script = ExtResource("1_uhl1e")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="CharaViewerWorld" parent="SubViewport" instance=ExtResource("1_iw627")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="Test" type="Button" parent="."]
+layout_mode = 2
+text = "Test Load Model"
+
+[connection signal="button_down" from="Test" to="." method="_on_test_button_down"]
