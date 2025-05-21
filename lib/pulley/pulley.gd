@@ -67,10 +67,6 @@ func _ready() -> void:
 	body_entered.connect(func(body): if body is CharacterBody3D:
 		Global.interact_hint = "Talk")
 	
-	Global.command_sent.connect(func(_cmd):
-		if _cmd == "/d":
-			spawn_dialogue(ScriptData.dv_charge))
-
 func _on_interacted() -> void:
 	if Global.in_exclusive_ui or Global.dialogue_open: return
 	Global.generic_area_left.emit()

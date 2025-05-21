@@ -27,6 +27,14 @@ func open(title = "((Title))", description = "((Description))"):
 	await get_tree().create_timer(0.1).timeout
 	$JadeWingsBase/JadeAnim.play("float")
 
+func play_building_hint() -> void:
+	Global.play_hint("building", { 
+		"title": "Building Unlocked",
+		"arrow": "down",
+		"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
+		"text": "You can now build! Experiment with unlocked skills to decorate."
+	}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.5 - 300)), true)
+
 func close():
 	if closed: return # should only happen once
 	closed = true
@@ -38,6 +46,9 @@ func close():
 				"anchor_preset": Control.LayoutPreset.PRESET_CENTER,
 				"text": "Use |move_forward|, |move_back|, |move_left|, and |move_right| to move and direct your Jade Bot. Ascend with |move_up| and descend with |move_down|. Use |interact| to interact with objects you are close to!"
 			}, Utilities.get_screen_center(Vector2(0, -100)), true)
+	
+	elif Save.data.story_point == "ratchet_gratitude":
+		play_building_hint()
 	
 	Global.story_panel_open = false
 	Global.close_story_panel.emit()
@@ -54,10 +65,6 @@ func close():
 	await fade_tween.finished
 	Global.action_cam_enable.emit()
 	queue_free()
-
-#func _input(_event: InputEvent) -> void:
-	#if Input.is_action_just_pressed("right_click"):
-		#close()
 
 func _ready() -> void:
 	$Base/Content.modulate.a = 0.0
