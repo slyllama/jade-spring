@@ -3,6 +3,7 @@ extends "res://lib/gadget/gadget.gd"
 # Script for the character Ratchet!
 
 const ScriptData = preload("res://lib/pulley/script.gd")
+const CharaViewer = preload("res://lib/chara_viewer/chara_viewer.tscn")
 
 # These dialogue IDs are considered fresh if (a) the game is on that story
 # point and (b) the dialogue ID isn't already in Save.dialogue_played.
@@ -70,6 +71,8 @@ func _on_interacted() -> void:
 	if Global.in_exclusive_ui or Global.dialogue_open: return
 	Global.generic_area_left.emit()
 	
+	var _dialogue_spawned = true
+	
 	if Save.data.story_point == "game_start":
 		spawn_dialogue(ScriptData.intro_dialogue_data, true)
 	elif Save.data.story_point == "pick_weeds":
@@ -120,3 +123,27 @@ func _on_interacted() -> void:
 			if Save.data.story_point == "stewardship":
 				SettingsHandler.update("show_gift_item", "show"))
 		_d.open()
+	else: _dialogue_spawned = false
+	
+	# If true, dialogue has spawned and we can show the characters
+	if _dialogue_spawned:
+		var _chara_jade = CharaViewer.instantiate()
+		Global.hud.get_node("TopLevel").add_child(_chara_jade)
+		_chara_jade.set_anchors_preset(Control.PRESET_CENTER_LEFT)
+		_chara_jade.load_model("res://lib/player/meshes/jade_bot.glb",
+			"AnimationPlayer", {
+			"y_rotation": 35.0,
+			"exclusion_meshes": [
+				"JadeArmature/Skeleton3D/EngineGlowCard"
+			]
+		})
+		
+		var _chara_pulley = CharaViewer.instantiate()
+		Global.hud.get_node("TopLevel").add_child(_chara_pulley)
+		_chara_pulley.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+		_chara_pulley.position.x = get_viewport().size.x - _chara_pulley.size.x
+		_chara_pulley.load_model("res://lib/pulley/meshes/pulley.glb",
+			"AnimationPlayer", {
+			"y_rotation": -35.0,
+			"scale": Vector3(0.6, 0.6, 0.6)
+		})

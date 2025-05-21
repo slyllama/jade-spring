@@ -22,6 +22,7 @@ material = SubResource("ShaderMaterial_jvwdy")
 custom_minimum_size = Vector2(500, 500)
 offset_right = 512.0
 offset_bottom = 512.0
+mouse_filter = 2
 script = ExtResource("1_uhl1e")
 
 [node name="SubViewport" type="SubViewport" parent="."]
