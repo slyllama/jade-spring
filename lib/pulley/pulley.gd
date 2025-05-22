@@ -4,6 +4,7 @@ extends "res://lib/gadget/gadget.gd"
 
 const ScriptData = preload("res://lib/pulley/script.gd")
 const CharaViewer = preload("res://lib/chara_viewer/chara_viewer.tscn")
+const VIEWER_X_OFFSET = 400.0
 
 # These dialogue IDs are considered fresh if (a) the game is on that story
 # point and (b) the dialogue ID isn't already in Save.dialogue_played.
@@ -129,7 +130,9 @@ func _on_interacted() -> void:
 	if _dialogue_spawned:
 		var _chara_jade = CharaViewer.instantiate()
 		Global.hud.get_node("TopLevel").add_child(_chara_jade)
-		_chara_jade.set_anchors_preset(Control.PRESET_CENTER_LEFT)
+		_chara_jade.set_anchors_preset(Control.PRESET_CENTER)
+		_chara_jade.position = get_viewport().size / Global.retina_scale * 0.5 - _chara_jade.size / 2.0
+		_chara_jade.position.x -= VIEWER_X_OFFSET
 		_chara_jade.load_model("res://lib/player/meshes/jade_bot.glb",
 			"AnimationPlayer", {
 			"y_rotation": 35.0,
@@ -145,8 +148,9 @@ func _on_interacted() -> void:
 		
 		var _chara_pulley = CharaViewer.instantiate()
 		Global.hud.get_node("TopLevel").add_child(_chara_pulley)
-		_chara_pulley.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
-		_chara_pulley.position.x = get_viewport().size.x - _chara_pulley.size.x
+		_chara_pulley.set_anchors_preset(Control.PRESET_CENTER)
+		_chara_pulley.position = get_viewport().size / Global.retina_scale * 0.5 - _chara_pulley.size / 2.0
+		_chara_pulley.position.x += VIEWER_X_OFFSET
 		_chara_pulley.load_model("res://lib/pulley/meshes/pulley.glb",
 			"AnimationPlayer", {
 			"y_rotation": -35.0,
