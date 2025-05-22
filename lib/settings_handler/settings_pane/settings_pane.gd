@@ -73,6 +73,14 @@ func _process(delta: float) -> void:
 	super(delta)
 	# Prevent settings buttons from gaining focus while orbiting
 	
+	if is_open:
+		if get_window().gui_get_hovered_control() is HSlider:
+			if $Container/SC.mouse_filter == MOUSE_FILTER_PASS:
+				$Container/SC.mouse_filter = MOUSE_FILTER_IGNORE
+		else:
+			if $Container/SC.mouse_filter == MOUSE_FILTER_IGNORE:
+				$Container/SC.mouse_filter = MOUSE_FILTER_PASS
+	
 	if Global.tool_mode != Global.TOOL_MODE_NONE: $Container/SC/Contents/Bindings.disabled = true
 	else: $Container/SC/Contents/Bindings.disabled = false
 	

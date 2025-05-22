@@ -24,7 +24,7 @@ const intro_dialogue_data = {
 	"alchemy": {
 		"string": "Thank you, t-t-thank you. Alchemy - t-t-this Dragonvoid has been interfering with t-t-the renovation cataloging system. I'll have to keep w-w-working on it.",
 		"options": {
-			"handle": "(Leave ratchet to their business.)"
+			"handle": "(Leave Ratchet to their business.)"
 		}
 	},
 	"handle": {
@@ -256,7 +256,7 @@ const gift = {
 	"id": "gift",
 	"title": "Ratchet",
 	"_entry": {
-		"string": "((Receive gift.))",
+		"string": "((A small token of my appreciation, from both Ratchet and myself as a developer. Of course, this is placeholder dialogue and I will replace it through the beta, hehe.))",
 		"options": {
 			"exit": "((Receive gift.))"
 		}

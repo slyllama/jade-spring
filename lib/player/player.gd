@@ -191,8 +191,6 @@ var _gravity_last_in_current_effects = false
 var _double_jump_state = 0
 
 func _physics_process(delta: float) -> void:
-	#print(Input.get_action_strength("axis_move_right"))
-	#
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
 		_elongate_target = 2.0
 		velocity.y = 1.0
@@ -280,6 +278,8 @@ func _physics_process(delta: float) -> void:
 		$PlayerMesh.position.y += 0.35
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
 		if !is_on_floor():
+			if Input.is_action_pressed("move_forward"):
+				velocity += 10.0 * delta * Vector3.FORWARD * _camera_basis * Vector3(-1, 0, 1)
 			velocity.y -= 27.0 * delta
 		else:
 			if Vector3(velocity * Vector3(1, 0, 1)).length() > 1.5:
@@ -290,13 +290,13 @@ func _physics_process(delta: float) -> void:
 				walking = false
 		if Input.is_action_just_pressed("move_up"):
 			if !Global.deco_pane_open and !get_viewport().gui_get_focus_owner() is LineEdit:
-				if _time_since_on_floor < 0.35 and _double_jump_state < 2:
+				if _double_jump_state < 2:
 					$Jump.pitch_scale = 0.9 + rng.randf() * 0.2
 					$Jump.play()
 					walking = false
 					
-					if _double_jump_state == 1: velocity.y = 9.0
-					else: velocity.y = 8.0
+					if _double_jump_state == 1: velocity.y = 10.0
+					else: velocity.y = 10.0
 					_double_jump_state += 1
 		
 		velocity.x = lerp(velocity.x, _target_velocity.x, Utilities.critical_lerp(delta, 15.0))
@@ -348,8 +348,7 @@ func _physics_process(delta: float) -> void:
 				$PlayerMesh.rotation.z,
 				_direction.z * 0.4,
 				smoothing * 0.2 * delta)
-		else:
-			$PlayerMesh.rotation.z = 0.0	
+		else: $PlayerMesh.rotation.z = 0.0
 	
 	# Interpolating camera movements on physics tick seems to be smoother when
 	# playing with unlimited frames
@@ -406,8 +405,7 @@ func _process(delta: float) -> void:
 		lerp($Spider.get_jump_scale(), _target_jump_anim, Utilities.critical_lerp(delta, 21.0)))
 	if abs(velocity.y) < 1.0:
 		$Spider.set_anim_speed(Vector3(velocity * Vector3(1, 0, 1)).length() * 0.9)
-	else:
-		$Spider.set_anim_speed(0.0)
+	else: $Spider.set_anim_speed(0.0)
 	
 	var _target_pitch_scale: float = (1.0
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)

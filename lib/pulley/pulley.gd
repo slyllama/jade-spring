@@ -134,7 +134,12 @@ func _on_interacted() -> void:
 			"AnimationPlayer", {
 			"y_rotation": 35.0,
 			"exclusion_meshes": [
-				"JadeArmature/Skeleton3D/EngineGlowCard"
+				"JadeArmature/Skeleton3D/EngineGlowCard",
+				"JadeArmature/Skeleton3D/PlushBase",
+				"JadeArmature/Skeleton3D/PlushBorder",
+				"JadeArmature/Skeleton3D/PlushEars",
+				"JadeArmature/Skeleton3D/PlushSides",
+				"JadeArmature/Skeleton3D/PlushTail"
 			]
 		})
 		
