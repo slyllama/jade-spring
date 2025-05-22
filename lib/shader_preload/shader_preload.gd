@@ -7,6 +7,7 @@ extends Node
 const Fishing = preload("res://lib/fishing/fishing.tscn")
 const Dialogue = preload("res://lib/dialogue/dialogue.tscn")
 const Attenuator = preload("res://lib/attenuator/attenuator.tscn")
+const CharaViewer = preload("res://lib/chara_viewer/chara_viewer.tscn")
 
 const PLAYER_POSITIONS = [
 	Vector3(-3.7, 2.0, 13.4),
@@ -67,9 +68,19 @@ func _ready():
 	Global.hud.add_child(_a)
 	_a.close()
 	
+	# Load Dispersion Golems for a drame
 	pdebug("Clearing Disperson Golems.")
 	await get_tree().process_frame
 	Global.player.clear_dgolems()
+	
+	pdebug("Caching CharaViewer")
+	var _chara_pulley = CharaViewer.instantiate()
+	Global.hud.get_node("TopLevel").add_child(_chara_pulley)
+	_chara_pulley.set_anchors_preset(Control.PRESET_CENTER)
+	_chara_pulley.load_model("res://decorations/cid_banners/otter/otter.glb",
+		"AnimationPlayer")
+	for _i in 2: await get_tree().process_frame
+	_chara_pulley.queue_free()
 	
 	await get_tree().process_frame
 	Global.shader_preload_complete.emit()

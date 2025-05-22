@@ -238,3 +238,7 @@ func _on_achievements_button_button_down() -> void:
 
 func _on_credits_button_button_down() -> void:
 	$CreditsContainer.open()
+
+func _on_logo_gui_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_click"):
+		OS.shell_open("https://slyllama.net/")

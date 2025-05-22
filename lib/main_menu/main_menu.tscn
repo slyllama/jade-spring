@@ -348,8 +348,8 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
-offset_top = -45.0
-offset_right = 135.0
+offset_top = -49.0
+offset_right = 152.0
 offset_bottom = -17.0
 grow_vertical = 0
 texture = ExtResource("8_rr48m")
@@ -421,6 +421,7 @@ max_polyphony = 2
 [connection signal="button_down" from="Container/CreditsButton" to="." method="_on_credits_button_button_down"]
 [connection signal="button_down" from="Container/QuitButton" to="." method="_on_quit_button_down"]
 [connection signal="closed" from="SettingsPane" to="." method="_on_settings_pane_closed"]
+[connection signal="gui_input" from="Logo" to="." method="_on_logo_gui_input"]
 [connection signal="button_down" from="CloseButton" to="." method="_on_quit_button_down"]
 [connection signal="closed" from="NewGameContainer" to="." method="_on_ngc_closed"]
 [connection signal="new_game_button_pressed" from="NewGameContainer" to="." method="_on_new_game_button_pressed"]
