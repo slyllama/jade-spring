@@ -304,7 +304,6 @@ text = "[center]Notice as specified by ArenaNet’s content terms of use: © Are
 scroll_active = false
 
 [node name="Version" type="RichTextLabel" parent="."]
-modulate = Color(0.5, 0.5, 0.5, 1)
 clip_contents = false
 anchors_preset = 3
 anchor_left = 1.0
@@ -318,7 +317,7 @@ offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 1
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true

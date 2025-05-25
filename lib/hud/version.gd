@@ -8,7 +8,7 @@ const Flash = preload("res://lib/flash/flash.tscn")
 func _display_version(newer_version: String = Version.VER) -> void:
 	var _str = "v" + Version.VER
 	if newer_version != Version.VER:
-		_str += " [color=yellow](v" + newer_version + " available)[/color]"
+		_str += " [color=#cba23b](v" + newer_version + " available)[/color]"
 		var _f = Flash.instantiate()
 		if align_right:
 			_f.position.x += size.x
