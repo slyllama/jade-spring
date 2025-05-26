@@ -25,7 +25,6 @@ func _update_resource_loader() -> void:
 					scene_instance.rotation_degrees.y = current_custom_data.y_rotation
 				if "exclusion_meshes" in current_custom_data:
 					for _m in current_custom_data.exclusion_meshes:
-						print(_m)
 						var _n = scene_instance.get_node_or_null(_m)
 						if _n: _n.queue_free()
 				

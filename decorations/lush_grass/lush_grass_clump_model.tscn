@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://o5ksjl0l48hy"]
+
+[ext_resource type="Script" path="res://decorations/lush_grass/lush_grass_model.gd" id="1_4muyj"]
+[ext_resource type="Texture2D" uid="uid://xkm0o3y7uf4i" path="res://maps/seitung/materials/textures/moss_mask.png" id="2_7dmdm"]
+[ext_resource type="ArrayMesh" uid="uid://csqc0ex5tq4g0" path="res://maps/seitung/meshes/_grass.res" id="3_oxrmh"]
+[ext_resource type="Script" path="res://lib/foliage_spawner/foliage_spawner.gd" id="4_k4myl"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_tqiog"]
+transform_format = 1
+use_colors = true
+instance_count = 16
+visible_instance_count = 16
+mesh = ExtResource("3_oxrmh")
+buffer = PackedFloat32Array(-0.661105, 0, -5.912, 0.625341, 0, 4.57604, 0, 0, 5.912, 0, -0.661105, 0.173614, 0.105629, 0.257617, 4.96357e-08, 1, -5.23182, 0, -2.43583, 0.622236, 0, 4.43928, 0, 0, 2.43583, 0, -5.23182, 0.434654, 0.297107, 0.48678, 1.68393e-07, 1, 5.41456, 0, -1.77712, 1.01705, 0, 4.38365, 0, 0, 1.77712, 0, 5.41456, 0.340164, 0.195053, 0.364641, 1.05098e-07, 1, 6.16238, 0, 0.0874926, 0.553153, 0, 4.74077, 0, 0, -0.0874926, 0, 6.16238, 0.944942, 0.137447, 0.295696, 6.93693e-08, 1, 0.619083, 0, 5.52662, 1.04522, 0, 4.27784, 0, 0, -5.52662, 0, 0.619083, 0.353981, 0.109999, 0.262846, 5.23456e-08, 1, 5.25008, 0, -2.6398, 0.506929, 0, 4.52029, 0, 0, 2.6398, 0, 5.25008, -0.474129, 0.16573, 0.329546, 8.6911e-08, 1, -1.66204, 0, -6.12903, 0.0629376, 0, 4.88491, 0, 0, 6.12903, 0, -1.66204, 0.874084, 0.164897, 0.328549, 8.63944e-08, 1, 3.03347, 0, -4.79011, 0.760181, 0, 4.36142, 0, 0, 4.79011, 0, 3.03347, 0.155881, 0.221849, 0.39671, 1.21717e-07, 1, 2.64041, 0, -5.70708, 0.694842, 0, 4.83714, 0, 0, 5.70708, 0, 2.64041, -0.00752549, 0.216011, 0.389724, 1.18096e-07, 1, -3.28352, 0, 4.9178, -0.0508527, 0, 4.54863, 0, 0, -4.9178, 0, -3.28352, 0.714963, 0.181606, 0.348547, 9.67576e-08, 1, 2.97573, 0, -5.22974, 0.0422411, 0, 4.62852, 0, 0, 5.22974, 0, 2.97573, 0.492366, 0.154348, 0.315924, 7.98517e-08, 1, 0.227575, 0, -5.30635, 0.426296, 0, 4.08556, 0, 0, 5.30635, 0, 0.227575, 1.03797, 0.318862, 0.512818, 1.81886e-07, 1, 5.14073, 0, 1.76609, 0.71942, 0, 4.18126, 0, 0, -1.76609, 0, 5.14073, 0.228861, 0.320299, 0.514538, 1.82778e-07, 1, 5.85576, 0, -0.202512, -0.200974, 0, 4.50713, 0, 0, 0.202512, 0, 5.85576, 0.191648, 0.110245, 0.263141, 5.24984e-08, 1, 1.99599, 0, -5.48729, 0.454491, 0, 4.49156, 0, 0, 5.48729, 0, 1.99599, 0.842933, 0.296823, 0.486441, 1.68217e-07, 1, 5.61896, 0, -2.3783, 1.405, 0, 4.69351, 0, 0, 2.3783, 0, 5.61896, 0.208036, 0.247758, 0.42772, 1.37787e-07, 1)
+
+[node name="LushGrassClumpModel" type="Node3D"]
+script = ExtResource("1_4muyj")
+
+[node name="MossDecal" type="Decal" parent="."]
+size = Vector3(3, 2, 3)
+texture_albedo = ExtResource("2_7dmdm")
+modulate = Color(0.227172, 0.383729, 0.115889, 1)
+distance_fade_enabled = true
+distance_fade_begin = 9.0
+distance_fade_length = 0.5
+cull_mask = 8
+
+[node name="FoliageSpawner" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.513991, 0, -0.297319)
+layers = 2
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_tqiog")
+script = ExtResource("4_k4myl")
+count = 4
+size = 1.0
+min_scale = 4.0
+max_scale = 4.9
+area_scale = 1.3
+smooth = false
+moss_albedo_mix = 0.71
+moss_scaling = 1.0
+moss_color = Color(0.38291, 0.59, 0.1121, 1)
+colour_1 = Color(0.103203, 0.254713, 4.81308e-08, 1)
+colour_2 = Color(0.336012, 0.533343, 1.92523e-07, 1)

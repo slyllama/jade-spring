@@ -1,7 +1,7 @@
 extends Node
 
-const VER = "1.0b"
-const TARGET = "itch"
+const VER = "1.1b"
+const TARGET = "steam"
 const VER_HTTPS = "https://www.slyllama.net/jade-spring/vercheck.json"
 
 signal latest_version_retrieved(latest_version)

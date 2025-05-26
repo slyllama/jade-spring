@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1re3xb00iibf"]
+
+[ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_otjve"]
+[ext_resource type="Script" path="res://lib/main_menu/broken_decos_container.gd" id="2_jbtdg"]
+[ext_resource type="Texture2D" uid="uid://dp1j524j5uwre" path="res://generic/textures/stickers/sticker_warning.png" id="2_o07gc"]
+
+[node name="BrokenDecosContainer" instance=ExtResource("1_otjve")]
+custom_minimum_size = Vector2(400, 450)
+script = ExtResource("2_jbtdg")
+title = "Warning!"
+
+[node name="Warning" type="RichTextLabel" parent="Container" index="3"]
+modulate = Color(1, 0.376, 0.28, 1)
+layout_mode = 2
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "[center]Your saved decorations file contains decorations which aren't in this version of Jade Spring. It was likely made in a newer version of the game, and opening it in this version will remove them."
+fit_content = true
+
+[node name="Sticker" type="TextureRect" parent="Container" index="4"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_o07gc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContinueAnyway" type="Button" parent="Container" index="5"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Continue Anyway"
+
+[node name="OpenSaves" type="Button" parent="Container" index="6"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Open Save Folder"
+
+[node name="Menu" type="Button" parent="Container" index="7"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return To Menu"
+
+[connection signal="button_down" from="Container/ContinueAnyway" to="." method="_on_continue_anyway_button_down"]
+[connection signal="button_down" from="Container/OpenSaves" to="." method="_on_open_saves_button_down"]
+[connection signal="button_down" from="Container/Menu" to="." method="_on_menu_button_down"]

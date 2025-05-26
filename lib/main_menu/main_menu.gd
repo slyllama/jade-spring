@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+const SAVE_DATA_PATH = "user://save/save.dat"
 const DECO_DATA_PATH = "user://save/deco.dat"
 var LOADER_SCENE = "res://lib/loader/loader.tscn"
 var rng = RandomNumberGenerator.new()
@@ -7,6 +8,34 @@ var rng = RandomNumberGenerator.new()
 @onready var focus: Button
 var can_interact = true
 var ngc_open = false # new game container open
+
+func backup_save_files() -> void:
+	if FileAccess.file_exists(DECO_DATA_PATH):
+		DirAccess.copy_absolute(DECO_DATA_PATH,
+			"user://save/deco-" + Version.VER + ".dat")
+	if FileAccess.file_exists(SAVE_DATA_PATH):
+		DirAccess.copy_absolute(SAVE_DATA_PATH, 
+			"user://save/save-" + Version.VER + ".dat")
+
+func is_interaction_allowed() -> bool:
+	return(!(
+		!can_interact or ngc_open or
+		$BrokenDecosContainer.is_open or
+		$SettingsPane.is_open or
+		$CreditsContainer.is_open))
+
+func is_deco_file_valid() -> bool:
+	if FileAccess.file_exists(DECO_DATA_PATH):
+		var _valid = true
+		var file = FileAccess.open(DECO_DATA_PATH, FileAccess.READ)
+		var _file_decos = file.get_var()
+		file.close()
+		for _d in _file_decos:
+			if !"id" in _d: return(false)
+			if !_d.id in Global.DecoData:
+				return(false)
+	else: return(false)
+	return(true)
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -87,6 +116,7 @@ func _input(_event: InputEvent) -> void:
 		play()
 
 func _ready() -> void:
+	backup_save_files()
 	if Global.debug_allowed: $DebugLabel.visible = true
 	
 	if !Engine.is_editor_hint() and DiscordRPC.get_is_discord_working():
@@ -182,7 +212,7 @@ func _process(delta: float) -> void:
 	$Raiqqo.scale = Vector2(scale_diff, scale_diff)
 	$RaiqqoFG.scale = Vector2(scale_diff, scale_diff)
 	
-	if !can_interact or ngc_open: return
+	if !is_interaction_allowed(): return
 	if focus == null: return
 	$Nodule.global_position = lerp(
 		$Nodule.position,
@@ -190,29 +220,31 @@ func _process(delta: float) -> void:
 		Utilities.critical_lerp(delta, 30.0))
 
 func _on_play_button_down() -> void:
-	if !can_interact or ngc_open: return
+	if !is_interaction_allowed(): return
 	Global.click_sound.emit()
 	Global.map_name = "seitung"
 	$NewGameContainer.open()
 	ngc_open = true
 
 func _on_quit_button_down() -> void:
-	if !can_interact or ngc_open: return
+	if !is_interaction_allowed(): return
 	Global.click_sound.emit()
 	get_tree().quit()
 
 func _on_settings_button_down() -> void:
-	if !can_interact or ngc_open: return
+	if !is_interaction_allowed(): return
 	if !$SettingsPane.is_open:
 		Global.click_sound.emit()
 		$SettingsPane.open()
 
 func _on_continue_button_down() -> void:
-	if !can_interact or ngc_open: return
+	if !is_interaction_allowed(): return
 	Global.click_sound.emit()
 	Global.map_name = "seitung"
 	Global.start_params.new_save = false
-	play()
+	
+	if is_deco_file_valid(): play()
+	else: $BrokenDecosContainer.open()
 
 func _on_ngc_closed() -> void:
 	ngc_open = false
@@ -237,8 +269,14 @@ func _on_achievements_button_button_down() -> void:
 	$SteamPane.open()
 
 func _on_credits_button_button_down() -> void:
+	if !is_interaction_allowed(): return
 	$CreditsContainer.open()
 
 func _on_logo_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		OS.shell_open("https://slyllama.net/")
+
+func _on_broken_decos_container_continued() -> void:
+	Global.map_name = "seitung"
+	Global.start_params.new_save = false
+	play()

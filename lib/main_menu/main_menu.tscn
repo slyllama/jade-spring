@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene load_steps=34 format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://lib/hud/version.gd" id="14_n67d6"]
 [ext_resource type="AudioStream" uid="uid://cmphyt1yte74c" path="res://generic/sounds/swish.ogg" id="19_lck14"]
 [ext_resource type="PackedScene" uid="uid://diso1rqxtpjaf" path="res://lib/main_menu/credits_container.tscn" id="21_2cjud"]
+[ext_resource type="PackedScene" uid="uid://b1re3xb00iibf" path="res://lib/main_menu/broken_decos_container.tscn" id="22_eo7ij"]
 
 [sub_resource type="Curve" id="Curve_2imnw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -407,6 +408,20 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BrokenDecosContainer" parent="." instance=ExtResource("22_eo7ij")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -225.0
+offset_right = 200.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Swish" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_lck14")
 volume_db = -80.0
@@ -424,3 +439,4 @@ max_polyphony = 2
 [connection signal="button_down" from="CloseButton" to="." method="_on_quit_button_down"]
 [connection signal="closed" from="NewGameContainer" to="." method="_on_ngc_closed"]
 [connection signal="new_game_button_pressed" from="NewGameContainer" to="." method="_on_new_game_button_pressed"]
+[connection signal="continued" from="BrokenDecosContainer" to="." method="_on_broken_decos_container_continued"]

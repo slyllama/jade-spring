@@ -60,9 +60,12 @@ func _clear_decorations() -> void:
 # Load decorations into the world from a dataset
 # TODO: it might be best to perform this asynchronously
 func _load_decorations(data = []) -> void:
+	print("[DecoHandler] Loading decorations...")
 	_clear_decorations()
 	for _d in data:
-		if !_d.id in Global.DecoData: continue
+		if !_d.id in Global.DecoData:
+			print_rich("[color=red][ERROR][DecoHandler] '" + _d.id + "' is not in this version of Jade Spring.[/color]")
+			continue
 		var _decoration = load(Global.DecoData[_d.id].scene).instantiate()
 		
 		add_child(_decoration)

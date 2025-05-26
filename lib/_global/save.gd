@@ -184,6 +184,9 @@ func save_to_file() -> void:
 	if data == {}:
 		breakpoint # TODO: trying to catch when a blank save file situation happens
 	
+	if !DirAccess.dir_exists_absolute("user://save"):
+		DirAccess.make_dir_absolute("user://save")
+	
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	file.store_var(data)
 	file.close()
