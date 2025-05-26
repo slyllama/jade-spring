@@ -10,12 +10,15 @@ var can_interact = true
 var ngc_open = false # new game container open
 
 func backup_save_files() -> void:
+	if !DirAccess.dir_exists_absolute("user://save/backup"):
+		DirAccess.make_dir_absolute("user://save/backup")
+	
 	if FileAccess.file_exists(DECO_DATA_PATH):
 		DirAccess.copy_absolute(DECO_DATA_PATH,
-			"user://save/deco-" + Version.VER + ".dat")
+			"user://save/backup/deco-" + Version.VER + ".dat")
 	if FileAccess.file_exists(SAVE_DATA_PATH):
 		DirAccess.copy_absolute(SAVE_DATA_PATH, 
-			"user://save/save-" + Version.VER + ".dat")
+			"user://save/backup/save-" + Version.VER + ".dat")
 
 func is_interaction_allowed() -> bool:
 	return(!(

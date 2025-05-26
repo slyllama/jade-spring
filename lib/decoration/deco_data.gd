@@ -120,14 +120,14 @@ const DecoData = {
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
-	"lush_grass_clump": {
-		"name": "Lush Grass Clump",
-		"scene": "res://decorations/lush_grass/lush_grass_clump.tscn",
-		"cursor_model": "res://decorations/lush_grass/lush_grass_clump_model.tscn",
-		"preview_scale": 0.7,
-		"tags": ["Foliage"],
-		"show_floor": true
-	},
+	#"lush_grass_clump": {
+		#"name": "Lush Grass Clump",
+		#"scene": "res://decorations/lush_grass/lush_grass_clump.tscn",
+		#"cursor_model": "res://decorations/lush_grass/lush_grass_clump_model.tscn",
+		#"preview_scale": 0.7,
+		#"tags": ["Foliage"],
+		#"show_floor": true
+	#},
 	"pancake_rocks": {
 		"name": "Pancake Rocks",
 		"scene": "res://decorations/rocks/deco_pancake_rocks.tscn",
