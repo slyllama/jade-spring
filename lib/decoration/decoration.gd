@@ -29,7 +29,8 @@ var selected = false
 
 func set_selected(state = true) -> void:
 	selected = state
-	Global.click_sound.emit()
+	if selected: # only emit click on select (not deselect)
+		Global.click_sound.emit()
 	if state:
 		for _i in 4: await get_tree().process_frame
 		selection_icon.set_active()
