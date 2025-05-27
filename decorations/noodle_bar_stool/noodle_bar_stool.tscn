@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bexbuulpxorsg"]
+
+[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_qplin"]
+[ext_resource type="PackedScene" uid="uid://cqpevxc5akhjf" path="res://decorations/noodle_bar_stool/noodle_bar_stool.glb" id="2_lnpj3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_443jn"]
+height = 0.765062
+radius = 0.229987
+
+[node name="NoodleBarStool" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_qplin")
+id = "noodle_bar_stool"
+collision_box = NodePath("Body")
+
+[node name="Mesh" parent="." instance=ExtResource("2_lnpj3")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.378968, 0)
+shape = SubResource("CylinderShape3D_443jn")

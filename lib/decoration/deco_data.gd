@@ -8,6 +8,14 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"tags": ["Architecture", "Cantha"]
 	},
+	"noodle_bar_stool": {
+		"name": "Noodle Bar Stool",
+		"scene": "res://decorations/noodle_bar_stool/noodle_bar_stool.tscn",
+		"cursor_model": "res://decorations/noodle_bar_stool/noodle_bar_stool.glb",
+		"preview_scale": 1.7,
+		"preview_v_offset": -0.2,
+		"tags": ["Architecture", "Cantha"]
+	},
 	"happy_cloud": {
 		"name": "Happy Cloud",
 		"scene": "res://decorations/happy_cloud/happy_cloud.tscn",
@@ -120,14 +128,14 @@ const DecoData = {
 		"tags": ["Foliage"],
 		"show_floor": true
 	},
-	#"lush_grass_clump": {
-		#"name": "Lush Grass Clump",
-		#"scene": "res://decorations/lush_grass/lush_grass_clump.tscn",
-		#"cursor_model": "res://decorations/lush_grass/lush_grass_clump_model.tscn",
-		#"preview_scale": 0.7,
-		#"tags": ["Foliage"],
-		#"show_floor": true
-	#},
+	"lush_grass_clump": {
+		"name": "Lush Grass Clump",
+		"scene": "res://decorations/lush_grass/lush_grass_clump.tscn",
+		"cursor_model": "res://decorations/lush_grass/lush_grass_clump_model.tscn",
+		"preview_scale": 0.7,
+		"tags": ["Foliage"],
+		"show_floor": true
+	},
 	"pancake_rocks": {
 		"name": "Pancake Rocks",
 		"scene": "res://decorations/rocks/deco_pancake_rocks.tscn",

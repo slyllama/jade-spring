@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=96 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -62,6 +62,8 @@
 [ext_resource type="PackedScene" uid="uid://dmqlnx8l6lfhf" path="res://decorations/flower_patch/deco_yellow_flowers.tscn" id="42_h33ht"]
 [ext_resource type="Material" uid="uid://c3ygaq1wjp7c0" path="res://lib/player/materials/mat_engine_glow.tres" id="42_l2hym"]
 [ext_resource type="AudioStream" uid="uid://bvbjroufthlhn" path="res://generic/sounds/insight_ambience.ogg" id="43_f8dlm"]
+[ext_resource type="PackedScene" uid="uid://dim2djknufe31" path="res://expansions/kryta/krytan_dining_chair/krytan_dining_chair.tscn" id="43_jav07"]
+[ext_resource type="PackedScene" uid="uid://bexbuulpxorsg" path="res://decorations/noodle_bar_stool/noodle_bar_stool.tscn" id="44_kyo1w"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
 [ext_resource type="PackedScene" uid="uid://bdq6nqh4opkmv" path="res://maps/seitung/meshes/waypoint.glb" id="49_v10af"]
 [ext_resource type="PackedScene" uid="uid://qw6dxj43jndf" path="res://decorations/rocks/deco_pancake_rocks.tscn" id="54_iuxex"]
@@ -895,6 +897,15 @@ transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 
 
 [node name="DrizzlewoodShrub3" parent="DecoHandler" index="149" instance=ExtResource("38_b76kw")]
 transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, -8.81685, -0.176049, 4.58868)
+
+[node name="KrytanDiningChair" parent="DecoHandler" index="150" instance=ExtResource("43_jav07")]
+transform = Transform3D(0.69689, 0, 0.717178, 0, 1, 0, -0.717178, 0, 0.69689, 4.75115, 1.25, -2.05904)
+
+[node name="NoodleBarStool" parent="DecoHandler" index="151" instance=ExtResource("44_kyo1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.21649, 1.25, -0.694399)
+
+[node name="NoodleBarStool2" parent="DecoHandler" index="152" instance=ExtResource("44_kyo1w")]
+transform = Transform3D(0.661992, 0, -0.749511, 0, 1, 0, 0.749511, 0, 0.661992, 6.88514, 1.25, -2.12486)
 
 [node name="PancakeRocks" parent="Decoration" index="0" instance=ExtResource("38_rijwn")]
 transform = Transform3D(1.98271, 0.196091, 0.174417, 0, 1.32921, -1.49439, -0.262437, 1.48147, 1.31772, -8.55051, 2.60614, -13.8208)

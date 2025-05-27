@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://jqvym7lpq8xk"]
+
+[ext_resource type="Texture2D" uid="uid://mwp711xj5kdm" path="res://decorations/noodle_bar_stool/materials/textures/stool_diff.jpg" id="1_mccbc"]
+[ext_resource type="Texture2D" uid="uid://b51b15v32oswy" path="res://decorations/noodle_bar_stool/materials/textures/stool_norm.jpg" id="2_g1s7y"]
+
+[resource]
+albedo_texture = ExtResource("1_mccbc")
+metallic = 0.3
+metallic_specular = 0.1
+normal_enabled = true
+normal_texture = ExtResource("2_g1s7y")
+distance_fade_mode = 2
+distance_fade_min_distance = 9.0
+distance_fade_max_distance = 8.0

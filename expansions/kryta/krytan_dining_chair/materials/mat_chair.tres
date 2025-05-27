@@ -9,3 +9,6 @@ metallic_specular = 0.2
 roughness = 0.75
 normal_enabled = true
 normal_texture = ExtResource("2_ktg7o")
+distance_fade_mode = 2
+distance_fade_min_distance = 9.0
+distance_fade_max_distance = 8.0
