@@ -217,7 +217,8 @@ func skill_used(skill_id: String) -> void:
 				set_default_skills()
 		"select_multiple":
 			clear_skills(false)
-			$Box/Skill1.switch_skill("accept")
+			$Box/Skill1.switch_skill("edit_selection")
+			$Box/Skill2.switch_skill("duplicate_edit_selection")
 			$Box/Skill6.switch_skill("cancel")
 			Global.selection_canceled.emit()
 			await get_tree().process_frame
@@ -254,10 +255,16 @@ func skill_used(skill_id: String) -> void:
 				set_default_skills()
 			elif Global.tool_mode == Global.TOOL_MODE_PLACE:
 				set_default_skills()
-			elif Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
+			Global.action_cam_enable.emit()
+		"edit_selection":
+			if Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
 				Global.set_cursor(false)
 				Global.deco_selection_array[0].node.start_adjustment()
-			Global.action_cam_enable.emit()
+		"duplicate_edit_selection":
+			if Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
+				Global.deco_handler.duplicate_decoration_selection()
+				Global.set_cursor(false)
+				Global.deco_selection_array[0].node.start_adjustment()	
 		"deco_test":
 			if !Global.deco_pane_open:
 				await get_tree().process_frame

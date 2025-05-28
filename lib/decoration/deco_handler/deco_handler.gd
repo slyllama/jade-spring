@@ -17,6 +17,19 @@ func get_deco_count() -> Dictionary:
 			else: _d[_n.id] += 1
 	return(_d)
 
+# Duplicate the contents of Global.deco_selection_array
+func duplicate_decoration_selection() -> void:
+	var _new_deco_selection_array = []
+	for _d in Global.deco_selection_array:
+		_d.node.set_selected(false)
+		var _d_new = _d.node.duplicate()
+		add_child(_d_new)
+		_d_new.set_selected()
+		_d_new.position += Vector3(0.5, 0.5, 0.5)
+		_new_deco_selection_array.append({
+			"node": _d_new, "last_position": _d_new.position })
+	Global.deco_selection_array = _new_deco_selection_array
+	
 func place_decoration(data: Dictionary) -> void:
 	if !Global.queued_decoration in Global.DecoData: return
 	var _data = Global.DecoData[Global.queued_decoration]

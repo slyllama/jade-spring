@@ -9,6 +9,7 @@ const RANDOM_COLORS = [ Color.CYAN, Color.ORANGE_RED, Color.GREEN, Color.YELLOW,
 
 const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
+	"edit_selection": preload("res://lib/skill_button/textures/accept.png"),
 	"delete": preload("res://lib/skill_button/textures/delete.png"),
 	"deco_test": preload("res://lib/skill_button/textures/deco.png"),
 	"adjust_mode_rotate": preload("res://lib/skill_button/textures/rotate.png"),
@@ -52,6 +53,14 @@ const TOOLTIPS = {
 	"accept": {
 		"title": "Apply Transformation",
 		"description": "Confirm the current transformation."
+	},
+	"edit_selection": {
+		"title": "Edit Selection",
+		"description": "Move the current selection."
+	},
+	"duplicate_edit_selection": {
+		"title": "Duplicate and Edit Selection",
+		"description": "Duplicate and move the current selection."
 	},
 	"transform_mode": {
 		"title": "Toggle Transformation Basis",

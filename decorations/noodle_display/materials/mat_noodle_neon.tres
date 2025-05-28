@@ -3,11 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://pm8cipkwubkn" path="res://decorations/noodle_display/materials/textures/noodle_neon_alpha.png" id="1_e6bl5"]
 
 [resource]
-transparency = 2
-alpha_scissor_threshold = 0.9
-alpha_antialiasing_mode = 0
+transparency = 1
 specular_mode = 2
 albedo_texture = ExtResource("1_e6bl5")
 emission_enabled = true
 emission = Color(0.4816, 0.86, 0.172, 1)
-emission_energy_multiplier = 0.249237
+emission_energy_multiplier = 0.639818
