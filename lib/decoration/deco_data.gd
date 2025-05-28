@@ -296,6 +296,16 @@ const DecoData = {
 		"preview_v_offset": -0.1,
 		"tags": ["Architecture"]
 	},
+	"noodle_display": {
+		"name": "Noodle Display",
+		"scene": "res://decorations/noodle_display/noodle_display.tscn",
+		"cursor_model": "res://decorations/noodle_display/noodle_display.glb",
+		"preview_y_rotation": -125,
+		"y_rotation": 90,
+		"preview_scale": 0.8,
+		"preview_v_offset": 0.35,
+		"tags": ["Architecture", "Cantha"]
+	},
 	"simple_wall": {
 		"name": "Simple Wall",
 		"scene": "res://decorations/test_wall/deco_test_wall.tscn",

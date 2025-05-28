@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c1b8n8idgrmuu"]
+
+[ext_resource type="Texture2D" uid="uid://ddyvpwx70j5sm" path="res://decorations/noodle_display/materials/textures/perforated_rust_diff.jpg" id="1_h7h8l"]
+
+[resource]
+albedo_texture = ExtResource("1_h7h8l")
+metallic_specular = 0.0
+uv1_scale = Vector3(4, 4, 4)

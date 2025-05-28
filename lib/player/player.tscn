@@ -136,13 +136,13 @@ orientation = 2
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_ktrct"]
+[sub_resource type="CurveTexture" id="CurveTexture_yqgmn"]
 curve = SubResource("Curve_jlsfb")
 
 [sub_resource type="Gradient" id="Gradient_qcf6u"]
 colors = PackedColorArray(6.49765e-07, 0.399391, 0.0462379, 1, 0.880833, 1, 0.35, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sq03o"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8rj02"]
 gradient = SubResource("Gradient_qcf6u")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2h2up"]
@@ -156,8 +156,8 @@ initial_velocity_max = 0.2
 gravity = Vector3(0, -0.3, 0)
 scale_min = 0.6
 scale_max = 1.1
-color_initial_ramp = SubResource("GradientTexture1D_sq03o")
-alpha_curve = SubResource("CurveTexture_ktrct")
+color_initial_ramp = SubResource("GradientTexture1D_8rj02")
+alpha_curve = SubResource("CurveTexture_yqgmn")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ksk3"]
 _data = {
