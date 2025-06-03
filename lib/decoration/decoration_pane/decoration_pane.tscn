@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=24 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -35,6 +35,18 @@ content_margin_right = 8.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5unaw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvsu8"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [node name="DecorationPane" instance=ExtResource("1_t77x7")]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(280, 500)
@@ -45,6 +57,7 @@ script = ExtResource("2_f5xt2")
 default_tag = "None"
 title = "Place Decoration"
 metadata/_edit_vertical_guides_ = [283.0]
+metadata/_edit_horizontal_guides_ = [480.0]
 
 [node name="Base" type="TextureRect" parent="." index="0"]
 self_modulate = Color(0.8, 0.8, 0.8, 1)
@@ -321,7 +334,23 @@ text = "[right]Drag to rotate preview.[/right]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="DecoTitle" type="RichTextLabel" parent="." index="6"]
+[node name="DecoDetail" type="RichTextLabel" parent="." index="6"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 311.0
+offset_top = -61.0
+offset_right = 511.0
+offset_bottom = -30.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mvsu8")
+text = "((Decoration details))"
+fit_content = true
+
+[node name="DecoTitle" type="RichTextLabel" parent="." index="7"]
 layout_mode = 0
 offset_left = 317.0
 offset_top = 18.0
@@ -352,11 +381,11 @@ mouse_filter = 2
 texture = ExtResource("13_hkm37")
 expand_mode = 1
 
-[node name="LoadOnTimeout" type="Timer" parent="." index="7"]
+[node name="LoadOnTimeout" type="Timer" parent="." index="8"]
 wait_time = 0.2
 one_shot = true
 
-[node name="UnlockSound" type="AudioStreamPlayer" parent="." index="8"]
+[node name="UnlockSound" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("18_4fup5")
 
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]

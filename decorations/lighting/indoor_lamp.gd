@@ -7,7 +7,7 @@ func set_color() -> void:
 func set_intensity() -> void:
 	$Light.light_energy = get_parent().scale.x
 
-func _set_mesh_visiblity(state = false) -> void:
+func _set_mesh_visibility(state = false) -> void:
 	set_layer_mask_value(1, state)
 
 func _ready() -> void:
@@ -16,15 +16,16 @@ func _ready() -> void:
 	set_intensity()
 	set_color()
 	
-	Global.selection_started.connect(_set_mesh_visiblity.bind(true))
-	Global.selection_canceled.connect(_set_mesh_visiblity)
-	Global.adjustment_applied.connect(_set_mesh_visiblity)
-	Global.adjustment_canceled.connect(_set_mesh_visiblity)
+	Global.selection_started.connect(_set_mesh_visibility.bind(true))
+	Global.adjustment_started.connect(_set_mesh_visibility.bind(true))
+	Global.selection_canceled.connect(_set_mesh_visibility)
+	Global.adjustment_applied.connect(_set_mesh_visibility)
+	Global.adjustment_canceled.connect(_set_mesh_visibility)
 	
 	var parent = get_parent().get_parent().name
 	if (!parent == "DecoHandler"
 		or Global.tool_mode == Global.TOOL_MODE_ADJUST):
-		_set_mesh_visiblity(true)
+		_set_mesh_visibility(true)
 
 func _process(_delta: float) -> void:
 	if Global.active_decoration == get_parent():
