@@ -284,6 +284,8 @@ func skill_used(skill_id: String) -> void:
 				Global.adjustment_mode_translate.emit()
 			$Box/Skill2.switch_skill("adjust_mode_rotate")
 			if Global.transform_mode == Global.TRANSFORM_MODE_OBJECT:
+				if Global.snapping == true:
+					Global.snapping = false
 				$Box/Skill3.switch_skill("snap_forbidden")
 			else:
 				if Global.snapping: $Box/Skill3.switch_skill("snap_disable")

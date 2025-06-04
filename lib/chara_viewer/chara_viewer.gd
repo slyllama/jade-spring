@@ -2,6 +2,8 @@ extends SubViewportContainer
 
 @onready var model_base = $SubViewport/CharaViewerWorld/Root
 
+signal finished_loading
+
 var current_model_path := ""
 var current_model_animation_player_path := ""
 var current_custom_data := {}
@@ -40,6 +42,7 @@ func _update_resource_loader() -> void:
 			_dissolve_tween.tween_method(func(_val):
 				material.set_shader_parameter("dissolve_value", _val), 0.0, 1.0, 0.45)
 			loaded = true
+			finished_loading.emit()
 		ResourceLoader.THREAD_LOAD_FAILED:
 			print("[CharaViewer] Thread load failed!")
 			return

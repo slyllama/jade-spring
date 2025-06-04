@@ -145,14 +145,15 @@ const DecoData = {
 		"show_floor": true
 	},
 	"indoor_lamp": {
-		"name": "Indoor Lamp",
+		"name": "Light",
 		"scene": "res://decorations/lighting/deco_indoor_lamp.tscn",
 		"cursor_model": "res://decorations/lighting/indoor_lamp.tscn",
 		"preview_scale": 1.0,
 		"model_offset": Vector3(0, 0.5, 0),
 		"tags": ["Utilities", "Light"],
 		"show_floor": true,
-		"cull": "AGGRESSIVE"
+		"cull": "AGGRESSIVE",
+		"details": "Casts light! Scale to change intensity. Rotate along blue to change colour."
 	},
 	"janthiri_bee": {
 		"name": "Janthiri Bee",

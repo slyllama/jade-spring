@@ -152,6 +152,13 @@ func render(tag = "None", custom_data = []) -> void:
 			var _p = _dl.scene
 			_update_unlock_button(_d)
 			
+			if "details" in _dl:
+				$DecoDetail.visible = true
+				$DecoDetail.text = _dl.details
+			else:
+				$DecoDetail.visible = false
+				$DecoDetail.text = ""
+			
 			# Model exceptions
 			if _d == "light_ray":
 				_p = "res://decorations/light_ray/light_ray_cursor.glb"
@@ -185,6 +192,12 @@ func render(tag = "None", custom_data = []) -> void:
 
 func _load_model() -> void:
 	var _data = Global.DecoData[current_id]
+	if "details" in _data:
+		$DecoDetail.visible = true
+		$DecoDetail.text = _data.details
+	else:
+		$DecoDetail.visible = false
+		$DecoDetail.text = ""
 	preview.load_model(
 		_data.scene,
 		_data.preview_scale,

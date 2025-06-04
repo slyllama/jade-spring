@@ -79,7 +79,7 @@ func _ready():
 	_chara_pulley.set_anchors_preset(Control.PRESET_CENTER)
 	_chara_pulley.load_model("res://decorations/cid_banners/otter/otter.glb",
 		"AnimationPlayer")
-	for _i in 2: await get_tree().process_frame
+	await _chara_pulley.finished_loading
 	_chara_pulley.queue_free()
 	
 	await get_tree().process_frame
