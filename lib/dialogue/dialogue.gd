@@ -41,7 +41,7 @@ func render_block(block_data: Dictionary) -> void:
 	
 	if "options" in block_data:
 		for _o in block_data.options:
-			var _b: Button = $Base/TemplateButton.duplicate()
+			var _b: Button = $Base/TemplateButton.duplicate(true)
 			var _b_data = data[_o]
 			_b.text = block_data.options[_o]
 			_b.visible = true
@@ -54,6 +54,9 @@ func render_block(block_data: Dictionary) -> void:
 					_b.icon = ICON_ACTION
 					
 			$Base/Box.add_child(_b)
+			_b.add_theme_constant_override("h_separation", 12)
+			_b.add_theme_constant_override("icon_max_width", 32)
+			
 			var _p = ColorRect.new()
 			_p.custom_minimum_size = Vector2(1, 22)
 			_p.color = Color(1.0, 1.0, 1.0, 0.0)
@@ -75,6 +78,9 @@ func render_block(block_data: Dictionary) -> void:
 						if _new_block_data.reference in data:
 							render_block(data[_new_block_data.reference])
 					else: render_block(_new_block_data))
+			
+			await get_tree().process_frame
+			$Base/Box.add_theme_constant_override("separation", -4)
 	
 	for _b: Node in $Base/Box.get_children():
 		if !is_instance_valid(_b): continue

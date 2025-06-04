@@ -155,6 +155,10 @@ func render(tag = "None", custom_data = []) -> void:
 			if "details" in _dl:
 				$DecoDetail.visible = true
 				$DecoDetail.text = _dl.details
+				
+				$DecoDetail.fit_content = false
+				await get_tree().process_frame
+				$DecoDetail.fit_content = true
 			else:
 				$DecoDetail.visible = false
 				$DecoDetail.text = ""
