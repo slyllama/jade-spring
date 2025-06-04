@@ -6,7 +6,7 @@ const DecoData = {
 		"scene": "res://decorations/lantern/deco_lantern.tscn",
 		"cursor_model": "res://decorations/lantern/lantern.glb",
 		"preview_scale": 0.9,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Light"]
 	},
 	"noodle_bar_stool": {
 		"name": "Noodle Bar Stool",
@@ -14,7 +14,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/noodle_bar_stool/noodle_bar_stool.glb",
 		"preview_scale": 1.7,
 		"preview_v_offset": -0.2,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Furniture"]
 	},
 	"happy_cloud": {
 		"name": "Happy Cloud",
@@ -22,14 +22,14 @@ const DecoData = {
 		"cursor_model": "res://decorations/happy_cloud/happy_cloud.glb",
 		"preview_scale": 0.8,
 		"preview_y_rotation": 180,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Floor"]
 	},
 	"rata_sum_slab": {
 		"name": "Rata Sum Slab",
 		"scene": "res://decorations/rata_sum/slab/rata_sum_slab.tscn",
 		"cursor_model": "res://decorations/rata_sum/slab/rata_sum_slab.glb",
 		"preview_scale": 1.3,
-		"tags": ["Architecture", "Asura"],
+		"tags": ["Architecture", "Asura", "Floor"],
 		"unlock_value": 17
 	},
 	"honey_drips": {
@@ -38,7 +38,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/janthiri_bee/honey_drips/honey_drips.glb",
 		"preview_scale": 0.5,
 		"preview_v_offset": 1.6,
-		"tags": ["Architecture"],
+		"tags": ["Architecture", "Natural Feature"],
 		"unlock_value": 25
 	},
 	"small_boulder": {
@@ -46,7 +46,7 @@ const DecoData = {
 		"scene": "res://decorations/small_boulder/deco_small_boulder.tscn",
 		"cursor_model": "res://maps/seitung/meshes/small_boulders.glb",
 		"preview_scale": 0.9,
-		"tags": []
+		"tags": ["Natural Feature"]
 	},
 	"eepy_fence": {
 		"name": "Eepy Fence",
@@ -55,7 +55,7 @@ const DecoData = {
 		"preview_scale": 0.70,
 		"preview_y_rotation": 180,
 		"preview_h_offset": -0.1,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Wall"]
 	},
 	"waterfall_fountain": {
 		"name": "Waterfall Fountain",
@@ -64,7 +64,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.34,
 		"preview_v_offset": 0.29,
-		"tags": ["Architecture", "Cantha"],
+		"tags": ["Architecture", "Cantha", "Natural Feature"],
 		"unlock_value": 30
 	},
 	"shing_jea_arch": {
@@ -75,7 +75,7 @@ const DecoData = {
 		"preview_y_rotation": 115,
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.4,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Wall"]
 	},
 	"aetherblade_craft": {
 		"name": "Aetherblade Craft",
@@ -84,7 +84,7 @@ const DecoData = {
 		"preview_scale": 0.19,
 		"preview_y_rotation": 190,
 		"preview_v_offset": -0.6,
-		"tags": [],
+		"tags": ["Ornament"],
 		"cull": "NEVER",
 		"unlock_value": 31
 	},
@@ -94,14 +94,14 @@ const DecoData = {
 		"cursor_model": "res://decorations/bloodstone_impacted_pillar/bloodstone_impacted_pillar.glb",
 		"preview_scale": 0.48,
 		"preview_v_offset": -0.6,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Wall"]
 	},
 	"flower_patch": {
 		"name": "Flower Patch",
 		"scene": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"preview_scale": 1.0,
-		"tags": ["Foliage"],
+		"tags": ["Foliage", "Natural Feature"],
 		"show_floor": true
 	},
 	"yellow_flowers": {
@@ -109,7 +109,7 @@ const DecoData = {
 		"scene": "res://decorations/flower_patch/deco_yellow_flowers.tscn",
 		"cursor_model": "res://decorations/flower_patch/yellow_flowers.tscn",
 		"preview_scale": 0.75,
-		"tags": ["Foliage"],
+		"tags": ["Foliage", "Natural Feature"],
 		"show_floor": true
 	},
 	"blue_flowers": {
@@ -117,7 +117,7 @@ const DecoData = {
 		"scene": "res://decorations/flower_patch/deco_blue_flowers.tscn",
 		"cursor_model": "res://decorations/flower_patch/blue_flowers.tscn",
 		"preview_scale": 0.75,
-		"tags": ["Foliage"],
+		"tags": ["Foliage", "Natural Feature"],
 		"show_floor": true
 	},
 	"lush_grass": {
@@ -125,7 +125,7 @@ const DecoData = {
 		"scene": "res://decorations/lush_grass/lush_grass.tscn",
 		"cursor_model": "res://decorations/lush_grass/lush_grass_model.tscn",
 		"preview_scale": 0.5,
-		"tags": ["Foliage"],
+		"tags": ["Foliage", "Natural Feature"],
 		"show_floor": true
 	},
 	"lush_grass_clump": {
@@ -133,7 +133,7 @@ const DecoData = {
 		"scene": "res://decorations/lush_grass/lush_grass_clump.tscn",
 		"cursor_model": "res://decorations/lush_grass/lush_grass_clump_model.tscn",
 		"preview_scale": 0.7,
-		"tags": ["Foliage"],
+		"tags": ["Foliage", "Natural Feature"],
 		"show_floor": true
 	},
 	"pancake_rocks": {
@@ -141,7 +141,7 @@ const DecoData = {
 		"scene": "res://decorations/rocks/deco_pancake_rocks.tscn",
 		"cursor_model": "res://decorations/rocks/pancake_rocks.glb",
 		"preview_scale": 0.7,
-		"tags": [],
+		"tags": ["Natural Feature"],
 		"show_floor": true
 	},
 	"indoor_lamp": {
@@ -150,7 +150,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/lighting/indoor_lamp.tscn",
 		"preview_scale": 1.0,
 		"model_offset": Vector3(0, 0.5, 0),
-		"tags": [ "Utility" ],
+		"tags": ["Utilities", "Light"],
 		"show_floor": true,
 		"cull": "AGGRESSIVE"
 	},
@@ -161,7 +161,7 @@ const DecoData = {
 		"preview_scale": 1.9,
 		"model_offset": Vector3(0, 0.2, 0),
 		"preview_y_rotation": 180,
-		"tags": [],
+		"tags": ["Natural Feature"],
 		"unlock_value": 25
 	},
 	"bamboo_cluster": {
@@ -170,7 +170,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/bamboo_cluster/bamboo_cursor.tscn",
 		"preview_scale": 0.4,
 		"preview_v_offset": -0.5,
-		"tags": ["Foliage", "Cantha"]
+		"tags": ["Foliage", "Cantha", "Natural Feature"]
 	},
 	"sunflowers": {
 		"name": "Sunflowers",
@@ -179,7 +179,7 @@ const DecoData = {
 		"preview_scale": 1.3,
 		"preview_v_offset": -0.35,
 		"preview_y_rotation": 180,
-		"tags": ["Foliage", "Cantha"]
+		"tags": ["Foliage", "Cantha", "Natural Feature"]
 	},
 	"tomato_plant": {
 		"name": "Tomato Plant",
@@ -188,7 +188,7 @@ const DecoData = {
 		"preview_scale": 1.3,
 		"preview_v_offset": -0.35,
 		"preview_y_rotation": 180,
-		"tags": ["Foliage", "Cantha"]
+		"tags": ["Foliage", "Cantha", "Natural Feature"]
 	},
 	"cid_time_banner": {
 		"name": "Cid's Time Banner",
@@ -207,7 +207,7 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"preview_v_offset": -0.15,
 		"preview_y_rotation": 180,
-		"tags": ["Foliage", "Cantha"],
+		"tags": ["Foliage", "Cantha", "Natural Feature"],
 		"cull": "AGGRESSIVE"
 	},
 	"simple_sub_frame": {
@@ -217,7 +217,7 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Floor"]
 	},
 	"honeycomb": {
 		"name": "Honeycomb",
@@ -227,7 +227,7 @@ const DecoData = {
 		"model_offset": Vector3(0, 0.2, 0),
 		"y_rotation": 90,
 		"preview_y_rotation": 140,
-		"tags": ["Architecture"],
+		"tags": ["Architecture", "Floor", "Natural Feature"],
 		"unlock_value": 25
 	},
 	"kaineng_cobble_floor": {
@@ -237,7 +237,7 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture"],
+		"tags": ["Architecture", "Floor", "Cantha"],
 		"unlock_value": 13
 	},
 	"canthan_carpet": {
@@ -247,7 +247,7 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Floor"]
 	},
 	"kaineng_cobble_stairs": {
 		"name": "Kaineng Cobble Stairs",
@@ -256,7 +256,7 @@ const DecoData = {
 		"preview_scale": 0.45,
 		"preview_y_rotation": 35,
 		"preview_v_offset": 0.3,
-		"tags": ["Architecture"],
+		"tags": ["Architecture", "Floor"],
 		"unlock_value": 13
 	},
 	"roof_pavilion": {
@@ -266,7 +266,7 @@ const DecoData = {
 		"preview_scale": 0.37,
 		"preview_y_rotation": 35,
 		"preview_v_offset": 0.3,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Roof"]
 	},
 	"simple_stairs": {
 		"name": "Simple Stairs",
@@ -275,7 +275,7 @@ const DecoData = {
 		"preview_scale": 0.4,
 		"preview_y_rotation": 215,
 		"preview_v_offset": 0.3,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Floor"]
 	},
 	"cobble_ward_ac_unit": {
 		"name": "Cobble Ward AC Unit",
@@ -283,7 +283,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/rusted_ac_unit/rusted_ac_unit.glb",
 		"preview_scale": 1.2,
 		"preview_y_rotation": 35,
-		"tags": ["Cantha", "Furniture"],
+		"tags": ["Cantha", "Furniture", "Ornament"],
 		"unlock_value": 25
 	},
 	"plaster_wall": {
@@ -294,7 +294,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.25,
 		"preview_v_offset": -0.1,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Wall"]
 	},
 	"noodle_display": {
 		"name": "Noodle Display",
@@ -304,7 +304,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.8,
 		"preview_v_offset": 0.35,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Ornament"]
 	},
 	"simple_wall": {
 		"name": "Simple Wall",
@@ -314,7 +314,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.1,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Wall"]
 	},
 	"simple_windowed_wall": {
 		"name": "Simple Windowed Wall",
@@ -324,7 +324,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.1,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Wall"]
 	},
 	"simple_wall_narrow": {
 		"name": "Simple Wall - Narrow",
@@ -334,7 +334,7 @@ const DecoData = {
 		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.1,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Wall"]
 	},
 	"light_ray": {
 		"name": "Light Ray",
@@ -344,7 +344,7 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.5,
 		"preview_v_offset": -0.1,
-		"tags": ["Utility"],
+		"tags": ["Utilities"],
 		"cull": "NEVER"
 	},
 	"simple_door": {
@@ -353,7 +353,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/door/door_container.tscn",
 		"preview_y_rotation": 35,
 		"preview_scale": 0.42,
-		"tags": ["Architecture"]
+		"tags": ["Architecture", "Wall"]
 	},
 	"weeping_willow": {
 		"name": "Weeping Willow",
@@ -363,7 +363,7 @@ const DecoData = {
 		"preview_y_rotation": 215,
 		"model_offset": Vector3(1.0, 0, 0),
 		"preview_v_offset": -0.5,
-		"tags": ["Foliage"]
+		"tags": ["Foliage", "Natural Feature"]
 	},
 	"simple_roof_piece": {
 		"name": "Simple Roof Piece",
@@ -373,7 +373,7 @@ const DecoData = {
 		"preview_scale": 0.56,
 		"preview_y_rotation": 215,
 		"model_offset": Vector3(0, 0.1, 0.6),
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Roof"]
 	},
 	"simple_roof_corner_piece": {
 		"name": "Simple Roof Corner Piece",
@@ -384,7 +384,7 @@ const DecoData = {
 		"preview_y_rotation": 215,
 		"preview_v_offset": 0.1,
 		"model_offset": Vector3(-0.6, 0, -0.6),
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Roof"]
 	},
 	"charr_loudspeaker": {
 		"name": "Charr Loudspeaker",
@@ -394,7 +394,7 @@ const DecoData = {
 		"preview_scale": 1.2,
 		"preview_y_rotation": 250,
 		"preview_v_offset": 0.5,
-		"tags": ["Furniture"],
+		"tags": ["Ornament"],
 		"unlock_value": 25
 	},
 	"autumnal_shrub": {
@@ -403,7 +403,7 @@ const DecoData = {
 		"cursor_model": "res://maps/seitung/props/foliage_test/materials/autumnal_shrub.tscn",
 		"preview_scale": 0.65,
 		"preview_v_offset": -0.2,
-		"tags": ["Foliage"]
+		"tags": ["Foliage", "Natural Feature"]
 	},
 	"drizzlewood_shrub": {
 		"name": "Drizzlewood Shrub",
@@ -411,7 +411,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/drizzlewood_shrub/drizzlewood_shrub.glb",
 		"preview_scale": 1.1,
 		"preview_v_offset": -0.2,
-		"tags": ["Foliage"]
+		"tags": ["Foliage", "Natural Feature"]
 	},
 	"autumnal_tree": {
 		"name": "Autumnal Tree",
@@ -419,7 +419,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/autumnal_tree/autumnal_tree.tscn",
 		"preview_scale": 0.42,
 		"preview_v_offset": -0.4,
-		"tags": ["Foliage"]
+		"tags": ["Foliage", "Natural Feature"]
 	},
 	"ancient_cherry_blossom": {
 		"name": "Ancient Cherry Blossom",
@@ -427,7 +427,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/ancient_cherry_blossom/ancient_cherry_blossom.glb",
 		"preview_scale": 0.31,
 		"preview_v_offset": -0.4,
-		"tags": ["Foliage"]
+		"tags": ["Foliage", "Natural Feature"]
 	},
 	"rata_sum_floor": {
 		"name": "Rata Sum Floor",
@@ -436,7 +436,7 @@ const DecoData = {
 		"preview_scale": 0.45,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture", "Asura"],
+		"tags": ["Architecture", "Asura", "Floor"],
 		"unlock_value": 21
 	},
 	"rata_sum_beacon": {
@@ -446,7 +446,7 @@ const DecoData = {
 		"preview_scale": 0.6,
 		"model_offset": Vector3(0, -0.45, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture", "Asura"]
+		"tags": ["Architecture", "Asura", "Ornament"]
 	},
 	"planter_box": {
 		"name": "Planter Box",
@@ -455,7 +455,7 @@ const DecoData = {
 		"preview_scale": 0.45,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture", "Cantha"]
+		"tags": ["Architecture", "Cantha", "Natural Feature"]
 	},
 	"elegant_pedestal": {
 		"name": "Elegant Pedestal",
@@ -463,6 +463,6 @@ const DecoData = {
 		"cursor_model": "res://decorations/elegant_pedestal/elegant_pedestal_mesh.tscn",
 		"preview_scale": 0.6,
 		"model_offset": Vector3(0, 0.5, 0),
-		"tags": ["Cantha"]
+		"tags": ["Cantha", "Ornament"]
 	},
 }
