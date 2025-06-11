@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d3fmul7liil3q"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_fjtii"]
-[ext_resource type="Script" path="res://lib/steam/steam_pane.gd" id="2_ia0vl"]
+[ext_resource type="Script" uid="uid://pesvxchn6o35" path="res://lib/steam/steam_pane.gd" id="2_ia0vl"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="3_3qujk"]
 [ext_resource type="PackedScene" uid="uid://cu38ucrqi2xdo" path="res://lib/steam/stats_column.tscn" id="4_picwt"]
 [ext_resource type="Texture2D" uid="uid://wtf7lya3rupu" path="res://lib/hud/textures/steam_icon.png" id="4_v3lyv"]

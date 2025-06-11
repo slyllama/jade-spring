@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://de46fd3hmay40"]
 
-[ext_resource type="Shader" path="res://lib/crumb/fish_pool/materials/shaders/shader_fish_pool.gdshader" id="1_riuof"]
-[ext_resource type="Script" path="res://lib/crumb/fish_pool/fish_pool.gd" id="1_ylqif"]
+[ext_resource type="Shader" uid="uid://bnn1jpe7lsr0l" path="res://lib/crumb/fish_pool/materials/shaders/shader_fish_pool.gdshader" id="1_riuof"]
+[ext_resource type="Script" uid="uid://oldkppijgk31" path="res://lib/crumb/fish_pool/fish_pool.gd" id="1_ylqif"]
 [ext_resource type="Texture2D" uid="uid://ccg3eoda8k32u" path="res://lib/crumb/fish_pool/materials/textures/fish_ripple.png" id="2_p851g"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="3_b8tps"]
 [ext_resource type="Texture2D" uid="uid://b0cdm3nedqs1u" path="res://lib/crumb/fish_pool/materials/textures/fish_icon.png" id="4_skxi8"]
@@ -22,9 +22,9 @@ noise = SubResource("FastNoiseLite_1cwvy")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gijmo"]
 render_priority = 1
 shader = ExtResource("1_riuof")
-shader_parameter/albedo = Color(0.91684, 0.96293, 0.96413, 1)
 shader_parameter/albedo_texture = ExtResource("2_p851g")
 shader_parameter/wobble_texture = SubResource("NoiseTexture2D_367ym")
+shader_parameter/albedo = Color(0.91684, 0.96293, 0.96413, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gd6bq"]
 material = SubResource("ShaderMaterial_gijmo")
@@ -44,6 +44,7 @@ emission_ring_axis = Vector3(0, 1, 0)
 emission_ring_height = 0.01
 emission_ring_radius = 1.0
 emission_ring_inner_radius = 0.9
+emission_ring_cone_angle = 90.0
 spread = 0.0
 gravity = Vector3(0, 0.1, 0)
 scale_min = 0.2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
-[ext_resource type="Script" path="res://maps/debug/debug.gd" id="2_n4fpp"]
+[ext_resource type="Script" uid="uid://cgisia0nx8rnr" path="res://maps/debug/debug.gd" id="2_n4fpp"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="3_pk05h"]
 [ext_resource type="PackedScene" uid="uid://ojc8qc8s76mg" path="res://lib/chara_viewer/chara_viewer.tscn" id="4_lgy8c"]
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="4_nnm10"]

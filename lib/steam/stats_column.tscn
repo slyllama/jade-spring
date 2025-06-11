@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cu38ucrqi2xdo"]
 
-[ext_resource type="Script" path="res://lib/steam/stats_column.gd" id="1_34s47"]
+[ext_resource type="Script" uid="uid://dbh76m1mx4ubf" path="res://lib/steam/stats_column.gd" id="1_34s47"]
 
 [node name="StatsColumn" type="HBoxContainer"]
 theme_override_constants/separation = 24

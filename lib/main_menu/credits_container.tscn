@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://diso1rqxtpjaf"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_ui66r"]
-[ext_resource type="Script" path="res://lib/main_menu/credits_container.gd" id="2_hwlbg"]
+[ext_resource type="Script" uid="uid://cxbgstotm6cgf" path="res://lib/main_menu/credits_container.gd" id="2_hwlbg"]
 [ext_resource type="Texture2D" uid="uid://dtuxw7wbi583n" path="res://lib/main_menu/title_card/textures/slyllama.png" id="2_ylvrc"]
-[ext_resource type="Script" path="res://lib/hud/version.gd" id="3_cxpuh"]
+[ext_resource type="Script" uid="uid://dep1sifkoeuqp" path="res://lib/hud/version.gd" id="3_cxpuh"]
 
 [node name="CreditsContainer" instance=ExtResource("1_ui66r")]
 offset_right = 400.0

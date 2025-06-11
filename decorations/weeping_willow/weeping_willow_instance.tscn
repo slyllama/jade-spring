@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4sony3ykyufk"]
 
 [ext_resource type="PackedScene" uid="uid://cnpky1n1tfjhj" path="res://decorations/weeping_willow/meshes/weeping_willow.glb" id="1_by35d"]
-[ext_resource type="Script" path="res://decorations/weeping_willow/weeping_willow_instance.gd" id="1_mpnji"]
+[ext_resource type="Script" uid="uid://dhelfx8b5p6xy" path="res://decorations/weeping_willow/weeping_willow_instance.gd" id="1_mpnji"]
 [ext_resource type="PackedScene" uid="uid://bvcpemy66kovx" path="res://decorations/weeping_willow/meshes/willow_leaves.glb" id="2_uxi41"]
 
 [node name="WeepingWillowInstance" type="Node3D"]

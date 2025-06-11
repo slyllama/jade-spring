@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uknbdvfutch1"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_uofn7"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_uofn7"]
 [ext_resource type="PackedScene" uid="uid://2qgmou8xqv3h" path="res://decorations/janthiri_bee/honey_drips/honey_drips.glb" id="2_glhku"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vlb33"]

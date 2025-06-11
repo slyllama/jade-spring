@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c4hdvgok1lsmq"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.gd" id="1_ylfot"]
+[ext_resource type="Script" uid="uid://di6tmbi7loo3j" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.gd" id="1_ylfot"]
 [ext_resource type="Texture2D" uid="uid://bnh63xcitf33o" path="res://decorations/rata_sum/materials/textures/hex_tile_diff.jpg" id="2_ilmmx"]
 [ext_resource type="Texture2D" uid="uid://wgm62osd2ft1" path="res://decorations/rata_sum/materials/textures/hex_tile_norm.png" id="3_nohax"]
 [ext_resource type="PackedScene" uid="uid://dwrrj0ukov0ov" path="res://lib/decoration/decoration_pane/deco_perview/rune/rune.tscn" id="3_wifgh"]

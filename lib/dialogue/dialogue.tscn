@@ -1,20 +1,20 @@
 [gd_scene load_steps=24 format=3 uid="uid://dn13hi3fbsnwg"]
 
-[ext_resource type="Script" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
+[ext_resource type="Script" uid="uid://bvo5055ybhtvc" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_cbex2"]
 [ext_resource type="Texture2D" uid="uid://c68iqlyrha7yj" path="res://lib/dialogue/textures/base.png" id="2_jry7x"]
-[ext_resource type="Shader" path="res://lib/main_menu/title_card/shaders/shader_logo.gdshader" id="2_kddfe"]
+[ext_resource type="Shader" uid="uid://f7jojjtvvdnn" path="res://lib/main_menu/title_card/shaders/shader_logo.gdshader" id="2_kddfe"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_k137k"]
 [ext_resource type="Texture2D" uid="uid://i6ma73hg52p1" path="res://lib/dialogue/textures/dialogue_continue.png" id="6_udltf"]
 [ext_resource type="AudioStream" uid="uid://ca4kr2ly5riu1" path="res://generic/sounds/whistle.ogg" id="7_ccl3t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xmdcj"]
 shader = ExtResource("2_kddfe")
+shader_parameter/paint_mask_texture = ExtResource("3_k137k")
 shader_parameter/paint_mask_exponent = 1.65
 shader_parameter/value = 1.0
 shader_parameter/mask_scale = 1.6
 shader_parameter/exposure = 1.0
-shader_parameter/paint_mask_texture = ExtResource("3_k137k")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wt74q"]
 
@@ -75,8 +75,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gyjes"]
 _data = {
-"Enter": SubResource("Animation_umuac"),
-"RESET": SubResource("Animation_uu45f")
+&"Enter": SubResource("Animation_umuac"),
+&"RESET": SubResource("Animation_uu45f")
 }
 
 [node name="Dialogue" type="CanvasLayer"]

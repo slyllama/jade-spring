@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1re3xb00iibf"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_otjve"]
-[ext_resource type="Script" path="res://lib/main_menu/broken_decos_container.gd" id="2_jbtdg"]
+[ext_resource type="Script" uid="uid://gvid1kylbl4c" path="res://lib/main_menu/broken_decos_container.gd" id="2_jbtdg"]
 [ext_resource type="Texture2D" uid="uid://dp1j524j5uwre" path="res://generic/textures/stickers/sticker_warning.png" id="2_o07gc"]
 
 [node name="BrokenDecosContainer" instance=ExtResource("1_otjve")]

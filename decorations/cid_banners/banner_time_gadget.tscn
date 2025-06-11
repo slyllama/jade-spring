@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://plb3te1tt65t"]
 
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_1jwoi"]
-[ext_resource type="Script" path="res://decorations/cid_banners/banner_time_gadget.gd" id="2_f7avr"]
-[ext_resource type="Shader" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="2_rg885"]
+[ext_resource type="Script" uid="uid://cfbajms41ajsa" path="res://decorations/cid_banners/banner_time_gadget.gd" id="2_f7avr"]
+[ext_resource type="Shader" uid="uid://d0dxaj60d78lx" path="res://lib/crumb/materials/shaders/shader_visual_area.gdshader" id="2_rg885"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="3_tcnmt"]
 [ext_resource type="PackedScene" uid="uid://kct3qcx77ox8" path="res://decorations/cid_banners/otter_instance.tscn" id="6_88xoy"]
 [ext_resource type="PackedScene" uid="uid://dt7owvu7rjha1" path="res://decorations/cid_banners/banner.glb" id="7_4o0ve"]
@@ -21,14 +21,14 @@ fill_to = Vector2(0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8s4x3"]
 render_priority = 2
 shader = ExtResource("2_rg885")
+shader_parameter/mask_texture = ExtResource("3_tcnmt")
+shader_parameter/vertical_mask = SubResource("GradientTexture2D_cfxhs")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/uv_scale = Vector2(2, 0.43)
 shader_parameter/exponent = 1.65
 shader_parameter/time_scale = 0.07
-shader_parameter/distance_fade_min = null
-shader_parameter/distance_fade_max = null
-shader_parameter/mask_texture = ExtResource("3_tcnmt")
-shader_parameter/vertical_mask = SubResource("GradientTexture2D_cfxhs")
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pifq"]
 

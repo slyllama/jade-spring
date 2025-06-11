@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg1tifuyvbhkg"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_hhmhb"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_hhmhb"]
 [ext_resource type="PackedScene" uid="uid://o5ksjl0l48hy" path="res://decorations/lush_grass/lush_grass_clump_model.tscn" id="2_ov833"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgjpo"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://c12q2jnlcxoxq"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_cgw27"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_cgw27"]
 [ext_resource type="PackedScene" uid="uid://dsts82vgcx40p" path="res://decorations/rata_sum/beacon/beacon.glb" id="2_uock5"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="3_fnkpb"]
 [ext_resource type="Material" uid="uid://xn42leha6wta" path="res://decorations/rata_sum/materials/mat_rata_trim.tres" id="4_tskgk"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=33 format=3 uid="uid://b5rqfmavxpqcy"]
 
-[ext_resource type="Script" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
+[ext_resource type="Script" uid="uid://cc2u7k76ui72p" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_qd7v5"]
 [ext_resource type="PackedScene" uid="uid://d070iet1hdc2c" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.tscn" id="3_dgqi3"]
 [ext_resource type="Material" uid="uid://wv0q1g0bmi10" path="res://lib/dragger/materials/mat_dissolve.tres" id="4_0j0el"]
-[ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="4_0043e"]
+[ext_resource type="Shader" uid="uid://rqnfrjajec7x" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="4_0043e"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="5_wd3md"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="6_an5xe"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="6_l431d"]
@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bjdutdjfx2x1v" path="res://lib/ui_container/sounds/click.ogg" id="10_r8x0m"]
 [ext_resource type="Texture2D" uid="uid://c6bptaa3p8mka" path="res://lib/attenuator/textures/energy_effects.png" id="12_a26c3"]
 [ext_resource type="Texture2D" uid="uid://dcyqub4vhl6r4" path="res://lib/attenuator/textures/arrow.png" id="12_ceq7c"]
-[ext_resource type="Shader" path="res://lib/attenuator/materials/shaders/shader_energy_wobble.gdshader" id="12_tj5i4"]
+[ext_resource type="Shader" uid="uid://cqkhyab6j1gqk" path="res://lib/attenuator/materials/shaders/shader_energy_wobble.gdshader" id="12_tj5i4"]
 [ext_resource type="Texture2D" uid="uid://cf7ril0yniapq" path="res://lib/attenuator/textures/arrow_hover.png" id="13_yshcl"]
 [ext_resource type="Texture2D" uid="uid://bggnkyljip2sf" path="res://lib/attenuator/textures/arrow_disabled.png" id="14_q6c1q"]
 [ext_resource type="AudioStream" uid="uid://p27he2puiuwj" path="res://lib/attenuator/sounds/success.ogg" id="15_vld85"]
@@ -28,12 +28,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cwvft"]
 shader = ExtResource("4_0043e")
+shader_parameter/paint_mask = ExtResource("5_wd3md")
 shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 4.0
 shader_parameter/arrow_reduce_alpha = false
 shader_parameter/darken = 0.0
-shader_parameter/paint_mask = ExtResource("5_wd3md")
 
 [sub_resource type="Gradient" id="Gradient_cvck5"]
 
@@ -46,11 +46,11 @@ noise = SubResource("FastNoiseLite_f2x6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eisi1"]
 shader = ExtResource("12_tj5i4")
+shader_parameter/noise = SubResource("NoiseTexture2D_pyaki")
 shader_parameter/dissolve_value = 1.0
 shader_parameter/wobble_scale = 0.45
 shader_parameter/strength = 0.4
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/noise = SubResource("NoiseTexture2D_pyaki")
 
 [sub_resource type="Shader" id="Shader_c74ux"]
 code = "shader_type canvas_item;

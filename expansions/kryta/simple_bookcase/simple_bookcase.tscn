@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4jmbbp4h1rq0"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_vjiw0"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_vjiw0"]
 [ext_resource type="PackedScene" uid="uid://2b748i84cwaf" path="res://expansions/kryta/simple_bookcase/simple_bookcase_mesh.glb" id="2_27uff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_st5rg"]

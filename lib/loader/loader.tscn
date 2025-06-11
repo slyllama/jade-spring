@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://fqasq1ggshha"]
 
-[ext_resource type="Script" path="res://lib/loader/loader.gd" id="1_kyod5"]
+[ext_resource type="Script" uid="uid://d0417uhgw8nyi" path="res://lib/loader/loader.gd" id="1_kyod5"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_qx7v1"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_stjvc"]
 [ext_resource type="Texture2D" uid="uid://dsouup0n217ja" path="res://lib/loader/textures/keymap.png" id="5_0o7k2"]
@@ -60,8 +60,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_reekw"]
 _data = {
-"RESET": SubResource("Animation_ut2me"),
-"pulse": SubResource("Animation_wqwce")
+&"RESET": SubResource("Animation_ut2me"),
+&"pulse": SubResource("Animation_wqwce")
 }
 
 [node name="Loader" type="CanvasLayer"]

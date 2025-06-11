@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://b0ampettqcu60"]
 
-[ext_resource type="Script" path="res://lib/fishing/fishing.gd" id="1_6qcg4"]
+[ext_resource type="Script" uid="uid://tqtd3fe16nm2" path="res://lib/fishing/fishing.gd" id="1_6qcg4"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_7cxp0"]
 [ext_resource type="Texture2D" uid="uid://cnkmwhjhb5h2j" path="res://lib/fishing/textures/base_asuran.png" id="2_386hq"]
-[ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="2_y3on4"]
+[ext_resource type="Shader" uid="uid://rqnfrjajec7x" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="2_y3on4"]
 [ext_resource type="Texture2D" uid="uid://8e006712v0us" path="res://lib/fishing/textures/marker.png" id="3_7bdy4"]
 [ext_resource type="Texture2D" uid="uid://n0dr8y0nclty" path="res://lib/dragger/materials/textures/paint_mask.png" id="3_151ui"]
 [ext_resource type="Texture2D" uid="uid://b5tfug8y7dm74" path="res://lib/fishing/textures/fish.png" id="5_nbblc"]
@@ -12,21 +12,21 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gldn1"]
 shader = ExtResource("2_y3on4")
+shader_parameter/paint_mask = ExtResource("3_151ui")
 shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 3.0
 shader_parameter/arrow_reduce_alpha = false
 shader_parameter/darken = 0.0
-shader_parameter/paint_mask = ExtResource("3_151ui")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ny808"]
 shader = ExtResource("2_y3on4")
+shader_parameter/paint_mask = ExtResource("3_151ui")
 shader_parameter/paint_exponent = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 1.0
 shader_parameter/arrow_reduce_alpha = false
 shader_parameter/darken = 0.0
-shader_parameter/paint_mask = ExtResource("3_151ui")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j00t0"]
 bg_color = Color(0, 0, 0, 0.862745)
@@ -80,8 +80,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6pm8"]
 _data = {
-"RESET": SubResource("Animation_u4j83"),
-"glow": SubResource("Animation_x2yh5")
+&"RESET": SubResource("Animation_u4j83"),
+&"glow": SubResource("Animation_x2yh5")
 }
 
 [node name="Fishing" type="CanvasLayer"]

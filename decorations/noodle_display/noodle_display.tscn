@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://da70nrsxs6k41"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_jenur"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_jenur"]
 [ext_resource type="PackedScene" uid="uid://bkbi4b1y7lvdr" path="res://decorations/noodle_display/noodle_display.glb" id="2_ypxne"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="3_rkrsx"]
-[ext_resource type="Script" path="res://decorations/noodle_display/noodle_display.gd" id="3_sa2qs"]
+[ext_resource type="Script" uid="uid://i7liat6ck7gs" path="res://decorations/noodle_display/noodle_display.gd" id="3_sa2qs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_enrqy"]
 size = Vector3(2.07129, 2.02832, 0.143066)

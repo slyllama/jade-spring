@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhd1cgoki5hpx"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_16lkd"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_16lkd"]
 [ext_resource type="PackedScene" uid="uid://yus8s2803erf" path="res://decorations/rata_sum/slab/rata_sum_slab.glb" id="2_o8y8q"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a5yfe"]

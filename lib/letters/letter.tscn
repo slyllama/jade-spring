@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://ceasnql6pvyyj"]
 
-[ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_2c2wh"]
+[ext_resource type="Shader" uid="uid://rqnfrjajec7x" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_2c2wh"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_m8ifj"]
 [ext_resource type="Texture2D" uid="uid://bcvp2eedr7svs" path="res://lib/letters/textures/base.png" id="3_ouxyi"]
-[ext_resource type="Script" path="res://lib/letters/letter.gd" id="4_chw4r"]
+[ext_resource type="Script" uid="uid://b65s06cvbtu7t" path="res://lib/letters/letter.gd" id="4_chw4r"]
 [ext_resource type="FontFile" uid="uid://dg6p5pxhkf6ui" path="res://generic/fonts/libertinus_sans_italic.otf" id="5_0ewhi"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="6_3d6q6"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="7_2e8ej"]
@@ -11,12 +11,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qs42b"]
 shader = ExtResource("1_2c2wh")
+shader_parameter/paint_mask = ExtResource("2_m8ifj")
 shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 1.0
 shader_parameter/uv_scale = 0.75
 shader_parameter/arrow_reduce_alpha = false
 shader_parameter/darken = 0.0
-shader_parameter/paint_mask = ExtResource("2_m8ifj")
 
 [node name="GiftLetter" type="TextureRect"]
 material = SubResource("ShaderMaterial_qs42b")

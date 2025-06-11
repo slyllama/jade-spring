@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bruk8clrq4ixu" path="res://lib/player/meshes/spider.glb" id="1_j7vc6"]
 [ext_resource type="Animation" uid="uid://dg1k8w6q3c52d" path="res://lib/player/anims/walk.res" id="2_7mesp"]
-[ext_resource type="Script" path="res://lib/player/meshes/spider_instance.gd" id="2_ptxt1"]
+[ext_resource type="Script" uid="uid://b3fi2gm2ccw64" path="res://lib/player/meshes/spider_instance.gd" id="2_ptxt1"]
 [ext_resource type="Animation" uid="uid://1lyc1o1edaa3" path="res://lib/player/anims/jump.res" id="4_3ridu"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mxg8k"]
 _data = {
-"jump": ExtResource("4_3ridu"),
-"walk": ExtResource("2_7mesp")
+&"jump": ExtResource("4_3ridu"),
+&"walk": ExtResource("2_7mesp")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sxe0q"]

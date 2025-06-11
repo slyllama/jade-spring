@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://co07o3aacdvcq"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_dakct"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_dakct"]
 [ext_resource type="PackedScene" uid="uid://plb3te1tt65t" path="res://decorations/cid_banners/banner_time_gadget.tscn" id="2_77unr"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="3_otdmy"]
 

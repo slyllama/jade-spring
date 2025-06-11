@@ -203,7 +203,7 @@ tracks/16/keys = PackedFloat32Array(0, 1, -0.488147, 0.633218, -0.543525, 0.2555
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d4kni"]
 _data = {
-"spin": SubResource("Animation_3mpjm")
+&"spin": SubResource("Animation_3mpjm")
 }
 
 [node name="Otter" instance=ExtResource("1_j07xh")]

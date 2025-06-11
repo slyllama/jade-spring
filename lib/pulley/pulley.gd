@@ -1,3 +1,4 @@
+@tool
 extends "res://lib/gadget/gadget.gd"
 # Pulley
 # Script for the character Ratchet!
@@ -48,6 +49,7 @@ func check_dialogue_achieved() -> void:
 
 func _ready() -> void:
 	super()
+	if Engine.is_editor_hint(): return
 	# Quick fix to an ambient occlusion issue
 	$PulleyMesh/GolemSkeleton/Skeleton3D/ArmBase_L/ArmBase_L.rotation_degrees.y = 180.0
 	$PulleyMesh/GolemSkeleton/Skeleton3D/Armpivot_L/Armpivot_L.rotation_degrees.y = 180.0

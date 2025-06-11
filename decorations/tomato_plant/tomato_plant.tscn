@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cscw3ttdmep1e"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_4lmck"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_4lmck"]
 [ext_resource type="PackedScene" uid="uid://h1xtdyhewd7x" path="res://decorations/tomato_plant/tomato_plant.glb" id="2_qno80"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3cdlo"]
