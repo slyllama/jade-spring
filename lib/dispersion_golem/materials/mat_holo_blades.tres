@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dr74yiud6hg8w"]
 
-[ext_resource type="Shader" path="res://lib/dispersion_golem/materials/shaders/shader_holo_blades.gdshader" id="1_ymx8l"]
+[ext_resource type="Shader" uid="uid://it0j7vspkgkl" path="res://lib/dispersion_golem/materials/shaders/shader_holo_blades.gdshader" id="1_ymx8l"]
 
 [sub_resource type="Gradient" id="Gradient_c7vgy"]
 offsets = PackedFloat32Array(0.475472, 0.501887)
@@ -13,6 +13,6 @@ fill_to = Vector2(0, 1)
 render_priority = 0
 shader = ExtResource("1_ymx8l")
 shader_parameter/base_color = Color(1, 0.0654908, 0.87215, 1)
+shader_parameter/holo_texture = SubResource("GradientTexture2D_vcyr2")
 shader_parameter/holo_exponent = 2.0
 shader_parameter/uv_scale = 200.0
-shader_parameter/holo_texture = SubResource("GradientTexture2D_vcyr2")

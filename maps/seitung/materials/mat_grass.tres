@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=14 format=3 uid="uid://c521u7d0r3sk1"]
 
 [ext_resource type="Texture2D" uid="uid://c5sldoo7exwou" path="res://maps/seitung/materials/textures/landscape_mask.jpg" id="1_dmdua"]
-[ext_resource type="Shader" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_dp4rp"]
+[ext_resource type="Shader" uid="uid://o00tmlt54hji" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_dp4rp"]
 [ext_resource type="Texture2D" uid="uid://cans3a54doa6c" path="res://maps/seitung/materials/textures/cliff_norm.jpg" id="2_tvhp6"]
 [ext_resource type="Texture2D" uid="uid://cbreo445y1ow7" path="res://maps/seitung/materials/textures/cliff_diff.jpg" id="2_ysiw3"]
 [ext_resource type="Texture2D" uid="uid://btilod4esjjdo" path="res://maps/seitung/materials/textures/sand_diff.jpg" id="5_061rn"]
@@ -33,11 +33,6 @@ load_path = "res://.godot/imported/grass_base_diff.jpg-671630e1b73b22edad8750846
 render_priority = 0
 shader = ExtResource("1_dp4rp")
 shader_parameter/uv_scale = 13.0
-shader_parameter/grass_base_multiplier = 1.25
-shader_parameter/normal_strength = 0.2
-shader_parameter/grass_add_multiplier = 0.3
-shader_parameter/dirt_uv_multiplier = 2.0
-shader_parameter/sand_uv_scale = 12.0
 shader_parameter/grass_texture_base = SubResource("CompressedTexture2D_2ipm5")
 shader_parameter/grass_texture_add = SubResource("CompressedTexture2D_f68cj")
 shader_parameter/grass_normal_texture = SubResource("CompressedTexture2D_t6j0b")
@@ -46,5 +41,10 @@ shader_parameter/dirt_texture = SubResource("CompressedTexture2D_0rf7j")
 shader_parameter/dirt_mask_texture = ExtResource("1_dmdua")
 shader_parameter/rock_texture = ExtResource("2_ysiw3")
 shader_parameter/rock_normal_texture = ExtResource("2_tvhp6")
+shader_parameter/grass_base_multiplier = 1.25
+shader_parameter/normal_strength = 0.2
+shader_parameter/grass_add_multiplier = 0.3
+shader_parameter/dirt_uv_multiplier = 2.0
 shader_parameter/sand_mask = ExtResource("6_pvp0f")
 shader_parameter/sand_diff = ExtResource("5_061rn")
+shader_parameter/sand_uv_scale = 12.0

@@ -94,6 +94,7 @@ func _ready() -> void:
 	Global.attenuator_open = false # reset
 	Global.assigned_karma = 0
 	Global.spawn_karma.connect(spawn_karma)
+	Global.time_of_day = "day"
 	
 	if !Engine.is_editor_hint() and DiscordRPC.get_is_discord_working():
 		DiscordRPC.state = "Gardening and Building"
