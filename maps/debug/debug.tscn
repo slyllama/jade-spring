@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dgrakybin27gf"]
+[gd_scene load_steps=27 format=3 uid="uid://dgrakybin27gf"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_whgid"]
 [ext_resource type="Script" uid="uid://cgisia0nx8rnr" path="res://maps/debug/debug.gd" id="2_n4fpp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://3lblxj6dgvuv" path="res://decorations/autumnal_tree/deco_autumnal_tree.tscn" id="8_xp2h4"]
 [ext_resource type="AudioStream" uid="uid://2a40t0ubngvq" path="res://maps/seitung/sounds/mus_haiju_full.ogg" id="9_dsy3g"]
 [ext_resource type="PackedScene" uid="uid://ceqye8xeeqf64" path="res://decorations/lush_grass/lush_grass.tscn" id="9_v1c7u"]
+[ext_resource type="PackedScene" uid="uid://bgglskodxuwa5" path="res://decorations/lighting/string_lights.glb" id="11_bwjai"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="11_gxohq"]
 [ext_resource type="PackedScene" uid="uid://de46fd3hmay40" path="res://lib/crumb/fish_pool/fish_pool.tscn" id="11_qydsd"]
 [ext_resource type="Material" uid="uid://qkiqh7av8afr" path="res://maps/debug/materials/mat_ocean.tres" id="12_micig"]
@@ -102,6 +103,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25116, 0.653962, -2.29344)
 [node name="Dragonvoid" parent="CrumbHandler" index="5" instance=ExtResource("6_qfy5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34426, -4.84288e-08, -3.29022)
 
+[node name="Collision" parent="Floor" index="0"]
+debug_fill = false
+
 [node name="FloorMesh" parent="Floor" index="1"]
 layers = 9
 
@@ -122,6 +126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="DecoLantern4" parent="DecoHandler" index="6" instance=ExtResource("8_pxspu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="StringLights" parent="Decoration" index="1" instance=ExtResource("11_bwjai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385766, 2.64644, -1.73789)
 
 [node name="Jukebox" parent="." index="10"]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("9_dsy3g")])
