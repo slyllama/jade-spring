@@ -16,6 +16,10 @@ func open(silent = false) -> void:
 	Global.settings_open = true
 	Global.settings_pane_opened.emit()
 	Global.action_cam_disable.emit()
+	
+	await get_tree().process_frame
+	$Container/SC/Contents/WindowMode.selected_option = SettingsHandler.settings.window_mode
+	$Container/SC/Contents/WindowMode.refresh()
 
 func close() -> void:
 	Global.settings_open = false

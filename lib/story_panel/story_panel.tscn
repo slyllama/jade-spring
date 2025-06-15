@@ -135,14 +135,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 280.0
-offset_right = -8.0
-offset_bottom = -102.0
+offset_left = 6.0
+offset_top = 277.0
+offset_right = -4.0
+offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_constants/line_separation = -1
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "Lorem ipsum"
@@ -156,9 +157,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -68.5
-offset_top = -89.0
+offset_top = -69.0
 offset_right = 68.5
-offset_bottom = -62.0
+offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -186,7 +187,7 @@ texture = ExtResource("7_p10w8")
 
 [node name="JadeAnim" type="AnimationPlayer" parent="JadeWingsBase"]
 libraries = {
-"": SubResource("AnimationLibrary_tuv2v")
+&"": SubResource("AnimationLibrary_tuv2v")
 }
 
 [node name="CloseButton" type="TextureButton" parent="."]

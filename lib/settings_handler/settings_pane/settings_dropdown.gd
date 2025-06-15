@@ -19,7 +19,7 @@ func _parse_id(get_id: String) -> String:
 	return(get_id.capitalize().replace("Msaa", "MSAA").replace("Fxaa", "FXAA"))
 
 # Update displayed value
-func _refresh() -> void:
+func refresh() -> void:
 	$Menu.text = _parse_id(str(selected_option))
 
 func _ready() -> void:
@@ -33,13 +33,13 @@ func _ready() -> void:
 	# Populate based on exported variables and refresh
 	for option in options:
 		$Menu.get_popup().add_item(_parse_id(str(option)))
-	_refresh()
+	refresh()
 	
 	# Update settings (and display) when an option is selected from the list
 	$Menu.get_popup().id_pressed.connect(func(n):
 		selected_option = options[n]
 		SettingsHandler.update(id, selected_option)
-		_refresh())
+		refresh())
 	
 	# Let the game know the popup has been closed (especially for CameraHandler)
 	$Menu.get_popup().visibility_changed.connect(func():
@@ -50,7 +50,7 @@ func _ready() -> void:
 	SettingsHandler.setting_changed.connect(func(parameter):
 		if id == parameter:
 			selected_option = SettingsHandler.settings[parameter]
-			_refresh())
+			refresh())
 
 func _on_menu_about_to_popup() -> void:
 	Global.popup_open = true
