@@ -233,6 +233,7 @@ func _ready() -> void:
 	# We add 'immobile' as FXList won't check Global.can_move if it isn't there
 	Global.current_effects = [ "immobile" ]
 	await get_tree().process_frame
+	Global.effects_reset.emit()
 	
 	# Add some effects (like weeds)
 	if "weeds" in Save.data: # protection for older dev saves

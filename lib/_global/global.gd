@@ -85,6 +85,7 @@ signal dialogue_opened
 signal dialogue_closed
 signal dragonvoid_crumb_entered
 signal dragonvoid_crumb_left
+signal effects_reset # on map change
 signal first_person_entered
 signal first_person_left
 signal fishing_started
