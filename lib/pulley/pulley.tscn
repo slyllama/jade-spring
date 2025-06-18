@@ -80,7 +80,7 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_bbigo")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g48oo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7emif"]
 render_priority = 2
 shader = ExtResource("8_7emif")
 shader_parameter/mask_texture = ExtResource("9_earbl")
@@ -145,7 +145,7 @@ mesh = SubResource("QuadMesh_f178q")
 
 [node name="VisualArea" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_g48oo")
+surface_material_override/0 = SubResource("ShaderMaterial_7emif")
 
 [node name="QuestMarker" type="MeshInstance3D" parent="." index="6"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.8, 0)

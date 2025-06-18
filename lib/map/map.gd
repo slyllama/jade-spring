@@ -95,6 +95,7 @@ func _ready() -> void:
 	Global.assigned_karma = 0
 	Global.spawn_karma.connect(spawn_karma)
 	Global.time_of_day = "day"
+	Global.miniature = false
 	
 	if !Engine.is_editor_hint() and DiscordRPC.get_is_discord_working():
 		DiscordRPC.state = "Gardening and Building"
