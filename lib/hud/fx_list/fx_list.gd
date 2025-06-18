@@ -13,6 +13,11 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"title": "Immobile",
 		"description": "I can't move at the moment!"
 	},
+	"miniature": {
+		"title": "Transformation (Miniature)",
+		"texture": "miniature",
+		"description": "You smell... different."
+	},
 	"fish_food": {
 		"title": "Fish Food",
 		"texture": "fish_food",

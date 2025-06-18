@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=59 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" uid="uid://dj3l3q0uia8li" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" uid="uid://q6dwqrwcci8w" path="res://lib/player/player.gd" id="1_wipkt"]
@@ -200,8 +200,10 @@ blend_point_0/pos = -1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_5hquj")
 blend_point_1/pos = 1.0
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_f5g47"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5upv6"]
-graph_offset = Vector2(-476.228, 64.244)
+graph_offset = Vector2(-43.0414, 79.4703)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_um6qk")
 nodes/Animation/position = Vector2(0, 240)
 nodes/elongate/node = SubResource("AnimationNodeAnimation_3pws5")
@@ -213,7 +215,9 @@ nodes/strafe/node = SubResource("AnimationNodeAdd2_7v0mc")
 nodes/strafe/position = Vector2(266.667, 80)
 nodes/test_blend/node = SubResource("AnimationNodeBlendSpace1D_gsm4j")
 nodes/test_blend/position = Vector2(0, 80)
-node_connections = [&"output", 0, &"set_elongate", &"set_elongate", 0, &"strafe", &"set_elongate", 1, &"elongate", &"strafe", 0, &"test_blend", &"strafe", 1, &"Animation"]
+nodes/time_scale/node = SubResource("AnimationNodeTimeScale_f5g47")
+nodes/time_scale/position = Vector2(756.2, 201.191)
+node_connections = [&"output", 0, &"time_scale", &"set_elongate", 0, &"strafe", &"set_elongate", 1, &"elongate", &"strafe", 0, &"test_blend", &"strafe", 1, &"Animation", &"time_scale", 0, &"set_elongate"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11m6v"]
 albedo_color = Color(0.5, 0.5, 0.5, 1)
@@ -321,12 +325,13 @@ draw_pass_1 = ExtResource("4_wdnsj")
 
 [node name="Tree" type="AnimationTree" parent="PlayerMesh"]
 libraries = {
-"player": SubResource("AnimationLibrary_6ksk3")
+&"player": SubResource("AnimationLibrary_6ksk3")
 }
 tree_root = SubResource("AnimationNodeBlendTree_5upv6")
 parameters/set_elongate/add_amount = 0.0
 parameters/strafe/add_amount = 0.4
 parameters/test_blend/blend_position = -0.95739
+parameters/time_scale/scale = 1.0
 
 [node name="Decal" type="Decal" parent="PlayerMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3257, 0)

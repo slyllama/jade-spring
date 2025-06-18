@@ -104,7 +104,8 @@ func _ready() -> void:
 			$Debug.visible = false
 			for _x in 2: await get_tree().process_frame
 			if Global.map_name == "debug":
-				$Debug.visible = true)
+				$Debug.visible = true
+		elif cmd == "/mini=true": _aberrate)
 	
 	Global.dragonvoid_crumb_entered.connect(func():
 		dv_state = true

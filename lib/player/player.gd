@@ -122,8 +122,7 @@ func _ready() -> void:
 		if parameter == "show_gift_item":
 			if Save.is_at_story_point(Save.GIFT_STORY_POINT):
 				if _value == "show": toggle_gift_visibility(true)
-				else: toggle_gift_visibility(false)
-	)
+				else: toggle_gift_visibility(false))
 
 	# Spawn/clear golems in different circumstances
 	Global.debug_skill_used.connect(spawn_dgolems)
@@ -172,6 +171,14 @@ func _ready() -> void:
 			$PlayerMesh/NightLight.visible = true
 		elif _cmd == "/time=day":
 			$PlayerMesh/NightLight.visible = false
+		elif _cmd == "/mini=true":
+			Global.add_effect.emit("miniature")
+			$PlayerMesh/Tree.set("parameters/time_scale/scale", 1.7)
+			scale = Vector3(0.5, 0.5, 0.5)
+		elif _cmd == "/mini=false":
+			Global.remove_effect.emit("miniature")
+			$PlayerMesh/Tree.set("parameters/time_scale/scale", 1.0)
+			scale = Vector3(1.0, 1.0, 1.0)
 	)
 	
 	$PlayerMesh/HeartParticles.emitting = true
