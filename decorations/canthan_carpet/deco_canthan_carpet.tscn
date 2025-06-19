@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jc6swuya6p2y"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_3trrg"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_3trrg"]
 [ext_resource type="PackedScene" uid="uid://dfntcr3jwb6fh" path="res://decorations/canthan_carpet/canthan_carpet.tscn" id="2_6jpjw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yux2q"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ebeyhxmk6bc1"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_4mf70"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_4mf70"]
 [ext_resource type="PackedScene" uid="uid://cdmffnxv1515x" path="res://decorations/drizzlewood_shrub/drizzlewood_shrub.glb" id="2_aq4pc"]
 [ext_resource type="Texture2D" uid="uid://b4p6wpk4hxio1" path="res://decorations/drizzlewood_shrub/materials/textures/shrub.png" id="3_dsxrd"]
 

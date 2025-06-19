@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjg7pcyuthw28"]
 
-[ext_resource type="Script" path="res://lib/steam/achievements/achievement_box.gd" id="1_6k7wy"]
+[ext_resource type="Script" uid="uid://drb32ljvudvrd" path="res://lib/steam/achievements/achievement_box.gd" id="1_6k7wy"]
 [ext_resource type="Texture2D" uid="uid://b8cyyq1t034dk" path="res://generic/textures/stickers/sticker_placeholder.png" id="2_f1rs6"]
 
 [node name="AchievementBox" type="HBoxContainer"]

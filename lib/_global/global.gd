@@ -47,6 +47,7 @@ var last_command = ""
 var load_debug_next = false # the next map loaded by the loader will be the debug map if this is true
 var override_lock_tools = false
 var map_name = ""
+var miniature = false
 var mouse_3d_position = Utilities.BIGVEC3
 var mouse_3d_override_rotation = null
 var mouse_3d_x_rotation = 0.0
@@ -85,6 +86,7 @@ signal dialogue_opened
 signal dialogue_closed
 signal dragonvoid_crumb_entered
 signal dragonvoid_crumb_left
+signal effects_reset # on map change
 signal first_person_entered
 signal first_person_left
 signal fishing_started

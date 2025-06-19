@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7ajulv6yv77b"]
 
-[ext_resource type="Script" path="res://lib/ping/ping.gd" id="1_cyphn"]
+[ext_resource type="Script" uid="uid://b64314vl1u440" path="res://lib/ping/ping.gd" id="1_cyphn"]
 [ext_resource type="PackedScene" uid="uid://bxxddbir80jxp" path="res://lib/ping/ping_mesh.glb" id="1_r1map"]
 [ext_resource type="PackedScene" uid="uid://bmwixafvspbb1" path="res://lib/ping/ping_mesh_interior.glb" id="3_g115p"]
 

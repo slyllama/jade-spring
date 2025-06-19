@@ -58,6 +58,8 @@ func play_jade_sound() -> void:
 	else:
 		sound.volume_db = linear_to_db(0.4)
 	sound.pitch_scale = 0.8 + 0.4 * rng.randf()
+	if Global.miniature:
+		sound.pitch_scale += 0.3
 	add_child(sound)
 	
 	sound.finished.connect(sound.queue_free)
@@ -98,6 +100,8 @@ func _input(_event: InputEvent) -> void:
 			can_play_sprint_sound = false
 			$SprintSoundCD.start()
 			$SprintSoundPlayer.stream = SPRINT_SOUNDS.pick_random()
+			if Global.miniature: $SprintSoundPlayer.pitch_scale = 1.3
+			else: $SprintSoundPlayer.pitch_scale = 1.0
 			$SprintSoundPlayer.play()
 
 var gift_state = false
@@ -122,8 +126,7 @@ func _ready() -> void:
 		if parameter == "show_gift_item":
 			if Save.is_at_story_point(Save.GIFT_STORY_POINT):
 				if _value == "show": toggle_gift_visibility(true)
-				else: toggle_gift_visibility(false)
-	)
+				else: toggle_gift_visibility(false))
 
 	# Spawn/clear golems in different circumstances
 	Global.debug_skill_used.connect(spawn_dgolems)
@@ -172,6 +175,16 @@ func _ready() -> void:
 			$PlayerMesh/NightLight.visible = true
 		elif _cmd == "/time=day":
 			$PlayerMesh/NightLight.visible = false
+		elif _cmd == "/mini=true":
+			Global.miniature = true
+			Global.add_effect.emit("miniature")
+			$PlayerMesh/Tree.set("parameters/time_scale/scale", 1.7)
+			scale = Vector3(0.5, 0.5, 0.5)
+		elif _cmd == "/mini=false":
+			Global.miniature = false
+			Global.remove_effect.emit("miniature")
+			$PlayerMesh/Tree.set("parameters/time_scale/scale", 1.0)
+			scale = Vector3(1.0, 1.0, 1.0)
 	)
 	
 	$PlayerMesh/HeartParticles.emitting = true
@@ -411,6 +424,8 @@ func _process(delta: float) -> void:
 		+ Vector3(velocity * Vector3(1, 0, 1)).length() / base_speed * 0.5)
 	if "gravity" in Global.current_effects:
 		_target_pitch_scale = 0.7
+	if Global.miniature:
+		_target_pitch_scale += 0.2
 	$EngineSound.pitch_scale = lerp($EngineSound.pitch_scale, _target_pitch_scale, 0.07)
 
 func _on_sprint_sound_cd_timeout() -> void:

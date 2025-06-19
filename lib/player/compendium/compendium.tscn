@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://gx4w1cghsw55"]
 
-[ext_resource type="Script" path="res://lib/player/compendium/compendium.gd" id="1_0iv6w"]
+[ext_resource type="Script" uid="uid://e5ummsr10drt" path="res://lib/player/compendium/compendium.gd" id="1_0iv6w"]
 [ext_resource type="PackedScene" uid="uid://dorw6p3tytl73" path="res://lib/player/compendium/compendium_instance.tscn" id="1_2g1eu"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="3_v38ec"]
-[ext_resource type="Shader" path="res://lib/decoration/decoration_pane/deco_perview/rune/materials/shaders/shader_rune.gdshader" id="4_firbb"]
+[ext_resource type="Shader" uid="uid://d4d0iufip03lw" path="res://lib/decoration/decoration_pane/deco_perview/rune/materials/shaders/shader_rune.gdshader" id="4_firbb"]
 [ext_resource type="Texture2D" uid="uid://cao40khyl4nrr" path="res://lib/player/compendium/materials/textures/rune_safe_zones.png" id="5_ip61s"]
 
 [sub_resource type="Curve" id="Curve_7ogwj"]

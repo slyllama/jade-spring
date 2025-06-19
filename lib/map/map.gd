@@ -94,6 +94,8 @@ func _ready() -> void:
 	Global.attenuator_open = false # reset
 	Global.assigned_karma = 0
 	Global.spawn_karma.connect(spawn_karma)
+	Global.time_of_day = "day"
+	Global.miniature = false
 	
 	if !Engine.is_editor_hint() and DiscordRPC.get_is_discord_working():
 		DiscordRPC.state = "Gardening and Building"
@@ -232,6 +234,7 @@ func _ready() -> void:
 	# We add 'immobile' as FXList won't check Global.can_move if it isn't there
 	Global.current_effects = [ "immobile" ]
 	await get_tree().process_frame
+	Global.effects_reset.emit()
 	
 	# Add some effects (like weeds)
 	if "weeds" in Save.data: # protection for older dev saves

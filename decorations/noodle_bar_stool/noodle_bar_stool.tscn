@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bexbuulpxorsg"]
 
-[ext_resource type="Script" path="res://lib/decoration/decoration.gd" id="1_qplin"]
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_qplin"]
 [ext_resource type="PackedScene" uid="uid://cqpevxc5akhjf" path="res://decorations/noodle_bar_stool/noodle_bar_stool.glb" id="2_lnpj3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_443jn"]

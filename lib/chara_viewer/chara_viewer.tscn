@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ojc8qc8s76mg"]
 
 [ext_resource type="PackedScene" uid="uid://5uv13e8nik8y" path="res://lib/chara_viewer/chara_viewer_world.tscn" id="1_iw627"]
-[ext_resource type="Shader" path="res://generic/materials/shaders/shader_simple_dissolve.gdshader" id="1_tm618"]
-[ext_resource type="Script" path="res://lib/chara_viewer/chara_viewer.gd" id="1_uhl1e"]
+[ext_resource type="Shader" uid="uid://6jg840khi31v" path="res://generic/materials/shaders/shader_simple_dissolve.gdshader" id="1_tm618"]
+[ext_resource type="Script" uid="uid://b7xwid1lly4fl" path="res://lib/chara_viewer/chara_viewer.gd" id="1_uhl1e"]
 
 [sub_resource type="Gradient" id="Gradient_w6g4o"]
 
@@ -14,8 +14,8 @@ noise = SubResource("FastNoiseLite_7uhds")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jvwdy"]
 shader = ExtResource("1_tm618")
-shader_parameter/dissolve_value = 0.0
 shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_fypyl")
+shader_parameter/dissolve_value = 0.0
 
 [node name="CharaViewer" type="SubViewportContainer"]
 material = SubResource("ShaderMaterial_jvwdy")

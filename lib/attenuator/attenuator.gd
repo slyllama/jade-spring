@@ -6,13 +6,13 @@ signal closed
 const PianoKey = preload("res://lib/attenuator/piano_key.tscn")
 
 const NOTES = [
-	{"float": 0.0,  "color": Color.CADET_BLUE},	# C
-	{"float": 1.0,  "color": Color.WHITE},		# D
-	{"float": 2.1,  "color": Color.WHITE},		# E
-	{"float": 2.65,  "color": Color.WHITE},		# F
-	{"float": 4.1,  "color": Color.WHITE},		# G
-	{"float": 5.5,  "color": Color.WHITE},		# A
-	{"float": 7.2,  "color": Color.WHITE},		# B
+	{"float": 0.0, "color": Color.CADET_BLUE},	# C
+	{"float": 1.0, "color": Color.WHITE},		# D
+	{"float": 2.1, "color": Color.WHITE},		# E
+	{"float": 2.65, "color": Color.WHITE},		# F
+	{"float": 4.1, "color": Color.WHITE},		# G
+	{"float": 5.5, "color": Color.WHITE},		# A
+	{"float": 7.2, "color": Color.WHITE},		# B
 ]
 const NOTE_FILES = [
 	preload("res://lib/attenuator/sounds/c1.ogg"),

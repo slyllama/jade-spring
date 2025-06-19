@@ -13,6 +13,11 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"title": "Immobile",
 		"description": "I can't move at the moment!"
 	},
+	"miniature": {
+		"title": "Transformation (Miniature)",
+		"texture": "miniature",
+		"description": "You smell... different."
+	},
 	"fish_food": {
 		"title": "Fish Food",
 		"texture": "fish_food",
@@ -72,6 +77,11 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"texture": "d_zhaitan",
 		"title": "Zhaitan-Attuned Flux",
 		"description": "I'm equipped with Dispersion Flux for clearing out Dragonvoid."
+	},
+	"dialogue": {
+		"texture": "dialogue",
+		"title": "My Friend Ratchet",
+		"description": "Ratchet has some more to say!"
 	}
 }
 
@@ -82,7 +92,7 @@ var last_effects = []
 
 func update() -> void:
 	last_effects = []
-	for _n in get_children():
+	for _n: Node in get_children():
 		if "id" in _n:
 			last_effects.append(_n.id)
 		_n.queue_free()
@@ -107,9 +117,10 @@ func update() -> void:
 		add_child(_n)
 		
 		if !_f in last_effects:
-			if "d_" in _f:
+			if "d_" in _f or _f == "dialogue":
 				await get_tree().process_frame
-				Global.play_flash(_n.global_position)
+				if is_instance_valid(_n):
+					Global.play_flash(_n.global_position + _n.size / 2.0)
 
 func add_effect(id) -> void:
 	if !id in Global.current_effects:

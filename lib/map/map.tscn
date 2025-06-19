@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://djua7a6d1wk2x"]
 
-[ext_resource type="Script" path="res://lib/map/map.gd" id="1_juxxi"]
+[ext_resource type="Script" uid="uid://ed5amihsvj20" path="res://lib/map/map.gd" id="1_juxxi"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_twsw1"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="2_dib65"]
 [ext_resource type="PackedScene" uid="uid://jsxfgufgx7tk" path="res://lib/shader_preload/shader_preload.tscn" id="2_q1vmn"]
@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bxsbnw48fh4vy" path="res://maps/seitung/sounds/ambience.ogg" id="5_uggpi"]
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="6_fmnwt"]
 [ext_resource type="PackedScene" uid="uid://s5dqteeuut03" path="res://lib/decoration/deco_handler/deco_handler.tscn" id="6_p5ee1"]
-[ext_resource type="Script" path="res://lib/map/jukebox.gd" id="10_0ckh4"]
+[ext_resource type="Script" uid="uid://uwersjq77h11" path="res://lib/map/jukebox.gd" id="10_0ckh4"]
 [ext_resource type="PackedScene" uid="uid://12h1x7xjn8c2" path="res://lib/story_marker/story_marker.tscn" id="10_743fl"]
 [ext_resource type="AudioStream" uid="uid://clllef7a23fpa" path="res://lib/ping/sounds/ping.ogg" id="11_gkdk1"]
 [ext_resource type="AudioStream" uid="uid://cctlih2gry63t" path="res://generic/sounds/shutter.ogg" id="12_6iy5x"]
@@ -89,6 +89,7 @@ collision_mask = 3
 [node name="Collision" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_g86cy")
+debug_fill = false
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("QuadMesh_kt5au")

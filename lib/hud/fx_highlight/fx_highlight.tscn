@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqnm3s2nn64yw"]
 
-[ext_resource type="Shader" path="res://lib/hud/fx_highlight/materials/shader_fx_highlight.gdshader" id="1_m0y1x"]
+[ext_resource type="Shader" uid="uid://cb3m006vlhkl7" path="res://lib/hud/fx_highlight/materials/shader_fx_highlight.gdshader" id="1_m0y1x"]
 [ext_resource type="Texture2D" uid="uid://bxwf077rna4qb" path="res://lib/hud/fx_highlight/materials/textures/glow_mask.png" id="2_st6tw"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="4_4ajsk"]
 
@@ -15,11 +15,11 @@ noise = SubResource("FastNoiseLite_v3jhb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o4k4e"]
 shader = ExtResource("1_m0y1x")
+shader_parameter/glow_texture = ExtResource("2_st6tw")
+shader_parameter/wobble_texture = SubResource("NoiseTexture2D_7qpo3")
 shader_parameter/wobble_intensity = 1.0
 shader_parameter/wobble_time = 1.0
 shader_parameter/color = Color(0.828975, 0.214109, 0, 1)
-shader_parameter/glow_texture = ExtResource("2_st6tw")
-shader_parameter/wobble_texture = SubResource("NoiseTexture2D_7qpo3")
 
 [sub_resource type="Curve" id="Curve_snv4y"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502924, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

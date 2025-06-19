@@ -92,7 +92,7 @@ uniform vec4 color_2 : source_color = vec4(0.825494, 0.000324, 0.773824, 1.00000
 uniform sampler2D tex_frg_13;
 uniform sampler2D tex_frg_2;
 uniform sampler2D tex_frg_6;
-uniform float master_alpha = 1;
+uniform float master_alpha = 1.0;
 
 
 

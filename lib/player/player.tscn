@@ -1,7 +1,7 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=59 format=3 uid="uid://b5aewysclei7o"]
 
-[ext_resource type="Script" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
-[ext_resource type="Script" path="res://lib/player/player.gd" id="1_wipkt"]
+[ext_resource type="Script" uid="uid://dj3l3q0uia8li" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
+[ext_resource type="Script" uid="uid://q6dwqrwcci8w" path="res://lib/player/player.gd" id="1_wipkt"]
 [ext_resource type="PackedScene" uid="uid://dow0fxe5m8rr1" path="res://lib/player/meshes/jade_bot.glb" id="4_0sx7s"]
 [ext_resource type="PackedScene" uid="uid://3k5yb8l0njd2" path="res://lib/player/meshes/spider_instance.tscn" id="4_81ee3"]
 [ext_resource type="PackedScene" uid="uid://ctgrir47nofil" path="res://lib/player/heart/heart_particles.tscn" id="4_bxjah"]
@@ -10,7 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="4_wdnsj"]
 [ext_resource type="Animation" uid="uid://ba7rwcpdhgmdb" path="res://lib/player/anims/dance.res" id="5_4xqlf"]
 [ext_resource type="PackedScene" uid="uid://css5f06cjlswq" path="res://lib/karma/karma.tscn" id="5_bkuho"]
-[ext_resource type="Script" path="res://lib/player/splash_test.gd" id="5_eb87h"]
+[ext_resource type="Script" uid="uid://hya7abc8cjtm" path="res://lib/player/splash_test.gd" id="5_eb87h"]
 [ext_resource type="Texture2D" uid="uid://ctvn0oehf2yjq" path="res://decorations/fountain/water_splash/textures/splash_mask.png" id="5_p7y31"]
 [ext_resource type="Animation" uid="uid://7ydatkv748qo" path="res://lib/player/anims/reset.res" id="6_yk0gp"]
 [ext_resource type="Animation" uid="uid://dantwa7iifrny" path="res://lib/player/anims/moving.res" id="8_6vkv2"]
@@ -37,8 +37,7 @@ point_count = 3
 curve = SubResource("Curve_3dt6x")
 
 [sub_resource type="Curve" id="Curve_1va37"]
-min_value = -360.0
-max_value = 360.0
+_limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, 233.814), 0.0, 0.0, 0, 0, Vector2(1, 18.5567), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -161,12 +160,12 @@ alpha_curve = SubResource("CurveTexture_yqgmn")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ksk3"]
 _data = {
-"accelerate": ExtResource("4_vjr6v"),
-"dance": ExtResource("5_4xqlf"),
-"elongate": ExtResource("10_1iq62"),
-"moving": ExtResource("8_6vkv2"),
-"reset": ExtResource("6_yk0gp"),
-"strafe_left": ExtResource("9_6mdph")
+&"accelerate": ExtResource("4_vjr6v"),
+&"dance": ExtResource("5_4xqlf"),
+&"elongate": ExtResource("10_1iq62"),
+&"moving": ExtResource("8_6vkv2"),
+&"reset": ExtResource("6_yk0gp"),
+&"strafe_left": ExtResource("9_6mdph")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_um6qk"]
@@ -201,8 +200,10 @@ blend_point_0/pos = -1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_5hquj")
 blend_point_1/pos = 1.0
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_f5g47"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5upv6"]
-graph_offset = Vector2(-476.228, 64.244)
+graph_offset = Vector2(-43.0414, 79.4703)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_um6qk")
 nodes/Animation/position = Vector2(0, 240)
 nodes/elongate/node = SubResource("AnimationNodeAnimation_3pws5")
@@ -214,7 +215,9 @@ nodes/strafe/node = SubResource("AnimationNodeAdd2_7v0mc")
 nodes/strafe/position = Vector2(266.667, 80)
 nodes/test_blend/node = SubResource("AnimationNodeBlendSpace1D_gsm4j")
 nodes/test_blend/position = Vector2(0, 80)
-node_connections = [&"output", 0, &"set_elongate", &"set_elongate", 0, &"strafe", &"set_elongate", 1, &"elongate", &"strafe", 0, &"test_blend", &"strafe", 1, &"Animation"]
+nodes/time_scale/node = SubResource("AnimationNodeTimeScale_f5g47")
+nodes/time_scale/position = Vector2(756.2, 201.191)
+node_connections = [&"output", 0, &"time_scale", &"set_elongate", 0, &"strafe", &"set_elongate", 1, &"elongate", &"strafe", 0, &"test_blend", &"strafe", 1, &"Animation", &"time_scale", 0, &"set_elongate"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11m6v"]
 albedo_color = Color(0.5, 0.5, 0.5, 1)
@@ -322,12 +325,13 @@ draw_pass_1 = ExtResource("4_wdnsj")
 
 [node name="Tree" type="AnimationTree" parent="PlayerMesh"]
 libraries = {
-"player": SubResource("AnimationLibrary_6ksk3")
+&"player": SubResource("AnimationLibrary_6ksk3")
 }
 tree_root = SubResource("AnimationNodeBlendTree_5upv6")
 parameters/set_elongate/add_amount = 0.0
 parameters/strafe/add_amount = 0.4
 parameters/test_blend/blend_position = -0.95739
+parameters/time_scale/scale = 1.0
 
 [node name="Decal" type="Decal" parent="PlayerMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3257, 0)

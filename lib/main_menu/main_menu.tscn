@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://cf0bmp8k4qm1n"]
 
-[ext_resource type="Script" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
+[ext_resource type="Script" uid="uid://cbqhv67o2phqc" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
 [ext_resource type="Texture2D" uid="uid://di4tqbaloy431" path="res://generic/textures/light_ray.png" id="3_nclce"]
 [ext_resource type="PackedScene" uid="uid://col3bfw2kkxf0" path="res://lib/main_menu/mm_button.tscn" id="3_v0okn"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="10_cqy1t"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="11_ctlnu"]
 [ext_resource type="PackedScene" uid="uid://d33ilqq0c1mwg" path="res://lib/main_menu/new_game_container.tscn" id="12_0oh4d"]
-[ext_resource type="Script" path="res://lib/hud/version.gd" id="14_n67d6"]
+[ext_resource type="Script" uid="uid://dep1sifkoeuqp" path="res://lib/hud/version.gd" id="14_n67d6"]
 [ext_resource type="AudioStream" uid="uid://cmphyt1yte74c" path="res://generic/sounds/swish.ogg" id="19_lck14"]
 [ext_resource type="PackedScene" uid="uid://diso1rqxtpjaf" path="res://lib/main_menu/credits_container.tscn" id="21_2cjud"]
 [ext_resource type="PackedScene" uid="uid://b1re3xb00iibf" path="res://lib/main_menu/broken_decos_container.tscn" id="22_eo7ij"]
@@ -88,8 +88,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xt81s"]
 _data = {
-"RESET": SubResource("Animation_kyuja"),
-"glow": SubResource("Animation_oi65x")
+&"RESET": SubResource("Animation_kyuja"),
+&"glow": SubResource("Animation_oi65x")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7pqmc"]
@@ -121,17 +121,17 @@ texture = ExtResource("4_bh8me")
 [node name="Motes" type="GPUParticles2D" parent="Raiqqo"]
 position = Vector2(286, 226)
 amount = 24
-process_material = SubResource("ParticleProcessMaterial_0vfhr")
 texture = ExtResource("9_g8hmh")
 lifetime = 4.0
 preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_0vfhr")
 
 [node name="RaiqqoGlow" type="Sprite2D" parent="Raiqqo"]
 texture = ExtResource("5_xq5di")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Raiqqo/RaiqqoGlow"]
 libraries = {
-"": SubResource("AnimationLibrary_xt81s")
+&"": SubResource("AnimationLibrary_xt81s")
 }
 autoplay = "glow"
 

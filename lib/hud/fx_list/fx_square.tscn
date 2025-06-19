@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cn3kubvy6lfnd" path="res://lib/hud/fx_list/textures/fx_immobile.png" id="1_vgnib"]
 [ext_resource type="PackedScene" uid="uid://cqnm3s2nn64yw" path="res://lib/hud/fx_highlight/fx_highlight.tscn" id="2_hxrsb"]
-[ext_resource type="Shader" path="res://lib/hud/fx_highlight/materials/shader_fx_highlight.gdshader" id="3_c1m5e"]
+[ext_resource type="Shader" uid="uid://cb3m006vlhkl7" path="res://lib/hud/fx_highlight/materials/shader_fx_highlight.gdshader" id="3_c1m5e"]
 [ext_resource type="Texture2D" uid="uid://bxwf077rna4qb" path="res://lib/hud/fx_highlight/materials/textures/glow_mask.png" id="4_3m05q"]
 
 [sub_resource type="GDScript" id="GDScript_r0by1"]
@@ -85,11 +85,11 @@ noise = SubResource("FastNoiseLite_v3jhb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_budet"]
 shader = ExtResource("3_c1m5e")
+shader_parameter/glow_texture = ExtResource("4_3m05q")
+shader_parameter/wobble_texture = SubResource("NoiseTexture2D_7qpo3")
 shader_parameter/wobble_intensity = 1.0
 shader_parameter/wobble_time = 1.0
 shader_parameter/color = Color(0.916854, 0.398202, 0.0858102, 1)
-shader_parameter/glow_texture = ExtResource("4_3m05q")
-shader_parameter/wobble_texture = SubResource("NoiseTexture2D_7qpo3")
 
 [node name="FXSquare" type="TextureRect"]
 custom_minimum_size = Vector2(32, 32)

@@ -1,3 +1,4 @@
+@tool
 extends "res://lib/gadget/gadget.gd"
 # Pulley
 # Script for the character Ratchet!
@@ -19,7 +20,10 @@ const story_point_positions = {
 }
 
 # Check if the player has seen this dialogue before
-func check_freshness() -> void:
+# force_fx will make sure that the effect for new dialogue procs
+func check_freshness(force_fx := false) -> void:
+	Global.remove_effect.emit("dialogue")
+	
 	var _story_point: String = Save.data.story_point
 	if !_story_point in story_point_positions: return
 	var _in = true
@@ -32,6 +36,17 @@ func check_freshness() -> void:
 				and !"d_mordremoth" in Global.current_effects and !"d_jormag" in Global.current_effects
 				and !"d_primordus" in Global.current_effects and !"d_kralkatorrik" in Global.current_effects):
 				_in = true
+	
+	# Show an effect if Ratchet gains new optional dialogue
+	if !_in and force_fx:
+		Global.remove_effect.emit("dialogue")
+		await get_tree().process_frame
+		Global.add_effect.emit("dialogue")
+	elif !_in and !$QuestMarker.visible:
+		Global.remove_effect.emit("dialogue")
+		await get_tree().process_frame
+		Global.add_effect.emit("dialogue")
+	
 	$QuestMarker.visible = !_in
 
 func check_dialogue_achieved() -> void:
@@ -48,6 +63,7 @@ func check_dialogue_achieved() -> void:
 
 func _ready() -> void:
 	super()
+	if Engine.is_editor_hint(): return
 	# Quick fix to an ambient occlusion issue
 	$PulleyMesh/GolemSkeleton/Skeleton3D/ArmBase_L/ArmBase_L.rotation_degrees.y = 180.0
 	$PulleyMesh/GolemSkeleton/Skeleton3D/Armpivot_L/Armpivot_L.rotation_degrees.y = 180.0
@@ -59,7 +75,8 @@ func _ready() -> void:
 	Global.dialogue_closed.connect(func():
 		await get_tree().process_frame
 		check_freshness())
-	check_freshness()
+	Global.effects_reset.connect(func():
+		check_freshness(true))
 	
 	Global.dialogue_closed.connect(func():
 		if overlaps_body(Global.player):
@@ -73,6 +90,7 @@ func _on_interacted() -> void:
 	Global.generic_area_left.emit()
 	
 	var _dialogue_spawned = true
+	Global.remove_effect.emit("dialogue")
 	
 	if Save.data.story_point == "game_start":
 		spawn_dialogue(ScriptData.intro_dialogue_data, true)

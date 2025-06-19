@@ -1,21 +1,21 @@
 [gd_scene load_steps=10 format=3 uid="uid://8ueipmr7i7e7"]
 
-[ext_resource type="Shader" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_gikqv"]
+[ext_resource type="Shader" uid="uid://rqnfrjajec7x" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_gikqv"]
 [ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="1_uq2h6"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="2_lynph"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_ovc2o"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="3_3hmh0"]
-[ext_resource type="Script" path="res://lib/hint/hint.gd" id="3_p8n2g"]
+[ext_resource type="Script" uid="uid://dy3q76g82t0g0" path="res://lib/hint/hint.gd" id="3_p8n2g"]
 [ext_resource type="Texture2D" uid="uid://bqv2uq0udej43" path="res://lib/hint/textures/hint_arrow.png" id="7_d27fy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hk4fa"]
 shader = ExtResource("1_gikqv")
+shader_parameter/paint_mask = ExtResource("2_ovc2o")
 shader_parameter/paint_exponent = 0.0
 shader_parameter/alpha = 0.8
 shader_parameter/uv_scale = 0.3
 shader_parameter/arrow_reduce_alpha = false
 shader_parameter/darken = 0.0
-shader_parameter/paint_mask = ExtResource("2_ovc2o")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fth6l"]
 bg_color = Color(0, 0, 0, 0.901961)
