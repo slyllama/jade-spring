@@ -119,8 +119,15 @@ func _input(_event: InputEvent) -> void:
 		play()
 
 func _ready() -> void:
+	$Raiqqo/Anim.play("fade_in")
+	
 	backup_save_files()
 	if Global.debug_allowed: $DebugLabel.visible = true
+	
+	add_child(web_cooldown_timer)
+	web_cooldown_timer.one_shot = true
+	web_cooldown_timer.timeout.connect(func():
+		on_web_cooldown = false)
 	
 	if !Engine.is_editor_hint() and DiscordRPC.get_is_discord_working():
 		DiscordRPC.state = "In Menu"
@@ -275,8 +282,15 @@ func _on_credits_button_button_down() -> void:
 	if !is_interaction_allowed(): return
 	$CreditsContainer.open()
 
+@onready var web_cooldown_timer = Timer.new()
+var on_web_cooldown = false
+const WEB_COOLDOWN = 0.35
+
 func _on_logo_gui_input(_event: InputEvent) -> void:
+	if on_web_cooldown: return
 	if Input.is_action_just_pressed("left_click"):
+		on_web_cooldown = true
+		web_cooldown_timer.start()
 		OS.shell_open("https://slyllama.net/")
 
 func _on_broken_decos_container_continued() -> void:
