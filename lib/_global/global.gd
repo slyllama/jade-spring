@@ -38,6 +38,7 @@ var deco_button_pressed = false # this will become true on mouse down - decorati
 var deco_pane_open = false
 var default_input_map = { }
 var dialogue_open = false
+var dragging = false # just reports whether the player is dragging gizmos at the moment or not
 var current_effects = [ ]
 var foliage_count = 0
 var in_exclusive_ui = false

@@ -26,6 +26,7 @@ func destroy() -> void:
 	get_window().warp_mouse(initial_mouse_position) # move mouse back to where it was
 	
 	Global.in_exclusive_ui = false
+	Global.dragging = false
 	active = false
 	destroyed.emit()
 	
@@ -58,6 +59,7 @@ func _ready() -> void:
 	$ArrowRoot/Mouse.global_position = initial_mouse_position
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Global.dragging = true
 
 var last_ratio = ratio
 var _accumulated_ratio = 0.0

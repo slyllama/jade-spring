@@ -59,6 +59,7 @@ func _input(_event) -> void:
 	if Input.is_action_just_released("left_click"):
 		if dragging:
 			set_enabled(false)
+			Global.dragging = false
 			dragging = false
 			Global.mouse_in_ui = false
 			Global.in_exclusive_ui = false
@@ -150,6 +151,7 @@ func _on_pick_input_event(_c, _e, _p, _n, _i) -> void:
 		
 		if !dragging:
 			_wait_frame = 0
+			Global.dragging = true
 			dragging = true
 			Global.in_exclusive_ui = true
 			$Drag/Pick/VisualAxis.visible = true
