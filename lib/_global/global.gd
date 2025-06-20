@@ -314,6 +314,9 @@ func _init() -> void:
 			#print("--- Finished with " + str(_nc) + " node(s) counted. ---")
 
 func _ready() -> void:
+	add_child(skill_cooldown_timer)
+	skill_cooldown_timer.one_shot = true
+	
 	if !Engine.is_editor_hint():
 		DiscordRPC.app_id = 1367709882530140191
 		DiscordRPC.register_steam(3561310)
@@ -367,3 +370,18 @@ func _process(_delta):
 
 func _on_click_sound() -> void:
 	$Click.play()
+
+# Skill cooldowns
+
+const SKILL_COOLDOWN_TIME = 0.2
+var on_skill_cooldown = false
+@onready var skill_cooldown_timer = Timer.new()
+
+func do_skill_cooldown() -> void:
+	if on_skill_cooldown: return
+	on_skill_cooldown = true
+	skill_cooldown_timer.wait_time = SKILL_COOLDOWN_TIME
+	skill_cooldown_timer.start()
+	
+	await skill_cooldown_timer.timeout
+	on_skill_cooldown = false

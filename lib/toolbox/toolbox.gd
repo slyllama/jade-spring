@@ -262,9 +262,11 @@ func skill_used(skill_id: String) -> void:
 				Global.deco_selection_array[0].node.start_adjustment()
 		"duplicate_edit_selection":
 			if Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
+				if Global.deco_selection_array.size() <= 0:
+					return
 				Global.deco_handler.duplicate_decoration_selection()
 				Global.set_cursor(false)
-				Global.deco_selection_array[0].node.start_adjustment()	
+				Global.deco_selection_array[0].node.start_adjustment()
 		"deco_test":
 			if !Global.deco_pane_open:
 				await get_tree().process_frame

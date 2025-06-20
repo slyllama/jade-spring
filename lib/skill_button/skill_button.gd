@@ -6,7 +6,6 @@ class_name SkillButton extends TextureButton
 signal clicked(id: String)
 
 const RANDOM_COLORS = [ Color.CYAN, Color.ORANGE_RED, Color.GREEN, Color.YELLOW, Color.DEEP_PINK ]
-
 const TEXTURES = { # associations with texture paths
 	"accept": preload("res://lib/skill_button/textures/accept.png"),
 	"edit_selection": preload("res://lib/skill_button/textures/accept.png"),
@@ -32,7 +31,6 @@ const TEXTURES = { # associations with texture paths
 	"select_multiple": preload("res://lib/skill_button/textures/select_multiple.png")
 }
 const UNKNOWN_TEXTURE = preload("res://lib/skill_button/textures/unknown.png")
-
 const TOOLTIPS = {
 	"select": {
 		"title": "Select Decoration",
@@ -198,13 +196,18 @@ func _ready() -> void:
 	$Tooltip.visible = false
 	set_tip_text(title, description)
 	
-	Global.controller_skill.connect(func(_node):
-		if _node == self:
-			if Global.bindings_pane_open or Global.dialogue_open: return
-			if Global.popup_open or !binding_validated or !enabled: return
-			fx_down()
-			await get_tree().process_frame
-			_on_button_up())
+	Global.skill_button_up.connect(func(up_id):
+		if !up_id != id and $Image.modulate == Color(0.5, 0.5, 0.5):
+			$Image.modulate = Color(1.0, 1.0, 1.0)
+			$Image.scale = Vector2(0.5, 0.5))
+	
+	#Global.controller_skill.connect(func(_node):
+		#if _node == self:
+			#if Global.bindings_pane_open or Global.dialogue_open: return
+			#if Global.popup_open or !binding_validated or !enabled: return
+			#fx_down()
+			#await get_tree().process_frame
+			#_on_button_up())
 	
 	_display_binding()
 	Global.bindings_updated.connect(_display_binding)
@@ -227,8 +230,10 @@ func _on_button_up() -> void:
 			or id == "fishing_left" or id == "fishing_right"):
 			fx_up()
 			$Tooltip.visible = false
-			Global.click_sound.emit()
-			clicked.emit(id)
+			if !Global.on_skill_cooldown:
+				Global.click_sound.emit()
+				Global.do_skill_cooldown()
+				clicked.emit(id)
 
 func _on_mouse_entered() -> void:
 	Global.mouse_in_ui = true
