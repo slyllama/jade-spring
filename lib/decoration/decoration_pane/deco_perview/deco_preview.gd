@@ -76,6 +76,12 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 	$ModelBase.rotation_degrees.y = current_y_rotation
 	ResourceLoader.load_threaded_request(path, "", false, ResourceLoader.CACHE_MODE_IGNORE)
 
+func _release_orbit() -> void:
+	_clicked_in_ui = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Global.camera_orbiting = false
+	orbiting = false
+
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
 	if !Global.deco_pane_open: return # pane not open
@@ -86,10 +92,7 @@ func _input(event: InputEvent) -> void:
 			get_viewport().gui_release_focus()
 			_last_click_position = get_window().get_mouse_position()
 	if Input.is_action_just_released("left_click"):
-		_clicked_in_ui = false
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		Global.camera_orbiting = false
-		orbiting = false
+		_release_orbit()
 	
 	if event is InputEventMouseMotion:
 		_mouse_delta = event.relative
@@ -97,6 +100,8 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	# Move the preview's collision world well under player space
 	global_position = Vector3(0, -20, 0)
+	
+	get_window().focus_exited.connect(_release_orbit)
 
 func _process(delta: float) -> void:
 	_update_resource_loader()
