@@ -128,3 +128,9 @@ func _on_gp_high_button_down() -> void:
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
 	SettingsHandler.save_to_file()
+
+func _on_rsc_button_down() -> void: # reset shader cache
+	Utilities.remove_recursive("user://shader_cache")
+	Utilities.remove_recursive("user://vulkan")
+	await get_tree().process_frame
+	get_tree().quit()

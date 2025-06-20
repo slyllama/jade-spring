@@ -43,6 +43,15 @@ const DRAGON_DATA = {
 	}
 }
 
+# Remove a folder and all its contents
+func remove_recursive(directory: String) -> void:
+	if !DirAccess.dir_exists_absolute(directory): return
+	for dir_name in DirAccess.get_directories_at(directory):
+		remove_recursive(directory.path_join(dir_name))
+	for file_name in DirAccess.get_files_at(directory):
+		DirAccess.remove_absolute(directory.path_join(file_name))
+	DirAccess.remove_absolute(directory)
+
 func format_binding(binding: String) -> String:
 	return("[color=#ffc573](" + binding + ")[/color]")
 
