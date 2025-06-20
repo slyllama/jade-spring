@@ -153,7 +153,7 @@ stretch_mode = 0
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "Warp to the safe point (useful if you get trapped  in decorations)."
+tooltip_text = "Warp to the safe point (useful if you get trapped in decorations)."
 texture_normal = ExtResource("5_reoex")
 ignore_texture_size = true
 stretch_mode = 0
@@ -413,7 +413,6 @@ stream = ExtResource("20_hhimw")
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]
 [connection signal="button_down" from="CornerButtons/ReportBug" to="." method="_on_report_bug_button_down"]
 [connection signal="button_down" from="CornerButtons/SafePoint" to="." method="_on_safe_point_button_down"]
-[connection signal="gui_input" from="CornerButtons/SafePoint" to="." method="_on_camera_gui_input"]
 [connection signal="button_down" from="CornerButtons/Camera" to="." method="_on_camera_button_down"]
 [connection signal="gui_input" from="CornerButtons/Camera" to="." method="_on_camera_gui_input"]
 [connection signal="gui_input" from="InteractIndicator" to="." method="_on_interact_indicator_gui_input"]
