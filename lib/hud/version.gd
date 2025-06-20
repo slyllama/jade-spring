@@ -4,6 +4,7 @@ extends RichTextLabel
 
 const Flash = preload("res://lib/flash/flash.tscn")
 @export var align_right = false
+@export var show_updates = true
 
 func _display_version(newer_version: String = Version.VER) -> void:
 	var _str = "v" + Version.VER
@@ -21,5 +22,6 @@ func _ready() -> void:
 		if Input.is_action_just_pressed("left_click"):
 			OS.shell_open("https://slyllama.net/jade-spring"))
 	Version.latest_version_retrieved.connect(func(latest_version):
-		_display_version(latest_version))
+		if show_updates:
+			_display_version(latest_version))
 	_display_version()

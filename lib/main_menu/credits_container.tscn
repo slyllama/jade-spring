@@ -34,6 +34,7 @@ fit_content = true
 scroll_active = false
 script = ExtResource("3_cxpuh")
 align_right = true
+show_updates = false
 
 [node name="Logo" type="TextureRect" parent="Container/ContentScroll/Content" index="1"]
 modulate = Color(0.6, 0.6, 0.6, 1)
@@ -62,8 +63,9 @@ text = "[center][color=a9da42]A Guild Wars 2 Fan Game[/color][/center]
 [center]areyoshi[/center]
 [center]ketpia[/center]
 [center]Mika (RadioCats)[/center]
+[center]kiiri (anari)[/center]
 
-[center][color=aaa]Godot 4.3 (Godot Engine contributors)[/color][/center]
+[center][color=aaa]Godot 4.4.1 (Godot Engine contributors)[/color][/center]
 [center][color=aaa]GodotSteam (Gramps)[/color][/center]
 [center][color=aaa]DiscordRPC (vaporvee)[/color][/center]
 
