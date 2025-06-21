@@ -305,8 +305,10 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[Version]"
 scroll_active = false
+autowrap_mode = 0
 script = ExtResource("18_0n0fc")
 align_right = true
+show_updates = false
 
 [node name="Debug" type="RichTextLabel" parent="."]
 clip_contents = false
