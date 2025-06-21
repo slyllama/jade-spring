@@ -18,13 +18,18 @@ const DEFAULT_SETTINGS = {
 	"fov": 0.63,
 	"aa": "msaa_(4x)",
 	"saturation": 0.32,
-	"show_gift_item": "hide"
+	"show_gift_item": "hide",
+	"direction_control": "strafe"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)
 
 func get_fov_deg() -> int:
 	return(MIN_FOV + settings.fov * (MAX_FOV - MIN_FOV))
+
+func check_value(param, value) -> bool:
+	if !param in settings: return(false)
+	return(value == settings[param])
 
 func load_from_file() -> void:
 	if FileAccess.file_exists(FILE_PATH):

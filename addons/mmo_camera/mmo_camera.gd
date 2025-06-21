@@ -68,6 +68,7 @@ func _ready() -> void:
 	# Add components to the scene
 	add_child(axis)
 	add_child(camera)
+	orbit_handler.name = "OrbitHandler"
 	add_child(orbit_handler)
 	axis.add_child(target)
 	

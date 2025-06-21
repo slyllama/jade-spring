@@ -266,14 +266,21 @@ layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="ActionCamera" parent="Container/SC/Contents" index="21" instance=ExtResource("3_b7vwo")]
+[node name="DirectionControl" parent="Container/SC/Contents" index="21" instance=ExtResource("3_b7vwo")]
+layout_mode = 2
+title = "Direction controls"
+id = "direction_control"
+options = Array[String](["strafe", "rotate"])
+default_option = "strafe"
+
+[node name="ActionCamera" parent="Container/SC/Contents" index="22" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Action camera"
 id = "action_camera"
 options = Array[String](["on_by_default", "off_by_default"])
 default_option = "off_by_default"
 
-[node name="Title" type="RichTextLabel" parent="Container/SC/Contents" index="22"]
+[node name="Title" type="RichTextLabel" parent="Container/SC/Contents" index="23"]
 visible = false
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
@@ -286,18 +293,18 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="OrbitSensitivity" parent="Container/SC/Contents" index="23" instance=ExtResource("4_q7g3p")]
+[node name="OrbitSensitivity" parent="Container/SC/Contents" index="24" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Orbit sensitivity"
 id = "orbit_sensitivity"
 
-[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="24"]
+[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="25"]
 custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="25"]
+[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="26"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -313,18 +320,18 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="26"]
+[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="27"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Volume" parent="Container/SC/Contents" index="27" instance=ExtResource("4_q7g3p")]
+[node name="Volume" parent="Container/SC/Contents" index="28" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Volume"
 id = "volume"
 
-[node name="MusicVol" parent="Container/SC/Contents" index="28" instance=ExtResource("4_q7g3p")]
+[node name="MusicVol" parent="Container/SC/Contents" index="29" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Music volume"
 id = "music_vol"
