@@ -209,6 +209,16 @@ const DecoData = {
 		"tags": ["Utilities"],
 		"unlock_value": 35
 	},
+	"cid_mini_banner": {
+		"name": "Cid's Mini-Banner",
+		"scene": "res://decorations/cid_banners/banner_miniature.tscn",
+		"cursor_model": "res://decorations/cid_banners/banner_miniature_gadget.tscn",
+		"preview_scale": 1.0,
+		"preview_v_offset": -0.45,
+		"preview_y_rotation": 180,
+		"tags": ["Utilities"],
+		"unlock_value": 50
+	},
 	"tussock": {
 		"name": "Tussock",
 		"scene": "res://decorations/tussock/deco_tussock.tscn",

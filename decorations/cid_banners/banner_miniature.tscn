@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cky3ys7aa5jwx"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_daki5"]
+[ext_resource type="PackedScene" uid="uid://c3005dg5aw5md" path="res://decorations/cid_banners/banner_miniature_gadget.tscn" id="2_daki5"]
+[ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="3_5ucpy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
+
+[node name="BannerMiniature" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_daki5")
+id = "cid_time_banner"
+collision_box = NodePath("Body")
+
+[node name="BannerMiniatureGadget" parent="." instance=ExtResource("2_daki5")]
+
+[node name="LightRay" parent="BannerMiniatureGadget" instance=ExtResource("3_5ucpy")]
+transform = Transform3D(0.487503, 0.111089, 0, -0.111089, 0.487503, 0, 0, 0, 0.5, -0.3802, 1.02849, -0.0161505)
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ioh2s")

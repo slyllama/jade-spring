@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c6bs08rtj45w"]
 
-[ext_resource type="Shader" path="res://decorations/light_ray/materials/shaders/shader_light_ray.gdshader" id="1_44xpd"]
+[ext_resource type="Shader" uid="uid://crh8mc1ldiy33" path="res://decorations/light_ray/materials/shaders/shader_light_ray.gdshader" id="1_44xpd"]
 [ext_resource type="Texture2D" uid="uid://1pbcclinn3de" path="res://decorations/light_ray/materials/textures/gradient_h.tres" id="2_ep588"]
 [ext_resource type="Texture2D" uid="uid://byw2cb6pqdx2y" path="res://decorations/light_ray/materials/textures/gradient_v.tres" id="3_vgtgi"]
 [ext_resource type="Texture2D" uid="uid://0hwe1nusso6v" path="res://decorations/light_ray/materials/textures/light_noise.tres" id="4_d5735"]
@@ -8,8 +8,8 @@
 [resource]
 render_priority = 2
 shader = ExtResource("1_44xpd")
-shader_parameter/noise_scale = 0.5
-shader_parameter/alpha = 0.65
 shader_parameter/gradient_h = ExtResource("2_ep588")
 shader_parameter/gradient_v = ExtResource("3_vgtgi")
 shader_parameter/noise_texture = ExtResource("4_d5735")
+shader_parameter/noise_scale = 0.5
+shader_parameter/alpha = 0.65
