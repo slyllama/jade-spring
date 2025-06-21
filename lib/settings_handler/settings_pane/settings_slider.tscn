@@ -10,7 +10,7 @@ size_flags_vertical = 4
 script = ExtResource("1_dwb46")
 
 [node name="Title" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(135, 0)
 layout_mode = 2
 size_flags_vertical = 4
 bbcode_enabled = true

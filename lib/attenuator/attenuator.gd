@@ -383,6 +383,7 @@ func _process(delta: float) -> void:
 	$SuccessBanner.position.x = $Base.position.x + $Base.size.x / 2.0
 	$SuccessBanner.position.y = $Base.position.y + $Base.size.y / 2.0
 	
+	
 	if cursor_key: # move the key selector to the relevant key
 		$KeyCursor.global_position = lerp(
 			$KeyCursor.global_position,
@@ -402,9 +403,10 @@ func _process(delta: float) -> void:
 	if !target_track: return # not ready yet
 	if "pills" in target_track:
 		var _target = target_track.pills[place]
+		
 		$Base/Marker.global_position.x = lerp(
 			$Base/Marker.global_position.x,
-			_target.global_position.x + 22.0,
+			_target.global_position.x + _target.size.x / 2.0,
 			Utilities.critical_lerp(delta, 20.0))
 	
 	$Base/Debug.text = ("place: " + str(place) + "/" + str(TUNES[current_dragon].size())
