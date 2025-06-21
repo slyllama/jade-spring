@@ -40,7 +40,7 @@ func _on_button_mouse_entered() -> void:
 func _on_button_mouse_exited() -> void:
 	$Anim.play("pop_out")
 
-func _on_icon_gui_input(event: InputEvent) -> void:
+func _on_icon_gui_input(_event: InputEvent) -> void:
 	if $Button.disabled: return
 	if Input.is_action_just_pressed("left_click"):
 		_on_button_button_down()

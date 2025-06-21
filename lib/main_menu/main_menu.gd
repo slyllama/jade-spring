@@ -27,7 +27,10 @@ func is_interaction_allowed() -> bool:
 		$SettingsPane.is_open or
 		$CreditsContainer.is_open))
 
-func is_deco_file_valid() -> bool:
+# 0: valid
+# 1: decoration file missing
+# 2: decoration file invalid
+func is_deco_file_valid() -> int:
 	if FileAccess.file_exists(DECO_DATA_PATH):
 		var _valid = true
 		var file = FileAccess.open(DECO_DATA_PATH, FileAccess.READ)
@@ -36,9 +39,9 @@ func is_deco_file_valid() -> bool:
 		for _d in _file_decos:
 			if !"id" in _d: return(false)
 			if !_d.id in Global.DecoData:
-				return(false)
-	else: return(false)
-	return(true)
+				return(2)
+	else: return(1)
+	return(0)
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -253,8 +256,8 @@ func _on_continue_button_down() -> void:
 	Global.map_name = "seitung"
 	Global.start_params.new_save = false
 	
-	if is_deco_file_valid(): play()
-	else: $BrokenDecosContainer.open()
+	if is_deco_file_valid() < 2: play()
+	elif is_deco_file_valid() == 2: $BrokenDecosContainer.open()
 
 func _on_ngc_closed() -> void:
 	ngc_open = false
