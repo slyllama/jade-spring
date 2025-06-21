@@ -48,6 +48,14 @@ const DecoData = {
 		"preview_scale": 0.9,
 		"tags": ["Natural Feature"]
 	},
+	"string_lights": {
+		"name": "String Lights",
+		"scene": "res://decorations/lighting/string_lights.tscn",
+		"cursor_model": "res://decorations/lighting/string_lights.tscn",
+		"preview_scale": 0.9,
+		"preview_v_offset": 0.55,
+		"tags": ["Ornament"]
+	},
 	"eepy_fence": {
 		"name": "Eepy Fence",
 		"scene": "res://decorations/eepy_fence/deco_eepy_fence.tscn",

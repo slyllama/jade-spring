@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3dgfgv8t08sm"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_bjgdd"]
+[ext_resource type="PackedScene" uid="uid://bgglskodxuwa5" path="res://decorations/lighting/string_lights.glb" id="2_1r3uw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8eev2"]
+size = Vector3(3.03711, 0.543945, 0.310547)
+
+[node name="StringLights" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_bjgdd")
+id = "string_lights"
+collision_box = NodePath("Body")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="StringLights" parent="." instance=ExtResource("2_1r3uw")]
+
+[node name="Body" type="Area3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.305176, 0)
+shape = SubResource("BoxShape3D_8eev2")
