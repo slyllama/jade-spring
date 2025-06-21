@@ -71,7 +71,7 @@ _data = {
 [node name="DecoButton" type="HBoxContainer"]
 offset_right = 322.0
 offset_bottom = 24.0
-theme_override_constants/separation = 2
+theme_override_constants/separation = 0
 script = ExtResource("1_4whpl")
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -117,7 +117,7 @@ stretch_mode = 5
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dq1dl")
+&"": SubResource("AnimationLibrary_dq1dl")
 }
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
@@ -127,6 +127,6 @@ volume_db = 6.0
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_oworf")
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="gui_input" from="." to="." method="_on_icon_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_button_mouse_exited"]

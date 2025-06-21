@@ -26,6 +26,8 @@ func set_cost(cost: int) -> void:
 	if cost > Save.data.karma:
 		$Cost.modulate = Color(1, 0.428, 0.34)
 		$Karma.texture = ICONS.karma_insufficient
+	else:
+		$Cost.modulate = Color(1, 1, 1)
 
 func _on_button_button_down() -> void:
 	$Click.play()
@@ -37,3 +39,8 @@ func _on_button_mouse_entered() -> void:
 
 func _on_button_mouse_exited() -> void:
 	$Anim.play("pop_out")
+
+func _on_icon_gui_input(event: InputEvent) -> void:
+	if $Button.disabled: return
+	if Input.is_action_just_pressed("left_click"):
+		_on_button_button_down()
