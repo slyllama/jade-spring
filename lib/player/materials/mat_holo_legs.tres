@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qonwj4jrpven"]
 
-[ext_resource type="Shader" path="res://lib/player/materials/shaders/shader_spider.gdshader" id="1_nqhcm"]
+[ext_resource type="Shader" uid="uid://chgbvy27x3n2f" path="res://lib/player/materials/shaders/shader_spider.gdshader" id="1_nqhcm"]
 
 [resource]
 render_priority = 2

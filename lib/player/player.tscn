@@ -247,6 +247,9 @@ script = ExtResource("1_wipkt")
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lchpp")
 
+[node name="FloorCast" type="RayCast3D" parent="Collision"]
+target_position = Vector3(0, -0.21, 0)
+
 [node name="Spider" parent="." instance=ExtResource("4_81ee3")]
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 0, -0.382746, 0)
 

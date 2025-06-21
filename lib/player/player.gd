@@ -29,10 +29,9 @@ const JADE_SOUNDS = [
 	load("res://lib/player/sounds/jade_sprint_5.ogg")
 ]
 
-var rng = RandomNumberGenerator.new()
-
 const DgFX = preload("res://lib/dispersion_golem/dg_fx.tscn")
 var can_play_sprint_sound = true
+var rng = RandomNumberGenerator.new()
 
 @export var base_speed: float = 3.0
 @export var smoothing: float = 7.0
@@ -47,6 +46,12 @@ var _calculated_speed := base_speed
 var _speed := _calculated_speed
 var _sprint_multiplier := 1.0
 var _target_velocity := Vector3.ZERO
+
+const LOOK_UP_DEADZONE = 10.0 # player will begin going up after this point
+const LOOK_DOWN_DEADZONE = -20.0 # player will begin going down after this point
+const LOOK_CLAMP = 10.0 # vertical movement derived from camera rotation won't increase past this rate
+const LOOK_UP_SENSITIVITY = 0.1 # multiplier
+const LOOK_DOWN_SENSITIVITY = 0.06 # multiplier
 
 func play_jade_sound() -> void:
 	var _ind = rng.randi_range(0, JADE_SOUNDS.size() - 1)
@@ -278,8 +283,20 @@ func _physics_process(delta: float) -> void:
 		_target_velocity = (Vector3.FORWARD * _camera_basis * Vector3(-1, 0, 1) * _direction.x)
 		_target_velocity += (Vector3.RIGHT * _camera_basis * Vector3(1, 0, -1) * _direction.z)
 		_target_velocity += (Vector3.UP * _camera_basis * Vector3(0, 1, 0) * _direction.y)
+		
+		if $Camera.rotation_degrees.x > LOOK_UP_DEADZONE:
+			if _direction.y == 0:
+				var _target_angle = clamp($Camera.rotation_degrees.x - LOOK_UP_DEADZONE, 0.0, LOOK_CLAMP)
+				_target_velocity.y += _target_angle * LOOK_UP_SENSITIVITY * _direction.x
+		elif $Camera.rotation_degrees.x < LOOK_DOWN_DEADZONE:
+			if _direction.y == 0 and !$Collision/FloorCast.is_colliding():
+				var _target_angle = clamp($Camera.rotation_degrees.x - LOOK_DOWN_DEADZONE, -LOOK_CLAMP, 0.0)
+				_target_velocity.y += _target_angle * LOOK_DOWN_SENSITIVITY * _direction.x
 		_target_velocity = _target_velocity.normalized() * Vector3(_speed, _speed * 1.12, _speed)
 	else: _target_velocity = Vector3.ZERO
+	
+	if $Collision/FloorCast.is_colliding():
+		_target_velocity.y = clamp(_target_velocity.y, 0, INF)
 	
 	velocity.x = lerp(velocity.x, _target_velocity.x, smoothing * 0.6 * delta * smooth_mod)
 	velocity.z = lerp(velocity.z, _target_velocity.z, smoothing * delta * smooth_mod)

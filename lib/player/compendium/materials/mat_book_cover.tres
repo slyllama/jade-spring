@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b36twau3wa0uq"]
 
-[ext_resource type="Shader" path="res://lib/player/compendium/materials/shaders/shader_book_dissolve.gdshader" id="1_b4xrm"]
+[ext_resource type="Shader" uid="uid://bppiyv6uuof7p" path="res://lib/player/compendium/materials/shaders/shader_book_dissolve.gdshader" id="1_b4xrm"]
 [ext_resource type="Texture2D" uid="uid://dbgg0jnp4qemq" path="res://lib/player/compendium/materials/textures/cover_emit.jpg" id="2_xatn6"]
 
 [resource]
