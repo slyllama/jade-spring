@@ -225,6 +225,10 @@ func _process(_delta: float) -> void:
 		if Global.in_exclusive_ui: $Debug.text += ("\n[color=yellow]Exclusive UI[/color]")
 		
 		$Debug.text += _render_crumb_debug()
+		
+		if Global.deco_selection_array.size() > 0:
+			for _i in Global.deco_selection_array:
+				$Debug.text += "\n[color=cyan]    " + str(_i.node.id) + "[/color]"
 		$Debug.text += "[/right]"
 	#endregion
 

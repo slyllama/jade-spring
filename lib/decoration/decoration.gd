@@ -352,6 +352,8 @@ func _ready() -> void:
 			if Global.active_decoration != null: return
 			
 			if Input.is_action_just_pressed("left_click"):
+				if Global.on_skill_cooldown: return
+				Global.do_skill_cooldown()
 				if Global.tool_mode == Global.TOOL_MODE_SELECT:
 					Global.set_cursor(false)
 					start_adjustment()
