@@ -8,6 +8,9 @@ func _ready() -> void:
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/giveflux":
 			Global.add_qty_effect("discombobulator_qty")
+		elif "/maxfps=" in cmd:
+			var _max_fps: int = int(cmd.split("=")[1])
+			Engine.max_fps = _max_fps
 		)
 	
 	Global.command_sent.emit("/resetdeco")

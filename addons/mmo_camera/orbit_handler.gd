@@ -148,5 +148,8 @@ func _process(delta: float) -> void:
 	if get_parent().clamp_y: target_rotation.y = clamp(
 		target_rotation.y, get_parent().clamp_y_lower, get_parent().clamp_y_upper)
 	
-	smooth_rotation = lerp(smooth_rotation, target_rotation, delta * get_parent().orbit_smoothing * smooth_modifier)
+	smooth_rotation = lerp(
+		smooth_rotation,
+		target_rotation,
+		Utilities.critical_lerp(delta, get_parent().orbit_smoothing * smooth_modifier))
 	_mouse_delta = Vector2.ZERO
