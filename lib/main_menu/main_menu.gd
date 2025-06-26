@@ -115,6 +115,10 @@ func play() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if !Global.debug_allowed: return
+	if Input.is_action_just_pressed("enter"):
+		var _f = get_window().gui_get_focus_owner()
+		if _f is Button:
+			_f.button_down.emit()
 	if Input.is_action_just_pressed("debug_action"):
 		if !can_interact or ngc_open: return
 		Global.load_debug_next = true

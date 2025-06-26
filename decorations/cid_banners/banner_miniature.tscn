@@ -8,7 +8,7 @@
 
 [node name="BannerMiniature" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_daki5")
-id = "cid_time_banner"
+id = "cid_mini_banner"
 collision_box = NodePath("Body")
 
 [node name="BannerMiniatureGadget" parent="." instance=ExtResource("2_daki5")]

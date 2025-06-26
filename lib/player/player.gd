@@ -48,7 +48,7 @@ var _sprint_multiplier := 1.0
 var _target_velocity := Vector3.ZERO
 
 const LOOK_UP_DEADZONE = 10.0 # player will begin going up after this point
-const LOOK_DOWN_DEADZONE = -20.0 # player will begin going down after this point
+const LOOK_DOWN_DEADZONE = -26.0 # player will begin going down after this point
 const LOOK_CLAMP = 10.0 # vertical movement derived from camera rotation won't increase past this rate
 const LOOK_UP_SENSITIVITY = 0.1 # multiplier
 const LOOK_DOWN_SENSITIVITY = 0.06 # multiplier

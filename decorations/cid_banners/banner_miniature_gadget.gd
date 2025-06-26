@@ -6,10 +6,10 @@ signal otter_animation_finished
 const TEST_DIALOGUE = {
 	"title": "Cid's Miniaturization Banner",
 	"_entry": {
-		"string": "((Text))",
+		"string": "Cutting through your hazy memories, this otter's energy evokes the same sensations your as Mists Fractal journeys once did.",
 		"options": {
-			"mini": "((Miniature))",
-			"return": "((Normal))",
+			"mini": "Emsmallen me.",
+			"return": "Return me to a normal size.",
 			"dismiss": "Dismiss."
 		}
 	},
