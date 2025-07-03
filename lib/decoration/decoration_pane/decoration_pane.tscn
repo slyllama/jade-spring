@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=31 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" uid="uid://c2j6ppfvm1427" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b5e6c2tf21no0" path="res://lib/decoration/decoration_pane/textures/tile_foliage.png" id="19_7476e"]
 [ext_resource type="Texture2D" uid="uid://phoktr5hp5qb" path="res://lib/decoration/decoration_pane/textures/tile_light.png" id="20_g0g44"]
 [ext_resource type="Texture2D" uid="uid://ql6gkhc8ypvw" path="res://lib/decoration/decoration_pane/textures/tile_utility.png" id="21_sgv33"]
+[ext_resource type="PackedScene" uid="uid://cgifi0o7rbfpn" path="res://lib/decoration/decoration_pane/featured_pane/featured_pane.tscn" id="25_gi50t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77fve"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -354,6 +355,14 @@ texture_normal = ExtResource("21_sgv33")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Home" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+tooltip_text = "Utilities."
+texture_normal = ExtResource("21_sgv33")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="SmallGap2" type="ColorRect" parent="Container/ScrollBox/ScrollVBox" index="2"]
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
@@ -462,6 +471,12 @@ one_shot = true
 [node name="UnlockSound" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("18_4fup5")
 
+[node name="FeaturedPane" parent="." index="10" instance=ExtResource("25_gi50t")]
+layout_mode = 0
+offset_left = 283.0
+offset_right = 858.0
+offset_bottom = 534.0
+
 [connection signal="about_to_popup" from="Container/TagContainer/TagMenu" to="." method="_on_menu_about_to_popup"]
 [connection signal="focus_entered" from="Container/SearchContainer/Search" to="." method="_on_search_focus_entered"]
 [connection signal="focus_exited" from="Container/SearchContainer/Search" to="." method="_on_search_focus_exited"]
@@ -477,6 +492,7 @@ stream = ExtResource("18_4fup5")
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column2/Foliage" to="." method="_on_category_button_down" binds= ["Foliage"]]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column3/Lights" to="." method="_on_category_button_down" binds= ["Light"]]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column3/Utilities" to="." method="_on_category_button_down" binds= ["Utilities"]]
+[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column3/Home" to="." method="_on_home_button_down"]
 [connection signal="button_down" from="ActionsBox/Close" to="." method="close"]
 [connection signal="button_down" from="ActionsBox/Unlock" to="." method="_on_unlock_button_down"]
 [connection signal="button_down" from="ActionsBox/PlaceDecoration" to="." method="_on_place_decoration_button_down"]

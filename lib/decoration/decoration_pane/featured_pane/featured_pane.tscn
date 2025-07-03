@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgifi0o7rbfpn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctjyv"]
+
+[node name="FeaturedPane" type="Panel"]
+custom_minimum_size = Vector2(300, 350)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctjyv")

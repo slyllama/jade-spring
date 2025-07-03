@@ -46,6 +46,7 @@ func _update_unlock_button(id: String) -> void:
 func open(silent = false) -> void:
 	active = true
 	$Container/SearchContainer/Search.set_text("")
+	$FeaturedPane.visible = true
 	Global.deco_pane_open = true
 	super(silent)
 	last_deco_count = Global.deco_handler.get_deco_count()
@@ -93,6 +94,9 @@ func update_costs() -> void:
 			_n.set_cost(_data.unlock_value)
 
 func render(tag = "None", custom_data = []) -> void:
+	if tag != "None":
+		$FeaturedPane.visible = false
+	
 	for _n in buttons: buttons[_n].queue_free()
 	buttons = {}
 	
@@ -143,7 +147,7 @@ func render(tag = "None", custom_data = []) -> void:
 			_item.set_icon("furniture")
 		
 		_item.clicked.connect(func():
-			# Prevent the same model from loadingtwice
+			# Prevent the same model from loading twice
 			var _already_loaded = false
 			if _d == current_id: _already_loaded = true
 			else: current_id = _d
@@ -151,6 +155,8 @@ func render(tag = "None", custom_data = []) -> void:
 			preview.current_id = current_id
 			var _p = _dl.scene
 			_update_unlock_button(_d)
+			
+			$FeaturedPane.visible = false
 			
 			if "details" in _dl:
 				$DecoDetail.visible = true
@@ -277,6 +283,7 @@ var search_clear_flag = false
 var last_search_term = ""
 
 func _on_search_text_changed(new_text: String) -> void:
+	$FeaturedPane.visible = false
 	if $Container/SearchContainer/Search.text.length() == 0:
 		search_clear_flag = true
 	
@@ -314,3 +321,6 @@ func _on_clear_category_button_down() -> void:
 	selected_tag = "None"
 	$Container/TagContainer/TagMenu.text = "None"
 	render()
+
+func _on_home_button_down() -> void:
+	$FeaturedPane.visible = true
