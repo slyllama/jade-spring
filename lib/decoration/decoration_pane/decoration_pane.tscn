@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=34 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" uid="uid://c2j6ppfvm1427" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -12,9 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="8_q6jje"]
 [ext_resource type="Texture2D" uid="uid://ccrjdhca3foth" path="res://lib/hud/state_indicator/textures/hud_ornament.png" id="9_5igfo"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="9_flj3d"]
+[ext_resource type="Texture2D" uid="uid://bot0kqj8ruo1t" path="res://lib/ui_container/textures/home_button.png" id="11_r2td5"]
 [ext_resource type="Texture2D" uid="uid://ddf7lnvqoof4j" path="res://lib/decoration/decoration_pane/textures/category_rata_sum.png" id="12_jf21r"]
+[ext_resource type="Texture2D" uid="uid://bos34lhycwwwy" path="res://lib/ui_container/textures/home_button_hover.png" id="12_qsiow"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="13_hkm37"]
 [ext_resource type="Texture2D" uid="uid://dn34df7xwhjf1" path="res://lib/decoration/decoration_pane/textures/category_rata_sum_hover.png" id="13_xbt47"]
+[ext_resource type="Texture2D" uid="uid://dhigdeme5oxgv" path="res://lib/decoration/decoration_pane/textures/tile_home.png" id="14_f6y01"]
 [ext_resource type="Texture2D" uid="uid://bgsii5hdp7k2" path="res://lib/decoration/decoration_pane/textures/tile_wall.png" id="14_vmryn"]
 [ext_resource type="Texture2D" uid="uid://d0s0qwyyfb1l0" path="res://lib/decoration/decoration_pane/textures/tile_floor.png" id="15_ne6fd"]
 [ext_resource type="Texture2D" uid="uid://ceyxr1sygyx1y" path="res://lib/decoration/decoration_pane/textures/tile_roof.png" id="16_gb315"]
@@ -233,6 +236,14 @@ texture_hover = ExtResource("9_flj3d")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Home" type="TextureButton" parent="Container/SearchContainer" index="3"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+texture_normal = ExtResource("11_r2td5")
+texture_hover = ExtResource("12_qsiow")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="TitleSeparator2" type="ColorRect" parent="Container" index="6"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
@@ -284,7 +295,15 @@ stretch_mode = 5
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Walls" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="0"]
+[node name="Home" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="0"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+tooltip_text = "Home."
+texture_normal = ExtResource("14_f6y01")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Walls" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="1"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Walls and boundaries."
@@ -292,7 +311,7 @@ texture_normal = ExtResource("14_vmryn")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Floors" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="1"]
+[node name="Floors" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Floors and surfaces."
@@ -300,7 +319,11 @@ texture_normal = ExtResource("15_ne6fd")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Roofs" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="2"]
+[node name="Column2" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="2"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Roofs" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="0"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Roofs and ceilings."
@@ -308,23 +331,11 @@ texture_normal = ExtResource("16_gb315")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Column2" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="2"]
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="Furniture" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="0"]
+[node name="Furniture" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="1"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Furniture."
 texture_normal = ExtResource("17_k6qve")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="NaturalFeatures" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="1"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-tooltip_text = "Natural features."
-texture_normal = ExtResource("18_jexyl")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -355,11 +366,11 @@ texture_normal = ExtResource("21_sgv33")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Home" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="2"]
+[node name="NaturalFeatures" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-tooltip_text = "Utilities."
-texture_normal = ExtResource("21_sgv33")
+tooltip_text = "Natural features."
+texture_normal = ExtResource("18_jexyl")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -482,17 +493,18 @@ offset_bottom = 534.0
 [connection signal="focus_exited" from="Container/SearchContainer/Search" to="." method="_on_search_focus_exited"]
 [connection signal="text_changed" from="Container/SearchContainer/Search" to="." method="_on_search_text_changed"]
 [connection signal="button_down" from="Container/SearchContainer/ClearSearch" to="." method="_on_clear_search_button_down"]
+[connection signal="button_down" from="Container/SearchContainer/Home" to="." method="_on_home_button_down"]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/ClearCategory" to="." method="_on_clear_category_button_down"]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/RataSum" to="." method="_on_category_button_down" binds= ["Asura"]]
+[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column/Home" to="." method="_on_home_button_down"]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column/Walls" to="." method="_on_category_button_down" binds= ["Wall"]]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column/Floors" to="." method="_on_category_button_down" binds= ["Floor"]]
-[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column/Roofs" to="." method="_on_category_button_down" binds= ["Roof"]]
+[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column2/Roofs" to="." method="_on_category_button_down" binds= ["Roof"]]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column2/Furniture" to="." method="_on_category_button_down" binds= ["Furniture"]]
-[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column2/NaturalFeatures" to="." method="_on_category_button_down" binds= ["Natural Feature"]]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column2/Foliage" to="." method="_on_category_button_down" binds= ["Foliage"]]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column3/Lights" to="." method="_on_category_button_down" binds= ["Light"]]
 [connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column3/Utilities" to="." method="_on_category_button_down" binds= ["Utilities"]]
-[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column3/Home" to="." method="_on_home_button_down"]
+[connection signal="button_down" from="Container/ScrollBox/ScrollVBox/Categories/Column3/NaturalFeatures" to="." method="_on_category_button_down" binds= ["Natural Feature"]]
 [connection signal="button_down" from="ActionsBox/Close" to="." method="close"]
 [connection signal="button_down" from="ActionsBox/Unlock" to="." method="_on_unlock_button_down"]
 [connection signal="button_down" from="ActionsBox/PlaceDecoration" to="." method="_on_place_decoration_button_down"]

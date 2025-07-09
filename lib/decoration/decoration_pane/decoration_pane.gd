@@ -323,4 +323,5 @@ func _on_clear_category_button_down() -> void:
 	render()
 
 func _on_home_button_down() -> void:
+	_on_clear_search_button_down()
 	$FeaturedPane.visible = true

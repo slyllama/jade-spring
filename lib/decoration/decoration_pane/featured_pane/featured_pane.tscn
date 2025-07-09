@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgifi0o7rbfpn"]
+[gd_scene load_steps=4 format=3 uid="uid://cgifi0o7rbfpn"]
 
 [ext_resource type="Texture2D" uid="uid://ci4j7q72vl0yk" path="res://lib/decoration/decoration_pane/featured_pane/textures/featured_base.jpg" id="1_db43p"]
+[ext_resource type="PackedScene" uid="uid://2xxe31yk7l2p" path="res://lib/decoration/decoration_pane/featured_pane/carousel.tscn" id="2_3jr3v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jr3v"]
 texture = ExtResource("1_db43p")
 
 [node name="FeaturedPane" type="Panel"]
-custom_minimum_size = Vector2(300, 350)
+custom_minimum_size = Vector2(575, 534)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3jr3v")
+
+[node name="Base" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Carousel" parent="Base" instance=ExtResource("2_3jr3v")]
+layout_mode = 2
