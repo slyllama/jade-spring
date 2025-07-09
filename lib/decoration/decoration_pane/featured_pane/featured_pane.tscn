@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgifi0o7rbfpn"]
+[gd_scene load_steps=3 format=3 uid="uid://cgifi0o7rbfpn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctjyv"]
+[ext_resource type="Texture2D" uid="uid://ci4j7q72vl0yk" path="res://lib/decoration/decoration_pane/featured_pane/textures/featured_base.jpg" id="1_db43p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jr3v"]
+texture = ExtResource("1_db43p")
 
 [node name="FeaturedPane" type="Panel"]
 custom_minimum_size = Vector2(300, 350)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ctjyv")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jr3v")

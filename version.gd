@@ -1,6 +1,6 @@
 extends Node
 
-const VER = "1.2b"
+const VER = "1.3b"
 const TARGET = "steam"
 const VER_HTTPS = "https://www.slyllama.net/jade-spring/vercheck.json"
 

@@ -18,6 +18,9 @@ func _display_version(newer_version: String = Version.VER) -> void:
 	if align_right: text = "[right]" + _str + "[/right]"
 	else: text = _str
 
+func _init() -> void:
+	text = ""
+
 func _ready() -> void:
 	gui_input.connect(func(_event):
 		if Input.is_action_just_pressed("left_click"):
