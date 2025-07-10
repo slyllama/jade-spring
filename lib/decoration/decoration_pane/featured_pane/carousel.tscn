@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://2xxe31yk7l2p"]
+[gd_scene load_steps=6 format=3 uid="uid://2xxe31yk7l2p"]
 
 [ext_resource type="Texture2D" uid="uid://cw5a4oqxnk5nt" path="res://lib/decoration/decoration_pane/featured_pane/textures/arrow.png" id="1_powqr"]
 [ext_resource type="Texture2D" uid="uid://cp78ldcrx7q7p" path="res://lib/decoration/decoration_pane/featured_pane/textures/arrow_down.png" id="2_2fj6j"]
 [ext_resource type="Texture2D" uid="uid://6flrhx1yy2vr" path="res://lib/decoration/decoration_pane/featured_pane/textures/arrow_hover.png" id="2_q0oju"]
 [ext_resource type="Texture2D" uid="uid://dxbmwuvykwrcq" path="res://lib/decoration/decoration_pane/featured_pane/textures/arrow_disabled.png" id="2_umsf4"]
+[ext_resource type="Texture2D" uid="uid://1uqi6yiw38ea" path="res://lib/decoration/decoration_pane/featured_pane/textures/banners/featured_time_banner.jpg" id="5_vw123"]
 
 [node name="Carousel" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 190)
@@ -22,9 +23,12 @@ texture_disabled = ExtResource("2_umsf4")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CentralPanel" type="ColorRect" parent="."]
+[node name="CentralPanel" type="TextureRect" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("5_vw123")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Next" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(28, 0)

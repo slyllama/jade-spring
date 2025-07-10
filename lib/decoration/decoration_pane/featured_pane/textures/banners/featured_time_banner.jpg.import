@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyq1g7mobp533"
-path="res://.godot/imported/category_kryta.png-6b6b5ca0e4ac171de9b3fc2ea50e4617.ctex"
+uid="uid://1uqi6yiw38ea"
+path="res://.godot/imported/featured_time_banner.jpg-6cd02cc1b4831fe25e3afecb8fd6bdd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/decoration/decoration_pane/textures/category_kryta.png"
-dest_files=["res://.godot/imported/category_kryta.png-6b6b5ca0e4ac171de9b3fc2ea50e4617.ctex"]
+source_file="res://lib/decoration/decoration_pane/featured_pane/textures/banners/featured_time_banner.jpg"
+dest_files=["res://.godot/imported/featured_time_banner.jpg-6cd02cc1b4831fe25e3afecb8fd6bdd5.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
