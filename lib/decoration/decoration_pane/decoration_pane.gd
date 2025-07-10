@@ -45,16 +45,18 @@ func _update_unlock_button(id: String) -> void:
 
 func open(silent = false) -> void:
 	active = true
-	$Container/SearchContainer/Search.set_text("")
 	$FeaturedPane.visible = true
 	Global.deco_pane_open = true
-	super(silent)
 	last_deco_count = Global.deco_handler.get_deco_count()
-	$Container/SearchContainer/Search.text = last_search_term
 	
-	_load_model()
-	update_costs()
-	_update_unlock_button(current_id)
+	super(silent)
+	
+	_on_clear_search_button_down()
+	
+	#_load_model()
+	#update_costs()
+	#_update_unlock_button(current_id)
+	#$Container/SearchContainer/Search.text = last_search_term
 
 func close():
 	Global.deco_pane_open = false
