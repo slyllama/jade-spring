@@ -71,7 +71,7 @@ func _ready() -> void:
 		return
 	tracks = track_list.duplicate()
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(7.0).timeout
 	load_track()
 
 func _process(_delta: float) -> void:

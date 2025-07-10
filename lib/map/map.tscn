@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://djua7a6d1wk2x"]
+[gd_scene load_steps=22 format=3 uid="uid://djua7a6d1wk2x"]
 
 [ext_resource type="Script" uid="uid://ed5amihsvj20" path="res://lib/map/map.gd" id="1_juxxi"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_twsw1"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://12h1x7xjn8c2" path="res://lib/story_marker/story_marker.tscn" id="10_743fl"]
 [ext_resource type="AudioStream" uid="uid://clllef7a23fpa" path="res://lib/ping/sounds/ping.ogg" id="11_gkdk1"]
 [ext_resource type="AudioStream" uid="uid://cctlih2gry63t" path="res://generic/sounds/shutter.ogg" id="12_6iy5x"]
+[ext_resource type="AudioStream" uid="uid://bpdk0q1mtdimr" path="res://generic/sounds/podzol.mp3" id="12_gs5g2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("1_twsw1")
@@ -110,6 +111,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61923, 1, 7.56866)
 
 [node name="Jukebox" type="AudioStreamPlayer" parent="."]
 script = ExtResource("10_0ckh4")
+
+[node name="Podzol" type="AudioStreamPlayer" parent="Jukebox"]
+stream = ExtResource("12_gs5g2")
+volume_db = -5.0
 
 [node name="Ping" type="AudioStreamPlayer" parent="Jukebox"]
 stream = ExtResource("11_gkdk1")

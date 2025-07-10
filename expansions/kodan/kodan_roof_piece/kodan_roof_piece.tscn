@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg5qmaatuyock"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_qttx2"]
+[ext_resource type="PackedScene" uid="uid://bvonfx18rbm16" path="res://expansions/kodan/kodan_roof_piece/kodan_roof_piece_mesh.glb" id="2_36rym"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_36rym"]
+points = PackedVector3Array(2.46385, -1.07698e-07, 1.29594, 2.27622, 0.942756, 1.29594, 0, 2.46385, 1.29594, 2.46385, -1.07698e-07, -1.29943, 1.74201, 1.74201, 1.29594, 2.27622, 0.942756, -1.29943, 0.942756, 2.27622, 1.29594, 0, 2.46385, -1.29943, 1.74201, 1.74201, -1.29943, 0.942756, 2.27622, -1.29943)
+
+[node name="KodanRoofPiece" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_qttx2")
+id = "kodan_roof_piece"
+collision_box = NodePath("Body")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="KodanRoofPiece" parent="." instance=ExtResource("2_36rym")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1441, 0.113457, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_36rym")

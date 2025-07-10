@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://vpf0h7nbeigu"]
+
+[ext_resource type="Texture2D" uid="uid://pmfkbh3io6lo" path="res://expansions/kodan/kodan_roof_piece/materials/textures/kodan_thatch_diff.jpg" id="1_4xjoe"]
+[ext_resource type="Texture2D" uid="uid://v5ckqr6iklpb" path="res://expansions/kodan/kodan_roof_piece/materials/textures/kodan_thatch_norm.jpg" id="2_lcejh"]
+
+[resource]
+albedo_color = Color(0.76, 0.70984, 0.5092, 1)
+albedo_texture = ExtResource("1_4xjoe")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_lcejh")
+uv1_scale = Vector3(3.1, 3.1, 3.1)
+disable_receive_shadows = true

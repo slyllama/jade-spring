@@ -48,6 +48,7 @@ var last_command = ""
 var load_debug_next = false # the next map loaded by the loader will be the debug map if this is true
 var override_lock_tools = false
 var map_name = ""
+var map_entered_once = false
 var miniature = false
 var mouse_3d_position = Utilities.BIGVEC3
 var mouse_3d_override_rotation = null
@@ -135,7 +136,7 @@ func get_effect_qty(effect: String) -> int:
 	return(_qty)
 
 ##### Decoration signals and parameters
-const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura", "Kryta" ]
+const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura", "Kryta", "Kodan" ]
 var DecoData = {}
 # [
 #	{
@@ -330,7 +331,7 @@ func _ready() -> void:
 	var _d = preload("res://lib/decoration/deco_data.gd").new()
 	add_child(_d)
 	DecoData = _d.DecoData.duplicate(true)
-	load_expn("elegance")
+	load_expn("kodan")
 	load_expn("kryta")
 	
 	karma_collected.connect(func():
