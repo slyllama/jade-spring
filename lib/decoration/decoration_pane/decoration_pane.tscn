@@ -498,3 +498,4 @@ offset_bottom = 534.0
 [connection signal="button_down" from="ActionsBox/Unlock" to="." method="_on_unlock_button_down"]
 [connection signal="button_down" from="ActionsBox/PlaceDecoration" to="." method="_on_place_decoration_button_down"]
 [connection signal="timeout" from="LoadOnTimeout" to="." method="_on_load_on_timeout_timeout"]
+[connection signal="featured_deco_selected" from="FeaturedPane" to="." method="_on_featured_pane_decoration_selected"]

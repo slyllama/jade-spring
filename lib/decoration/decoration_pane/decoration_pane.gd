@@ -46,17 +46,12 @@ func _update_unlock_button(id: String) -> void:
 func open(silent = false) -> void:
 	active = true
 	$FeaturedPane.visible = true
+	$FeaturedPane.set_carousel_position(0)
 	Global.deco_pane_open = true
 	last_deco_count = Global.deco_handler.get_deco_count()
 	
 	super(silent)
-	
 	_on_clear_search_button_down()
-	
-	#_load_model()
-	#update_costs()
-	#_update_unlock_button(current_id)
-	#$Container/SearchContainer/Search.text = last_search_term
 
 func close():
 	Global.deco_pane_open = false
@@ -94,6 +89,41 @@ func update_costs() -> void:
 		var _data = Global.DecoData[_n.id]
 		if "unlock_value" in _data and !_n.id in Save.data.unlocked_decorations:
 			_n.set_cost(_data.unlock_value)
+
+func load_model_by_id(model_id: String) -> void:
+	# Prevent the same model from loading twice
+	var _d = model_id
+	var _dl = Global.DecoData[_d]
+	var _p = _dl.scene
+	var _already_loaded = false
+	
+	if _d == current_id: _already_loaded = true
+	else: current_id = _d
+	preview.current_id = current_id
+	
+	_update_unlock_button(_d)
+	$FeaturedPane.visible = false
+			
+	if "details" in _dl:
+		$DecoDetail.visible = true
+		$DecoDetail.text = _dl.details
+		$DecoDetail.fit_content = false
+		await get_tree().process_frame
+		$DecoDetail.fit_content = true
+	else:
+		$DecoDetail.visible = false
+		$DecoDetail.text = ""
+	
+	# Model exceptions
+	if _d == "light_ray":
+		_p = "res://decorations/light_ray/light_ray_cursor.glb"
+	$DecoTitle.text = "[center]" + _dl.name + "[/center]"
+	if !_already_loaded:
+		$Base/PreviewContainer.visible = false
+		await get_tree().process_frame
+		preview.load_model(_p, _dl.preview_scale, _get_y_rotation(_dl))
+		for _i in 3: await get_tree().process_frame
+		$Base/PreviewContainer.visible = true
 
 func render(tag = "None", custom_data = []) -> void:
 	if tag != "None":
@@ -141,47 +171,11 @@ func render(tag = "None", custom_data = []) -> void:
 		$Container/ScrollBox/ScrollVBox.add_child(_item)
 		update_costs()
 		
-		if "Foliage" in _dl.tags:
-			_item.set_icon("foliage")
-		if "Utility" in _dl.tags:
-			_item.set_icon("utility")
-		if "Furniture" in _dl.tags:
-			_item.set_icon("furniture")
+		if "Foliage" in _dl.tags: _item.set_icon("foliage")
+		if "Utility" in _dl.tags: _item.set_icon("utility")
+		if "Furniture" in _dl.tags: _item.set_icon("furniture")
 		
-		_item.clicked.connect(func():
-			# Prevent the same model from loading twice
-			var _already_loaded = false
-			if _d == current_id: _already_loaded = true
-			else: current_id = _d
-			
-			preview.current_id = current_id
-			var _p = _dl.scene
-			_update_unlock_button(_d)
-			
-			$FeaturedPane.visible = false
-			
-			if "details" in _dl:
-				$DecoDetail.visible = true
-				$DecoDetail.text = _dl.details
-				
-				$DecoDetail.fit_content = false
-				await get_tree().process_frame
-				$DecoDetail.fit_content = true
-			else:
-				$DecoDetail.visible = false
-				$DecoDetail.text = ""
-			
-			# Model exceptions
-			if _d == "light_ray":
-				_p = "res://decorations/light_ray/light_ray_cursor.glb"
-			$DecoTitle.text = "[center]" + _dl.name + "[/center]"
-			if !_already_loaded:
-				$Base/PreviewContainer.visible = false
-				await get_tree().process_frame
-				preview.load_model(_p, _dl.preview_scale, _get_y_rotation(_dl))
-				for _i in 3: await get_tree().process_frame
-				$Base/PreviewContainer.visible = true)
-		
+		_item.clicked.connect(func(): load_model_by_id(_d))
 		_c += 1
 		
 		if tag == "None" or _c == 0:
@@ -327,3 +321,7 @@ func _on_clear_category_button_down() -> void:
 func _on_home_button_down() -> void:
 	_on_clear_search_button_down()
 	$FeaturedPane.visible = true
+
+func _on_featured_pane_decoration_selected(featured_id: String) -> void:
+	$FeaturedPane.visible = false
+	load_model_by_id(featured_id)

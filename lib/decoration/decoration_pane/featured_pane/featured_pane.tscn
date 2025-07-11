@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgifi0o7rbfpn"]
+[gd_scene load_steps=6 format=3 uid="uid://cgifi0o7rbfpn"]
 
 [ext_resource type="Texture2D" uid="uid://ci4j7q72vl0yk" path="res://lib/decoration/decoration_pane/featured_pane/textures/featured_base.jpg" id="1_db43p"]
 [ext_resource type="PackedScene" uid="uid://2xxe31yk7l2p" path="res://lib/decoration/decoration_pane/featured_pane/carousel.tscn" id="2_3jr3v"]
+[ext_resource type="Script" uid="uid://dbwc7rix4b8yt" path="res://lib/decoration/decoration_pane/featured_pane/featured_pane.gd" id="2_nonhc"]
+[ext_resource type="AudioStream" uid="uid://b0t7np0ivs67f" path="res://lib/decoration/decoration_pane/featured_pane/sounds/page_turn.ogg" id="4_tat5r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jr3v"]
 texture = ExtResource("1_db43p")
@@ -9,6 +11,7 @@ texture = ExtResource("1_db43p")
 [node name="FeaturedPane" type="Panel"]
 custom_minimum_size = Vector2(575, 534)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3jr3v")
+script = ExtResource("2_nonhc")
 
 [node name="Base" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -24,3 +27,13 @@ grow_vertical = 2
 
 [node name="Carousel" parent="Base" instance=ExtResource("2_3jr3v")]
 layout_mode = 2
+
+[node name="PageTurn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tat5r")
+volume_db = -9.0
+
+[node name="CarouselTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="CarouselTimer" to="." method="_on_carousel_timer_timeout"]

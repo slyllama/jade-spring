@@ -12,5 +12,5 @@ albedo_texture = ExtResource("1_r5gwn")
 metallic_specular = 0.0
 normal_enabled = true
 normal_texture = ExtResource("2_jqx3v")
-uv1_scale = Vector3(4, 4, 4)
+uv1_scale = Vector3(2.8, 2.8, 2.8)
 disable_receive_shadows = true
