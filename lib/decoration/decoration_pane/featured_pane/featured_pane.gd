@@ -17,6 +17,7 @@ func _set_carousel_offset(pixels: int) -> void:
 
 func set_carousel_position(idx: int) -> void:
 	if transitioning: return
+	$CarouselTimer.start()
 	
 	if idx < 0: idx = carousel_count - 1
 	elif idx > carousel_count - 1: idx = 0
@@ -36,11 +37,9 @@ func set_carousel_position(idx: int) -> void:
 func _ready() -> void:
 	# Connect "previous" and "next" buttons
 	PrevButton.button_down.connect(func():
-		$CarouselTimer.start() # reset auto timer
 		$PageTurn.play()
 		set_carousel_position(current_idx - 1))
 	NextButton.button_down.connect(func():
-		$CarouselTimer.start() # reset auto timer
 		$PageTurn.play()
 		set_carousel_position(current_idx + 1))
 	

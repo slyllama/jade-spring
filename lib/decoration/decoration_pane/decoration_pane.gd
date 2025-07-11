@@ -45,8 +45,10 @@ func _update_unlock_button(id: String) -> void:
 
 func open(silent = false) -> void:
 	active = true
+	
 	$FeaturedPane.visible = true
 	$FeaturedPane.set_carousel_position(0)
+	
 	Global.deco_pane_open = true
 	last_deco_count = Global.deco_handler.get_deco_count()
 	

@@ -461,6 +461,6 @@ func _on_heart_timer_timeout() -> void:
 
 func _on_walk_finished() -> void:
 	if !walking: return
-	$Walk.pitch_scale = 0.8 + rng.randf() * 0.4
-	$Walk.volume_db = linear_to_db(0.8 + rng.randf() * 0.2)
+	$Walk.pitch_scale = 0.8 + rng.randf() * 0.1
+	$Walk.volume_db = linear_to_db(0.3 + rng.randf() * 0.2)
 	$Walk.play()
