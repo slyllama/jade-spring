@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cp78ldcrx7q7p" path="res://lib/decoration/decoration_pane/featured_pane/textures/arrow_down.png" id="2_2fj6j"]
 [ext_resource type="Texture2D" uid="uid://6flrhx1yy2vr" path="res://lib/decoration/decoration_pane/featured_pane/textures/arrow_hover.png" id="2_q0oju"]
 [ext_resource type="Texture2D" uid="uid://dxbmwuvykwrcq" path="res://lib/decoration/decoration_pane/featured_pane/textures/arrow_disabled.png" id="2_umsf4"]
-[ext_resource type="Texture2D" uid="uid://dtc6ckladq0td" path="res://addons/discord-rpc-gd/nodes/assets/circle.svg" id="5_j06yr"]
 [ext_resource type="Texture2D" uid="uid://1uqi6yiw38ea" path="res://lib/decoration/decoration_pane/featured_pane/textures/banners/featured_time_banner.jpg" id="5_vw123"]
+[ext_resource type="Texture2D" uid="uid://bak3js86slc7n" path="res://lib/decoration/decoration_pane/featured_pane/textures/banners/featured_kodan.jpg" id="6_j06yr"]
 
 [node name="Carousel" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 190)
@@ -36,28 +36,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CentralPanel" type="TextureRect" parent="ScrollContainer/Box"]
+[node name="NightPanel" type="TextureRect" parent="ScrollContainer/Box"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_j06yr")
+texture = ExtResource("5_vw123")
 expand_mode = 1
 stretch_mode = 5
 metadata/decoration_reference = "cid_time_banner"
 
-[node name="CentralPanel2" type="TextureRect" parent="ScrollContainer/Box"]
+[node name="KodanPanel" type="TextureRect" parent="ScrollContainer/Box"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_vw123")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="CentralPanel3" type="TextureRect" parent="ScrollContainer/Box"]
-custom_minimum_size = Vector2(480, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("5_vw123")
+texture = ExtResource("6_j06yr")
 expand_mode = 1
 stretch_mode = 5
 
