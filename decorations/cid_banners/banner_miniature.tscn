@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cky3ys7aa5jwx"]
+[gd_scene load_steps=6 format=3 uid="uid://cky3ys7aa5jwx"]
 
 [ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_daki5"]
 [ext_resource type="PackedScene" uid="uid://c3005dg5aw5md" path="res://decorations/cid_banners/banner_miniature_gadget.tscn" id="2_daki5"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="3_5ucpy"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_m1g5t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
 
@@ -23,3 +24,7 @@ collision_mask = 3
 [node name="Collision" type="CollisionShape3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ioh2s")
+
+[node name="Title" parent="." instance=ExtResource("4_m1g5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+spatial_string = "Cid's Mini-Banner"

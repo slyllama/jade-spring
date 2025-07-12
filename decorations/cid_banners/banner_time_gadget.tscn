@@ -37,7 +37,7 @@ material = SubResource("StandardMaterial3D_1pifq")
 
 [node name="BannerTimeGadget" instance=ExtResource("1_1jwoi")]
 script = ExtResource("2_f7avr")
-radius = 1.0
+radius = 0.45
 show_area = true
 tint_color = Color(1, 1, 1, 1)
 

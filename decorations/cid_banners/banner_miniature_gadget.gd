@@ -25,28 +25,22 @@ func play_animation() -> void:
 func _ready() -> void:
 	play_animation()
 
+func _do_command(cmd: String) -> void:
+	Global.generic_area_entered.emit()
+	if !$FX.playing: $FX.play()
+	in_range = true
+	play_animation()
+	await get_tree().create_timer(0.1).timeout
+	Global.command_sent.emit(cmd)
+	Global.generic_area_entered.emit()
+	in_range = true
+
 func _on_interacted() -> void:
 	var _d = Dialogue.instantiate()
 	_d.data = TEST_DIALOGUE
 	_d.block_played.connect(func(id):
-		if id == "mini":
-			Global.generic_area_entered.emit()
-			if !$FX.playing: $FX.play()
-			in_range = true
-			play_animation()
-			await get_tree().create_timer(0.1).timeout
-			Global.command_sent.emit("/mini=true")
-			Global.generic_area_entered.emit()
-			in_range = true
-		elif id == "return":
-			Global.generic_area_entered.emit()
-			if !$FX.playing: $FX.play()
-			in_range = true
-			play_animation()
-			await get_tree().create_timer(0.1).timeout
-			Global.command_sent.emit("/mini=false")
-			Global.generic_area_entered.emit()
-			in_range = true)
+		if id == "mini": _do_command("/mini=true")
+		elif id == "return": _do_command("/mini=false"))
 	Global.hud.add_child(_d)
 	_d.open()
 

@@ -163,11 +163,15 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/cleardeco":
 			_clear_decorations()
+			await get_tree().process_frame
+			_save_decorations()
 		elif _cmd == "/loaddeco":
 			Global.announcement_sent.emit("((Loaded decorations from file))")
 			_load_decorations(_load_decoration_file())
 		elif _cmd == "/resetdeco":
 			_load_decorations(default_deco_data)
+			await get_tree().process_frame
+			_save_decorations()
 		elif _cmd == "/savedeco":
 			_save_decorations()
 		elif _cmd == "/getdecolist":

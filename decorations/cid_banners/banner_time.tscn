@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://co07o3aacdvcq"]
+[gd_scene load_steps=6 format=3 uid="uid://co07o3aacdvcq"]
 
 [ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_dakct"]
 [ext_resource type="PackedScene" uid="uid://plb3te1tt65t" path="res://decorations/cid_banners/banner_time_gadget.tscn" id="2_77unr"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="3_otdmy"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_870ef"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
 
@@ -23,3 +24,7 @@ collision_mask = 3
 [node name="Collision" type="CollisionShape3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ioh2s")
+
+[node name="Title" parent="." instance=ExtResource("4_870ef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+spatial_string = "Cid's Time Banner"

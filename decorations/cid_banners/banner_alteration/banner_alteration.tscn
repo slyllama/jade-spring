@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy7v88geir2ny"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_r7r8l"]
+[ext_resource type="PackedScene" uid="uid://bot4u6nxnwt6b" path="res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.tscn" id="2_xnipa"]
+[ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="3_u0q0y"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_c4017"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
+
+[node name="BannerAlteration" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_r7r8l")
+id = "cid_alteration_banner"
+collision_box = NodePath("Body")
+
+[node name="BannerAlterationGadget" parent="." instance=ExtResource("2_xnipa")]
+
+[node name="LightRay" parent="BannerAlterationGadget" instance=ExtResource("3_u0q0y")]
+transform = Transform3D(0.487503, 0.111089, 0, -0.111089, 0.487503, 0, 0, 0, 0.5, -0.3802, 1.02849, -0.0161505)
+
+[node name="Body" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ioh2s")
+
+[node name="Title" parent="." instance=ExtResource("4_c4017")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+spatial_string = "Cid's Alteration Banner"
