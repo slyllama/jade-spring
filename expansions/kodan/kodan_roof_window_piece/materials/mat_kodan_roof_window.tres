@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dx6r2d4k522ds"]
+
+[ext_resource type="Texture2D" uid="uid://d3iwcvwpoko8l" path="res://expansions/kodan/kodan_roof_window_piece/materials/textures/roof_window_diff.jpg" id="1_rp5ml"]
+[ext_resource type="Texture2D" uid="uid://doji0f750s523" path="res://expansions/kodan/kodan_roof_window_piece/materials/textures/roof_window_norm.jpg" id="2_ofl0v"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_rp5ml")
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = -1.0
+normal_texture = ExtResource("2_ofl0v")

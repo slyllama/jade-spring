@@ -12,6 +12,12 @@ const data = {
 		"preview_y_rotation": 180,
 		"tags": ["Architecture", "Kodan", "Roof"]
 	},
+	"kodan_roof_window_piece": {
+		"name": "Kodan Roof Window Piece",
+		"preview_scale": 0.5,
+		"preview_y_rotation": 180,
+		"tags": ["Architecture", "Kodan", "Roof"]
+	},
 	"kodan_roof_corner_piece": {
 		"name": "Kodan Roof Corner Piece",
 		"preview_scale": 0.5,

@@ -1,0 +1,64 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c6417y108drw5"
+path="res://.godot/imported/kodan_roof_window_piece_mesh.glb-5838df9f496980d905ba8fd18ef69252.scn"
+
+[deps]
+
+source_file="res://expansions/kodan/kodan_roof_window_piece/kodan_roof_window_piece_mesh.glb"
+dest_files=["res://.godot/imported/kodan_roof_window_piece_mesh.glb-5838df9f496980d905ba8fd18ef69252.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "uid://dx6r2d4k522ds"
+},
+"mat_floor": {
+"use_external/enabled": true,
+"use_external/path": "uid://bcag4j02u4vjf"
+},
+"mat_thatch_base": {
+"use_external/enabled": true,
+"use_external/path": "uid://vpf0h7nbeigu"
+},
+"mat_thatch_puff": {
+"use_external/enabled": true,
+"use_external/path": "uid://balrolcg8bp6l"
+},
+"mat_wood": {
+"use_external/enabled": true,
+"use_external/path": "uid://bc4tjre4oawal"
+},
+"mat_wood_dark": {
+"use_external/enabled": true,
+"use_external/path": "uid://dvrtnq7wfl20r"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
