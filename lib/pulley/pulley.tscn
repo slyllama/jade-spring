@@ -60,7 +60,7 @@ color_ramp = SubResource("Gradient_4ar3n")
 noise = SubResource("FastNoiseLite_p54p2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8mwt3"]
-render_priority = -2
+render_priority = -1
 shader = ExtResource("7_s6v5t")
 shader_parameter/noise = SubResource("NoiseTexture2D_1t7wh")
 shader_parameter/glow_color = Color(0.449252, 0.970457, 1, 1)

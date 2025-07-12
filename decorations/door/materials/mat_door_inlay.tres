@@ -1,12 +1,14 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bbn63j8lnq0oy"]
 
-[ext_resource type="Shader" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_wood.gdshader" id="1_gnnmr"]
+[ext_resource type="Shader" uid="uid://bqei5x5ungf0j" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_wood.gdshader" id="1_gnnmr"]
 [ext_resource type="Texture2D" uid="uid://b0k6k5mw0pvd2" path="res://maps/seitung/materials/textures/weathered_wood_norm.jpg" id="3_e0g1t"]
 [ext_resource type="Texture2D" uid="uid://b0mdc72lwfjl2" path="res://maps/seitung/materials/textures/weathered_wood_diff.jpg" id="4_jof4j"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_gnnmr")
+shader_parameter/wood_texture = ExtResource("4_jof4j")
+shader_parameter/wood_normal_texture = ExtResource("3_e0g1t")
 shader_parameter/base_color = Color(0.5, 0.459167, 0.325, 1)
 shader_parameter/occlusion_color = Color(1, 1, 1, 1)
 shader_parameter/occlusion_intensity = 1.0
@@ -15,5 +17,3 @@ shader_parameter/uv_scale = 4.0
 shader_parameter/saturation = 1.19
 shader_parameter/multiplier = 2.38
 shader_parameter/exponent = 1.0
-shader_parameter/wood_texture = ExtResource("4_jof4j")
-shader_parameter/wood_normal_texture = ExtResource("3_e0g1t")

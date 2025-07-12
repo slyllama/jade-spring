@@ -8,6 +8,8 @@
 render_priority = 0
 shader = ExtResource("1_vlr6l")
 shader_parameter/albedo = Color(0.65, 0.65, 0.65, 1)
+shader_parameter/texture_albedo = ExtResource("2_sgck5")
+shader_parameter/texture_normal = ExtResource("3_ts56q")
 shader_parameter/distance_fade_min = 20.0
 shader_parameter/distance_fade_max = 19.0
 shader_parameter/alpha_scissor_threshold = 0.5
@@ -15,5 +17,3 @@ shader_parameter/alpha_antialiasing_edge = 0.35
 shader_parameter/backlight = 0.5
 shader_parameter/specularity = 0.0
 shader_parameter/normal_strength = 1.0
-shader_parameter/texture_albedo = ExtResource("2_sgck5")
-shader_parameter/texture_normal = ExtResource("3_ts56q")

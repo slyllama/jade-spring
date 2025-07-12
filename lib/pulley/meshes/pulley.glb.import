@@ -34,17 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"mat_gold": {
+"mat_ratchet.001": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/pulley/materials/mat_pulley.tres"
-},
-"mat_hexagons": {
-"use_external/enabled": true,
-"use_external/path": "res://lib/pulley/materials/mat_pulley.tres"
-},
-"mat_placeholder": {
-"use_external/enabled": true,
-"use_external/path": "res://lib/pulley/materials/mat_eye.tres"
+"use_external/path": "uid://inf5de3sfymk"
 }
 }
 }

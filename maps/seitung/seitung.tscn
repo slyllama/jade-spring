@@ -925,7 +925,7 @@ transform = Transform3D(-2.22, 0, -3.35211e-07, 0, 2.22, 0, 3.35211e-07, 0, -2.2
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)
 
 [node name="pine_simple6" parent="Decoration" index="3" instance=ExtResource("15_larjc")]
-transform = Transform3D(0.580516, 0, 0.170371, 0, 0.605, 0, -0.170371, 0, 0.580516, -12.6615, -0.137812, 3.9205)
+transform = Transform3D(0.580516, 0, 0.170371, 0, 0.65, 0, -0.170371, 0, 0.580516, -13.053, -0.137812, 3.9205)
 
 [node name="pine_simple4" parent="Decoration" index="4" instance=ExtResource("15_larjc")]
 transform = Transform3D(1.001, 0, -0.797745, 0, 1.28, 0, 0.797745, 0, 1.001, -17.3458, 1.77785, 4.40441)
@@ -1160,7 +1160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
 
 [node name="Pulley" parent="." index="12" instance=ExtResource("9_2e7lr")]
-transform = Transform3D(-0.43867, 0, 1.27674, 0, 1.35, 0, -1.27674, 0, -0.43867, -10.8689, 0.828593, 3.6488)
+transform = Transform3D(-0.43867, 0, 1.27674, 0, 1.35, 0, -1.27674, 0, -0.43867, -10.3955, 0.828593, 3.62502)
 reset_on_interact = false
 
 [node name="WeedBin" parent="." index="13" instance=ExtResource("28_m4ym0")]
