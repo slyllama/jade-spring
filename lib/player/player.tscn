@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=61 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" uid="uid://dj3l3q0uia8li" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" uid="uid://q6dwqrwcci8w" path="res://lib/player/player.gd" id="1_wipkt"]
@@ -16,6 +16,7 @@
 [ext_resource type="Animation" uid="uid://dantwa7iifrny" path="res://lib/player/anims/moving.res" id="8_6vkv2"]
 [ext_resource type="AudioStream" uid="uid://lys84cyyu8m" path="res://lib/player/sounds/engine.ogg" id="8_ao383"]
 [ext_resource type="Animation" uid="uid://c41lgxv7fyb81" path="res://lib/player/anims/strafe_left.res" id="9_6mdph"]
+[ext_resource type="AudioStream" uid="uid://06kxrfvj57s5" path="res://lib/player/salmon/sounds/fish_splash.ogg" id="9_srqdh"]
 [ext_resource type="Animation" uid="uid://drnyvaqxqitn" path="res://lib/player/anims/elongate.res" id="10_1iq62"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="12_q5b4w"]
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="13_ll3l2"]
@@ -24,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://gx4w1cghsw55" path="res://lib/player/compendium/compendium.tscn" id="19_fw2jq"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="20_1lkfq"]
 [ext_resource type="AudioStream" uid="uid://ke72j1fi3bla" path="res://lib/player/sounds/rushing_water.ogg" id="24_4yxld"]
+[ext_resource type="PackedScene" uid="uid://bfiqrxu6syuvs" path="res://lib/player/salmon/salmon.tscn" id="25_duig0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lchpp"]
 radius = 0.15
@@ -275,11 +277,18 @@ transform = Transform3D(-0.85, 0, -1.28346e-07, 0, 0.85, 0, 1.28346e-07, 0, -0.8
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 3)
 
 [node name="SplashTest" type="RayCast3D" parent="PlayerMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.439945, 0)
-target_position = Vector3(0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0961596, 0)
+target_position = Vector3(0, -3.4, 0)
 collision_mask = 1024
 collide_with_areas = true
 script = ExtResource("5_eb87h")
+
+[node name="Salmon" parent="PlayerMesh/SplashTest" instance=ExtResource("25_duig0")]
+transform = Transform3D(-1.17647, -4.98255e-22, 1.77642e-07, 0, 1.17647, 0, -1.77642e-07, -7.52341e-29, -1.17647, 0, -0.6, 0)
+
+[node name="FishSplash" type="AudioStreamPlayer" parent="PlayerMesh/SplashTest/Salmon"]
+stream = ExtResource("9_srqdh")
+volume_db = -3.0
 
 [node name="SplashSound" type="AudioStreamPlayer" parent="PlayerMesh/SplashTest"]
 stream = ExtResource("24_4yxld")
@@ -288,6 +297,8 @@ autoplay = true
 
 [node name="SplashArm" type="SpringArm3D" parent="PlayerMesh/SplashTest"]
 transform = Transform3D(-1.17647, 1.77641e-07, 0, 0, -5.14252e-08, -1.17647, -1.77641e-07, -1.17647, 5.14252e-08, 0, 0, 0)
+collision_mask = 1024
+spring_length = 3.4
 
 [node name="Foam" type="GPUParticles3D" parent="PlayerMesh/SplashTest/SplashArm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
@@ -379,6 +390,8 @@ stream = ExtResource("18_443tu")
 wait_time = 3.0
 one_shot = true
 
+[connection signal="entered_gravity_water" from="PlayerMesh/SplashTest" to="." method="_on_splash_test_entered_gravity_water"]
+[connection signal="left_gravity_water" from="PlayerMesh/SplashTest" to="." method="_on_splash_test_left_gravity_water"]
 [connection signal="timeout" from="SprintSoundCD" to="." method="_on_sprint_sound_cd_timeout"]
 [connection signal="finished" from="Walk" to="." method="_on_walk_finished"]
 [connection signal="timeout" from="HeartTimer" to="." method="_on_heart_timer_timeout"]

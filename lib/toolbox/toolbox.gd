@@ -329,6 +329,7 @@ func skill_used(skill_id: String) -> void:
 			gravity_cd = true
 			if "gravity" in Global.current_effects:
 				Global.remove_effect.emit("gravity")
+				Global.gravity_exited.emit()
 				Global.ripple.emit()
 			else:
 				Global.gravity_entered.emit()

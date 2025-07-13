@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://daroo30seeun8"]
+
+[ext_resource type="Texture2D" uid="uid://duaik626vqbvn" path="res://lib/player/salmon/materials/textures/salmon_diff.jpg" id="1_8ui0t"]
+
+[resource]
+albedo_texture = ExtResource("1_8ui0t")
+metallic_specular = 0.0

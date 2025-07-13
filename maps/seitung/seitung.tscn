@@ -169,7 +169,7 @@ plane = Plane(0, 0, 1, 0)
 plane = Plane(0, -1, 0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jm7j"]
-size = Vector3(50, 1, 6)
+size = Vector3(62.4795, 1, 13.4458)
 
 [node name="Map" instance=ExtResource("1_uym6y")]
 script = ExtResource("2_7lwj0")
@@ -1247,15 +1247,16 @@ radius = 1.0
 [node name="StoryMarker" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 
-[node name="OceanArea" type="Area3D" parent="." index="18"]
+[node name="OceanArea" type="StaticBody3D" parent="." index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.770402, 17.7541)
 collision_layer = 1024
 collision_mask = 1024
 input_ray_pickable = false
 
 [node name="Collision" type="CollisionShape3D" parent="OceanArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0966399, -1.07909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0865978, 2.64381)
 shape = SubResource("BoxShape3D_4jm7j")
+debug_color = Color(0.609448, 0.000965214, 0.725173, 1)
 
 [node name="FishPool" parent="." index="19" instance=ExtResource("67_qwrs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.73906, -4.84288e-08, 15.7748)

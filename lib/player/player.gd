@@ -462,5 +462,17 @@ func _on_heart_timer_timeout() -> void:
 func _on_walk_finished() -> void:
 	if !walking: return
 	$Walk.pitch_scale = 0.8 + rng.randf() * 0.1
-	$Walk.volume_db = linear_to_db(0.3 + rng.randf() * 0.2)
+	if $Spider.visible:
+		$Walk.volume_db = linear_to_db(0.3 + rng.randf() * 0.2)
+	else:
+		$Walk.volume_db = -80
 	$Walk.play()
+
+func _on_splash_test_entered_gravity_water() -> void:
+	$PlayerMesh/JadeArmature.visible = false
+	await get_tree().process_frame
+	$Spider.visible = false
+
+func _on_splash_test_left_gravity_water() -> void:
+	$PlayerMesh/JadeArmature.visible = true
+	$Spider.visible = true

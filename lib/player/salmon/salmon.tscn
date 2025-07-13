@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfiqrxu6syuvs"]
+
+[ext_resource type="PackedScene" uid="uid://c6s5m6nrpqlgr" path="res://lib/player/salmon/salmon.glb" id="1_7g6g3"]
+[ext_resource type="Script" uid="uid://d3risiunglkh5" path="res://lib/player/salmon/salmon.gd" id="1_qtc5l"]
+[ext_resource type="Texture2D" uid="uid://bdg65hbpim4op" path="res://lib/player/salmon/materials/textures/splash.png" id="3_6d5x2"]
+
+[sub_resource type="Curve" id="Curve_qtc5l"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.269504, 0.400348), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6d5x2"]
+curve = SubResource("Curve_qtc5l")
+
+[sub_resource type="Gradient" id="Gradient_qtc5l"]
+offsets = PackedFloat32Array(0, 0.508547, 1)
+colors = PackedColorArray(0.246271, 0.57116, 0.533813, 1, 1, 1, 1, 1, 0.270124, 0.570907, 0.964477, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6d5x2"]
+gradient = SubResource("Gradient_qtc5l")
+
+[sub_resource type="Curve" id="Curve_6d5x2"]
+_data = [Vector2(0, 0.541776), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_40vng"]
+curve = SubResource("Curve_6d5x2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ta55s"]
+emission_shape = 2
+emission_sphere_radius = 0.2
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 1.3
+initial_velocity_max = 1.7
+gravity = Vector3(0, -2, 0)
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_40vng")
+color_initial_ramp = SubResource("GradientTexture1D_6d5x2")
+alpha_curve = SubResource("CurveTexture_6d5x2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d5x2"]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_6d5x2")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_40vng"]
+material = SubResource("StandardMaterial3D_6d5x2")
+
+[node name="Salmon" type="Node3D"]
+script = ExtResource("1_qtc5l")
+
+[node name="SalmonMesh" parent="." instance=ExtResource("1_7g6g3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Splash" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+one_shot = true
+explosiveness = 0.75
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ta55s")
+draw_pass_1 = SubResource("QuadMesh_40vng")

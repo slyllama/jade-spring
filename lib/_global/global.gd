@@ -98,6 +98,7 @@ signal flowers_hide # flowers screen effect
 signal generic_area_entered
 signal generic_area_left
 signal gravity_entered
+signal gravity_exited
 signal hearts_emit # shortcut - emit from anywhere to spawn hearts
 signal jade_bot_sound
 signal karma_collected
