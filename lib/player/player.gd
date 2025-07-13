@@ -397,6 +397,8 @@ func _physics_process(delta: float) -> void:
 var _target_jump_anim = 0.0
 
 func _process(delta: float) -> void:
+	$PlayerMesh/Motes.global_position = $PlayerMesh/MotesAnchor.global_position
+	
 	if $Camera.axis.spring_length < 0.5:
 		if !Global.in_first_person:
 			Global.in_first_person = true
