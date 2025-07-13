@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://d1deuluyjab0v"]
+
+[ext_resource type="Texture2D" uid="uid://c1id8uy2ppb8k" path="res://expansions/kryta/railroad_bridge/materials/textures/metal_diff.jpg" id="1_rd4f2"]
+[ext_resource type="Texture2D" uid="uid://cqkmkrrv1jj8c" path="res://expansions/kryta/railroad_bridge/materials/textures/metal_norm.jpg" id="2_8ydxx"]
+
+[resource]
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("1_rd4f2")
+metallic = 0.5
+roughness = 0.5
+normal_enabled = true
+normal_scale = 2.5
+normal_texture = ExtResource("2_8ydxx")
+uv1_scale = Vector3(6, 6, 6)
