@@ -140,6 +140,7 @@ func _ready() -> void:
 			Global.hud.show_hud()
 		elif cmd == "/gravity":
 			if "gravity" in Global.current_effects:
+				Global.gravity_exited.emit()
 				Global.remove_effect.emit("gravity")
 			else:
 				Global.add_effect.emit("gravity")
@@ -226,6 +227,7 @@ func _ready() -> void:
 	# decoration is, say, underground)
 	Global.adjustment_started.connect(func():
 		if "gravity" in Global.current_effects:
+			Global.gravity_exited.emit()
 			Global.remove_effect.emit("gravity")
 		for _n in Utilities.get_all_children(self):
 			if _n is StaticBody3D:
