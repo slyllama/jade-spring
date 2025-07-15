@@ -138,6 +138,14 @@ func hide_hud() -> void:
 	$TopLevel/DebugEntry.visible = false
 	visible = false
 
+# Fade the game to black
+signal fade_out_complete
+func fade_out() -> void:
+	$TopLevel/FG.visible = true
+	var _fade_tween = create_tween()
+	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 1.0, 0.3)
+	_fade_tween.tween_callback(fade_out_complete.emit)
+
 func _ready() -> void:
 	Global.hud = self # reference
 	
@@ -193,7 +201,9 @@ func _ready() -> void:
 	
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
-	_fade_tween.tween_callback($TopLevel/FG.queue_free)
+	_fade_tween.tween_callback(func():
+		$TopLevel/FG.visible = false
+		$TopLevel/FG/PreparingShaders.visible = false)
 	
 	# Opening story panel (if the story hasn't been advanced)
 	if Save.data.story_point == "game_start":
