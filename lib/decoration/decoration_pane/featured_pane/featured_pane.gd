@@ -53,7 +53,10 @@ func _ready() -> void:
 			_n.gui_input.connect(func(_event):
 				if Input.is_action_just_pressed("left_click"):
 					if _n.has_meta("decoration_reference"):
-						featured_deco_selected.emit(_n.get_meta("decoration_reference")))
+						featured_deco_selected.emit(_n.get_meta("decoration_reference"))
+					if _n.has_meta("tag_reference"):
+						tag_selected.emit(_n.get_meta("tag_reference"))
+			)
 
 func _on_carousel_timer_timeout() -> void:
 	set_carousel_position(current_idx + 1)

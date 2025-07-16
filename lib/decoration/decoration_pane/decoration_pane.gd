@@ -310,6 +310,7 @@ func _on_load_on_timeout_timeout() -> void:
 	_load_model()
 
 func _on_category_button_down(category_id: String) -> void:
+	selected_tag = category_id
 	$Container/TagContainer/TagMenu.text = category_id
 	render(category_id)
 
@@ -326,3 +327,8 @@ func _on_home_button_down() -> void:
 func _on_featured_pane_decoration_selected(featured_id: String) -> void:
 	$FeaturedPane.visible = false
 	load_model_by_id(featured_id)
+
+func _on_featured_pane_tag_selected(featured_tag: String) -> void:
+	$Container/TagContainer/TagMenu.text = featured_tag
+	selected_tag = featured_tag
+	render(featured_tag)

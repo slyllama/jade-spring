@@ -11,5 +11,20 @@ custom_minimum_size = Vector2(181, 321)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3ucet")
 script = ExtResource("2_3ucet")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 213.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "((Title Line 1))
+((Title Line 2))"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

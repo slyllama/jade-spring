@@ -52,6 +52,7 @@ size_flags_horizontal = 3
 texture = ExtResource("6_j06yr")
 expand_mode = 1
 stretch_mode = 5
+metadata/tag_reference = "Kodan"
 
 [node name="Next" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(28, 0)
