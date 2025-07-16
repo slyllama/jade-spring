@@ -46,6 +46,10 @@ func _ready() -> void:
 	# Connect clicking of featured panes
 	for _n in CarouselContainer.get_node("Box").get_children():
 		if _n is TextureRect:
+			_n.modulate.a = 0.9
+			_n.mouse_entered.connect(func(): _n.modulate.a = 1.2)
+			_n.mouse_exited.connect(func(): _n.modulate.a = 0.9)
+			
 			_n.gui_input.connect(func(_event):
 				if Input.is_action_just_pressed("left_click"):
 					if _n.has_meta("decoration_reference"):

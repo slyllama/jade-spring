@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=33 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" uid="uid://c2j6ppfvm1427" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bos34lhycwwwy" path="res://lib/ui_container/textures/home_button_hover.png" id="12_qsiow"]
 [ext_resource type="Texture2D" uid="uid://tua6agk213pe" path="res://lib/hud/announcement/textures/text_blur.png" id="13_hkm37"]
 [ext_resource type="Texture2D" uid="uid://dhigdeme5oxgv" path="res://lib/decoration/decoration_pane/textures/tile_home.png" id="14_f6y01"]
+[ext_resource type="Script" uid="uid://ccnw8xm8ikaw4" path="res://lib/decoration/decoration_pane/categories.gd" id="14_k8wqy"]
 [ext_resource type="Texture2D" uid="uid://bgsii5hdp7k2" path="res://lib/decoration/decoration_pane/textures/tile_wall.png" id="14_vmryn"]
 [ext_resource type="Texture2D" uid="uid://d0s0qwyyfb1l0" path="res://lib/decoration/decoration_pane/textures/tile_floor.png" id="15_ne6fd"]
 [ext_resource type="Texture2D" uid="uid://ceyxr1sygyx1y" path="res://lib/decoration/decoration_pane/textures/tile_roof.png" id="16_gb315"]
@@ -280,6 +281,7 @@ text = "Clear Category"
 [node name="Categories" type="VBoxContainer" parent="Container/ScrollBox/ScrollVBox" index="1"]
 layout_mode = 2
 theme_override_constants/separation = 2
+script = ExtResource("14_k8wqy")
 
 [node name="Column" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="0"]
 layout_mode = 2
@@ -332,6 +334,7 @@ stretch_mode = 5
 [node name="Foliage" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+tooltip_text = "Foliage."
 texture_normal = ExtResource("19_7476e")
 ignore_texture_size = true
 stretch_mode = 5

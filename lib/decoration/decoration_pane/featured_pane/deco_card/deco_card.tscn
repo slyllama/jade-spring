@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c40gydt7gkrta"]
+
+[ext_resource type="Texture2D" uid="uid://bsf17wpko6w1q" path="res://lib/decoration/decoration_pane/featured_pane/deco_card/textures/deco_card_base.png" id="1_chder"]
+[ext_resource type="Script" uid="uid://ckgynx2jfh25h" path="res://lib/decoration/decoration_pane/featured_pane/deco_card/deco_card.gd" id="2_3ucet"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ucet"]
+texture = ExtResource("1_chder")
+
+[node name="DecoCard" type="Panel"]
+custom_minimum_size = Vector2(181, 321)
+theme_override_styles/panel = SubResource("StyleBoxTexture_3ucet")
+script = ExtResource("2_3ucet")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

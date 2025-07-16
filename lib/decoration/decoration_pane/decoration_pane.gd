@@ -45,15 +45,10 @@ func _update_unlock_button(id: String) -> void:
 
 func open(silent = false) -> void:
 	active = true
-	
-	$FeaturedPane.visible = true
-	$FeaturedPane.set_carousel_position(0)
-	
+	render()
 	Global.deco_pane_open = true
 	last_deco_count = Global.deco_handler.get_deco_count()
-	
 	super(silent)
-	_on_clear_search_button_down()
 
 func close():
 	Global.deco_pane_open = false
@@ -239,6 +234,8 @@ func _ready() -> void:
 	for _d in Global.DecoTags:
 		tag_list.get_popup().add_item(_d)
 	tag_list.get_popup().id_pressed.connect(func(n):
+		_on_clear_search_button_down() # clear the search bar if the tag query has changed
+		await get_tree().process_frame
 		selected_tag = Global.DecoTags[n]
 		render(selected_tag)
 		_refresh())
@@ -281,6 +278,7 @@ var search_clear_flag = false
 var last_search_term = ""
 
 func _on_search_text_changed(new_text: String) -> void:
+	_on_clear_category_button_down()
 	$FeaturedPane.visible = false
 	if $Container/SearchContainer/Search.text.length() == 0:
 		search_clear_flag = true
@@ -319,6 +317,7 @@ func _on_clear_category_button_down() -> void:
 	selected_tag = "None"
 	$Container/TagContainer/TagMenu.text = "None"
 	render()
+	$FeaturedPane.visible = true
 
 func _on_home_button_down() -> void:
 	_on_clear_search_button_down()

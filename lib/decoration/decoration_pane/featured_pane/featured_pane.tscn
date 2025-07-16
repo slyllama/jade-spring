@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgifi0o7rbfpn"]
+[gd_scene load_steps=7 format=3 uid="uid://cgifi0o7rbfpn"]
 
 [ext_resource type="Texture2D" uid="uid://ci4j7q72vl0yk" path="res://lib/decoration/decoration_pane/featured_pane/textures/featured_base.jpg" id="1_db43p"]
 [ext_resource type="PackedScene" uid="uid://2xxe31yk7l2p" path="res://lib/decoration/decoration_pane/featured_pane/carousel.tscn" id="2_3jr3v"]
 [ext_resource type="Script" uid="uid://dbwc7rix4b8yt" path="res://lib/decoration/decoration_pane/featured_pane/featured_pane.gd" id="2_nonhc"]
+[ext_resource type="PackedScene" uid="uid://c40gydt7gkrta" path="res://lib/decoration/decoration_pane/featured_pane/deco_card/deco_card.tscn" id="4_ihxfi"]
 [ext_resource type="AudioStream" uid="uid://b0t7np0ivs67f" path="res://lib/decoration/decoration_pane/featured_pane/sounds/page_turn.ogg" id="4_tat5r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jr3v"]
@@ -26,6 +27,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Carousel" parent="Base" instance=ExtResource("2_3jr3v")]
+layout_mode = 2
+
+[node name="FeaturedBox" type="HBoxContainer" parent="Base"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="DecoCard" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
+layout_mode = 2
+
+[node name="DecoCard2" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
+layout_mode = 2
+
+[node name="DecoCard3" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2
 
 [node name="PageTurn" type="AudioStreamPlayer" parent="."]
