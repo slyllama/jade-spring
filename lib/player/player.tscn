@@ -274,7 +274,6 @@ current = true
 transform = Transform3D(-0.85, 0, -1.28346e-07, 0, 0.85, 0, 1.28346e-07, 0, -0.85, 0, 0, 0)
 
 [node name="MotesAnchor" type="Node3D" parent="PlayerMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Karma" parent="PlayerMesh" instance=ExtResource("5_bkuho")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 3)
