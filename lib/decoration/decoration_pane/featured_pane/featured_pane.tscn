@@ -36,12 +36,15 @@ alignment = 1
 
 [node name="DecoCard" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2
+id = ""
 
 [node name="DecoCard2" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2
+id = ""
 
 [node name="DecoCard3" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2
+id = ""
 
 [node name="PageTurn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tat5r")

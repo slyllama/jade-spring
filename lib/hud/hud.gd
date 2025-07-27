@@ -162,6 +162,12 @@ func _ready() -> void:
 	Global.deco_pane_opened.connect($DecoPane.open)
 	Global.fishing_started.connect(_hide_int)
 	
+	Global.deco_load_started.connect(func():
+		print("showing box")
+		$TopLevel/SpinnerBox.visible = true)
+	Global.deco_load_ended.connect(func():
+		$TopLevel/SpinnerBox.visible = false)
+	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()

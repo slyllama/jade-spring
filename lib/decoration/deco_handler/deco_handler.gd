@@ -74,18 +74,23 @@ func _clear_decorations() -> void:
 # TODO: it might be best to perform this asynchronously
 func _load_decorations(data = []) -> void:
 	print("[DecoHandler] Loading decorations...")
+	Global.deco_load_started.emit()
+	for _i in 3: await get_tree().process_frame
 	_clear_decorations()
 	for _d in data:
 		if !_d.id in Global.DecoData:
 			print_rich("[color=red][ERROR][DecoHandler] '" + _d.id + "' is not in this version of Jade Spring.[/color]")
 			continue
-		var _decoration = load(Global.DecoData[_d.id].scene).instantiate()
+		var _decoration: Decoration = load(Global.DecoData[_d.id].scene).instantiate()
 		
-		add_child(_decoration)
+		call_deferred("add_child", _decoration)
+		await _decoration.tree_entered
+		
 		_decoration.global_position = _d.position
 		_decoration.rotation = _d.rotation
 		_decoration.scale = _d.scale
 		Global.decorations.append(_decoration)
+	Global.deco_load_ended.emit()
 
 # Load decorations from a file as a dictionary to use with other functions
 func _load_decoration_file() -> Array:
@@ -166,8 +171,9 @@ func _ready() -> void:
 			await get_tree().process_frame
 			_save_decorations()
 		elif _cmd == "/loaddeco":
-			Global.announcement_sent.emit("((Loaded decorations from file))")
 			_load_decorations(_load_decoration_file())
+			await Global.deco_load_ended
+			Global.announcement_sent.emit("((Loaded decorations from file))")
 		elif _cmd == "/resetdeco":
 			_load_decorations(default_deco_data)
 			await get_tree().process_frame
