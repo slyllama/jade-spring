@@ -1,12 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvxuck77xsya4"]
+[gd_scene load_steps=23 format=3 uid="uid://bvxuck77xsya4"]
 
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_2qacw"]
+[ext_resource type="Script" uid="uid://bm7bxg08h2ft7" path="res://lib/builds/build_vault.gd" id="1_fe80w"]
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="2_yv67k"]
-[ext_resource type="PackedScene" uid="uid://c3w1w6kvv22li" path="res://lib/builds/build_vault/meshes/build_vault.glb" id="3_o5fmh"]
+[ext_resource type="PackedScene" uid="uid://6r8w4bamftq4" path="res://lib/builds/build_vault/meshes/build_vault.glb" id="3_o5fmh"]
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="4_pomj1"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="5_yv67k"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="6_o5fmh"]
 [ext_resource type="PackedScene" uid="uid://bot4u6nxnwt6b" path="res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.tscn" id="7_pomj1"]
+[ext_resource type="AudioStream" uid="uid://bvbjroufthlhn" path="res://generic/sounds/insight_ambience.ogg" id="8_glq45"]
+[ext_resource type="AudioStream" uid="uid://bemy3w0v88e4b" path="res://lib/builds/build_vault/sounds/vault_ambience.ogg" id="10_cjlli"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp8qr"]
 size = Vector3(20, 0.02, 20)
@@ -61,14 +64,72 @@ material = SubResource("StandardMaterial3D_kb68g")
 size = Vector2(0.1, 0.1)
 orientation = 2
 
+[sub_resource type="Animation" id="Animation_1ujxn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+
+[sub_resource type="Animation" id="Animation_cjlli"]
+resource_name = "louden"
+length = 4.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [-80.0, -5.0]
+}
+
+[sub_resource type="Animation" id="Animation_f1fxn"]
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [-5.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1fxn"]
+_data = {
+&"RESET": SubResource("Animation_1ujxn"),
+&"louden": SubResource("Animation_cjlli"),
+&"unlouden": SubResource("Animation_f1fxn")
+}
+
 [node name="BuildVault" type="Node3D"]
+script = ExtResource("1_fe80w")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="Collision" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_vp8qr")
+debug_fill = false
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+visible = false
 mesh = SubResource("QuadMesh_3yia4")
 
 [node name="BuildVaultMesh" parent="." instance=ExtResource("3_o5fmh")]
@@ -100,8 +161,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 spatial_string = "Swap Builds"
 override_settings = true
 
+[node name="Sparkle" type="AudioStreamPlayer3D" parent="BuildsGadget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, 0)
+stream = ExtResource("8_glq45")
+max_db = -4.0
+pitch_scale = 1.1
+autoplay = true
+max_distance = 2.4
+attenuation_filter_cutoff_hz = 10000.0
+
 [node name="BannerAlterationGadget" parent="." instance=ExtResource("7_pomj1")]
-transform = Transform3D(0.882497, 0, -0.470319, 0, 1, 0, 0.470319, 0, 0.882497, 2, 0, -2.8)
+transform = Transform3D(1.059, 0, -0.564383, 0, 1.2, 0, 0.564383, 0, 1.059, 2, -0.141158, -2.8)
 radius = 0.6
 show_area = true
 tint_color = Color(0.760784, 0.513726, 1, 1)
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cjlli")
+volume_db = -80.0
+
+[node name="Volume" type="AnimationPlayer" parent="Ambience"]
+libraries = {
+&"": SubResource("AnimationLibrary_f1fxn")
+}
+
+[connection signal="interacted" from="BuildsGadget" to="." method="_on_builds_gadget_interacted"]
+[connection signal="animation_finished" from="Ambience/Volume" to="." method="_on_volume_animation_finished"]

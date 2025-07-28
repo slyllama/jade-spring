@@ -409,6 +409,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="FG" type="ColorRect" parent="TopLevel"]
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

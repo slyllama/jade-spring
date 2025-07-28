@@ -73,7 +73,7 @@
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="64_xbvsq"]
 [ext_resource type="PackedScene" uid="uid://dv21oc6ficn0j" path="res://maps/seitung/meshes/cheap_hill.glb" id="66_1g36k"]
 [ext_resource type="PackedScene" uid="uid://de46fd3hmay40" path="res://lib/crumb/fish_pool/fish_pool.tscn" id="67_qwrs1"]
-[ext_resource type="PackedScene" uid="uid://bjh0lq1bsu4bo" path="res://lib/builds/build_vault/build_vault.tscn" id="74_mire2"]
+[ext_resource type="PackedScene" uid="uid://bvxuck77xsya4" path="res://lib/builds/build_vault.tscn" id="74_mire2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixf13"]
 albedo_color = Color(0.2, 0.2, 0.2, 1)
@@ -1064,7 +1064,7 @@ light_energy = 1.2
 omni_range = 4.5
 omni_attenuation = 0.0
 
-[node name="Bees" type="AudioStreamPlayer3D" parent="Decoration/PlatformInner/Waypoint" index="22"]
+[node name="Sparkle" type="AudioStreamPlayer3D" parent="Decoration/PlatformInner/Waypoint" index="22"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.838457, 0)
 stream = ExtResource("43_f8dlm")
 max_db = -4.0

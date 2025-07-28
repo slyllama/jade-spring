@@ -7,11 +7,11 @@
 render_priority = 0
 shader = ExtResource("1_j5r0m")
 shader_parameter/mask = ExtResource("2_gorde")
-shader_parameter/base_color = Color(4.24032e-05, 0.179648, 0.563894, 1)
-shader_parameter/swirl_color = Color(0.358536, 5.43877e-06, 0.255562, 1)
-shader_parameter/cloud_color = Color(0.747406, 0.910486, 1, 1)
-shader_parameter/fresnel_color = Color(0.784721, 0.708744, 0, 1)
-shader_parameter/cloud_scale = 1.75
+shader_parameter/base_color = Color(2.3175e-05, 0.127456, 0.426234, 1)
+shader_parameter/swirl_color = Color(0, 0, 0, 1)
+shader_parameter/cloud_color = Color(0.803299, 0.84181, 1, 1)
+shader_parameter/fresnel_color = Color(0.498142, 0.823838, 1, 1)
+shader_parameter/cloud_scale = 2.0
 shader_parameter/speed_scale = 0.006
 shader_parameter/emission_color = Color(0, 0, 0, 1)
 shader_parameter/clear_coat = true

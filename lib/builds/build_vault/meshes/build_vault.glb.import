@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3w1w6kvv22li"
+uid="uid://6r8w4bamftq4"
 path="res://.godot/imported/build_vault.glb-f15f75512b3be0d0c27b64f11268ad50.scn"
 
 [deps]
@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/build_vault.glb-f15f75512b3be0d0c27b64f11268a
 [params]
 
 nodes/root_type=""
-nodes/root_name="BuildVault"
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -36,7 +36,11 @@ _subresources={
 "materials": {
 "mat_column": {
 "use_external/enabled": true,
-"use_external/path": "uid://5rm7t5j834yv"
+"use_external/path": "uid://c3b534iko48ys"
+},
+"mat_floor": {
+"use_external/enabled": true,
+"use_external/path": "uid://b5p6curjrt11n"
 },
 "mat_gold": {
 "use_external/enabled": true,

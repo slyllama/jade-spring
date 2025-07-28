@@ -14,7 +14,7 @@ func enter_vault() -> void:
 	
 	Global.command_sent.emit("/time=night")
 	$BuildVault.visible = true
-	$Player.global_position = $BuildVault.global_position + Vector3(0, 1, 1.6)
+	$Player.global_position = $BuildVault.global_position + Vector3(0, 1, 1.3)
 	$Player.get_node("PlayerMesh").rotation_degrees.y = 180.0
 	$Player.get_node("Camera").set_initial_cam_rotation(Vector3(0, 0, 0))
 	$Player.global_rotation_degrees.y = 0.0

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c3b534iko48ys"]
+
+[ext_resource type="Texture2D" uid="uid://bmcj8e4nbupoq" path="res://lib/builds/build_vault/materials/textures/column_bake_diff.jpg" id="1_8adl0"]
+[ext_resource type="Texture2D" uid="uid://d2f5wecugy0q5" path="res://lib/builds/build_vault/materials/textures/gold_diff.jpg" id="1_ch65p"]
+[ext_resource type="Texture2D" uid="uid://cy25tuewwcvyu" path="res://lib/player/materials/textures/gold_norm.jpg" id="2_8adl0"]
+
+[resource]
+albedo_texture = ExtResource("1_8adl0")
+metallic = 0.9
+roughness = 0.25
+normal_enabled = true
+normal_scale = 0.04
+normal_texture = ExtResource("2_8adl0")
+ao_texture_channel = 4
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+backlight_texture = ExtResource("1_ch65p")
