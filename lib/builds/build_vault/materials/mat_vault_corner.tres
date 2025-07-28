@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://ojqtokf8wqe8"]
+
+[ext_resource type="Texture2D" uid="uid://d2f5wecugy0q5" path="res://lib/builds/build_vault/materials/textures/gold_diff.jpg" id="1_mvlmt"]
+[ext_resource type="Texture2D" uid="uid://bhmwcsvhi24io" path="res://lib/builds/build_vault/materials/textures/corner_alpha.png" id="1_sh7cn"]
+[ext_resource type="Texture2D" uid="uid://cy25tuewwcvyu" path="res://lib/player/materials/textures/gold_norm.jpg" id="2_sh7cn"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_sh7cn")
+metallic = 0.9
+roughness = 0.25
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource("2_sh7cn")
+backlight_enabled = true
+backlight = Color(0.9, 0.9, 0.9, 1)
+backlight_texture = ExtResource("1_mvlmt")

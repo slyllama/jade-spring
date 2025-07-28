@@ -142,9 +142,18 @@ func hide_hud() -> void:
 signal fade_out_complete
 func fade_out() -> void:
 	$TopLevel/FG.visible = true
+	$TopLevel/FG.modulate.a = 0.0
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 1.0, 0.3)
 	_fade_tween.tween_callback(fade_out_complete.emit)
+
+func fade_in() -> void:
+	$TopLevel/FG.visible = true
+	$TopLevel/FG.modulate.a = 1.0
+	var _fade_tween = create_tween()
+	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.3)
+	_fade_tween.tween_callback(func():
+		$TopLevel/FG.visible = false)
 
 func _ready() -> void:
 	Global.hud = self # reference

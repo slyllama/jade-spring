@@ -37,6 +37,10 @@ var camera = Camera3D.new()
 var orbit_handler = MMOOrbitHandler.new()
 var target = Node3D.new()
 
+func set_initial_cam_rotation(new_rotation: Vector3) -> void:
+	await get_tree().process_frame
+	orbit_handler.set_initial_rotation(new_rotation)
+
 func set_cam_rotation(added_rotation: Vector3) -> void:
 	await get_tree().process_frame
 	orbit_handler.set_initial_rotation(rotation_degrees + added_rotation)

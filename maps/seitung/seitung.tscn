@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=97 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" uid="uid://bll0ayxgvg32d" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -73,6 +73,7 @@
 [ext_resource type="PackedScene" uid="uid://ckk5clionshof" path="res://lib/charging_station/charging_station.tscn" id="64_xbvsq"]
 [ext_resource type="PackedScene" uid="uid://dv21oc6ficn0j" path="res://maps/seitung/meshes/cheap_hill.glb" id="66_1g36k"]
 [ext_resource type="PackedScene" uid="uid://de46fd3hmay40" path="res://lib/crumb/fish_pool/fish_pool.tscn" id="67_qwrs1"]
+[ext_resource type="PackedScene" uid="uid://bjh0lq1bsu4bo" path="res://lib/builds/build_vault/build_vault.tscn" id="74_mire2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixf13"]
 albedo_color = Color(0.2, 0.2, 0.2, 1)
@@ -171,7 +172,7 @@ plane = Plane(0, -1, 0, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jm7j"]
 size = Vector3(62.4795, 1, 13.4458)
 
-[node name="Map" instance=ExtResource("1_uym6y")]
+[node name="Seitung" instance=ExtResource("1_uym6y")]
 script = ExtResource("2_7lwj0")
 
 [node name="Sky" parent="." index="1"]
@@ -1266,3 +1267,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25243, 1.8999e-07, 15.3235
 
 [node name="FishPool3" parent="." index="21" instance=ExtResource("67_qwrs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34005, 1.8999e-07, 14.8658)
+
+[node name="BuildVault" parent="." index="23" instance=ExtResource("74_mire2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://5rm7t5j834yv"]
+
+[ext_resource type="Texture2D" uid="uid://d2f5wecugy0q5" path="res://lib/builds/build_vault/materials/textures/gold_diff.jpg" id="1_m7sp1"]
+[ext_resource type="Texture2D" uid="uid://cy25tuewwcvyu" path="res://lib/player/materials/textures/gold_norm.jpg" id="2_ro840"]
+
+[resource]
+albedo_texture = ExtResource("1_m7sp1")
+metallic = 0.9
+roughness = 0.25
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource("2_ro840")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+backlight_texture = ExtResource("1_m7sp1")
+uv1_scale = Vector3(4, 4, 4)

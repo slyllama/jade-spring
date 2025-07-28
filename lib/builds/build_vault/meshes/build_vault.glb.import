@@ -1,0 +1,60 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c3w1w6kvv22li"
+path="res://.godot/imported/build_vault.glb-f15f75512b3be0d0c27b64f11268ad50.scn"
+
+[deps]
+
+source_file="res://lib/builds/build_vault/meshes/build_vault.glb"
+dest_files=["res://.godot/imported/build_vault.glb-f15f75512b3be0d0c27b64f11268ad50.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name="BuildVault"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"mat_column": {
+"use_external/enabled": true,
+"use_external/path": "uid://5rm7t5j834yv"
+},
+"mat_gold": {
+"use_external/enabled": true,
+"use_external/path": "uid://5rm7t5j834yv"
+},
+"mat_gold_corner": {
+"use_external/enabled": true,
+"use_external/path": "uid://ojqtokf8wqe8"
+},
+"mat_orb": {
+"use_external/enabled": true,
+"use_external/path": "uid://ktteydypav6x"
+},
+"mat_stars": {
+"use_external/enabled": true,
+"use_external/path": "uid://c2y3kd0kr1t0e"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
