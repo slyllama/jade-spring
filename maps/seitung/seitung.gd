@@ -5,6 +5,7 @@ extends "res://lib/map/map.gd"
 var y_target = 0.0
 
 func enter_vault() -> void:
+	Global.add_effect.emit("vault")
 	Global.hud.fade_out()
 	await Global.hud.fade_out_complete
 	Global.vault_entered.emit()
@@ -28,7 +29,7 @@ func enter_vault() -> void:
 	}, Utilities.get_screen_center(Vector2(160, get_viewport().size.y / Global.retina_scale * 0.5 - 270)), false)
 
 func leave_vault() -> void:
-	print("Leaving vault")
+	Global.remove_effect.emit("vault")
 	Global.hud.fade_out()
 	await Global.hud.fade_out_complete
 	

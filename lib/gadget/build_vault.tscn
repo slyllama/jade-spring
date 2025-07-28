@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvxuck77xsya4"]
+[gd_scene load_steps=16 format=3 uid="uid://bvxuck77xsya4"]
 
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_2qacw"]
 [ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="2_yv67k"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="4_pomj1"]
 [ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="5_yv67k"]
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="6_o5fmh"]
+[ext_resource type="PackedScene" uid="uid://bot4u6nxnwt6b" path="res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.tscn" id="7_pomj1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp8qr"]
 size = Vector3(20, 0.02, 20)
@@ -73,15 +74,14 @@ mesh = SubResource("QuadMesh_3yia4")
 [node name="BuildVaultMesh" parent="." instance=ExtResource("3_o5fmh")]
 
 [node name="LanternLight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.24217, -4.29215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, -2.8)
 light_color = Color(0.830821, 0.869428, 1, 1)
 shadow_enabled = true
 omni_range = 6.0
 omni_attenuation = 0.0
 
 [node name="Motes" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, -4.83169e-13, 0, 1, 0, 4.83169e-13, 0, 1, 0, 2, 1)
-top_level = true
+transform = Transform3D(1, 0, -4.83169e-13, 0, 1, 0, 4.83169e-13, 0, 1, 0, 2, 0)
 amount = 240
 lifetime = 2.0
 preprocess = 5.0
@@ -99,3 +99,9 @@ tint_color = Color(0.761443, 0.515204, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 spatial_string = "Swap Builds"
 override_settings = true
+
+[node name="BannerAlterationGadget" parent="." instance=ExtResource("7_pomj1")]
+transform = Transform3D(0.882497, 0, -0.470319, 0, 1, 0, 0.470319, 0, 0.882497, 2, 0, -2.8)
+radius = 0.6
+show_area = true
+tint_color = Color(0.760784, 0.513726, 1, 1)

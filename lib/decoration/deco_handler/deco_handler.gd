@@ -75,7 +75,7 @@ func _clear_decorations() -> void:
 func _load_decorations(data = []) -> void:
 	print("[DecoHandler] Loading decorations...")
 	Global.deco_load_started.emit()
-	for _i in 3: await get_tree().process_frame
+	await get_tree().create_timer(0.2).timeout
 	_clear_decorations()
 	for _d in data:
 		if !_d.id in Global.DecoData:
@@ -176,6 +176,7 @@ func _ready() -> void:
 			Global.announcement_sent.emit("((Loaded decorations from file))")
 		elif _cmd == "/resetdeco":
 			_load_decorations(default_deco_data)
+			await Global.deco_load_ended
 			await get_tree().process_frame
 			_save_decorations()
 		elif _cmd == "/savedeco":

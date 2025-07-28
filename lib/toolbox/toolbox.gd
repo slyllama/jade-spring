@@ -106,7 +106,11 @@ func _ready() -> void:
 	Global.summon_story_panel.connect(func(_data): clear_skills(false))
 	Global.close_story_panel.connect(func(): set_default_skills(false))
 	Global.dialogue_opened.connect(func(): clear_skills(false))
-	Global.dialogue_closed.connect(func(): set_default_skills(false))
+	Global.dialogue_closed.connect(func():
+		if "vault" in Global.current_effects:
+			clear_skills()
+			$Box/Skill6.switch_skill("vault_leave")
+		else: set_default_skills(false))
 	
 	Global.deco_placement_started.connect(func():
 		clear_skills()

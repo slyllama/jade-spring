@@ -13,6 +13,11 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"title": "Immobile",
 		"description": "I can't move at the moment!"
 	},
+	"vault": {
+		"texture": "vault",
+		"title": "Otter's Enclave",
+		"description": "I am residing in the presence of the Great Otter."
+	},
 	"miniature": {
 		"title": "Transformation (Miniature)",
 		"texture": "miniature",

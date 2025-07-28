@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bot4u6nxnwt6b"]
+[gd_scene load_steps=20 format=3 uid="uid://bot4u6nxnwt6b"]
 
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_dbenh"]
 [ext_resource type="Script" uid="uid://c2tonrbu6jcrv" path="res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.gd" id="2_4fg6a"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dynq664sk032" path="res://decorations/cid_banners/materials/textures/cid_diff.png" id="7_xbn25"]
 [ext_resource type="AudioStream" uid="uid://chx7m6d6ai2k5" path="res://decorations/cid_banners/sounds/time_shift.ogg" id="9_5j7yd"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4fg6a"]
+resource_local_to_scene = true
+height = 3.0
+radius = 0.45
+
 [sub_resource type="Gradient" id="Gradient_bbigo"]
 offsets = PackedFloat32Array(0.0780142, 0.156028, 0.269504)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
@@ -18,11 +23,42 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_bbigo")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8s4x3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6q2mf"]
 render_priority = 2
 shader = ExtResource("3_7f667")
 shader_parameter/mask_texture = ExtResource("4_utudg")
 shader_parameter/vertical_mask = SubResource("GradientTexture2D_cfxhs")
+shader_parameter/color = Color(0.225872, 0.778397, 0, 1)
+shader_parameter/uv_scale = Vector2(2, 0.6)
+shader_parameter/exponent = 1.8
+shader_parameter/time_scale = 0.07
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_25h3m"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_6q2mf")
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.75
+radial_segments = 32
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="Gradient" id="Gradient_hr7n0"]
+offsets = PackedFloat32Array(0.0780142, 0.156028, 0.269504)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k71wh"]
+gradient = SubResource("Gradient_hr7n0")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8s4x3"]
+render_priority = 2
+shader = ExtResource("3_7f667")
+shader_parameter/mask_texture = ExtResource("4_utudg")
+shader_parameter/vertical_mask = SubResource("GradientTexture2D_k71wh")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/uv_scale = Vector2(2, 0.43)
 shader_parameter/exponent = 1.65
@@ -39,8 +75,11 @@ material = SubResource("StandardMaterial3D_1pifq")
 script = ExtResource("2_4fg6a")
 radius = 0.45
 
+[node name="Collision" parent="." index="0"]
+shape = SubResource("CylinderShape3D_4fg6a")
+
 [node name="VisualArea" parent="." index="1"]
-visible = false
+mesh = SubResource("CylinderMesh_25h3m")
 surface_material_override/0 = SubResource("ShaderMaterial_8s4x3")
 
 [node name="Cube" type="MeshInstance3D" parent="." index="2"]
