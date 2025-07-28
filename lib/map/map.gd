@@ -10,7 +10,7 @@ const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
 const KARMA_JITTER = 0.2
-const HIDDEN_POS = Vector3(0, -20, 0) # hide story marker far away
+const HIDDEN_POS = Vector3(0, -32, 0) # hide story marker far away
 var picking_disabled_objects: Array[StaticBody3D] = []
 var rng = RandomNumberGenerator.new()
 

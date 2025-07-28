@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://bvxuck77xsya4"]
+
+[ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_2qacw"]
+[ext_resource type="Texture2D" uid="uid://k1b2p1a1utat" path="res://generic/materials/textures/tile_64px_norm.png" id="2_yv67k"]
+[ext_resource type="PackedScene" uid="uid://c3w1w6kvv22li" path="res://lib/builds/build_vault/meshes/build_vault.glb" id="3_o5fmh"]
+[ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="4_pomj1"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="5_yv67k"]
+[ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="6_o5fmh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vp8qr"]
+size = Vector3(20, 0.02, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11m6v"]
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+albedo_texture = ExtResource("1_2qacw")
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("2_yv67k")
+uv1_scale = Vector3(128, 128, 128)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3yia4"]
+material = SubResource("StandardMaterial3D_11m6v")
+size = Vector2(80, 80)
+orientation = 1
+
+[sub_resource type="Curve" id="Curve_pomj1"]
+_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_81dca"]
+curve = SubResource("Curve_pomj1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fe80w"]
+emission_shape_scale = Vector3(5.5, 2, 5.5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.2
+scale_max = 0.4
+color = Color(0.987666, 0.80739, 0, 1)
+alpha_curve = SubResource("CurveTexture_81dca")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb68g"]
+render_priority = 4
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_o5fmh")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_glq45"]
+material = SubResource("StandardMaterial3D_kb68g")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[node name="BuildVault" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_vp8qr")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("QuadMesh_3yia4")
+
+[node name="BuildVaultMesh" parent="." instance=ExtResource("3_o5fmh")]
+
+[node name="LanternLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.24217, -4.29215)
+light_color = Color(0.830821, 0.869428, 1, 1)
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.0
+
+[node name="Motes" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, -4.83169e-13, 0, 1, 0, 4.83169e-13, 0, 1, 0, 2, 1)
+top_level = true
+amount = 240
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 0.5
+visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
+process_material = SubResource("ParticleProcessMaterial_fe80w")
+draw_pass_1 = SubResource("PlaneMesh_glq45")
+
+[node name="BuildsGadget" parent="." instance=ExtResource("4_pomj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+show_area = true
+tint_color = Color(0.761443, 0.515204, 1, 1)
+
+[node name="Title" parent="BuildsGadget" instance=ExtResource("5_yv67k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+spatial_string = "Swap Builds"
+override_settings = true

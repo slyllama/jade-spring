@@ -169,9 +169,13 @@ func _ready() -> void:
 		$Box/Skill1.switch_skill("fishing_left")
 		$Box/Skill2.switch_skill("fishing_right")
 		$Box/Skill6.switch_skill("cancel"))
-	
 	Global.fishing_canceled.connect(func():
 		set_default_skills())
+	
+	Global.vault_entered.connect(func():
+		clear_skills()
+		$Box/Skill6.switch_skill("vault_leave"))
+	Global.vault_left.connect(set_default_skills)
 	
 	$SkillSwap.volume_db = linear_to_db(0)
 	await Global.shader_preload_complete
@@ -323,6 +327,8 @@ func skill_used(skill_id: String) -> void:
 			Global.roll_right_90.emit()
 		"debug_skill":
 			Global.debug_skill_used.emit()
+		"vault_leave":
+			Global.command_sent.emit("/vaultleave")
 		"toggle_gravity":
 			$GravityCD.start()
 			if gravity_cd: return

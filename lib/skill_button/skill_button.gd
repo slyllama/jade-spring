@@ -15,6 +15,7 @@ const TEXTURES = { # associations with texture paths
 	"empty": preload("res://lib/skill_button/textures/empty.png"),
 	"select": preload("res://lib/skill_button/textures/select.png"),
 	"cancel": preload("res://lib/skill_button/textures/cancel.png"),
+	"vault_leave": preload("res://lib/skill_button/textures/cancel.png"),
 	"snap_enable": preload("res://lib/skill_button/textures/snap_disable.png"),
 	"snap_disable": preload("res://lib/skill_button/textures/snap_enable.png"),
 	"snap_forbidden": preload("res://lib/skill_button/textures/snap_forbidden.png"),
@@ -47,6 +48,10 @@ const TOOLTIPS = {
 	"cancel": {
 		"title": "Cancel",
 		"description": "End the current action."
+	},
+	"vault_leave": {
+		"title": "Exit Enclave",
+		"description": "Exit the Enclave and return to the garden."
 	},
 	"accept": {
 		"title": "Apply Transformation",

@@ -1,8 +1,44 @@
 extends "res://lib/map/map.gd"
 
 @onready var toolbox = get_node("HUD/Toolbox")
+@onready var last_time = Global.time_of_day
 var y_target = 0.0
-var last_time = Global.time_of_day
+
+func enter_vault() -> void:
+	Global.hud.fade_out()
+	await Global.hud.fade_out_complete
+	Global.vault_entered.emit()
+	
+	last_time = Global.time_of_day
+	
+	Global.command_sent.emit("/time=night")
+	$BuildVault.visible = true
+	$Player.global_position = $BuildVault.global_position + Vector3(0, 1, 1.6)
+	$Player.get_node("PlayerMesh").rotation_degrees.y = 180.0
+	$Player.get_node("Camera").set_initial_cam_rotation(Vector3(0, 0, 0))
+	$Player.global_rotation_degrees.y = 0.0
+	
+	await get_tree().create_timer(0.5).timeout
+	Global.hud.fade_in()
+	Global.play_hint("vault", { 
+		"title": "Otter's Enclave Entered",
+		"arrow": "down",
+		"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
+		"text": "Use |skill_6| to leave the Otter's Enclave."
+	}, Utilities.get_screen_center(Vector2(160, get_viewport().size.y / Global.retina_scale * 0.5 - 270)), false)
+
+func leave_vault() -> void:
+	print("Leaving vault")
+	Global.hud.fade_out()
+	await Global.hud.fade_out_complete
+	
+	Global.command_sent.emit("/time=" + last_time)
+	$BuildVault.visible = false
+	Global.go_to_safe_point()
+	
+	await get_tree().create_timer(0.5).timeout
+	Global.vault_left.emit()
+	Global.hud.fade_in()
 
 func _ready() -> void:
 	$Landscape/LandscapeCol.set_collision_layer_value(2, true)
@@ -36,19 +72,8 @@ func _ready() -> void:
 		elif _cmd == "/rotatesun":
 			if Global.time_of_day == "day": $Sky/Sun.global_rotation_degrees.y += 33.0
 			else: $Sky/SunNight.global_rotation_degrees.y += 33.0
-		elif _cmd == "/vault":
-			Global.hud.fade_out()
-			await Global.hud.fade_out_complete
-			
-			Global.command_sent.emit("/time=night")
-			$BuildVault.visible = true
-			$Player.global_position = $BuildVault.global_position + Vector3(0, 1, 1.6)
-			$Player.get_node("PlayerMesh").rotation_degrees.y = 180.0
-			$Player.get_node("Camera").set_initial_cam_rotation(Vector3(0, 0, 0))
-			$Player.global_rotation_degrees.y = 0.0
-			
-			await get_tree().create_timer(0.5).timeout
-			Global.hud.fade_in()
+		elif _cmd == "/vault": enter_vault()
+		elif _cmd == "/vaultleave": leave_vault()
 	)
 
 const OCEAN_Z_MIN = 4.5

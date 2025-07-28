@@ -112,6 +112,8 @@ signal shader_preload_complete
 signal skill_button_down(id: String)
 signal skill_button_up(id: String)
 signal spawn_karma(amount: int, location: Vector3)
+signal vault_entered
+signal vault_left
 signal weed_crumb_entered
 signal weed_crumb_left
 signal summon_story_panel(data: Dictionary)
