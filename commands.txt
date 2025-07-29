@@ -7,6 +7,9 @@
 ### Visibility
 /time=night		Switch to night
 /time=day		Switch to day
+/dof=X			Depth-of-field amount (0.018 is a nice value)
+/enabledof		Enable depth-of-field
+/disabledof		Disable depth-of-field
 /showplayer		Show the player mesh
 /hideplayer		Hide the player mesh
 /showcrumbs		Show bugs, Dragonvoid etc
