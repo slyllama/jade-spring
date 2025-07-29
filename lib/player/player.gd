@@ -147,6 +147,22 @@ func _ready() -> void:
 	Global.camera = $Camera.camera # reference
 	Global.player = self
 	
+	# TODO: working on DOF here
+	var _cam_attrs = CameraAttributesPractical.new()
+	_cam_attrs.dof_blur_amount = 0.012
+	Global.camera.attributes = _cam_attrs
+	
+	Global.command_sent.connect(func(_cmd):
+		if "/dof=" in _cmd: # set DOF strength
+			var _dof = float(_cmd.split("=")[1])
+			_cam_attrs.dof_blur_amount = _dof)
+	
+	SettingsHandler.setting_changed.connect(func(_param):
+		if _param == "dof":
+			var _v = SettingsHandler.settings[_param]
+			if _v == "on": _cam_attrs.dof_blur_far_enabled = true
+			else: _cam_attrs.dof_blur_far_enabled = false)
+	
 	$Camera.top_level = true
 	$Camera.set_cam_rotation(Vector3(-20, 0, 0))
 	Global.jade_bot_sound.connect(play_jade_sound)
@@ -196,21 +212,6 @@ func _ready() -> void:
 	await get_tree().process_frame
 	$PlayerMesh/HeartParticles.emitting = false
 	$PlayerMesh/HeartParticles.visible = false
-	
-	# TODO: working on DOF here
-	var _cam_attrs = CameraAttributesPractical.new()
-	_cam_attrs.dof_blur_far_enabled = true
-	_cam_attrs.dof_blur_amount = 0.018
-	Global.camera.attributes = _cam_attrs
-	
-	Global.command_sent.connect(func(_cmd):
-		if _cmd == "/enabledof": # toggle DOF
-			_cam_attrs.dof_blur_far_enabled = true
-		elif _cmd == "/disabledof":
-			_cam_attrs.dof_blur_far_enabled = false
-		if "/dof=" in _cmd: # set DOF strength
-			var _dof = float(_cmd.split("=")[1])
-			_cam_attrs.dof_blur_amount = _dof)
 
 var _fs = 0 # forward state (if > 0, a 'forward' key (including strafe) is down)
 var _ss = 0 # strafe state

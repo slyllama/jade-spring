@@ -19,7 +19,8 @@ const DEFAULT_SETTINGS = {
 	"aa": "msaa_(4x)",
 	"saturation": 0.32,
 	"show_gift_item": "hide",
-	"direction_control": "strafe"
+	"direction_control": "strafe",
+	"dof": "off"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)
