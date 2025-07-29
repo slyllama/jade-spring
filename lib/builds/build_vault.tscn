@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bvxuck77xsya4"]
+[gd_scene load_steps=32 format=3 uid="uid://bvxuck77xsya4"]
 
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_2qacw"]
 [ext_resource type="Script" uid="uid://bm7bxg08h2ft7" path="res://lib/builds/build_vault.gd" id="1_fe80w"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bot4u6nxnwt6b" path="res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.tscn" id="7_pomj1"]
 [ext_resource type="AudioStream" uid="uid://bvbjroufthlhn" path="res://generic/sounds/insight_ambience.ogg" id="8_glq45"]
 [ext_resource type="AudioStream" uid="uid://bemy3w0v88e4b" path="res://lib/builds/build_vault/sounds/vault_ambience.ogg" id="10_cjlli"]
+[ext_resource type="Texture2D" uid="uid://div1p7l2i1oh" path="res://lib/builds/build_vault/materials/vault_mote.png" id="11_js7te"]
+[ext_resource type="PackedScene" uid="uid://dorw6p3tytl73" path="res://lib/player/compendium/compendium_instance.tscn" id="12_4o2n5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp8qr"]
 size = Vector3(20, 0.02, 20)
@@ -62,6 +64,48 @@ particles_anim_loop = false
 [sub_resource type="PlaneMesh" id="PlaneMesh_glq45"]
 material = SubResource("StandardMaterial3D_kb68g")
 size = Vector2(0.1, 0.1)
+orientation = 2
+
+[sub_resource type="Curve" id="Curve_4o2n5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.291139, 0.463158), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tk1j0"]
+curve = SubResource("Curve_4o2n5")
+
+[sub_resource type="Gradient" id="Gradient_js7te"]
+colors = PackedColorArray(0.00431098, 0.203, 0.85142, 1, 0.898859, 0.41318, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4o2n5"]
+gradient = SubResource("Gradient_js7te")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pu2ot"]
+emission_shape = 2
+emission_sphere_radius = 0.5
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+color_initial_ramp = SubResource("GradientTexture1D_4o2n5")
+alpha_curve = SubResource("CurveTexture_tk1j0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p84p6"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_js7te")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ax3h4"]
+material = SubResource("StandardMaterial3D_p84p6")
 orientation = 2
 
 [sub_resource type="Animation" id="Animation_1ujxn"]
@@ -156,10 +200,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 show_area = true
 tint_color = Color(0.761443, 0.515204, 1, 1)
 
+[node name="Compendium" parent="BuildsGadget" instance=ExtResource("12_4o2n5")]
+transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 1, 0)
+
 [node name="Title" parent="BuildsGadget" instance=ExtResource("5_yv67k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 spatial_string = "Swap Builds"
 override_settings = true
+
+[node name="VaultMote" type="GPUParticles3D" parent="BuildsGadget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+amount = 5
+lifetime = 2.0
+preprocess = 5.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_pu2ot")
+draw_pass_1 = SubResource("PlaneMesh_ax3h4")
 
 [node name="Sparkle" type="AudioStreamPlayer3D" parent="BuildsGadget"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, 0)

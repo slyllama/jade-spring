@@ -5,13 +5,19 @@ const BuildPane = preload("res://lib/builds/build_pane/build_pane.tscn")
 var build_pane_open = false
 
 func _ready() -> void:
+	$BuildsGadget/Compendium.rotation_degrees.y = 180.0
+	
 	Global.vault_entered.connect(func():
+		$BuildsGadget/Compendium/AnimationPlayer.play("float")
+		
 		# Handle music
 		$Ambience.play()
 		Global.target_music_ratio = 0.0
 		$Ambience/Volume.play("louden"))
 	
 	Global.vault_left.connect(func():
+		$BuildsGadget/Compendium/AnimationPlayer.stop()
+		
 		# Handle music
 		Global.target_music_ratio = 1.0
 		$Ambience/Volume.play("unlouden"))
