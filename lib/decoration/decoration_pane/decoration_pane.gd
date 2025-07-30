@@ -45,7 +45,7 @@ func _update_unlock_button(id: String) -> void:
 
 func open(silent = false) -> void:
 	active = true
-	render()
+	render(selected_tag)
 	Global.deco_pane_open = true
 	last_deco_count = Global.deco_handler.get_deco_count()
 	super(silent)

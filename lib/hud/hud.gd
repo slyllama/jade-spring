@@ -172,7 +172,6 @@ func _ready() -> void:
 	Global.fishing_started.connect(_hide_int)
 	
 	Global.deco_load_started.connect(func():
-		print("showing box")
 		$TopLevel/SpinnerBox.visible = true)
 	Global.deco_load_ended.connect(func():
 		$TopLevel/SpinnerBox.visible = false)

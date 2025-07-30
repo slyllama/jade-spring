@@ -19,6 +19,11 @@ func enter_vault() -> void:
 	$Player.get_node("Camera").set_initial_cam_rotation(Vector3(0, 0, 0))
 	$Player.global_rotation_degrees.y = 0.0
 	
+	# Leave gravity (if we are in it)
+	if "gravity" in Global.current_effects:
+		Global.remove_effect.emit("gravity")
+		Global.gravity_exited.emit()
+	
 	await get_tree().create_timer(0.5).timeout
 	Global.hud.fade_in()
 	Global.play_hint("vault", { 
