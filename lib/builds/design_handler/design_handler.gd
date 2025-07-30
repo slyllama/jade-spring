@@ -11,9 +11,9 @@ func create_design_slot(design_name: String) -> void:
 		"user://save/deco.dat", DPATH + "/" + design_name + ".dat")
 
 # Return a list of designs that the user has
-func get_slots() -> void:
+func get_slots() -> PackedStringArray:
 	var _d = DirAccess.open(DPATH)
-	print(_d.get_files())
+	return(_d.get_files())
 
 func _ready() -> void:
 	Global.design_handler = self

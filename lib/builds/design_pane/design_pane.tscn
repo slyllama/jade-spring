@@ -98,9 +98,12 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
+[node name="SlotsRoot" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+
 [node name="TestGetSlots" type="Button" parent="VBox"]
 layout_mode = 2
-text = "Get Slots"
+text = "((Update Manually))"
 
 [node name="PaperSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_t1hw8")

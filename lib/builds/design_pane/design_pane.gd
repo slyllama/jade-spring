@@ -9,6 +9,12 @@ func _set_dissolve(val):
 # Repopulate pane with accurate data
 func update() -> void:
 	$VBox/Debug.text = "Current design: " + SettingsHandler.settings.current_design
+	for _i in $VBox/SlotsRoot.get_children(): _i.queue_free()
+	for _d in Global.design_handler.get_slots():
+		print(_d)
+		var _b = Button.new()
+		_b.text = _d
+		$VBox/SlotsRoot.add_child(_b)
 
 func open() -> void:
 	$PaperSound.play()
@@ -36,4 +42,4 @@ func _on_mouse_entered() -> void: Global.mouse_in_ui = true
 func _on_mouse_exited() -> void: Global.mouse_in_ui = false
 
 func _on_test_get_slots_button_down() -> void:
-	Global.design_handler.get_slots()
+	update()
