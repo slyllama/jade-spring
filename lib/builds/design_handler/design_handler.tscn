@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfhuuibfm7lw0"]
+
+[ext_resource type="Script" uid="uid://g4daek2u4lr4" path="res://lib/builds/design_handler/design_handler.gd" id="1_fi57a"]
+
+[node name="DesignHandler" type="Node"]
+script = ExtResource("1_fi57a")

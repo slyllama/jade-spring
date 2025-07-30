@@ -20,7 +20,8 @@ const DEFAULT_SETTINGS = {
 	"saturation": 0.32,
 	"show_gift_item": "hide",
 	"direction_control": "strafe",
-	"dof": "off"
+	"dof": "off",
+	"current_design": "default"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

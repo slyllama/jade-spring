@@ -205,7 +205,7 @@ transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 1, 0)
 
 [node name="Title" parent="BuildsGadget" instance=ExtResource("5_yv67k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
-spatial_string = "Swap Builds"
+spatial_string = "Manage Designs"
 override_settings = true
 
 [node name="VaultMote" type="GPUParticles3D" parent="BuildsGadget"]

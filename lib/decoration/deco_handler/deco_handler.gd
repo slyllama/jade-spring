@@ -93,9 +93,9 @@ func _load_decorations(data = []) -> void:
 	Global.deco_load_ended.emit()
 
 # Load decorations from a file as a dictionary to use with other functions
-func _load_decoration_file() -> Array:
-	if FileAccess.file_exists(FILE_PATH):
-		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
+func _load_decoration_file(deco_path = FILE_PATH) -> Array:
+	if FileAccess.file_exists(deco_path):
+		var file = FileAccess.open(deco_path, FileAccess.READ)
 		var _file_decos = file.get_var()
 		file.close()
 		return(_file_decos)
@@ -144,11 +144,6 @@ func _ready() -> void:
 		if Global.current_gadget:
 			Global.current_gadget._on_body_entered(Global.player))
 	
-	# Load saved decorations or reset them depending on parameters passed from the main menu
-	if Global.start_params.new_save:
-		_load_decorations(default_deco_data)
-	else: _load_decorations(_load_decoration_file())
-	
 	Global.mouse_3d_click.connect(func():
 		if Global.cursor_in_safe_point(): return
 		if Global.tool_mode == Global.TOOL_MODE_PLACE:
@@ -185,3 +180,12 @@ func _ready() -> void:
 			_get_decoration_list()
 		elif _cmd == "/getdecocount":
 			print(get_deco_count()))
+
+func _on_design_handler_ready() -> void:
+	# Load saved decorations or reset them depending on parameters passed from the main menu
+	# This doesn't happen until the DesignHandler is ready
+	if Global.start_params.new_save:
+		_load_decorations(default_deco_data)
+	else:
+		print("---> " + SettingsHandler.settings.current_design)
+		_load_decorations(_load_decoration_file())

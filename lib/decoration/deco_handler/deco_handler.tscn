@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://s5dqteeuut03"]
+[gd_scene load_steps=4 format=3 uid="uid://s5dqteeuut03"]
 
 [ext_resource type="Script" uid="uid://bqa6tl5d6xkum" path="res://lib/decoration/deco_handler/deco_handler.gd" id="1_73o41"]
+[ext_resource type="PackedScene" uid="uid://dfhuuibfm7lw0" path="res://lib/builds/design_handler/design_handler.tscn" id="2_33w40"]
 [ext_resource type="AudioStream" uid="uid://cctlih2gry63t" path="res://generic/sounds/shutter.ogg" id="3_hgmks"]
 
 [node name="DecoHandler" type="Node3D"]
 script = ExtResource("1_73o41")
 
+[node name="DesignHandler" parent="." instance=ExtResource("2_33w40")]
+
 [node name="DeleteSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hgmks")
 max_polyphony = 2
+
+[connection signal="ready" from="DesignHandler" to="." method="_on_design_handler_ready"]

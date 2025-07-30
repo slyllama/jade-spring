@@ -1,6 +1,6 @@
 extends Node3D
 
-const BuildPane = preload("res://lib/builds/build_pane/build_pane.tscn")
+const BuildPane = preload("res://lib/builds/design_pane/design_pane.tscn")
 
 var build_pane_open = false
 
