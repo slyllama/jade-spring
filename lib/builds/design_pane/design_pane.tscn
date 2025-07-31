@@ -101,9 +101,31 @@ autowrap_mode = 0
 [node name="SlotsRoot" type="VBoxContainer" parent="VBox"]
 layout_mode = 2
 
+[node name="Separator2" type="ColorRect" parent="VBox"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0)
+
 [node name="TestGetSlots" type="Button" parent="VBox"]
 layout_mode = 2
 text = "((Update Manually))"
+
+[node name="TestSaveSlot" type="Button" parent="VBox"]
+layout_mode = 2
+text = "((Save to Current Slot))"
+
+[node name="NewSlotBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="SlotNameInput" type="LineEdit" parent="VBox/NewSlotBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "((Slot name))"
+
+[node name="TestNewSlot" type="Button" parent="VBox/NewSlotBox"]
+layout_mode = 2
+text = "((Create New Slot))"
 
 [node name="PaperSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_t1hw8")
@@ -113,3 +135,5 @@ volume_db = -3.0
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="button_up" from="VBox/TitleBox/CloseButton" to="." method="_on_close_button_up"]
 [connection signal="button_down" from="VBox/TestGetSlots" to="." method="_on_test_get_slots_button_down"]
+[connection signal="button_down" from="VBox/TestSaveSlot" to="." method="_on_test_save_slot_button_down"]
+[connection signal="button_down" from="VBox/NewSlotBox/TestNewSlot" to="." method="_on_test_new_slot_button_down"]

@@ -392,6 +392,7 @@ placeholder_text = "Enter command:"
 
 [node name="SpinnerBox" type="TextureRect" parent="TopLevel"]
 visible = false
+z_index = 10
 custom_minimum_size = Vector2(143, 121)
 anchors_preset = 8
 anchor_left = 0.5

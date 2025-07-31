@@ -11,9 +11,16 @@ func update() -> void:
 	$VBox/Debug.text = "Current design: " + SettingsHandler.settings.current_design
 	for _i in $VBox/SlotsRoot.get_children(): _i.queue_free()
 	for _d in Global.design_handler.get_slots():
-		print(_d)
 		var _b = Button.new()
-		_b.text = _d
+		var _design_name = _d.replace(".dat", "")
+		_b.text = _design_name
+		_b.button_down.connect(func():
+			Global.click_sound.emit()
+			Global.design_handler.create_design_slot()
+			
+			await get_tree().process_frame
+			Global.design_handler.load_slot(_design_name)
+			update())
 		$VBox/SlotsRoot.add_child(_b)
 
 func open() -> void:
@@ -42,4 +49,12 @@ func _on_mouse_entered() -> void: Global.mouse_in_ui = true
 func _on_mouse_exited() -> void: Global.mouse_in_ui = false
 
 func _on_test_get_slots_button_down() -> void:
+	update()
+
+func _on_test_save_slot_button_down() -> void:
+	Global.design_handler.create_design_slot(SettingsHandler.settings.current_design)
+	update()
+
+func _on_test_new_slot_button_down() -> void:
+	Global.design_handler.create_design_slot($VBox/NewSlotBox/SlotNameInput.text.replace(" ", "_"))
 	update()
