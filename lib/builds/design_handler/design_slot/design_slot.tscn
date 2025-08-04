@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm2j0idqta5qw"]
+
+[ext_resource type="Texture2D" uid="uid://budw1cm8qdwp7" path="res://lib/builds/design_handler/design_slot/textures/design_slot_bg.png" id="1_jjgtk"]
+[ext_resource type="Script" uid="uid://v8pieffgamg5" path="res://lib/builds/design_handler/design_slot/design_slot.gd" id="2_obeuh"]
+[ext_resource type="Texture2D" uid="uid://b3cek2svfjg6j" path="res://lib/hud/textures/icon_count.png" id="3_aj1is"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_obeuh"]
+resource_local_to_scene = true
+texture = ExtResource("1_jjgtk")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjgtk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obeuh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aj1is"]
+
+[node name="DesignSlot" type="Panel"]
+custom_minimum_size = Vector2(0, 48)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_obeuh")
+script = ExtResource("2_obeuh")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 11.0
+offset_right = -23.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DecoLogo" type="TextureRect" parent="HBox"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+texture = ExtResource("3_aj1is")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="LineEdit" parent="HBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/selection_color = Color(0.176284, 0.12011, 0.304021, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(0.933333, 0.741176, 0.635294, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jjgtk")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_obeuh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_aj1is")
+text = "Build With a Cool Name"
+editable = false
+expand_to_text_length = true
+select_all_on_focus = true
+
+[node name="Padding2" type="ColorRect" parent="HBox"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="DecoCount" type="RichTextLabel" parent="HBox"]
+layout_mode = 2
+text = "(x)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Padding" type="ColorRect" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0)
+
+[node name="Activate" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Activate"
+
+[node name="Rename" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Rename"
+
+[node name="Delete" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Delete"
+
+[connection signal="button_down" from="HBox/Activate" to="." method="_on_activate_button_down"]
+[connection signal="button_down" from="HBox/Rename" to="." method="_on_rename_button_down"]
+[connection signal="button_down" from="HBox/Delete" to="." method="_on_delete_button_down"]

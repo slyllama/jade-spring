@@ -4,6 +4,8 @@ class_name DesignHandler extends Node
 
 const DPATH = "user://designs"
 
+signal file_op_completed # file operation completed
+
 # Generate a design slot from the current decoration list.
 func create_design_slot(design_name: String = SettingsHandler.settings.current_design) -> void:
 	print("[DesignHandler] creating slot '" + design_name + "'...")
@@ -12,12 +14,26 @@ func create_design_slot(design_name: String = SettingsHandler.settings.current_d
 
 func load_slot(design_name: String = SettingsHandler.settings.current_design) -> void:
 	SettingsHandler.update("current_design", design_name)
+	SettingsHandler.save_to_file()
 	DirAccess.copy_absolute(
 		DPATH + "/" + design_name + ".dat", "user://save/deco.dat")
 	
 	await get_tree().process_frame
 	Global.deco_handler._load_decorations(
 		Global.deco_handler._load_decoration_file())
+	
+	file_op_completed.emit()
+
+func delete_slot(design_name: String) -> void:
+	DirAccess.remove_absolute(DPATH + "/" + design_name + ".dat")
+
+func rename_slot(from: String, to: String) -> void:
+	var _from_path = DPATH + "/" + from + ".dat"
+	var _to_path = DPATH + "/" + to + ".dat"
+	DirAccess.copy_absolute(_from_path, _to_path)
+	DirAccess.remove_absolute(_from_path)
+	
+	file_op_completed.emit()
 
 # Return a list of designs that the user has
 func get_slots() -> PackedStringArray:

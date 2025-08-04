@@ -197,6 +197,7 @@ draw_pass_1 = SubResource("PlaneMesh_glq45")
 
 [node name="BuildsGadget" parent="." instance=ExtResource("4_pomj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+reset_on_interact = false
 show_area = true
 tint_color = Color(0.761443, 0.515204, 1, 1)
 
