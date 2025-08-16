@@ -42,6 +42,14 @@ func proc_story() -> void:
 	else: awake = false
 	set_awake()
 
+func show_info () -> void:
+	Global.play_hint("koi_fish", { 
+		"title": "Slumbering Fish",
+		"arrow": "up",
+		"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
+		"text": "Need more Karma? Once you have completed Ratchet's tutorial, return to these fish (when they are awake) with food from the shed next to the golem. Feeding them will grant you decoration currency!"
+		}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.5 - 300)), false)
+
 func _ready() -> void:
 	$KoiFish/AnimationPlayer.play("spin")
 	
@@ -66,6 +74,7 @@ func _on_gadget_interacted() -> void:
 			_f.completed.connect(cooldown)
 			add_child(_f)
 		else:
+			show_info()
 			Global.announcement_sent.emit(
 				"These are protected fish, but they don't know that. All they want to do is eat.")
 	else:

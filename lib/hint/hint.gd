@@ -7,7 +7,7 @@ func _set_dissolve(value: float) -> void:
 	material.set_shader_parameter("paint_exponent", (1.0 - ease(value, 0.2)) * 10.0)
 
 func set_text(data: Dictionary) -> void:
-	$VBox/Header/Title.text = "[center]" + data.title + "[/center]"
+	$HintInnerPanel/VBox/Header/Title.text = "[center]" + data.title + "[/center]"
 	var _tokens = []
 	var _flip = false
 	var _token = ""
@@ -40,7 +40,7 @@ func set_text(data: Dictionary) -> void:
 			_text += Utilities.format_binding(
 				Utilities.get_binding_str(_t.replace("@", "")))
 		else: _text += _t
-	$VBox/Body.text = _text
+	$HintInnerPanel/VBox/Body.text = _text
 
 func close() -> void:
 	if has_closed: # prevent from closing twice
@@ -64,6 +64,8 @@ func _ready() -> void:
 	
 	$Flash.visible = true
 	await get_tree().process_frame
+	
+	size.y = $HintInnerPanel.size.y
 	
 	var fade_in = create_tween()
 	fade_in.tween_method(_set_dissolve, 0.0, 1.0, 0.3)

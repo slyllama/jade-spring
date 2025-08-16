@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_ovc2o"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="3_3hmh0"]
 [ext_resource type="Script" uid="uid://dy3q76g82t0g0" path="res://lib/hint/hint.gd" id="3_p8n2g"]
+[ext_resource type="StyleBox" uid="uid://mmeewk458i1o" path="res://lib/hint/hint_panel_style.tres" id="4_m8tq4"]
 [ext_resource type="Texture2D" uid="uid://bqv2uq0udej43" path="res://lib/hint/textures/hint_arrow.png" id="7_d27fy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hk4fa"]
@@ -17,45 +18,40 @@ shader_parameter/uv_scale = 0.3
 shader_parameter/arrow_reduce_alpha = false
 shader_parameter/darken = 0.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fth6l"]
-bg_color = Color(0, 0, 0, 0.901961)
-
 [node name="Hint" type="Panel"]
 material = SubResource("ShaderMaterial_hk4fa")
 offset_right = 300.0
-offset_bottom = 140.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fth6l")
 script = ExtResource("3_p8n2g")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="HintInnerPanel" type="PanelContainer" parent="."]
 use_parent_material = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 12.0
-offset_right = -10.0
-offset_bottom = -13.0
+offset_bottom = 93.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_m8tq4")
+
+[node name="VBox" type="VBoxContainer" parent="HintInnerPanel"]
+use_parent_material = true
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 4
 
-[node name="Header" type="HBoxContainer" parent="VBox"]
+[node name="Header" type="HBoxContainer" parent="HintInnerPanel/VBox"]
 use_parent_material = true
 layout_mode = 2
 mouse_filter = 2
 
-[node name="LeftPad" type="ColorRect" parent="VBox/Header"]
+[node name="LeftPad" type="ColorRect" parent="HintInnerPanel/VBox/Header"]
 use_parent_material = true
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Title" type="RichTextLabel" parent="VBox/Header"]
+[node name="Title" type="RichTextLabel" parent="HintInnerPanel/VBox/Header"]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -66,7 +62,7 @@ bbcode_enabled = true
 text = "[center]Hint[/center]"
 fit_content = true
 
-[node name="CloseButton" type="TextureButton" parent="VBox/Header"]
+[node name="CloseButton" type="TextureButton" parent="HintInnerPanel/VBox/Header"]
 use_parent_material = true
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
@@ -75,7 +71,7 @@ texture_hover = ExtResource("3_3hmh0")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Body" type="RichTextLabel" parent="VBox"]
+[node name="Body" type="RichTextLabel" parent="HintInnerPanel/VBox"]
 use_parent_material = true
 layout_mode = 2
 mouse_filter = 2
@@ -85,7 +81,7 @@ bbcode_enabled = true
 text = "Use [Q] to descend, and [E] to ascend."
 fit_content = true
 
-[node name="Dismiss" type="Button" parent="VBox"]
+[node name="Dismiss" type="Button" parent="HintInnerPanel/VBox"]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 10
@@ -95,8 +91,7 @@ text = "Dismiss (Right-Click)"
 [node name="Arrow_S" type="TextureRect" parent="."]
 visible = false
 use_parent_material = true
-layout_mode = 1
-anchors_preset = 7
+layout_mode = 2
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -115,8 +110,7 @@ expand_mode = 1
 [node name="Arrow_N" type="TextureRect" parent="."]
 visible = false
 use_parent_material = true
-layout_mode = 1
-anchors_preset = 5
+layout_mode = 2
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -32.0
@@ -131,8 +125,7 @@ expand_mode = 1
 [node name="Arrow_W" type="TextureRect" parent="."]
 visible = false
 use_parent_material = true
-layout_mode = 1
-anchors_preset = 6
+layout_mode = 2
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -150,8 +143,7 @@ expand_mode = 1
 [node name="Arrow_E" type="TextureRect" parent="."]
 visible = false
 use_parent_material = true
-layout_mode = 1
-anchors_preset = 4
+layout_mode = 2
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = -54.0
@@ -166,8 +158,7 @@ flip_h = true
 
 [node name="Flash" type="ColorRect" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -175,5 +166,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.588235)
 
-[connection signal="button_down" from="VBox/Header/CloseButton" to="." method="_on_close_button_button_down"]
-[connection signal="button_down" from="VBox/Dismiss" to="." method="_on_dismiss_button_down"]
+[connection signal="button_down" from="HintInnerPanel/VBox/Header/CloseButton" to="." method="_on_close_button_button_down"]
+[connection signal="button_down" from="HintInnerPanel/VBox/Dismiss" to="." method="_on_dismiss_button_down"]
