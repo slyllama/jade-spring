@@ -27,7 +27,7 @@ func _on_builds_gadget_interacted() -> void:
 	
 	build_pane_open = true
 	var _b = BuildPane.instantiate()
-	Global.hud.get_node("TopLevel").add_child(_b)
+	Global.hud.get_node("BuildCanvas").add_child(_b)
 	Global.can_move = false
 	
 	_b.closed.connect(func():

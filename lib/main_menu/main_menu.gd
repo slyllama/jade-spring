@@ -62,22 +62,31 @@ func set_up_nodule() -> void:
 	$Container/Box/ContinueButton.focus_entered.connect(func():
 		$Swish.play()
 		focus = $Container/Box/ContinueButton)
+	$Container/AchievementsButton.focus_entered.connect(func():
+		$Swish.play()
+		focus = $Container/AchievementsButton)
 	$Container/PlayButton.mouse_entered.connect(func():
+		$Container/PlayButton.grab_focus()
 		$Swish.play()
 		focus = $Container/PlayButton)
 	$Container/CreditsButton.mouse_entered.connect(func():
+		$Container/CreditsButton.grab_focus()
 		$Swish.play()
 		focus = $Container/CreditsButton)
 	$Container/SettingsButton.mouse_entered.connect(func():
+		$Container/SettingsButton.grab_focus()
 		$Swish.play()
 		focus = $Container/SettingsButton)
 	$Container/AchievementsButton.mouse_entered.connect(func():
+		$Container/AchievementsButton.grab_focus()
 		$Swish.play()
 		focus = $Container/AchievementsButton)
 	$Container/QuitButton.mouse_entered.connect(func():
+		$Container/QuitButton.grab_focus()
 		$Swish.play()
 		focus = $Container/QuitButton)
 	$Container/Box/ContinueButton.mouse_entered.connect(func():
+		$Container/Box/ContinueButton.grab_focus()
 		$Swish.play()
 		focus = $Container/Box/ContinueButton)
 	
@@ -152,7 +161,10 @@ func _ready() -> void:
 	if SteamHandler.steam_loaded:
 		$Container/AchievementsButton.visible = true
 	Steam.user_stats_received.connect(func(_i, _j, _k):
-		$Container/AchievementsButton.visible = true)
+		$Container/AchievementsButton.visible = true
+		await get_tree().process_frame
+		$Container/SettingsButton.focus_neighbor_bottom = "../AchievementsButton"
+		$Container/CreditsButton.focus_neighbor_top = "../AchievementsButton")
 	
 	$FG.visible = true
 	$FG.modulate.a = 1.0
@@ -191,7 +203,9 @@ func _ready() -> void:
 			$Container/Box/ContinueButton.disabled = true
 			$Container/Box/InvalidWarning.visible = true
 			$Container/PlayButton.grab_focus()
-		else: $Container/Box/ContinueButton.grab_focus()
+		else:
+			$Container/PlayButton.focus_neighbor_top = "../Box/ContinueButton"
+			$Container/Box/ContinueButton.grab_focus()
 	else:
 		$Container/Box.visible = false
 		$Container/PlayButton.grab_focus()

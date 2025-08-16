@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://drejsvmhfj166"]
+[gd_scene load_steps=14 format=3 uid="uid://drejsvmhfj166"]
 
 [ext_resource type="Script" uid="uid://c3pjt2xhcfecb" path="res://lib/builds/design_pane/design_pane.gd" id="1_aofi5"]
 [ext_resource type="Shader" uid="uid://rqnfrjajec7x" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_q4hye"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="2_bnmjj"]
-[ext_resource type="Texture2D" uid="uid://cvbjo5ur2x1mo" path="res://lib/builds/design_handler/textures/base.png" id="4_icjx6"]
+[ext_resource type="Texture2D" uid="uid://cvbjo5ur2x1mo" path="res://lib/builds/design_pane/textures/base.png" id="4_icjx6"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="4_vfwvk"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="5_t1hw8"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="6_r6r7j"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="6_t1hw8"]
+[ext_resource type="Texture2D" uid="uid://cbqcsk3ppdfyg" path="res://lib/builds/design_pane/textures/new_slot_bg.png" id="8_icjx6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfwvk"]
 shader = ExtResource("1_q4hye")
@@ -20,6 +21,24 @@ shader_parameter/darken = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4hye"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lxasb"]
+texture = ExtResource("8_icjx6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icjx6"]
+content_margin_left = 8.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.431373)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 2
 
 [node name="DesignPane" type="Panel"]
 material = SubResource("ShaderMaterial_vfwvk")
@@ -52,7 +71,6 @@ offset_right = 582.0
 offset_bottom = 376.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = ExtResource("4_icjx6")
 expand_mode = 1
 
@@ -144,18 +162,38 @@ visible = false
 layout_mode = 2
 text = "((Save to Current Slot))"
 
-[node name="NewSlotBox" type="HBoxContainer" parent="VBox"]
+[node name="NewSlotBoxContainer" type="Panel" parent="VBox"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 91.33)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lxasb")
 
-[node name="SlotNameInput" type="LineEdit" parent="VBox/NewSlotBox"]
+[node name="NewSlotBox" type="HBoxContainer" parent="VBox/NewSlotBoxContainer"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 41.0
+offset_top = 9.0
+offset_right = -41.0
+offset_bottom = 36.0
+grow_horizontal = 2
+
+[node name="SlotNameInput" type="LineEdit" parent="VBox/NewSlotBoxContainer/NewSlotBox"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-placeholder_text = "((Slot name))"
+theme_override_colors/font_placeholder_color = Color(0.823345, 0.699542, 0.465739, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_icjx6")
+placeholder_text = "Type design name, or drag design file here."
 
-[node name="TestNewSlot" type="Button" parent="VBox/NewSlotBox"]
+[node name="TestNewSlot" type="Button" parent="VBox/NewSlotBoxContainer/NewSlotBox"]
+use_parent_material = true
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-text = "((Create New Slot))"
+focus_mode = 0
+text = "Create Design"
 
 [node name="PaperSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_t1hw8")
@@ -166,4 +204,4 @@ volume_db = -3.0
 [connection signal="button_up" from="CloseButton" to="." method="_on_close_button_up"]
 [connection signal="button_down" from="VBox/TestGetSlots" to="." method="_on_test_get_slots_button_down"]
 [connection signal="button_down" from="VBox/TestSaveSlot" to="." method="_on_test_save_slot_button_down"]
-[connection signal="button_down" from="VBox/NewSlotBox/TestNewSlot" to="." method="_on_test_new_slot_button_down"]
+[connection signal="button_down" from="VBox/NewSlotBoxContainer/NewSlotBox/TestNewSlot" to="." method="_on_test_new_slot_button_down"]

@@ -101,7 +101,7 @@ func _input(_event: InputEvent) -> void:
 		$PlayerMesh.visible = !$PlayerMesh.visible
 	
 	if Input.is_action_just_pressed("sprint"):
-		if can_play_sprint_sound and velocity.length() > 0.0:
+		if can_play_sprint_sound and velocity.length() > 0.0 and !Global.design_pane_open:
 			can_play_sprint_sound = false
 			$SprintSoundCD.start()
 			$SprintSoundPlayer.stream = SPRINT_SOUNDS.pick_random()

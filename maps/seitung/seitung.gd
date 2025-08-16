@@ -35,6 +35,7 @@ func enter_vault() -> void:
 
 func leave_vault() -> void:
 	Global.remove_effect.emit("vault")
+	Global.vault_left.emit()
 	Global.hud.fade_out()
 	await Global.hud.fade_out_complete
 	
@@ -43,7 +44,6 @@ func leave_vault() -> void:
 	Global.go_to_safe_point()
 	
 	await get_tree().create_timer(0.5).timeout
-	Global.vault_left.emit()
 	Global.hud.fade_in()
 
 func _ready() -> void:

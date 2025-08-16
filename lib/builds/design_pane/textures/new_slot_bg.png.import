@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvbjo5ur2x1mo"
-path="res://.godot/imported/base.png-8fd09e24adb7f312b8ec852c2c8598e3.ctex"
+uid="uid://cbqcsk3ppdfyg"
+path="res://.godot/imported/new_slot_bg.png-b62548da0dc0a9800f8fff4c461088b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/builds/design_handler/textures/base.png"
-dest_files=["res://.godot/imported/base.png-8fd09e24adb7f312b8ec852c2c8598e3.ctex"]
+source_file="res://lib/builds/design_pane/textures/new_slot_bg.png"
+dest_files=["res://.godot/imported/new_slot_bg.png-b62548da0dc0a9800f8fff4c461088b0.ctex"]
 
 [params]
 

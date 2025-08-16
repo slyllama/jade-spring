@@ -65,7 +65,7 @@ func _set_dragonvoid_exponent(val: float) -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("sprint"):
-		if get_window().gui_get_focus_owner() is LineEdit: return
+		if get_window().gui_get_focus_owner() is LineEdit or Global.design_pane_open: return
 		var _f = create_tween()
 		_f.tween_method(_set_anime_alpha, 0.0, 0.5, 0.1)
 	elif Input.is_action_just_released("sprint"):

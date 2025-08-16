@@ -119,6 +119,8 @@ flip_v = true
 
 [node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
 
+[node name="BuildCanvas" type="CanvasLayer" parent="."]
+
 [node name="CornerButtons" type="HBoxContainer" parent="."]
 offset_left = 8.0
 offset_top = 8.0

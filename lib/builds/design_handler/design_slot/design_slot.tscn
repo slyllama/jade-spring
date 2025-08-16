@@ -15,6 +15,7 @@ texture = ExtResource("1_jjgtk")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aj1is"]
 
 [node name="DesignSlot" type="Panel"]
+use_parent_material = true
 custom_minimum_size = Vector2(0, 48)
 anchors_preset = 10
 anchor_right = 1.0
@@ -24,6 +25,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_obeuh")
 script = ExtResource("2_obeuh")
 
 [node name="HBox" type="HBoxContainer" parent="."]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,6 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DecoLogo" type="TextureRect" parent="HBox"]
+use_parent_material = true
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 texture = ExtResource("3_aj1is")
@@ -43,6 +46,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Name" type="LineEdit" parent="HBox"]
+use_parent_material = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/selection_color = Color(0.176284, 0.12011, 0.304021, 1)
@@ -58,11 +62,14 @@ expand_to_text_length = true
 select_all_on_focus = true
 
 [node name="Padding2" type="ColorRect" parent="HBox"]
+use_parent_material = true
 custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 color = Color(1, 1, 1, 0)
 
 [node name="DecoCount" type="RichTextLabel" parent="HBox"]
+use_parent_material = true
 layout_mode = 2
 text = "(x)"
 fit_content = true
@@ -71,23 +78,30 @@ autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="Padding" type="ColorRect" parent="HBox"]
+use_parent_material = true
+custom_minimum_size = Vector2(12, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 color = Color(1, 1, 1, 0)
 
 [node name="Activate" type="Button" parent="HBox"]
+use_parent_material = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Activate"
 
 [node name="Rename" type="Button" parent="HBox"]
+use_parent_material = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Rename"
 
 [node name="Delete" type="Button" parent="HBox"]
+use_parent_material = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Delete"
 
 [connection signal="button_down" from="HBox/Activate" to="." method="_on_activate_button_down"]

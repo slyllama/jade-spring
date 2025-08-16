@@ -38,6 +38,7 @@ var debug_enabled = false
 var deco_button_pressed = false # this will become true on mouse down - decoration placement will not happen until it has been cleared
 var deco_pane_open = false
 var default_input_map = { }
+var design_pane_open = false
 var dialogue_open = false
 var dragging = false # just reports whether the player is dragging gizmos at the moment or not
 var current_effects = [ ]

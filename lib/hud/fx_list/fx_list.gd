@@ -86,7 +86,7 @@ const EFFECTS_LIST = { # TODO: use images instead
 	"dialogue": {
 		"texture": "dialogue",
 		"title": "My Friend Ratchet",
-		"description": "Ratchet has some more to say!"
+		"description": "Ratchet has some more to say! (Progress toward Steam achievement, 'My Friend Ratchet'.)"
 	}
 }
 

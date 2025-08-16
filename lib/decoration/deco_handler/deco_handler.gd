@@ -94,11 +94,14 @@ func _load_decorations(data = []) -> void:
 
 # Load decorations from a file as a dictionary to use with other functions
 func _load_decoration_file(deco_path = FILE_PATH) -> Array:
+	if !".dat" in deco_path: return([]) # not a DAT file
 	if FileAccess.file_exists(deco_path):
 		var file = FileAccess.open(deco_path, FileAccess.READ)
 		var _file_decos = file.get_var()
 		file.close()
-		return(_file_decos)
+		if _file_decos is Array:
+			return(_file_decos)
+		else: return([])
 	else:
 		return([])
 

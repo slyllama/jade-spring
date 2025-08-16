@@ -35,6 +35,7 @@ func update() -> void:
 		_ds.slot_deleted.connect(update)
 
 func open() -> void:
+	Global.design_pane_open = true
 	Global.design_handler.create_design_slot()
 	
 	$PaperSound.play()
@@ -45,12 +46,20 @@ func open() -> void:
 	update()
 
 func close() -> void:
+	Global.design_pane_open = false
 	closed.emit()
 	var _fade_tween = create_tween()
 	_fade_tween.tween_method(_set_dissolve, 1.0, 0.0, 0.1)
 	_fade_tween.tween_callback(queue_free)
 
 func _ready() -> void:
+	get_window().files_dropped.connect(func(file):
+		var _data = Global.deco_handler._load_decoration_file(file[0])
+		if _data != []: # only update if the data is valid
+			Global.design_handler.create_custom_file(file[0])
+			update()
+		else: Global.announcement_sent.emit("Invalid design file."))
+	
 	for _n in Utilities.get_all_children(self):
 		if _n is Control: _n.use_parent_material = true
 	
@@ -72,9 +81,12 @@ func _on_test_save_slot_button_down() -> void:
 	update()
 
 func _on_test_new_slot_button_down() -> void:
-	var _new_slot = $VBox/NewSlotBox/SlotNameInput.text.to_lower().replace(" ", "_")
-	Global.design_handler.create_design_slot(_new_slot)
-	await get_tree().process_frame
-	Global.design_handler.load_slot(_new_slot)
-	update()
-	
+	var _text_value = $VBox/NewSlotBoxContainer/NewSlotBox/SlotNameInput.text.to_lower().replace(" ", "_")
+	if _text_value != "":
+		var _new_slot = _text_value
+		Global.design_handler.create_design_slot(_new_slot)
+		await get_tree().process_frame
+		Global.design_handler.load_slot(_new_slot)
+		update()
+		
+		$VBox/NewSlotBoxContainer/NewSlotBox/SlotNameInput.text = ""

@@ -280,33 +280,27 @@ color = Color(1, 1, 1, 0)
 [node name="ContinueButton" parent="Container/Box" instance=ExtResource("3_v0okn")]
 layout_mode = 2
 size_flags_horizontal = 8
-focus_mode = 1
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_furok")
 text = "Continue"
 
 [node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]
 layout_mode = 2
-focus_mode = 1
 
 [node name="SettingsButton" parent="Container" instance=ExtResource("3_v0okn")]
 layout_mode = 2
-focus_mode = 1
 text = "Settings"
 
 [node name="AchievementsButton" parent="Container" instance=ExtResource("3_v0okn")]
 visible = false
 layout_mode = 2
-focus_mode = 1
 text = "Achievements"
 
 [node name="CreditsButton" parent="Container" instance=ExtResource("3_v0okn")]
 layout_mode = 2
-focus_mode = 1
 text = "Credits"
 
 [node name="QuitButton" parent="Container" instance=ExtResource("3_v0okn")]
 layout_mode = 2
-focus_mode = 1
 text = "Quit"
 
 [node name="SettingsPane" parent="." instance=ExtResource("4_swp2s")]

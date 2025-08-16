@@ -12,6 +12,13 @@ func create_design_slot(design_name: String = SettingsHandler.settings.current_d
 	DirAccess.copy_absolute(
 		"user://save/deco.dat", DPATH + "/" + design_name + ".dat")
 
+# Create a design 
+func create_custom_file(custom_design_path: String) -> void:
+	var design_name = "eeby"
+	print("[DesignHandler] creating slot '" + design_name + "'...")
+	DirAccess.copy_absolute(
+		custom_design_path, DPATH + "/" + design_name + ".dat")
+
 func load_slot(design_name: String = SettingsHandler.settings.current_design) -> void:
 	SettingsHandler.update("current_design", design_name)
 	SettingsHandler.save_to_file()
