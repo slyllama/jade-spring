@@ -356,7 +356,8 @@ func _ready() -> void:
 		else:
 			get_window().content_scale_factor = 2.0
 			retina_scale = 2
-		get_window().size *= retina_scale
+		if !Engine.is_embedded_in_editor():
+			get_window().size *= retina_scale
 	get_window().min_size = Vector2i(
 		floor(1280 * Global.retina_scale) - 1,
 		floor(720 * Global.retina_scale) - 1)

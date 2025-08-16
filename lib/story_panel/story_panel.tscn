@@ -191,6 +191,7 @@ libraries = {
 }
 
 [node name="CloseButton" type="TextureButton" parent="."]
+use_parent_material = true
 custom_minimum_size = Vector2(20, 20)
 anchors_preset = 8
 anchor_left = 0.5

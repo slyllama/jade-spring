@@ -90,23 +90,26 @@ func get_time() -> String:
 	return("%02d:%02d:%02d" % [time.hour, time.minute, time.second])
 
 func set_window_mode(window_mode: String) -> void:
-		if window_mode == "full_screen":
-			if get_window().mode != Window.MODE_FULLSCREEN:
-				get_window().mode = Window.MODE_FULLSCREEN
-		elif window_mode == "maximized":
-			if get_window().mode != Window.MODE_MAXIMIZED:
-				get_window().mode = Window.MODE_MAXIMIZED
-		elif window_mode == "exclusive_full_screen":
-			if get_window().mode != Window.MODE_EXCLUSIVE_FULLSCREEN:
-				get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
-		elif window_mode == "windowed_(1080p)":
-			if get_window().mode != Window.MODE_WINDOWED:
-				get_window().mode = Window.MODE_WINDOWED
-			get_window().set_size(Vector2i(1920, 1080) * Global.retina_scale)
-		else:
-			if get_window().mode != Window.MODE_WINDOWED:
-				get_window().mode = Window.MODE_WINDOWED
-			get_window().set_size(Vector2i(1280, 720) * Global.retina_scale)
+	if Engine.is_embedded_in_editor():
+		print("[Utilities] Skipping window resize because the game is embedded in editor.")
+		return
+	if window_mode == "full_screen":
+		if get_window().mode != Window.MODE_FULLSCREEN:
+			get_window().mode = Window.MODE_FULLSCREEN
+	elif window_mode == "maximized":
+		if get_window().mode != Window.MODE_MAXIMIZED:
+			get_window().mode = Window.MODE_MAXIMIZED
+	elif window_mode == "exclusive_full_screen":
+		if get_window().mode != Window.MODE_EXCLUSIVE_FULLSCREEN:
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+	elif window_mode == "windowed_(1080p)":
+		if get_window().mode != Window.MODE_WINDOWED:
+			get_window().mode = Window.MODE_WINDOWED
+		get_window().set_size(Vector2i(1920, 1080) * Global.retina_scale)
+	else:
+		if get_window().mode != Window.MODE_WINDOWED:
+			get_window().mode = Window.MODE_WINDOWED
+		get_window().set_size(Vector2i(1280, 720) * Global.retina_scale)
 
 func get_user_vol() -> float:
 	if "volume" in SettingsHandler.settings:

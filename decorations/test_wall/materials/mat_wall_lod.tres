@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dbya7wowr1xn8" path="res://decorations/test_wall/materials/textures/wall_lod.jpg" id="1_r1srj"]
 
 [resource]
-albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_color = Color(0.9, 0.9, 0.9, 1)
 albedo_texture = ExtResource("1_r1srj")
 metallic_specular = 0.15
 distance_fade_mode = 2
-distance_fade_min_distance = 12.0
-distance_fade_max_distance = 13.0
+distance_fade_min_distance = 21.0
+distance_fade_max_distance = 20.0

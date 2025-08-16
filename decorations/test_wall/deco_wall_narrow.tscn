@@ -8,7 +8,6 @@ size = Vector3(1.25586, 4, 0.480713)
 
 [node name="DecoWallNarrow" type="Node3D" node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_464y2")
-wall_color = Color(0.694259, 0.839996, 0.923155, 1)
 id = "simple_wall_narrow"
 collision_box = NodePath("Body")
 disable_culling = true

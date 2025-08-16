@@ -179,7 +179,11 @@ func _ready() -> void:
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()
-		)
+		elif _cmd == "/teststorypanel":
+			Global.summon_story_panel.emit({
+				"title": "((Test Story Panel))",
+				"description": "((Description for the test story panel.))"
+			}))
 	
 	Global.debug_toggled.connect(func():
 		if visible:

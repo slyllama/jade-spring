@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://livylimc6kil"
+uid="uid://b3qvnt83xjc8b"
 path="res://.godot/imported/wall_with_window.glb-b484aee2370239865f773e917f93f13d.scn"
 
 [deps]
@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/wall_with_window.glb-b484aee2370239865f773e91
 [params]
 
 nodes/root_type=""
-nodes/root_name="WallWithWindow"
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -36,11 +36,15 @@ _subresources={
 "materials": {
 "mat_inlay": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/test_wall/materials/mat_wood_inlay.tres"
+"use_external/path": "uid://s0mdpaql2iqj"
 },
 "mat_wall_beam": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/test_wall/materials/mat_wall_beam.tres"
+"use_external/path": "uid://bf4e6kuiowdy0"
+},
+"wall_lod": {
+"use_external/enabled": true,
+"use_external/path": "uid://lirc53xdtg5b"
 }
 }
 }

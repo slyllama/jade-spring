@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://8vxhtkmd5f52"]
 
-[ext_resource type="Shader" path="res://decorations/planter_box/materials/shaders/shader_cantha_wood.gdshader" id="1_e61dy"]
+[ext_resource type="Shader" uid="uid://cug2dmjnwjppu" path="res://decorations/planter_box/materials/shaders/shader_cantha_wood.gdshader" id="1_e61dy"]
 [ext_resource type="Texture2D" uid="uid://borte5klyi21j" path="res://decorations/planter_box/materials/textures/cantha_wood_norm.jpg" id="2_agbqy"]
 [ext_resource type="Texture2D" uid="uid://be5vay1yrnh40" path="res://decorations/planter_box/materials/textures/cantha_wood_diff.jpg" id="2_g33qt"]
 [ext_resource type="Texture2D" uid="uid://bhb340tscr274" path="res://decorations/planter_box/materials/textures/planter_box_mask.jpg" id="2_heppf"]
@@ -9,11 +9,11 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_e61dy")
-shader_parameter/albedo = Color(0.672597, 0.57077, 0.5026, 1)
-shader_parameter/ornament_albedo = Color(0.307308, 0.485823, 0.67081, 1)
-shader_parameter/ornament_uv_scale = 2.0
-shader_parameter/wood_uv_scale = 3.0
 shader_parameter/wood_texture = ExtResource("2_g33qt")
 shader_parameter/wood_normal_texture = ExtResource("2_agbqy")
 shader_parameter/data_mask = ExtResource("2_heppf")
 shader_parameter/ornament_texture = ExtResource("3_8axbp")
+shader_parameter/albedo = Color(0.672597, 0.57077, 0.5026, 1)
+shader_parameter/ornament_albedo = Color(0.307308, 0.485823, 0.67081, 1)
+shader_parameter/ornament_uv_scale = 2.0
+shader_parameter/wood_uv_scale = 3.0
