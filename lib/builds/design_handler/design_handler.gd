@@ -2,7 +2,7 @@ class_name DesignHandler extends Node
 # DesignHandler
 # Gets parented to DecorationHandler
 
-const DPATH = "user://designs"
+const DPATH = "user://save/designs"
 
 signal file_op_completed # file operation completed
 
@@ -47,4 +47,5 @@ func _ready() -> void:
 		# First time setup
 		print("[DesignHandler] no path exists, creating...")
 		DirAccess.make_dir_absolute(DPATH)
+		SettingsHandler.update("current_design", "default")
 		create_design_slot("default")

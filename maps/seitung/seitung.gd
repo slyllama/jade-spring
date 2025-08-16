@@ -31,7 +31,7 @@ func enter_vault() -> void:
 		"arrow": "down",
 		"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
 		"text": "Use |skill_6| to leave the Otter's Enclave."
-	}, Utilities.get_screen_center(Vector2(160, get_viewport().size.y / Global.retina_scale * 0.5 - 270)), false)
+	}, Utilities.get_screen_center(Vector2(160, get_viewport().size.y / Global.retina_scale * 0.5 - 270)), true)
 
 func leave_vault() -> void:
 	Global.remove_effect.emit("vault")

@@ -48,7 +48,7 @@ func show_info () -> void:
 		"arrow": "up",
 		"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
 		"text": "Need more Karma? Once you have completed Ratchet's tutorial, return to these fish (when they are awake) with food from the shed next to the golem. Feeding them will grant you decoration currency!"
-		}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.5 - 300)), false)
+		}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.5 - 300)), true)
 
 func _ready() -> void:
 	$KoiFish/AnimationPlayer.play("spin")
@@ -64,8 +64,8 @@ func _update_interact_text() -> void:
 
 func _on_gadget_interacted() -> void:
 	if !awake:
-		Global.announcement_sent.emit(
-			"The koi slumber for now.")
+		Global.announcement_sent.emit("The koi slumber for now.")
+		show_info()
 		return
 	if Save.is_at_story_point("ratchet_gratitude"):
 		if "fish_food" in Global.current_effects:
