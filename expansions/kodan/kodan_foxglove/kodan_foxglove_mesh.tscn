@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://4juvjgakvq6g"]
+
+[ext_resource type="PackedScene" uid="uid://beis1rcbdjee2" path="res://expansions/kodan/kodan_foxglove/kodan_foxglove.glb" id="1_fj26c"]
+
+[node name="KodanFoxgloveMesh" type="Node3D"]
+
+[node name="Foxglove" parent="." instance=ExtResource("1_fj26c")]
+transform = Transform3D(1, 0, 0, 0, 0.997713, 0.0675974, 0, -0.0675974, 0.997713, 0.198495, -0.170183, -0.05555)
+
+[node name="Foxglove2" parent="." instance=ExtResource("1_fj26c")]
+transform = Transform3D(-0.0320679, -0.142658, 1.27665, 0, 1.27705, 0.142702, -1.2846, 0.00356122, -0.0318696, -0.0206609, -0.217831, 0.0640634)

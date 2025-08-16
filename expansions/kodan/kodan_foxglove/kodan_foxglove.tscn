@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqr08s5a7uyxj"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_l1iml"]
+[ext_resource type="PackedScene" uid="uid://4juvjgakvq6g" path="res://expansions/kodan/kodan_foxglove/kodan_foxglove_mesh.tscn" id="2_y1ff0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkuyf"]
+size = Vector3(1, 1, 0.798828)
+
+[node name="KodanFoxglove" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_l1iml")
+id = "kodan_foxglove"
+collision_box = NodePath("Area")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476396, 0)
+shape = SubResource("BoxShape3D_mkuyf")
+
+[node name="KodanFoxgloveMesh" parent="." instance=ExtResource("2_y1ff0")]

@@ -219,16 +219,16 @@ const DecoData = {
 		"tags": ["Utilities"],
 		"unlock_value": 50
 	},
-	"cid_alteration_banner": {
-		"name": "Cid's Alteration Banner",
-		"scene": "res://decorations/cid_banners/banner_alteration/banner_alteration.tscn",
-		"cursor_model": "res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.tscn",
-		"preview_scale": 1.0,
-		"preview_v_offset": -0.45,
-		"preview_y_rotation": 180,
-		"tags": ["Utilities"],
-		"unlock_value": 50
-	},
+	#"cid_alteration_banner": {
+		#"name": "Cid's Alteration Banner",
+		#"scene": "res://decorations/cid_banners/banner_alteration/banner_alteration.tscn",
+		#"cursor_model": "res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.tscn",
+		#"preview_scale": 1.0,
+		#"preview_v_offset": -0.45,
+		#"preview_y_rotation": 180,
+		#"tags": ["Utilities"],
+		#"unlock_value": 50
+	#},
 	"tussock": {
 		"name": "Tussock",
 		"scene": "res://decorations/tussock/deco_tussock.tscn",
