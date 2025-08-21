@@ -18,6 +18,7 @@ const DEFAULT_SETTINGS = {
 	"fov": 0.63,
 	"aa": "msaa_(4x)",
 	"saturation": 0.32,
+	"brightness": 0.5,
 	"show_gift_item": "hide",
 	"direction_control": "strafe",
 	"dof": "off",

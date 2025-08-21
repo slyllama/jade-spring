@@ -8,8 +8,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 layers = 0
 cast_shadow = 0
 radius = 0.25
-radial_segments = 24
-rings = 12
+radial_segments = 8
+rings = 4
 material = ExtResource("1_lj4vv")
 script = ExtResource("2_3dpfb")
 

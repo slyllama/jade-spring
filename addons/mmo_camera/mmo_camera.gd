@@ -50,7 +50,7 @@ func _get_v_offset() -> float:
 	return((_target_zoom - max_zoom_in) / (max_zoom_out - max_zoom_in) * v_offset)
 
 func _input(event: InputEvent) -> void:
-	if Global.mouse_in_ui: return
+	if Global.mouse_in_ui or Global.design_pane_open: return
 	if event is InputEventPanGesture: _target_zoom += event.delta.y / 2.0
 	if Input.is_action_just_pressed(zoom_in): _target_zoom -= zoom_increment
 	if Input.is_action_just_pressed(zoom_out): _target_zoom += zoom_increment
@@ -68,6 +68,11 @@ func _ready() -> void:
 		if _param == "fov":
 			var _fov = SettingsHandler.settings.fov
 			fov = SettingsHandler.get_fov_deg())
+	
+	Global.command_sent.connect(func(_cmd):
+		if "/camerafar=" in _cmd:
+			var _far = float(_cmd.replace("/camerafar=", ""))
+			camera.far = _far)
 	
 	# Add components to the scene
 	add_child(axis)

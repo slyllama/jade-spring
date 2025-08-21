@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpvkmab1snjcp"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_eojfj"]
+[ext_resource type="PackedScene" uid="uid://diy60dfkcbj4l" path="res://expansions/kodan/kodan_floor_piece/kodan_floor_piece_mesh.glb" id="2_55wp2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k33vi"]
+size = Vector3(5, 0.1, 5)
+
+[node name="KodanFloorPiece" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_eojfj")
+id = "kodan_floor_piece"
+collision_box = NodePath("Body")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="kodan_floor_piece_mesh" parent="." instance=ExtResource("2_55wp2")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_k33vi")

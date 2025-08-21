@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drejsvmhfj166"]
+[gd_scene load_steps=13 format=3 uid="uid://drejsvmhfj166"]
 
 [ext_resource type="Script" uid="uid://c3pjt2xhcfecb" path="res://lib/builds/design_pane/design_pane.gd" id="1_aofi5"]
 [ext_resource type="Shader" uid="uid://rqnfrjajec7x" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_q4hye"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cvbjo5ur2x1mo" path="res://lib/builds/design_pane/textures/base.png" id="4_icjx6"]
 [ext_resource type="Texture2D" uid="uid://cobebuy8rmele" path="res://lib/ui_container/textures/close_button.png" id="4_vfwvk"]
 [ext_resource type="Texture2D" uid="uid://o8pey70yoybj" path="res://lib/ui_container/textures/close_button_hover.png" id="5_t1hw8"]
-[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="6_r6r7j"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="6_t1hw8"]
 [ext_resource type="Texture2D" uid="uid://cbqcsk3ppdfyg" path="res://lib/builds/design_pane/textures/new_slot_bg.png" id="8_icjx6"]
 
@@ -71,6 +70,7 @@ offset_right = 582.0
 offset_bottom = 376.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_icjx6")
 expand_mode = 1
 
@@ -118,7 +118,7 @@ anchor_bottom = 1.0
 offset_left = -214.0
 offset_top = 41.0
 offset_right = 214.0
-offset_bottom = -41.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -128,22 +128,14 @@ layout_mode = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0)
 
-[node name="Debug" type="RichTextLabel" parent="VBox"]
-visible = false
+[node name="Scroll" type="ScrollContainer" parent="VBox"]
 use_parent_material = true
 layout_mode = 2
-mouse_filter = 1
-theme_override_colors/default_color = Color(0.75, 0.75, 0.75, 1)
-theme_override_fonts/normal_font = ExtResource("6_r6r7j")
-theme_override_font_sizes/normal_font_size = 12
-bbcode_enabled = true
-text = "((Debug))"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+size_flags_vertical = 3
 
-[node name="SlotsRoot" type="VBoxContainer" parent="VBox"]
+[node name="SlotsRoot" type="VBoxContainer" parent="VBox/Scroll"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
 [node name="Separator2" type="ColorRect" parent="VBox"]
@@ -151,16 +143,6 @@ custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0)
-
-[node name="TestGetSlots" type="Button" parent="VBox"]
-visible = false
-layout_mode = 2
-text = "((Update Manually))"
-
-[node name="TestSaveSlot" type="Button" parent="VBox"]
-visible = false
-layout_mode = 2
-text = "((Save to Current Slot))"
 
 [node name="NewSlotBoxContainer" type="Panel" parent="VBox"]
 use_parent_material = true
@@ -202,6 +184,4 @@ volume_db = -3.0
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="button_up" from="CloseButton" to="." method="_on_close_button_up"]
-[connection signal="button_down" from="VBox/TestGetSlots" to="." method="_on_test_get_slots_button_down"]
-[connection signal="button_down" from="VBox/TestSaveSlot" to="." method="_on_test_save_slot_button_down"]
 [connection signal="button_down" from="VBox/NewSlotBoxContainer/NewSlotBox/TestNewSlot" to="." method="_on_test_new_slot_button_down"]

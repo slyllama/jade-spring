@@ -119,8 +119,6 @@ flip_v = true
 
 [node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
 
-[node name="BuildCanvas" type="CanvasLayer" parent="."]
-
 [node name="CornerButtons" type="HBoxContainer" parent="."]
 offset_left = 8.0
 offset_top = 8.0
@@ -288,6 +286,9 @@ offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
 title = "Decorations"
+
+[node name="BuildCanvas" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="Version" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0.784314)

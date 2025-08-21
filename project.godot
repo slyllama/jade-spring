@@ -27,8 +27,8 @@ Utilities="*res://lib/_global/utilities.gd"
 SettingsHandler="*res://lib/settings_handler/settings_handler.tscn"
 Save="*res://lib/_global/save.gd"
 SteamHandler="*res://lib/_global/steam_handler.tscn"
-DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 Version="*res://version.gd"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [debug]
 

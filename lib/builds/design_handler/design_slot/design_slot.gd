@@ -19,7 +19,7 @@ func update() -> void:
 	if !design_name:
 		print("[DesignSlot] no design name assigned.")
 		return
-	$HBox/Name.text = design_name.replace("_", " ").capitalize()
+	$HBox/Name.text = design_name.replace("_", " ")
 	
 	if SettingsHandler.settings.current_design == design_name:
 		$HBox/Delete.disabled = true
@@ -51,7 +51,7 @@ func _on_rename_button_down() -> void:
 		$HBox/Name.grab_focus()
 		$HBox/Name.select_all()
 	else:
-		var _new_name = $HBox/Name.text.to_lower().replace(" ", "_")
+		var _new_name = $HBox/Name.text.replace(" ", "_")
 		if _new_name != design_name:
 			slot_renamed.emit(_new_name)
 		else:

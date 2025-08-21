@@ -117,6 +117,9 @@ func _on_gp_low_button_down() -> void:
 	SettingsHandler.update("foliage_density", "low")
 	SettingsHandler.update("fps_cap", "unlimited")
 	SettingsHandler.update("bloom", "off")
+	
+	SettingsHandler.update("saturation", 0.65)
+	SettingsHandler.update("brightness", 1.0)
 	SettingsHandler.save_to_file()
 
 func _on_gp_normal_button_down() -> void:
@@ -124,6 +127,9 @@ func _on_gp_normal_button_down() -> void:
 	SettingsHandler.update("foliage_density", "high")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
+	
+	SettingsHandler.update("saturation", 0.5)
+	SettingsHandler.update("brightness", 0.5)
 	SettingsHandler.save_to_file()
 
 func _on_gp_high_button_down() -> void:
@@ -131,6 +137,9 @@ func _on_gp_high_button_down() -> void:
 	SettingsHandler.update("foliage_density", "ultra")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
+	
+	SettingsHandler.update("saturation", 0.5)
+	SettingsHandler.update("brightness", 0.5)
 	SettingsHandler.save_to_file()
 
 func _on_rsc_button_down() -> void: # reset shader cache

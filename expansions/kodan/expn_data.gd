@@ -18,6 +18,20 @@ const data = {
 		"preview_y_rotation": 180,
 		"tags": ["Architecture", "Kodan", "Roof"]
 	},
+	"kodan_floor_piece": {
+		"name": "Kodan Floor Piece",
+		"preview_scale": 0.42,
+		"model_offset": Vector3(0, 0.5, 0),
+		"preview_y_rotation": 35,
+		"tags": ["Architecture", "Kodan", "Floor"]
+	},
+	"kodan_support_column": {
+		"name": "Kodan Support Column",
+		"preview_scale": 0.42,
+		"model_offset": Vector3(0, 0.5, 0),
+		"preview_y_rotation": 35,
+		"tags": ["Architecture", "Kodan", "Wall"]
+	},
 	"kodan_roof_corner_piece": {
 		"name": "Kodan Roof Corner Piece",
 		"preview_scale": 0.5,

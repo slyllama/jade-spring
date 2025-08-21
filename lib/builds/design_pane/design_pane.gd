@@ -10,13 +10,12 @@ func _set_dissolve(val):
 
 # Repopulate pane with accurate data
 func update() -> void:
-	$VBox/Debug.text = "Current design: " + SettingsHandler.settings.current_design
-	for _i in $VBox/SlotsRoot.get_children(): _i.queue_free()
+	for _i in $VBox/Scroll/SlotsRoot.get_children(): _i.queue_free()
 	for _d in Global.design_handler.get_slots():
 		var _design_name: String = _d.replace(".dat", "")
 		var _ds = DesignSlot.instantiate()
 		_ds.design_name = _design_name
-		$VBox/SlotsRoot.add_child(_ds)
+		$VBox/Scroll/SlotsRoot.add_child(_ds)
 		
 		_ds.activated.connect(func():
 			Global.design_handler.create_design_slot()
@@ -36,6 +35,7 @@ func update() -> void:
 
 func open() -> void:
 	Global.design_pane_open = true
+	Global.in_exclusive_ui = true
 	Global.design_handler.create_design_slot()
 	
 	$PaperSound.play()
@@ -47,6 +47,7 @@ func open() -> void:
 
 func close() -> void:
 	Global.design_pane_open = false
+	Global.in_exclusive_ui = false
 	closed.emit()
 	var _fade_tween = create_tween()
 	_fade_tween.tween_method(_set_dissolve, 1.0, 0.0, 0.1)
@@ -81,7 +82,7 @@ func _on_test_save_slot_button_down() -> void:
 	update()
 
 func _on_test_new_slot_button_down() -> void:
-	var _text_value = $VBox/NewSlotBoxContainer/NewSlotBox/SlotNameInput.text.to_lower().replace(" ", "_")
+	var _text_value = $VBox/NewSlotBoxContainer/NewSlotBox/SlotNameInput.text.replace(" ", "_")
 	if _text_value != "":
 		var _new_slot = _text_value
 		Global.design_handler.create_design_slot(_new_slot)

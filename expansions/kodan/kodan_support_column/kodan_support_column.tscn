@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6x0ip532hk3u"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_mn4fa"]
+[ext_resource type="PackedScene" uid="uid://b6xt0ffekjmgi" path="res://expansions/kodan/kodan_support_column/kodan_support_column_mesh.glb" id="2_30bt7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_elcm4"]
+size = Vector3(0.2, 4, 0.2)
+
+[node name="KodanSupportColumn" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_mn4fa")
+id = "kodan_support_column"
+collision_box = NodePath("Body")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="kodan_support_column_mesh" parent="." instance=ExtResource("2_30bt7")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_elcm4")

@@ -20,6 +20,11 @@ func update_saturation() -> void:
 	var _s = 0.9 + 0.6 * _v
 	$Sky.environment.adjustment_saturation = _s
 
+func update_brightness() -> void:
+	var _v = SettingsHandler.settings.brightness
+	_v += 0.5
+	$Sky.environment.tonemap_exposure = _v
+
 func fire_ping(count = 1) -> void:
 	var dist_lookup = {}
 	var dist_table = []
@@ -200,6 +205,8 @@ func _ready() -> void:
 				else: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 			"saturation":
 				update_saturation()
+			"brightness":
+				update_brightness()
 			"aa":
 				if _value == "msaa_(4x)_with_fxaa":
 					get_viewport().msaa_3d = Viewport.MSAA_4X
