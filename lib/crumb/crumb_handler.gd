@@ -1,4 +1,4 @@
-class_name CrumbHandler extends Node
+class_name CrumbHandler extends Node3D
 # CrumbHandler
 # Handles crumbs - bug clouds, dirt, and so on
 

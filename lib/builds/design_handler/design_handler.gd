@@ -8,6 +8,9 @@ signal file_op_completed # file operation completed
 
 # Generate a design slot from the current decoration list.
 func create_design_slot(design_name: String = SettingsHandler.settings.current_design) -> void:
+	if Global.map_name == "debug":
+		print("[DesignHandler] Tried to create or update a design, but we are in debug mode.")
+		return
 	print("[DesignHandler] creating slot '" + design_name + "'...")
 	DirAccess.copy_absolute(
 		"user://save/deco.dat", DPATH + "/" + design_name + ".dat")
@@ -37,7 +40,9 @@ func delete_slot(design_name: String) -> void:
 func rename_slot(from: String, to: String) -> void:
 	var _from_path = DPATH + "/" + from + ".dat"
 	var _to_path = DPATH + "/" + to + ".dat"
+	print(_from_path)
 	DirAccess.copy_absolute(_from_path, _to_path)
+	await get_tree().process_frame
 	DirAccess.remove_absolute(_from_path)
 	
 	file_op_completed.emit()

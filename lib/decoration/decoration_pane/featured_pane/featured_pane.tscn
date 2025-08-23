@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgifi0o7rbfpn"]
+[gd_scene load_steps=10 format=3 uid="uid://cgifi0o7rbfpn"]
 
 [ext_resource type="Texture2D" uid="uid://ci4j7q72vl0yk" path="res://lib/decoration/decoration_pane/featured_pane/textures/featured_base.jpg" id="1_db43p"]
 [ext_resource type="PackedScene" uid="uid://2xxe31yk7l2p" path="res://lib/decoration/decoration_pane/featured_pane/carousel.tscn" id="2_3jr3v"]
 [ext_resource type="Script" uid="uid://dbwc7rix4b8yt" path="res://lib/decoration/decoration_pane/featured_pane/featured_pane.gd" id="2_nonhc"]
 [ext_resource type="PackedScene" uid="uid://c40gydt7gkrta" path="res://lib/decoration/decoration_pane/featured_pane/deco_card/deco_card.tscn" id="4_ihxfi"]
 [ext_resource type="AudioStream" uid="uid://b0t7np0ivs67f" path="res://lib/decoration/decoration_pane/featured_pane/sounds/page_turn.ogg" id="4_tat5r"]
+[ext_resource type="Texture2D" uid="uid://bjpu1xbl5m6nn" path="res://lib/decoration/decoration_pane/featured_pane/deco_card/textures/card_kodan_roof.png" id="5_hhmvf"]
+[ext_resource type="Texture2D" uid="uid://u3enkyf55gmp" path="res://lib/decoration/decoration_pane/featured_pane/deco_card/textures/card_foxglove.png" id="6_hojtq"]
+[ext_resource type="Texture2D" uid="uid://cowe2pg02cpu0" path="res://lib/decoration/decoration_pane/featured_pane/deco_card/textures/card_noodle_display.png" id="7_hsg7r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jr3v"]
 texture = ExtResource("1_db43p")
@@ -36,12 +39,31 @@ alignment = 1
 
 [node name="DecoCard" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2
+title = "Kodan Roof Pieces"
+id = "kodan_roof_window_piece"
+image = ExtResource("5_hhmvf")
+custom_font_size = 24
+custom_image_height = 0.0
+custom_image_y_pos = 0.0
 
 [node name="DecoCard2" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2
+title = "Foxglove"
+id = "kodan_foxglove"
+image = ExtResource("6_hojtq")
+custom_font_size = 24
+custom_image_height = 180.0
+custom_image_y_pos = 30.0
 
 [node name="DecoCard3" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2
+title = "Noodle
+Display!"
+id = "noodle_display"
+image = ExtResource("7_hsg7r")
+custom_font_size = 24
+custom_image_height = 140.0
+custom_image_y_pos = 60.0
 
 [node name="PageTurn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tat5r")

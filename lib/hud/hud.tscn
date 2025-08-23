@@ -168,11 +168,6 @@ texture_normal = ExtResource("5_ycds6")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
-visible = false
-offset_top = -86.0
-offset_bottom = -36.0
-
 [node name="BlurPanel" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_0u2sw")
 anchors_preset = 1
@@ -201,6 +196,14 @@ offset_bottom = 6.0
 grow_horizontal = 0
 texture = ExtResource("10_hvlxk")
 
+[node name="BuildCanvas" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
+visible = false
+offset_top = -86.0
+offset_bottom = -36.0
+
 [node name="FXList" parent="." instance=ExtResource("7_5oqpl")]
 anchors_preset = 7
 anchor_left = 0.5
@@ -216,7 +219,7 @@ grow_vertical = 0
 alignment = 1
 
 [node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
-layer = 2
+layer = 3
 
 [node name="InteractIndicator" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(237, 92)
@@ -287,7 +290,7 @@ grow_horizontal = 2
 grow_vertical = 2
 title = "Decorations"
 
-[node name="BuildCanvas" type="CanvasLayer" parent="."]
+[node name="BuildCanvas2" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="Version" type="RichTextLabel" parent="."]

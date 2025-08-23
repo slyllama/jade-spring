@@ -23,6 +23,7 @@ func update() -> void:
 	
 	if SettingsHandler.settings.current_design == design_name:
 		$HBox/Delete.disabled = true
+		$HBox/Rename.disabled = true
 		$HBox/Activate.disabled = true
 		var _s: StyleBoxTexture = get_theme_stylebox("panel")
 		_s.texture = BASE_TEX_ACTIVATED
@@ -45,7 +46,7 @@ func _on_activate_button_down() -> void:
 func _on_rename_button_down() -> void:
 	if !editing_name:
 		editing_name = true
-		$HBox/Rename.text = "Apply Rename"
+		$HBox/Rename.text = "Apply"
 		$HBox/Activate.disabled = true
 		$HBox/Name.editable = true
 		$HBox/Name.grab_focus()
@@ -61,5 +62,23 @@ func _on_rename_button_down() -> void:
 			$HBox/Name.editable = false
 
 func _on_delete_button_down() -> void:
+	if $HBox/Delete.text == "Delete":
+		$Warning.play()
+		modulate = Color("ff7878")
+		$HBox/Delete.text = "Confirm"
+		return
+	print("deleting slot")
 	Global.design_handler.delete_slot(design_name)
 	slot_deleted.emit()
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_click"):
+		if $HBox/Delete.text == "Confirm":
+			await get_tree().process_frame
+			modulate = Color.WHITE
+			$HBox/Delete.text = "Delete"
+		#if $HBox/Rename.text == "Apply":
+			#_on_rename_button_down()
+
+func _on_name_mouse_entered() -> void:
+	Global.mouse_in_ui = true

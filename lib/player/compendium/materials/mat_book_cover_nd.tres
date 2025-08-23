@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://drk5h8eqh5iy"]
+
+[ext_resource type="Shader" uid="uid://cwxpemy3tufs7" path="res://lib/player/compendium/materials/shaders/uv2.gdshader" id="1_r4341"]
+[ext_resource type="Texture2D" uid="uid://dbgg0jnp4qemq" path="res://lib/player/compendium/materials/textures/cover_emit.jpg" id="2_ha6t1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_r4341")
+shader_parameter/tex = ExtResource("2_ha6t1")

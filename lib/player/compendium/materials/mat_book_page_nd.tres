@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://5r3p7e6uitb4"]
+
+[ext_resource type="Shader" uid="uid://cwxpemy3tufs7" path="res://lib/player/compendium/materials/shaders/uv2.gdshader" id="1_vdktf"]
+[ext_resource type="Texture2D" uid="uid://bqk04v5swt80m" path="res://lib/player/compendium/materials/textures/pages_emit.jpg" id="2_o05u2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vdktf")
+shader_parameter/tex = ExtResource("2_o05u2")

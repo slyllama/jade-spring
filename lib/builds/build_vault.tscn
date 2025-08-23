@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bvbjroufthlhn" path="res://generic/sounds/insight_ambience.ogg" id="8_glq45"]
 [ext_resource type="AudioStream" uid="uid://bemy3w0v88e4b" path="res://lib/builds/build_vault/sounds/vault_ambience.ogg" id="10_cjlli"]
 [ext_resource type="Texture2D" uid="uid://div1p7l2i1oh" path="res://lib/builds/build_vault/materials/vault_mote.png" id="11_js7te"]
-[ext_resource type="PackedScene" uid="uid://dorw6p3tytl73" path="res://lib/player/compendium/compendium_instance.tscn" id="12_4o2n5"]
+[ext_resource type="PackedScene" uid="uid://bcd0s7o3xnhvk" path="res://lib/player/compendium/meshes/compendium_no_dissolve.glb" id="13_tk1j0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp8qr"]
 size = Vector3(20, 0.02, 20)
@@ -87,8 +87,8 @@ spread = 30.0
 initial_velocity_min = 0.2
 initial_velocity_max = 0.5
 gravity = Vector3(0, 0, 0)
-scale_min = 0.3
-scale_max = 0.4
+scale_min = 0.2
+scale_max = 0.3
 color_initial_ramp = SubResource("GradientTexture1D_4o2n5")
 alpha_curve = SubResource("CurveTexture_tk1j0")
 
@@ -182,7 +182,6 @@ mesh = SubResource("QuadMesh_3yia4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, -2.8)
 light_color = Color(0.830821, 0.869428, 1, 1)
 shadow_enabled = true
-omni_range = 6.0
 omni_attenuation = 0.0
 
 [node name="Motes" type="GPUParticles3D" parent="."]
@@ -196,11 +195,11 @@ process_material = SubResource("ParticleProcessMaterial_fe80w")
 draw_pass_1 = SubResource("PlaneMesh_glq45")
 
 [node name="BuildsGadget" parent="." instance=ExtResource("4_pomj1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, -3)
 show_area = true
 tint_color = Color(0.761443, 0.515204, 1, 1)
 
-[node name="Compendium" parent="BuildsGadget" instance=ExtResource("12_4o2n5")]
+[node name="Compendium" parent="BuildsGadget" instance=ExtResource("13_tk1j0")]
 transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 1, 0)
 
 [node name="Title" parent="BuildsGadget" instance=ExtResource("5_yv67k")]
@@ -209,9 +208,9 @@ visible = false
 spatial_string = "Manage Designs"
 
 [node name="VaultMote" type="GPUParticles3D" parent="BuildsGadget"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
-amount = 5
-lifetime = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+amount = 9
+lifetime = 3.0
 preprocess = 5.0
 randomness = 0.1
 process_material = SubResource("ParticleProcessMaterial_pu2ot")

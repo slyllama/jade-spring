@@ -187,6 +187,8 @@ func _ready() -> void:
 func _on_design_handler_ready() -> void:
 	# Load saved decorations or reset them depending on parameters passed from the main menu
 	# This doesn't happen until the DesignHandler is ready
+	if Global.map_name == "debug": return
+	
 	if !Global.start_params.new_save:
 		print("[DecoHandler] Loading design '" + SettingsHandler.settings.current_design + "'.")
 		_load_decorations(_load_decoration_file())

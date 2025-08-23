@@ -219,6 +219,7 @@ func _input(_event) -> void:
 func _ready() -> void:
 	super()
 	Global.deco_placement_started.connect(close)
+	
 	var _scroll_bar: VScrollBar = $Container/ScrollBox.get_v_scroll_bar()
 	_scroll_bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	
@@ -226,6 +227,7 @@ func _ready() -> void:
 	# This shouldn't really come up in normal use
 	Global.summon_story_panel.connect(func(_data): close())
 	Global.dialogue_opened.connect(close)
+	Global.deco_card_clicked.connect(_on_featured_pane_decoration_selected)
 	
 	# Let the game know the popup has been closed (especially for CameraHandler)
 	tag_list.get_popup().visibility_changed.connect(func():

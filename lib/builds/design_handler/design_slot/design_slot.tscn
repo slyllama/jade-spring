@@ -1,18 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm2j0idqta5qw"]
+[gd_scene load_steps=11 format=3 uid="uid://dm2j0idqta5qw"]
 
 [ext_resource type="Texture2D" uid="uid://budw1cm8qdwp7" path="res://lib/builds/design_handler/design_slot/textures/design_slot_bg.png" id="1_jjgtk"]
 [ext_resource type="Script" uid="uid://v8pieffgamg5" path="res://lib/builds/design_handler/design_slot/design_slot.gd" id="2_obeuh"]
 [ext_resource type="Texture2D" uid="uid://b3cek2svfjg6j" path="res://lib/hud/textures/icon_count.png" id="3_aj1is"]
+[ext_resource type="AudioStream" uid="uid://comrowg2td5v1" path="res://generic/sounds/disabled.ogg" id="4_07vpr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_obeuh"]
 resource_local_to_scene = true
 texture = ExtResource("1_jjgtk")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjgtk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gqdv"]
+bg_color = Color(1, 1, 1, 0.0784314)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obeuh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aj1is"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aj1is"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.0933564, 0.272421, 0.0819793, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.84104, 0.84104, 0.84104, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07vpr"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.455079, 0.147226, 0.129621, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [node name="DesignSlot" type="Panel"]
 use_parent_material = true
@@ -37,36 +65,30 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DecoLogo" type="TextureRect" parent="HBox"]
-use_parent_material = true
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-texture = ExtResource("3_aj1is")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Name" type="LineEdit" parent="HBox"]
 use_parent_material = true
 layout_mode = 2
-mouse_filter = 2
+size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/selection_color = Color(0.176284, 0.12011, 0.304021, 1)
 theme_override_colors/caret_color = Color(1, 1, 1, 1)
 theme_override_colors/font_uneditable_color = Color(0.933333, 0.741176, 0.635294, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jjgtk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2gqdv")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_obeuh")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aj1is")
 text = "Build With a Cool Name"
 editable = false
 expand_to_text_length = true
-select_all_on_focus = true
 
-[node name="Padding2" type="ColorRect" parent="HBox"]
+[node name="DecoLogo" type="TextureRect" parent="HBox"]
 use_parent_material = true
-custom_minimum_size = Vector2(3, 0)
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-color = Color(1, 1, 1, 0)
+size_flags_horizontal = 8
+texture = ExtResource("3_aj1is")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="DecoCount" type="RichTextLabel" parent="HBox"]
 use_parent_material = true
@@ -85,9 +107,11 @@ color = Color(1, 1, 1, 0)
 
 [node name="Activate" type="Button" parent="HBox"]
 use_parent_material = true
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0.783333, 0.930179, 0.640819, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_aj1is")
 text = "Activate"
 
 [node name="Rename" type="Button" parent="HBox"]
@@ -102,8 +126,15 @@ use_parent_material = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0.940441, 0.820314, 0.782053, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_07vpr")
 text = "Delete"
 
+[node name="Warning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_07vpr")
+volume_db = -7.0
+
+[connection signal="mouse_entered" from="HBox/Name" to="." method="_on_name_mouse_entered"]
 [connection signal="button_down" from="HBox/Activate" to="." method="_on_activate_button_down"]
 [connection signal="button_down" from="HBox/Rename" to="." method="_on_rename_button_down"]
 [connection signal="button_down" from="HBox/Delete" to="." method="_on_delete_button_down"]

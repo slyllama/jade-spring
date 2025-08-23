@@ -178,6 +178,11 @@ func _ready() -> void:
 	
 	Global.vault_entered.connect(func():
 		clear_skills()
+		$Box/Skill1.set_enabled(false)
+		$Box/Skill2.set_enabled(false)
+		$Box/Skill3.set_enabled(false)
+		$Box/Skill4.set_enabled(false)
+		$Box/Skill5.set_enabled(false)
 		$Box/Skill6.switch_skill("vault_leave"))
 	Global.vault_left.connect(set_default_skills)
 	

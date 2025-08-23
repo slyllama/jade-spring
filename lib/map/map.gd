@@ -125,13 +125,11 @@ func _ready() -> void:
 		elif cmd == "/ping":
 			fire_ping()
 		elif cmd == "/hidecrumbs":
-			for _c in $CrumbHandler.get_children():
-				_c.visible = false
-				Global.announcement_sent.emit("((Hiding crumbs.))")
+			$CrumbHandler.position.y = -20.0
+			Global.announcement_sent.emit("((Hiding crumbs.))")
 		elif cmd == "/showcrumbs":
-			for _c in $CrumbHandler.get_children():
-				_c.visible = true
-				Global.announcement_sent.emit("((Showing crumbs.))")
+			$CrumbHandler.position.y = 0.0
+			Global.announcement_sent.emit("((Showing crumbs.))")
 		elif cmd == "/screenshot":
 			$Shutter.play()
 			Global.hud.hide_hud()

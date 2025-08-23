@@ -83,8 +83,8 @@ func _input(_event: InputEvent) -> void:
 			$TopLevel/SettingsPane.open()
 	
 	if Input.is_action_just_pressed("debug_cmd"):
-		if !Global.debug_enabled or !Global.debug_allowed: return
-		
+		if !Global.debug_enabled or !Global.debug_allowed or Global.design_pane_open: return
+		await get_tree().process_frame
 		if !$TopLevel/DebugEntry.has_focus():
 			# Select the command line for entry
 			_debug_cmd_gain_focus()

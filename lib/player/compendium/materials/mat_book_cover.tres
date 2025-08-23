@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbgg0jnp4qemq" path="res://lib/player/compendium/materials/textures/cover_emit.jpg" id="2_xatn6"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_b4xrm")
 shader_parameter/baseColor = Color(1, 1, 1, 1)

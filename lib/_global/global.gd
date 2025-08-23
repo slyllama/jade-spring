@@ -86,6 +86,7 @@ signal command_sent(string)
 signal controller_skill(node)
 signal debug_toggled
 signal debug_skill_used
+signal deco_card_clicked(id)
 signal dialogue_opened
 signal dialogue_closed
 signal dragonvoid_crumb_entered
@@ -205,7 +206,7 @@ signal roll_left_90
 signal roll_right_90
 signal transform_mode_changed(transform_mode)
 
-const SNAP_INCREMENT = 0.5
+const SNAP_INCREMENT = 0.25
 
 var decorations = [] # references to decorations will populate here
 var highlighted_decoration: Decoration = null
@@ -362,6 +363,8 @@ func _ready() -> void:
 	get_window().min_size = Vector2i(
 		floor(1280 * Global.retina_scale) - 1,
 		floor(720 * Global.retina_scale) - 1)
+	
+	get_window().position = DisplayServer.screen_get_position() + Vector2i(32, 64)
 	
 	await get_tree().process_frame
 	get_window().size_changed.connect(func():
