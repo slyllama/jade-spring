@@ -1,0 +1,146 @@
+[gd_scene load_steps=25 format=3 uid="uid://bvnv1bm25in3e"]
+
+[ext_resource type="Shader" uid="uid://d3gvksul2tfdk" path="res://lib/builds/build_vault/vault_device/materials/shaders/vd_sphere.gdshader" id="1_j3456"]
+[ext_resource type="Script" uid="uid://deqkunfacpbth" path="res://lib/builds/build_vault/vault_device/vault_device.gd" id="1_rcs30"]
+[ext_resource type="Texture2D" uid="uid://d36xnbvbv5dvn" path="res://lib/builds/build_vault/materials/textures/stars_diff.jpg" id="2_0qr76"]
+[ext_resource type="Texture2D" uid="uid://div1p7l2i1oh" path="res://lib/builds/build_vault/materials/vault_mote.png" id="3_3xwj2"]
+[ext_resource type="Shader" uid="uid://b06ke226n3m1e" path="res://lib/builds/build_vault/vault_device/materials/shaders/vd_rune.gdshader" id="4_12ckv"]
+[ext_resource type="PackedScene" uid="uid://d1u7ykm887ak1" path="res://lib/spatial_text/spatial_text.tscn" id="4_pxj7s"]
+[ext_resource type="Texture2D" uid="uid://cao40khyl4nrr" path="res://lib/player/compendium/materials/textures/rune_safe_zones.png" id="5_vb6t0"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="6_fbhaf"]
+[ext_resource type="PackedScene" uid="uid://bbwq2rk327rrh" path="res://lib/builds/build_vault/vault_device/vault_device_gadget.tscn" id="8_kg12o"]
+[ext_resource type="Texture2D" uid="uid://u6oj1p6l5gvl" path="res://lib/hud/fx_list/textures/fx_vault.png" id="9_0regm"]
+
+[sub_resource type="Gradient" id="Gradient_0qr76"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3xwj2"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_12ckv"]
+seamless = true
+color_ramp = SubResource("Gradient_0qr76")
+noise = SubResource("FastNoiseLite_3xwj2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qr76"]
+render_priority = 0
+shader = ExtResource("1_j3456")
+shader_parameter/stars_texture = ExtResource("2_0qr76")
+shader_parameter/wobble_texture = SubResource("NoiseTexture2D_12ckv")
+shader_parameter/uv_scale = 1.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_w8i62"]
+material = SubResource("ShaderMaterial_0qr76")
+radius = 0.4
+height = 0.8
+radial_segments = 20
+rings = 10
+
+[sub_resource type="Curve" id="Curve_12ckv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.291139, 0.463158), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tk1j0"]
+curve = SubResource("Curve_12ckv")
+
+[sub_resource type="Gradient" id="Gradient_vb6t0"]
+colors = PackedColorArray(0.00431098, 0.203, 0.85142, 1, 0.898859, 0.41318, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4o2n5"]
+gradient = SubResource("Gradient_vb6t0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0regm"]
+emission_shape = 2
+emission_sphere_radius = 0.5
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.2
+color_initial_ramp = SubResource("GradientTexture1D_4o2n5")
+alpha_curve = SubResource("CurveTexture_tk1j0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p84p6"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_3xwj2")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rcs30"]
+material = SubResource("StandardMaterial3D_p84p6")
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vb6t0"]
+render_priority = -1
+shader = ExtResource("4_12ckv")
+shader_parameter/rune_texture = ExtResource("5_vb6t0")
+shader_parameter/wobble_texture = ExtResource("6_fbhaf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3xwj2"]
+material = SubResource("ShaderMaterial_vb6t0")
+size = Vector2(3, 3)
+
+[node name="VaultDevice" type="Node3D"]
+script = ExtResource("1_rcs30")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_w8i62")
+
+[node name="VaultMote" type="GPUParticles3D" parent="Sphere"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328051, 0)
+amount = 16
+lifetime = 3.0
+preprocess = 5.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_0regm")
+draw_pass_1 = SubResource("PlaneMesh_rcs30")
+
+[node name="RuneEffect" type="MeshInstance3D" parent="Sphere"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_3xwj2")
+
+[node name="Icon" parent="Sphere" instance=ExtResource("4_pxj7s")]
+transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 0.45, 0)
+aabb = AABB(-0.2, -0.311328, -0.2, 0.4, 0.4, 0.4)
+spatial_string = ""
+override_settings = true
+
+[node name="Title" parent="Sphere/Icon/FG" index="1"]
+clip_contents = false
+text = ""
+
+[node name="CollectionIcon" type="TextureRect" parent="Sphere/Icon/FG/Title" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -80.0
+offset_right = 21.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_0regm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Gadget" parent="." instance=ExtResource("8_kg12o")]
+radius = 0.8
+show_area = true
+tint_color = Color(0.4774, 0.49879, 0.62, 1)
+
+[connection signal="interacted" from="Gadget" to="." method="_on_gadget_interacted"]
+
+[editable path="Sphere/Icon"]

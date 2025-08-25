@@ -32,6 +32,7 @@
 /speedratio=X	Set the player's speed to ratio X of its base speed
 /togglebook		Toggle compendium visibility
 /unlocktools	Make all tools available
+/vault			Enter the vault
 
 /enableattn		Enable Attenuator (good for if story hasn't spawned it yet)
 /disableattn	Disable Attenuator
