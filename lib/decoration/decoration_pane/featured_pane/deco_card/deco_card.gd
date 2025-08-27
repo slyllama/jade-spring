@@ -29,7 +29,7 @@ func _ready() -> void:
 func _on_mouse_entered() -> void: modulate.a = 1.2
 func _on_mouse_exited() -> void: modulate.a = 0.9
 
-func _on_gui_input(event: InputEvent) -> void:
+func _on_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		if id and id != "":
 			Global.deco_card_clicked.emit(id)

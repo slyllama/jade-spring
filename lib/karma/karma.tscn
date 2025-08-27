@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://css5f06cjlswq"]
+[gd_scene load_steps=32 format=3 uid="uid://css5f06cjlswq"]
 
 [ext_resource type="Script" uid="uid://cmpc2g761j0qf" path="res://lib/karma/karma.gd" id="1_7siie"]
 [ext_resource type="Shader" uid="uid://bqxexmcnu4j0l" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_i10le"]
 [ext_resource type="Texture2D" uid="uid://begdpwr5l122o" path="res://lib/player/materials/textures/jade_mask.jpg" id="2_hua5p"]
 [ext_resource type="Shader" uid="uid://bji5wrktufnh5" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="4_k1v8w"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="4_ma66g"]
+[ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="4_yc704"]
 [ext_resource type="Texture2D" uid="uid://cjxn2j2i148cd" path="res://lib/karma/textures/ring.png" id="6_vvvmv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq1by"]
@@ -25,6 +26,39 @@ shader_parameter/fresnel_amount = 3.0
 material = SubResource("ShaderMaterial_rq1by")
 radius = 0.1
 height = 0.2
+
+[sub_resource type="Shader" id="Shader_of80e"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, unshaded, shadows_disabled;
+
+uniform float proximity_fade_distance: hint_range(0.0, 4096.0, 0.01);
+uniform sampler2D depth_texture: hint_depth_texture, repeat_disable, filter_nearest;
+uniform sampler2D noise_texture: repeat_enable, filter_linear_mipmap;
+uniform vec3 albedo_color: source_color;
+
+void fragment() {
+	// Proximity Fade: Enabled
+	float proximity_depth_tex = textureLod(depth_texture, SCREEN_UV, 0.0).r;
+	vec4 proximity_view_pos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, proximity_depth_tex, 1.0);
+	proximity_view_pos.xyz /= proximity_view_pos.w;
+	ALBEDO = albedo_color;
+	ALPHA *= pow(texture(noise_texture, UV * 7.0 + TIME * 0.1).r, 2.0);
+	ALPHA *= clamp(smoothstep(proximity_view_pos.z + proximity_fade_distance, proximity_view_pos.z, VERTEX.z), 0.0, 1.0);
+	ALPHA = clamp(ALPHA, 0.0, 1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc704"]
+render_priority = 1
+shader = SubResource("Shader_of80e")
+shader_parameter/proximity_fade_distance = 0.14
+shader_parameter/noise_texture = ExtResource("4_yc704")
+shader_parameter/albedo_color = Color(0.999999, 0.32197, 0.809051, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_h4qgs"]
+material = SubResource("ShaderMaterial_yc704")
+radial_segments = 24
+rings = 12
 
 [sub_resource type="Gradient" id="Gradient_ab0nn"]
 
@@ -103,6 +137,14 @@ alpha_curve = SubResource("CurveTexture_yc1l7")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ksru4"]
 radius = 0.65
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_of80e"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_yc704"]
+material = SubResource("StandardMaterial3D_of80e")
+size = Vector2(4, 4)
+orientation = 1
+
 [node name="Karma" type="Node3D"]
 script = ExtResource("1_7siie")
 
@@ -113,6 +155,11 @@ collision_mask = 3
 [node name="Orb" type="MeshInstance3D" parent="."]
 cast_shadow = 0
 mesh = SubResource("SphereMesh_renxr")
+
+[node name="AreaSphere" type="MeshInstance3D" parent="Orb"]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_h4qgs")
+skeleton = NodePath("../..")
 
 [node name="Ray" type="MeshInstance3D" parent="Orb"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102116, 0)
@@ -147,6 +194,10 @@ shape = SubResource("CylinderShape3D_ksru4")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Debug" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("QuadMesh_yc704")
 
 [connection signal="body_entered" from="Orb/PickUpArea" to="." method="_on_pick_up_area_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

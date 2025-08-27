@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://qumluj1i18yj"]
+
+[ext_resource type="Script" uid="uid://c1epqme1dgpwx" path="res://lib/grid/grid.gd" id="1_7km45"]
+
+[sub_resource type="Gradient" id="Gradient_7km45"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.352941, 1, 1, 1, 0.352941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uv76i"]
+gradient = SubResource("Gradient_7km45")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmkmq"]
+render_priority = 1
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_uv76i")
+
+[sub_resource type="QuadMesh" id="QuadMesh_b3ap1"]
+material = SubResource("StandardMaterial3D_nmkmq")
+size = Vector2(0.02, 5)
+orientation = 1
+
+[node name="Grid" type="Node3D"]
+top_level = true
+script = ExtResource("1_7km45")
+
+[node name="X" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="GridLine" type="MeshInstance3D" parent="X"]
+mesh = SubResource("QuadMesh_b3ap1")
+skeleton = NodePath("../..")
+
+[node name="Z" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0)
+
+[node name="GridLine" type="MeshInstance3D" parent="Z"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_b3ap1")
+skeleton = NodePath("../..")

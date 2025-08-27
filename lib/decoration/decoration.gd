@@ -6,6 +6,7 @@ enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 const GizmoArrow = preload("res://lib/gizmo/gizmo_arrow/gizmo_arrow.tscn")
 const OutlineMaterial = preload("res://generic/materials/mat_outline.tres")
 const SelectionIcon = preload("res://lib/decoration/selection_icon.gd")
+const Grid = preload("res://lib/grid/grid.tscn")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
@@ -190,6 +191,7 @@ func apply_adjustment() -> void:
 		Global.jade_bot_sound.emit()
 		
 		_clear_arrows()
+		_replace_grid(true)
 		if collision_box:
 			collision_box.set_collision_layer_value(2, 1)
 		else:
@@ -208,10 +210,13 @@ func cancel_adjustment() -> void:
 		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
 		#select_label.fade_out()
+		print("clear")
+		_replace_grid(true)
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
 		
-		_clear_arrows() 
+		_clear_arrows()
+		
 		collision_box.set_collision_layer_value(2, 1)
 		position = last_position
 		scale = last_scale
@@ -220,6 +225,17 @@ func cancel_adjustment() -> void:
 	await get_tree().process_frame
 	set_outline(false)
 	Global.mouse_in_ui = false
+
+var _g = null
+func _replace_grid(clear = false) -> void:
+	if _g:
+		_g.disappear()
+	if !Global.snapping or clear: return
+	if _g: await(_g.tree_exiting)
+	_g = Grid.instantiate()
+	add_child.call_deferred(_g)
+	await _g.ready
+	_g.global_position = global_position
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
@@ -269,12 +285,14 @@ func _ready() -> void:
 		if mouse_in_box:
 			set_outline())
 	Global.deco_deletion_canceled.connect(func():
+		_replace_grid(true)
 		set_outline(false))
 	
 	Global.selection_started.connect(func():
 		if mouse_in_box:
 			set_outline())
 	Global.selection_canceled.connect(func():
+		_replace_grid(true)
 		set_outline(false))
 	
 	Global.snapping_enabled.connect(func():
@@ -284,7 +302,12 @@ func _ready() -> void:
 				snapped(global_position.x, 0.25),
 				snapped(global_position.y, 0.25),
 				snapped(global_position.z, 0.25))
-			global_position = _new_snapped_pos)
+			global_position = _new_snapped_pos
+			
+			_replace_grid())
+	
+	Global.snapping_disabled.connect(func():
+		_replace_grid(true))
 	
 	# Reset decoration orientation and scale
 	Global.adjustment_reset.connect(func():
@@ -304,6 +327,7 @@ func _ready() -> void:
 	# Switch controls to translation mode
 	Global.adjustment_mode_translate.connect(func():
 		if Global.active_decoration == self:
+			_replace_grid()
 			transform_type = TRANSFORM_TYPE_TRANSLATE
 			_clear_arrows()
 			_spawn_arrows())
@@ -313,6 +337,7 @@ func _ready() -> void:
 		if Global.active_decoration == self:
 			# TODO: add rotation controls
 			transform_type = TRANSFORM_TYPE_ROTATE
+			_replace_grid(true)
 			_clear_arrows()
 			_spawn_rotators())
 	

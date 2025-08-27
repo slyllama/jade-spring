@@ -200,6 +200,7 @@ signal deco_load_started
 signal deco_load_ended
 signal drag_started
 signal snapping_enabled
+signal snapping_disabled
 signal rotate_left_90 # rotate global position to the next nearest 90deg
 signal rotate_right_90 # rotate global position to the last nearest 90deg
 signal roll_left_90

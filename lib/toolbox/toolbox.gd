@@ -323,6 +323,7 @@ func skill_used(skill_id: String) -> void:
 		"snap_disable":
 			$Box/Skill3.switch_skill("snap_enable")
 			Global.snapping = false
+			Global.snapping_disabled.emit()
 			Global.announcement_sent.emit("Snapping disabled.")
 		"reset_adjustment":
 			Global.adjustment_reset.emit()
