@@ -188,7 +188,8 @@ func _ready() -> void:
 	Global.debug_toggled.connect(func():
 		if visible:
 			$TopLevel/DebugEntry.visible = Global.debug_enabled
-		$Debug.visible = Global.debug_enabled)
+		$Debug.visible = Global.debug_enabled
+		$TopLevel/CameraDebug.visible = Global.debug_enabled)
 	
 	Global.summon_story_panel.connect(func(data):
 		if !"description" in data or !"title" in data: return

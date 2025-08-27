@@ -52,3 +52,5 @@ bbcode_enabled = true
 text = "((Debug))"
 fit_content = true
 autowrap_mode = 0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
