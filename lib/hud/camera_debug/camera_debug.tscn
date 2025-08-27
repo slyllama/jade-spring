@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://qam37s2cdrnp"]
+
+[ext_resource type="Script" uid="uid://du41gxf4w6mtp" path="res://lib/hud/camera_debug/camera_debug.gd" id="1_cqp3v"]
+[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="1_f15uc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqp3v"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qotqx"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f15uc"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+
+[node name="CameraDebug" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+offset_bottom = 21.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cqp3v")
+script = ExtResource("1_cqp3v")
+
+[node name="Box" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="RichTextLabel" parent="Box"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_f15uc")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_qotqx")
+text = "Camera Debug"
+fit_content = true
+
+[node name="Debug" type="RichTextLabel" parent="Box"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/line_separation = -4
+theme_override_fonts/normal_font = ExtResource("1_f15uc")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f15uc")
+bbcode_enabled = true
+text = "((Debug))"
+fit_content = true
+autowrap_mode = 0

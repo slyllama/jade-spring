@@ -40,7 +40,7 @@ rings = 0
 cap_top = false
 cap_bottom = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jx5k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sdwl7"]
 render_priority = 2
 shader = ExtResource("2_c1kni")
 shader_parameter/mask_texture = ExtResource("3_l78bl")
@@ -59,4 +59,4 @@ shape = SubResource("CylinderShape3D_lu2fj")
 
 [node name="VisualArea" parent="." index="1"]
 mesh = SubResource("CylinderMesh_ma5ew")
-surface_material_override/0 = SubResource("ShaderMaterial_5jx5k")
+surface_material_override/0 = SubResource("ShaderMaterial_sdwl7")

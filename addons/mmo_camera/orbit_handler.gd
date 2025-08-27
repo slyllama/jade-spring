@@ -1,5 +1,5 @@
 @tool
-extends Node
+class_name OrbitHandler extends Node
 # OrbitHandler
 # Handles getting mouse drag events for orbiting
 
@@ -13,6 +13,7 @@ var action_cam_active = false
 var action_cam_paused = false
 
 var _mouse_delta = Vector2.ZERO # event.relative
+var _last_mouse_delta = _mouse_delta
 var _last_click_position = Vector2.ZERO
 # If a click and drag is initiated in the map, the drag will not influence camera
 # orbiting until release
@@ -24,8 +25,7 @@ func set_initial_rotation(rotation: Vector3) -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	#get_window().focus_entered.connect(func():
-		#_enable_action_cam())
+	Global.orbit_handler = self
 	get_window().focus_exited.connect(func():
 		_disable_action_cam()
 		
@@ -152,4 +152,5 @@ func _process(delta: float) -> void:
 		smooth_rotation,
 		target_rotation,
 		Utilities.critical_lerp(delta, get_parent().orbit_smoothing * smooth_modifier))
+	_last_mouse_delta = _mouse_delta
 	_mouse_delta = Vector2.ZERO

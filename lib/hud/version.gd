@@ -7,14 +7,20 @@ const Flash = preload("res://lib/flash/flash.tscn")
 @export var show_updates = true
 var updated = false
 
-func _display_version(newer_version: String = Version.VER) -> void:
-	var _str = "v" + Version.VER
-	if newer_version != Version.VER:
-		_str += " [color=#cba23b](v" + newer_version + " available)[/color]"
+func _display_version(newer_version: Dictionary = {"release": Version.VER, "prerelease": "1.999b"}) -> void:
+	var _prefix = "v" + Version.VER
+	var _str
+	
+	if Version.VER != newer_version["release"]:
+		_str = _prefix + " [color=#cba23b](v" + newer_version["release"] + " available)[/color]"
 		var _f = Flash.instantiate()
 		if align_right:
 			_f.position.x += size.x
 		add_child(_f)
+	else: _str = _prefix
+	if Version.VER == newer_version["prerelease"]:
+		_str = _prefix + " [color=#abd141](pre-release)[/color]"
+	
 	if align_right: text = "[right]" + _str + "[/right]"
 	else: text = _str
 
@@ -32,5 +38,4 @@ func _ready() -> void:
 	
 	if show_updates:
 		Version.request_latest_version()
-	else:
-		_display_version()
+	else: _display_version()

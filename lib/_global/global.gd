@@ -13,6 +13,7 @@ var deco_handler: DecoHandler
 var design_handler: DesignHandler
 var hud: CanvasLayer
 var player: CharacterBody3D
+var orbit_handler: OrbitHandler
 
 # Karma values
 var kv_weed = 5

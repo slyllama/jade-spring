@@ -17,5 +17,10 @@ func _ready():
 		
 		if status != HTTPClient.RESPONSE_OK: return # invalid connection
 		var json_data = JSON.parse_string(body.get_string_from_utf8())
-		if "versions" in json_data:
-			latest_version_retrieved.emit(json_data.versions[0]))
+		
+		if "ver-release" in json_data and "ver-prerelease" in json_data:
+			latest_version_retrieved.emit({
+				"release": json_data["ver-release"],
+				"prerelease": json_data["ver-prerelease"]
+			})
+		)
