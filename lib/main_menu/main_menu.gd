@@ -20,13 +20,6 @@ func backup_save_files() -> void:
 		DirAccess.copy_absolute(SAVE_DATA_PATH, 
 			"user://save/backup/save-" + Version.VER + ".dat")
 
-func is_interaction_allowed() -> bool:
-	return(!(
-		!can_interact or ngc_open or
-		$BrokenDecosContainer.is_open or
-		$SettingsPane.is_open or
-		$CreditsContainer.is_open))
-
 # 0: valid
 # 1: decoration file missing
 # 2: decoration file invalid
@@ -42,6 +35,12 @@ func is_deco_file_valid() -> int:
 				return(2)
 	else: return(1)
 	return(0)
+
+func _close_all_except(exceptions: Array[UIC]) -> void:
+	var panes: Array[UIC] = [$SettingsPane, $SteamPane, $NewGameContainer, $CreditsContainer]
+	for _p in panes:
+		if !_p in exceptions:
+			_p.close()
 
 # Connections and tweens to make the focus nodule look right
 func set_up_nodule() -> void:
@@ -243,7 +242,7 @@ func _process(delta: float) -> void:
 	$Raiqqo.scale = Vector2(scale_diff, scale_diff)
 	$RaiqqoFG.scale = Vector2(scale_diff, scale_diff)
 	
-	if !is_interaction_allowed(): return
+	if !can_interact: return
 	if focus == null: return
 	$Nodule.global_position = lerp(
 		$Nodule.position,
@@ -251,25 +250,27 @@ func _process(delta: float) -> void:
 		Utilities.critical_lerp(delta, 30.0))
 
 func _on_play_button_down() -> void:
-	if !is_interaction_allowed(): return
+	if !can_interact: return
 	Global.click_sound.emit()
 	Global.map_name = "seitung"
+	_close_all_except([$NewGameContainer])
 	$NewGameContainer.open()
 	ngc_open = true
 
 func _on_quit_button_down() -> void:
-	if !is_interaction_allowed(): return
+	if !can_interact: return
 	Global.click_sound.emit()
 	get_tree().quit()
 
 func _on_settings_button_down() -> void:
-	if !is_interaction_allowed(): return
+	if !can_interact: return
+	_close_all_except([$SettingsPane])
 	if !$SettingsPane.is_open:
 		Global.click_sound.emit()
 		$SettingsPane.open()
 
 func _on_continue_button_down() -> void:
-	if !is_interaction_allowed(): return
+	if !can_interact: return
 	Global.click_sound.emit()
 	Global.map_name = "seitung"
 	Global.start_params.new_save = false
@@ -289,18 +290,20 @@ func _on_new_game_button_pressed() -> void:
 	play()
 
 func _on_settings_pane_closed() -> void:
-	$Container/SettingsButton.grab_focus()
+	pass
+	#$Container/SettingsButton.grab_focus()
 
 func _on_folder_button_down() -> void:
 	OS.shell_open(ProjectSettings.globalize_path("user://save"))
 
 func _on_achievements_button_button_down() -> void:
-	if $SettingsPane.is_open:
-		$SettingsPane.close()
+	if !can_interact: return
+	_close_all_except([$SteamPane])
 	$SteamPane.open()
 
 func _on_credits_button_button_down() -> void:
-	if !is_interaction_allowed(): return
+	if !can_interact: return
+	_close_all_except([$CreditsContainer])
 	$CreditsContainer.open()
 
 @onready var web_cooldown_timer = Timer.new()

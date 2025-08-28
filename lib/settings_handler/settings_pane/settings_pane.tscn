@@ -128,6 +128,7 @@ text = "High
 
 [node name="ResetBox" type="PanelContainer" parent="Container/SC/Contents" index="4"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_du2l3")
 
 [node name="ResetVBox" type="VBoxContainer" parent="Container/SC/Contents/ResetBox" index="0"]
@@ -137,6 +138,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_colors/default_color = Color(0.796078, 0.635294, 0.231373, 1)
 theme_override_constants/line_separation = -2
 theme_override_font_sizes/normal_font_size = 15

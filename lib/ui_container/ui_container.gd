@@ -1,4 +1,4 @@
-extends Panel
+class_name UIC extends Panel
 # UIContainer
 # A general UI container
 const TRANS_TIME = 0.11

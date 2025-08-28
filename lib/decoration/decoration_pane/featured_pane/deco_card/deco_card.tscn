@@ -11,9 +11,6 @@ modulate = Color(1, 1, 1, 0.9)
 custom_minimum_size = Vector2(181, 321)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3ucet")
 script = ExtResource("2_3ucet")
-custom_font_size = null
-custom_image_height = null
-custom_image_y_pos = null
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
