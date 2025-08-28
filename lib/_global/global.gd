@@ -142,6 +142,13 @@ func get_effect_qty(effect: String) -> int:
 			_qty = int(_fx.split("=")[1])
 	return(_qty)
 
+func get_dv_quantity() -> int:
+	var _i = 0
+	for _f in current_effects:
+		if "d_" in _f:
+			_i += 1
+	return(_i)
+
 ##### Decoration signals and parameters
 const DecoTags = [ "None", "Architecture", "Foliage", "Cantha", "Asura", "Kryta", "Kodan" ]
 var DecoData = {}

@@ -30,7 +30,10 @@ func _init() -> void:
 func _ready() -> void:
 	gui_input.connect(func(_event):
 		if Input.is_action_just_pressed("left_click"):
-			OS.shell_open("https://slyllama.net/jade-spring"))
+			if _c <= 0.0:
+				_c = 0.3
+				print("doing this")
+				OS.shell_open("https://slyllama.net/jade-spring"))
 	Version.latest_version_retrieved.connect(func(latest_version):
 		if show_updates and !updated:
 			updated = true
@@ -39,3 +42,7 @@ func _ready() -> void:
 	if show_updates:
 		Version.request_latest_version()
 	else: _display_version()
+
+var _c = 0.0
+func _process(delta: float) -> void:
+	if _c > 0.0: _c -= delta

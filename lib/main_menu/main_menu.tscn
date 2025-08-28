@@ -383,7 +383,6 @@ theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "[right][Version][/right]"
 fit_content = true
 scroll_active = false
 script = ExtResource("14_n67d6")

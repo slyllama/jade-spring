@@ -72,8 +72,9 @@ func play_jade_sound() -> void:
 
 func spawn_dgolems() -> void:
 	clear_dgolems()
+	await get_tree().process_frame
 	var _d = DgFX.instantiate()
-	_d.amount = 3
+	_d.amount = clamp(Global.get_effect_qty("discombobulator_qty") + Global.get_dv_quantity(), 0, 3)
 	add_child(_d)
 
 func clear_dgolems() -> void:
