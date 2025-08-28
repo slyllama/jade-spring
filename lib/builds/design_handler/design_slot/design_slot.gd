@@ -54,7 +54,7 @@ func _on_rename_button_down() -> void:
 	else:
 		var _new_name = $HBox/Name.text.replace(" ", "_")
 		if _new_name != design_name:
-			slot_renamed.emit(_new_name)
+			slot_renamed.emit(Global.design_handler.return_valid_name(_new_name))
 		else:
 			editing_name = false
 			$HBox/Rename.text = "Rename"
@@ -67,7 +67,6 @@ func _on_delete_button_down() -> void:
 		modulate = Color("ff7878")
 		$HBox/Delete.text = "Confirm"
 		return
-	print("deleting slot")
 	Global.design_handler.delete_slot(design_name)
 	slot_deleted.emit()
 
@@ -77,8 +76,6 @@ func _input(_event: InputEvent) -> void:
 			await get_tree().process_frame
 			modulate = Color.WHITE
 			$HBox/Delete.text = "Delete"
-		#if $HBox/Rename.text == "Apply":
-			#_on_rename_button_down()
 
 func _on_name_mouse_entered() -> void:
 	Global.mouse_in_ui = true

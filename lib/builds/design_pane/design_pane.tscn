@@ -70,7 +70,6 @@ offset_right = 582.0
 offset_bottom = 376.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = ExtResource("4_icjx6")
 expand_mode = 1
 

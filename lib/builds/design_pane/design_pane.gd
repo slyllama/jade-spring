@@ -35,7 +35,7 @@ func update() -> void:
 
 func open() -> void:
 	Global.design_pane_open = true
-	Global.in_exclusive_ui = true
+	#Global.in_exclusive_ui = true
 	Global.design_handler.create_design_slot()
 	
 	$PaperSound.play()
@@ -84,7 +84,7 @@ func _on_test_save_slot_button_down() -> void:
 func _on_test_new_slot_button_down() -> void:
 	var _text_value = $VBox/NewSlotBoxContainer/NewSlotBox/SlotNameInput.text.replace(" ", "_")
 	if _text_value != "":
-		var _new_slot = _text_value
+		var _new_slot = Global.design_handler.return_valid_name(_text_value)
 		Global.design_handler.create_design_slot(_new_slot)
 		await get_tree().process_frame
 		Global.design_handler.load_slot(_new_slot)

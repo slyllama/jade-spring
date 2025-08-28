@@ -40,7 +40,7 @@ _subresources={
 },
 "mat_wall_beam": {
 "use_external/enabled": true,
-"use_external/path": "uid://bf4e6kuiowdy0"
+"use_external/path": "uid://decbys6ss7ysu"
 },
 "wall_lod": {
 "use_external/enabled": true,
