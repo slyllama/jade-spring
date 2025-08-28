@@ -12,6 +12,7 @@ var action_cam_is_default = true
 var action_cam_active = false
 var action_cam_paused = false
 
+var _controller_validated = false
 var _mouse_delta = Vector2.ZERO # event.relative
 var _last_mouse_delta = _mouse_delta
 var _last_click_position = Vector2.ZERO
@@ -75,6 +76,9 @@ func _disable_action_cam() -> void:
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
 	
+	if event is InputEventJoypadButton:
+		_controller_validated = true
+	
 	# Use key to toggle action camera
 	if Input.is_action_just_pressed("action_camera"):
 		if action_cam_active: _disable_action_cam()
@@ -134,10 +138,11 @@ func _process(delta: float) -> void:
 	# Process relative mouse movement (_mouse_delta)
 	# This is handled here instead of _input() because handling without delta
 	# causes strange behaviour at low frame rates
-	target_rotation.y -= Input.get_action_raw_strength("axis_camera_yaw_right") * Global.orbit_sensitivity_multiplier * 10.0
-	target_rotation.y += Input.get_action_raw_strength("axis_camera_yaw_left") * Global.orbit_sensitivity_multiplier * 10.0
-	target_rotation.x -= Input.get_action_raw_strength("axis_camera_pitch_down") * Global.orbit_sensitivity_multiplier * 4.0
-	target_rotation.x += Input.get_action_raw_strength("axis_camera_pitch_up") * Global.orbit_sensitivity_multiplier * 4.0
+	if _controller_validated:
+		target_rotation.y -= Input.get_action_raw_strength("axis_camera_yaw_right") * Global.orbit_sensitivity_multiplier * 10.0
+		target_rotation.y += Input.get_action_raw_strength("axis_camera_yaw_left") * Global.orbit_sensitivity_multiplier * 10.0
+		target_rotation.x -= Input.get_action_raw_strength("axis_camera_pitch_down") * Global.orbit_sensitivity_multiplier * 4.0
+		target_rotation.x += Input.get_action_raw_strength("axis_camera_pitch_up") * Global.orbit_sensitivity_multiplier * 4.0
 	
 	if orbiting:
 		target_rotation.x -= _mouse_delta.y * Global.orbit_sensitivity_multiplier

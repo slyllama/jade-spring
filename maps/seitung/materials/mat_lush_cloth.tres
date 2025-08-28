@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7j1fxu0i4cwi" path="res://maps/seitung/materials/textures/lush_cloth_norm.jpg" id="2_o0pga"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_bo87c")
 metallic_specular = 0.0
 normal_enabled = true
