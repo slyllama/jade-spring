@@ -6,7 +6,8 @@ const DecoData = {
 		"scene": "res://decorations/lantern/deco_lantern.tscn",
 		"cursor_model": "res://decorations/lantern/lantern.glb",
 		"preview_scale": 0.9,
-		"tags": ["Architecture", "Cantha", "Light"]
+		"tags": ["Architecture", "Cantha", "Light"],
+		"a_cull": true
 	},
 	"noodle_bar_stool": {
 		"name": "Noodle Bar Stool",
@@ -14,7 +15,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/noodle_bar_stool/noodle_bar_stool.glb",
 		"preview_scale": 1.7,
 		"preview_v_offset": -0.2,
-		"tags": ["Architecture", "Cantha", "Furniture"]
+		"tags": ["Architecture", "Cantha", "Furniture"],
+		"a_cull": true
 	},
 	"happy_cloud": {
 		"name": "Happy Cloud",
@@ -22,7 +24,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/happy_cloud/happy_cloud.glb",
 		"preview_scale": 0.8,
 		"preview_y_rotation": 180,
-		"tags": ["Architecture", "Floor"]
+		"tags": ["Architecture", "Floor"],
+		"a_cull": true
 	},
 	"rata_sum_slab": {
 		"name": "Rata Sum Slab",
@@ -30,7 +33,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/rata_sum/slab/rata_sum_slab.glb",
 		"preview_scale": 1.3,
 		"tags": ["Architecture", "Asura", "Floor"],
-		"unlock_value": 17
+		"unlock_value": 17,
+		"a_cull": true
 	},
 	"honey_drips": {
 		"name": "Honey Drips",
@@ -39,14 +43,16 @@ const DecoData = {
 		"preview_scale": 0.5,
 		"preview_v_offset": 1.6,
 		"tags": ["Architecture", "Natural Feature"],
-		"unlock_value": 25
+		"unlock_value": 25,
+		"a_cull": true
 	},
 	"small_boulder": {
 		"name": "Small Boulder",
 		"scene": "res://decorations/small_boulder/deco_small_boulder.tscn",
 		"cursor_model": "res://maps/seitung/meshes/small_boulders.glb",
 		"preview_scale": 0.9,
-		"tags": ["Natural Feature"]
+		"tags": ["Natural Feature"],
+		"a_cull": true
 	},
 	"string_lights": {
 		"name": "String Lights",
@@ -54,7 +60,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/lighting/string_lights.tscn",
 		"preview_scale": 0.9,
 		"preview_v_offset": 0.55,
-		"tags": ["Ornament"]
+		"tags": ["Ornament"],
+		"a_cull": true
 	},
 	"eepy_fence": {
 		"name": "Eepy Fence",
@@ -110,7 +117,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/deco_flower_patch.tscn",
 		"preview_scale": 1.0,
 		"tags": ["Foliage", "Natural Feature"],
-		"show_floor": true
+		"show_floor": true,
+		"a_cull": true
 	},
 	"yellow_flowers": {
 		"name": "Yellow Flowers",
@@ -118,7 +126,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/yellow_flowers.tscn",
 		"preview_scale": 0.75,
 		"tags": ["Foliage", "Natural Feature"],
-		"show_floor": true
+		"show_floor": true,
+		"a_cull": true
 	},
 	"blue_flowers": {
 		"name": "Blue Flowers",
@@ -126,7 +135,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/flower_patch/blue_flowers.tscn",
 		"preview_scale": 0.75,
 		"tags": ["Foliage", "Natural Feature"],
-		"show_floor": true
+		"show_floor": true,
+		"a_cull": true
 	},
 	"lush_grass": {
 		"name": "Lush Grass",
@@ -134,7 +144,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/lush_grass/lush_grass_model.tscn",
 		"preview_scale": 0.5,
 		"tags": ["Foliage", "Natural Feature"],
-		"show_floor": true
+		"show_floor": true,
+		"a_cull": true
 	},
 	"lush_grass_clump": {
 		"name": "Lush Grass Clump",
@@ -142,7 +153,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/lush_grass/lush_grass_clump_model.tscn",
 		"preview_scale": 0.7,
 		"tags": ["Foliage", "Natural Feature"],
-		"show_floor": true
+		"show_floor": true,
+		"a_cull": true
 	},
 	"pancake_rocks": {
 		"name": "Pancake Rocks",
@@ -150,7 +162,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/rocks/pancake_rocks.glb",
 		"preview_scale": 0.7,
 		"tags": ["Natural Feature"],
-		"show_floor": true
+		"show_floor": true,
+		"a_cull": true
 	},
 	"indoor_lamp": {
 		"name": "Light",
@@ -171,7 +184,8 @@ const DecoData = {
 		"model_offset": Vector3(0, 0.2, 0),
 		"preview_y_rotation": 180,
 		"tags": ["Natural Feature"],
-		"unlock_value": 25
+		"unlock_value": 25,
+		"a_cull": true
 	},
 	"bamboo_cluster": {
 		"name": "Bamboo Cluster",
@@ -188,7 +202,8 @@ const DecoData = {
 		"preview_scale": 1.3,
 		"preview_v_offset": -0.35,
 		"preview_y_rotation": 180,
-		"tags": ["Foliage", "Cantha", "Natural Feature"]
+		"tags": ["Foliage", "Cantha", "Natural Feature"],
+		"a_cull": true
 	},
 	"tomato_plant": {
 		"name": "Tomato Plant",
@@ -197,7 +212,8 @@ const DecoData = {
 		"preview_scale": 1.3,
 		"preview_v_offset": -0.35,
 		"preview_y_rotation": 180,
-		"tags": ["Foliage", "Cantha", "Natural Feature"]
+		"tags": ["Foliage", "Cantha", "Natural Feature"],
+		"a_cull": true
 	},
 	"cid_time_banner": {
 		"name": "Cid's Time Banner",
@@ -219,16 +235,6 @@ const DecoData = {
 		"tags": ["Utilities"],
 		"unlock_value": 50
 	},
-	#"cid_alteration_banner": {
-		#"name": "Cid's Alteration Banner",
-		#"scene": "res://decorations/cid_banners/banner_alteration/banner_alteration.tscn",
-		#"cursor_model": "res://decorations/cid_banners/banner_alteration/banner_alteration_gadget.tscn",
-		#"preview_scale": 1.0,
-		#"preview_v_offset": -0.45,
-		#"preview_y_rotation": 180,
-		#"tags": ["Utilities"],
-		#"unlock_value": 50
-	#},
 	"tussock": {
 		"name": "Tussock",
 		"scene": "res://decorations/tussock/deco_tussock.tscn",
@@ -276,7 +282,8 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture", "Cantha", "Floor"]
+		"tags": ["Architecture", "Cantha", "Floor"],
+		"a_cull": true
 	},
 	"kaineng_cobble_stairs": {
 		"name": "Kaineng Cobble Stairs",
@@ -313,7 +320,8 @@ const DecoData = {
 		"preview_scale": 1.2,
 		"preview_y_rotation": 35,
 		"tags": ["Cantha", "Furniture", "Ornament"],
-		"unlock_value": 25
+		"unlock_value": 25,
+		"a_cull": true
 	},
 	"plaster_wall": {
 		"name": "Plaster Wall",
@@ -333,7 +341,8 @@ const DecoData = {
 		"y_rotation": 90,
 		"preview_scale": 0.8,
 		"preview_v_offset": 0.35,
-		"tags": ["Architecture", "Cantha", "Ornament"]
+		"tags": ["Architecture", "Cantha", "Ornament"],
+		"a_cull": true
 	},
 	"simple_wall": {
 		"name": "Simple Wall",
@@ -424,7 +433,8 @@ const DecoData = {
 		"preview_y_rotation": 250,
 		"preview_v_offset": 0.5,
 		"tags": ["Ornament"],
-		"unlock_value": 25
+		"unlock_value": 25,
+		"a_cull": true
 	},
 	"autumnal_shrub": {
 		"name": "Autumnal Shrub",
@@ -440,7 +450,8 @@ const DecoData = {
 		"cursor_model": "res://decorations/drizzlewood_shrub/drizzlewood_shrub.glb",
 		"preview_scale": 1.1,
 		"preview_v_offset": -0.2,
-		"tags": ["Foliage", "Natural Feature"]
+		"tags": ["Foliage", "Natural Feature"],
+		"a_cull": true
 	},
 	"autumnal_tree": {
 		"name": "Autumnal Tree",
@@ -484,7 +495,8 @@ const DecoData = {
 		"preview_scale": 0.45,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
-		"tags": ["Architecture", "Cantha", "Natural Feature"]
+		"tags": ["Architecture", "Cantha", "Natural Feature"],
+		"a_cull": true
 	},
 	"elegant_pedestal": {
 		"name": "Elegant Pedestal",
@@ -492,6 +504,7 @@ const DecoData = {
 		"cursor_model": "res://decorations/elegant_pedestal/elegant_pedestal_mesh.tscn",
 		"preview_scale": 0.6,
 		"model_offset": Vector3(0, 0.5, 0),
-		"tags": ["Cantha", "Ornament"]
+		"tags": ["Cantha", "Ornament"],
+		"a_cull": true
 	},
 }

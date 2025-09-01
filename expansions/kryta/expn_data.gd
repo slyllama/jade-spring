@@ -8,27 +8,31 @@ const data = {
 		"name": "Krytan Luxurious Rug",
 		"preview_scale": 1.2,
 		"preview_v_offset": 0.1,
-		"tags": ["Architecture", "Kryta", "Furniture", "Ornament"]
+		"tags": ["Architecture", "Kryta", "Furniture", "Ornament"],
+		"a_cull": true
 	},
 	"simple_bookcase": {
 		"name": "Simple Bookscase",
 		"preview_scale": 1.2,
 		"preview_v_offset": -0.4,
 		"preview_y_rotation": 260,
-		"tags": ["Architecture", "Kryta", "Furniture"]
+		"tags": ["Architecture", "Kryta", "Furniture"],
+		"a_cull": true
 	},
 	"krytan_side_table": {
 		"name": "Krytan Side Table",
 		"preview_scale": 1.2,
 		"preview_v_offset": -0.4,
-		"tags": ["Architecture", "Kryta", "Furniture"]
+		"tags": ["Architecture", "Kryta", "Furniture"],
+		"a_cull": true
 	},
 	"krytan_dining_chair": {
 		"name": "Krytan Dining Chair",
 		"preview_scale": 1.5,
 		"preview_v_offset": -0.4,
 		"preview_y_rotation": -90,
-		"tags": ["Architecture", "Kryta", "Furniture"]
+		"tags": ["Architecture", "Kryta", "Furniture"],
+		"a_cull": true
 	},
 	"railroad_bridge": {
 		"name": "Railroad Bridge",

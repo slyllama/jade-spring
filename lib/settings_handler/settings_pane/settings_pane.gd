@@ -115,8 +115,9 @@ func _on_reset_button_down() -> void:
 func _on_gp_low_button_down() -> void:
 	SettingsHandler.update("aa", "disabled")
 	SettingsHandler.update("foliage_density", "low")
-	SettingsHandler.update("fps_cap", "unlimited")
+	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "off")
+	SettingsHandler.update("draw_cap", "low")
 	
 	SettingsHandler.update("saturation", 0.65)
 	SettingsHandler.update("brightness", 1.0)
@@ -127,6 +128,7 @@ func _on_gp_normal_button_down() -> void:
 	SettingsHandler.update("foliage_density", "high")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
+	SettingsHandler.update("draw_cap", "high")
 	
 	SettingsHandler.update("saturation", 0.5)
 	SettingsHandler.update("brightness", 0.5)
@@ -137,6 +139,7 @@ func _on_gp_high_button_down() -> void:
 	SettingsHandler.update("foliage_density", "ultra")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
+	SettingsHandler.update("draw_cap", "none")
 	
 	SettingsHandler.update("saturation", 0.5)
 	SettingsHandler.update("brightness", 0.5)

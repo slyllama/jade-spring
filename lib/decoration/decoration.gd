@@ -10,9 +10,6 @@ const Grid = preload("res://lib/grid/grid.tscn")
 
 @export var id = ""
 @export var collision_box: CollisionObject3D
-@export var disable_culling = false
-@export var custom_lod = false
-
 var outline_mat: ShaderMaterial
 var last_position: Vector3
 var last_scale: Vector3
@@ -241,14 +238,10 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	add_child(selection_icon)
 	
-	if "cull" in Global.DecoData[id]:
-		if Global.DecoData[id].cull == "NEVER":
-			cull_distance = 10000
-		elif Global.DecoData[id].cull == "AGGRESSIVE":
-			cull_distance *= 0.75
-	
-	if disable_culling:
-		cull_distance = 10000
+	if "a_cull" in Global.DecoData[id]:
+		if Global.DecoData[id].a_cull == true and get_parent() is DecoHandler:
+			var _dm = DistanceMonitor.new()
+			add_child(_dm)
 	
 	outline_mat = OutlineMaterial.duplicate(true)
 	for _n in Utilities.get_all_children(self):
@@ -414,16 +407,6 @@ func _ready() -> void:
 var _d = 0.0
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
-	_d += delta
-	if _d >= 0.2:
-		_d = 0
-		distance_to_player = global_position.distance_to(Global.camera_position)
-		if distance_to_player > cull_distance:
-			if visible:
-				visible = false
-		else:
-			if !visible:
-				visible = true
 	
 	if !Global.active_decoration == self: return
 	if Global.tool_mode == Global.TOOL_MODE_ADJUST:

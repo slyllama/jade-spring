@@ -197,6 +197,7 @@ func _ready() -> void:
 			"fps_cap":
 				if str(_value) == "30": Engine.set_max_fps(30)
 				elif str(_value) == "60": Engine.set_max_fps(60)
+				elif str(_value) == "144": Engine.set_max_fps(144)
 				else: Engine.set_max_fps(0)
 			"vsync":
 				if _value == "on": DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bhg8ivqgtlp5" path="res://decorations/lighting/indoor_lamp.gd" id="2_3dpfb"]
 
 [node name="IndoorLamp" type="CSGSphere3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 layers = 0
 cast_shadow = 0
 radius = 0.25
@@ -15,10 +14,8 @@ script = ExtResource("2_3dpfb")
 
 [node name="Light" type="OmniLight3D" parent="."]
 light_color = Color(1, 0.9375, 0.75, 1)
-light_energy = 2.0
-shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 10.0
 distance_fade_length = 2.0
-omni_range = 4.5
+omni_range = 3.0
 omni_attenuation = 0.0

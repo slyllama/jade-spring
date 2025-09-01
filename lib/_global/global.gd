@@ -25,6 +25,9 @@ var kv_fish_max = 20
 # Karma is added here when spawned, then subtracted when collected. The remainder is added to the player's Karma count
 var assigned_karma = 0
 
+var aggressive_culling = true
+var aggressive_cull_distance_squared = 100.0
+
 var attenuator_open = false
 var bindings_saved_initial = false # make sure this is only done once during game run-time
 var bindings_pane_open = false
@@ -350,6 +353,21 @@ func _ready() -> void:
 	DecoData = _d.DecoData.duplicate(true)
 	load_expn("kodan")
 	load_expn("kryta")
+	
+	SettingsHandler.setting_changed.connect(func(_param):
+		if _param == "draw_cap":
+			var _val = SettingsHandler.settings.draw_cap
+			print("[Global] Setting draw distance to " + _val + "...")
+			if _val == "low":
+				aggressive_culling = true
+				aggressive_cull_distance_squared = 50.0
+			elif _val == "medium":
+				aggressive_culling = true
+				aggressive_cull_distance_squared = 100.0
+			elif _val == "high":
+				aggressive_culling = true
+				aggressive_cull_distance_squared = 200.0
+			else: aggressive_culling = false)
 	
 	karma_collected.connect(func():
 		var _p = 0.9 + rng.randf() * 0.2 # pitch variance

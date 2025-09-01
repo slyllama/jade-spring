@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bovjknl1tdv66"]
+
+[ext_resource type="Script" uid="uid://s7ke7q17f6xx" path="res://lib/distance_monitor/distance_monitor.gd" id="1_v8mb2"]
+
+[node name="DistanceMonitor" type="Marker3D"]
+script = ExtResource("1_v8mb2")

@@ -13,7 +13,7 @@ const DEFAULT_SETTINGS = {
 	"orbit_sensitivity": 0.5,
 	"labels": "hide",
 	"action_camera": "off_by_default",
-	"fps_cap": 60,
+	"fps_cap": "60",
 	"vsync": "on",
 	"fov": 0.63,
 	"aa": "msaa_(4x)",
@@ -22,7 +22,8 @@ const DEFAULT_SETTINGS = {
 	"show_gift_item": "hide",
 	"direction_control": "strafe",
 	"dof": "off",
-	"current_design": "default"
+	"current_design": "default",
+	"draw_cap": "none"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

@@ -50,6 +50,7 @@ const data = {
 		"preview_scale": 1.0,
 		"tags": ["Foliage", "Kodan"],
 		"cursor_suffix": "tscn",
-		"preview_v_offset": -0.35
+		"preview_v_offset": -0.35,
+		"a_cull": true
 	},
 }
