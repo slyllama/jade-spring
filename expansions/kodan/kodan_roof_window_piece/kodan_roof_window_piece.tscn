@@ -13,6 +13,7 @@ collision_box = NodePath("Body")
 metadata/_custom_type_script = "uid://gqv7s1su1j1i"
 
 [node name="KodanRoofWindowPiece" parent="." instance=ExtResource("2_guqte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0440542, 0)
 
 [node name="Body" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1441, 0.113457, 0)

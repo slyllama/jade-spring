@@ -404,8 +404,7 @@ func _ready() -> void:
 					})
 			)
 
-var _d = 0.0
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return
 	
 	if !Global.active_decoration == self: return

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bvonfx18rbm16"
-path="res://.godot/imported/kodan_roof_piece_mesh.glb-d0c6c1827141ef4abfff9bf8904f07d6.scn"
+uid="uid://boahsltwf2gnx"
+path="res://.godot/imported/kodan_patio_roof_mesh.glb-93981ce80936f88f070360eba0b1d930.scn"
 
 [deps]
 
-source_file="res://expansions/kodan/kodan_roof_piece/kodan_roof_piece_mesh.glb"
-dest_files=["res://.godot/imported/kodan_roof_piece_mesh.glb-d0c6c1827141ef4abfff9bf8904f07d6.scn"]
+source_file="res://expansions/kodan/kodan_patio_roof/kodan_patio_roof_mesh.glb"
+dest_files=["res://.godot/imported/kodan_patio_roof_mesh.glb-93981ce80936f88f070360eba0b1d930.scn"]
 
 [params]
 
@@ -34,17 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"mat_floor": {
+"mat_glass_roof": {
 "use_external/enabled": true,
-"use_external/path": "uid://bcag4j02u4vjf"
-},
-"mat_thatch_base": {
-"use_external/enabled": true,
-"use_external/path": "uid://vpf0h7nbeigu"
-},
-"mat_thatch_puff": {
-"use_external/enabled": true,
-"use_external/path": "uid://balrolcg8bp6l"
+"use_external/path": "uid://cc8siltoy44l5"
 },
 "mat_wood": {
 "use_external/enabled": true,

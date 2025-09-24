@@ -10,6 +10,13 @@ const data = {
 		"name": "Kodan Roof Piece",
 		"preview_scale": 0.5,
 		"preview_y_rotation": 180,
+		"tags": ["Architecture", "Kodan", "Roof"],
+		"cursor_suffix": "tscn"
+	},
+	"kodan_patio_roof": {
+		"name": "Kodan Patio Roof",
+		"preview_scale": 0.5,
+		"preview_y_rotation": 180,
 		"tags": ["Architecture", "Kodan", "Roof"]
 	},
 	"kodan_roof_window_piece": {

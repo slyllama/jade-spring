@@ -347,7 +347,7 @@ const DecoData = {
 	"simple_wall": {
 		"name": "Simple Wall",
 		"scene": "res://decorations/test_wall/deco_test_wall.tscn",
-		"cursor_model": "res://decorations/test_wall/meshes/wall.glb",
+		"cursor_model": "res://decorations/test_wall/meshes/wall_lod.glb",
 		"preview_y_rotation": 35,
 		"y_rotation": 90,
 		"preview_scale": 0.42,

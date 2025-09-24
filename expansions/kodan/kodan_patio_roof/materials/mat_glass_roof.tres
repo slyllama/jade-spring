@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cc8siltoy44l5"]
+
+[ext_resource type="Texture2D" uid="uid://dtix2okq35sph" path="res://expansions/kodan/kodan_patio_roof/materials/textures/glass_roof_diff.jpg" id="1_nih4k"]
+[ext_resource type="Texture2D" uid="uid://c0whyhi4b73ly" path="res://expansions/kodan/kodan_patio_roof/materials/textures/glass_roof_norm.jpg" id="2_u8nyc"]
+
+[resource]
+cull_mode = 2
+albedo_color = Color(0.65, 0.65, 0.65, 1)
+albedo_texture = ExtResource("1_nih4k")
+metallic_specular = 0.0
+emission_enabled = true
+emission_energy_multiplier = 0.25
+emission_texture = ExtResource("1_nih4k")
+normal_enabled = true
+normal_texture = ExtResource("2_u8nyc")
+backlight_enabled = true
+backlight = Color(0.25, 0.25, 0.25, 1)
+uv1_scale = Vector3(3, 3, 3)

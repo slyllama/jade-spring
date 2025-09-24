@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbmjiaoyno4k"]
+
+[ext_resource type="PackedScene" uid="uid://bvonfx18rbm16" path="res://expansions/kodan/kodan_roof_piece/kodan_roof_piece_mesh_full.glb" id="1_d0lm4"]
+
+[node name="kodan_roof_piece_mesh" instance=ExtResource("1_d0lm4")]
+
+[node name="ArcBeams" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.258133, 1.54808, -1.2)
+
+[node name="Columns" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.0899475, 1.2)
+
+[node name="CrossBeam" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.41434, 0)
+
+[node name="CrossBeam_001" parent="." index="3"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 1.1244, 0.0899474, 0)
+
+[node name="CrossBeam_003" parent="." index="4"]
+transform = Transform3D(2.38419e-07, 0, 1.05138, -1, 0, 2.50669e-07, 0, -1, 0, -0.00448406, 0.0523891, -1.19248)
+
+[node name="Cube" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0881174, 0.465833, -1.18356)
+
+[node name="Cube_001" parent="." index="6"]
+transform = Transform3D(0.617506, 0, 0, 0, 1, 0, 0, 0, 1, -0.550799, 1.90296, -1.18356)
+
+[node name="Plane" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.239286, 1.04699, -1.18356)
+visible = false
+
+[node name="Thatch" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0153025, 1.28455, 0)

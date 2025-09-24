@@ -51,7 +51,6 @@ func activate(get_data: Dictionary) -> void:
 	
 	# Cursor tint and radius is ignored if a custom model is used
 	if "custom_model" in data:
-		print("[Cursor3D] Trying to load custom cursor '" + str(data.custom_model) + "'..." )
 		cursor_sphere.queue_free()
 		xray = XRayMesh.new()
 		var model = data.custom_model.instantiate()

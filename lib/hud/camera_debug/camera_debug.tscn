@@ -4,14 +4,14 @@
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="1_f15uc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqp3v"]
-bg_color = Color(0, 0, 0, 0.784314)
+bg_color = Color(0, 0, 0, 0.509804)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qotqx"]
 content_margin_left = 4.0
 content_margin_top = 2.0
 content_margin_right = 4.0
 content_margin_bottom = 2.0
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f15uc"]
 content_margin_left = 6.0
