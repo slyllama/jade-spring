@@ -13,9 +13,9 @@ seed = 1
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0hxwr"]
 width = 256
 height = 256
-seamless = true
-color_ramp = SubResource("Gradient_e0pxu")
 noise = SubResource("FastNoiseLite_p3bfn")
+color_ramp = SubResource("Gradient_e0pxu")
+seamless = true
 
 [resource]
 render_priority = 0

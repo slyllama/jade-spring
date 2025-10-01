@@ -13,9 +13,9 @@
 frequency = 0.025
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fjivs"]
-seamless = true
-color_ramp = SubResource("Gradient_qv4sk")
 noise = SubResource("FastNoiseLite_csnh3")
+color_ramp = SubResource("Gradient_qv4sk")
+seamless = true
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0rf7j"]
 load_path = "res://.godot/imported/dirt_diff.jpg-f1fc3b4766c596063b9a1adcd4b07dc0.s3tc.ctex"

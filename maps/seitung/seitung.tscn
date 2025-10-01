@@ -91,9 +91,9 @@ distance_fade_max_distance = 30.0
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_77j05"]
-seamless = true
-color_ramp = SubResource("Gradient_ab0nn")
 noise = SubResource("FastNoiseLite_oqkxy")
+color_ramp = SubResource("Gradient_ab0nn")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_ajv0q"]
 offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)

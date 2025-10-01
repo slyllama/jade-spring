@@ -19,8 +19,8 @@ offsets = PackedFloat32Array(0.406593, 1)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6mqqa"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tc6sd"]
-color_ramp = SubResource("Gradient_wq6yq")
 noise = SubResource("FastNoiseLite_6mqqa")
+color_ramp = SubResource("Gradient_wq6yq")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_5ngx3"]
 texture = SubResource("NoiseTexture2D_tc6sd")
@@ -85,7 +85,7 @@ op_type = 0
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_add, depth_draw_opaque, cull_back, diffuse_lambert, specular_disabled, unshaded, ambient_light_disabled, fog_disabled;
+render_mode blend_add, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_disabled, unshaded, ambient_light_disabled, fog_disabled;
 
 uniform vec4 color_1 : source_color = vec4(0.249880, 0.000605, 0.603425, 1.000000);
 uniform vec4 color_2 : source_color = vec4(0.825494, 0.000324, 0.773824, 1.000000);

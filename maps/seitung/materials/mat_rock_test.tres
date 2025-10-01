@@ -15,8 +15,8 @@ colors = PackedColorArray(0, 0, 0, 1, 0.0428758, 0.0428758, 0.0428758, 1, 0.9647
 frequency = 0.02
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x871w"]
-color_ramp = SubResource("Gradient_qv4sk")
 noise = SubResource("FastNoiseLite_csnh3")
+color_ramp = SubResource("Gradient_qv4sk")
 
 [resource]
 render_priority = 0

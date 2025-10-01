@@ -16,9 +16,9 @@ offsets = PackedFloat32Array(0, 0.73)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2lmyh"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v784o"]
-seamless = true
-color_ramp = SubResource("Gradient_7xuxb")
 noise = SubResource("FastNoiseLite_2lmyh")
+color_ramp = SubResource("Gradient_7xuxb")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_qnsu5"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)

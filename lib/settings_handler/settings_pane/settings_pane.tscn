@@ -24,11 +24,6 @@ bg_color = Color(0.8, 0.639067, 0.232, 0.117647)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8l8p"]
 content_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc3ua"]
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.796078, 0.635294, 0.231373, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y1jm"]
 content_margin_top = 4.0
 content_margin_bottom = 4.0
@@ -38,6 +33,11 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.796078, 0.635294, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc3ua"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.796078, 0.635294, 0.231373, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrosn"]
 content_margin_top = 3.0
@@ -83,8 +83,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_ydw5f")
 text = "Display"
@@ -144,17 +144,17 @@ theme_override_constants/line_separation = -2
 theme_override_font_sizes/normal_font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxEmpty_y8l8p")
 bbcode_enabled = true
-text = "If the game is loading slowly after upgrading to 1.2b, resetting the shader cache might help. The game will need to be reopened."
+text = "If the game is loading slowly after upgrading to 1.3b, resetting the shader cache might help. The game will need to be reopened."
 fit_content = true
 scroll_active = false
 
 [node name="Reset" type="Button" parent="Container/SC/Contents/ResetBox/ResetVBox" index="1"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_colors/font_color = Color(0.796078, 0.635294, 0.231373, 1)
-theme_override_styles/hover = SubResource("StyleBoxFlat_xc3ua")
+theme_override_colors/font_hover_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_8y1jm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xc3ua")
 text = "Reset Shader Cache (Closes Game)"
 
 [node name="TitleSeparator8" type="ColorRect" parent="Container/SC/Contents" index="5"]
@@ -261,8 +261,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_ydw5f")
 text = "Input
@@ -331,8 +331,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_ydw5f")
 text = "Sound

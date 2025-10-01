@@ -8,6 +8,6 @@ offsets = PackedFloat32Array(0.259494, 1)
 [resource]
 width = 1024
 height = 150
-seamless = true
-color_ramp = SubResource("Gradient_pb2fu")
 noise = SubResource("FastNoiseLite_dfdix")
+color_ramp = SubResource("Gradient_pb2fu")
+seamless = true

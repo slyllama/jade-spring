@@ -9,8 +9,8 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0n1yv"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lpejq"]
-color_ramp = SubResource("Gradient_g76vt")
 noise = SubResource("FastNoiseLite_0n1yv")
+color_ramp = SubResource("Gradient_g76vt")
 
 [resource]
 render_priority = 0

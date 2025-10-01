@@ -308,4 +308,5 @@ mesh_lod/lod_change/threshold_pixels=2.0
 [steam]
 
 initialization/app_id=3561310
+initialization/initialize_on_startup=true
 initialization/embed_callbacks=false

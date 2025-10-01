@@ -33,12 +33,5 @@ const data = {
 		"preview_y_rotation": -90,
 		"tags": ["Architecture", "Kryta", "Furniture"],
 		"a_cull": true
-	},
-	"railroad_bridge": {
-		"name": "Railroad Bridge",
-		"preview_scale": 0.4,
-		"preview_v_offset": 0.2,
-		"preview_y_rotation": -90,
-		"tags": ["Architecture", "Kryta"]
 	}
 }

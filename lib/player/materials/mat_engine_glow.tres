@@ -7,9 +7,9 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_37k17"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1t7wh"]
-seamless = true
-color_ramp = SubResource("Gradient_4uvcy")
 noise = SubResource("FastNoiseLite_37k17")
+color_ramp = SubResource("Gradient_4uvcy")
+seamless = true
 
 [resource]
 render_priority = -1
