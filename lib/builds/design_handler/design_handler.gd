@@ -107,8 +107,13 @@ func _ready() -> void:
 		# First time setup
 		print("[DesignHandler] no path exists, creating...")
 		DirAccess.make_dir_absolute(DPATH)
-		SettingsHandler.update("current_design", "default")
 		
+		SettingsHandler.update("current_design", "default")
 		await get_tree().process_frame
 		await Global.deco_handler.ready
+		create_design_slot("default")
+	
+	if Global.start_params.new_save:
+		SettingsHandler.update("current_design", "default")
+		await get_tree().process_frame
 		create_design_slot("default")

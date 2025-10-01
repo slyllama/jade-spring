@@ -272,7 +272,10 @@ func skill_used(skill_id: String) -> void:
 		"edit_selection":
 			if Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
 				Global.set_cursor(false)
-				Global.deco_selection_array[0].node.start_adjustment()
+				if Global.deco_selection_array.size() > 0:
+					Global.deco_selection_array[0].node.start_adjustment()
+				else:
+					set_default_skills()
 		"duplicate_edit_selection":
 			if Global.tool_mode == Global.TOOL_MODE_SELECT_MULTIPLE:
 				if Global.deco_selection_array.size() <= 0:

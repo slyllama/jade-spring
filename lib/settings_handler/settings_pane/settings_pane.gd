@@ -68,6 +68,7 @@ func _on_quit_button_down() -> void:
 	if !Global.in_exclusive_ui:
 		AudioServer.set_bus_volume_db(0, -80)
 		Save.data.karma += Global.assigned_karma
+		Global.design_handler.create_design_slot()
 		Global.dismiss_hints()
 		Global.command_sent.emit("/savedata")
 		SteamHandler.store_stats()

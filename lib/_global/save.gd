@@ -248,6 +248,7 @@ func _ready() -> void:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		Global.design_handler.create_design_slot()
 		if DiscordRPC.get_is_discord_working():
 			DiscordRPC.refresh()
 		

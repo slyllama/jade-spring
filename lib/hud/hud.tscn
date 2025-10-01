@@ -49,10 +49,10 @@ shader_parameter/mask2 = SubResource("GradientTexture2D_h7w5p")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkc2r"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsocp"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sruav"]
 bg_color = Color(0, 0, 0, 0.196078)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsocp"]
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
@@ -260,7 +260,7 @@ expand_mode = 1
 
 [node name="Text" type="RichTextLabel" parent="InteractIndicator"]
 custom_minimum_size = Vector2(18, 18)
-layout_mode = 2
+layout_mode = 0
 offset_left = 22.0
 offset_top = 43.0
 offset_right = 221.0
@@ -330,10 +330,10 @@ offset_bottom = 232.0
 grow_horizontal = 0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 1
 theme_override_constants/line_separation = -2
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
 theme_override_fonts/normal_font = ExtResource("2_yply7")
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
@@ -393,8 +393,8 @@ grow_vertical = 0
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_yply7")
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_sruav")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hsocp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sruav")
 placeholder_text = "Enter command:"
 
 [node name="SpinnerBox" type="TextureRect" parent="TopLevel"]
@@ -439,6 +439,7 @@ text = "Preparing shaders..."
 [node name="ControllerCursor" parent="TopLevel" instance=ExtResource("24_40fv2")]
 
 [node name="CameraDebug" parent="TopLevel" instance=ExtResource("27_mw7io")]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
