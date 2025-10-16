@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=35 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" uid="uid://b3w8s1v8lbv3o" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -26,8 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
 [ext_resource type="PackedScene" uid="uid://b0blxymb4wob0" path="res://lib/controller_cursor/controller_cursor.tscn" id="24_40fv2"]
-[ext_resource type="Texture2D" uid="uid://cw1qny1ob1i8j" path="res://lib/loader/textures/spinner_box.png" id="25_um878"]
-[ext_resource type="PackedScene" uid="uid://qam37s2cdrnp" path="res://lib/hud/camera_debug/camera_debug.tscn" id="27_mw7io"]
 
 [sub_resource type="Gradient" id="Gradient_rfne7"]
 
@@ -314,6 +312,7 @@ bbcode_enabled = true
 text = "[Version]"
 scroll_active = false
 autowrap_mode = 0
+horizontal_alignment = 2
 script = ExtResource("18_0n0fc")
 align_right = true
 show_updates = false
@@ -397,25 +396,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_hsocp")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sruav")
 placeholder_text = "Enter command:"
 
-[node name="SpinnerBox" type="TextureRect" parent="TopLevel"]
-visible = false
-z_index = 10
-custom_minimum_size = Vector2(143, 121)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.5
-offset_top = -92.5
-offset_right = 71.5
-offset_bottom = 28.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("25_um878")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="FG" type="ColorRect" parent="TopLevel"]
 visible = false
 z_index = 2
@@ -437,17 +417,6 @@ mouse_filter = 2
 text = "Preparing shaders..."
 
 [node name="ControllerCursor" parent="TopLevel" instance=ExtResource("24_40fv2")]
-
-[node name="CameraDebug" parent="TopLevel" instance=ExtResource("27_mw7io")]
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -631.0
-offset_top = 112.0
-offset_right = -311.0
-offset_bottom = 158.0
-grow_horizontal = 0
 
 [node name="InteractEnter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_hhimw")

@@ -79,7 +79,9 @@ func _load_decorations(data = []) -> void:
 	_clear_decorations()
 	for _d in data:
 		if !_d.id in Global.DecoData:
-			print_rich("[color=red][ERROR][DecoHandler] '" + _d.id + "' is not in this version of Jade Spring.[/color]")
+			print_rich("[color=red][ERROR][DecoHandler] '"
+				+ _d.id
+				+ "' is not in this version of Jade Spring.[/color]")
 			continue
 		var _deco_loader: DecoThreadedLoaderScript = DecoThreadedLoader.instantiate()
 		_deco_loader.deco_id = _d.id
@@ -89,7 +91,6 @@ func _load_decorations(data = []) -> void:
 		_deco_loader.loaded.connect(func(_decoration):
 			Global.decorations.append(_decoration))
 		add_child(_deco_loader)
-		
 	Global.deco_load_ended.emit()
 
 # Load decorations from a file as a dictionary to use with other functions
@@ -126,10 +127,6 @@ func _save_decorations() -> void:
 
 func _ready() -> void:
 	Global.deco_handler = self
-	
-	for _n in get_children():
-		if _n is Decoration:
-			Global.decorations.append(_n)
 	default_deco_data = _get_decoration_list()
 	
 	# Strict eligibility for achievements
@@ -172,9 +169,10 @@ func _ready() -> void:
 			await Global.deco_load_ended
 			Global.announcement_sent.emit("((Loaded decorations from file))")
 		elif _cmd == "/resetdeco":
-			_load_decorations(default_deco_data)
+			var _default_data = _load_decoration_file(
+			"res://maps/seitung/default_deco.dat")
+			_load_decorations(_default_data)
 			await Global.deco_load_ended
-			await get_tree().process_frame
 			_save_decorations()
 		elif _cmd == "/savedeco":
 			_save_decorations()
@@ -189,5 +187,12 @@ func _on_design_handler_ready() -> void:
 	if Global.map_name == "debug": return
 	
 	if !Global.start_params.new_save:
-		print("[DecoHandler] Loading design '" + SettingsHandler.settings.current_design + "'.")
+		print("[DecoHandler] Loading design '"
+			+ SettingsHandler.settings.current_design + "'.")
 		_load_decorations(_load_decoration_file())
+	else:
+		var _default_data = _load_decoration_file(
+			"res://maps/seitung/default_deco.dat")
+		_load_decorations(_default_data)
+		await Global.deco_load_ended
+		_save_decorations()

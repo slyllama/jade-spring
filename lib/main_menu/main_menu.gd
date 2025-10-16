@@ -192,7 +192,7 @@ func _ready() -> void:
 	
 	get_window().size_changed.connect(_set_title_card_pos)
 	
-	SettingsHandler.refresh(["volume"])
+	SettingsHandler.refresh(["volume", "draw_cap"])
 	await get_tree().process_frame
 	_set_title_card_pos()
 	
