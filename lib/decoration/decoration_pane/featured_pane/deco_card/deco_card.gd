@@ -16,7 +16,8 @@ func update() -> void:
 		$Title.add_theme_font_size_override(
 			"normal_font_size", custom_font_size)
 	if custom_image_height:
-		$Image.size.y = custom_image_height
+		$Image.set_deferred("size:y", custom_image_height)
+		#$Image.size.y = custom_image_height
 	if custom_image_y_pos:
 		$Image.position.y = custom_image_y_pos
 

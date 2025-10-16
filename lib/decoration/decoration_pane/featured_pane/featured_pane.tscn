@@ -43,8 +43,6 @@ title = "Kodan Roof Pieces"
 id = "kodan_roof_window_piece"
 image = ExtResource("5_hhmvf")
 custom_font_size = 24
-custom_image_height = 0.0
-custom_image_y_pos = 0.0
 
 [node name="DecoCard2" parent="Base/FeaturedBox" instance=ExtResource("4_ihxfi")]
 layout_mode = 2

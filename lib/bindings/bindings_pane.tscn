@@ -32,8 +32,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_n83lq")
 text = "Movement"
@@ -74,7 +74,7 @@ action = "sprint"
 
 [node name="Ascend" parent="Container/ScrollContainer/Contents" index="7" instance=ExtResource("4_voemp")]
 layout_mode = 2
-input_name = "Ascend"
+input_name = "Ascend/Jump"
 action = "move_up"
 
 [node name="Descent" parent="Container/ScrollContainer/Contents" index="8" instance=ExtResource("4_voemp")]
@@ -88,8 +88,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_n83lq")
 text = "General"
@@ -124,8 +124,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_n83lq")
 text = "Skills
