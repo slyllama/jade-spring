@@ -1,5 +1,5 @@
 @tool
-@icon("res://lib/decoration/icon_decoration.svg")
+@icon("res://lib/decoration/icon_deco.svg")
 class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 

@@ -2,7 +2,7 @@ class_name DecoHandler extends Node3D
 # DecoHandler
 # Manages the placing and removal of decorations
 
-const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
+const DecoThreadedLoader = preload("res://lib/decoration/deco_threaded_loader/deco_threaded_loader.tscn")
 const FILE_PATH = "user://save/deco.dat"
 var default_deco_data = {}
 
@@ -81,15 +81,25 @@ func _load_decorations(data = []) -> void:
 		if !_d.id in Global.DecoData:
 			print_rich("[color=red][ERROR][DecoHandler] '" + _d.id + "' is not in this version of Jade Spring.[/color]")
 			continue
-		var _decoration: Decoration = load(Global.DecoData[_d.id].scene).instantiate()
 		
-		call_deferred("add_child", _decoration)
-		await _decoration.tree_entered
+		#var _decoration: Decoration = load(Global.DecoData[_d.id].scene).instantiate()
+		#call_deferred("add_child", _decoration)
+		#await _decoration.tree_entered
+		#_decoration.global_position = _d.position
+		#_decoration.rotation = _d.rotation
+		#_decoration.scale = _d.scale
+		#Global.decorations.append(_decoration)
 		
-		_decoration.global_position = _d.position
-		_decoration.rotation = _d.rotation
-		_decoration.scale = _d.scale
-		Global.decorations.append(_decoration)
+		var _deco_loader: DecoThreadedLoaderScript = DecoThreadedLoader.instantiate()
+		print(" -- " + _d.id)
+		_deco_loader.deco_id = _d.id
+		_deco_loader.position = _d.position
+		_deco_loader.rotation = _d.rotation
+		_deco_loader.scale = _d.scale
+		_deco_loader.loaded.connect(func(_decoration):
+			Global.decorations.append(_decoration))
+		add_child(_deco_loader)
+		
 	Global.deco_load_ended.emit()
 
 # Load decorations from a file as a dictionary to use with other functions
@@ -102,8 +112,7 @@ func _load_decoration_file(deco_path = FILE_PATH) -> Array:
 		if _file_decos is Array:
 			return(_file_decos)
 		else: return([])
-	else:
-		return([])
+	else: return([])
 
 func _get_decoration_list() -> Array:
 	var _decoration_save_data = []
