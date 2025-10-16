@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/door.glb-d4e9e4c16de65e68150a6514553a4465.scn
 
 nodes/root_type=""
 nodes/root_name="Door"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,27 +34,35 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_columns": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/door/materials/mat_door_columns.tres"
+"use_external/fallback_path": "res://decorations/door/materials/mat_door_columns.tres",
+"use_external/path": "uid://c0uhwe16ejnv1"
 },
 "mat_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/player/materials/mat_gold_dark.tres"
+"use_external/fallback_path": "res://lib/player/materials/mat_gold_dark.tres",
+"use_external/path": "uid://ccnhg7hkawk2d"
 },
 "mat_wood_inlay": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/door/materials/mat_door_inlay.tres"
+"use_external/fallback_path": "res://decorations/door/materials/mat_door_inlay.tres",
+"use_external/path": "uid://bbn63j8lnq0oy"
 },
 "mat_wood_red_stain": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/door/materials/mat_door_trellis.tres"
+"use_external/fallback_path": "res://decorations/door/materials/mat_door_trellis.tres",
+"use_external/path": "uid://t7hqoyng4f7t"
 },
 "mat_wood_red_stain.001": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/door/materials/mat_door_panel.tres"
+"use_external/fallback_path": "res://decorations/door/materials/mat_door_panel.tres",
+"use_external/path": "uid://cukbkobv46mpu"
 }
 }
 }

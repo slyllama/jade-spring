@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/build_vault.glb-f15f75512b3be0d0c27b64f11268a
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,30 +34,39 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_column": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://lib/builds/build_vault/materials/mat_vault_column.tres",
 "use_external/path": "uid://c3b534iko48ys"
 },
 "mat_floor": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://lib/builds/build_vault/materials/mat_vault_floor.tres",
 "use_external/path": "uid://b5p6curjrt11n"
 },
 "mat_gold": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://lib/builds/build_vault/materials/mat_vault_gold.tres",
 "use_external/path": "uid://5rm7t5j834yv"
 },
 "mat_gold_corner": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://lib/builds/build_vault/materials/mat_vault_corner.tres",
 "use_external/path": "uid://ojqtokf8wqe8"
 },
 "mat_orb": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://lib/builds/build_vault/materials/mat_orb.tres",
 "use_external/path": "uid://ktteydypav6x"
 },
 "mat_stars": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://lib/builds/build_vault/materials/mat_vault_stars.tres",
 "use_external/path": "uid://c2y3kd0kr1t0e"
 }
 }

@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/janthiri_bee.glb-0b7d6d64b9b1b0792967cb169c36
 
 nodes/root_type=""
 nodes/root_name="JanthiriBee"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.47
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,23 +34,30 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_gloss": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/player/materials/mat_eyes.tres"
+"use_external/fallback_path": "res://lib/player/materials/mat_eyes.tres",
+"use_external/path": "uid://dm3wlruomfds5"
 },
 "mat_legs": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/player/materials/mat_eyes.tres"
+"use_external/fallback_path": "res://lib/player/materials/mat_eyes.tres",
+"use_external/path": "uid://dm3wlruomfds5"
 },
 "mat_wings": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/janthiri_bee/materials/mat_bee_wing.tres"
+"use_external/fallback_path": "res://decorations/janthiri_bee/materials/mat_bee_wing.tres",
+"use_external/path": "uid://crgyapms2hh3s"
 },
 "mat_yellow": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/janthiri_bee/materials/mat_bee_body.tres"
+"use_external/fallback_path": "res://decorations/janthiri_bee/materials/mat_bee_body.tres",
+"use_external/path": "uid://lpt2rmhj2gfg"
 }
 }
 }

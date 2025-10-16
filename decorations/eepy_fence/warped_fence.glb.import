@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/warped_fence.glb-e1329bb8b1be57e265bcb1be16ba
 
 nodes/root_type=""
 nodes/root_name="WarpedFence"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,19 +34,25 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_fenceleaves": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/eepy_fence/materials/mat_bushes.tres"
+"use_external/fallback_path": "res://decorations/eepy_fence/materials/mat_bushes.tres",
+"use_external/path": "uid://dfxdee8xwpfpq"
 },
 "mat_grass": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/eepy_fence/materials/mat_wave_grasses.tres"
+"use_external/fallback_path": "res://decorations/eepy_fence/materials/mat_wave_grasses.tres",
+"use_external/path": "uid://clj0ogt7s3yd4"
 },
 "mat_warped_fence": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/eepy_fence/materials/mat_warped_fence.tres"
+"use_external/fallback_path": "res://decorations/eepy_fence/materials/mat_warped_fence.tres",
+"use_external/path": "uid://b716521tw16ix"
 }
 }
 }

@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/dg_spiral.glb-a314ee07cc0d75c4f2488ea7fddadcf
 
 nodes/root_type=""
 nodes/root_name="DGSpiral"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.35
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,11 +34,15 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/dispersion_golem/dg_spiral/materials/mat_dg_spiral.tres"
+"use_external/fallback_path": "res://lib/dispersion_golem/dg_spiral/materials/mat_dg_spiral.tres",
+"use_external/path": "uid://btwesu3wu30i8"
 }
 },
 "nodes": {

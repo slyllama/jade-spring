@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/jade_turret.glb-431063bd90086c7ef7e43e7679d14
 
 nodes/root_type=""
 nodes/root_name="JadeTurret"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.24
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,23 +34,30 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "Body": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/charging_station/materials/mat_body.tres"
+"use_external/fallback_path": "res://lib/charging_station/materials/mat_body.tres",
+"use_external/path": "uid://dpxjjql4rljo"
 },
 "Jade_Details": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/player/materials/mat_jade.tres"
+"use_external/fallback_path": "res://lib/player/materials/mat_jade.tres",
+"use_external/path": "uid://ihoir867mar"
 },
 "Leg": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/charging_station/materials/mat_leg.tres"
+"use_external/fallback_path": "res://lib/charging_station/materials/mat_leg.tres",
+"use_external/path": "uid://5jco4ukg6fas"
 },
 "LegArmour": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/charging_station/materials/mat_leg_armour.tres"
+"use_external/fallback_path": "res://lib/charging_station/materials/mat_leg_armour.tres",
+"use_external/path": "uid://dnki42dnr6rim"
 }
 }
 }

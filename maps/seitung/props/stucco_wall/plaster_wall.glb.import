@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/plaster_wall.glb-9ccec34ec2155faf00e1e78de0c2
 
 nodes/root_type=""
 nodes/root_name="StuccoWall"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_stuccobake": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/props/stucco_wall/materials/mat_stuccobake.tres"
+"use_external/fallback_path": "res://maps/seitung/props/stucco_wall/materials/mat_stuccobake.tres",
+"use_external/path": "uid://d1ss4alqxhnfr"
 },
 "mat_wood": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/lantern/materials/mat_wood.tres"
+"use_external/fallback_path": "res://decorations/lantern/materials/mat_wood.tres",
+"use_external/path": "uid://dea4wfxui5nk8"
 }
 }
 }

@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/sunflowers.glb-778180ee6a92e3b1f3c5b1c15a0c48
 
 nodes/root_type=""
 nodes/root_name="Sunflowers"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_leaf": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/sunflowers/materials/mat_sunflower_leaves.tres"
+"use_external/fallback_path": "res://decorations/sunflowers/materials/mat_sunflower_leaves.tres",
+"use_external/path": "uid://byao7piko6lsx"
 },
 "mat_sunflower": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/sunflowers/materials/mat_sunflower_head.tres"
+"use_external/fallback_path": "res://decorations/sunflowers/materials/mat_sunflower_head.tres",
+"use_external/path": "uid://dfmfv7k7vg3df"
 }
 }
 }
