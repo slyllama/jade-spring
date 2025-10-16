@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name HUDScript extends CanvasLayer
 
 const FADE = 0.6 # faded buttons will have this alpha value
 const StoryPanel = preload("res://lib/story_panel/story_panel.tscn")
@@ -72,6 +72,11 @@ func proc_story() -> void:
 			}, Utilities.get_screen_center(
 				Vector2(get_viewport().size.x / Global.retina_scale * 0.5 - 460,
 				40 - get_viewport().size.y / Global.retina_scale * 0.5)), true)
+
+# Set whether the effects list registers mouse inputs or ignores them
+func set_fx_pickable(state := true) -> void:
+	if state: $FXList.mouse_filter = Control.MOUSE_FILTER_PASS
+	else: $FXList.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):

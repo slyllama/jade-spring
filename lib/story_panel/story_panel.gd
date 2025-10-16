@@ -7,10 +7,10 @@ func _set_shader_value(val: float) -> void: # 0-1
 	$Base.material.set_shader_parameter("paint_mask_exponent", (1 - _e) * 10)
 
 func open(title = "((Title))", description = "((Description))"):
+	Global.hud.set_fx_pickable(false) # prevent the effects list click-zone from obscuring the "Done" button
 	$Base/Content/Title.text = "[center]" + title + "[/center]"
 	# Includes shortcuts for second paragraph
 	$Base/Content/Description.text = description.replace("<", "\n[font_size=9] [/font_size]\n[color=white]").replace(">", "[/color]")
-	#$PlayDialogue.play()
 	
 	Global.story_panel_open = true
 	Global.action_cam_disable.emit()
@@ -37,6 +37,7 @@ func play_building_hint() -> void:
 
 func close():
 	if closed: return # should only happen once
+	Global.hud.set_fx_pickable(true)
 	closed = true
 	
 	if Save.data.story_point == "game_start":

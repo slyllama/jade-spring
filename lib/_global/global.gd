@@ -11,7 +11,7 @@ var crumb_handler: CrumbHandler
 var save_handler: SaveHandler
 var deco_handler: DecoHandler
 var design_handler: DesignHandler
-var hud: CanvasLayer
+var hud: HUDScript
 var player: CharacterBody3D
 var orbit_handler: OrbitHandler
 
@@ -340,11 +340,13 @@ func _ready() -> void:
 	skill_cooldown_timer.one_shot = true
 	
 	if !Engine.is_editor_hint():
+		
 		DiscordRPC.app_id = 1367709882530140191
 		DiscordRPC.register_steam(3561310)
 		DiscordRPC.state = "In Menu"
 		DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
-		DiscordRPC.refresh()
+		if DiscordRPC.get_is_discord_working():
+			DiscordRPC.refresh()
 	
 	Utilities.set_master_vol(0.0)
 	
@@ -387,11 +389,12 @@ func _ready() -> void:
 			retina_scale = 2
 		if !Engine.is_embedded_in_editor():
 			get_window().size *= retina_scale
-	get_window().min_size = Vector2i(
-		floor(1280 * Global.retina_scale) - 1,
-		floor(720 * Global.retina_scale) - 1)
-	
-	get_window().position = DisplayServer.screen_get_position() + Vector2i(32, 64)
+	if !Engine.is_embedded_in_editor():
+		get_window().min_size = Vector2i(
+			floor(1280 * Global.retina_scale) - 1,
+			floor(720 * Global.retina_scale) - 1)
+		get_window().position = (
+			DisplayServer.screen_get_position() + Vector2i(32, 64))
 	
 	await get_tree().process_frame
 	get_window().size_changed.connect(func():
@@ -401,7 +404,8 @@ func _ready() -> void:
 			SettingsHandler.update("window_mode", "maximized")
 			SettingsHandler.save_to_file()
 		elif get_window().mode == Window.MODE_WINDOWED:
-			if !SettingsHandler.settings.window_mode == "windowed" and !SettingsHandler.settings.window_mode == "windowed_(1080p)":
+			if (!SettingsHandler.settings.window_mode == "windowed"
+				and !SettingsHandler.settings.window_mode == "windowed_(1080p)"):
 				SettingsHandler.update("window_mode", "windowed")
 				SettingsHandler.save_to_file())
 
@@ -412,7 +416,6 @@ func _on_click_sound() -> void:
 	$Click.play()
 
 # Skill cooldowns
-
 const SKILL_COOLDOWN_TIME = 0.2
 var on_skill_cooldown = false
 @onready var skill_cooldown_timer = Timer.new()

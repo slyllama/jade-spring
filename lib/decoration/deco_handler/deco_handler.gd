@@ -81,17 +81,7 @@ func _load_decorations(data = []) -> void:
 		if !_d.id in Global.DecoData:
 			print_rich("[color=red][ERROR][DecoHandler] '" + _d.id + "' is not in this version of Jade Spring.[/color]")
 			continue
-		
-		#var _decoration: Decoration = load(Global.DecoData[_d.id].scene).instantiate()
-		#call_deferred("add_child", _decoration)
-		#await _decoration.tree_entered
-		#_decoration.global_position = _d.position
-		#_decoration.rotation = _d.rotation
-		#_decoration.scale = _d.scale
-		#Global.decorations.append(_decoration)
-		
 		var _deco_loader: DecoThreadedLoaderScript = DecoThreadedLoader.instantiate()
-		print(" -- " + _d.id)
 		_deco_loader.deco_id = _d.id
 		_deco_loader.position = _d.position
 		_deco_loader.rotation = _d.rotation
