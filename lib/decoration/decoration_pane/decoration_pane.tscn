@@ -99,7 +99,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="CornerNW" type="TextureRect" parent="Base" index="1"]
-layout_mode = 2
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 314.0
@@ -112,7 +112,7 @@ expand_mode = 1
 
 [node name="CornerSE" type="TextureRect" parent="Base" index="2"]
 z_index = 1
-layout_mode = 2
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 325.0

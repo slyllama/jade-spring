@@ -89,6 +89,7 @@ func _load_decorations(data = []) -> void:
 		_deco_loader.rotation = _d.rotation
 		_deco_loader.scale = _d.scale
 		_deco_loader.loaded.connect(func(_decoration):
+			await get_tree().process_frame
 			Global.decorations.append(_decoration))
 		add_child(_deco_loader)
 	Global.deco_load_ended.emit()

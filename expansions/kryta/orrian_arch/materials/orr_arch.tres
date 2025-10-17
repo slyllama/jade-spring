@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cu4s40mqioc3h"]
+
+[ext_resource type="Texture2D" uid="uid://cyw53swstmiwt" path="res://expansions/kryta/orrian_arch/materials/textures/orr_arch_diff.jpg" id="1_bvpsk"]
+[ext_resource type="Texture2D" uid="uid://bi7wksg0phjoy" path="res://expansions/kryta/orrian_arch/materials/textures/orr_arch_norm.jpg" id="2_3klvm"]
+
+[resource]
+albedo_texture = ExtResource("1_bvpsk")
+metallic = 0.25
+roughness = 0.65
+normal_enabled = true
+normal_scale = 1.5
+normal_texture = ExtResource("2_3klvm")

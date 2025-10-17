@@ -49,6 +49,8 @@ func open(silent = false) -> void:
 	Global.deco_pane_open = true
 	last_deco_count = Global.deco_handler.get_deco_count()
 	super(silent)
+	
+	_on_clear_search_button_down() # clear search button
 
 func close():
 	Global.deco_pane_open = false
