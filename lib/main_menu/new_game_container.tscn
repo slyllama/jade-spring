@@ -36,7 +36,13 @@ texture = ExtResource("3_1hji7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NGBox" type="HBoxContainer" parent="Container" index="5"]
+[node name="TitleSeparator2" type="ColorRect" parent="Container" index="5"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="NGBox" type="HBoxContainer" parent="Container" index="6"]
 layout_mode = 2
 
 [node name="NewGameButton" type="Button" parent="Container/NGBox" index="0"]
@@ -56,7 +62,7 @@ icon = ExtResource("4_ua847")
 icon_alignment = 1
 expand_icon = true
 
-[node name="CancelButton" type="Button" parent="Container" index="6"]
+[node name="CancelButton" type="Button" parent="Container" index="7"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Cancel"
