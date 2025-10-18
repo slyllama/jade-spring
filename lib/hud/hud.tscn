@@ -398,7 +398,7 @@ placeholder_text = "Enter command:"
 
 [node name="FG" type="ColorRect" parent="TopLevel"]
 visible = false
-z_index = 2
+z_index = 101
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -13,6 +13,7 @@ signal loaded(decoration: Decoration)
 @export var deco_id: String
 
 func _ready() -> void:
+	await get_tree().process_frame
 	if !deco_id:
 		print("[DecoThreadedLoader] No decoration ID defined.")
 	if deco_id in Global.DecoData:
