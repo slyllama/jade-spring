@@ -1,22 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://fqasq1ggshha"]
+[gd_scene load_steps=15 format=3 uid="uid://fqasq1ggshha"]
 
 [ext_resource type="Script" uid="uid://d0417uhgw8nyi" path="res://lib/loader/loader.gd" id="1_kyod5"]
-[ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_qx7v1"]
-[ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="2_stjvc"]
-[ext_resource type="Texture2D" uid="uid://dsouup0n217ja" path="res://lib/loader/textures/keymap.png" id="5_0o7k2"]
+[ext_resource type="Texture2D" uid="uid://crr2v6i2wxn32" path="res://lib/loader/textures/raiqqo.jpg" id="2_sqqyj"]
 [ext_resource type="Texture2D" uid="uid://blbfpsk5e3r70" path="res://lib/loader/textures/loading_bar_texture.jpg" id="5_80mct"]
 [ext_resource type="Texture2D" uid="uid://cya3vqt6dfo8y" path="res://lib/loader/textures/bar_corner.png" id="5_tcpwq"]
-[ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="5_tj3c3"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmvk1"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4w2am"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d56j6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pg8m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gkl8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pg8m"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d56j6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4w2am"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmvk1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83o4o"]
 
@@ -75,112 +72,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Decorations" type="Control" parent="."]
-layout_mode = 3
+[node name="Raiqqo" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Base" type="TextureRect" parent="Decorations"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_qx7v1")
+texture = ExtResource("2_sqqyj")
 expand_mode = 1
-stretch_mode = 6
-
-[node name="DecorationNE" type="TextureRect" parent="Decorations"]
-modulate = Color(0.1, 0.1, 0.1, 1)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 9.0
-offset_top = 282.0
-offset_right = 295.0
-offset_bottom = 620.0
-grow_horizontal = 0
-rotation = 3.14159
-texture = ExtResource("2_stjvc")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="DecorationSW" type="TextureRect" parent="Decorations"]
-modulate = Color(0.1, 0.1, 0.1, 1)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -281.0
-offset_right = 274.0
-offset_bottom = 57.0
-grow_vertical = 0
-texture = ExtResource("2_stjvc")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="InputMap" type="TextureRect" parent="Decorations"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -394.5
-offset_top = -189.0
-offset_right = 394.5
-offset_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_0o7k2")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="InputMapTitle" type="RichTextLabel" parent="Decorations/InputMap"]
-clip_contents = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -580.0
-offset_top = -48.0
-offset_right = 580.0
-offset_bottom = -7.0
-grow_horizontal = 2
-theme_override_colors/default_color = Color(0.585062, 0.585062, 0.585062, 1)
-theme_override_constants/line_separation = -4
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "[center]Default Input Map[/center]"
-scroll_active = false
-
-[node name="Disclaimer" type="RichTextLabel" parent="Decorations"]
-visible = false
-clip_contents = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -425.0
-offset_top = -73.0
-offset_right = 425.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/default_color = Color(0.37, 0.37, 0.37, 1)
-theme_override_constants/line_separation = -4
-theme_override_font_sizes/normal_font_size = 14
-bbcode_enabled = true
-text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
-scroll_active = false
+stretch_mode = 4
 
 [node name="ContinueButton" type="Button" parent="."]
 visible = false
@@ -195,27 +95,28 @@ offset_right = 62.0
 offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.65834, 0.65834, 0.65834, 1)
 theme_override_colors/font_pressed_color = Color(0.733333, 0.88, 0.704, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 22
-theme_override_styles/focus = SubResource("StyleBoxEmpty_pmvk1")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4w2am")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_d56j6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7gkl8")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5pg8m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7gkl8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d56j6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4w2am")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pmvk1")
 text = "Continue"
 
 [node name="Bar" type="ProgressBar" parent="."]
+modulate = Color(0.75, 0.75, 0.75, 1)
 clip_children = 2
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 103.0
-offset_top = -142.0
+offset_top = -75.0
 offset_right = -103.0
-offset_bottom = -132.0
+offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxEmpty_83o4o")
@@ -254,11 +155,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_reekw")
 }
 autoplay = "pulse"
-
-[node name="Spinner" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.784314)
-position = Vector2(-200, -200)
-scale = Vector2(0.67, 0.67)
-texture = ExtResource("5_tj3c3")
 
 [connection signal="button_down" from="ContinueButton" to="." method="_on_continue_button_down"]

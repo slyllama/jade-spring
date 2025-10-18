@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsouup0n217ja"
-path="res://.godot/imported/keymap.png-f297c661be5d39a28dc8552a401a6a2d.ctex"
+uid="uid://crr2v6i2wxn32"
+path="res://.godot/imported/raiqqo.jpg-47f4e4966ed4e41e6dd9249e4d81e92d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/loader/textures/keymap.png"
-dest_files=["res://.godot/imported/keymap.png-f297c661be5d39a28dc8552a401a6a2d.ctex"]
+source_file="res://lib/loader/textures/raiqqo.jpg"
+dest_files=["res://.godot/imported/raiqqo.jpg-47f4e4966ed4e41e6dd9249e4d81e92d.ctex"]
 
 [params]
 
