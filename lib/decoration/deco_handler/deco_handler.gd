@@ -72,11 +72,18 @@ func _clear_decorations() -> void:
 
 # Load decorations into the world from a dataset
 # TODO: it might be best to perform this asynchronously
+
+var deco_count := 0
+var deco_count_position := 0 # increment when a decoration load is finalized
+
 func _load_decorations(data = []) -> void:
 	print("[DecoHandler] Loading decorations...")
 	Global.deco_load_started.emit()
 	await get_tree().create_timer(0.2).timeout
 	_clear_decorations()
+	
+	deco_count = data.size()
+	
 	for _d in data:
 		if !_d.id in Global.DecoData:
 			print_rich("[color=red][ERROR][DecoHandler] '"
@@ -90,7 +97,12 @@ func _load_decorations(data = []) -> void:
 		_deco_loader.scale = _d.scale
 		_deco_loader.loaded.connect(func(_decoration):
 			await get_tree().process_frame
-			Global.decorations.append(_decoration))
+			Global.decorations.append(_decoration)
+			deco_count_position += 1
+			
+			if deco_count_position >= deco_count:
+				# TODO: all decorations loaded into memory
+				_save_decorations())
 		add_child(_deco_loader)
 	Global.deco_load_ended.emit()
 
@@ -195,5 +207,3 @@ func _on_design_handler_ready() -> void:
 		var _default_data = _load_decoration_file(
 			"res://maps/seitung/default_deco.dat")
 		_load_decorations(_default_data)
-		await Global.deco_load_ended
-		_save_decorations()
