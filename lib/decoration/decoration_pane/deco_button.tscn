@@ -6,11 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://d0n1puuixbtlj" path="res://lib/ui_container/sounds/hover.ogg" id="4_ms12t"]
 [ext_resource type="AudioStream" uid="uid://bhncweunv2c4h" path="res://lib/ui_container/sounds/paper.ogg" id="5_oworf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3iaf0"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_815o1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fnems"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_815o1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3iaf0"]
 
 [sub_resource type="Animation" id="Animation_kcocm"]
 length = 0.001
@@ -86,11 +86,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 mouse_filter = 1
-theme_override_colors/font_hover_pressed_color = Color(0.95158, 0.95158, 0.95158, 1)
 theme_override_colors/font_color = Color(0.741385, 0.741385, 0.741385, 1)
-theme_override_styles/hover = SubResource("StyleBoxEmpty_3iaf0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_fnems")
+theme_override_colors/font_hover_pressed_color = Color(0.95158, 0.95158, 0.95158, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_815o1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fnems")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3iaf0")
 text = "((Button))"
 alignment = 0
 

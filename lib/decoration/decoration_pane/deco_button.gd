@@ -35,10 +35,10 @@ func _on_button_button_down() -> void:
 
 func _on_button_mouse_entered() -> void:
 	$Hover.play()
-	$Anim.play("pop_in")
 
 func _on_button_mouse_exited() -> void:
-	$Anim.play("pop_out")
+	#$Anim.play("pop_out")
+	pass
 
 func _on_icon_gui_input(_event: InputEvent) -> void:
 	if $Button.disabled: return
