@@ -61,10 +61,10 @@ _data = {
 &"pulse": SubResource("Animation_wqwce")
 }
 
-[node name="Loader" type="CanvasLayer"]
+[node name="Loader" type="CanvasLayer" unique_id=1618878870]
 script = ExtResource("1_kyod5")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=1164467308]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -72,7 +72,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Raiqqo" type="TextureRect" parent="."]
+[node name="Raiqqo" type="TextureRect" parent="." unique_id=718722235]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -80,9 +80,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_sqqyj")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 6
 
-[node name="ContinueButton" type="Button" parent="."]
+[node name="ContinueButton" type="Button" parent="." unique_id=190657231]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -106,7 +106,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4w2am")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pmvk1")
 text = "Continue"
 
-[node name="Bar" type="ProgressBar" parent="."]
+[node name="Bar" type="ProgressBar" parent="." unique_id=1157482445]
 modulate = Color(0.75, 0.75, 0.75, 1)
 clip_children = 2
 anchors_preset = 12
@@ -123,7 +123,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_83o4o")
 theme_override_styles/fill = SubResource("StyleBoxTexture_5te03")
 show_percentage = false
 
-[node name="Corner" type="TextureRect" parent="Bar"]
+[node name="Corner" type="TextureRect" parent="Bar" unique_id=1169399317]
 layout_mode = 0
 offset_left = -3.0
 offset_top = -2.0
@@ -134,7 +134,7 @@ texture = ExtResource("5_tcpwq")
 expand_mode = 1
 flip_h = true
 
-[node name="Corner2" type="TextureRect" parent="Bar"]
+[node name="Corner2" type="TextureRect" parent="Bar" unique_id=838850049]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -150,10 +150,10 @@ mouse_filter = 2
 texture = ExtResource("5_tcpwq")
 expand_mode = 1
 
-[node name="Anim" type="AnimationPlayer" parent="Bar"]
+[node name="Anim" type="AnimationPlayer" parent="Bar" unique_id=1515877791]
 libraries = {
 &"": SubResource("AnimationLibrary_reekw")
 }
-autoplay = "pulse"
+autoplay = &"pulse"
 
 [connection signal="button_down" from="ContinueButton" to="." method="_on_continue_button_down"]

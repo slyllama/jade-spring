@@ -13,7 +13,6 @@ func _ready() -> void:
 			Engine.max_fps = _max_fps
 		)
 	
-	Global.command_sent.emit("/resetdeco")
 	Global.current_effects = []
 	Save.data.story_point = "stewardship"
 	Save.advance_story()
