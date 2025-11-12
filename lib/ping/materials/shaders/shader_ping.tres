@@ -84,6 +84,98 @@ input_name = "time"
 op_type = 0
 
 [resource]
+code = "shader_type spatial;
+render_mode blend_add, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_disabled, unshaded, ambient_light_disabled, fog_disabled;
+
+uniform vec4 color_1 : source_color = vec4(0.249880, 0.000605, 0.603425, 1.000000);
+uniform vec4 color_2 : source_color = vec4(0.825494, 0.000324, 0.773824, 1.000000);
+uniform sampler2D tex_frg_13;
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_6;
+uniform float master_alpha = 1.0;
+
+
+
+void fragment() {
+// ColorParameter:15
+	vec4 n_out15p0 = color_1;
+
+
+// ColorParameter:16
+	vec4 n_out16p0 = color_2;
+
+
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// Input:8
+	float n_out8p0 = TIME;
+
+
+// FloatOp:10
+	float n_in10p1 = 2.00000;
+	float n_out10p0 = n_out8p0 * n_in10p1;
+
+
+// FloatOp:11
+	float n_in11p1 = 0.30000;
+	float n_out11p0 = n_out8p0 * n_in11p1;
+
+
+// VectorCompose:9
+	vec2 n_out9p0 = vec2(n_out10p0, n_out11p0);
+
+
+// VectorOp:7
+	vec2 n_out7p0 = n_out3p0 + n_out9p0;
+
+
+// VectorOp:12
+	vec2 n_in12p1 = vec2(-1.00000, -2.00000);
+	vec2 n_out12p0 = n_out7p0 * n_in12p1;
+
+
+// Texture2D:13
+	vec4 n_out13p0 = texture(tex_frg_13, n_out12p0);
+
+
+// Mix:14
+	vec4 n_out14p0 = mix(n_out15p0, n_out16p0, n_out13p0);
+
+
+// VectorOp:4
+	vec2 n_in4p1 = vec2(0.50000, 0.25000);
+	vec2 n_out4p0 = n_out7p0 * n_in4p1;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out4p0);
+
+
+// Texture2D:6
+	vec4 n_out6p0 = texture(tex_frg_6, n_out3p0);
+
+
+// VectorOp:5
+	vec4 n_out5p0 = n_out2p0 * n_out6p0;
+
+
+// FloatParameter:18
+	float n_out18p0 = master_alpha;
+
+
+// FloatOp:17
+	float n_out17p0 = n_out5p0.x * n_out18p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out14p0.xyz);
+	ALPHA = n_out17p0;
+
+
+}
+"
 modes/blend = 1
 modes/specular = 2
 flags/unshaded = true
