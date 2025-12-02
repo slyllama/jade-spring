@@ -13,9 +13,9 @@ var karma_fist_load = false
 var ignore_story_updates = true
 
 # Dismiss the enclave box
-func _close_enclave_box() -> void:
-	$EnclaveBox.visible = false
-	$EnclaveSeparator.visible = false
+func _toggle_enclave_box_visibility(state := true) -> void:
+	$EnclaveBox.visible = state
+	$EnclaveSeparator.visible = state
 
 func _get_bug_ratio() -> float:
 	return((100 - Save.data.crumb_count.bug
@@ -88,8 +88,12 @@ func proc_story() -> void:
 		update_roster_visibility(3)
 	elif _p == "gratitude":
 		update_roster_visibility(3)
+		if Save.data.vault_entered == false:
+			_toggle_enclave_box_visibility()
 	elif _p == "stewardship":
 		update_roster_visibility(4)
+		if Save.data.vault_entered == false:
+			_toggle_enclave_box_visibility()
 	
 	if _p in Save.STORY_POINT_SCRIPT:
 		var _d = Save.STORY_POINT_SCRIPT[_p] # data shorthand
@@ -101,7 +105,11 @@ func proc_story() -> void:
 				$StoryText.text += " (" + str(Global.crumb_handler.totals.bug - Save.data.crumb_count.bug) + "/" + str(Save.OBJECTIVE_PEST_COUNT) + ")"
 
 func _ready() -> void:
+	_toggle_enclave_box_visibility(false) # hide Enclave box
 	modulate.a = 0.0
+	
+	Global.vault_entered.connect(func():
+		_toggle_enclave_box_visibility(false))
 	
 	Global.crumbs_updated.connect(func():
 		for _i in 3: await get_tree().process_frame
@@ -181,4 +189,4 @@ func _on_ignore_story_updates_timeout() -> void:
 	ignore_story_updates = false
 
 func _on_enclave_box_closed() -> void:
-	_close_enclave_box() # dismiss
+	_toggle_enclave_box_visibility(false) # dismiss

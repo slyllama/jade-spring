@@ -5,6 +5,8 @@ extends "res://lib/map/map.gd"
 var y_target = 0.0
 
 func enter_vault() -> void:
+	Save.data.vault_entered = true
+	
 	Global.add_effect.emit("vault")
 	Global.hud.fade_out()
 	await Global.hud.fade_out_complete

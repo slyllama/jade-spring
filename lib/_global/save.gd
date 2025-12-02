@@ -93,7 +93,8 @@ const DEFAULT_DATA = {
 	"fishing_tutorial_played": false,
 	"unlocked_decorations": [],
 	"hints_played": [],
-	"dialogue_played": [] # only dialogue with an 'ID' field is added here
+	"dialogue_played": [], # only dialogue with an 'ID' field is added here
+	"vault_entered": false
 }
 var data = DEFAULT_DATA.duplicate(true)
 
@@ -128,14 +129,7 @@ func is_at_story_point(story_point: String) -> bool:
 	else: return(false)
 
 func is_save_valid() -> bool:
-	if FileAccess.file_exists(FILE_PATH):
-		var _f = FileAccess.open(FILE_PATH, FileAccess.READ)
-		data = _f.get_var()
-		_f.close()
-		for _key in DEFAULT_DATA:
-			if !_key in data:
-				return(false)
-	else:
+	if !FileAccess.file_exists(FILE_PATH):
 		return(false)
 	return(true)
 
@@ -161,6 +155,11 @@ func load_from_file() -> void:
 		var file = FileAccess.open(FILE_PATH, FileAccess.READ)
 		data = file.get_var()
 		file.close()
+		
+		# Add default keys if any are missing
+		for _key in DEFAULT_DATA:
+			if !_key in data:
+				data[_key] = DEFAULT_DATA[_key]
 		
 		# Discord updating
 		if DiscordRPC.get_is_discord_working():
