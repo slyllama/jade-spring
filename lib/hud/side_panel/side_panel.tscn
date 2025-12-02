@@ -8,10 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dgvxowegr8bu3" path="res://lib/hud/side_panel/textures/side_panel_minor_separator.png" id="5_rs76w"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="5_xhh38"]
 [ext_resource type="Texture2D" uid="uid://bs0q6kx81u58w" path="res://lib/hud/textures/settings_icon_outline.png" id="6_if1f0"]
+[ext_resource type="Texture2D" uid="uid://bjmnb8toocd16" path="res://lib/hud/side_panel/side_panel_regular_gradient.tres" id="7_i3mal"]
 [ext_resource type="Texture2D" uid="uid://cfb7i61lbowa0" path="res://lib/hud/side_panel/textures/side_panel_separator.png" id="7_rlga1"]
 [ext_resource type="Texture2D" uid="uid://b3cek2svfjg6j" path="res://lib/hud/textures/icon_count.png" id="8_sm7pe"]
 [ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="9_cafge"]
 [ext_resource type="StyleBox" uid="uid://ddh75o1b4csod" path="res://lib/hud/side_panel/gradient.tres" id="10_n04xy"]
+[ext_resource type="PackedScene" uid="uid://djwyojptwsm2c" path="res://lib/hud/side_panel/enclave_box/enclave_box.tscn" id="10_w0f4w"]
 [ext_resource type="Texture2D" uid="uid://cnowmk0g403s5" path="res://lib/story_marker/textures/story_marker_small.png" id="12_1fach"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fqi0m"]
@@ -25,16 +27,10 @@ content_margin_right = 20.0
 content_margin_bottom = 16.0
 texture = ExtResource("5_qmfye")
 
-[sub_resource type="Gradient" id="Gradient_e0ypv"]
-colors = PackedColorArray(0.59, 0.314667, 0, 0, 0.59, 0.314667, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bc4yj"]
-gradient = SubResource("Gradient_e0ypv")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ue70"]
 content_margin_top = 14.0
 content_margin_bottom = 14.0
-texture = SubResource("GradientTexture1D_bc4yj")
+texture = ExtResource("7_i3mal")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncvum"]
 content_margin_left = 3.0
@@ -205,6 +201,13 @@ autowrap_mode = 0
 layout_mode = 2
 texture = ExtResource("5_rs76w")
 
+[node name="EnclaveBox" parent="." instance=ExtResource("10_w0f4w")]
+layout_mode = 2
+
+[node name="EnclaveSeparator" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("5_rs76w")
+
 [node name="Separator2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fqi0m")
 custom_minimum_size = Vector2(0, 1)
@@ -313,4 +316,5 @@ texture = ExtResource("7_rlga1")
 one_shot = true
 autostart = true
 
+[connection signal="closed" from="EnclaveBox" to="." method="_on_enclave_box_closed"]
 [connection signal="timeout" from="IgnoreStoryUpdates" to="." method="_on_ignore_story_updates_timeout"]

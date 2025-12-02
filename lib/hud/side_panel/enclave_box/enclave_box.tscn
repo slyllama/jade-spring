@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://djwyojptwsm2c"]
+
+[ext_resource type="Texture2D" uid="uid://bjmnb8toocd16" path="res://lib/hud/side_panel/side_panel_regular_gradient.tres" id="1_7bibs"]
+[ext_resource type="FontFile" uid="uid://bmq5kdklcd65a" path="res://generic/fonts/trebuchet.ttf" id="1_xbiuh"]
+[ext_resource type="Script" uid="uid://dibs82lg30gqg" path="res://lib/hud/side_panel/enclave_box/enclave_box.gd" id="2_83ldq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7bibs"]
+texture = ExtResource("1_7bibs")
+
+[node name="EnclaveBox" type="PanelContainer"]
+offset_right = 273.0
+offset_bottom = 89.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7bibs")
+script = ExtResource("2_83ldq")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Pad" type="ColorRect" parent="HBox"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PadTop" type="ColorRect" parent="HBox/VBox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Title" type="Label" parent="HBox/VBox"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 17
+text = "Otter's Enclave"
+
+[node name="Body" type="Label" parent="HBox/VBox"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_xbiuh")
+theme_override_font_sizes/font_size = 13
+text = "Design templates are now available from the Otter's Enclave near Ratchet. Try them out!"
+autowrap_mode = 3
+
+[node name="Dismiss" type="Button" parent="HBox/VBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("1_xbiuh")
+theme_override_font_sizes/font_size = 13
+text = "Dismiss"
+
+[node name="PadBottom" type="ColorRect" parent="HBox/VBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="PadRight" type="ColorRect" parent="HBox"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="HBox/VBox/Dismiss" to="." method="_on_dismiss_pressed"]

@@ -12,6 +12,11 @@ var karma_fist_load = false
 
 var ignore_story_updates = true
 
+# Dismiss the enclave box
+func _close_enclave_box() -> void:
+	$EnclaveBox.visible = false
+	$EnclaveSeparator.visible = false
+
 func _get_bug_ratio() -> float:
 	return((100 - Save.data.crumb_count.bug
 		/ float(Global.crumb_handler.totals.bug) * 100))
@@ -174,3 +179,6 @@ func _process(delta: float) -> void:
 
 func _on_ignore_story_updates_timeout() -> void:
 	ignore_story_updates = false
+
+func _on_enclave_box_closed() -> void:
+	_close_enclave_box() # dismiss
