@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://eijvgu6ih083"]
+
+[ext_resource type="Material" uid="uid://dtfekbth5h36s" path="res://lib/story_marker/materials/mat_enclave_ray.tres" id="1_daois"]
+[ext_resource type="Texture2D" uid="uid://cpf10m5c4bipy" path="res://lib/story_marker/textures/story_marker.png" id="2_dyt0s"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dyt0s"]
+lightmap_size_hint = Vector2i(6, 62)
+material = ExtResource("1_daois")
+add_uv2 = true
+size = Vector2(0.9, 12)
+orientation = 2
+
+[node name="EnclaveMarker" type="Node3D"]
+
+[node name="Ray" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+cast_shadow = 0
+visibility_range_end = 20.0
+mesh = SubResource("PlaneMesh_dyt0s")
+
+[node name="Marker" type="Sprite3D" parent="."]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 2.6, 0)
+visible = false
+visibility_range_end = 20.0
+modulate = Color(0.65, 0.65, 0.65, 1)
+billboard = 1
+render_priority = 3
+texture = ExtResource("2_dyt0s")
