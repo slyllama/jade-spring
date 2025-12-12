@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bi0vh5e03n4ri"]
+[gd_scene load_steps=64 format=3 uid="uid://bi0vh5e03n4ri"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_uym6y"]
 [ext_resource type="Script" uid="uid://bll0ayxgvg32d" path="res://maps/seitung/seitung.gd" id="2_7lwj0"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
 [ext_resource type="ArrayMesh" uid="uid://cpad8aq71wjk" path="res://maps/seitung/meshes/_star.res" id="36_47sat"]
 [ext_resource type="PackedScene" uid="uid://cugqflilfm1ps" path="res://decorations/rocks/pancake_rocks.glb" id="38_rijwn"]
+[ext_resource type="Texture2D" uid="uid://dmytgel8uwpu3" path="res://maps/seitung/textures/stones_decal.png" id="41_8fixv"]
 [ext_resource type="Material" uid="uid://c3ygaq1wjp7c0" path="res://lib/player/materials/mat_engine_glow.tres" id="42_l2hym"]
 [ext_resource type="AudioStream" uid="uid://bvbjroufthlhn" path="res://generic/sounds/insight_ambience.ogg" id="43_f8dlm"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="44_mlhiv"]
@@ -675,3 +676,13 @@ visible = false
 
 [node name="VaultDevice" parent="." index="24" instance=ExtResource("75_67e87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.829, 0, 5.84)
+
+[node name="Stones" type="Decal" parent="." index="25"]
+transform = Transform3D(0.68609405, 0.36273164, -0.6306352, -0.46738985, 0.8840513, 0, 0.55751383, 0.29475248, 0.7760794, -12.0135, 1.6577346, -0.17406732)
+sorting_offset = -0.1
+size = Vector3(5, 1.5, 5)
+texture_albedo = ExtResource("41_8fixv")
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_length = 5.0
+cull_mask = 1047560
