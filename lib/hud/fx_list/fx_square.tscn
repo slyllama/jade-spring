@@ -79,9 +79,9 @@ corner_radius_bottom_left = 2
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_v3jhb"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7qpo3"]
-seamless = true
-color_ramp = SubResource("Gradient_7majf")
 noise = SubResource("FastNoiseLite_v3jhb")
+color_ramp = SubResource("Gradient_7majf")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_budet"]
 shader = ExtResource("3_c1m5e")
@@ -112,8 +112,9 @@ offset_right = 260.0
 offset_bottom = -42.0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/line_separation = -3
 theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_n3ena")
 bbcode_enabled = true
@@ -131,10 +132,10 @@ offset_bottom = 50.0
 mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.235294)
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_outline_size = 8
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[right]#[/right]"

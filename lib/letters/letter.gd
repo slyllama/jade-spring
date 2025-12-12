@@ -6,11 +6,11 @@ extends TextureRect
 	set(_val):
 		$Container/Title.text = _val
 		title = _val
-@export_multiline var copy = "((Copy text.))":
-	get: return(copy)
-	set(_val):
-		$Container/Copy.text = _val
-		copy = _val
+#@export_multiline var copy = "((Copy text.))":
+	#get: return(copy)
+	#set(_val):
+		#$Container/Copy.text = _val
+		#copy = _val
 
 @export_range(0.0, 1.0) var dissolve_value = 1.0:
 	get: return(dissolve_value)
@@ -24,12 +24,12 @@ func _set_dissolve_value(value: float):
 	var _exp = (1.0 - ease(value, 2.0)) * 4.0
 	material.set_shader_parameter("paint_exponent", _exp)
 
-func set_text(get_text: String) -> void:
-	$Copy.text = get_text
+#func set_text(get_text: String) -> void:
+	#$Copy.text = get_text
 
 func open() -> void:
 	$Container/Title.text = title
-	$Container/Copy.text = copy
+	#$Container/Copy.text = copy
 	
 	$PaperSound.play()
 	# Convince gadgets that this is a story panel so that they can't be hovered
