@@ -36,6 +36,16 @@ const DecoData = {
 		"unlock_value": 17,
 		"a_cull": true
 	},
+	"railroad_bridge": {
+		"name": "Railroad Bridge",
+		"scene": "res://decorations/railroad_bridge/railroad_bridge.tscn",
+		"cursor_model": "res://decorations/railroad_bridge/meshes/railroad_bridge.glb",
+		"preview_scale": 0.7,
+		"preview_v_offset": 0.2,
+		"tags": ["Architecture"],
+		"unlock_value": 10,
+		"a_cull": true
+	},
 	"honey_drips": {
 		"name": "Honey Drips",
 		"scene": "res://decorations/janthiri_bee/honey_drips/honey_drips.tscn",
@@ -61,6 +71,7 @@ const DecoData = {
 		"preview_scale": 1.0,
 		"preview_v_offset": -0.6,
 		"tags": ["Furniture"],
+		"unlock_value": 30,
 		"a_cull": true
 	},
 	"string_lights": {

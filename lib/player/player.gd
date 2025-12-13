@@ -97,10 +97,6 @@ func play_hearts() -> void:
 	$HeartTimer.start()
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("move_up"):
-		if Global.can_move and !"gravity" in Global.current_effects:
-			$Raise.play()
-	
 	if Input.is_action_just_pressed("debug_action"):
 		if !Global.debug_allowed: return
 		$PlayerMesh.visible = !$PlayerMesh.visible

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cf3ypmce7o6tf"]
+
+[ext_resource type="Texture2D" uid="uid://dqro50h7kil36" path="res://decorations/railroad_bridge/materials/textures/metal_diff.jpg" id="1_opko3"]
+
+[resource]
+albedo_texture = ExtResource("1_opko3")
+metallic = 0.5
+roughness = 0.3
+uv1_scale = Vector3(4, 4, 4)

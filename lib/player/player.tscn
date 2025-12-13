@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene load_steps=61 format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" uid="uid://dj3l3q0uia8li" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" uid="uid://q6dwqrwcci8w" path="res://lib/player/player.gd" id="1_wipkt"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="20_1lkfq"]
 [ext_resource type="AudioStream" uid="uid://ke72j1fi3bla" path="res://lib/player/sounds/rushing_water.ogg" id="24_4yxld"]
 [ext_resource type="PackedScene" uid="uid://bfiqrxu6syuvs" path="res://lib/player/salmon/salmon.tscn" id="25_duig0"]
-[ext_resource type="AudioStream" uid="uid://bocn8vtkvnu3a" path="res://lib/player/sounds/raise.ogg" id="26_3t7nr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lchpp"]
 radius = 0.15
@@ -386,11 +385,6 @@ volume_db = -3.2
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_o537a")
 volume_db = 1.0
-
-[node name="Raise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("26_3t7nr")
-volume_db = 3.0
-max_polyphony = 2
 
 [node name="Walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_443tu")
