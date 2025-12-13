@@ -54,6 +54,15 @@ const DecoData = {
 		"tags": ["Natural Feature"],
 		"a_cull": true
 	},
+	"ventaris_tablet": {
+		"name": "Ventari's Tablet",
+		"scene": "res://decorations/ventaris_tablet/ventaris_tablet.tscn",
+		"cursor_model": "res://decorations/ventaris_tablet/meshes/ventaris_tablet.glb",
+		"preview_scale": 1.0,
+		"preview_v_offset": -0.6,
+		"tags": ["Furniture"],
+		"a_cull": true
+	},
 	"string_lights": {
 		"name": "String Lights",
 		"scene": "res://decorations/lighting/string_lights.tscn",

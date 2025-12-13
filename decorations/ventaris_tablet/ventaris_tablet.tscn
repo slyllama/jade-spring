@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://33y76x56cbkr"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_4hw2l"]
+[ext_resource type="PackedScene" uid="uid://bq6qy5np1q7uv" path="res://decorations/ventaris_tablet/meshes/ventaris_tablet.glb" id="2_copts"]
+[ext_resource type="Texture2D" uid="uid://dagbhjhvtaxvn" path="res://generic/textures/mote.png" id="3_fmlqx"]
+
+[sub_resource type="Curve" id="Curve_wruki"]
+_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.289157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.92602, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_srqdh"]
+curve = SubResource("Curve_wruki")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gyrde"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.39999998
+scale_max = 0.59999996
+color = Color(0.89, 0.7357334, 0.3115, 1)
+alpha_curve = SubResource("CurveTexture_srqdh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t7nr"]
+render_priority = 4
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_fmlqx")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pofeq"]
+material = SubResource("StandardMaterial3D_3t7nr")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fmlqx"]
+size = Vector3(0.81152344, 1.3973999, 0.38061523)
+
+[sub_resource type="Animation" id="Animation_wruki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fmlqx"]
+resource_name = "float"
+length = 4.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.05, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyrde"]
+_data = {
+&"RESET": SubResource("Animation_wruki"),
+&"float": SubResource("Animation_fmlqx")
+}
+
+[node name="VentarisTablet" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_4hw2l")
+id = "ventaris_tablet"
+collision_box = NodePath("Body")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="Mesh" parent="." instance=ExtResource("2_copts")]
+
+[node name="Motes" type="GPUParticles3D" parent="Mesh"]
+transform = Transform3D(1, 0, -4.83169e-13, 0, 1, 0, 4.83169e-13, 0, 1, 0, 1.3522185, -0.009808838)
+amount = 20
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 0.5
+visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
+process_material = SubResource("ParticleProcessMaterial_gyrde")
+draw_pass_1 = SubResource("PlaneMesh_pofeq")
+
+[node name="Light" type="OmniLight3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63878316, -0.6409154)
+light_color = Color(0.93387544, 0.838367, 0.5612094, 1)
+light_energy = 2.0
+distance_fade_enabled = true
+distance_fade_begin = 8.0
+distance_fade_shadow = 0.0
+distance_fade_length = 1.0
+omni_range = 1.45
+omni_attenuation = 0.0
+
+[node name="Body" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2719404, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043548584, 0)
+shape = SubResource("BoxShape3D_fmlqx")
+
+[node name="Float" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gyrde")
+}
+autoplay = "float"
