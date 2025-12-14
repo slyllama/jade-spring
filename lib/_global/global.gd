@@ -280,7 +280,7 @@ func dismiss_hints() -> void:
 			_h.close()
 
 const Hint = preload("res://lib/hint/hint.tscn")
-func play_hint(id: String, data: Dictionary, position: Vector2, play_once = false) -> void:
+func play_hint(id: String, data: Dictionary, position: Vector2, play_once = false) -> HintPanel:
 	dismiss_hints()
 	
 	if play_once:
@@ -293,6 +293,7 @@ func play_hint(id: String, data: Dictionary, position: Vector2, play_once = fals
 	hud.get_node("TopLevel").add_child(_hint)
 	_hint.position = position
 	_hint.set_text(data)
+	return(_hint)
 
 const EXPN_PATH_PREFIX = "res://expansions/"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://djua7a6d1wk2x"]
+[gd_scene load_steps=23 format=3 uid="uid://djua7a6d1wk2x"]
 
 [ext_resource type="Script" uid="uid://ed5amihsvj20" path="res://lib/map/map.gd" id="1_juxxi"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_twsw1"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://clllef7a23fpa" path="res://lib/ping/sounds/ping.ogg" id="11_gkdk1"]
 [ext_resource type="AudioStream" uid="uid://cctlih2gry63t" path="res://generic/sounds/shutter.ogg" id="12_6iy5x"]
 [ext_resource type="AudioStream" uid="uid://bpdk0q1mtdimr" path="res://generic/sounds/podzol.mp3" id="12_gs5g2"]
+[ext_resource type="Script" uid="uid://umvnca5nos0h" path="res://lib/map/scripts/gift_hint.gd" id="16_2ocmt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("1_twsw1")
@@ -126,3 +127,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 
 [node name="Shutter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_6iy5x")
+
+[node name="GiftHint" type="Node" parent="."]
+script = ExtResource("16_2ocmt")
