@@ -274,6 +274,14 @@ const DecoData = {
 		"preview_y_rotation": 35,
 		"tags": ["Architecture", "Floor"]
 	},
+	"drizzlewood_platform": {
+		"name": "Drizzlewood Platform",
+		"scene": "res://decorations/drizzlewood_platform/drizzlewood_platform.tscn",
+		"cursor_model": "res://decorations/drizzlewood_platform/meshes/drizzlewood_platform.glb",
+		"preview_scale": 0.37,
+		"model_offset": Vector3(0, 0.5, 0),
+		"tags": ["Architecture", "Floor"]
+	},
 	"honeycomb": {
 		"name": "Honeycomb",
 		"scene": "res://decorations/janthiri_bee/honeycomb/honeycomb.tscn",

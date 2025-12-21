@@ -206,8 +206,6 @@ func cancel_adjustment() -> void:
 		collision_box.set_collision_layer_value(1, true)
 		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
-		#select_label.fade_out()
-		print("clear")
 		_replace_grid(true)
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
