@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0k7r6qfl5uld"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_pr81r"]
+[ext_resource type="PackedScene" uid="uid://c384q23808hp3" path="res://decorations/drizzlewood_scaffold/meshes/drizzlewood_scaffold.glb" id="2_vkkkj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkkkj"]
+size = Vector3(1, 2, 1)
+
+[node name="DrizzlewoodScaffold" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_pr81r")
+id = "drizzlewood_scaffold"
+collision_box = NodePath("Body")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="Mesh" parent="." instance=ExtResource("2_vkkkj")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0040283, 0)
+shape = SubResource("BoxShape3D_vkkkj")

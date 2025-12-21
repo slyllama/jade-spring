@@ -18,6 +18,15 @@ const DecoData = {
 		"tags": ["Architecture", "Cantha", "Furniture"],
 		"a_cull": true
 	},
+	"drizzlewood_scaffold": {
+		"name": "Drizzlewood Scaffold",
+		"scene": "res://decorations/drizzlewood_scaffold/drizzlewood_scaffold.tscn",
+		"cursor_model": "res://decorations/drizzlewood_scaffold/meshes/drizzlewood_scaffold.glb",
+		"preview_scale": 1.7,
+		"preview_v_offset": -0.2,
+		"tags": ["Architecture"],
+		"preview_y_rotation": 30,
+	},
 	"happy_cloud": {
 		"name": "Happy Cloud",
 		"scene": "res://decorations/happy_cloud/happy_cloud.tscn",

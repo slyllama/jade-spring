@@ -399,7 +399,6 @@ func _ready() -> void:
 	
 	await get_tree().process_frame
 	get_window().size_changed.connect(func():
-		get_window().position.x += 1
 		await get_tree().process_frame
 		if get_window().mode == Window.MODE_MAXIMIZED:
 			SettingsHandler.update("window_mode", "maximized")

@@ -114,8 +114,7 @@ func set_window_mode(window_mode: String) -> void:
 func get_user_vol() -> float:
 	if "volume" in SettingsHandler.settings:
 		return(clamp(float(SettingsHandler.settings.volume), 0.0, 1.0))
-	else:
-		return(0.0)
+	else: return(0.0)
 
 # Set master volume on the bus
 func set_master_vol(vol = get_user_vol()) -> void:

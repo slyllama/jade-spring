@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 	match load_status:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			var _d: Decoration = ResourceLoader.load_threaded_get(deco_path).instantiate()
-			Global.deco_handler.add_child(_d)
+			Global.deco_handler.call_deferred("add_child", _d)
 			_d.global_transform = global_transform
 			
 			loaded.emit(_d)
