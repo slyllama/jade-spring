@@ -76,7 +76,7 @@ func _on_quit_button_down() -> void:
 		
 		Global.hud.fade_out()
 		await Global.hud.fade_out_complete
-		get_tree().change_scene_to_file("res://lib/main_menu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://lib/main_menu/mm_loader/mm_loader.tscn")
 
 func _process(delta: float) -> void:
 	super(delta)

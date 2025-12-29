@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jade Spring"
-run/main_scene="res://lib/main_menu/main_menu.tscn"
+run/main_scene="uid://clc6rvsxwwn5g"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="jade-spring"
 config/features=PackedStringArray("4.5", "Forward Plus")

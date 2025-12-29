@@ -135,7 +135,6 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	$Raiqqo/Anim.play("fade_in")
-	Global.camera_orbiting = false
 	
 	backup_save_files()
 	if Global.debug_allowed: $DebugLabel.visible = true
@@ -170,11 +169,10 @@ func _ready() -> void:
 	$FG.modulate.a = 1.0
 	$Container/Box/InvalidWarning.visible = false
 	$SettingsPane/Container/Quit.queue_free()
-	# Shader clearing only available from the main menu
-	$SettingsPane/Container/SC/Contents/ResetShaderCache.visible = true
 	
 	set_up_nodule()
 	await get_tree().process_frame
+	Global.camera_orbiting = false
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_property($FG, "modulate:a", 0.0, 0.55)

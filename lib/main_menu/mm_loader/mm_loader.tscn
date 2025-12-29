@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://clc6rvsxwwn5g"]
+
+[ext_resource type="Script" uid="uid://c3tc0sehxwrde" path="res://lib/main_menu/mm_loader/mm_loader.gd" id="1_i5h81"]
+[ext_resource type="Texture2D" uid="uid://c2rph5slcelgy" path="res://generic/textures/splash.png" id="2_xc8vl"]
+
+[node name="MMLoader" type="CanvasLayer"]
+script = ExtResource("1_i5h81")
+
+[node name="Splash" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_xc8vl")
+expand_mode = 1
+stretch_mode = 5

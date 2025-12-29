@@ -161,6 +161,7 @@ func fade_in() -> void:
 		$TopLevel/FG.visible = false)
 
 func _ready() -> void:
+	$TopLevel/SettingsPane/Container/SC/Contents/ResetBox.visible = false
 	Global.hud = self # reference
 	
 	# Interaction connections
