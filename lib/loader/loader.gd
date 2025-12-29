@@ -67,7 +67,6 @@ func _process(_delta: float) -> void:
 				if has_loaded: return
 				has_loaded = true # only once
 				$ContinueButton.modulate.a = 0.0
-				$Spinner.visible = false
 				$ContinueButton.visible = true
 				$ContinueButton.grab_focus()
 				

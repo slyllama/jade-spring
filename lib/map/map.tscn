@@ -68,6 +68,7 @@ orientation = 1
 script = ExtResource("1_juxxi")
 
 [node name="ShaderPreload" parent="." instance=ExtResource("2_q1vmn")]
+print_debug_text = false
 
 [node name="Sky" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a76kq")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://pr2mjxwcnmao"]
+[gd_scene load_steps=13 format=3 uid="uid://pr2mjxwcnmao"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_ssrkn"]
 [ext_resource type="Script" uid="uid://cqod6iwljrs8f" path="res://lib/settings_handler/settings_pane/settings_pane.gd" id="2_iwjpb"]
@@ -13,16 +13,6 @@
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
 border_blend = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du2l3"]
-content_margin_left = 7.0
-content_margin_top = 7.0
-content_margin_right = 7.0
-content_margin_bottom = 9.0
-bg_color = Color(0.8, 0.639067, 0.232, 0.117647)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8l8p"]
-content_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y1jm"]
 content_margin_top = 4.0
@@ -126,29 +116,8 @@ size_flags_horizontal = 3
 text = "High
 "
 
-[node name="ResetBox" type="PanelContainer" parent="Container/SC/Contents" index="4"]
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_du2l3")
-
-[node name="ResetVBox" type="VBoxContainer" parent="Container/SC/Contents/ResetBox" index="0"]
-layout_mode = 2
-
-[node name="Warning" type="RichTextLabel" parent="Container/SC/Contents/ResetBox/ResetVBox" index="0"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 1
-theme_override_colors/default_color = Color(0.796078, 0.635294, 0.231373, 1)
-theme_override_constants/line_separation = -2
-theme_override_font_sizes/normal_font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y8l8p")
-bbcode_enabled = true
-text = "If the game is loading slowly after upgrading to 1.3b, resetting the shader cache might help. The game will need to be reopened."
-fit_content = true
-scroll_active = false
-
-[node name="Reset" type="Button" parent="Container/SC/Contents/ResetBox/ResetVBox" index="1"]
+[node name="ResetShaderCache" type="Button" parent="Container/SC/Contents" index="4"]
+visible = false
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.796078, 0.635294, 0.231373, 1)
@@ -403,7 +372,7 @@ offset_bottom = 540.0
 [connection signal="button_down" from="Container/SC/Contents/GPBox/GPLow" to="." method="_on_gp_low_button_down"]
 [connection signal="button_down" from="Container/SC/Contents/GPBox/GPNormal" to="." method="_on_gp_normal_button_down"]
 [connection signal="button_down" from="Container/SC/Contents/GPBox/GPHigh" to="." method="_on_gp_high_button_down"]
-[connection signal="button_down" from="Container/SC/Contents/ResetBox/ResetVBox/Reset" to="." method="_on_rsc_button_down"]
+[connection signal="button_down" from="Container/SC/Contents/ResetShaderCache" to="." method="_on_rsc_button_down"]
 [connection signal="button_down" from="Container/SC/Contents/Bindings" to="." method="_on_bindings_button_down"]
 [connection signal="button_down" from="Container/DoneResetBox/Reset" to="." method="_on_reset_button_down"]
 [connection signal="button_down" from="Container/DoneResetBox/Done" to="." method="_on_save_press"]
