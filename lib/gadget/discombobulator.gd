@@ -84,7 +84,9 @@ func _on_collision_interacted() -> void:
 			Global.player.update_golem_effects()
 			$GolemSound.play()
 		elif id == "fish_food":
-			Global.add_effect.emit("fish_food")
+			Global.remove_effect.emit("fish_bites_qty")
+			for _i in 3:
+				Global.add_qty_effect("fish_bites_qty")
 		elif id == "clear":
 			Global.remove_effect.emit("discombobulator_qty")
 			Global.remove_effect.emit("dv_charge")

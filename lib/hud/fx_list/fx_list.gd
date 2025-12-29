@@ -28,6 +28,11 @@ const EFFECTS_LIST = { # TODO: use images instead
 		"texture": "fish_food",
 		"description": "For the koi on the shore, who are either eating or sleeping."
 	},
+	"fish_bites_qty": {
+		"title": "Fish Food",
+		"texture": "fish_food",
+		"description": "For the koi on the shore, who are either eating or sleeping."
+	},
 	"gravity": {
 		"texture": "toggle_gravity",
 		"title": "Gravity",

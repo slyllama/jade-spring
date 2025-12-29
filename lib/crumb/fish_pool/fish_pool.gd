@@ -68,8 +68,10 @@ func _on_gadget_interacted() -> void:
 		show_info()
 		return
 	if Save.is_at_story_point("ratchet_gratitude"):
-		if "fish_food" in Global.current_effects:
-			Global.remove_effect.emit("fish_food")
+		if Global.get_effect_qty("fish_bites_qty") > 0:
+			var _new_qty = Global.get_effect_qty("fish_bites_qty") - 1
+			Global.remove_effect.emit("fish_bites_qty")
+			for _i in _new_qty: Global.add_qty_effect("fish_bites_qty")
 			var _f = FishingInstance.instantiate()
 			_f.completed.connect(cooldown)
 			add_child(_f)

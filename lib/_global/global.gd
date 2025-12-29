@@ -142,7 +142,9 @@ func get_effect_qty(effect: String) -> int:
 	var _d = effect.split("=") # effect data
 	for _fx in Global.current_effects:
 		if _d[0] in _fx:
-			_qty = int(_fx.split("=")[1])
+			if "=" in _fx:
+				_qty = int(_fx.split("=")[1])
+			else: return(-1) # not actually a quantity - return an error
 	return(_qty)
 
 func get_dv_quantity() -> int:
