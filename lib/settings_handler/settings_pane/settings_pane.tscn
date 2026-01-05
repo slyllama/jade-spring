@@ -177,36 +177,29 @@ id = "fps_cap"
 options = Array[String](["30", "60", "144", "unlimited"])
 default_option = "60"
 
-[node name="DrawCap" parent="Container/SC/Contents" index="8" instance=ExtResource("3_b7vwo")]
-layout_mode = 2
-title = "Draw cap"
-id = "draw_cap"
-options = Array[String](["low", "medium", "high", "none"])
-default_option = "none"
-
-[node name="FOV" parent="Container/SC/Contents" index="9" instance=ExtResource("4_q7g3p")]
+[node name="FOV" parent="Container/SC/Contents" index="8" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "FOV"
 id = "fov"
 
-[node name="Saturation" parent="Container/SC/Contents" index="10" instance=ExtResource("4_q7g3p")]
+[node name="Saturation" parent="Container/SC/Contents" index="9" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Saturation"
 id = "saturation"
 
-[node name="Brightness" parent="Container/SC/Contents" index="11" instance=ExtResource("4_q7g3p")]
+[node name="Brightness" parent="Container/SC/Contents" index="10" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Brightness"
 id = "brightness"
 
-[node name="VSync" parent="Container/SC/Contents" index="12" instance=ExtResource("3_b7vwo")]
+[node name="VSync" parent="Container/SC/Contents" index="11" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "VSync"
 id = "vsync"
 options = Array[String](["on", "off"])
 default_option = "on"
 
-[node name="AA" parent="Container/SC/Contents" index="13" instance=ExtResource("3_b7vwo")]
+[node name="AA" parent="Container/SC/Contents" index="12" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Anti-aliasing"
 id = "aa"
@@ -214,48 +207,48 @@ options = Array[String](["msaa_(4x)_with_fxaa", "msaa_(4x)", "msaa_(2x)", "disab
 default_option = "msaa_(4x)_with_fxaa"
 info_tooltip = "Disabling anti-aliasing can greatly improve performance, especially if you are using an older graphics card."
 
-[node name="FoliageDensity" parent="Container/SC/Contents" index="14" instance=ExtResource("3_b7vwo")]
+[node name="FoliageDensity" parent="Container/SC/Contents" index="13" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Foliage density"
 id = "foliage_density"
 options = Array[String](["low", "medium", "high", "ultra"])
 default_option = "high"
 
-[node name="Bloom" parent="Container/SC/Contents" index="15" instance=ExtResource("3_b7vwo")]
+[node name="Bloom" parent="Container/SC/Contents" index="14" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Bloom"
 id = "bloom"
 options = Array[String](["on", "off"])
 default_option = "on"
 
-[node name="Bloom2" parent="Container/SC/Contents" index="16" instance=ExtResource("3_b7vwo")]
+[node name="Bloom2" parent="Container/SC/Contents" index="15" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Depth of field"
 id = "dof"
 options = Array[String](["on", "off"])
 default_option = "off"
 
-[node name="ShowLabels" parent="Container/SC/Contents" index="17" instance=ExtResource("3_b7vwo")]
+[node name="ShowLabels" parent="Container/SC/Contents" index="16" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Label visibility"
 id = "labels"
 options = Array[String](["show", "hide"])
 default_option = "hide"
 
-[node name="ShowGift" parent="Container/SC/Contents" index="18" instance=ExtResource("3_b7vwo")]
+[node name="ShowGift" parent="Container/SC/Contents" index="17" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Show gift item"
 id = "show_gift_item"
 options = Array[String](["show", "hide"])
 default_option = "hide"
 
-[node name="TitleSeparator4" type="ColorRect" parent="Container/SC/Contents" index="19"]
+[node name="TitleSeparator4" type="ColorRect" parent="Container/SC/Contents" index="18"]
 custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Subtitle2" type="RichTextLabel" parent="Container/SC/Contents" index="20"]
+[node name="Subtitle2" type="RichTextLabel" parent="Container/SC/Contents" index="19"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -271,37 +264,37 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator3" type="ColorRect" parent="Container/SC/Contents" index="21"]
+[node name="TitleSeparator3" type="ColorRect" parent="Container/SC/Contents" index="20"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Bindings" type="Button" parent="Container/SC/Contents" index="22"]
+[node name="Bindings" type="Button" parent="Container/SC/Contents" index="21"]
 layout_mode = 2
 text = "Input Bindings"
 
-[node name="TitleSeparator7" type="ColorRect" parent="Container/SC/Contents" index="23"]
+[node name="TitleSeparator7" type="ColorRect" parent="Container/SC/Contents" index="22"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="DirectionControl" parent="Container/SC/Contents" index="24" instance=ExtResource("3_b7vwo")]
+[node name="DirectionControl" parent="Container/SC/Contents" index="23" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Direction controls"
 id = "direction_control"
 options = Array[String](["strafe", "rotate"])
 default_option = "strafe"
 
-[node name="ActionCamera" parent="Container/SC/Contents" index="25" instance=ExtResource("3_b7vwo")]
+[node name="ActionCamera" parent="Container/SC/Contents" index="24" instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Action camera"
 id = "action_camera"
 options = Array[String](["on_by_default", "off_by_default"])
 default_option = "off_by_default"
 
-[node name="Title" type="RichTextLabel" parent="Container/SC/Contents" index="26"]
+[node name="Title" type="RichTextLabel" parent="Container/SC/Contents" index="25"]
 visible = false
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
@@ -314,18 +307,18 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="OrbitSensitivity" parent="Container/SC/Contents" index="27" instance=ExtResource("4_q7g3p")]
+[node name="OrbitSensitivity" parent="Container/SC/Contents" index="26" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Orbit sensitivity"
 id = "orbit_sensitivity"
 
-[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="28"]
+[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="27"]
 custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="29"]
+[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="28"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -341,18 +334,18 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="30"]
+[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="29"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Volume" parent="Container/SC/Contents" index="31" instance=ExtResource("4_q7g3p")]
+[node name="Volume" parent="Container/SC/Contents" index="30" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Volume"
 id = "volume"
 
-[node name="MusicVol" parent="Container/SC/Contents" index="32" instance=ExtResource("4_q7g3p")]
+[node name="MusicVol" parent="Container/SC/Contents" index="31" instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Music volume"
 id = "music_vol"

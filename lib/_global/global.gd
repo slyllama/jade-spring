@@ -359,21 +359,6 @@ func _ready() -> void:
 	load_expn("kodan")
 	load_expn("kryta")
 	
-	SettingsHandler.setting_changed.connect(func(_param):
-		if _param == "draw_cap":
-			var _val = SettingsHandler.settings.draw_cap
-			print("[Global] Setting draw distance to " + _val + "...")
-			if _val == "low":
-				aggressive_culling = true
-				aggressive_cull_distance_squared = 50.0
-			elif _val == "medium":
-				aggressive_culling = true
-				aggressive_cull_distance_squared = 100.0
-			elif _val == "high":
-				aggressive_culling = true
-				aggressive_cull_distance_squared = 200.0
-			else: aggressive_culling = false)
-	
 	karma_collected.connect(func():
 		var _p = 0.9 + rng.randf() * 0.2 # pitch variance
 		$KarmaCollect.pitch_scale = _p
