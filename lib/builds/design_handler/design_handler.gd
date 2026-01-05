@@ -59,7 +59,6 @@ func create_design_slot(design_name: String = SettingsHandler.settings.current_d
 	if Global.map_name == "debug":
 		print("[DesignHandler] Tried to create or update a design, but we are in debug mode.")
 		return
-	print("[DesignHandler] creating slot '" + design_name + "'...")
 	DirAccess.copy_absolute(
 		"user://save/deco.dat", DPATH + "/" + design_name + ".dat")
 

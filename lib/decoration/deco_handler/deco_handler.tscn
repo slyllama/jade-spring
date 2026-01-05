@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dfhuuibfm7lw0" path="res://lib/builds/design_handler/design_handler.tscn" id="2_33w40"]
 [ext_resource type="AudioStream" uid="uid://cctlih2gry63t" path="res://generic/sounds/shutter.ogg" id="3_hgmks"]
 
-[node name="DecoHandler" type="Node3D" unique_id=1357724826]
+[node name="DecoHandler" type="Node3D"]
 script = ExtResource("1_73o41")
 
-[node name="DesignHandler" parent="." unique_id=771818418 instance=ExtResource("2_33w40")]
+[node name="DesignHandler" parent="." instance=ExtResource("2_33w40")]
 
-[node name="DeleteSound" type="AudioStreamPlayer" parent="." unique_id=1927364556]
+[node name="DeleteSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hgmks")
 max_polyphony = 2
 
