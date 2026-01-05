@@ -65,3 +65,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$InnerCircle.rotation += delta * spin_rate
 	$OuterCircle.rotation += delta * spin_rate * -0.5
+	if $InnerCircle.rotation >= PI * 2.0: $InnerCircle.rotation = 0.0
+	if $OuterCircle.rotation >= PI * 2.0: $OuterCircle.rotation = 0.0

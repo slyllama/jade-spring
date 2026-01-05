@@ -25,7 +25,7 @@ var kv_fish_max = 20
 # Karma is added here when spawned, then subtracted when collected. The remainder is added to the player's Karma count
 var assigned_karma = 0
 
-var aggressive_culling = true
+var aggressive_culling = false
 var aggressive_cull_distance_squared = 100.0
 
 var attenuator_open = false

@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkpeyg76a0wqf"
-path="res://.godot/imported/hud_ornament_new.png-e5404764c2ae2dbe2b8433390bf8514a.ctex"
+path.s3tc="res://.godot/imported/hud_ornament_new.png-e5404764c2ae2dbe2b8433390bf8514a.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://lib/hud/state_indicator/textures/hud_ornament_new.png"
-dest_files=["res://.godot/imported/hud_ornament_new.png-e5404764c2ae2dbe2b8433390bf8514a.ctex"]
+dest_files=["res://.godot/imported/hud_ornament_new.png-e5404764c2ae2dbe2b8433390bf8514a.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

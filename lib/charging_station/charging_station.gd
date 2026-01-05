@@ -1,7 +1,6 @@
 @tool
 extends "res://lib/gadget/gadget.gd"
 
-const AttenuatorUI = preload("res://lib/attenuator/attenuator.tscn")
 var in_ui = false
 
 func _update_interact_text() -> void:
@@ -55,7 +54,7 @@ func _on_interacted() -> void:
 		for _i in _new_qty: Global.add_qty_effect("discombobulator_qty")
 		
 		in_ui = true
-		var _ui = AttenuatorUI.instantiate()
+		var _ui = load("res://lib/attenuator/attenuator.tscn").instantiate()
 		Global.hud.get_node("TopLevel").add_child(_ui)
 		_ui.closed.connect(func():
 			in_ui = false

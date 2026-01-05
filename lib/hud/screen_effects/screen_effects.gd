@@ -89,8 +89,9 @@ func _ready() -> void:
 	$Underlay.visible = false
 	$Flowers.visible = false
 	
-	if Global.map_name == "debug": $Debug.visible = true
-	else: $Debug.visible = false
+	if Global.map_name == "debug":
+		$Debug.visible = true
+	else: $Debug.queue_free()
 	
 	get_window().focus_exited.connect(func():
 		if $Anime.material.get_shader_parameter("modulate_a") > 0.0:

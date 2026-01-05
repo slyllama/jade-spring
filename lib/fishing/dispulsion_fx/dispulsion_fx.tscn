@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://l3427bws2aju" path="res://lib/fishing/dispulsion_fx/textures/inner_circle.png" id="1_it5o2"]
 [ext_resource type="Script" uid="uid://khl4ygle0c0h" path="res://lib/fishing/dispulsion_fx/dispulsion_fx.gd" id="1_pvm8o"]
-[ext_resource type="Texture2D" uid="uid://py86v5rcysq6" path="res://lib/fishing/dispulsion_fx/textures/outer_circle.png" id="2_7mvrm"]
+[ext_resource type="Texture2D" uid="uid://cao40khyl4nrr" path="res://lib/player/compendium/materials/textures/rune_safe_zones.png" id="3_w1tp1"]
 [ext_resource type="Texture2D" uid="uid://ddegp22r0d6kf" path="res://lib/fishing/dispulsion_fx/textures/triangle_1.png" id="4_le431"]
 [ext_resource type="Texture2D" uid="uid://ci3hl2uj0527j" path="res://lib/fishing/dispulsion_fx/textures/triangle_2.png" id="5_5fcu0"]
 
@@ -39,22 +39,22 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_pvm8o")
 
 [node name="InnerCircle" type="Sprite2D" parent="."]
-rotation = 606.495
+rotation = 5.919284
 texture = ExtResource("1_it5o2")
 
 [node name="OuterCircle" type="Sprite2D" parent="."]
-rotation = -304.044
-texture = ExtResource("2_7mvrm")
+rotation = -318.39325
+texture = ExtResource("3_w1tp1")
 
 [node name="Motes" type="GPUParticles2D" parent="."]
-process_material = SubResource("ParticleProcessMaterial_mi5qr")
 texture = ExtResource("4_le431")
 lifetime = 4.0
 preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_mi5qr")
 
 [node name="Motes2" type="GPUParticles2D" parent="."]
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_mi5qr")
 texture = ExtResource("5_5fcu0")
 lifetime = 4.0
 preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_mi5qr")

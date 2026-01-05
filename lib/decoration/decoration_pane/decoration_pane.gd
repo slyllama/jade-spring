@@ -44,6 +44,8 @@ func _update_unlock_button(id: String) -> void:
 		$ActionsBox/PlaceDecoration.disabled = false
 
 func open(silent = false) -> void:
+	call_deferred_thread_group("_load_bg")
+	
 	active = true
 	render(selected_tag)
 	Global.deco_pane_open = true
@@ -53,6 +55,7 @@ func open(silent = false) -> void:
 	_on_clear_search_button_down() # clear search button
 
 func close():
+	$Base.texture = null
 	Global.deco_pane_open = false
 	super()
 	await get_tree().process_frame
@@ -123,6 +126,9 @@ func load_model_by_id(model_id: String) -> void:
 		preview.load_model(_p, _dl.preview_scale, _get_y_rotation(_dl))
 		for _i in 3: await get_tree().process_frame
 		$Base/PreviewContainer.visible = true
+
+func _load_bg() -> void:
+	$Base.texture = load("res://lib/decoration/decoration_pane/textures/deco_pane_base.png")
 
 func render(tag = "None", custom_data = []) -> void:
 	if tag != "None":

@@ -406,16 +406,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="PreparingShaders" type="RichTextLabel" parent="TopLevel/FG"]
-modulate = Color(0.5, 0.5, 0.5, 1)
-layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 232.0
-offset_bottom = 64.0
-mouse_filter = 2
-text = "Preparing shaders..."
-
 [node name="ControllerCursor" parent="TopLevel" instance=ExtResource("24_40fv2")]
 
 [node name="InteractEnter" type="AudioStreamPlayer" parent="."]

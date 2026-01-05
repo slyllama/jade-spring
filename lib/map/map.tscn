@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://djua7a6d1wk2x"]
+[gd_scene load_steps=22 format=3 uid="uid://djua7a6d1wk2x"]
 
 [ext_resource type="Script" uid="uid://ed5amihsvj20" path="res://lib/map/map.gd" id="1_juxxi"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_twsw1"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="2_dib65"]
-[ext_resource type="PackedScene" uid="uid://jsxfgufgx7tk" path="res://lib/shader_preload/shader_preload.tscn" id="2_q1vmn"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="3_d4nbx"]
 [ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_2klpx"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="5_47c3a"]
@@ -66,9 +65,6 @@ orientation = 1
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_juxxi")
-
-[node name="ShaderPreload" parent="." instance=ExtResource("2_q1vmn")]
-print_debug_text = false
 
 [node name="Sky" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a76kq")

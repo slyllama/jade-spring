@@ -73,13 +73,12 @@ func _clear_decorations() -> void:
 		if _n is Decoration:
 			_n.queue_free()
 
-# Load decorations into the world from a dataset
-# TODO: it might be best to perform this asynchronously
-
-var deco_count_position := 0 # increment when a decoration load is finalized
+var _deco_count_position := 0 # increment when a decoration load is finalized
 
 func _load_decorations(data = []) -> void:
 	print("[DecoHandler] Loading decorations...")
+	
+	_deco_count_position = 0
 	Global.deco_load_started.emit()
 	_clear_decorations()
 	
@@ -96,10 +95,14 @@ func _load_decorations(data = []) -> void:
 		_deco_loader.position = _d.position
 		_deco_loader.rotation = _d.rotation
 		_deco_loader.scale = _d.scale
+		_deco_loader.loaded.connect(func(_e):
+			_deco_count_position += 1
+			if _deco_count_position == Global.deco_count: # finished
+				await get_tree().process_frame
+				_save_decorations()
+				Global.deco_load_ended.emit())
 		add_child.call_deferred(_deco_loader)
 		await get_tree().process_frame
-	_save_decorations()
-	Global.deco_load_ended.emit()
 
 # Load decorations from a file as a dictionary to use with other functions
 func _load_decoration_file(deco_path = FILE_PATH) -> Array:

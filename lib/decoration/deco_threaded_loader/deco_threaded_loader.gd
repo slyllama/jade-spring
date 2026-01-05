@@ -30,9 +30,9 @@ func _process(_delta: float) -> void:
 			if !has_loaded: return # can't attempt more than once
 			var _d: Decoration = ResourceLoader.load_threaded_get(deco_path).instantiate()
 			Global.deco_handler.call_deferred("add_child", _d)
+			_d.tree_entered.connect(func():
+				loaded.emit(_d))
 			_d.global_transform = global_transform
-			
-			loaded.emit(_d)
 			queue_free()
 		ResourceLoader.THREAD_LOAD_FAILED:
 			print("[DecoThreadedLoader] Threaded load failed.")

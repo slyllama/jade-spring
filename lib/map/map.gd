@@ -5,7 +5,6 @@ extends Node3D
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
 const Ping = preload("res://lib/ping/ping.tscn")
-const GiftLetter = preload("res://lib/letters/gift_letter.tscn")
 const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
 const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
@@ -170,7 +169,7 @@ func _ready() -> void:
 			_count = clamp(_count, 0, 50)
 			spawn_karma(_count, Global.player_position)
 		elif cmd == "/giftletter":
-			var _g = GiftLetter.instantiate()
+			var _g = load("res://lib/letters/gift_letter.tscn").instantiate()
 			Global.hud.get_node("TopLevel").add_child(_g)
 		elif cmd == "/printorphans":
 			print_orphan_nodes()

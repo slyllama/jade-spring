@@ -1,9 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene load_steps=32 format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" uid="uid://c2j6ppfvm1427" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
-[ext_resource type="Texture2D" uid="uid://blv3eqhijk6ki" path="res://lib/decoration/decoration_pane/textures/deco_pane_base.png" id="3_kxuya"]
-[ext_resource type="PackedScene" uid="uid://c4hdvgok1lsmq" path="res://lib/decoration/decoration_pane/deco_perview/deco_preview.tscn" id="4_xgg1s"]
+[ext_resource type="PackedScene" uid="uid://c4hdvgok1lsmq" path="res://lib/decoration/decoration_pane/deco_preview/deco_preview.tscn" id="4_xgg1s"]
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="5_12xux"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="6_cqq78"]
 [ext_resource type="Theme" uid="uid://b3xj2nmifhpar" path="res://generic/themes/dwelt.tres" id="7_r3py3"]
@@ -77,7 +76,6 @@ offset_left = -34.0
 offset_top = -16.0
 offset_right = 890.0
 offset_bottom = 548.0
-texture = ExtResource("3_kxuya")
 expand_mode = 1
 stretch_mode = 5
 

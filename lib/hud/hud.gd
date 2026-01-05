@@ -1,7 +1,6 @@
 class_name HUDScript extends CanvasLayer
 
 const FADE = 0.6 # faded buttons will have this alpha value
-const StoryPanel = preload("res://lib/story_panel/story_panel.tscn")
 
 func _render_fps() -> String: # pretty formatting of FPS values
 	var color = "green"
@@ -194,7 +193,7 @@ func _ready() -> void:
 	Global.summon_story_panel.connect(func(data):
 		if !"description" in data or !"title" in data: return
 		
-		var _sp = StoryPanel.instantiate()
+		var _sp = load("res://lib/story_panel/story_panel.tscn").instantiate()
 		add_child(_sp)
 		if "sticker" in data: _sp.open(data.title, data.description, data.sticker)
 		else: _sp.open(data.title, data.description)
@@ -215,14 +214,12 @@ func _ready() -> void:
 	$TopLevel/FG.visible = true
 	$Underlay.queue_free()
 	
-	await Global.shader_preload_complete
 	await get_tree().create_timer(0.51).timeout
 	
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
 	_fade_tween.tween_callback(func():
-		$TopLevel/FG.visible = false
-		$TopLevel/FG/PreparingShaders.visible = false)
+		$TopLevel/FG.visible = false)
 	
 	# Opening story panel (if the story hasn't been advanced)
 	if Save.data.story_point == "game_start":

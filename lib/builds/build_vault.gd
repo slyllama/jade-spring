@@ -1,7 +1,5 @@
 extends Node3D
 
-const BuildPane = preload("res://lib/builds/design_pane/design_pane.tscn")
-
 var build_pane_open = false
 
 func _ready() -> void:
@@ -26,7 +24,7 @@ func _on_builds_gadget_interacted() -> void:
 	if build_pane_open: return
 	
 	build_pane_open = true
-	var _b = BuildPane.instantiate()
+	var _b = load("res://lib/builds/design_pane/design_pane.tscn").instantiate()
 	Global.hud.get_node("BuildCanvas").add_child(_b)
 	Global.can_move = false
 	
