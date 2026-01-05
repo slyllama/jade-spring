@@ -47,8 +47,10 @@ func place_decoration(data: Dictionary) -> void:
 		_d.global_rotation.x = data.x_rotation
 	if "eyedrop_scale" in data:
 		_d.scale = data.eyedrop_scale
-	Global.decorations.append(_d)
 	Global.command_sent.emit("/savedeco")
+	
+	Global.deco_count += 1
+	Global.deco_count_changed.emit()
 	
 	await get_tree().process_frame
 	
@@ -61,6 +63,8 @@ func place_decoration(data: Dictionary) -> void:
 		# Manual call for passing "Architect" achievement
 		eligible_for_architect = false
 		SteamHandler.store_stats()
+	
+	Global.deco_count += 1
 	_d.start_adjustment()
 
 # Clear all decorations from the world
@@ -68,12 +72,10 @@ func _clear_decorations() -> void:
 	for _n in get_children():
 		if _n is Decoration:
 			_n.queue_free()
-	Global.decorations = []
 
 # Load decorations into the world from a dataset
 # TODO: it might be best to perform this asynchronously
 
-var deco_count := 0
 var deco_count_position := 0 # increment when a decoration load is finalized
 
 func _load_decorations(data = []) -> void:
@@ -81,7 +83,8 @@ func _load_decorations(data = []) -> void:
 	Global.deco_load_started.emit()
 	_clear_decorations()
 	
-	deco_count = data.size()
+	Global.deco_count = data.size()
+	Global.deco_count_changed.emit()
 	
 	for _d in data:
 		if !_d.id in Global.DecoData:

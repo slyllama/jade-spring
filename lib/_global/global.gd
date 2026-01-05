@@ -200,6 +200,7 @@ signal adjustment_mode_translate
 signal selection_started # applies to eyedropper too
 signal selection_canceled # applies to eyedropper too
 
+signal deco_count_changed
 signal deco_sampled(data) # decoration sampled with the eyedropper tool
 signal deco_pane_closed
 signal deco_pane_opened
@@ -223,6 +224,7 @@ signal transform_mode_changed(transform_mode)
 const SNAP_INCREMENT = 0.25
 
 var decorations = [] # references to decorations will populate here
+var deco_count := 0
 var highlighted_decoration: Decoration = null
 var active_decoration: Decoration = null # decoration currently being adjusted
 var queued_decoration = "none" # next decoration that will be placed

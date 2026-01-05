@@ -108,6 +108,13 @@ func _ready() -> void:
 	_toggle_enclave_box_visibility(false) # hide Enclave box
 	modulate.a = 0.0
 	
+	Global.deco_count_changed.connect(func():
+		var _deco_count = Global.deco_count
+		var _deco_string = str(_deco_count) + " decorations"
+		if _deco_count == 1:
+			_deco_string = str(_deco_count) + " decoration"
+		$Details/DetailsBox/StatsBox/DecoCount.text = _deco_string)
+	
 	Global.vault_entered.connect(func():
 		_toggle_enclave_box_visibility(false))
 	
@@ -151,19 +158,7 @@ func _ready() -> void:
 	if !Global.start_params.new_save:
 		fade_in()
 
-var _j = 0.0
-
 func _process(delta: float) -> void:
-	# Get decoration count (every now and then)
-	_j += delta
-	if _j >= 0.5:
-		_j = 0.0
-		var _deco_count = Global.decorations.size()
-		var _deco_string = str(_deco_count) + " decorations"
-		if _deco_count == 1:
-			_deco_string = str(_deco_count) + " decoration"
-		$Details/DetailsBox/StatsBox/DecoCount.text = _deco_string
-	
 	if _last_bug_ratio != _target_bug_ratio:
 		if !ignore_story_updates:
 			Global.play_flash($BugsBar.global_position + Vector2(20, 7))

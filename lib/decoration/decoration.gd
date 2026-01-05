@@ -391,8 +391,9 @@ func _ready() -> void:
 						Global.deco_selection_array.erase(_entry_in_array)
 						set_selected(false)
 				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
+					Global.deco_count -= 1
 					Global.deco_deleted.emit()
-					Global.decorations.erase(self)
+					Global.deco_count_changed.emit()
 					queue_free()
 				elif Global.tool_mode == Global.TOOL_MODE_EYEDROPPER:
 					Global.deco_sampled.emit({
