@@ -176,7 +176,7 @@ size = Vector3(62.4795, 1, 13.4458)
 [node name="Seitung" instance=ExtResource("1_ptiqq")]
 script = ExtResource("2_i45wv")
 
-[node name="Sky" parent="." index="1"]
+[node name="Sky" parent="." index="0"]
 environment = ExtResource("3_xqtep")
 
 [node name="Sun" parent="Sky" index="0"]
@@ -191,7 +191,7 @@ light_color = Color(0.82112, 0.6912, 0.96, 1)
 shadow_enabled = true
 directional_shadow_blend_splits = true
 
-[node name="Player" parent="." index="2"]
+[node name="Player" parent="." index="1"]
 transform = Transform3D(0.998077, 0, -0.0619893, 0, 1, 0, 0.0619893, 0, 0.998077, -3, 2, 2.5)
 
 [node name="YCast" type="RayCast3D" parent="Player" index="5"]
@@ -328,7 +328,7 @@ transform = Transform3D(0.986529, 0, -0.163584, 0, 1, 0, 0.163584, 0, 0.986529, 
 [node name="Dragonvoid6" parent="CrumbHandler" index="35" instance=ExtResource("6_jpbv6")]
 transform = Transform3D(-0.995881, 0, 0.0906672, 0, 1, 0, -0.0906672, 0, -0.995881, 4.9172, 0.214816, -7.94428)
 
-[node name="Floor" parent="." index="5"]
+[node name="Floor" parent="." index="4"]
 collision_layer = 10
 collision_mask = 10
 
@@ -337,7 +337,7 @@ transform = Transform3D(1.25, 0, 0, 0, 1.20741, -0.12941, 0, 0.323524, 0.482963,
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_ixf13")
 
-[node name="Ambience" parent="." index="6"]
+[node name="Ambience" parent="." index="5"]
 volume_db = 0.0
 
 [node name="Ocean" type="AudioStreamPlayer" parent="Ambience" index="0"]
@@ -1034,8 +1034,14 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="SafePoint" parent="." index="9"]
+[node name="SafePoint" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)
+
+[node name="Jukebox" parent="." index="9"]
+track_list = Array[AudioStreamOggVorbis]([ExtResource("63_c3rsu"), ExtResource("64_xtbp5"), ExtResource("65_i7mgv"), ExtResource("66_gn634"), ExtResource("67_pffjb"), ExtResource("68_be80j"), ExtResource("69_i6aqb")])
+
+[node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0"]
+stream = ExtResource("70_lvos0")
 
 [node name="Landscape" parent="." index="10" instance=ExtResource("59_7f7uv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
@@ -1050,11 +1056,8 @@ reset_on_interact = false
 [node name="WeedBin" parent="." index="13" instance=ExtResource("62_ak66g")]
 transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)
 
-[node name="Jukebox" parent="." index="14"]
-track_list = Array[AudioStreamOggVorbis]([ExtResource("63_c3rsu"), ExtResource("64_xtbp5"), ExtResource("65_i7mgv"), ExtResource("66_gn634"), ExtResource("67_pffjb"), ExtResource("68_be80j"), ExtResource("69_i6aqb")])
-
-[node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0"]
-stream = ExtResource("70_lvos0")
+[node name="StoryMarker" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 
 [node name="WorldBoundaries" type="StaticBody3D" parent="." index="15"]
 collision_layer = 136
@@ -1127,9 +1130,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 [node name="ChargingStation" parent="." index="16" instance=ExtResource("72_amqkg")]
 transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494, -8.40679, 0.276039, 0.582495)
 radius = 1.0
-
-[node name="StoryMarker" parent="." index="17"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 
 [node name="OceanArea" type="StaticBody3D" parent="." index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.770402, 17.7541)

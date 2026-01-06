@@ -4,10 +4,10 @@
 offsets = PackedFloat32Array(0.259494, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_dfdix"]
+frequency = 0.02
 
 [resource]
-width = 1024
-height = 150
+height = 64
 noise = SubResource("FastNoiseLite_dfdix")
 color_ramp = SubResource("Gradient_pb2fu")
 seamless = true

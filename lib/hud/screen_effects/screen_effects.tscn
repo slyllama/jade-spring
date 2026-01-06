@@ -8,11 +8,11 @@
 [ext_resource type="Shader" uid="uid://3duwa6y0oqoc" path="res://lib/hud/screen_effects/shaders/shader_screen.gdshader" id="3_ocfdl"]
 [ext_resource type="Texture2D" uid="uid://bvjwutjdvywwd" path="res://lib/hud/screen_effects/textures/grain_mask.jpg" id="4_i0jfh"]
 [ext_resource type="Texture2D" uid="uid://kl8rmamvk4hh" path="res://lib/hud/screen_effects/textures/debug_overlay.png" id="5_rn3j2"]
-[ext_resource type="Texture2D" uid="uid://wjxdrde88kpf" path="res://lib/hud/screen_effects/textures/dragonvoid_overlay.png" id="6_ln4dv"]
 [ext_resource type="Shader" uid="uid://y1nevy5gjfgy" path="res://lib/hud/screen_effects/shaders/shader_anime.gdshader" id="7_c2qk6"]
 [ext_resource type="Texture2D" uid="uid://pcdu4s7kntsv" path="res://lib/hud/screen_effects/textures/anime.png" id="7_uiyq1"]
 [ext_resource type="Texture2D" uid="uid://cbqjjnj41tcww" path="res://lib/hud/screen_effects/textures/flowers.png" id="12_kp4ce"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="13_60mn6"]
+[ext_resource type="Texture2D" uid="uid://d21l2h4hd822j" path="res://lib/hud/screen_effects/textures/dv_overlay.png" id="14_oc4ic"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_llcq0"]
 shader = ExtResource("3_ocfdl")
@@ -92,29 +92,144 @@ mouse_filter = 2
 texture = ExtResource("5_rn3j2")
 expand_mode = 1
 
-[node name="Bugs" type="TextureRect" parent="."]
-visible = false
+[node name="Bugs" type="Control" parent="."]
 material = SubResource("ShaderMaterial_kp0xq")
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="NW" type="TextureRect" parent="Bugs"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+offset_right = 480.0
+offset_bottom = 270.0
 mouse_filter = 2
 texture = ExtResource("1_5cg80")
 expand_mode = 1
 
-[node name="Dragonvoid" type="TextureRect" parent="."]
+[node name="NE" type="TextureRect" parent="Bugs"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_bottom = 270.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("1_5cg80")
+expand_mode = 1
+flip_h = true
+
+[node name="SE" type="TextureRect" parent="Bugs"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -270.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_5cg80")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="SW" type="TextureRect" parent="Bugs"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_right = 480.0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_5cg80")
+expand_mode = 1
+flip_v = true
+
+[node name="Dragonvoid" type="Control" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_kp0xq")
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("6_ln4dv")
+
+[node name="NW" type="TextureRect" parent="Dragonvoid"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+offset_right = 480.0
+offset_bottom = 270.0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
 expand_mode = 1
+flip_h = true
+
+[node name="NE" type="TextureRect" parent="Dragonvoid"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_bottom = 270.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
+expand_mode = 1
+
+[node name="SE" type="TextureRect" parent="Dragonvoid"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -270.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
+expand_mode = 1
+flip_v = true
+
+[node name="SW" type="TextureRect" parent="Dragonvoid"]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_right = 480.0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
+expand_mode = 1
+flip_h = true
+flip_v = true
 
 [node name="Anime" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_hynki")

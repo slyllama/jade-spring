@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wjxdrde88kpf"
-path.s3tc="res://.godot/imported/dragonvoid_overlay.png-8f788af8516b420abc994ba045652eeb.s3tc.ctex"
+uid="uid://d21l2h4hd822j"
+path="res://.godot/imported/dv_overlay.png-c424eafeeff8ba8029828465cf503d79.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://lib/hud/screen_effects/textures/dragonvoid_overlay.png"
-dest_files=["res://.godot/imported/dragonvoid_overlay.png-8f788af8516b420abc994ba045652eeb.s3tc.ctex"]
+source_file="res://lib/hud/screen_effects/textures/dv_overlay.png"
+dest_files=["res://.godot/imported/dv_overlay.png-c424eafeeff8ba8029828465cf503d79.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

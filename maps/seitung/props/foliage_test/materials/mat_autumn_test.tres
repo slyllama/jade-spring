@@ -5,7 +5,7 @@
 
 [resource]
 transparency = 2
-alpha_scissor_threshold = 0.97
+alpha_scissor_threshold = 0.9
 alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_color = Color(0.62, 0.59644, 0.5022, 1)

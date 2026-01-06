@@ -14,16 +14,19 @@ collision_box = NodePath("SelectArea")
 [node name="Bamboo" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268744, 0, -0.141392)
 cast_shadow = 0
+visibility_range_end = 15.0
 mesh = ExtResource("2_ys530")
 
 [node name="Bamboo3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.269931, 0, -1.03539, 0, 1.07, 0, 1.03539, 0, 0.269931, -0.241229, 0, 0.0263915)
 cast_shadow = 0
+visibility_range_end = 15.0
 mesh = ExtResource("2_ys530")
 
 [node name="Bamboo2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.115307, -0.113984, 0.885275, -0.0147221, 0.892753, 0.113029, -0.892461, 6.70552e-09, -0.116243, -0.372949, 0, -0.21625)
 cast_shadow = 0
+visibility_range_end = 15.0
 mesh = ExtResource("2_ys530")
 
 [node name="SelectArea" type="Area3D" parent="."]

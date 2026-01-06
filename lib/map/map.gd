@@ -5,8 +5,6 @@ extends Node3D
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
 const Ping = preload("res://lib/ping/ping.tscn")
-const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
-const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
 const KARMA_JITTER = 0.2
 const HIDDEN_POS = Vector3(0, -32, 0) # hide story marker far away
@@ -113,12 +111,12 @@ func _ready() -> void:
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/time=night":
 			Global.time_of_day = "night"
-			$Sky.environment = NIGHT_ENV
+			$Sky.environment = load("res://maps/seitung/seitung_night.tres")
 			$Sky/Sun.visible = false
 			update_saturation()
 		elif cmd == "/time=day":
 			Global.time_of_day = "day"
-			$Sky.environment = DAY_ENV
+			$Sky.environment = load("res://maps/seitung/seitung_day.tres")
 			$Sky/Sun.visible = true
 			update_saturation()
 		elif cmd == "/ping":

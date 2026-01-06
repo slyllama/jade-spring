@@ -21,6 +21,9 @@ var data = { # default (blank) script
 	}
 }
 
+func _load_bg() -> void:
+	$Base.texture = load("res://lib/dialogue/textures/base.png")
+
 func _set_paint_val(val: float) -> void:
 	$Base.material.set_shader_parameter("value", val)
 
@@ -96,6 +99,8 @@ func _set_buttons_enabled(state: bool) -> void:
 			_n.disabled = !state
 
 func open() -> void:
+	call_deferred_thread_group("_load_bg")
+	
 	if Global.dialogue_open:
 		print("[Dialogue] Rejected dialogue as one is already open on this frame.")
 		queue_free()
@@ -130,6 +135,7 @@ func open() -> void:
 			break
 
 func close(instant = false) -> void:
+	
 	if has_closed: return
 	has_closed = true
 	
@@ -158,6 +164,7 @@ func close(instant = false) -> void:
 		
 		await fade_tween.finished
 	await get_tree().process_frame
+	$Base.texture = null
 	Global.dialogue_open = false
 	Global.can_move = true
 	Global.action_cam_enable.emit()
