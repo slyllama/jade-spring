@@ -325,6 +325,9 @@ func play_flux_sound() -> void:
 ##### Execution
 
 func _init() -> void:
+	print_rich("[b]This is Jade Spring.[/b]")
+	print_rich("[color=pink][b]Important: .dat files must be included in the export settings, which are not captured by Git.[/b][/color]")
+	
 	var debug_cmd = false
 	var args = Array(OS.get_cmdline_args())
 	if args.has("--debug=true"):

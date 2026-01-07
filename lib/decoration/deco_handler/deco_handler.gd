@@ -213,6 +213,7 @@ func _on_design_handler_ready() -> void:
 			+ SettingsHandler.settings.current_design + "'.")
 		_load_decorations(_load_decoration_file())
 	else:
-		var _default_data = _load_decoration_file(
-			"res://maps/seitung/default_deco.dat")
+		print("Loading default decoration file.")
+		var _default_data = _load_decoration_file("res://maps/seitung/default_deco.dat")
+		print("res://maps/seitung/default_deco.dat")
 		_load_decorations(_default_data)
