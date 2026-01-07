@@ -133,7 +133,7 @@ grow_vertical = 0
 mouse_filter = 1
 
 [node name="DispulsionFX" parent="BG/CenterMarker" instance=ExtResource("8_mvgxp")]
-modulate = Color(1, 1, 1, 0.196078)
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(0, 1)
 
 [node name="TutorialPanel" type="Panel" parent="BG/CenterMarker"]
@@ -235,7 +235,7 @@ color = Color(0.5765, 0.23, 1, 0.878431)
 
 [node name="Anim" type="AnimationPlayer" parent="BG/TestRect"]
 libraries = {
-"": SubResource("AnimationLibrary_c6pm8")
+&"": SubResource("AnimationLibrary_c6pm8")
 }
 autoplay = "glow"
 

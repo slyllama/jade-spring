@@ -6,6 +6,6 @@ uniform sampler2D wobble_tex: hint_default_black, filter_linear_mipmap, repeat_e
 
 void fragment() {
 	float wobble2 = texture(wobble_tex, UV * 0.3 + TIME * 0.1).r * 0.5;
-	vec2 uv2 = UV * 0.6 + vec2(0.18, 0.18) + wobble2 * 0.04;
+	vec2 uv2 = UV + wobble2 * 0.04;
 	ALPHA = texture(rune, uv2).a * 0.2;
 }

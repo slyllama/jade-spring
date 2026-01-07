@@ -40,9 +40,9 @@ shader_parameter/darken = 0.0
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_f2x6f"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pyaki"]
-seamless = true
-color_ramp = SubResource("Gradient_cvck5")
 noise = SubResource("FastNoiseLite_f2x6f")
+color_ramp = SubResource("Gradient_cvck5")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eisi1"]
 shader = ExtResource("12_tj5i4")
@@ -168,10 +168,10 @@ offset_bottom = 630.0
 grow_horizontal = 0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 1
 theme_override_constants/line_separation = -2
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
 theme_override_fonts/normal_font = ExtResource("6_l431d")
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
@@ -370,8 +370,8 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
 text = "[center]ELDER DRAGON[/center]"

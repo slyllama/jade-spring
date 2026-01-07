@@ -91,6 +91,7 @@ signal controller_skill(node)
 signal debug_toggled
 signal debug_skill_used
 signal deco_card_clicked(id)
+signal decorations_loaded
 signal dialogue_opened
 signal dialogue_closed
 signal dragonvoid_crumb_entered

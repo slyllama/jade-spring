@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene load_steps=36 format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" uid="uid://b3w8s1v8lbv3o" path="res://lib/hud/hud.gd" id="1_ryxhn"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
 [ext_resource type="PackedScene" uid="uid://b0blxymb4wob0" path="res://lib/controller_cursor/controller_cursor.tscn" id="24_40fv2"]
+[ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="25_um878"]
 
 [sub_resource type="Gradient" id="Gradient_rfne7"]
 
@@ -397,7 +398,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_sruav")
 placeholder_text = "Enter command:"
 
 [node name="FG" type="ColorRect" parent="TopLevel"]
-visible = false
 z_index = 101
 anchors_preset = 15
 anchor_right = 1.0
@@ -405,6 +405,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Spinner" type="TextureRect" parent="TopLevel/FG"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("25_um878")
+expand_mode = 1
 
 [node name="ControllerCursor" parent="TopLevel" instance=ExtResource("24_40fv2")]
 

@@ -214,7 +214,8 @@ func _ready() -> void:
 	$TopLevel/FG.visible = true
 	$Underlay.queue_free()
 	
-	await get_tree().create_timer(0.51).timeout
+	#await get_tree().create_timer(0.51).timeout
+	await Global.decorations_loaded
 	
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)

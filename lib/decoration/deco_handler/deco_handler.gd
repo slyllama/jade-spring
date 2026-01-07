@@ -75,6 +75,7 @@ func _clear_decorations() -> void:
 
 var _deco_count_position := 0 # increment when a decoration load is finalized
 
+var _t = true
 func _load_decorations(data = []) -> void:
 	print("[DecoHandler] Loading decorations...")
 	
@@ -102,7 +103,10 @@ func _load_decorations(data = []) -> void:
 				_save_decorations()
 				Global.deco_load_ended.emit())
 		add_child.call_deferred(_deco_loader)
-		await get_tree().process_frame
+		
+		_t = !_t # handle two decorations in each frame
+		if _t: await get_tree().process_frame
+	Global.decorations_loaded.emit()
 
 # Load decorations from a file as a dictionary to use with other functions
 func _load_decoration_file(deco_path = FILE_PATH) -> Array:
