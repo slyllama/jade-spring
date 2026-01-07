@@ -92,19 +92,24 @@ func _load_decorations(data = []) -> void:
 		Global.deco_load_ended.emit()
 		return
 	
+	var batched_data := {}
 	for _d in data:
-		if !_d.id in Global.DecoData:
-			print_rich("[color=red][ERROR][DecoHandler] '" + _d.id
-				+ "' is not in this version of Jade Spring.[/color]")
-			continue
+		if !_d.id in Global.DecoData: continue
+		var _deco_spawn_data = SpawnData.new()
+		_deco_spawn_data.position = _d.position
+		_deco_spawn_data.rotation = _d.rotation
+		_deco_spawn_data.scale = _d.scale
+		if _d.id in batched_data:
+			batched_data[_d.id].append(_deco_spawn_data)
+		else: batched_data[_d.id] = [_deco_spawn_data]
+	
+	for _b in batched_data:
 		var _deco_loader: DecoThreadedLoaderScript = DecoThreadedLoader.instantiate()
-		_deco_loader.deco_id = _d.id
-		_deco_loader.position = _d.position
-		_deco_loader.rotation = _d.rotation
-		_deco_loader.scale = _d.scale
-		_deco_loader.loaded.connect(func(_e):
+		_deco_loader.deco_id = _b
+		_deco_loader.spawn_data = batched_data[_b]
+		_deco_loader.loaded.connect(func():
 			load_increment.emit()
-			_deco_count_position += 1
+			_deco_count_position += batched_data[_b].size()
 			if _deco_count_position == Global.deco_count: # finished
 				await get_tree().process_frame
 				_save_decorations()
@@ -215,5 +220,4 @@ func _on_design_handler_ready() -> void:
 	else:
 		print("Loading default decoration file.")
 		var _default_data = _load_decoration_file("res://maps/seitung/default_deco.dat")
-		print("res://maps/seitung/default_deco.dat")
 		_load_decorations(_default_data)
