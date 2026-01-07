@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dr74yiud6hg8w"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dr74yiud6hg8w"]
 
 [ext_resource type="Shader" uid="uid://it0j7vspkgkl" path="res://lib/dispersion_golem/materials/shaders/shader_holo_blades.gdshader" id="1_ymx8l"]
 

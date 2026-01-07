@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://dvqr8ygkly1kc"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dvqr8ygkly1kc"]
 
 [ext_resource type="Shader" uid="uid://ch8crxx5pufhw" path="res://lib/crumb/dragonvoid/materials/shaders/shader_dragonvoid.gdshader" id="1_jdvhu"]
 [ext_resource type="Texture2D" uid="uid://dk0ymwv1mxvmv" path="res://lib/crumb/dragonvoid/materials/textures/iridescent_diff.jpg" id="2_8igsk"]

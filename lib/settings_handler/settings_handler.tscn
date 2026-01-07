@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccqiiglmrnsts"]
+[gd_scene format=3 uid="uid://ccqiiglmrnsts"]
 
 [ext_resource type="Script" uid="uid://diinidylsyisl" path="res://lib/settings_handler/settings_handler.gd" id="1_cuv10"]
 
-[node name="SettingsHandler" type="Node"]
+[node name="SettingsHandler" type="Node" unique_id=942130907]
 script = ExtResource("1_cuv10")

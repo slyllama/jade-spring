@@ -87,7 +87,6 @@ func delete_slot(design_name: String) -> void:
 func rename_slot(from: String, to: String) -> void:
 	var _from_path = DPATH + "/" + from + ".dat"
 	var _to_path = DPATH + "/" + to + ".dat"
-	print(_from_path)
 	DirAccess.copy_absolute(_from_path, _to_path)
 	await get_tree().process_frame
 	DirAccess.remove_absolute(_from_path)

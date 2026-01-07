@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvnv1bm25in3e"]
+[gd_scene format=3 uid="uid://bvnv1bm25in3e"]
 
 [ext_resource type="Shader" uid="uid://d3gvksul2tfdk" path="res://lib/builds/build_vault/vault_device/materials/shaders/vd_sphere.gdshader" id="1_j3456"]
 [ext_resource type="Script" uid="uid://deqkunfacpbth" path="res://lib/builds/build_vault/vault_device/vault_device.gd" id="1_rcs30"]
@@ -86,17 +86,17 @@ shader_parameter/wobble_texture = ExtResource("6_fbhaf")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3xwj2"]
 material = SubResource("ShaderMaterial_vb6t0")
-size = Vector2(3, 3)
+size = Vector2(1.5, 1.5)
 
-[node name="VaultDevice" type="Node3D"]
+[node name="VaultDevice" type="Node3D" unique_id=1678554455]
 script = ExtResource("1_rcs30")
 
-[node name="Sphere" type="MeshInstance3D" parent="."]
+[node name="Sphere" type="MeshInstance3D" parent="." unique_id=700051198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_w8i62")
 
-[node name="VaultMote" type="GPUParticles3D" parent="Sphere"]
+[node name="VaultMote" type="GPUParticles3D" parent="Sphere" unique_id=1231588962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328051, 0)
 amount = 16
 lifetime = 3.0
@@ -105,11 +105,11 @@ randomness = 0.1
 process_material = SubResource("ParticleProcessMaterial_0regm")
 draw_pass_1 = SubResource("PlaneMesh_rcs30")
 
-[node name="RuneEffect" type="MeshInstance3D" parent="Sphere"]
+[node name="RuneEffect" type="MeshInstance3D" parent="Sphere" unique_id=484646617]
 cast_shadow = 0
 mesh = SubResource("QuadMesh_3xwj2")
 
-[node name="Icon" parent="Sphere" instance=ExtResource("4_pxj7s")]
+[node name="Icon" parent="Sphere" unique_id=978560238 instance=ExtResource("4_pxj7s")]
 transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 0.45, 0)
 aabb = AABB(-0.2, -0.311328, -0.2, 0.4, 0.4, 0.4)
 spatial_string = ""
@@ -119,7 +119,7 @@ override_settings = true
 clip_contents = false
 text = ""
 
-[node name="CollectionIcon" type="TextureRect" parent="Sphere/Icon/FG/Title" index="1"]
+[node name="CollectionIcon" type="TextureRect" parent="Sphere/Icon/FG/Title" index="2" unique_id=344593710]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -137,12 +137,12 @@ texture = ExtResource("9_0regm")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Gadget" parent="." instance=ExtResource("8_kg12o")]
+[node name="Gadget" parent="." unique_id=1689673148 instance=ExtResource("8_kg12o")]
 radius = 0.8
 show_area = true
 tint_color = Color(0.4774, 0.49879, 0.62, 1)
 
-[node name="EnclaveMarker" parent="." instance=ExtResource("11_wqm66")]
+[node name="EnclaveMarker" parent="." unique_id=1244929936 instance=ExtResource("11_wqm66")]
 
 [connection signal="interacted" from="Gadget" to="." method="_on_gadget_interacted"]
 

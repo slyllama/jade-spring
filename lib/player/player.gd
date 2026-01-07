@@ -150,7 +150,7 @@ func _ready() -> void:
 	
 	# TODO: working on DOF here
 	var _cam_attrs = CameraAttributesPractical.new()
-	_cam_attrs.dof_blur_amount = 0.012
+	_cam_attrs.dof_blur_amount = 0.018
 	Global.camera.attributes = _cam_attrs
 	
 	Global.command_sent.connect(func(_cmd):

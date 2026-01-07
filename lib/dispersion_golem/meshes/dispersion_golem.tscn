@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://clwa387aosmjj"]
+[gd_scene format=3 uid="uid://clwa387aosmjj"]
 
 [ext_resource type="PackedScene" uid="uid://br410pd2j3ik4" path="res://lib/dispersion_golem/meshes/dispersion_golem.glb" id="1_h1nq4"]
 [ext_resource type="Script" uid="uid://d3fuiginykcdv" path="res://lib/dispersion_golem/meshes/dispersion_golem.gd" id="1_pnw82"]
@@ -38,6 +38,7 @@ material = SubResource("StandardMaterial3D_k2ggs")
 size = Vector2(0.35, 0.35)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3xshx"]
+resource_local_to_scene = true
 _data = {
 &"appear": ExtResource("2_xlpjd"),
 &"spin": ExtResource("3_cmyoc")
@@ -67,18 +68,18 @@ start_offset = 0.0
 loop_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_os36u"]
+nodes/output/position = Vector2(426.667, 160)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_hh2kt")
 nodes/Add2/position = Vector2(-120, 306.667)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_j2hsc")
 nodes/Animation/position = Vector2(-280, 306.667)
 nodes/appear/node = SubResource("AnimationNodeAnimation_l4cv1")
 nodes/appear/position = Vector2(-280, 466.667)
-nodes/output/position = Vector2(426.667, 160)
 nodes/proc_appear/node = SubResource("AnimationNodeOneShot_o8bds")
 nodes/proc_appear/position = Vector2(66.6667, 160)
 nodes/spin/node = SubResource("AnimationNodeAnimation_3pms0")
 nodes/spin/position = Vector2(-280, 160)
-node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"appear", &"output", 0, &"proc_appear", &"proc_appear", 0, &"spin", &"proc_appear", 1, &"Add2"]
+node_connections = [&"output", 0, &"proc_appear", &"Add2", 0, &"Animation", &"Add2", 1, &"appear", &"proc_appear", 0, &"spin", &"proc_appear", 1, &"Add2"]
 
 [sub_resource type="Curve" id="Curve_dcrpf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -169,13 +170,13 @@ _data = {
 &"rock_out": SubResource("Animation_q5a2y")
 }
 
-[node name="DispersionGolem" type="Node3D"]
+[node name="DispersionGolem" type="Node3D" unique_id=986715583]
 transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0, 0, 0)
 script = ExtResource("1_pnw82")
 
-[node name="Model" parent="." instance=ExtResource("1_h1nq4")]
+[node name="Model" parent="." unique_id=796139610 instance=ExtResource("1_h1nq4")]
 
-[node name="Emote" type="GPUParticles3D" parent="Model"]
+[node name="Emote" type="GPUParticles3D" parent="Model" unique_id=1387553747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763121, 0)
 cast_shadow = 0
 emitting = false
@@ -185,27 +186,23 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_6gtrh")
 draw_pass_1 = SubResource("QuadMesh_8pu44")
 
-[node name="Tree" type="AnimationTree" parent="Model"]
-libraries = {
-"": SubResource("AnimationLibrary_3xshx")
-}
+[node name="Tree" type="AnimationTree" parent="Model" unique_id=1841971327]
+libraries/ = SubResource("AnimationLibrary_3xshx")
 tree_root = SubResource("AnimationNodeBlendTree_os36u")
 parameters/Add2/add_amount = 1.0
 parameters/proc_appear/active = true
 parameters/proc_appear/internal_active = true
 parameters/proc_appear/request = 0
 
-[node name="Stars" type="GPUParticles3D" parent="."]
+[node name="Stars" type="GPUParticles3D" parent="." unique_id=1629172349]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-08, -0.420217, -0.2)
 preprocess = 2.0
 speed_scale = 0.6
 process_material = SubResource("ParticleProcessMaterial_fxxo6")
 draw_pass_1 = ExtResource("5_y5ca6")
 
-[node name="Spiral" parent="." instance=ExtResource("6_oagss")]
+[node name="Spiral" parent="." unique_id=1018631252 instance=ExtResource("6_oagss")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.040267, -1.1332, -0.0728757)
 
-[node name="Anim" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_b3d7x")
-}
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=845571402]
+libraries/ = SubResource("AnimationLibrary_b3d7x")

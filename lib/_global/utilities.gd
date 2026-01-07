@@ -90,9 +90,7 @@ func get_time() -> String:
 	return("%02d:%02d:%02d" % [time.hour, time.minute, time.second])
 
 func set_window_mode(window_mode: String) -> void:
-	if Engine.is_embedded_in_editor():
-		print("[Utilities] Skipping window resize because the game is embedded in editor.")
-		return
+	if Engine.is_embedded_in_editor(): return
 	if window_mode == "full_screen":
 		if get_window().mode != Window.MODE_FULLSCREEN:
 			get_window().mode = Window.MODE_FULLSCREEN

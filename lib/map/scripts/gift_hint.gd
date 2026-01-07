@@ -10,8 +10,6 @@ func show() -> void:
 		"text": "As a token of his gratitude, Raiqqo has given you a Plush Hoodie! It can be toggled in Settings."
 		}, Utilities.get_screen_center(Vector2(0, -50.0)))
 	
-	print(_h)
-	
 	var _t = TextureRect.new()
 	_t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED

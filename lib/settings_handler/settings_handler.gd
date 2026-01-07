@@ -22,7 +22,8 @@ const DEFAULT_SETTINGS = {
 	"show_gift_item": "hide",
 	"direction_control": "strafe",
 	"dof": "off",
-	"current_design": "default"
+	"current_design": "default",
+	"streamed_loading": "off"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

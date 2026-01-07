@@ -3,7 +3,7 @@ extends Node3D
 @onready var original_position = global_position
 
 func _proc_story() -> void:
-	if Save.is_at_story_point("gratitude"):
+	if Save.is_at_story_point("stewardship"):
 		$Sphere/VaultMote.emitting = true
 		global_position = original_position
 	else: global_position.y -= 10.0

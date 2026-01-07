@@ -30,7 +30,6 @@ func _ready() -> void:
 	visible = false
 	spiral_mat = $Spiral/Spiral.get_active_material(0).duplicate()
 	$Spiral/Spiral.set_surface_override_material(0, spiral_mat)
-	$Model/Tree.libraries = $Model/Tree.libraries.duplicate()
 	
 	draw_pass = $Model/Emote.draw_pass_1.duplicate(true)
 	$Model/Emote.draw_pass_1 = draw_pass

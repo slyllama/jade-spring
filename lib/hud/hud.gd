@@ -123,10 +123,8 @@ func _input(_event: InputEvent) -> void:
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
-		if visible:
-			hide_hud()
-		else:
-			show_hud()
+		if visible: hide_hud()
+		else: show_hud()
 
 func show_hud() -> void:
 	if visible: return
@@ -159,6 +157,23 @@ func fade_in() -> void:
 	_fade_tween.tween_callback(func():
 		$TopLevel/FG.visible = false)
 
+var entered_reveal := false # reveal can only be entered once
+
+# Called once decorations have finished loading - reveals the map
+func reveal() -> void:
+	if entered_reveal: return
+	entered_reveal = true
+	
+	var _fade_tween = create_tween()
+	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
+	_fade_tween.tween_callback(func():
+		$TopLevel/FG/Spinner.visible = false
+		$TopLevel/FG.visible = false)
+	# Opening story panel (if the story hasn't been advanced)
+	if Save.data.story_point == "game_start":
+		Global.summon_story_panel.emit(Save.STORY_POINT_SCRIPT["game_start"])
+	proc_story()
+
 func _ready() -> void:
 	$TopLevel/SettingsPane/Container/SC/Contents/ResetBox.visible = false
 	Global.hud = self # reference
@@ -176,6 +191,9 @@ func _ready() -> void:
 	Global.deco_pane_opened.connect($DecoPane.open)
 	Global.fishing_started.connect(_hide_int)
 	
+	Global.decorations_loaded.connect(reveal)
+	Save.story_advanced.connect(proc_story)
+	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
 			get_tree().quit()
@@ -192,7 +210,6 @@ func _ready() -> void:
 	
 	Global.summon_story_panel.connect(func(data):
 		if !"description" in data or !"title" in data: return
-		
 		var _sp = load("res://lib/story_panel/story_panel.tscn").instantiate()
 		add_child(_sp)
 		if "sticker" in data: _sp.open(data.title, data.description, data.sticker)
@@ -214,20 +231,11 @@ func _ready() -> void:
 	$TopLevel/FG.visible = true
 	$Underlay.queue_free()
 	
-	#await get_tree().create_timer(0.51).timeout
-	await Global.decorations_loaded
-	
-	var _fade_tween = create_tween()
-	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
-	_fade_tween.tween_callback(func():
-		$TopLevel/FG.visible = false)
-	
-	# Opening story panel (if the story hasn't been advanced)
-	if Save.data.story_point == "game_start":
-		Global.summon_story_panel.emit(Save.STORY_POINT_SCRIPT["game_start"])
-	
-	Save.story_advanced.connect(proc_story)
-	proc_story()
+	# Immediately reveal content if content streaming is on
+	if SettingsHandler.settings.streamed_loading == "on":
+		$TopLevel/FG/Spinner.visible = false
+		await get_tree().create_timer(0.5).timeout
+		reveal()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:
@@ -241,12 +249,11 @@ func _process(_delta: float) -> void:
 	if Global.debug_enabled:
 		$Debug.text = "[right]"
 		$Debug.text += _render_fps()
-		#$Debug.text += "\n(" + Utilities.fmt_vec3(Global.player_position) + ")"
+		$Debug.text += "\n(" + Utilities.fmt_vec3(Global.player_position) + ")"
 		$Debug.text += (" ("
 			+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)) + ")")
 		$Debug.text += "\n"
 		$Debug.text += ("\n" + str(Global.tool_identities[Global.tool_mode]))
-		#$Debug.text += ("\n" + str(Utilities.fmt_vec3(Global.player_position)))
 		$Debug.text += ("\nSave.STORY_POINTS." + str(Save.data.story_point))
 		$Debug.text += "\n"
 		if Global.in_exclusive_ui: $Debug.text += ("\n[color=yellow]Exclusive UI[/color]")

@@ -75,16 +75,22 @@ func _clear_decorations() -> void:
 
 var _deco_count_position := 0 # increment when a decoration load is finalized
 
-var _t = true
+signal load_increment
+
 func _load_decorations(data = []) -> void:
-	print("[DecoHandler] Loading decorations...")
+	await get_tree().process_frame # race condition with HUD reveal
+	_clear_decorations()
 	
 	_deco_count_position = 0
 	Global.deco_load_started.emit()
-	_clear_decorations()
-	
 	Global.deco_count = data.size()
 	Global.deco_count_changed.emit()
+	
+	if data.size() == 0:
+		_save_decorations()
+		Global.decorations_loaded.emit()
+		Global.deco_load_ended.emit()
+		return
 	
 	for _d in data:
 		if !_d.id in Global.DecoData:
@@ -97,16 +103,17 @@ func _load_decorations(data = []) -> void:
 		_deco_loader.rotation = _d.rotation
 		_deco_loader.scale = _d.scale
 		_deco_loader.loaded.connect(func(_e):
+			load_increment.emit()
 			_deco_count_position += 1
 			if _deco_count_position == Global.deco_count: # finished
 				await get_tree().process_frame
 				_save_decorations()
+				Global.decorations_loaded.emit()
 				Global.deco_load_ended.emit())
 		add_child.call_deferred(_deco_loader)
-		
-		_t = !_t # handle two decorations in each frame
-		if _t: await get_tree().process_frame
-	Global.decorations_loaded.emit()
+		await load_increment
+		Global.deco_load_status_updated.emit("Decorations: loaded "
+			+ str(_deco_count_position + 1) + "/" + str(Global.deco_count))
 
 # Load decorations from a file as a dictionary to use with other functions
 func _load_decoration_file(deco_path = FILE_PATH) -> Array:

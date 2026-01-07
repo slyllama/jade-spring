@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://dtfekbth5h36s"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dtfekbth5h36s"]
 
 [ext_resource type="Shader" uid="uid://dsw1bx11r4ld4" path="res://lib/story_marker/materials/shaders/enclave_ray.gdshader" id="1_jusyf"]
 [ext_resource type="Texture2D" uid="uid://d36xnbvbv5dvn" path="res://lib/builds/build_vault/materials/textures/stars_diff.jpg" id="2_11t3m"]

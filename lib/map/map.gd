@@ -88,9 +88,6 @@ func set_marker_pos() -> void: # set the position of the story marker
 		"_": $StoryMarker.position = HIDDEN_POS # hide under map
 
 func _ready() -> void:
-	if !Global.map_entered_once:
-		$Jukebox/Podzol.volume_db = linear_to_db(SettingsHandler.settings.music_vol)
-		$Jukebox/Podzol.play()
 	Global.map_entered_once = true
 	
 	# Set initial state

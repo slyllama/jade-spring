@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://d0m8idfvk4l2s"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d0m8idfvk4l2s"]
 
 [ext_resource type="Shader" uid="uid://ch8crxx5pufhw" path="res://lib/crumb/dragonvoid/materials/shaders/shader_dragonvoid.gdshader" id="1_g3ldx"]
 

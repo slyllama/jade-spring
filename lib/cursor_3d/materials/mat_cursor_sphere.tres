@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c4px02oqun08"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c4px02oqun08"]
 
 [ext_resource type="Shader" uid="uid://gqaidivnqx5y" path="res://lib/cursor_3d/materials/shaders/shader_cursor_sphere.gdshader" id="1_soohf"]
 
