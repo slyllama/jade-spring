@@ -167,7 +167,6 @@ func reveal() -> void:
 	var _fade_tween = create_tween()
 	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
 	_fade_tween.tween_callback(func():
-		$TopLevel/FG/Spinner.visible = false
 		$TopLevel/FG.visible = false)
 	# Opening story panel (if the story hasn't been advanced)
 	if Save.data.story_point == "game_start":
@@ -191,7 +190,6 @@ func _ready() -> void:
 	Global.deco_pane_opened.connect($DecoPane.open)
 	Global.fishing_started.connect(_hide_int)
 	
-	Global.decorations_loaded.connect(reveal)
 	Save.story_advanced.connect(proc_story)
 	
 	Global.command_sent.connect(func(_cmd):
@@ -231,11 +229,8 @@ func _ready() -> void:
 	$TopLevel/FG.visible = true
 	$Underlay.queue_free()
 	
-	# Immediately reveal content if content streaming is on
-	if SettingsHandler.settings.streamed_loading == "on":
-		$TopLevel/FG/Spinner.visible = false
-		await get_tree().create_timer(0.5).timeout
-		reveal()
+	await get_tree().create_timer(0.5).timeout
+	reveal()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:

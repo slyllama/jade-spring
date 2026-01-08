@@ -196,6 +196,18 @@ func _ready() -> void:
 			"vsync":
 				if _value == "on": DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 				else: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+			"shadows":
+				if _value == "low":
+					$Sky/Sun.shadow_enabled = true
+					$Sky/Sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
+				elif _value == "medium":
+					$Sky/Sun.shadow_enabled = true
+					$Sky/Sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+				elif _value == "high":
+					$Sky/Sun.shadow_enabled = true
+					$Sky/Sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
+				else: # off
+					$Sky/Sun.shadow_enabled = false
 			"saturation":
 				update_saturation()
 			"brightness":

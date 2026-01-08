@@ -26,8 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
 [ext_resource type="PackedScene" uid="uid://b0blxymb4wob0" path="res://lib/controller_cursor/controller_cursor.tscn" id="24_40fv2"]
-[ext_resource type="Texture2D" uid="uid://cvd1gsf601dea" path="res://lib/loader/textures/spinner.png" id="25_um878"]
-[ext_resource type="Script" uid="uid://bmx526sqkfrdv" path="res://lib/hud/deco_status.gd" id="26_mw7io"]
 
 [sub_resource type="Gradient" id="Gradient_rfne7"]
 
@@ -406,41 +404,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="Spinner" type="TextureRect" parent="TopLevel/FG" unique_id=1531781225]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -48.0
-offset_right = -16.0
-offset_bottom = -16.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_filter = 2
-texture = ExtResource("25_um878")
-expand_mode = 1
-
-[node name="DecoStatus" type="Label" parent="TopLevel/FG/Spinner" unique_id=58734059]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = -9.5
-offset_right = -40.0
-offset_bottom = 9.5
-grow_horizontal = 0
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("26_mw7io")
 
 [node name="ControllerCursor" parent="TopLevel" unique_id=1662599641 instance=ExtResource("24_40fv2")]
 

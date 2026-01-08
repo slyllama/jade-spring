@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://do100ywnnmb0x"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://do100ywnnmb0x"]
 
 [ext_resource type="Shader" uid="uid://dio767k6ohhuk" path="res://generic/materials/shaders/shader_wood_twotone.gdshader" id="1_m477u"]
 [ext_resource type="Texture2D" uid="uid://briwh7nndqy32" path="res://maps/seitung/materials/mat_arch/textures/wood_dark_norm.jpg" id="2_2puxu"]

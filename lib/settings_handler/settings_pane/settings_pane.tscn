@@ -163,56 +163,56 @@ layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="StreamedLoading" parent="Container/SC/Contents" index="6" unique_id=58255119 instance=ExtResource("3_b7vwo")]
-layout_mode = 2
-title = "Streamed Loading"
-id = "streamed_loading"
-options = Array[String](["on", "off"])
-default_option = "windowed"
-
-[node name="WindowMode" parent="Container/SC/Contents" index="7" unique_id=353194802 instance=ExtResource("3_b7vwo")]
+[node name="WindowMode" parent="Container/SC/Contents" index="6" unique_id=353194802 instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Window mode"
 id = "window_mode"
 options = Array[String](["windowed", "windowed_(1080p)", "maximized", "full_screen", "exclusive_full_screen"])
 default_option = "windowed"
 
-[node name="FPSCap" parent="Container/SC/Contents" index="8" unique_id=581001514 instance=ExtResource("3_b7vwo")]
+[node name="FPSCap" parent="Container/SC/Contents" index="7" unique_id=581001514 instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "FPS cap"
 id = "fps_cap"
 options = Array[String](["30", "60", "144", "unlimited"])
 default_option = "60"
 
-[node name="FOV" parent="Container/SC/Contents" index="9" unique_id=299034893 instance=ExtResource("4_q7g3p")]
+[node name="FOV" parent="Container/SC/Contents" index="8" unique_id=299034893 instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "FOV"
 id = "fov"
 
-[node name="Saturation" parent="Container/SC/Contents" index="10" unique_id=349733248 instance=ExtResource("4_q7g3p")]
+[node name="Saturation" parent="Container/SC/Contents" index="9" unique_id=349733248 instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Saturation"
 id = "saturation"
 
-[node name="Brightness" parent="Container/SC/Contents" index="11" unique_id=734176005 instance=ExtResource("4_q7g3p")]
+[node name="Brightness" parent="Container/SC/Contents" index="10" unique_id=734176005 instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Brightness"
 id = "brightness"
 
-[node name="VSync" parent="Container/SC/Contents" index="12" unique_id=2043312487 instance=ExtResource("3_b7vwo")]
+[node name="VSync" parent="Container/SC/Contents" index="11" unique_id=2043312487 instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "VSync"
 id = "vsync"
 options = Array[String](["on", "off"])
 default_option = "on"
 
-[node name="AA" parent="Container/SC/Contents" index="13" unique_id=640312164 instance=ExtResource("3_b7vwo")]
+[node name="AA" parent="Container/SC/Contents" index="12" unique_id=640312164 instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Anti-aliasing"
 id = "aa"
 options = Array[String](["msaa_(4x)_with_fxaa", "msaa_(4x)", "msaa_(2x)", "disabled"])
 default_option = "msaa_(4x)_with_fxaa"
 info_tooltip = "Disabling anti-aliasing can greatly improve performance, especially if you are using an older graphics card."
+
+[node name="Shadows" parent="Container/SC/Contents" index="13" unique_id=1749222779 instance=ExtResource("3_b7vwo")]
+layout_mode = 2
+title = "Shadows"
+id = "shadows"
+options = Array[String](["low", "medium", "high", "off"])
+default_option = "medium"
 
 [node name="FoliageDensity" parent="Container/SC/Contents" index="14" unique_id=1767382368 instance=ExtResource("3_b7vwo")]
 layout_mode = 2
@@ -228,7 +228,7 @@ id = "bloom"
 options = Array[String](["on", "off"])
 default_option = "on"
 
-[node name="Bloom2" parent="Container/SC/Contents" index="16" unique_id=492646545 instance=ExtResource("3_b7vwo")]
+[node name="DOF" parent="Container/SC/Contents" index="16" unique_id=492646545 instance=ExtResource("3_b7vwo")]
 layout_mode = 2
 title = "Depth of field"
 id = "dof"

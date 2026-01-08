@@ -117,8 +117,6 @@ func _load_decorations(data = []) -> void:
 				Global.deco_load_ended.emit())
 		add_child.call_deferred(_deco_loader)
 		await load_increment
-		Global.deco_load_status_updated.emit("Decorations: loaded "
-			+ str(_deco_count_position + 1) + "/" + str(Global.deco_count))
 
 # Load decorations from a file as a dictionary to use with other functions
 func _load_decoration_file(deco_path = FILE_PATH) -> Array:

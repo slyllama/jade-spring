@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://1rfdyyslsq71"]
+[gd_scene format=3 uid="uid://1rfdyyslsq71"]
 
 [ext_resource type="PackedScene" uid="uid://djua7a6d1wk2x" path="res://lib/map/map.tscn" id="1_ptiqq"]
 [ext_resource type="Script" uid="uid://bll0ayxgvg32d" path="res://maps/seitung/seitung.gd" id="2_i45wv"]
@@ -173,781 +173,781 @@ plane = Plane(0, -1, 0, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jm7j"]
 size = Vector3(62.4795, 1, 13.4458)
 
-[node name="Seitung" instance=ExtResource("1_ptiqq")]
+[node name="Seitung" unique_id=1050648864 instance=ExtResource("1_ptiqq")]
 script = ExtResource("2_i45wv")
 
-[node name="Sky" parent="." index="0"]
+[node name="Sky" parent="." index="0" unique_id=706070438]
 environment = ExtResource("3_xqtep")
 
-[node name="Sun" parent="Sky" index="0"]
+[node name="Sun" parent="Sky" index="0" unique_id=64158718]
 transform = Transform3D(0.767856, 0.374329, -0.519879, -0.190429, 0.908211, 0.372679, 0.611665, -0.187163, 0.768659, 0, 3, 0)
 directional_shadow_mode = 0
 directional_shadow_blend_splits = true
 
-[node name="SunNight" type="DirectionalLight3D" parent="Sky" index="1"]
+[node name="SunNight" type="DirectionalLight3D" parent="Sky" index="1" unique_id=252007267]
 transform = Transform3D(0.714161, -0.325747, 0.619567, 0.199024, 0.943083, 0.26643, -0.671092, -0.0669649, 0.738344, 0, 5.55933, 0)
 visible = false
 light_color = Color(0.82112, 0.6912, 0.96, 1)
 shadow_enabled = true
 directional_shadow_blend_splits = true
 
-[node name="Player" parent="." index="1"]
+[node name="Player" parent="." index="1" unique_id=30808248]
 transform = Transform3D(0.998077, 0, -0.0619893, 0, 1, 0, 0.0619893, 0, 0.998077, -3, 2, 2.5)
 
-[node name="YCast" type="RayCast3D" parent="Player" index="5"]
+[node name="YCast" type="RayCast3D" parent="Player" index="5" unique_id=1817706734]
 visible = false
 target_position = Vector3(0, -5, 0)
 
-[node name="_BufferWeed" parent="CrumbHandler" index="0" instance=ExtResource("4_gysks")]
+[node name="_BufferWeed" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="0" unique_id=1786812225 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
 can_click = true
 custom_data = "ignore"
 
-[node name="Weed" parent="CrumbHandler" index="1" instance=ExtResource("4_gysks")]
+[node name="Weed" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="1" unique_id=504649067 instance=ExtResource("4_gysks")]
 transform = Transform3D(0.478508, 0, 0.878083, 0, 1, 0, -0.878083, 0, 0.478508, -5.41799, 0.450742, -0.12059)
 can_click = true
 custom_data = null
 
-[node name="Weed5" parent="CrumbHandler" index="2" instance=ExtResource("4_gysks")]
+[node name="Weed5" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="2" unique_id=1346160374 instance=ExtResource("4_gysks")]
 transform = Transform3D(0.98899, 0, -0.147982, 0, 1, 0, 0.147982, 0, 0.98899, -5.39806, 0.382987, -5.04192)
 can_click = true
 custom_data = null
 
-[node name="Weed2" parent="CrumbHandler" index="3" instance=ExtResource("4_gysks")]
+[node name="Weed2" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="3" unique_id=711052138 instance=ExtResource("4_gysks")]
 transform = Transform3D(-0.437273, 0, -0.899329, 0, 1, 0, 0.899329, 0, -0.437273, -10.4562, 0.670555, 1.25375)
 can_click = true
 custom_data = null
 
-[node name="Weed3" parent="CrumbHandler" index="4" instance=ExtResource("4_gysks")]
+[node name="Weed3" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="4" unique_id=616067168 instance=ExtResource("4_gysks")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -7.89782, -0.109571, 4.86797)
 can_click = true
 custom_data = null
 
-[node name="Weed4" parent="CrumbHandler" index="5" instance=ExtResource("4_gysks")]
+[node name="Weed4" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="5" unique_id=726106493 instance=ExtResource("4_gysks")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, -4.58147, 0.0851234, 7.31277)
 can_click = true
 custom_data = null
 
-[node name="Weed6" parent="CrumbHandler" index="6" instance=ExtResource("4_gysks")]
+[node name="Weed6" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="6" unique_id=1378906505 instance=ExtResource("4_gysks")]
 transform = Transform3D(-0.957052, 0, -0.289917, 0, 1, 0, 0.289917, 0, -0.957052, 0.151906, 0.644752, 1.69192)
 can_click = true
 custom_data = null
 
-[node name="Weed7" parent="CrumbHandler" index="7" instance=ExtResource("4_gysks")]
+[node name="Weed7" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="7" unique_id=1216644192 instance=ExtResource("4_gysks")]
 transform = Transform3D(-0.942402, 0, 0.334482, 0.00102162, 0.999995, 0.0028784, -0.33448, 0.00305432, -0.942398, 1.56853, 0.491441, 6.54419)
 can_click = true
 custom_data = null
 
-[node name="Weed9" parent="CrumbHandler" index="8" instance=ExtResource("4_gysks")]
+[node name="Weed9" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="8" unique_id=1843529791 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06798, 0.317763, -6.98955)
 
-[node name="Weed10" parent="CrumbHandler" index="9" instance=ExtResource("4_gysks")]
+[node name="Weed10" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="9" unique_id=1744358135 instance=ExtResource("4_gysks")]
 transform = Transform3D(0.801014, 0, -0.598646, 0, 1, 0, 0.598646, 0, 0.801014, -0.610155, 0.265081, -6.98955)
 
-[node name="Weed12" parent="CrumbHandler" index="10" instance=ExtResource("4_gysks")]
+[node name="Weed12" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="10" unique_id=2080828464 instance=ExtResource("4_gysks")]
 transform = Transform3D(0.801014, 0, -0.598646, 0, 1, 0, 0.598646, 0, 0.801014, 2.34584, 0.395716, -7.64475)
 
-[node name="Weed13" parent="CrumbHandler" index="11" instance=ExtResource("4_gysks")]
+[node name="Weed13" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="11" unique_id=1207119774 instance=ExtResource("4_gysks")]
 transform = Transform3D(0.357863, 0, -0.933774, 0, 1, 0, 0.933774, 0, 0.357863, 2.45922, 0.164654, -5.3562)
 
-[node name="Weed11" parent="CrumbHandler" index="12" instance=ExtResource("4_gysks")]
+[node name="Weed11" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="12" unique_id=857433941 instance=ExtResource("4_gysks")]
 transform = Transform3D(0.801014, 0, -0.598646, 0, 1, 0, 0.598646, 0, 0.801014, -0.549327, 0.206426, -4.97084)
 
-[node name="Weed14" parent="CrumbHandler" index="13" instance=ExtResource("4_gysks")]
+[node name="Weed14" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="13" unique_id=1966450039 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46816, 0.218348, 8.70212)
 
-[node name="Weed15" parent="CrumbHandler" index="14" instance=ExtResource("4_gysks")]
+[node name="Weed15" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="14" unique_id=748575662 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76216, -0.172937, 11.9421)
 
-[node name="Weed16" parent="CrumbHandler" index="15" instance=ExtResource("4_gysks")]
+[node name="Weed16" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="15" unique_id=583516534 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01823, -0.216093, 13.3214)
 
-[node name="Weed17" parent="CrumbHandler" index="16" instance=ExtResource("4_gysks")]
+[node name="Weed17" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="16" unique_id=24361275 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64735, -0.23217, -9.86763)
 
-[node name="Weed18" parent="CrumbHandler" index="17" instance=ExtResource("4_gysks")]
+[node name="Weed18" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="17" unique_id=1005343087 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5145, -0.0163086, -9.385)
 
-[node name="Weed19" parent="CrumbHandler" index="18" instance=ExtResource("4_gysks")]
+[node name="Weed19" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="18" unique_id=652614392 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41485, 0.0422199, 9.9929)
 
-[node name="Weed20" parent="CrumbHandler" index="19" instance=ExtResource("4_gysks")]
+[node name="Weed20" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="19" unique_id=2043090751 instance=ExtResource("4_gysks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53779, 0.605422, 7.24115)
 
-[node name="BugSwarm" parent="CrumbHandler" index="20" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="20" unique_id=2025814841 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.70683, 0.698459, 9.30504)
 
-[node name="BugSwarm2" parent="CrumbHandler" index="21" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm2" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="21" unique_id=731848144 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124689, 1.05133, 10.8447)
 
-[node name="BugSwarm3" parent="CrumbHandler" index="22" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm3" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="22" unique_id=1292003472 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91197, 1.92322, 3.59943)
 
-[node name="BugSwarm4" parent="CrumbHandler" index="23" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm4" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="23" unique_id=528800426 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89035, 1.53366, -2.66542)
 
-[node name="BugSwarm5" parent="CrumbHandler" index="24" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm5" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="24" unique_id=1727727791 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23029, 1.74595, 1.38721)
 
-[node name="BugSwarm6" parent="CrumbHandler" index="25" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm6" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="25" unique_id=332548366 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77579, 0.954165, -5.00083)
 
-[node name="BugSwarm7" parent="CrumbHandler" index="26" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm7" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="26" unique_id=1156768257 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29462, 0.704712, -8.76389)
 
-[node name="BugSwarm8" parent="CrumbHandler" index="27" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm8" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="27" unique_id=178414490 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0349, 1.2174, -8.70574)
 
-[node name="BugSwarm9" parent="CrumbHandler" index="28" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm9" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="28" unique_id=1238883280 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07721, 0.607584, -10.0079)
 
-[node name="BugSwarm10" parent="CrumbHandler" index="29" instance=ExtResource("5_sc2pc")]
+[node name="BugSwarm10" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="29" unique_id=203525919 instance=ExtResource("5_sc2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15857, 0.703732, 13.1967)
 
-[node name="Dragonvoid" parent="CrumbHandler" index="30" instance=ExtResource("6_jpbv6")]
+[node name="Dragonvoid" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="30" unique_id=2126718566 instance=ExtResource("6_jpbv6")]
 transform = Transform3D(-0.93045, 0, 0.36642, 0, 1, 0, -0.36642, 0, -0.93045, -6.26371, 0.323193, 2.11964)
 can_click = true
 custom_data = null
 
-[node name="Dragonvoid3" parent="CrumbHandler" index="31" instance=ExtResource("6_jpbv6")]
+[node name="Dragonvoid3" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="31" unique_id=234220741 instance=ExtResource("6_jpbv6")]
 transform = Transform3D(-0.6642, 0, -0.747555, 0, 1, 0, 0.747555, 0, -0.6642, -6.57409, 0.214845, 11.9622)
 can_click = true
 custom_data = null
 
-[node name="Dragonvoid2" parent="CrumbHandler" index="32" instance=ExtResource("6_jpbv6")]
+[node name="Dragonvoid2" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="32" unique_id=407488263 instance=ExtResource("6_jpbv6")]
 transform = Transform3D(-0.999029, 0, -0.0440552, 0, 1, 0, 0.0440552, 0, -0.999029, -5.92993, 0.323193, -9.17745)
 can_click = true
 custom_data = null
 
-[node name="Dragonvoid4" parent="CrumbHandler" index="33" instance=ExtResource("6_jpbv6")]
+[node name="Dragonvoid4" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="33" unique_id=2035186170 instance=ExtResource("6_jpbv6")]
 transform = Transform3D(0.586726, 0, -0.809786, 0, 1, 0, 0.809786, 0, 0.586726, -0.702717, -0.244715, 13.2629)
 
-[node name="Dragonvoid5" parent="CrumbHandler" index="34" instance=ExtResource("6_jpbv6")]
+[node name="Dragonvoid5" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="34" unique_id=1680010937 instance=ExtResource("6_jpbv6")]
 transform = Transform3D(0.986529, 0, -0.163584, 0, 1, 0, 0.163584, 0, 0.986529, -1.00166, 1.03967, -1.63769)
 
-[node name="Dragonvoid6" parent="CrumbHandler" index="35" instance=ExtResource("6_jpbv6")]
+[node name="Dragonvoid6" parent="CrumbHandler" parent_id_path=PackedInt32Array(2000776596) index="35" unique_id=744276853 instance=ExtResource("6_jpbv6")]
 transform = Transform3D(-0.995881, 0, 0.0906672, 0, 1, 0, -0.0906672, 0, -0.995881, 4.9172, 0.214816, -7.94428)
 
-[node name="Floor" parent="." index="4"]
+[node name="Floor" parent="." index="4" unique_id=1584529441]
 collision_layer = 10
 collision_mask = 10
 
-[node name="FloorMesh" parent="Floor" index="1"]
+[node name="FloorMesh" parent="Floor" index="1" unique_id=444531480]
 transform = Transform3D(1.25, 0, 0, 0, 1.20741, -0.12941, 0, 0.323524, 0.482963, 0, -5.3804, 30.919)
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_ixf13")
 
-[node name="Ambience" parent="." index="5"]
+[node name="Ambience" parent="." index="5" unique_id=1899723152]
 volume_db = 0.0
 
-[node name="Ocean" type="AudioStreamPlayer" parent="Ambience" index="0"]
+[node name="Ocean" type="AudioStreamPlayer" parent="Ambience" index="0" unique_id=1116172013]
 stream = ExtResource("9_0gj52")
 autoplay = true
 
-[node name="DecoBambooCluster" parent="DecoHandler" index="0" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="0" unique_id=1143621509 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -10.1414, 0.40909, -1.48433)
 
-[node name="DecoBambooCluster18" parent="DecoHandler" index="1" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster18" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="1" unique_id=589992339 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 1.07179, 0.148992, 8.19005)
 
-[node name="DecoBambooCluster2" parent="DecoHandler" index="2" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="2" unique_id=373896246 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.202719, 0, 1.04553, 0, 1.065, 0, -1.04553, 0, 0.202719, -8.17855, -0.0653976, -5.69457)
 
-[node name="DecoBambooCluster9" parent="DecoHandler" index="3" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster9" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="3" unique_id=1133667380 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.202719, 0, 1.04553, 0, 1.065, 0, -1.04553, 0, 0.202719, -7.27878, -0.392252, 11.514)
 
-[node name="DecoBambooCluster16" parent="DecoHandler" index="4" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster16" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="4" unique_id=1188156411 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.799293, -0.0220111, 0.98024, 0.0139099, 1.26481, 0.0170588, -0.980389, 0, 0.799414, -9.46948, -0.392252, 12.2803)
 
-[node name="DecoBambooCluster13" parent="DecoHandler" index="5" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster13" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="5" unique_id=1507743891 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.999999, 0, -0.00148333, 0, 1, 0, 0.00148333, 0, 0.999999, 4.46654, -0.613176, 11.6377)
 
-[node name="DecoBambooCluster14" parent="DecoHandler" index="6" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster14" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="6" unique_id=235280338 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(1.13423, 0, -0.39181, 0, 1.2, 0, 0.39181, 0, 1.13423, 13.4109, -0.701302, 10.5509)
 
-[node name="DecoBambooCluster15" parent="DecoHandler" index="7" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster15" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="7" unique_id=1121681421 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.947304, -0.139589, 0.723273, 0.110947, 1.19185, 0.0847091, -0.728216, 0, 0.953779, 11.022, 0.526648, 9.13892)
 
-[node name="DecoBambooCluster3" parent="DecoHandler" index="8" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="8" unique_id=2109598140 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.834641, 0, -0.827042, 0, 1.175, 0, 0.827042, 0, 0.834641, -10.3365, 1.38553, -3.86724)
 
-[node name="DecoBambooCluster4" parent="DecoHandler" index="9" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="9" unique_id=1419196128 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(-0.0783425, 0, -1.17239, 0, 1.175, 0, 1.17239, 0, -0.0783425, -13.8702, 0.883892, 2.98702)
 
-[node name="DecoBambooCluster5" parent="DecoHandler" index="10" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster5" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="10" unique_id=1705099315 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(1.02866, 0, -0.567875, 0, 1.175, 0, 0.567875, 0, 1.02866, -14.3324, 0.983326, 9.65627)
 
-[node name="DecoBambooCluster7" parent="DecoHandler" index="11" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster7" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="11" unique_id=1817697534 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.458863, 0, -1.0817, 0, 1.175, 0, 1.0817, 0, 0.458863, -12.3802, -0.648866, 6.22768)
 
-[node name="DecoBambooCluster6" parent="DecoHandler" index="12" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster6" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="12" unique_id=751364313 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.903639, -0.169895, 0.393156, 0.184775, 0.982781, 0, -0.386386, 0.0726453, 0.919472, -1.07186, -0.186977, -10.595)
 
-[node name="DecoBambooCluster8" parent="DecoHandler" index="13" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster8" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="13" unique_id=1745085730 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(0.46759, 0, -0.883945, 0, 1, 0, 0.883945, 0, 0.46759, 1.22015, 1.23741, -11.6268)
 
-[node name="DecoBambooCluster11" parent="DecoHandler" index="14" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster11" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="14" unique_id=487474171 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(-0.675796, 0, -0.737089, 0, 1, 0, 0.737089, 0, -0.675796, 3.62367, 0.260195, -10.5962)
 
-[node name="DecoBambooCluster12" parent="DecoHandler" index="15" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster12" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="15" unique_id=2007585756 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(-0.991165, 0, 0.132637, 0, 1, 0, -0.132637, 0, -0.991165, 0.225166, -0.0657521, -5.9589)
 
-[node name="DecoBambooCluster17" parent="DecoHandler" index="16" instance=ExtResource("10_ga7m7")]
+[node name="DecoBambooCluster17" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="16" unique_id=654883906 instance=ExtResource("10_ga7m7")]
 transform = Transform3D(-1.03888, -0.0445938, 0.326867, -0.0681368, 1.08571, -0.0684372, -0.322782, -0.0856602, -1.03758, 4.04498, 0.0198924, -6.37816)
 
-[node name="DecoAutumnalShrub" parent="DecoHandler" index="17" instance=ExtResource("11_5g4ju")]
+[node name="DecoAutumnalShrub" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="17" unique_id=660180083 instance=ExtResource("11_5g4ju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.70684, 0.202087, -4.63529)
 
-[node name="DecoAutumnalShrub4" parent="DecoHandler" index="18" instance=ExtResource("11_5g4ju")]
+[node name="DecoAutumnalShrub4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="18" unique_id=987945504 instance=ExtResource("11_5g4ju")]
 transform = Transform3D(0.00207694, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.00207694, 8.86076, -0.157148, 10.0357)
 
-[node name="DecoAutumnalShrub5" parent="DecoHandler" index="19" instance=ExtResource("11_5g4ju")]
+[node name="DecoAutumnalShrub5" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="19" unique_id=1529428466 instance=ExtResource("11_5g4ju")]
 transform = Transform3D(0.565989, 0, -0.824413, 0, 1, 0, 0.824413, 0, 0.565989, 12.449, 0.926841, 8.66173)
 
-[node name="DecoAutumnalShrub3" parent="DecoHandler" index="20" instance=ExtResource("11_5g4ju")]
+[node name="DecoAutumnalShrub3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="20" unique_id=916077236 instance=ExtResource("11_5g4ju")]
 transform = Transform3D(0.759487, 0, 0.650522, 0, 1, 0, -0.650522, 0, 0.759487, -6.23884, -0.494305, -5.79313)
 
-[node name="DecoAutumnalShrub6" parent="DecoHandler" index="21" instance=ExtResource("11_5g4ju")]
+[node name="DecoAutumnalShrub6" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="21" unique_id=1932260927 instance=ExtResource("11_5g4ju")]
 transform = Transform3D(1.07527, 0, -0.231951, 0, 1.1, 0, 0.231951, 0, 1.07527, -6.15932, 0.290014, -11.8616)
 
-[node name="DecoAutumnalShrub7" parent="DecoHandler" index="22" instance=ExtResource("11_5g4ju")]
+[node name="DecoAutumnalShrub7" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="22" unique_id=1012630975 instance=ExtResource("11_5g4ju")]
 transform = Transform3D(0.432843, 0, -1.01126, 0, 1.1, 0, 1.01126, 0, 0.432843, -1.01206, 4.17272, -16.1741)
 
-[node name="DecoAutumnalShrub8" parent="DecoHandler" index="23" instance=ExtResource("11_5g4ju")]
+[node name="DecoAutumnalShrub8" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="23" unique_id=373918696 instance=ExtResource("11_5g4ju")]
 transform = Transform3D(0.326985, 0, -1.05028, 0, 1.1, 0, 1.05028, 0, 0.326985, -4.21632, 3.97225, -15.3972)
 
-[node name="WeepingWillow2" parent="DecoHandler" index="24" instance=ExtResource("12_ldg6o")]
+[node name="WeepingWillow2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="24" unique_id=2027300444 instance=ExtResource("12_ldg6o")]
 transform = Transform3D(-0.198367, 0, -1.18349, 0, 1.2, 0, 1.18349, 0, -0.198367, -10.9198, -0.0734028, -9.96073)
 
-[node name="DecoBuildingPlatform" parent="DecoHandler" index="25" instance=ExtResource("13_jqmld")]
+[node name="DecoBuildingPlatform" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="25" unique_id=437046280 instance=ExtResource("13_jqmld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1.75, -1.25)
 
-[node name="DecoBuildingPlatform2" parent="DecoHandler" index="26" instance=ExtResource("13_jqmld")]
+[node name="DecoBuildingPlatform2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="26" unique_id=1981985964 instance=ExtResource("13_jqmld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.25, -1.25)
 
-[node name="DecoBuildingPlatform3" parent="DecoHandler" index="27" instance=ExtResource("13_jqmld")]
+[node name="DecoBuildingPlatform3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="27" unique_id=553298356 instance=ExtResource("13_jqmld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.25, 3.75)
 
-[node name="DecoBuildingPlatform4" parent="DecoHandler" index="28" instance=ExtResource("13_jqmld")]
+[node name="DecoBuildingPlatform4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="28" unique_id=2088470700 instance=ExtResource("13_jqmld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1.75, 3.75)
 
-[node name="DecoPlatformStairs" parent="DecoHandler" index="29" instance=ExtResource("14_3evko")]
+[node name="DecoPlatformStairs" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="29" unique_id=198201886 instance=ExtResource("14_3evko")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0.25, 3.75)
 
-[node name="DecoPlatformStairs3" parent="DecoHandler" index="30" instance=ExtResource("14_3evko")]
+[node name="DecoPlatformStairs3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="30" unique_id=390142997 instance=ExtResource("14_3evko")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.15126, 1.81945, 3.66139)
 
-[node name="DecoPlatformStairs4" parent="DecoHandler" index="31" instance=ExtResource("14_3evko")]
+[node name="DecoPlatformStairs4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="31" unique_id=485531594 instance=ExtResource("14_3evko")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.4881, 0.952224, 3.66139)
 
-[node name="DecoTestWall3" parent="DecoHandler" index="32" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="32" unique_id=1945800426 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.45, 1.25, -3.7)
 
-[node name="DecoTestWall4" parent="DecoHandler" index="33" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="33" unique_id=1676315436 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.85, 1.25, -3.7)
 
-[node name="DecoTestWall23" parent="DecoHandler" index="34" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall23" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="34" unique_id=1377027535 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.25, -1.52291, -3.81781)
 
-[node name="DecoTestWall24" parent="DecoHandler" index="35" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall24" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="35" unique_id=1018769049 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.65, -1.52291, -3.81781)
 
-[node name="DecoTestWall7" parent="DecoHandler" index="36" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall7" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="36" unique_id=658032709 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 12.85, 2.47709, 4.9)
 
-[node name="DecoTestWall18" parent="DecoHandler" index="37" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall18" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="37" unique_id=1386521788 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-0.425, 0, -6.41732e-08, 0, 0.425, 0, 6.41732e-08, 0, -0.425, 2.67384, 3.33506, 6.23671)
 
-[node name="DecoTestWall20" parent="DecoHandler" index="38" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall20" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="38" unique_id=760588492 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1.85773e-08, 0, -0.425, 0, 0.425, 0, 0.425, 0, -1.85773e-08, 2.16909, 3.33506, 6.77444)
 
-[node name="DecoTestWall22" parent="DecoHandler" index="39" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall22" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="39" unique_id=1864870570 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1.85773e-08, 0, 0.425, 0, 0.425, 0, -0.425, 0, -1.85773e-08, 3.22598, 3.33506, 6.75106)
 
-[node name="DecoTestWall21" parent="DecoHandler" index="40" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall21" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="40" unique_id=23035121 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 2.69672, 3.33506, 7.25728)
 
-[node name="DecoTestWall8" parent="DecoHandler" index="41" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall8" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="41" unique_id=902892139 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 12.85, 2.47709, 2.5)
 
-[node name="DecoTestWall9" parent="DecoHandler" index="42" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall9" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="42" unique_id=1486526530 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 12.85, 2.47709, 0.1)
 
-[node name="DecoTestWall11" parent="DecoHandler" index="43" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall11" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="43" unique_id=27845189 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 8.01792, 2.47709, 0.1)
 
-[node name="DecoTestWall16" parent="DecoHandler" index="44" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall16" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="44" unique_id=2068823307 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 7.97063, -1.12534, 2.6)
 
-[node name="DecoTestWall17" parent="DecoHandler" index="45" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall17" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="45" unique_id=1207619038 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 7.97063, -1.12534, 5.1)
 
-[node name="DecoTestWall15" parent="DecoHandler" index="46" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall15" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="46" unique_id=1300377347 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 8.01792, 2.47709, -2.4)
 
-[node name="DecoTestWall25" parent="DecoHandler" index="47" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall25" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="47" unique_id=1003767824 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 7.98344, -1.22082, 0.1)
 
-[node name="DecoTestWall26" parent="DecoHandler" index="48" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall26" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="48" unique_id=837793182 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 7.98344, -1.49373, -2.4)
 
-[node name="DecoTestWall10" parent="DecoHandler" index="49" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall10" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="49" unique_id=1530070209 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 12.85, 2.47709, -2.3)
 
-[node name="DecoWallWithWindow" parent="DecoHandler" index="50" instance=ExtResource("16_n7ng8")]
+[node name="DecoWallWithWindow" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="50" unique_id=486030836 instance=ExtResource("16_n7ng8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.25, 1.25, 0)
 
-[node name="DecoWallWithWindow3" parent="DecoHandler" index="51" instance=ExtResource("16_n7ng8")]
+[node name="DecoWallWithWindow3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="51" unique_id=518743842 instance=ExtResource("16_n7ng8")]
 transform = Transform3D(-1, 8.74228e-08, -1.06581e-14, -8.74228e-08, -1, -9.31764e-22, -1.06581e-14, 0, 1, 11.75, 6.5, -3.64136)
 
-[node name="DecoWallWithWindow4" parent="DecoHandler" index="52" instance=ExtResource("16_n7ng8")]
+[node name="DecoWallWithWindow4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="52" unique_id=1632016852 instance=ExtResource("16_n7ng8")]
 transform = Transform3D(-1, 8.74228e-08, -1.06581e-14, -8.74228e-08, -1, -9.31764e-22, -1.06581e-14, 0, 1, 9.25, 6.5, -3.64136)
 
-[node name="DecoWallWithWindow2" parent="DecoHandler" index="53" instance=ExtResource("16_n7ng8")]
+[node name="DecoWallWithWindow2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="53" unique_id=1775568270 instance=ExtResource("16_n7ng8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.25, 1.25, -2.5)
 
-[node name="DecoTestWall27" parent="DecoHandler" index="54" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall27" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="54" unique_id=329364248 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9696, 1.03254, 6.20723)
 
-[node name="DecoTestWall32" parent="DecoHandler" index="55" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall32" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="55" unique_id=289826738 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4696, 1.03254, 6.20723)
 
-[node name="DecoTestWall31" parent="DecoHandler" index="56" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall31" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="56" unique_id=1491525837 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4696, 1.03254, 6.20723)
 
-[node name="DecoFlowerPatch" parent="DecoHandler" index="57" instance=ExtResource("17_1pob1")]
+[node name="DecoFlowerPatch" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="57" unique_id=554269644 instance=ExtResource("17_1pob1")]
 transform = Transform3D(0.921721, 0, -0.387853, 0, 1, 0, 0.387853, 0, 0.921721, 1.63528, 0.285433, 7.5601)
 
-[node name="DecoFlowerPatch2" parent="DecoHandler" index="58" instance=ExtResource("17_1pob1")]
+[node name="DecoFlowerPatch2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="58" unique_id=1953849472 instance=ExtResource("17_1pob1")]
 transform = Transform3D(0.16137, 0.0403152, -1.10758, 0.0182588, 1.11901, 0.0433914, 1.10816, -0.0243082, 0.16057, -0.746384, 0.476333, -0.619605)
 
-[node name="DecoFlowerPatch3" parent="DecoHandler" index="59" instance=ExtResource("17_1pob1")]
+[node name="DecoFlowerPatch3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="59" unique_id=1670227093 instance=ExtResource("17_1pob1")]
 transform = Transform3D(0.921721, 0, -0.387853, 0.0163025, 0.999116, 0.0387423, 0.38751, -0.0420326, 0.920906, 0.649879, 0.595013, 0.43597)
 
-[node name="DecoShingJeaArch" parent="DecoHandler" index="60" instance=ExtResource("18_7lmb1")]
+[node name="DecoShingJeaArch" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="60" unique_id=1165799952 instance=ExtResource("18_7lmb1")]
 transform = Transform3D(-0.161707, 0, -0.986839, 0, 1, 0, 0.986839, 0, -0.161707, -5.15564, 0.65008, -12.0272)
 
-[node name="DecoShingJeaArch2" parent="DecoHandler" index="61" instance=ExtResource("18_7lmb1")]
+[node name="DecoShingJeaArch2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="61" unique_id=1671540341 instance=ExtResource("18_7lmb1")]
 transform = Transform3D(0.229507, 0, -1.06556, 0, 1.09, 0, 1.06556, 0, 0.229507, -2.59577, 0.212712, -3.81401)
 
-[node name="DecoShingJeaArch3" parent="DecoHandler" index="62" instance=ExtResource("18_7lmb1")]
+[node name="DecoShingJeaArch3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="62" unique_id=1789894156 instance=ExtResource("18_7lmb1")]
 transform = Transform3D(0.320001, 0, -0.947417, 0, 1, 0, 0.947417, 0, 0.320001, 6.25314, -0.224978, 11.7414)
 
-[node name="DecoAutumnalTree" parent="DecoHandler" index="63" instance=ExtResource("19_to5u8")]
+[node name="DecoAutumnalTree" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="63" unique_id=611215839 instance=ExtResource("19_to5u8")]
 transform = Transform3D(-0.378051, 0, -0.925785, 0, 1, 0, 0.925785, 0, -0.378051, -11.608, 0.393326, 2.15324)
 
-[node name="DecoAutumnalTree2" parent="DecoHandler" index="64" instance=ExtResource("19_to5u8")]
+[node name="DecoAutumnalTree2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="64" unique_id=1400511998 instance=ExtResource("19_to5u8")]
 transform = Transform3D(0.996311, 0, 0.0858172, 0, 1, 0, -0.0858172, 0, 0.996311, -8.00855, -0.109703, 9.46814)
 
-[node name="DecoEepyFence" parent="DecoHandler" index="65" instance=ExtResource("20_w7h33")]
+[node name="DecoEepyFence" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="65" unique_id=319489313 instance=ExtResource("20_w7h33")]
 transform = Transform3D(0.999435, 0.0336262, 0, -0.0336195, 0.999236, 0.0199129, 0.000669594, -0.0199016, 0.999802, -1.95548, -0.017562, -6.39119)
 
-[node name="DecoSmallBoulder" parent="DecoHandler" index="66" instance=ExtResource("21_dxqwn")]
+[node name="DecoSmallBoulder" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="66" unique_id=1870778181 instance=ExtResource("21_dxqwn")]
 transform = Transform3D(0.0882518, 0, -1.18171, 0, 1.185, 0, 1.18171, 0, 0.0882518, 1.9991, 0.499913, 0.16958)
 
-[node name="DecoSmallBoulder2" parent="DecoHandler" index="67" instance=ExtResource("21_dxqwn")]
+[node name="DecoSmallBoulder2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="67" unique_id=231098167 instance=ExtResource("21_dxqwn")]
 transform = Transform3D(0.50262, 0, 1.61353, 0, 1.69, 0, -1.61353, 0, 0.50262, 2.70153, 0.223509, -2.0358)
 
-[node name="DecoSmallBoulder6" parent="DecoHandler" index="68" instance=ExtResource("21_dxqwn")]
+[node name="DecoSmallBoulder6" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="68" unique_id=9374024 instance=ExtResource("21_dxqwn")]
 transform = Transform3D(-2.36904, 0, 1.83239, 0, 2.995, 0, -1.83239, 0, -2.36904, 5.40756, -0.55549, -5.02003)
 
-[node name="DecoSmallBoulder3" parent="DecoHandler" index="69" instance=ExtResource("21_dxqwn")]
+[node name="DecoSmallBoulder3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="69" unique_id=179766922 instance=ExtResource("21_dxqwn")]
 transform = Transform3D(1.03437, 0, 2.81604, 0, 3, 0, -2.81604, 0, 1.03437, -12.3617, -0.515666, 10.7855)
 
-[node name="DecoSmallBoulder4" parent="DecoHandler" index="70" instance=ExtResource("21_dxqwn")]
+[node name="DecoSmallBoulder4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="70" unique_id=1906927237 instance=ExtResource("21_dxqwn")]
 transform = Transform3D(1.7261, 0, 1.01023, 0, 2, 0, -1.01023, 0, 1.7261, 10.2162, -0.462655, 11.1645)
 
-[node name="DecoSmallBoulder5" parent="DecoHandler" index="71" instance=ExtResource("21_dxqwn")]
+[node name="DecoSmallBoulder5" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="71" unique_id=1832297541 instance=ExtResource("21_dxqwn")]
 transform = Transform3D(1.87697, 0, -0.690628, 0, 2, 0, 0.690628, 0, 1.87697, 9.27266, 0.794353, -9.55992)
 
-[node name="DecoTestWall12" parent="DecoHandler" index="72" instance=ExtResource("22_5gm17")]
+[node name="DecoTestWall12" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="72" unique_id=984572433 instance=ExtResource("22_5gm17")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25, 1.25, 1.75)
 
-[node name="DecoTestWall13" parent="DecoHandler" index="73" instance=ExtResource("22_5gm17")]
+[node name="DecoTestWall13" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="73" unique_id=1253903795 instance=ExtResource("22_5gm17")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25, 1.25, 5.81407)
 
-[node name="DecoTestWall14" parent="DecoHandler" index="74" instance=ExtResource("22_5gm17")]
+[node name="DecoTestWall14" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="74" unique_id=2099696319 instance=ExtResource("22_5gm17")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 1.04836, 6.22125)
 
-[node name="DecoTestWall33" parent="DecoHandler" index="75" instance=ExtResource("22_5gm17")]
+[node name="DecoTestWall33" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="75" unique_id=2045931024 instance=ExtResource("22_5gm17")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2551, 1.03254, 6.22125)
 
-[node name="AncientCherryBlossom" parent="DecoHandler" index="76" instance=ExtResource("23_bi3kj")]
+[node name="AncientCherryBlossom" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="76" unique_id=2001093224 instance=ExtResource("23_bi3kj")]
 transform = Transform3D(-0.212233, 0, 0.719345, 0, 0.75, 0, -0.719345, 0, -0.212233, 0.835947, 0.494014, -0.572053)
 
-[node name="AncientCherryBlossom2" parent="DecoHandler" index="77" instance=ExtResource("23_bi3kj")]
+[node name="AncientCherryBlossom2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="77" unique_id=1915328027 instance=ExtResource("23_bi3kj")]
 transform = Transform3D(0.479232, 0, 0.361022, 0, 0.6, 0, -0.361022, 0, 0.479232, 1.10651, -0.107148, 11.2171)
 
-[node name="RoofCorner" parent="DecoHandler" index="78" instance=ExtResource("24_qvs3j")]
+[node name="RoofCorner" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="78" unique_id=880262522 instance=ExtResource("24_qvs3j")]
 transform = Transform3D(-4.80825e-08, 0, -1.1, 0, 1.1, 0, 1.1, 0, -4.80825e-08, 3.32033, 4.97089, 6.24317)
 
-[node name="RoofCorner2" parent="DecoHandler" index="79" instance=ExtResource("24_qvs3j")]
+[node name="RoofCorner2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="79" unique_id=1123862621 instance=ExtResource("24_qvs3j")]
 transform = Transform3D(-1.1, 0, 9.6165e-08, 0, 1.1, 0, -9.6165e-08, 0, -1.1, 3.34795, 4.97089, -3.77619)
 
-[node name="RoofCorner3" parent="DecoHandler" index="80" instance=ExtResource("24_qvs3j")]
+[node name="RoofCorner3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="80" unique_id=164556124 instance=ExtResource("24_qvs3j")]
 transform = Transform3D(1.44248e-07, 0, 1.1, 0, 1.1, 0, -1.1, 0, 1.44248e-07, 13.2516, 4.97089, -3.51043)
 
-[node name="RoofCorner5" parent="DecoHandler" index="81" instance=ExtResource("24_qvs3j")]
+[node name="RoofCorner5" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="81" unique_id=117094002 instance=ExtResource("24_qvs3j")]
 transform = Transform3D(1.1, 0, -1.9233e-07, 0, 1.1, 0, 1.9233e-07, 0, 1.1, 13.2516, 4.97089, -3.51043)
 
-[node name="RoofCorner4" parent="DecoHandler" index="82" instance=ExtResource("24_qvs3j")]
+[node name="RoofCorner4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="82" unique_id=91823388 instance=ExtResource("24_qvs3j")]
 transform = Transform3D(1.1, 0, -1.9233e-07, 0, 1.1, 0, 1.9233e-07, 0, 1.1, 13.2516, 4.97089, 6.07126)
 
-[node name="RoofCorner6" parent="DecoHandler" index="83" instance=ExtResource("24_qvs3j")]
+[node name="RoofCorner6" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="83" unique_id=1421399147 instance=ExtResource("24_qvs3j")]
 transform = Transform3D(1.44248e-07, 0, 1.1, 0, 1.1, 0, -1.1, 0, 1.44248e-07, 13.2516, 4.97089, 6.07126)
 
-[node name="DecoRoofPiece5" parent="DecoHandler" index="84" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece5" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="84" unique_id=1633424246 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.547, 5, 6.25)
 
-[node name="DecoRoofPiece6" parent="DecoHandler" index="85" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece6" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="85" unique_id=1446140577 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(0.999225, 0.0393645, 0, -0.0393645, 0.999225, 0, 0, 0, 1, 7, 5, 6.25)
 
-[node name="DecoRoofPiece11" parent="DecoHandler" index="86" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece11" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="86" unique_id=483522951 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 5, -3.75)
 
-[node name="DecoRoofPiece12" parent="DecoHandler" index="87" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece12" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="87" unique_id=1072152611 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 5, -3.75)
 
-[node name="DecoRoofPiece16" parent="DecoHandler" index="88" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece16" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="88" unique_id=274978677 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.5, 5, -3.75)
 
-[node name="DecoRoofPiece17" parent="DecoHandler" index="89" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece17" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="89" unique_id=2029914560 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 5, -3.75)
 
-[node name="DecoRoofPiece7" parent="DecoHandler" index="90" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece7" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="90" unique_id=922513056 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(0.999706, -0.0242402, 0, 0.0242402, 0.999706, 0, 0, 0, 1, 9.542, 5, 6.25)
 
-[node name="DecoRoofPiece8" parent="DecoHandler" index="91" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece8" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="91" unique_id=635206028 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 5, 6.25)
 
-[node name="DecoRoofPiece4" parent="DecoHandler" index="92" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="92" unique_id=532201595 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25, 5, -2.5)
 
-[node name="DecoRoofPiece13" parent="DecoHandler" index="93" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece13" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="93" unique_id=1672100363 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25, 5, 0)
 
-[node name="DecoRoofPiece14" parent="DecoHandler" index="94" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece14" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="94" unique_id=62469521 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25, 5, 2.5)
 
-[node name="DecoRoofPiece15" parent="DecoHandler" index="95" instance=ExtResource("25_ljpvx")]
+[node name="DecoRoofPiece15" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="95" unique_id=1676655469 instance=ExtResource("25_ljpvx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25, 5, 5)
 
-[node name="DecoSunflowers" parent="DecoHandler" index="96" instance=ExtResource("26_2e54w")]
+[node name="DecoSunflowers" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="96" unique_id=1919754657 instance=ExtResource("26_2e54w")]
 transform = Transform3D(1.18302, 0, 0.201176, 0, 1.2, 0, -0.201176, 0, 1.18302, -5.15885, 0.317186, -2.82268)
 
-[node name="DecoSunflowers2" parent="DecoHandler" index="97" instance=ExtResource("26_2e54w")]
+[node name="DecoSunflowers2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="97" unique_id=1022221738 instance=ExtResource("26_2e54w")]
 transform = Transform3D(0.660696, 0, -0.750653, 0, 1, 0, 0.750653, 0, 0.660696, -1.58052, 0.340461, -3.1413)
 
-[node name="DecoTussock" parent="DecoHandler" index="98" instance=ExtResource("27_56iod")]
+[node name="DecoTussock" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="98" unique_id=1251406833 instance=ExtResource("27_56iod")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.537294, 0.38622, -3.38695)
 
-[node name="LushGrass" parent="DecoHandler" index="99" instance=ExtResource("28_asaqs")]
+[node name="LushGrass" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="99" unique_id=1210313436 instance=ExtResource("28_asaqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89632, 0.133518, 8.36084)
 
-[node name="LushGrass3" parent="DecoHandler" index="100" instance=ExtResource("28_asaqs")]
+[node name="LushGrass3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="100" unique_id=1288245773 instance=ExtResource("28_asaqs")]
 transform = Transform3D(-0.416256, -0.0482055, 0.907969, 0.0533311, 0.99558, 0.0773064, -0.907682, 0.0806022, -0.411846, -1.00237, 0.535984, 4.53294)
 
-[node name="LushGrass4" parent="DecoHandler" index="101" instance=ExtResource("28_asaqs")]
+[node name="LushGrass4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="101" unique_id=1960344041 instance=ExtResource("28_asaqs")]
 transform = Transform3D(0.993075, -0.0181155, 0.116079, 0.017993, 0.999836, 0.00210318, -0.116098, 0, 0.993238, -5.21606, 0.263276, 1.83775)
 
-[node name="LushGrass5" parent="DecoHandler" index="102" instance=ExtResource("28_asaqs")]
+[node name="LushGrass5" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="102" unique_id=1926605719 instance=ExtResource("28_asaqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81047, 0.40897, -3.78327)
 
-[node name="LushGrass6" parent="DecoHandler" index="103" instance=ExtResource("28_asaqs")]
+[node name="LushGrass6" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="103" unique_id=579607662 instance=ExtResource("28_asaqs")]
 transform = Transform3D(1, 0, 0, 0, 0.993337, -0.115249, 0, 0.115249, 0.993337, 2.53394, 0.0457125, 9.83213)
 
-[node name="DecoTussock2" parent="DecoHandler" index="104" instance=ExtResource("27_56iod")]
+[node name="DecoTussock2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="104" unique_id=1699677581 instance=ExtResource("27_56iod")]
 transform = Transform3D(1.24762, 0, -0.415536, 0, 1.315, 0, 0.415536, 0, 1.24762, 3.21948, -0.811812, -9.75861)
 
-[node name="DecoTussock3" parent="DecoHandler" index="105" instance=ExtResource("27_56iod")]
+[node name="DecoTussock3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="105" unique_id=694786318 instance=ExtResource("27_56iod")]
 transform = Transform3D(-1.06137, 0, 0.77635, 0, 1.315, 0, -0.77635, 0, -1.06137, 4.95057, -0.652312, -9.62569)
 
-[node name="DecoSunflowers3" parent="DecoHandler" index="106" instance=ExtResource("26_2e54w")]
+[node name="DecoSunflowers3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="106" unique_id=1717388142 instance=ExtResource("26_2e54w")]
 transform = Transform3D(0.756002, 0, -0.654569, 0, 1, 0, 0.654569, 0, 0.756002, 3.1118, -0.357901, -10.036)
 
-[node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" index="107" instance=ExtResource("29_27eov")]
+[node name="DecoBloodstoneImpactedPillar" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="107" unique_id=1016209041 instance=ExtResource("29_27eov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62131, 0.299208, 6.80485)
 
-[node name="DecoBloodstoneImpactedPillar3" parent="DecoHandler" index="108" instance=ExtResource("29_27eov")]
+[node name="DecoBloodstoneImpactedPillar3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="108" unique_id=913438418 instance=ExtResource("29_27eov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22185, 1.13874, 5.01832)
 
-[node name="DecoBloodstoneImpactedPillar4" parent="DecoHandler" index="109" instance=ExtResource("29_27eov")]
+[node name="DecoBloodstoneImpactedPillar4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="109" unique_id=1866960074 instance=ExtResource("29_27eov")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 3.22185, 5.6251, 2.41481)
 
-[node name="DecoTestWall19" parent="DecoHandler" index="110" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall19" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="110" unique_id=1301455948 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-0.425, 0, -6.41732e-08, 0, 0.425, 0, 6.41732e-08, 0, -0.425, 2.67384, 3.33506, -4.76329)
 
-[node name="DecoTestWall28" parent="DecoHandler" index="111" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall28" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="111" unique_id=1414818816 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1.85773e-08, 0, -0.425, 0, 0.425, 0, 0.425, 0, -1.85773e-08, 2.16909, 3.33506, -4.22556)
 
-[node name="DecoTestWall29" parent="DecoHandler" index="112" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall29" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="112" unique_id=98526558 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(-1.85773e-08, 0, 0.425, 0, 0.425, 0, -0.425, 0, -1.85773e-08, 3.22598, 3.33506, -4.24894)
 
-[node name="DecoTestWall30" parent="DecoHandler" index="113" instance=ExtResource("15_7o4dg")]
+[node name="DecoTestWall30" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="113" unique_id=1213559328 instance=ExtResource("15_7o4dg")]
 transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 2.69672, 3.33506, -3.74272)
 
-[node name="DecoBloodstoneImpactedPillar2" parent="DecoHandler" index="114" instance=ExtResource("29_27eov")]
+[node name="DecoBloodstoneImpactedPillar2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="114" unique_id=480231652 instance=ExtResource("29_27eov")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.62131, 0.299208, -4.19515)
 
-[node name="DecoIndoorLamp" parent="DecoHandler" index="115" instance=ExtResource("30_bfj08")]
+[node name="DecoIndoorLamp" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="115" unique_id=1499278735 instance=ExtResource("30_bfj08")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.66614, 4.5993, -2.01675)
 
-[node name="DecoIndoorLamp5" parent="DecoHandler" index="116" instance=ExtResource("30_bfj08")]
+[node name="DecoIndoorLamp5" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="116" unique_id=516377094 instance=ExtResource("30_bfj08")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.5, 6, -0.72581)
 
-[node name="DecoPancakeRocks" parent="DecoHandler" index="117" instance=ExtResource("31_wn10e")]
+[node name="DecoPancakeRocks" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="117" unique_id=360582873 instance=ExtResource("31_wn10e")]
 transform = Transform3D(1.155, 0, 0, 0, 1.155, 0, 0, 0, 1.155, 1.58831, 0.639255, 1.75565)
 
-[node name="DecoPancakeRocks2" parent="DecoHandler" index="118" instance=ExtResource("31_wn10e")]
+[node name="DecoPancakeRocks2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="118" unique_id=1528264062 instance=ExtResource("31_wn10e")]
 transform = Transform3D(-0.725262, 0, -0.866542, 0, 1.13, 0, 0.866542, 0, -0.725262, -11.0545, -0.140597, 8.16041)
 
-[node name="DecoPancakeRocks3" parent="DecoHandler" index="119" instance=ExtResource("31_wn10e")]
+[node name="DecoPancakeRocks3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="119" unique_id=1242668540 instance=ExtResource("31_wn10e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0512873, -0.194814, 11.8262)
 
-[node name="DecoYellowFlowers" parent="DecoHandler" index="120" instance=ExtResource("32_esi6d")]
+[node name="DecoYellowFlowers" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="120" unique_id=1536897879 instance=ExtResource("32_esi6d")]
 transform = Transform3D(1, 0, 0, 0, 0.997945, 0.0640795, 0, -0.0640795, 0.997945, -2.79825, 0.308434, -2.43806)
 
-[node name="DecoLightRay" parent="DecoHandler" index="121" instance=ExtResource("33_ltp50")]
+[node name="DecoLightRay" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="121" unique_id=964028404 instance=ExtResource("33_ltp50")]
 transform = Transform3D(1.04462, 0, 0.430901, 0, 1.13, 0, -0.430901, 0, 1.04462, 4.47224, 1.05467, -2.34151)
 
-[node name="DecoLightRay2" parent="DecoHandler" index="122" instance=ExtResource("33_ltp50")]
+[node name="DecoLightRay2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="122" unique_id=404647906 instance=ExtResource("33_ltp50")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.9016, 2.48392, -2.16629)
 
-[node name="DecoDoor" parent="DecoHandler" index="124" instance=ExtResource("34_f7oqo")]
+[node name="DecoDoor" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="124" unique_id=1781316793 instance=ExtResource("34_f7oqo")]
 transform = Transform3D(0.00291469, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00291469, 3.65278, 1.25, 3.79308)
 
-[node name="DecoYellowFlowers2" parent="DecoHandler" index="125" instance=ExtResource("32_esi6d")]
+[node name="DecoYellowFlowers2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="125" unique_id=953423151 instance=ExtResource("32_esi6d")]
 transform = Transform3D(1, 0, 0, 0, 0.993167, -0.116705, 0, 0.116705, 0.993167, 6.8861, 0.00377366, 10.8702)
 
-[node name="DecoBlueFlowers" parent="DecoHandler" index="126" instance=ExtResource("35_icat5")]
+[node name="DecoBlueFlowers" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="126" unique_id=1699937247 instance=ExtResource("35_icat5")]
 transform = Transform3D(1, 0, 0, 0, 0.994625, -0.103539, 0, 0.103539, 0.994625, 3.12305, 0.0523648, 9.64714)
 
-[node name="DecoYellowFlowers3" parent="DecoHandler" index="127" instance=ExtResource("32_esi6d")]
+[node name="DecoYellowFlowers3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="127" unique_id=2101784402 instance=ExtResource("32_esi6d")]
 transform = Transform3D(1, 0, 0, 0, 0.999753, -0.0222337, 0, 0.0222337, 0.999753, -5.02971, -0.0562165, 9.23233)
 
-[node name="DecoBlueFlowers2" parent="DecoHandler" index="128" instance=ExtResource("35_icat5")]
+[node name="DecoBlueFlowers2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="128" unique_id=2018650981 instance=ExtResource("35_icat5")]
 transform = Transform3D(0.999661, 0.0260199, 0, -0.0260199, 0.999661, 0, 0, 0, 1, -6.2725, 0.112226, 5.34846)
 
-[node name="DecoSmallBoulder7" parent="DecoHandler" index="129" instance=ExtResource("21_dxqwn")]
+[node name="DecoSmallBoulder7" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="129" unique_id=1258510956 instance=ExtResource("21_dxqwn")]
 transform = Transform3D(1.975, 0, 0, 0, 1.975, 0, 0, 0, 1.975, 4.31044, 0.428463, 7.20198)
 
-[node name="DecoPancakeRocks4" parent="DecoHandler" index="130" instance=ExtResource("31_wn10e")]
+[node name="DecoPancakeRocks4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="130" unique_id=1461365408 instance=ExtResource("31_wn10e")]
 transform = Transform3D(0.528094, 0, 1.24242, 0, 1.35, 0, -1.24242, 0, 0.528094, 7.14662, 0.22585, 7.53581)
 
-[node name="RoofPavilion" parent="DecoHandler" index="131" instance=ExtResource("36_jx34u")]
+[node name="RoofPavilion" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="131" unique_id=1070816242 instance=ExtResource("36_jx34u")]
 transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 5.60315, 6.47672, -1.47149)
 
-[node name="RoofPavilion2" parent="DecoHandler" index="132" instance=ExtResource("36_jx34u")]
+[node name="RoofPavilion2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="132" unique_id=1134399027 instance=ExtResource("36_jx34u")]
 transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 5.60315, 6.47672, 3.89267)
 
-[node name="RoofPavilion3" parent="DecoHandler" index="133" instance=ExtResource("36_jx34u")]
+[node name="RoofPavilion3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="133" unique_id=1473416 instance=ExtResource("36_jx34u")]
 transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 10.5013, 6.47672, -1.47149)
 
-[node name="RoofPavilion4" parent="DecoHandler" index="134" instance=ExtResource("36_jx34u")]
+[node name="RoofPavilion4" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="134" unique_id=1370585199 instance=ExtResource("36_jx34u")]
 transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 10.5013, 6.47672, 3.89267)
 
-[node name="DecoIndoorLamp3" parent="DecoHandler" index="135" instance=ExtResource("30_bfj08")]
+[node name="DecoIndoorLamp3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="135" unique_id=329207754 instance=ExtResource("30_bfj08")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39738, 3.47498, -3.30966)
 
-[node name="Rocket" parent="DecoHandler" index="136" instance=ExtResource("37_syu1d")]
+[node name="Rocket" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="136" unique_id=1730690471 instance=ExtResource("37_syu1d")]
 transform = Transform3D(-1.11772, 0, -0.436682, 0, 1.2, 0, 0.436682, 0, -1.11772, -0.570524, -1.83838, 17.0443)
 
-[node name="DrizzlewoodShrub" parent="DecoHandler" index="137" instance=ExtResource("38_howsq")]
+[node name="DrizzlewoodShrub" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="137" unique_id=2023652522 instance=ExtResource("38_howsq")]
 transform = Transform3D(1.435, 0, 0, 0, 1.435, 0, 0, 0, 1.435, -9.86417, 0.898026, 0.117653)
 
-[node name="DrizzlewoodShrub2" parent="DecoHandler" index="138" instance=ExtResource("38_howsq")]
+[node name="DrizzlewoodShrub2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="138" unique_id=1371477788 instance=ExtResource("38_howsq")]
 transform = Transform3D(0.657944, 0, 1.54037, 0, 1.675, 0, -1.54037, 0, 0.657944, -12.2894, 1.02265, 1.94541)
 
-[node name="SimpleBookcase" parent="DecoHandler" index="139" instance=ExtResource("39_eno7p")]
+[node name="SimpleBookcase" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="139" unique_id=1042512502 instance=ExtResource("39_eno7p")]
 transform = Transform3D(1.09864, 0, 0.0545976, 0, 1.1, 0, -0.0545976, 0, 1.09864, 4.4377, 1.2042, -3.23764)
 
-[node name="SimpleBookcase2" parent="DecoHandler" index="140" instance=ExtResource("39_eno7p")]
+[node name="SimpleBookcase2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="140" unique_id=1198251441 instance=ExtResource("39_eno7p")]
 transform = Transform3D(1.09907, 0, -0.0451233, 0, 1.1, 0, 0.0451233, 0, 1.09907, 6.90796, 1.2042, -3.23764)
 
-[node name="SimpleBookcase3" parent="DecoHandler" index="141" instance=ExtResource("39_eno7p")]
+[node name="SimpleBookcase3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="141" unique_id=233101195 instance=ExtResource("39_eno7p")]
 transform = Transform3D(1.09907, 0, -0.0451233, 0, 1.1, 0, 0.0451233, 0, 1.09907, 9.34336, 2.71617, -2.75734)
 
-[node name="KrytanLuxuriousRug" parent="DecoHandler" index="142" instance=ExtResource("40_xec6f")]
+[node name="KrytanLuxuriousRug" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="142" unique_id=325536566 instance=ExtResource("40_xec6f")]
 transform = Transform3D(1.64965, 0, 0.0339792, 0, 1.65, 0, -0.0339792, 0, 1.64965, 5.79231, 1.25, -1.412)
 
-[node name="KrytanSideTable" parent="DecoHandler" index="143" instance=ExtResource("41_ncl4x")]
+[node name="KrytanSideTable" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="143" unique_id=1205723326 instance=ExtResource("41_ncl4x")]
 transform = Transform3D(0.809089, 0, -0.587686, 0, 1, 0, 0.587686, 0, 0.809089, 5.79975, 1.1914, -1.26675)
 
-[node name="DecoCanthanCarpet" parent="DecoHandler" index="144" instance=ExtResource("42_4d0c5")]
+[node name="DecoCanthanCarpet" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="144" unique_id=166910744 instance=ExtResource("42_4d0c5")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 10.498, 2.7659, 3.72664)
 
-[node name="DecoCanthanCarpet2" parent="DecoHandler" index="145" instance=ExtResource("42_4d0c5")]
+[node name="DecoCanthanCarpet2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="145" unique_id=1447108917 instance=ExtResource("42_4d0c5")]
 transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 10.498, 2.7659, -1.00332)
 
-[node name="DrizzlewoodShrub3" parent="DecoHandler" index="146" instance=ExtResource("38_howsq")]
+[node name="DrizzlewoodShrub3" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="146" unique_id=149908978 instance=ExtResource("38_howsq")]
 transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, -8.81685, -0.176049, 4.58868)
 
-[node name="KrytanDiningChair" parent="DecoHandler" index="147" instance=ExtResource("43_1syp4")]
+[node name="KrytanDiningChair" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="147" unique_id=1347236266 instance=ExtResource("43_1syp4")]
 transform = Transform3D(0.69689, 0, 0.717178, 0, 1, 0, -0.717178, 0, 0.69689, 4.75115, 1.25, -2.05904)
 
-[node name="NoodleBarStool" parent="DecoHandler" index="148" instance=ExtResource("44_etxcs")]
+[node name="NoodleBarStool" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="148" unique_id=1205671247 instance=ExtResource("44_etxcs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.21649, 1.25, -0.694399)
 
-[node name="NoodleBarStool2" parent="DecoHandler" index="149" instance=ExtResource("44_etxcs")]
+[node name="NoodleBarStool2" parent="DecoHandler" parent_id_path=PackedInt32Array(152839557) index="149" unique_id=954954822 instance=ExtResource("44_etxcs")]
 transform = Transform3D(0.661992, 0, -0.749511, 0, 1, 0, 0.749511, 0, 0.661992, 6.88514, 1.25, -2.12486)
 
-[node name="PancakeRocks" parent="Decoration" index="0" instance=ExtResource("45_w73td")]
+[node name="PancakeRocks" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="0" unique_id=1879550683 instance=ExtResource("45_w73td")]
 transform = Transform3D(1.98271, 0.196091, 0.174417, 0, 1.32921, -1.49439, -0.262437, 1.48147, 1.31772, -8.55051, 2.60614, -13.8208)
 
-[node name="LightRays" type="Node3D" parent="Decoration" index="1"]
+[node name="LightRays" type="Node3D" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="1" unique_id=793541889]
 
-[node name="LightRay" parent="Decoration/LightRays" index="0" instance=ExtResource("46_28x7b")]
+[node name="LightRay" parent="Decoration/LightRays" index="0" unique_id=1940792223 instance=ExtResource("46_28x7b")]
 transform = Transform3D(1.47241, 0, 1.35352, 0, 2, 0, -1.35352, 0, 1.47241, -11.927, 1.08454, 2.39926)
 
-[node name="LightRay2" parent="Decoration/LightRays" index="1" instance=ExtResource("46_28x7b")]
+[node name="LightRay2" parent="Decoration/LightRays" index="1" unique_id=1880094313 instance=ExtResource("46_28x7b")]
 transform = Transform3D(1.53021, 0, 1.81634, 0, 2.375, 0, -1.81634, 0, 1.53021, -12.2563, 2.79728, -5.8544)
 
-[node name="LightRay3" parent="Decoration/LightRays" index="2" instance=ExtResource("46_28x7b")]
+[node name="LightRay3" parent="Decoration/LightRays" index="2" unique_id=1511668533 instance=ExtResource("46_28x7b")]
 transform = Transform3D(-2.22, 0, -3.35211e-07, 0, 2.22, 0, 3.35211e-07, 0, -2.22, 3.13823, 0.17833, -7.66438)
 
-[node name="pine_simple" parent="Decoration" index="2" instance=ExtResource("47_eensf")]
+[node name="pine_simple" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="2" unique_id=807845956 instance=ExtResource("47_eensf")]
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)
 
-[node name="pine_simple6" parent="Decoration" index="3" instance=ExtResource("47_eensf")]
+[node name="pine_simple6" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="3" unique_id=115640062 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.580516, 0, 0.170371, 0, 0.65, 0, -0.170371, 0, 0.580516, -13.053, -0.137812, 3.9205)
 
-[node name="pine_simple4" parent="Decoration" index="4" instance=ExtResource("47_eensf")]
+[node name="pine_simple4" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="4" unique_id=42461484 instance=ExtResource("47_eensf")]
 transform = Transform3D(1.001, 0, -0.797745, 0, 1.28, 0, 0.797745, 0, 1.001, -17.3458, 1.77785, 4.40441)
 
-[node name="pine_simple2" parent="Decoration" index="5" instance=ExtResource("47_eensf")]
+[node name="pine_simple2" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="5" unique_id=1347934324 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.339477, 0, -0.940615, -0.0372729, 0.999215, -0.0134521, 0.939876, 0.039626, 0.33921, -14.8905, 1.53716, 6.65038)
 
-[node name="pine_simple15" parent="Decoration" index="6" instance=ExtResource("47_eensf")]
+[node name="pine_simple15" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="6" unique_id=632336465 instance=ExtResource("47_eensf")]
 transform = Transform3D(1.0734, 0.0488992, 0.658038, -0.0469638, 1.25901, -0.0169497, -0.658179, -0.0100874, 1.07438, -15.5308, -0.326113, 12.3158)
 
-[node name="pine_simple3" parent="Decoration" index="7" instance=ExtResource("47_eensf")]
+[node name="pine_simple3" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="7" unique_id=1858334681 instance=ExtResource("47_eensf")]
 transform = Transform3D(1.04977, 0, -0.274228, 0.0076904, 1.08457, 0.0294396, 0.274121, -0.0304275, 1.04936, -17.5972, 4.62384, -2.31978)
 
-[node name="pine_simple8" parent="Decoration" index="8" instance=ExtResource("47_eensf")]
+[node name="pine_simple8" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="8" unique_id=14155221 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.537968, 0.0402015, -0.842006, -0.0216446, 0.999192, 0.0338773, 0.842687, 0, 0.538403, -12.5391, 2.33477, -3.23455)
 
-[node name="pine_simple5" parent="Decoration" index="9" instance=ExtResource("47_eensf")]
+[node name="pine_simple5" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="9" unique_id=1053007834 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.685641, 0, -0.72794, 0, 1, 0, 0.72794, 0, 0.685641, -13.3228, 1.06455, -10.3142)
 
-[node name="pine_simple9" parent="Decoration" index="10" instance=ExtResource("47_eensf")]
+[node name="pine_simple9" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="10" unique_id=66190771 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.155846, -1.14087e-09, -1.21505, 0.0951412, 1.22124, 0.0122031, 1.21132, -0.0959206, 0.155367, -15.2917, 4.50431, -7.10212)
 
-[node name="pine_simple7" parent="Decoration" index="11" instance=ExtResource("47_eensf")]
+[node name="pine_simple7" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="11" unique_id=2058668344 instance=ExtResource("47_eensf")]
 transform = Transform3D(-0.203837, 0, -0.927874, 0, 0.95, 0, 0.927874, 0, -0.203837, -11.7659, 3.66327, -14.2751)
 
-[node name="pine_simple10" parent="Decoration" index="12" instance=ExtResource("47_eensf")]
+[node name="pine_simple10" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="12" unique_id=1919981929 instance=ExtResource("47_eensf")]
 transform = Transform3D(1.00362, 0, -0.59158, 0, 1.165, 0, 0.59158, 0, 1.00362, -9.00861, 4.13325, -16.8797)
 
-[node name="pine_simple19" parent="Decoration" index="13" instance=ExtResource("47_eensf")]
+[node name="pine_simple19" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="13" unique_id=1399921356 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.572883, 0, -0.337684, 0, 0.665, 0, 0.337684, 0, 0.572883, -5.59491, 4.51349, -15.9487)
 
-[node name="pine_simple21" parent="Decoration" index="14" instance=ExtResource("47_eensf")]
+[node name="pine_simple21" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="14" unique_id=764897995 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.784647, 0, -0.313614, 0, 0.845, 0, 0.313614, 0, 0.784647, -4.03716, 3.85161, -14.4426)
 
-[node name="pine_simple11" parent="Decoration" index="15" instance=ExtResource("47_eensf")]
+[node name="pine_simple11" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="15" unique_id=1906226677 instance=ExtResource("47_eensf")]
 transform = Transform3D(-0.575462, -0.0519695, -0.876722, -0.0285173, 1.04871, -0.0434464, 0.877798, -3.91155e-09, -0.576168, 4.73676, 3.81469, -16.5847)
 
-[node name="pine_simple20" parent="Decoration" index="16" instance=ExtResource("47_eensf")]
+[node name="pine_simple20" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="16" unique_id=1868674979 instance=ExtResource("47_eensf")]
 transform = Transform3D(-0.468591, -0.0423181, -0.713903, -0.0232212, 0.853952, -0.0353779, 0.714779, -5.89248e-08, -0.469166, 0.055511, 2.81457, -14.1375)
 
-[node name="pine_simple16" parent="Decoration" index="17" instance=ExtResource("47_eensf")]
+[node name="pine_simple16" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="17" unique_id=1321387877 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.246504, -0.0353424, -1.01489, -0.0283815, 1.04372, -0.0432397, 1.01511, 0.0377637, 0.245242, 12.3449, 0.476858, -8.58524)
 
-[node name="pine_simple18" parent="Decoration" index="18" instance=ExtResource("47_eensf")]
+[node name="pine_simple18" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="18" unique_id=240129021 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.610763, 0, -0.847935, 0, 1.045, 0, 0.847935, 0, 0.610763, 11.7171, 3.5119, -12.9856)
 
-[node name="pine_simple17" parent="Decoration" index="19" instance=ExtResource("47_eensf")]
+[node name="pine_simple17" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="19" unique_id=538059076 instance=ExtResource("47_eensf")]
 transform = Transform3D(-0.71114, -0.112303, -0.928597, -0.0649233, 1.16961, -0.0917316, 0.933107, -0.00420977, -0.714085, 8.28994, 0.496386, -9.93413)
 
-[node name="pine_simple12" parent="Decoration" index="20" instance=ExtResource("47_eensf")]
+[node name="pine_simple12" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="20" unique_id=879960241 instance=ExtResource("47_eensf")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 8.15151, 8.74361, -24.2357)
 
-[node name="pine_simple13" parent="Decoration" index="21" instance=ExtResource("47_eensf")]
+[node name="pine_simple13" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="21" unique_id=1660083307 instance=ExtResource("47_eensf")]
 transform = Transform3D(-1.09395, 0.0424318, -0.5823, 0.0374561, 1.23927, 0.0199375, 0.582641, -4.61936e-09, -1.09459, -1.89799, 6.89154, -24.3913)
 
-[node name="pine_simple14" parent="Decoration" index="22" instance=ExtResource("47_eensf")]
+[node name="pine_simple14" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="22" unique_id=382171779 instance=ExtResource("47_eensf")]
 transform = Transform3D(-0.963716, 0.0333882, -0.264833, 0.0302065, 0.999414, 0.0160787, 0.265215, 0.00749558, -0.96416, -14.0729, 9.58806, -25.747)
 
-[node name="SimplePine" parent="Decoration" index="23" instance=ExtResource("47_eensf")]
+[node name="SimplePine" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="23" unique_id=1379004715 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.489245, 1.46683e-08, 0.872146, 0.0257668, 0.999563, -0.0144543, -0.871765, 0.0295441, 0.489032, 15.7452, 1.02287, 6.54351)
 
-[node name="SimplePine3" parent="Decoration" index="24" instance=ExtResource("47_eensf")]
+[node name="SimplePine3" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="24" unique_id=1105355000 instance=ExtResource("47_eensf")]
 transform = Transform3D(0.950124, -0.0172247, 0.502585, 0.0276993, 1.07453, -0.0155384, -0.502117, 0.0266834, 0.950153, 16.7405, 0.973505, 1.9849)
 
-[node name="SimplePine2" parent="Decoration" index="25" instance=ExtResource("47_eensf")]
+[node name="SimplePine2" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="25" unique_id=482093348 instance=ExtResource("47_eensf")]
 transform = Transform3D(1.09472, -0.0589697, -0.535266, -0.0218134, 1.20681, -0.177566, 0.538063, 0.168902, 1.08183, 14.6759, -0.541041, 9.8796)
 
-[node name="Rock3" parent="Decoration" index="26" instance=ExtResource("48_su2i7")]
+[node name="Rock3" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="26" unique_id=1805170594 instance=ExtResource("48_su2i7")]
 transform = Transform3D(1.26717, -0.427643, -0.0176967, 0.384961, 1.39873, -0.0839265, 0.0413949, 0.0830593, 1.32222, -3.57717, 0.657383, -14.0344)
 
-[node name="Rock2" parent="Decoration" index="27" instance=ExtResource("48_su2i7")]
+[node name="Rock2" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="27" unique_id=1656568920 instance=ExtResource("48_su2i7")]
 transform = Transform3D(1.72582, -0.287558, 0.0367045, 0.272242, 1.68384, 0.391238, -0.0996047, -0.380123, 1.70531, 1.77444, -0.70097, -13.0909)
 
-[node name="Rock4" parent="Decoration" index="28" instance=ExtResource("48_su2i7")]
+[node name="Rock4" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="28" unique_id=505346285 instance=ExtResource("48_su2i7")]
 transform = Transform3D(2.40677, 0.802739, -3.09242, -0.493033, 3.91862, 0.633489, 3.15664, -2.98023e-08, 2.45676, 3.98971, -0.811862, -22.4332)
 
-[node name="Rock5" parent="Decoration" index="29" instance=ExtResource("48_su2i7")]
+[node name="Rock5" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="29" unique_id=1393383569 instance=ExtResource("48_su2i7")]
 transform = Transform3D(4.62076, -1.45776, 0.572855, 1.90982, 3.50421, -1.4717, 0.0344957, 1.2631, 4.74404, -6.10842, -0.36034, -25.6129)
 
-[node name="SmallBoulder" parent="Decoration" index="30" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="30" unique_id=271607580 instance=ExtResource("49_whx1v")]
 transform = Transform3D(-0.999691, 0, -0.0248508, 0, 1, 0, 0.0248508, 0, -0.999691, -9.51969, -0.306166, 8.48266)
 
-[node name="SmallBoulder9" parent="Decoration" index="31" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder9" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="31" unique_id=1558015388 instance=ExtResource("49_whx1v")]
 transform = Transform3D(-2.09715, 0, 0.681163, 0, 2.205, 0, -0.681163, 0, -2.09715, -15.2505, -0.415935, 12.9525)
 
-[node name="SmallBoulder2" parent="Decoration" index="32" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder2" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="32" unique_id=1949067514 instance=ExtResource("49_whx1v")]
 transform = Transform3D(0.658904, 0, -1.03863, 0, 1.54, 0, 1.03863, 0, 0.658904, -11.9682, -0.367718, 6.83031)
 
-[node name="SmallBoulder3" parent="Decoration" index="33" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder3" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="33" unique_id=92265992 instance=ExtResource("49_whx1v")]
 transform = Transform3D(1.72817, -0.979063, 0.234261, 0.882062, 1.24833, -1.28982, 0.48519, 1.21783, 1.51046, -6.20262, -0.39578, -12.0408)
 
-[node name="SmallBoulder4" parent="Decoration" index="34" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder4" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="34" unique_id=799988024 instance=ExtResource("49_whx1v")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.460502, -0.324509, -9.84375)
 
-[node name="SmallBoulder6" parent="Decoration" index="35" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder6" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="35" unique_id=819780138 instance=ExtResource("49_whx1v")]
 transform = Transform3D(2.90764, -0.334668, -0.658498, 0, 2.67442, -1.35922, 0.738663, 1.31737, 2.59209, -1.84065, 1.2881, -13.4357)
 
-[node name="SmallBoulder8" parent="Decoration" index="36" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder8" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="36" unique_id=325167039 instance=ExtResource("49_whx1v")]
 transform = Transform3D(-1.72711, 0, 2.45297, 0, 4.205, 0, -2.45297, 0, -1.72711, -1.64112, 2.19651, -15.4365)
 
-[node name="SmallBoulder7" parent="Decoration" index="37" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder7" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="37" unique_id=1391350783 instance=ExtResource("49_whx1v")]
 transform = Transform3D(3, 0, 0, 0, 2.27589, -0.332481, 0, 0.253794, 2.98152, -5.58931, 4.50096, -15.7732)
 
-[node name="SmallBoulder5" parent="Decoration" index="38" instance=ExtResource("49_whx1v")]
+[node name="SmallBoulder5" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="38" unique_id=1094558682 instance=ExtResource("49_whx1v")]
 transform = Transform3D(1.39185, 0, 1.43623, 0, 2, 0, -1.43623, 0, 1.39185, -9.66382, -0.198896, -10.7931)
 
-[node name="StuccoWall" parent="Decoration" index="39" instance=ExtResource("50_sxj07")]
+[node name="StuccoWall" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="39" unique_id=668238747 instance=ExtResource("50_sxj07")]
 transform = Transform3D(-6.33815e-08, 0, 1.45, 0, 1.45, 0, -1.45, 0, -6.33815e-08, 14.204, -0.598527, 0.28502)
 
-[node name="PlatformInner" parent="Decoration" index="40" instance=ExtResource("51_hlkup")]
+[node name="PlatformInner" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="40" unique_id=31299316 instance=ExtResource("51_hlkup")]
 transform = Transform3D(0.999519, 0.0310095, 0, -0.0310095, 0.999519, 0, 0, 0, 1, -9.78259, 0.429223, 2.8401)
 
-[node name="Waypoint" parent="Decoration/PlatformInner" index="0" instance=ExtResource("52_8lr7t")]
+[node name="Waypoint" parent="Decoration/PlatformInner" index="0" unique_id=720074179 instance=ExtResource("52_8lr7t")]
 transform = Transform3D(0.999519, -0.0310095, 0, 0.0310095, 0.999519, 0, 0, 0, 1, 0, 2.5, 0)
 
-[node name="Ray" type="MeshInstance3D" parent="Decoration/PlatformInner/Waypoint" index="18"]
+[node name="Ray" type="MeshInstance3D" parent="Decoration/PlatformInner/Waypoint" index="18" unique_id=1613310170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171865, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_m2asd")
 
-[node name="Stars" type="GPUParticles3D" parent="Decoration/PlatformInner/Waypoint" index="19"]
+[node name="Stars" type="GPUParticles3D" parent="Decoration/PlatformInner/Waypoint" index="19" unique_id=880518914]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_sdcwh")
 draw_pass_1 = ExtResource("54_7sfus")
 
-[node name="EngineGlow" type="MeshInstance3D" parent="Decoration/PlatformInner/Waypoint" index="20"]
+[node name="EngineGlow" type="MeshInstance3D" parent="Decoration/PlatformInner/Waypoint" index="20" unique_id=1936825240]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156792, 0)
 mesh = SubResource("PlaneMesh_by7kg")
 
-[node name="Light" type="OmniLight3D" parent="Decoration/PlatformInner/Waypoint" index="21"]
+[node name="Light" type="OmniLight3D" parent="Decoration/PlatformInner/Waypoint" index="21" unique_id=280229588]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309663, 0)
 light_color = Color(0.689667, 1, 0.62, 1)
 light_energy = 1.2
 omni_range = 4.5
 omni_attenuation = 0.0
 
-[node name="Sparkle" type="AudioStreamPlayer3D" parent="Decoration/PlatformInner/Waypoint" index="22"]
+[node name="Sparkle" type="AudioStreamPlayer3D" parent="Decoration/PlatformInner/Waypoint" index="22" unique_id=1950126624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.838457, 0)
 stream = ExtResource("56_6aerb")
 max_db = -4.0
@@ -956,12 +956,12 @@ autoplay = true
 max_distance = 2.4
 attenuation_filter_cutoff_hz = 10000.0
 
-[node name="PlatformOuter" parent="Decoration/PlatformInner" index="4" instance=ExtResource("51_hlkup")]
+[node name="PlatformOuter" parent="Decoration/PlatformInner" index="4" unique_id=1716865400 instance=ExtResource("51_hlkup")]
 transform = Transform3D(1.48079, -0.000397209, -0.239267, -0.000596002, 0.999988, -0.00742312, 0.239267, 0.00494876, 1.48078, 0, -0.203, 0)
 
-[node name="Decals" type="Node3D" parent="Decoration" index="42"]
+[node name="Decals" type="Node3D" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="42" unique_id=1577591860]
 
-[node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0"]
+[node name="MossDecal" type="Decal" parent="Decoration/Decals" index="0" unique_id=1422171384]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72361, 2.38419e-07, 1.18044)
 visible = false
 size = Vector3(3, 2, 3)
@@ -973,7 +973,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="MossDecal2" type="Decal" parent="Decoration/Decals" index="1"]
+[node name="MossDecal2" type="Decal" parent="Decoration/Decals" index="1" unique_id=1249946796]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.36512, -2.38419e-07, 4.12021)
 visible = false
 size = Vector3(3, 2, 3)
@@ -985,7 +985,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="MossDecal3" type="Decal" parent="Decoration/Decals" index="2"]
+[node name="MossDecal3" type="Decal" parent="Decoration/Decals" index="2" unique_id=2090776909]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.730042, 0.669289, 5.99735)
 visible = false
 size = Vector3(4, 2, 4)
@@ -998,7 +998,7 @@ distance_fade_begin = 15.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="MossDecal5" type="Decal" parent="Decoration/Decals" index="3"]
+[node name="MossDecal5" type="Decal" parent="Decoration/Decals" index="3" unique_id=1397922500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15209, 0.669289, 1.82992)
 visible = false
 size = Vector3(5, 2, 5)
@@ -1011,7 +1011,7 @@ distance_fade_begin = 15.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="MossDecal4" type="Decal" parent="Decoration/Decals" index="4"]
+[node name="MossDecal4" type="Decal" parent="Decoration/Decals" index="4" unique_id=1044913583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3739, 0.669289, 11.8825)
 visible = false
 size = Vector3(4, 2, 4)
@@ -1023,7 +1023,7 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="RockDecal2" type="Decal" parent="Decoration/Decals" index="5"]
+[node name="RockDecal2" type="Decal" parent="Decoration/Decals" index="5" unique_id=1729398236]
 transform = Transform3D(0.9, 0, 0, 0, 0.615966, -0.65619, 0, 0.65619, 0.615966, -3.69045, -1.59911, -12.9086)
 visible = false
 size = Vector3(4, 8, 4)
@@ -1034,126 +1034,126 @@ distance_fade_begin = 9.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="SafePoint" parent="." index="8"]
+[node name="SafePoint" parent="." index="8" unique_id=2081722632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)
 
-[node name="Jukebox" parent="." index="9"]
+[node name="Jukebox" parent="." index="9" unique_id=1726425784]
 track_list = Array[AudioStreamOggVorbis]([ExtResource("63_c3rsu"), ExtResource("64_xtbp5"), ExtResource("65_i7mgv"), ExtResource("66_gn634"), ExtResource("67_pffjb"), ExtResource("68_be80j"), ExtResource("69_i6aqb")])
 
-[node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0"]
+[node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0" unique_id=339947587]
 stream = ExtResource("70_lvos0")
 
-[node name="Landscape" parent="." index="10" instance=ExtResource("59_7f7uv")]
+[node name="Landscape" parent="." index="10" unique_id=1599343414 instance=ExtResource("59_7f7uv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
-[node name="Discombobulator" parent="." index="11" instance=ExtResource("60_olvw8")]
+[node name="Discombobulator" parent="." index="11" unique_id=989489409 instance=ExtResource("60_olvw8")]
 transform = Transform3D(0.461594, 0, 0.887091, 0, 1, 0, -0.887091, 0, 0.461594, -7.70073, 0.597014, -2.93875)
 
-[node name="Pulley" parent="." index="12" instance=ExtResource("61_x2mon")]
+[node name="Pulley" parent="." index="12" unique_id=1645615404 instance=ExtResource("61_x2mon")]
 transform = Transform3D(-0.43867, 0, 1.27674, 0, 1.35, 0, -1.27674, 0, -0.43867, -10.3955, 0.828593, 3.62502)
 reset_on_interact = false
 
-[node name="WeedBin" parent="." index="13" instance=ExtResource("62_ak66g")]
+[node name="WeedBin" parent="." index="13" unique_id=1924924806 instance=ExtResource("62_ak66g")]
 transform = Transform3D(-0.966824, 0, 0.255446, 0, 1, 0, -0.255446, 0, -0.966824, -7.27067, -0.17601, 7.58098)
 
-[node name="StoryMarker" parent="." index="14"]
+[node name="StoryMarker" parent="." index="14" unique_id=48671384]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 
-[node name="WorldBoundaries" type="StaticBody3D" parent="." index="15"]
+[node name="WorldBoundaries" type="StaticBody3D" parent="." index="15" unique_id=232403189]
 collision_layer = 136
 collision_mask = 136
 
-[node name="WB" type="CollisionShape3D" parent="WorldBoundaries" index="0"]
+[node name="WB" type="CollisionShape3D" parent="WorldBoundaries" index="0" unique_id=2011595295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_u32uq")
 
-[node name="WB2" type="CollisionShape3D" parent="WorldBoundaries" index="1"]
+[node name="WB2" type="CollisionShape3D" parent="WorldBoundaries" index="1" unique_id=533304920]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_p7erp")
 
-[node name="WB3" type="CollisionShape3D" parent="WorldBoundaries" index="2"]
+[node name="WB3" type="CollisionShape3D" parent="WorldBoundaries" index="2" unique_id=122193715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.75)
 shape = SubResource("WorldBoundaryShape3D_vnekb")
 
-[node name="WB4" type="CollisionShape3D" parent="WorldBoundaries" index="3"]
+[node name="WB4" type="CollisionShape3D" parent="WorldBoundaries" index="3" unique_id=195128265]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 shape = SubResource("WorldBoundaryShape3D_8o4md")
 
-[node name="WB5" type="CollisionShape3D" parent="WorldBoundaries" index="4"]
+[node name="WB5" type="CollisionShape3D" parent="WorldBoundaries" index="4" unique_id=2006878757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5, 0)
 shape = SubResource("WorldBoundaryShape3D_x1c88")
 
-[node name="Hills" type="Node3D" parent="WorldBoundaries" index="5"]
+[node name="Hills" type="Node3D" parent="WorldBoundaries" index="5" unique_id=1066616374]
 
-[node name="Rock3" parent="WorldBoundaries/Hills" index="0" instance=ExtResource("48_su2i7")]
+[node name="Rock3" parent="WorldBoundaries/Hills" index="0" unique_id=1807148253 instance=ExtResource("48_su2i7")]
 transform = Transform3D(-4.91687, 0, -0.90518, 0, 4.96, 0, 7.10086, 0, -0.626777, 33.1879, -7.76456, 33.5158)
 
-[node name="Rock6" parent="WorldBoundaries/Hills" index="1" instance=ExtResource("48_su2i7")]
+[node name="Rock6" parent="WorldBoundaries/Hills" index="1" unique_id=1574011219 instance=ExtResource("48_su2i7")]
 transform = Transform3D(1.57473e-06, 6.79055e-11, -1.614, -0.519434, 2.60958, -2.0225e-08, 8.05427, 0.168297, 3.14257e-07, 48.0775, -6.02074, -2.44914)
 
-[node name="Rock8" parent="WorldBoundaries/Hills" index="2" instance=ExtResource("48_su2i7")]
+[node name="Rock8" parent="WorldBoundaries/Hills" index="2" unique_id=624581963 instance=ExtResource("48_su2i7")]
 transform = Transform3D(7.10086, 0, -0.626777, 0, 4.96, 0, 4.91687, 0, 0.90518, 33.5158, -7.76456, -33.1879)
 
-[node name="Rock9" parent="WorldBoundaries/Hills" index="3" instance=ExtResource("48_su2i7")]
+[node name="Rock9" parent="WorldBoundaries/Hills" index="3" unique_id=66029909 instance=ExtResource("48_su2i7")]
 transform = Transform3D(-7.61613e-07, 0, 1.42, 0, 2.3, 0, -7.099, 0, -1.52344e-07, -48.0775, -4.53567, 2.44914)
 
-[node name="Rock10" parent="WorldBoundaries/Hills" index="4" instance=ExtResource("48_su2i7")]
+[node name="Rock10" parent="WorldBoundaries/Hills" index="4" unique_id=728920737 instance=ExtResource("48_su2i7")]
 transform = Transform3D(0.806011, -7.11252e-08, 2.06341, 0.84175, 2.49763, -0.0877378, -3.9048, 0.538409, 0.407007, -45.2459, -4.77078, -17.6536)
 
-[node name="CheapHill" parent="WorldBoundaries/Hills" index="5" instance=ExtResource("71_as2tn")]
+[node name="CheapHill" parent="WorldBoundaries/Hills" index="5" unique_id=1365542507 instance=ExtResource("71_as2tn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 7.40543, -0.659191, 52.0276)
 
-[node name="CheapHill5" parent="WorldBoundaries/Hills" index="6" instance=ExtResource("71_as2tn")]
+[node name="CheapHill5" parent="WorldBoundaries/Hills" index="6" unique_id=1608627826 instance=ExtResource("71_as2tn")]
 transform = Transform3D(-0.0505219, 0, -0.193514, 0, 0.35, 0, 0.193514, 0, -0.0505219, 26.2215, -1.53466, 49.6671)
 
-[node name="CheapHill7" parent="WorldBoundaries/Hills" index="7" instance=ExtResource("71_as2tn")]
+[node name="CheapHill7" parent="WorldBoundaries/Hills" index="7" unique_id=1762944947 instance=ExtResource("71_as2tn")]
 transform = Transform3D(-0.0757829, 0, -0.290271, 0, 0.335, 0, 0.290271, 0, -0.0757829, 50.1707, -1.53466, -23.7604)
 
-[node name="CheapHill3" parent="WorldBoundaries/Hills" index="8" instance=ExtResource("71_as2tn")]
+[node name="CheapHill3" parent="WorldBoundaries/Hills" index="8" unique_id=567782454 instance=ExtResource("71_as2tn")]
 transform = Transform3D(-0.347962, 0, 0.0917917, 0, 0.195, 0, -0.125789, 0, -0.253918, -13.2024, -0.659191, 50.1932)
 
-[node name="CheapHill2" parent="WorldBoundaries/Hills" index="9" instance=ExtResource("71_as2tn")]
+[node name="CheapHill2" parent="WorldBoundaries/Hills" index="9" unique_id=123820731 instance=ExtResource("71_as2tn")]
 transform = Transform3D(0.162478, 0, 0.349859, 0, 0.31, 0, -0.310001, 0, 0.183368, -25.676, -1.25925, 45.9158)
 
-[node name="CheapHill4" parent="WorldBoundaries/Hills" index="10" instance=ExtResource("71_as2tn")]
+[node name="CheapHill4" parent="WorldBoundaries/Hills" index="10" unique_id=1613362842 instance=ExtResource("71_as2tn")]
 transform = Transform3D(0.592069, 0, -0.211472, 0, 0.485, 0, 0.187338, 0, 0.668342, -53.6018, -1.25925, 43.8499)
 
-[node name="CheapHill6" parent="WorldBoundaries/Hills" index="11" instance=ExtResource("71_as2tn")]
+[node name="CheapHill6" parent="WorldBoundaries/Hills" index="11" unique_id=184807350 instance=ExtResource("71_as2tn")]
 transform = Transform3D(0.252654, 0, -0.0829596, 0, 0.245, 0, 0.0799429, 0, 0.262188, -51.7893, -1.25925, 22.1944)
 
-[node name="Hills3" type="Node3D" parent="WorldBoundaries" index="6"]
+[node name="Hills3" type="Node3D" parent="WorldBoundaries" index="6" unique_id=63432378]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Hills2" type="Node3D" parent="WorldBoundaries" index="7"]
+[node name="Hills2" type="Node3D" parent="WorldBoundaries" index="7" unique_id=55563920]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="ChargingStation" parent="." index="16" instance=ExtResource("72_amqkg")]
+[node name="ChargingStation" parent="." index="16" unique_id=1730232714 instance=ExtResource("72_amqkg")]
 transform = Transform3D(-0.245494, 0, 0.969398, 0, 1, 0, -0.969398, 0, -0.245494, -8.40679, 0.276039, 0.582495)
 radius = 1.0
 
-[node name="OceanArea" type="StaticBody3D" parent="." index="18"]
+[node name="OceanArea" type="StaticBody3D" parent="." index="18" unique_id=1842775518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.770402, 17.7541)
 collision_layer = 1024
 collision_mask = 1024
 input_ray_pickable = false
 
-[node name="Collision" type="CollisionShape3D" parent="OceanArea" index="0"]
+[node name="Collision" type="CollisionShape3D" parent="OceanArea" index="0" unique_id=918427884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0865978, 2.64381)
 shape = SubResource("BoxShape3D_4jm7j")
 debug_color = Color(0.609448, 0.000965214, 0.725173, 1)
 
-[node name="FishPool" parent="." index="19" instance=ExtResource("73_viw2d")]
+[node name="FishPool" parent="." index="19" unique_id=1624740388 instance=ExtResource("73_viw2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.73906, -4.84288e-08, 15.7748)
 
-[node name="FishPool2" parent="." index="20" instance=ExtResource("73_viw2d")]
+[node name="FishPool2" parent="." index="20" unique_id=402422627 instance=ExtResource("73_viw2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25243, 1.8999e-07, 15.3235)
 
-[node name="FishPool3" parent="." index="21" instance=ExtResource("73_viw2d")]
+[node name="FishPool3" parent="." index="21" unique_id=1832210882 instance=ExtResource("73_viw2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34005, 1.8999e-07, 14.8658)
 
-[node name="BuildVault" parent="." index="23" instance=ExtResource("74_xi5ja")]
+[node name="BuildVault" parent="." index="23" unique_id=1378047124 instance=ExtResource("74_xi5ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 visible = false
 
-[node name="VaultDevice" parent="." index="24" instance=ExtResource("75_3tqah")]
+[node name="VaultDevice" parent="." index="24" unique_id=1603897309 instance=ExtResource("75_3tqah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.829, 0, 5.84)

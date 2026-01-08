@@ -149,7 +149,6 @@ environment = ExtResource("3_e4u8p")
 transform = Transform3D(0.767856, 0.374329, -0.519879, -0.190429, 0.908211, 0.372679, 0.611665, -0.187163, 0.768659, 0, 3, 0)
 directional_shadow_mode = 0
 directional_shadow_blend_splits = true
-directional_shadow_max_distance = 50.0
 
 [node name="SunNight" type="DirectionalLight3D" parent="Sky" index="1" unique_id=1259714871]
 transform = Transform3D(0.714161, -0.325747, 0.619567, 0.199024, 0.943083, 0.26643, -0.671092, -0.0669649, 0.738344, 0, 5.55933, 0)

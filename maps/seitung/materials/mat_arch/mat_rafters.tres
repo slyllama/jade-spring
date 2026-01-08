@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://n24mva1r1w20"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://n24mva1r1w20"]
 
 [ext_resource type="Shader" uid="uid://l68mywi1nnnq" path="res://maps/seitung/materials/mat_arch/shaders/shader_arch_roof.gdshader" id="1_p7vc7"]
 [ext_resource type="Texture2D" uid="uid://b2fu2iskwm7ij" path="res://maps/seitung/materials/mat_arch/textures/arch_roof_diff.jpg" id="3_kikvi"]

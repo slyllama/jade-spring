@@ -71,6 +71,7 @@ environment = SubResource("Environment_a76kq")
 [node name="Sun" type="DirectionalLight3D" parent="Sky" unique_id=64158718]
 transform = Transform3D(-0.306146, -0.4254, 0.851651, -0.290381, 0.893701, 0.34202, -0.906616, -0.142595, -0.397131, 0, 3, 0)
 shadow_enabled = true
+directional_shadow_max_distance = 50.0
 
 [node name="Player" parent="." unique_id=30808248 instance=ExtResource("2_dib65")]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 1, 0)

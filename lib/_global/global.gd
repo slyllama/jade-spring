@@ -213,7 +213,6 @@ signal deco_deletion_canceled
 signal deco_deleted
 signal deco_load_started
 signal deco_load_ended
-signal deco_load_status_updated(status: String)
 signal drag_started
 signal snapping_enabled
 signal snapping_disabled

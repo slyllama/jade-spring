@@ -102,10 +102,9 @@ func _ready() -> void:
 		if cmd == "/ping":
 			_aberrate()
 		elif cmd == "/screenshot":
-			$Debug.visible = false
+			if Global.map_name == "debug": $Debug.visible = false
 			for _x in 2: await get_tree().process_frame
-			if Global.map_name == "debug":
-				$Debug.visible = true
+			if Global.map_name == "debug": $Debug.visible = true
 		elif cmd == "/mini=true":
 			_aberrate())
 	
