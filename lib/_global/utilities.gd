@@ -59,6 +59,9 @@ func get_screen_center(offset = Vector2.ZERO) -> Vector2:
 	return(Vector2(get_window().size.x / Global.retina_scale / 2.0 - 150.0,
 		get_window().size.y / Global.retina_scale / 2.0) + offset)
 
+func get_screen_position() -> Vector2i: # recalled from DisplayServer
+	return(DisplayServer.screen_get_position())
+
 # Is the specified point within the world boundaries?
 # TODO: relies on magic numbers; should use the boundary nodes themselves
 func point_in_wb(point: Vector3) -> bool:

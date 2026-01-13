@@ -70,14 +70,11 @@ func _input(_event: InputEvent) -> void:
 		_f.tween_method(_set_anime_alpha, 0.0, 0.5, 0.1)
 	elif Input.is_action_just_released("sprint"):
 		var _f = create_tween()
-		_f.tween_method(_set_anime_alpha, $Anime.material.get_shader_parameter("modulate_a"), 0.0, 0.1)
-	
-	if Input.is_action_just_pressed("toggle_hud"):
-		if $Debug.visible:
-			$Debug.visible = false
-		else:
-			if Global.map_name == "debug":
-				$Debug.visible = true
+		_f.tween_method(
+			_set_anime_alpha,
+			$Anime.material.get_shader_parameter("modulate_a"),
+			0.0,
+			0.1)
 
 func _ready() -> void:
 	_set_bugs_exponent(1.0)

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" uid="uid://b3w8s1v8lbv3o" path="res://lib/hud/hud.gd" id="1_ryxhn"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_lglf3"]
+[ext_resource type="PackedScene" uid="uid://c7s6otmq568q4" path="res://lib/deco_data_manager/deco_data_manager.tscn" id="2_um878"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="2_yply7"]
 [ext_resource type="PackedScene" uid="uid://c6kvxy3mhfso3" path="res://lib/hud/screen_effects/screen_effects.tscn" id="4_m3be7"]
 [ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="4_r77lv"]
@@ -55,6 +56,9 @@ bg_color = Color(0, 0, 0, 0.196078)
 [node name="HUD" type="CanvasLayer" unique_id=552166616]
 process_mode = 3
 script = ExtResource("1_ryxhn")
+
+[node name="DecoDataManager" parent="." unique_id=2139946424 instance=ExtResource("2_um878")]
+title = "Decoration Data Manager"
 
 [node name="Underlay" type="TextureRect" parent="." unique_id=1038994515]
 anchors_preset = 15

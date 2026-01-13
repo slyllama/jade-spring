@@ -122,7 +122,6 @@ func toggle_gift_visibility(state: bool) -> void:
 
 func _ready() -> void:
 	$PlayerMesh/Karma.animate_out()
-	
 	SPRINT_SOUNDS.append_array(JADE_SOUNDS)
 	toggle_gift_visibility(false)
 	$Spider/AnimationPlayer.play("walk")
@@ -226,6 +225,9 @@ var _gravity_last_in_current_effects = false
 var _double_jump_state = 0
 
 func _physics_process(delta: float) -> void:
+	if Window.get_focused_window():
+		if "SUBWINDOW" in Window.get_focused_window(): return
+	
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
 		_elongate_target = 2.0
 		velocity.y = 1.0

@@ -396,8 +396,7 @@ theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Debug mode.
-F3 to enter debugging map.
-F4 to open decoration data manager."
+F3 to enter debugging map."
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

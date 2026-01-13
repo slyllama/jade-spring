@@ -86,40 +86,44 @@ func _input(_event: InputEvent) -> void:
 			and !$TopLevel/SettingsPane.is_open):
 			$TopLevel/SettingsPane.open()
 	
-	if Input.is_action_just_pressed("debug_cmd"):
-		if !Global.debug_enabled or !Global.debug_allowed or Global.design_pane_open: return
-		await get_tree().process_frame
-		if !$TopLevel/DebugEntry.has_focus():
-			# Select the command line for entry
+	if Global.debug_allowed:
+		if Input.is_action_just_pressed("debug_cmd"):
+			if !Global.debug_enabled or !Global.debug_allowed or Global.design_pane_open: return
+			await get_tree().process_frame
+			if !$TopLevel/DebugEntry.has_focus():
+				# Select the command line for entry
+				_debug_cmd_gain_focus()
+			else:
+				# Send text and clear the command line
+				Global.last_command = $TopLevel/DebugEntry.text
+				Global.command_sent.emit($TopLevel/DebugEntry.text)
+				_debug_cmd_lose_focus(true)
+		
+		if Input.is_action_just_pressed("debug_cmd_slash"):
+			if !Global.debug_allowed: return
+			if !Global.debug_enabled: # enable debug first, if it hasn't been already
+				Global.debug_enabled = true
+				Global.debug_toggled.emit()
+			if !$TopLevel/DebugEntry.has_focus():
+				_debug_cmd_gain_focus()
+		
+		if Input.is_action_just_pressed("last_cmd"):
+			if !Global.debug_allowed: return
+			Global.command_sent.emit(Global.last_command)
+		
+		# Fill the command line with the last-used command
+		if Input.is_action_just_pressed("debug_fill_last_cmd"):
+			if !Global.debug_allowed: return
+			if !Global.debug_enabled: # enable debug first, if it hasn't been already
+				Global.debug_enabled = true
+				Global.debug_toggled.emit()
 			_debug_cmd_gain_focus()
-		else:
-			# Send text and clear the command line
-			Global.last_command = $TopLevel/DebugEntry.text
-			Global.command_sent.emit($TopLevel/DebugEntry.text)
-			_debug_cmd_lose_focus(true)
-	
-	if Input.is_action_just_pressed("debug_cmd_slash"):
-		if !Global.debug_allowed: return
-		if !Global.debug_enabled: # enable debug first, if it hasn't been already
-			Global.debug_enabled = true
-			Global.debug_toggled.emit()
-		if !$TopLevel/DebugEntry.has_focus():
-			_debug_cmd_gain_focus()
-	
-	if Input.is_action_just_pressed("last_cmd"):
-		if !Global.debug_allowed: return
-		Global.command_sent.emit(Global.last_command)
-	
-	# Fill the command line with the last-used command
-	if Input.is_action_just_pressed("debug_fill_last_cmd"):
-		if !Global.debug_allowed: return
-		if !Global.debug_enabled: # enable debug first, if it hasn't been already
-			Global.debug_enabled = true
-			Global.debug_toggled.emit()
-		_debug_cmd_gain_focus()
-		$TopLevel/DebugEntry.text = Global.last_command
-		await get_tree().process_frame
-		$TopLevel/DebugEntry.set_caret_column(100)
+			$TopLevel/DebugEntry.text = Global.last_command
+			await get_tree().process_frame
+			$TopLevel/DebugEntry.set_caret_column(100)
+		
+		if Input.is_action_just_pressed("debug_deco_manager"):
+			$DecoDataManager.visible = !$DecoDataManager.visible
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):

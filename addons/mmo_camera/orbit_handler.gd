@@ -127,10 +127,15 @@ func _process(delta: float) -> void:
 			_mouse_button_down = true
 	
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
+	var _in_subwindow := false
+	if Window.get_focused_window():
+		if "SUBWINDOW" in Window.get_focused_window(): _in_subwindow = true
 	if (!orbiting and !_clicked_in_ui and _mouse_button_down
-		and !get_parent().popup_open and !Global.in_exclusive_ui):
+		and !get_parent().popup_open and !Global.in_exclusive_ui
+		and !_in_subwindow):
 		var _mouse_offset = get_window().get_mouse_position() - _last_click_position
 		if abs(_mouse_offset.x) > 5 or abs(_mouse_offset.y) > 5:
+			print("capturing")
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			Global.camera_orbiting = true
 			orbiting = true
