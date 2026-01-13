@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c7s6otmq568q4"]
+
+[ext_resource type="Script" uid="uid://chtohc56g8bok" path="res://lib/deco_data_manager/deco_data_manager.gd" id="1_wua7u"]
+
+[node name="DecoDataManager" type="Window" unique_id=2139946424]
+oversampling_override = 1.0
+title = "Decoration Manager"
+position = Vector2i(0, 36)
+size = Vector2i(300, 600)
+script = ExtResource("1_wua7u")

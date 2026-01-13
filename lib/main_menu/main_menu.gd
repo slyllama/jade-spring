@@ -3,11 +3,14 @@ extends CanvasLayer
 const SAVE_DATA_PATH = "user://save/save.dat"
 const DECO_DATA_PATH = "user://save/deco.dat"
 var LOADER_SCENE = "res://lib/loader/loader.tscn"
+var DecoDataManager = load("res://lib/deco_data_manager/deco_data_manager.tscn")
 var rng = RandomNumberGenerator.new()
 
 @onready var focus: Button
 var can_interact = true
 var ngc_open = false # new game container open
+
+@onready var deco_data_manager = DecoDataManager.instantiate()
 
 func backup_save_files() -> void:
 	if !DirAccess.dir_exists_absolute("user://save/backup"):
@@ -122,18 +125,24 @@ func play() -> void:
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
 func _input(_event: InputEvent) -> void:
-	if !Global.debug_allowed: return
 	if Input.is_action_just_pressed("enter"):
 		var _f = get_window().gui_get_focus_owner()
 		if _f is Button:
 			_f.button_down.emit()
+	
+	if !Global.debug_allowed: return
+	
 	if Input.is_action_just_pressed("debug_action"):
 		if !can_interact or ngc_open: return
 		Global.load_debug_next = true
 		Global.map_name = "debug"
 		play()
+	if Input.is_action_just_pressed("debug_deco_manager"):
+		deco_data_manager.visible = !deco_data_manager.visible
 
 func _ready() -> void:
+	get_viewport().gui_embed_subwindows = false
+	add_child(deco_data_manager)
 	$Raiqqo/Anim.play("fade_in")
 	
 	backup_save_files()

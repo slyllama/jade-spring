@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cf0bmp8k4qm1n"]
+[gd_scene format=3 uid="uid://cf0bmp8k4qm1n"]
 
 [ext_resource type="Script" uid="uid://cbqhv67o2phqc" path="res://lib/main_menu/main_menu.gd" id="1_jagjv"]
 [ext_resource type="Texture2D" uid="uid://c0a8u0208c30m" path="res://generic/textures/film_grain.jpg" id="2_8eqi1"]
@@ -159,11 +159,11 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_furok"]
 content_margin_right = 40.0
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="MainMenu" type="CanvasLayer" unique_id=2070871807]
 script = ExtResource("1_jagjv")
 metadata/_edit_horizontal_guides_ = [34.0]
 
-[node name="Base" type="TextureRect" parent="."]
+[node name="Base" type="TextureRect" parent="." unique_id=1850370532]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -174,13 +174,13 @@ texture = ExtResource("2_8eqi1")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Raiqqo" type="Sprite2D" parent="."]
+[node name="Raiqqo" type="Sprite2D" parent="." unique_id=1644735446]
 texture_filter = 4
 position = Vector2(652, 363)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_bh8me")
 
-[node name="Motes" type="GPUParticles2D" parent="Raiqqo"]
+[node name="Motes" type="GPUParticles2D" parent="Raiqqo" unique_id=272036135]
 position = Vector2(286, 226)
 amount = 24
 texture = ExtResource("9_g8hmh")
@@ -188,28 +188,24 @@ lifetime = 4.0
 preprocess = 5.0
 process_material = SubResource("ParticleProcessMaterial_0vfhr")
 
-[node name="RaiqqoGlow" type="Sprite2D" parent="Raiqqo"]
+[node name="RaiqqoGlow" type="Sprite2D" parent="Raiqqo" unique_id=1732495064]
 texture = ExtResource("5_xq5di")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Raiqqo/RaiqqoGlow"]
-libraries = {
-&"": SubResource("AnimationLibrary_xt81s")
-}
-autoplay = "glow"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Raiqqo/RaiqqoGlow" unique_id=1428979656]
+libraries/ = SubResource("AnimationLibrary_xt81s")
+autoplay = &"glow"
 
-[node name="Anim" type="AnimationPlayer" parent="Raiqqo"]
-libraries = {
-&"": SubResource("AnimationLibrary_na48j")
-}
+[node name="Anim" type="AnimationPlayer" parent="Raiqqo" unique_id=1816285118]
+libraries/ = SubResource("AnimationLibrary_na48j")
 
-[node name="RaiqqoFG" type="Sprite2D" parent="."]
+[node name="RaiqqoFG" type="Sprite2D" parent="." unique_id=839960680]
 texture_filter = 4
 material = SubResource("ShaderMaterial_7pqmc")
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_uywa6")
 
-[node name="LightRay" type="TextureRect" parent="."]
+[node name="LightRay" type="TextureRect" parent="." unique_id=1530219092]
 visible = false
 modulate = Color(1, 1, 1, 0.0784314)
 anchors_preset = 15
@@ -222,7 +218,7 @@ texture = ExtResource("3_nclce")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Container" type="VBoxContainer" parent="."]
+[node name="Container" type="VBoxContainer" parent="." unique_id=978465116]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -237,21 +233,21 @@ grow_vertical = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Padding" type="ColorRect" parent="Container"]
+[node name="Padding" type="ColorRect" parent="Container" unique_id=1459390075]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Box" type="HBoxContainer" parent="Container"]
+[node name="Box" type="HBoxContainer" parent="Container" unique_id=1659950155]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="LeftExpand" type="ColorRect" parent="Container/Box"]
+[node name="LeftExpand" type="ColorRect" parent="Container/Box" unique_id=672057834]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(1, 1, 1, 0)
 
-[node name="Folder" type="TextureButton" parent="Container/Box"]
+[node name="Folder" type="TextureButton" parent="Container/Box" unique_id=1472243029]
 modulate = Color(0.5, 0.5, 0.5, 1)
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
@@ -261,7 +257,7 @@ texture_normal = ExtResource("7_n6dqo")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="InvalidWarning" type="TextureRect" parent="Container/Box"]
+[node name="InvalidWarning" type="TextureRect" parent="Container/Box" unique_id=551757219]
 modulate = Color(0.9, 0.9, 0.9, 0.588235)
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
@@ -271,39 +267,39 @@ texture = ExtResource("8_suxxi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RightPad" type="ColorRect" parent="Container/Box"]
+[node name="RightPad" type="ColorRect" parent="Container/Box" unique_id=1124415917]
 custom_minimum_size = Vector2(12, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 color = Color(1, 1, 1, 0)
 
-[node name="ContinueButton" parent="Container/Box" instance=ExtResource("3_v0okn")]
+[node name="ContinueButton" parent="Container/Box" unique_id=768039138 instance=ExtResource("3_v0okn")]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_furok")
 text = "Continue"
 
-[node name="PlayButton" parent="Container" instance=ExtResource("3_v0okn")]
+[node name="PlayButton" parent="Container" unique_id=593162002 instance=ExtResource("3_v0okn")]
 layout_mode = 2
 
-[node name="SettingsButton" parent="Container" instance=ExtResource("3_v0okn")]
+[node name="SettingsButton" parent="Container" unique_id=171425637 instance=ExtResource("3_v0okn")]
 layout_mode = 2
 text = "Settings"
 
-[node name="AchievementsButton" parent="Container" instance=ExtResource("3_v0okn")]
+[node name="AchievementsButton" parent="Container" unique_id=938007365 instance=ExtResource("3_v0okn")]
 visible = false
 layout_mode = 2
 text = "Achievements"
 
-[node name="CreditsButton" parent="Container" instance=ExtResource("3_v0okn")]
+[node name="CreditsButton" parent="Container" unique_id=1618275349 instance=ExtResource("3_v0okn")]
 layout_mode = 2
 text = "Credits"
 
-[node name="QuitButton" parent="Container" instance=ExtResource("3_v0okn")]
+[node name="QuitButton" parent="Container" unique_id=870503856 instance=ExtResource("3_v0okn")]
 layout_mode = 2
 text = "Quit"
 
-[node name="SettingsPane" parent="." instance=ExtResource("4_swp2s")]
+[node name="SettingsPane" parent="." unique_id=78936355 instance=ExtResource("4_swp2s")]
 visible = false
 z_index = 2
 anchors_preset = 8
@@ -318,7 +314,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SteamPane" parent="." instance=ExtResource("10_2p1if")]
+[node name="SteamPane" parent="." unique_id=2022844145 instance=ExtResource("10_2p1if")]
 visible = false
 z_index = 1
 anchors_preset = 8
@@ -333,19 +329,19 @@ offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Nodule" type="Sprite2D" parent="."]
+[node name="Nodule" type="Sprite2D" parent="." unique_id=436878784]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_4yys3")
 
-[node name="TitleCard" parent="." instance=ExtResource("6_aye18")]
+[node name="TitleCard" parent="." unique_id=1726378478 instance=ExtResource("6_aye18")]
 position = Vector2(0, 48)
 scale = Vector2(0.5, 0.5)
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1298707316]
 stream = ExtResource("7_or2me")
 volume_db = -6.0
 
-[node name="Disclaimer" type="RichTextLabel" parent="."]
+[node name="Disclaimer" type="RichTextLabel" parent="." unique_id=127391901]
 visible = false
 clip_contents = false
 anchors_preset = 12
@@ -365,7 +361,7 @@ bbcode_enabled = true
 text = "[center]Notice as specified by ArenaNet’s content terms of use: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Guild Wars 2: Heart of Thorns, Guild Wars 2: Path of Fire, Guild Wars 2: End of Dragons, and Guild Wars 2: Secrets of the Obscure and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation.[/center]"
 scroll_active = false
 
-[node name="Version" type="RichTextLabel" parent="."]
+[node name="Version" type="RichTextLabel" parent="." unique_id=1401294868]
 clip_contents = false
 anchors_preset = 3
 anchor_left = 1.0
@@ -388,7 +384,7 @@ scroll_active = false
 script = ExtResource("14_n67d6")
 align_right = true
 
-[node name="DebugLabel" type="RichTextLabel" parent="."]
+[node name="DebugLabel" type="RichTextLabel" parent="." unique_id=822987858]
 visible = false
 clip_contents = false
 offset_left = 16.0
@@ -399,10 +395,14 @@ theme_override_colors/default_color = Color(0.795682, 0.635, 0.232168, 1)
 theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Debug mode."
+text = "Debug mode.
+F3 to enter debugging map.
+F4 to open decoration data manager."
+fit_content = true
 scroll_active = false
+autowrap_mode = 0
 
-[node name="Logo" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="." unique_id=168154589]
 modulate = Color(0.6, 0.6, 0.6, 1)
 anchors_preset = 2
 anchor_top = 1.0
@@ -416,7 +416,7 @@ texture = ExtResource("8_rr48m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloseButton" type="TextureButton" parent="."]
+[node name="CloseButton" type="TextureButton" parent="." unique_id=1509480720]
 custom_minimum_size = Vector2(20, 20)
 anchors_preset = 1
 anchor_left = 1.0
@@ -431,7 +431,7 @@ texture_hover = ExtResource("11_ctlnu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="FG" type="ColorRect" parent="."]
+[node name="FG" type="ColorRect" parent="." unique_id=982455353]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -440,7 +440,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="NewGameContainer" parent="." instance=ExtResource("12_0oh4d")]
+[node name="NewGameContainer" parent="." unique_id=1223624910 instance=ExtResource("12_0oh4d")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -454,7 +454,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CreditsContainer" parent="." instance=ExtResource("21_2cjud")]
+[node name="CreditsContainer" parent="." unique_id=346496859 instance=ExtResource("21_2cjud")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -468,7 +468,7 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BrokenDecosContainer" parent="." instance=ExtResource("22_eo7ij")]
+[node name="BrokenDecosContainer" parent="." unique_id=112783449 instance=ExtResource("22_eo7ij")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -482,7 +482,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Swish" type="AudioStreamPlayer" parent="."]
+[node name="Swish" type="AudioStreamPlayer" parent="." unique_id=1656694149]
 stream = ExtResource("19_lck14")
 volume_db = -80.0
 max_polyphony = 2
