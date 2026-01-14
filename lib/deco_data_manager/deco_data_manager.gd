@@ -23,8 +23,17 @@ func generate_tag_string(tags: Array) -> String:
 	tag_string = tag_string.rstrip(", ")
 	return(tag_string)
 
+func update_data() -> void:
+	var _d = Global.DecoData[$Box/CBox/ID.text]
+	_d.preview_scale = float($Box/CBox/Scale/Scale.text)
+	# Value
+	var _v := int($Box/CBox/Value/Value.text)
+	if _v > 0:
+		_d.unlock_value = int($Box/CBox/Value/Value.text)
+	else: _d.erase("unlock_value")
+	Global.deco_preview_data_updated.emit()
+
 func update(id: String) -> void:
-	print("updating")
 	clear()
 	if !id in Global.DecoData: return
 	var data: Dictionary = Global.DecoData[id]
@@ -51,8 +60,9 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	Global.deco_pane_closed.connect(func(): clear())
+	Global.deco_preview_opened.connect(update)
 	get_window().position = Utilities.get_screen_position() + Vector2i(30, 60)
+	clear()
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_home"):
-		update("janthiri_bee")
+func _on_do_preview_pressed() -> void:
+	update_data()

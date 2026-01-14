@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvh87e5dxhdg8"]
+[gd_scene format=3 uid="uid://bvh87e5dxhdg8"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_t77x7"]
 [ext_resource type="Script" uid="uid://c2j6ppfvm1427" path="res://lib/decoration/decoration_pane/decoration_pane.gd" id="2_f5xt2"]
@@ -55,7 +55,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[node name="DecorationPane" instance=ExtResource("1_t77x7")]
+[node name="DecorationPane" unique_id=246099950 instance=ExtResource("1_t77x7")]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(280, 500)
 offset_right = 280.0
@@ -67,7 +67,7 @@ title = "Place Decoration"
 metadata/_edit_vertical_guides_ = [283.0]
 metadata/_edit_horizontal_guides_ = [480.0]
 
-[node name="Base" type="TextureRect" parent="." index="0"]
+[node name="Base" type="TextureRect" parent="." index="0" unique_id=1737134544]
 self_modulate = Color(0.8, 0.8, 0.8, 1)
 clip_children = 2
 z_index = -1
@@ -79,7 +79,7 @@ offset_bottom = 548.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DecorationNE" type="TextureRect" parent="Base" index="0"]
+[node name="DecorationNE" type="TextureRect" parent="Base" index="0" unique_id=181140555]
 modulate = Color(0.14, 0.14, 0.14, 1)
 layout_mode = 1
 anchors_preset = 1
@@ -96,7 +96,7 @@ texture = ExtResource("6_cqq78")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CornerNW" type="TextureRect" parent="Base" index="1"]
+[node name="CornerNW" type="TextureRect" parent="Base" index="1" unique_id=195091963]
 layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -108,7 +108,7 @@ grow_vertical = 0
 texture = ExtResource("5_12xux")
 expand_mode = 1
 
-[node name="CornerSE" type="TextureRect" parent="Base" index="2"]
+[node name="CornerSE" type="TextureRect" parent="Base" index="2" unique_id=966884679]
 z_index = 1
 layout_mode = 0
 anchor_top = 1.0
@@ -123,7 +123,7 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="DecorationSW" type="TextureRect" parent="Base" index="3"]
+[node name="DecorationSW" type="TextureRect" parent="Base" index="3" unique_id=1695394179]
 modulate = Color(0.205117, 0.205117, 0.205117, 1)
 layout_mode = 0
 offset_left = 28.0
@@ -135,7 +135,7 @@ texture = ExtResource("6_cqq78")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Ornament" type="TextureRect" parent="Base" index="4"]
+[node name="Ornament" type="TextureRect" parent="Base" index="4" unique_id=816606519]
 modulate = Color(0.3, 0.3, 0.3, 1)
 layout_mode = 0
 offset_left = 326.0
@@ -148,7 +148,7 @@ expand_mode = 1
 stretch_mode = 5
 flip_h = true
 
-[node name="Ornament2" type="TextureRect" parent="Base" index="5"]
+[node name="Ornament2" type="TextureRect" parent="Base" index="5" unique_id=444558791]
 modulate = Color(0.3, 0.3, 0.3, 1)
 layout_mode = 0
 offset_left = 746.0
@@ -160,7 +160,7 @@ texture = ExtResource("9_5igfo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="6"]
+[node name="PreviewContainer" type="SubViewportContainer" parent="Base" index="6" unique_id=170503231]
 layout_mode = 0
 offset_left = 337.0
 offset_top = 29.0
@@ -168,7 +168,7 @@ offset_right = 872.0
 offset_bottom = 507.0
 stretch = true
 
-[node name="PreviewViewport" type="SubViewport" parent="Base/PreviewContainer" index="0"]
+[node name="PreviewViewport" type="SubViewport" parent="Base/PreviewContainer" index="0" unique_id=1775105397]
 own_world_3d = true
 world_3d = SubResource("World3D_cxjm1")
 transparent_bg = true
@@ -177,17 +177,17 @@ msaa_3d = 2
 size = Vector2i(535, 478)
 render_target_update_mode = 4
 
-[node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" instance=ExtResource("4_xgg1s")]
+[node name="DecoPreview" parent="Base/PreviewContainer/PreviewViewport" index="0" unique_id=1037937631 instance=ExtResource("4_xgg1s")]
 
 [node name="Container" parent="." index="2"]
 offset_right = -4.0
 offset_bottom = 22.0
 theme_override_constants/separation = 0
 
-[node name="TagContainer" type="HBoxContainer" parent="Container" index="3"]
+[node name="TagContainer" type="HBoxContainer" parent="Container" index="3" unique_id=414475222]
 layout_mode = 2
 
-[node name="TagTitle" type="RichTextLabel" parent="Container/TagContainer" index="0"]
+[node name="TagTitle" type="RichTextLabel" parent="Container/TagContainer" index="0" unique_id=1505690158]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vf0qw")
 text = "Filter Tags:"
@@ -195,7 +195,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TagMenu" type="MenuButton" parent="Container/TagContainer" index="1"]
+[node name="TagMenu" type="MenuButton" parent="Container/TagContainer" index="1" unique_id=336684770]
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -204,28 +204,28 @@ mouse_filter = 1
 flat = false
 alignment = 0
 
-[node name="TitleSeparator3" type="ColorRect" parent="Container" index="4"]
+[node name="TitleSeparator3" type="ColorRect" parent="Container" index="4" unique_id=857458654]
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="SearchContainer" type="HBoxContainer" parent="Container" index="5"]
+[node name="SearchContainer" type="HBoxContainer" parent="Container" index="5" unique_id=1316148740]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Container/SearchContainer" index="0"]
+[node name="Icon" type="TextureRect" parent="Container/SearchContainer" index="0" unique_id=68990061]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("8_ij0os")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Search" type="LineEdit" parent="Container/SearchContainer" index="1"]
+[node name="Search" type="LineEdit" parent="Container/SearchContainer" index="1" unique_id=2089921253]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search"
 
-[node name="ClearSearch" type="TextureButton" parent="Container/SearchContainer" index="2"]
+[node name="ClearSearch" type="TextureButton" parent="Container/SearchContainer" index="2" unique_id=2092365255]
 custom_minimum_size = Vector2(27, 0)
 layout_mode = 2
 texture_normal = ExtResource("8_0emr8")
@@ -233,7 +233,7 @@ texture_hover = ExtResource("9_flj3d")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Home" type="TextureButton" parent="Container/SearchContainer" index="3"]
+[node name="Home" type="TextureButton" parent="Container/SearchContainer" index="3" unique_id=859131649]
 custom_minimum_size = Vector2(27, 0)
 layout_mode = 2
 texture_normal = ExtResource("11_r2td5")
@@ -241,24 +241,24 @@ texture_hover = ExtResource("12_qsiow")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TitleSeparator2" type="ColorRect" parent="Container" index="6"]
+[node name="TitleSeparator2" type="ColorRect" parent="Container" index="6" unique_id=957065478]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Separator2" type="ColorRect" parent="Container" index="7"]
+[node name="Separator2" type="ColorRect" parent="Container" index="7" unique_id=1604128059]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0.235294)
 
-[node name="SmallGap" type="ColorRect" parent="Container" index="8"]
+[node name="SmallGap" type="ColorRect" parent="Container" index="8" unique_id=151583235]
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="ScrollBox" type="ScrollContainer" parent="Container" index="9"]
+[node name="ScrollBox" type="ScrollContainer" parent="Container" index="9" unique_id=1859153233]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("7_r3py3")
@@ -266,26 +266,26 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_5unaw")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="ScrollVBox" type="VBoxContainer" parent="Container/ScrollBox" index="0"]
+[node name="ScrollVBox" type="VBoxContainer" parent="Container/ScrollBox" index="0" unique_id=1663488343]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="ClearCategory" type="Button" parent="Container/ScrollBox/ScrollVBox" index="0"]
+[node name="ClearCategory" type="Button" parent="Container/ScrollBox/ScrollVBox" index="0" unique_id=5870225]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Clear Category"
 
-[node name="Categories" type="VBoxContainer" parent="Container/ScrollBox/ScrollVBox" index="1"]
+[node name="Categories" type="VBoxContainer" parent="Container/ScrollBox/ScrollVBox" index="1" unique_id=1430162752]
 layout_mode = 2
 theme_override_constants/separation = 2
 script = ExtResource("14_k8wqy")
 
-[node name="Column" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="0"]
+[node name="Column" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="0" unique_id=1573487030]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Home" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="0"]
+[node name="Home" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="0" unique_id=1765617957]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Home."
@@ -293,7 +293,7 @@ texture_normal = ExtResource("14_f6y01")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Walls" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="1"]
+[node name="Walls" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="1" unique_id=1371991733]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Walls and boundaries."
@@ -301,7 +301,7 @@ texture_normal = ExtResource("14_vmryn")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Floors" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="2"]
+[node name="Floors" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column" index="2" unique_id=241360542]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Floors and surfaces."
@@ -309,11 +309,11 @@ texture_normal = ExtResource("15_ne6fd")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Column2" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="1"]
+[node name="Column2" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="1" unique_id=1904254363]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Roofs" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="0"]
+[node name="Roofs" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="0" unique_id=1471111144]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Roofs and ceilings."
@@ -321,7 +321,7 @@ texture_normal = ExtResource("16_gb315")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Furniture" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="1"]
+[node name="Furniture" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="1" unique_id=1628347146]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Furniture."
@@ -329,7 +329,7 @@ texture_normal = ExtResource("17_k6qve")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Foliage" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="2"]
+[node name="Foliage" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column2" index="2" unique_id=2006997973]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Foliage."
@@ -337,11 +337,11 @@ texture_normal = ExtResource("19_7476e")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Column3" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="2"]
+[node name="Column3" type="HBoxContainer" parent="Container/ScrollBox/ScrollVBox/Categories" index="2" unique_id=1984044126]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Lights" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="0"]
+[node name="Lights" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="0" unique_id=628607774]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Light sources."
@@ -349,7 +349,7 @@ texture_normal = ExtResource("20_g0g44")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Utilities" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="1"]
+[node name="Utilities" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="1" unique_id=1694458652]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Utilities."
@@ -357,7 +357,7 @@ texture_normal = ExtResource("21_sgv33")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="NaturalFeatures" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="2"]
+[node name="NaturalFeatures" type="TextureButton" parent="Container/ScrollBox/ScrollVBox/Categories/Column3" index="2" unique_id=1321566189]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 tooltip_text = "Natural features."
@@ -365,12 +365,12 @@ texture_normal = ExtResource("18_jexyl")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="SmallGap2" type="ColorRect" parent="Container/ScrollBox/ScrollVBox" index="2"]
+[node name="SmallGap2" type="ColorRect" parent="Container/ScrollBox/ScrollVBox" index="2" unique_id=1731237471]
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="ActionsBox" type="HBoxContainer" parent="." index="4"]
+[node name="ActionsBox" type="HBoxContainer" parent="." index="4" unique_id=1191290999]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -384,14 +384,14 @@ offset_bottom = 34.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Close" type="Button" parent="ActionsBox" index="0"]
+[node name="Close" type="Button" parent="ActionsBox" index="0" unique_id=897487641]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "Close"
 
-[node name="Unlock" type="Button" parent="ActionsBox" index="1"]
+[node name="Unlock" type="Button" parent="ActionsBox" index="1" unique_id=1366862299]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -400,13 +400,13 @@ text = "((#)) Unlock
 icon = ExtResource("8_q6jje")
 expand_icon = true
 
-[node name="PlaceDecoration" type="Button" parent="ActionsBox" index="2"]
+[node name="PlaceDecoration" type="Button" parent="ActionsBox" index="2" unique_id=49693545]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "Place Decoration"
 
-[node name="DragToRotate" type="RichTextLabel" parent="." index="5"]
+[node name="DragToRotate" type="RichTextLabel" parent="." index="5" unique_id=1595128362]
 modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = 677.0
@@ -419,7 +419,7 @@ text = "[right]Drag to rotate preview.[/right]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="DecoDetail" type="RichTextLabel" parent="." index="6"]
+[node name="DecoDetail" type="RichTextLabel" parent="." index="6" unique_id=264694601]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 1
 anchors_preset = 2
@@ -435,7 +435,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_mvsu8")
 text = "((Decoration details))"
 fit_content = true
 
-[node name="DecoTitle" type="RichTextLabel" parent="." index="7"]
+[node name="DecoTitle" type="RichTextLabel" parent="." index="7" unique_id=1385081959]
 layout_mode = 0
 offset_left = 317.0
 offset_top = 18.0
@@ -448,7 +448,7 @@ text = "[center]((Decoration Title))[/center]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Blur" type="TextureRect" parent="DecoTitle" index="1"]
+[node name="Blur" type="TextureRect" parent="DecoTitle" index="2" unique_id=1937757310]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
@@ -466,14 +466,14 @@ mouse_filter = 2
 texture = ExtResource("13_hkm37")
 expand_mode = 1
 
-[node name="LoadOnTimeout" type="Timer" parent="." index="8"]
+[node name="LoadOnTimeout" type="Timer" parent="." index="8" unique_id=1050502986]
 wait_time = 0.2
 one_shot = true
 
-[node name="UnlockSound" type="AudioStreamPlayer" parent="." index="9"]
+[node name="UnlockSound" type="AudioStreamPlayer" parent="." index="9" unique_id=1820940846]
 stream = ExtResource("18_4fup5")
 
-[node name="FeaturedPane" parent="." index="10" instance=ExtResource("25_gi50t")]
+[node name="FeaturedPane" parent="." index="10" unique_id=258250543 instance=ExtResource("25_gi50t")]
 layout_mode = 0
 offset_left = 283.0
 offset_right = 858.0

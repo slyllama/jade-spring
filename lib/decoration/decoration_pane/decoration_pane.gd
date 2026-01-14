@@ -53,6 +53,7 @@ func open(silent = false) -> void:
 	super(silent)
 	
 	_on_clear_search_button_down() # clear search button
+	Global.deco_preview_opened.emit(current_id)
 
 func close():
 	$Base.texture = null
@@ -63,6 +64,7 @@ func close():
 		if active:
 			Global.action_cam_enable.emit()
 	active = false
+	Global.deco_preview_opened.emit("_none") # clear the pane
 
 func start_decoration_placement(id: String) -> void:
 	Global.mouse_3d_override_rotation = null
@@ -98,6 +100,8 @@ func load_model_by_id(model_id: String) -> void:
 	var _dl = Global.DecoData[_d]
 	var _p = _dl.scene
 	var _already_loaded = false
+	
+	Global.deco_preview_opened.emit(_d)
 	
 	if _d == current_id: _already_loaded = true
 	else: current_id = _d
@@ -227,6 +231,7 @@ func _input(_event) -> void:
 func _ready() -> void:
 	super()
 	Global.deco_placement_started.connect(close)
+	Global.deco_preview_data_updated.connect(render)
 	
 	var _scroll_bar: VScrollBar = $Container/ScrollBox.get_v_scroll_bar()
 	_scroll_bar.mouse_filter = Control.MOUSE_FILTER_PASS

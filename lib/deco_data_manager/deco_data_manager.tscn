@@ -9,7 +9,8 @@ handle_input_locally = false
 oversampling_override = 1.0
 title = "Decoration Data Manager"
 position = Vector2i(0, 36)
-size = Vector2i(300, 400)
+size = Vector2i(400, 400)
+transient = true
 script = ExtResource("1_wua7u")
 
 [node name="Box" type="VBoxContainer" parent="." unique_id=1849554597]
@@ -25,6 +26,7 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="Blank" type="TextureRect" parent="Box" unique_id=838134011]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 6
@@ -33,16 +35,25 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="CBox" type="VBoxContainer" parent="Box" unique_id=86947318]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="ID" type="Label" parent="Box/CBox" unique_id=1297577833]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_em6rf")
 theme_override_font_sizes/font_size = 21
 text = "((ID))"
+
+[node name="Separator" type="ColorRect" parent="Box/CBox" unique_id=1189583361]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Padding2" type="ColorRect" parent="Box/CBox" unique_id=1018434923]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+color = Color(0, 0, 0, 0)
 
 [node name="NameBox" type="HBoxContainer" parent="Box/CBox" unique_id=1270883388]
 layout_mode = 2
@@ -67,6 +78,7 @@ text = "Scene Path:"
 [node name="ScenePath" type="LineEdit" parent="Box/CBox/ScenePath" unique_id=492173742]
 layout_mode = 2
 size_flags_horizontal = 3
+editable = false
 
 [node name="CursorPath" type="HBoxContainer" parent="Box/CBox" unique_id=1797113471]
 layout_mode = 2
@@ -79,6 +91,7 @@ text = "Cursor Path:"
 [node name="CursorPath" type="LineEdit" parent="Box/CBox/CursorPath" unique_id=2077307367]
 layout_mode = 2
 size_flags_horizontal = 3
+editable = false
 
 [node name="Value" type="HBoxContainer" parent="Box/CBox" unique_id=1666586386]
 layout_mode = 2
@@ -145,3 +158,14 @@ text = "Rotation:"
 [node name="Rotation" type="LineEdit" parent="Box/CBox/Rotation" unique_id=24405515]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Padding" type="ColorRect" parent="Box/CBox" unique_id=1163853733]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="DoPreview" type="Button" parent="Box/CBox" unique_id=431461095]
+layout_mode = 2
+text = "Preview"
+
+[connection signal="pressed" from="Box/CBox/DoPreview" to="." method="_on_do_preview_pressed"]

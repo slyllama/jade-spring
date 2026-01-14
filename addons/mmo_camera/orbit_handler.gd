@@ -135,7 +135,6 @@ func _process(delta: float) -> void:
 		and !_in_subwindow):
 		var _mouse_offset = get_window().get_mouse_position() - _last_click_position
 		if abs(_mouse_offset.x) > 5 or abs(_mouse_offset.y) > 5:
-			print("capturing")
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			Global.camera_orbiting = true
 			orbiting = true
