@@ -129,7 +129,7 @@ func _on_gp_normal_button_down() -> void:
 	SettingsHandler.update("foliage_density", "high")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
-	SettingsHandler.update("shadows", "medium")
+	SettingsHandler.update("shadows", "low")
 	
 	SettingsHandler.update("saturation", 0.5)
 	SettingsHandler.update("brightness", 0.5)

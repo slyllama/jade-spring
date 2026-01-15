@@ -129,7 +129,8 @@ func _process(delta: float) -> void:
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
 	var _in_subwindow := false
 	if Window.get_focused_window():
-		if "SUBWINDOW" in Window.get_focused_window(): _in_subwindow = true
+		if "SUBWINDOW" in Window.get_focused_window():
+			_in_subwindow = true
 	if (!orbiting and !_clicked_in_ui and _mouse_button_down
 		and !get_parent().popup_open and !Global.in_exclusive_ui
 		and !_in_subwindow):

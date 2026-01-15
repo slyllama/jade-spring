@@ -122,6 +122,7 @@ text = "Tags:"
 [node name="Tags" type="LineEdit" parent="Box/CBox/Tags" unique_id=91790844]
 layout_mode = 2
 size_flags_horizontal = 3
+editable = false
 
 [node name="Scale" type="HBoxContainer" parent="Box/CBox" unique_id=1748443684]
 layout_mode = 2
@@ -138,12 +139,21 @@ size_flags_horizontal = 3
 [node name="VOffset" type="HBoxContainer" parent="Box/CBox" unique_id=838500160]
 layout_mode = 2
 
-[node name="VOffsetLabel" type="Label" parent="Box/CBox/VOffset" unique_id=620664460]
+[node name="HOffsetLabel" type="Label" parent="Box/CBox/VOffset" unique_id=620664460]
 custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "X-Offset:"
+
+[node name="HOffset" type="LineEdit" parent="Box/CBox/VOffset" unique_id=675061120]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VOffsetLabel" type="Label" parent="Box/CBox/VOffset" unique_id=1457113477]
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 text = "Y-Offset:"
 
-[node name="VOffset" type="LineEdit" parent="Box/CBox/VOffset" unique_id=675061120]
+[node name="VOffset" type="LineEdit" parent="Box/CBox/VOffset" unique_id=359664387]
 layout_mode = 2
 size_flags_horizontal = 3
 

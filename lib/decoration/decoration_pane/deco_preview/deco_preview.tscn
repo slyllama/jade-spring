@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4hdvgok1lsmq"]
+[gd_scene format=3 uid="uid://c4hdvgok1lsmq"]
 
 [ext_resource type="Script" uid="uid://di6tmbi7loo3j" path="res://lib/decoration/decoration_pane/deco_preview/deco_preview.gd" id="1_ylfot"]
 [ext_resource type="Texture2D" uid="uid://bnh63xcitf33o" path="res://decorations/rata_sum/materials/textures/hex_tile_diff.jpg" id="2_ilmmx"]
@@ -68,32 +68,32 @@ material = SubResource("StandardMaterial3D_08ijc")
 size = Vector2(0.1, 0.1)
 orientation = 2
 
-[node name="DecoPreview" type="Node3D"]
+[node name="DecoPreview" type="Node3D" unique_id=417795303]
 script = ExtResource("1_ylfot")
 
-[node name="Sky" type="WorldEnvironment" parent="."]
+[node name="Sky" type="WorldEnvironment" parent="." unique_id=1997095530]
 environment = SubResource("Environment_hq0yq")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=139726549]
 visible = false
 layers = 9
 mesh = SubResource("PlaneMesh_uh8ht")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1299745619]
 transform = Transform3D(0.578072, 0.407993, -0.706665, -3.85053e-08, 0.866025, 0.5, 0.815986, -0.289036, 0.500624, 0, 2, 0)
 light_energy = 1.5
 shadow_enabled = true
 
-[node name="Orbit" type="Node3D" parent="."]
+[node name="Orbit" type="Node3D" parent="." unique_id=966328266]
 
-[node name="Camera" type="Camera3D" parent="Orbit"]
+[node name="Camera" type="Camera3D" parent="Orbit" unique_id=1530574241]
 transform = Transform3D(1, 0, 0, 0, 0.96363, 0.267238, 0, -0.267238, 0.96363, 0, 2.30899, 6.07577)
 fov = 25.0
 
-[node name="ModelBase" type="Node3D" parent="."]
+[node name="ModelBase" type="Node3D" parent="." unique_id=346019297]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
 
-[node name="Motes" type="GPUParticles3D" parent="."]
+[node name="Motes" type="GPUParticles3D" parent="." unique_id=36577345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 amount = 20
 lifetime = 2.0

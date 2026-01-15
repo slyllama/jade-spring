@@ -72,6 +72,13 @@ func load_model(path: String, preview_scale = 1.0, y_rotation = 0.0) -> void:
 	$ModelBase.rotation_degrees.y = current_y_rotation
 	ResourceLoader.load_threaded_request(path, "", false, ResourceLoader.CACHE_MODE_IGNORE)
 
+func _is_in_subwindow() -> bool:
+	if Window.get_focused_window():
+		if "SUBWINDOW" in Window.get_focused_window():
+			return(true)
+		else: return(false)
+	else: return(false)
+
 func _release_orbit() -> void:
 	_clicked_in_ui = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -101,10 +108,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_update_resource_loader()
-	
 	# Handle orbiting
 	# Only enter orbit mode after dragging the screen a certain amount i.e., not instantly
-	if (!orbiting and _clicked_in_ui and Input.is_action_pressed("left_click")):
+	if (!orbiting and _clicked_in_ui and Input.is_action_pressed("left_click")
+		and !_is_in_subwindow() and get_window().has_focus()):
 		var _mouse_offset = get_window().get_mouse_position() - _last_click_position
 		if abs(_mouse_offset.x) > 5 or abs(_mouse_offset.y) > 5:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

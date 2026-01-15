@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dig43sv6nmdtc"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dig43sv6nmdtc"]
 
 [ext_resource type="Shader" uid="uid://c5fe3611n2l0i" path="res://decorations/asuran_portal/materials/shaders/portal.gdshader" id="1_x7smi"]
 [ext_resource type="Texture2D" uid="uid://1acw6cth2l42" path="res://decorations/asuran_portal/materials/textures/portal_mask.jpg" id="2_wurba"]

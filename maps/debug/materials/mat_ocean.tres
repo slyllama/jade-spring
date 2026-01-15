@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://qkiqh7av8afr"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://qkiqh7av8afr"]
 
 [ext_resource type="Shader" uid="uid://d0lxlmq8gekwj" path="res://maps/seitung/materials/shaders/shader_ocean.tres" id="1_3qk1o"]
 
