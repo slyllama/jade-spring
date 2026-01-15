@@ -5,12 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://dp1j524j5uwre" path="res://generic/textures/stickers/sticker_warning.png" id="2_hip86"]
 
 [node name="DecoDataManager" type="Window" unique_id=2139946424]
+disable_3d = true
 handle_input_locally = false
 oversampling_override = 1.0
 title = "Decoration Data Manager"
 position = Vector2i(0, 36)
 size = Vector2i(400, 400)
-transient = true
+always_on_top = true
+sharp_corners = true
+max_size = Vector2i(800, 800)
+content_scale_mode = 1
 script = ExtResource("1_wua7u")
 
 [node name="Box" type="VBoxContainer" parent="." unique_id=1849554597]

@@ -59,7 +59,7 @@ func update(id: String) -> void:
 	
 	$Box/Blank.visible = false
 	$Box/CBox.visible = true
-	size.y = $Box.size.y + 30.0
+	size.y = $Box.size.y * Global.retina_scale + 30.0
 
 func _ready() -> void:
 	# Set up window
@@ -68,11 +68,16 @@ func _ready() -> void:
 	get_window().focus_entered.connect(func(): Input.mouse_mode = Input.MOUSE_MODE_VISIBLE)
 	
 	if Engine.is_editor_hint(): return
+	if !Global.debug_allowed: queue_free()
 	
 	Global.deco_pane_closed.connect(func(): clear())
 	Global.deco_preview_opened.connect(update)
 	get_window().position = Utilities.get_screen_position() + Vector2i(30, 60)
 	clear()
+	
+	await get_tree().process_frame
+	get_window().size *= Global.retina_scale
+	get_window().content_scale_factor = Global.retina_scale
 
 func _input(_event: InputEvent) -> void:
 	if (Input.is_action_just_pressed("ui_accept")
