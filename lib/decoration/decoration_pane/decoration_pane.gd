@@ -305,8 +305,11 @@ func _on_search_text_changed(new_text: String) -> void:
 		if Global.DecoData[_d].name.findn(new_text) > -1:
 			_decos.append(_d)
 			found += 1
-	if found > 0: render("None", _decos)
-	else: render("Empty")
+	if found > 0:
+		Global.deco_preview_opened.emit(current_id)
+		render("None", _decos)
+	else:
+		render("Empty")
 	
 	if new_text.length() > 0:
 		categories.visible = false

@@ -22,10 +22,10 @@ const DecoData = {
 		"name": "Drizzlewood Scaffold",
 		"scene": "res://decorations/drizzlewood_scaffold/drizzlewood_scaffold.tscn",
 		"cursor_model": "res://decorations/drizzlewood_scaffold/meshes/drizzlewood_scaffold.glb",
-		"preview_scale": 1.7,
-		"preview_v_offset": -0.2,
+		"preview_scale": 1.0,
+		"preview_v_offset": -0.45,
 		"tags": ["Architecture"],
-		"preview_y_rotation": 30,
+		"preview_y_rotation": 20,
 	},
 	"happy_cloud": {
 		"name": "Happy Cloud",
@@ -287,8 +287,8 @@ const DecoData = {
 		"name": "Drizzlewood Platform",
 		"scene": "res://decorations/drizzlewood_platform/drizzlewood_platform.tscn",
 		"cursor_model": "res://decorations/drizzlewood_platform/meshes/drizzlewood_platform.glb",
-		"preview_scale": 0.37,
-		"model_offset": Vector3(0, 0.5, 0),
+		"preview_scale": 0.3,
+		"model_offset": Vector3(0, 0.7, 0),
 		"tags": ["Architecture", "Floor"]
 	},
 	"honeycomb": {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceqye8xeeqf64"]
+[gd_scene format=3 uid="uid://ceqye8xeeqf64"]
 
 [ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_w1jsi"]
 [ext_resource type="PackedScene" uid="uid://c4i8r033odf3t" path="res://decorations/lush_grass/lush_grass_model.tscn" id="2_44mk5"]
@@ -6,18 +6,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_pun5h"]
 size = Vector3(4.9, 0.55, 5)
 
-[node name="LushGrass" type="Node3D" node_paths=PackedStringArray("collision_box")]
+[node name="LushGrass" type="Node3D" unique_id=1636752172 node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_w1jsi")
 id = "lush_grass"
 collision_box = NodePath("Body")
 
-[node name="LushGrassModel" parent="." instance=ExtResource("2_44mk5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+[node name="LushGrassModel" parent="." unique_id=477941739 instance=ExtResource("2_44mk5")]
 
-[node name="Body" type="Area3D" parent="."]
+[node name="Body" type="Area3D" parent="." unique_id=668615379]
 collision_layer = 3
 collision_mask = 3
 
-[node name="Collision" type="CollisionShape3D" parent="Body"]
+[node name="Collision" type="CollisionShape3D" parent="Body" unique_id=1927061821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("BoxShape3D_pun5h")
