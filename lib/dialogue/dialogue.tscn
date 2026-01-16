@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dn13hi3fbsnwg"]
+[gd_scene format=3 uid="uid://dn13hi3fbsnwg"]
 
 [ext_resource type="Script" uid="uid://bvo5055ybhtvc" path="res://lib/dialogue/dialogue.gd" id="1_pyvfo"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_cbex2"]
@@ -78,11 +78,11 @@ _data = {
 &"RESET": SubResource("Animation_uu45f")
 }
 
-[node name="Dialogue" type="CanvasLayer"]
+[node name="Dialogue" type="CanvasLayer" unique_id=1225378909]
 layer = 2
 script = ExtResource("1_pyvfo")
 
-[node name="Underlay" type="TextureRect" parent="."]
+[node name="Underlay" type="TextureRect" parent="." unique_id=243777870]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -92,7 +92,7 @@ texture = ExtResource("2_cbex2")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Base" type="TextureRect" parent="."]
+[node name="Base" type="TextureRect" parent="." unique_id=1396036526]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_xmdcj")
 custom_minimum_size = Vector2(681, 0)
@@ -110,7 +110,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Done" type="Button" parent="Base"]
+[node name="Done" type="Button" parent="Base" unique_id=1624535309]
 visible = false
 use_parent_material = true
 layout_mode = 1
@@ -128,7 +128,7 @@ grow_vertical = 2
 mouse_filter = 1
 text = "Done"
 
-[node name="TemplateButton" type="Button" parent="Base"]
+[node name="TemplateButton" type="Button" parent="Base" unique_id=1811554946]
 visible = false
 layout_mode = 0
 offset_left = 47.0
@@ -140,7 +140,7 @@ theme_override_colors/font_color = Color(0.535332, 0.771653, 0.443614, 1)
 theme_override_colors/font_focus_color = Color(0.50266, 0.82, 0.3772, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.370365, 0.370364, 0.370364, 1)
-theme_override_constants/h_separation = 12
+theme_override_constants/h_separation = 4
 theme_override_constants/icon_max_width = 32
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2irt3")
@@ -159,7 +159,7 @@ icon = ExtResource("6_udltf")
 alignment = 0
 autowrap_mode = 2
 
-[node name="Title" type="RichTextLabel" parent="Base"]
+[node name="Title" type="RichTextLabel" parent="Base" unique_id=1425041409]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
@@ -185,7 +185,7 @@ text = "((Dialogue Title))"
 fit_content = true
 scroll_active = false
 
-[node name="Box" type="VBoxContainer" parent="Base"]
+[node name="Box" type="VBoxContainer" parent="Base" unique_id=846559028]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
@@ -199,17 +199,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Text" type="RichTextLabel" parent="Base/Box"]
+[node name="Text" type="RichTextLabel" parent="Base/Box" unique_id=1720215350]
 use_parent_material = true
 layout_mode = 2
 mouse_filter = 1
+theme_override_constants/line_separation = -2
+theme_override_constants/paragraph_separation = -2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_a8f38")
 text = "((Dialogue text))"
 fit_content = true
 scroll_active = false
 
-[node name="FG" type="ColorRect" parent="Base"]
+[node name="FG" type="ColorRect" parent="Base" unique_id=26722528]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -219,12 +221,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Player" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gyjes")
-}
+[node name="Player" type="AnimationPlayer" parent="." unique_id=1466852044]
+libraries/ = SubResource("AnimationLibrary_gyjes")
 
-[node name="PlayDialogue" type="AudioStreamPlayer" parent="."]
+[node name="PlayDialogue" type="AudioStreamPlayer" parent="." unique_id=147884941]
 stream = ExtResource("7_ccl3t")
 
 [connection signal="button_down" from="Base/Done" to="." method="_on_done_button_down"]
