@@ -1,19 +1,19 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://chlav5hmpdcpp"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://chlav5hmpdcpp"]
 
 [ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="1_x47tj"]
-[ext_resource type="Texture2D" uid="uid://4d1jc4v1nl6w" path="res://decorations/ancient_cherry_blossom/materials/textures/blossom_foliage_mask.png" id="2_m7d23"]
+[ext_resource type="Texture2D" uid="uid://d8gg3c4wkf2x" path="res://decorations/ancient_cherry_blossom/materials/textures/blossom_foliage_mask.png" id="2_m7d23"]
 [ext_resource type="Texture2D" uid="uid://cg1ndaca8jy1y" path="res://maps/seitung/props/foliage_test/materials/textures/autumn_test_norm.jpg" id="3_bcihj"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_x47tj")
-shader_parameter/albedo = Color(0.5, 0.45875, 0.455, 1)
+shader_parameter/albedo = Color(0.55, 0.504625, 0.50049996, 1)
 shader_parameter/texture_albedo = ExtResource("2_m7d23")
 shader_parameter/texture_normal = ExtResource("3_bcihj")
 shader_parameter/distance_fade_min = 20.0
 shader_parameter/distance_fade_max = 19.0
-shader_parameter/alpha_scissor_threshold = 0.750000035625
+shader_parameter/alpha_scissor_threshold = 0.90000004275
 shader_parameter/alpha_antialiasing_edge = 0.0
-shader_parameter/backlight = 0.1
+shader_parameter/backlight = 0.45
 shader_parameter/specularity = 0.1
 shader_parameter/normal_strength = 1.0
