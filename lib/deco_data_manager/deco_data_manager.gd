@@ -68,7 +68,9 @@ func _ready() -> void:
 	get_window().focus_entered.connect(func(): Input.mouse_mode = Input.MOUSE_MODE_VISIBLE)
 	
 	if Engine.is_editor_hint(): return
-	if !Global.debug_allowed: queue_free()
+	if !Global.debug_allowed:
+		queue_free()
+	else: visible = true
 	
 	Global.deco_pane_closed.connect(func(): clear())
 	Global.deco_preview_opened.connect(update)

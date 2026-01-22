@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d33ilqq0c1mwg"]
+[gd_scene format=3 uid="uid://d33ilqq0c1mwg"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_lk5ru"]
 [ext_resource type="Script" uid="uid://bqorxbj2yaqhn" path="res://lib/main_menu/new_game_container.gd" id="2_cge2a"]
 [ext_resource type="Texture2D" uid="uid://dp1j524j5uwre" path="res://generic/textures/stickers/sticker_warning.png" id="3_1hji7"]
 [ext_resource type="Texture2D" uid="uid://b45yqtf7u0sha" path="res://lib/hud/textures/folder_icon.png" id="4_ua847"]
 
-[node name="NewGameContainer" instance=ExtResource("1_lk5ru")]
+[node name="NewGameContainer" unique_id=1120556313 instance=ExtResource("1_lk5ru")]
 custom_minimum_size = Vector2(400, 450)
 script = ExtResource("2_cge2a")
 title = "Start New Game"
@@ -13,14 +13,15 @@ title = "Start New Game"
 [node name="TitleSeparator" parent="Container" index="2"]
 custom_minimum_size = Vector2(0, 20)
 
-[node name="WarningBox" type="HBoxContainer" parent="Container" index="3"]
+[node name="WarningBox" type="HBoxContainer" parent="Container" index="3" unique_id=908469601]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Warning" type="RichTextLabel" parent="Container/WarningBox" index="0"]
+[node name="Warning" type="RichTextLabel" parent="Container/WarningBox" index="0" unique_id=180346616]
 modulate = Color(1, 0.76862746, 0.2784314, 1)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/line_separation = -4
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "[center]Starting a new game will reset any existing save, and overwrite the default design template.[/center]"
@@ -29,23 +30,23 @@ scroll_active = false
 autowrap_mode = 2
 vertical_alignment = 1
 
-[node name="Sticker" type="TextureRect" parent="Container" index="4"]
+[node name="Sticker" type="TextureRect" parent="Container" index="4" unique_id=973167581]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("3_1hji7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TitleSeparator2" type="ColorRect" parent="Container" index="5"]
+[node name="TitleSeparator2" type="ColorRect" parent="Container" index="5" unique_id=89141292]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="NGBox" type="HBoxContainer" parent="Container" index="6"]
+[node name="NGBox" type="HBoxContainer" parent="Container" index="6" unique_id=1266852073]
 layout_mode = 2
 
-[node name="NewGameButton" type="Button" parent="Container/NGBox" index="0"]
+[node name="NewGameButton" type="Button" parent="Container/NGBox" index="0" unique_id=755072979]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -53,7 +54,7 @@ theme_override_font_sizes/font_size = 27
 text = "Start
 "
 
-[node name="Folder" type="Button" parent="Container/NGBox" index="1"]
+[node name="Folder" type="Button" parent="Container/NGBox" index="1" unique_id=1260085120]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 tooltip_text = "Open save data folder."
@@ -62,7 +63,7 @@ icon = ExtResource("4_ua847")
 icon_alignment = 1
 expand_icon = true
 
-[node name="CancelButton" type="Button" parent="Container" index="7"]
+[node name="CancelButton" type="Button" parent="Container" index="7" unique_id=1230456774]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Cancel"

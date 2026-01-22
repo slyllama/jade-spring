@@ -58,7 +58,6 @@ process_mode = 3
 script = ExtResource("1_ryxhn")
 
 [node name="DecoDataManager" parent="." unique_id=2139946424 instance=ExtResource("2_um878")]
-title = "Decoration Data Manager"
 
 [node name="Underlay" type="TextureRect" parent="." unique_id=1038994515]
 anchors_preset = 15

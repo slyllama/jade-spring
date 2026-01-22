@@ -11,6 +11,7 @@ oversampling_override = 1.0
 title = "Decoration Data Manager"
 position = Vector2i(0, 36)
 size = Vector2i(400, 400)
+visible = false
 always_on_top = true
 sharp_corners = true
 max_size = Vector2i(800, 800)
