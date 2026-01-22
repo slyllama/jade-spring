@@ -45,6 +45,7 @@ func render_block(block_data: Dictionary) -> void:
 	if "options" in block_data:
 		for _o in block_data.options:
 			var _b: Button = $Base/TemplateButton.duplicate(true)
+			_b.add_theme_constant_override("line_spacing", -4)
 			var _b_data = data[_o]
 			_b.text = block_data.options[_o]
 			_b.visible = true

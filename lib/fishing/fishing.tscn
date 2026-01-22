@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0ampettqcu60"]
+[gd_scene format=3 uid="uid://b0ampettqcu60"]
 
 [ext_resource type="Script" uid="uid://tqtd3fe16nm2" path="res://lib/fishing/fishing.gd" id="1_6qcg4"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_7cxp0"]
@@ -84,10 +84,10 @@ _data = {
 &"glow": SubResource("Animation_x2yh5")
 }
 
-[node name="Fishing" type="CanvasLayer"]
+[node name="Fishing" type="CanvasLayer" unique_id=1544856011]
 script = ExtResource("1_6qcg4")
 
-[node name="Underlay" type="TextureRect" parent="."]
+[node name="Underlay" type="TextureRect" parent="." unique_id=1983163724]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -97,9 +97,9 @@ texture = ExtResource("2_7cxp0")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=989112565]
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="." unique_id=1687054568]
 material = SubResource("ShaderMaterial_gldn1")
 anchors_preset = 7
 anchor_left = 0.5
@@ -116,7 +116,7 @@ texture = ExtResource("2_386hq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CenterMarker" type="Control" parent="BG"]
+[node name="CenterMarker" type="Control" parent="BG" unique_id=1053557388]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 7
@@ -132,11 +132,11 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="DispulsionFX" parent="BG/CenterMarker" instance=ExtResource("8_mvgxp")]
+[node name="DispulsionFX" parent="BG/CenterMarker" unique_id=1694631466 instance=ExtResource("8_mvgxp")]
 modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(0, 1)
 
-[node name="TutorialPanel" type="Panel" parent="BG/CenterMarker"]
+[node name="TutorialPanel" type="Panel" parent="BG/CenterMarker" unique_id=398710693]
 material = SubResource("ShaderMaterial_ny808")
 layout_mode = 1
 anchors_preset = 8
@@ -152,7 +152,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_j00t0")
 
-[node name="VBox" type="VBoxContainer" parent="BG/CenterMarker/TutorialPanel"]
+[node name="VBox" type="VBoxContainer" parent="BG/CenterMarker/TutorialPanel" unique_id=1327389424]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
@@ -166,7 +166,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 3
 
-[node name="Title" type="RichTextLabel" parent="BG/CenterMarker/TutorialPanel/VBox"]
+[node name="Title" type="RichTextLabel" parent="BG/CenterMarker/TutorialPanel/VBox" unique_id=459392952]
 use_parent_material = true
 layout_mode = 2
 theme_override_constants/outline_size = 5
@@ -176,29 +176,29 @@ text = "Flux Dispulsion"
 fit_content = true
 scroll_active = false
 
-[node name="Separator" type="ColorRect" parent="BG/CenterMarker/TutorialPanel/VBox"]
+[node name="Separator" type="ColorRect" parent="BG/CenterMarker/TutorialPanel/VBox" unique_id=1226977344]
 use_parent_material = true
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 color = Color(0.5, 0.5, 0.5, 1)
 
-[node name="Body" type="RichTextLabel" parent="BG/CenterMarker/TutorialPanel/VBox"]
+[node name="Body" type="RichTextLabel" parent="BG/CenterMarker/TutorialPanel/VBox" unique_id=210205747]
 use_parent_material = true
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxTexture_qbype")
-text = "Alert: dispulsion procedure imminent. Use Left/Right controls to track calibrator until completion. Do not look directly into dispersion vents."
+text = "[ALERT. DISPULSION PROCEDURE IMMINENT.] Use Left/Right controls to track calibrator until completion."
 fit_content = true
 scroll_active = false
 
-[node name="Done" type="Button" parent="BG/CenterMarker/TutorialPanel/VBox"]
+[node name="Done" type="Button" parent="BG/CenterMarker/TutorialPanel/VBox" unique_id=667760983]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 10
 text = "Proceed"
 
-[node name="Progress" type="ProgressBar" parent="BG"]
+[node name="Progress" type="ProgressBar" parent="BG" unique_id=1895914784]
 use_parent_material = true
 custom_minimum_size = Vector2(160, 10)
 layout_mode = 1
@@ -217,7 +217,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_ce8pe")
 theme_override_styles/fill = SubResource("StyleBoxTexture_o5g53")
 show_percentage = false
 
-[node name="TestRect" type="ColorRect" parent="BG"]
+[node name="TestRect" type="ColorRect" parent="BG" unique_id=89914605]
 texture_filter = 4
 layout_mode = 1
 anchors_preset = 7
@@ -233,18 +233,16 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.5765, 0.23, 1, 0.878431)
 
-[node name="Anim" type="AnimationPlayer" parent="BG/TestRect"]
-libraries = {
-&"": SubResource("AnimationLibrary_c6pm8")
-}
-autoplay = "glow"
+[node name="Anim" type="AnimationPlayer" parent="BG/TestRect" unique_id=1871648996]
+libraries/ = SubResource("AnimationLibrary_c6pm8")
+autoplay = &"glow"
 
-[node name="Player" type="Sprite2D" parent="BG"]
+[node name="Player" type="Sprite2D" parent="BG" unique_id=1043838915]
 use_parent_material = true
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_7bdy4")
 
-[node name="Fish" type="Sprite2D" parent="BG"]
+[node name="Fish" type="Sprite2D" parent="BG" unique_id=1424696130]
 z_index = 4
 texture_filter = 4
 use_parent_material = true

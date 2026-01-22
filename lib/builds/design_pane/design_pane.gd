@@ -36,7 +36,6 @@ func update() -> void:
 func open() -> void:
 	Global.design_pane_open = true
 	Global.design_handler.create_design_slot()
-	Global.in_exclusive_ui = true
 	Global.action_cam_disable.emit()
 	
 	$PaperSound.play()
@@ -48,7 +47,6 @@ func open() -> void:
 
 func close() -> void:
 	Global.design_pane_open = false
-	Global.in_exclusive_ui = false
 	Global.action_cam_enable.emit()
 	closed.emit()
 	var _fade_tween = create_tween()

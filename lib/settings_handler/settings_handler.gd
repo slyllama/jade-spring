@@ -23,7 +23,7 @@ const DEFAULT_SETTINGS = {
 	"direction_control": "strafe",
 	"dof": "off",
 	"current_design": "default",
-	"shadows": "medium"
+	"shadows": "low"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

@@ -63,8 +63,6 @@ func place_decoration(data: Dictionary) -> void:
 		# Manual call for passing "Architect" achievement
 		eligible_for_architect = false
 		SteamHandler.store_stats()
-	
-	Global.deco_count += 1
 	_d.start_adjustment()
 
 # Clear all decorations from the world
