@@ -59,7 +59,7 @@ size = Vector3(5, 1, 5)
 
 [sub_resource type="QuadMesh" id="QuadMesh_jb1hs"]
 material = ExtResource("13_dghcx")
-size = Vector2(1.8, 1.8)
+size = Vector2(1.5, 1.5)
 orientation = 0
 
 [node name="Debug" unique_id=648172993 instance=ExtResource("1_whgid")]
@@ -138,11 +138,11 @@ collision_mask = 1024
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_yfd71")
 
-[node name="Portal" parent="." index="18" unique_id=1987799481 instance=ExtResource("13_ruv05")]
+[node name="Portal" parent="." index="18" unique_id=221205781 instance=ExtResource("13_ruv05")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -1.4065075, 0, 2.0532322)
 
-[node name="PortalTest" type="MeshInstance3D" parent="Portal" index="9" unique_id=1430830253]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.05, 0)
+[node name="PortalTest" type="MeshInstance3D" parent="Portal" index="5" unique_id=1430830253]
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0, 1.05, -0.14056289)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_jb1hs")
 skeleton = NodePath("../..")

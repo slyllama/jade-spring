@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvxuck77xsya4"]
+[gd_scene format=3 uid="uid://bvxuck77xsya4"]
 
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="1_2qacw"]
 [ext_resource type="Script" uid="uid://bm7bxg08h2ft7" path="res://lib/builds/build_vault.gd" id="1_fe80w"]
@@ -141,7 +141,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_f1fxn"]
-length = 3.0
+length = 4.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -163,28 +163,28 @@ _data = {
 &"unlouden": SubResource("Animation_f1fxn")
 }
 
-[node name="BuildVault" type="Node3D"]
+[node name="BuildVault" type="Node3D" unique_id=1377972612]
 script = ExtResource("1_fe80w")
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1386415683]
 
-[node name="Collision" type="CollisionShape3D" parent="Floor"]
+[node name="Collision" type="CollisionShape3D" parent="Floor" unique_id=196144102]
 shape = SubResource("BoxShape3D_vp8qr")
 debug_fill = false
 
-[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor" unique_id=1508706780]
 visible = false
 mesh = SubResource("QuadMesh_3yia4")
 
-[node name="BuildVaultMesh" parent="." instance=ExtResource("3_o5fmh")]
+[node name="BuildVaultMesh" parent="." unique_id=1457461561 instance=ExtResource("3_o5fmh")]
 
-[node name="LanternLight" type="OmniLight3D" parent="."]
+[node name="LanternLight" type="OmniLight3D" parent="." unique_id=1954113105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, -2.8)
 light_color = Color(0.830821, 0.869428, 1, 1)
 shadow_enabled = true
 omni_attenuation = 0.0
 
-[node name="Motes" type="GPUParticles3D" parent="."]
+[node name="Motes" type="GPUParticles3D" parent="." unique_id=1677938768]
 transform = Transform3D(1, 0, -4.83169e-13, 0, 1, 0, 4.83169e-13, 0, 1, 0, 2, 0)
 amount = 240
 lifetime = 2.0
@@ -194,20 +194,20 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_fe80w")
 draw_pass_1 = SubResource("PlaneMesh_glq45")
 
-[node name="BuildsGadget" parent="." instance=ExtResource("4_pomj1")]
+[node name="BuildsGadget" parent="." unique_id=167294465 instance=ExtResource("4_pomj1")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, -3)
 show_area = true
 tint_color = Color(0.761443, 0.515204, 1, 1)
 
-[node name="Compendium" parent="BuildsGadget" instance=ExtResource("13_tk1j0")]
+[node name="Compendium" parent="BuildsGadget" unique_id=191577005 instance=ExtResource("13_tk1j0")]
 transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 1, 0)
 
-[node name="Title" parent="BuildsGadget" instance=ExtResource("5_yv67k")]
+[node name="Title" parent="BuildsGadget" unique_id=196557739 instance=ExtResource("5_yv67k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 visible = false
 spatial_string = "Manage Designs"
 
-[node name="VaultMote" type="GPUParticles3D" parent="BuildsGadget"]
+[node name="VaultMote" type="GPUParticles3D" parent="BuildsGadget" unique_id=30936852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
 amount = 9
 lifetime = 3.0
@@ -216,7 +216,7 @@ randomness = 0.1
 process_material = SubResource("ParticleProcessMaterial_pu2ot")
 draw_pass_1 = SubResource("PlaneMesh_ax3h4")
 
-[node name="Sparkle" type="AudioStreamPlayer3D" parent="BuildsGadget"]
+[node name="Sparkle" type="AudioStreamPlayer3D" parent="BuildsGadget" unique_id=1788372514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, 0)
 stream = ExtResource("8_glq45")
 max_db = -4.0
@@ -225,20 +225,18 @@ autoplay = true
 max_distance = 2.4
 attenuation_filter_cutoff_hz = 10000.0
 
-[node name="BannerAlterationGadget" parent="." instance=ExtResource("7_pomj1")]
+[node name="BannerAlterationGadget" parent="." unique_id=502746020 instance=ExtResource("7_pomj1")]
 transform = Transform3D(1.059, 0, -0.564383, 0, 1.2, 0, 0.564383, 0, 1.059, 2, -0.141158, -2.8)
 radius = 0.6
 show_area = true
 tint_color = Color(0.760784, 0.513726, 1, 1)
 
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1372982715]
 stream = ExtResource("10_cjlli")
 volume_db = -80.0
 
-[node name="Volume" type="AnimationPlayer" parent="Ambience"]
-libraries = {
-&"": SubResource("AnimationLibrary_f1fxn")
-}
+[node name="Volume" type="AnimationPlayer" parent="Ambience" unique_id=405916582]
+libraries/ = SubResource("AnimationLibrary_f1fxn")
 
 [connection signal="interacted" from="BuildsGadget" to="." method="_on_builds_gadget_interacted"]
 [connection signal="animation_finished" from="Ambience/Volume" to="." method="_on_volume_animation_finished"]

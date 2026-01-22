@@ -544,4 +544,13 @@ const DecoData = {
 		"tags": ["Cantha", "Ornament"],
 		"a_cull": true
 	},
+	"asuran_portal": {
+		"name": "Asuran Portal",
+		"scene": "res://decorations/asuran_portal/portal.tscn",
+		"cursor_model": "res://decorations/asuran_portal/portal_mesh.tscn",
+		"preview_scale": 0.8,
+		"model_offset": Vector3(0, -0.1, 0),
+		"preview_y_rotation": 20,
+		"tags": ["Asura", "Architecture"],
+	},
 }

@@ -45,7 +45,7 @@ func set_outline(state = true) -> void:
 		for _i in 2: await get_tree().process_frame # give the cursor a chance to be re-added
 		if Global.cursor_active and Global.highlighted_decoration == self:
 			outline_mat.set_shader_parameter("outline_color", Color.GREEN_YELLOW)
-			outline_mat.set_shader_parameter("outline_width", 0.35)
+			outline_mat.set_shader_parameter("outline_width", 0.45)
 	else:
 		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
 		outline_mat.set_shader_parameter("outline_width", 0)
@@ -254,6 +254,8 @@ func _ready() -> void:
 				if "shader_parameter/alpha_scissor_threshold" in _mat:
 					_valid = false
 				if "shader_parameter/alpha" in _mat:
+					_valid = false
+				if "is_portal" in _mat:
 					_valid = false
 			if _mat is StandardMaterial3D:
 				if _mat.transparency != StandardMaterial3D.TRANSPARENCY_DISABLED:

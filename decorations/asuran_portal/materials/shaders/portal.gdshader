@@ -1,6 +1,8 @@
 shader_type spatial;
 render_mode cull_disabled, unshaded, shadows_disabled, fog_disabled, ambient_light_disabled;
 
+uniform bool is_portal = true;
+
 uniform sampler2D SCREEN_TEXTURE: filter_linear_mipmap, hint_screen_texture;
 uniform sampler2D mask: filter_linear_mipmap, repeat_disable;
 uniform sampler2D wobble_texture: filter_linear_mipmap, repeat_enable;

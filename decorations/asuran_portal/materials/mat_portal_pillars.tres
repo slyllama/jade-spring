@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4mttbrimfsed"]
+
+[ext_resource type="Texture2D" uid="uid://c8xdwyf40k82c" path="res://decorations/asuran_portal/materials/textures/portal_diff.jpg" id="1_u70kl"]
+[ext_resource type="Texture2D" uid="uid://o15ai4qptdn4" path="res://decorations/asuran_portal/materials/textures/portal_norm.jpg" id="2_2gqjb"]
+[ext_resource type="Texture2D" uid="uid://cdj27bemlyw1s" path="res://decorations/asuran_portal/materials/textures/portal_rough.jpg" id="3_3ch3b"]
+
+[resource]
+albedo_texture = ExtResource("1_u70kl")
+metallic_specular = 0.25
+roughness = 0.35
+roughness_texture = ExtResource("3_3ch3b")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_2gqjb")
