@@ -11,6 +11,7 @@ func _ready() -> void:
 		# Handle music
 		$Ambience.play()
 		Global.target_music_ratio = 0.0
+		$Ambience.play()
 		$Ambience/Volume.play("louden"))
 	
 	Global.vault_left.connect(func():
@@ -34,4 +35,4 @@ func _on_builds_gadget_interacted() -> void:
 
 func _on_volume_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "unlouden":
-		$Ambience/Volume.stop()
+		$Ambience.stop()

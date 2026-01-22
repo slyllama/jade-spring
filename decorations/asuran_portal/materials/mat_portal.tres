@@ -16,6 +16,7 @@ seamless = true
 [resource]
 render_priority = 0
 shader = ExtResource("1_x7smi")
+shader_parameter/is_portal = true
 shader_parameter/mask = ExtResource("2_wurba")
 shader_parameter/wobble_texture = SubResource("NoiseTexture2D_hvapd")
 shader_parameter/tint = Color(0.9266666, 0.6, 1, 1)
