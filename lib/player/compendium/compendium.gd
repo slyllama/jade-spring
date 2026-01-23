@@ -19,7 +19,6 @@ func _set_dissolve_value(value: float) -> void:
 		open()
 
 func _ready() -> void:
-	$Rune.top_level = true
 	if Engine.is_editor_hint(): return
 	
 	Global.adjustment_started.connect(open)
@@ -47,7 +46,7 @@ func open() -> void:
 	if !visible:
 		visible = true
 	
-	$Stars.emitting = true
+	%Stars.emitting = true
 	var dissolve_tween = create_tween()
 	dissolve_tween.tween_method(_set_dissolve_value, 1.0, 0.0, 0.8)
 	
@@ -60,22 +59,13 @@ func close() -> void:
 	_target_rune_scale = 0.0
 	is_open = false
 	
-	$Stars.emitting = false
+	%Stars.emitting = false
 	anim.set_blend_time("float", "open", 0.2)
 	anim.play_backwards("float")
 	
 	var dissolve_tween = create_tween()
 	dissolve_tween.tween_method(_set_dissolve_value, 0.0, 1.0, 0.8)
 
-func _process(delta: float) -> void:
-	if Engine.is_editor_hint(): return
-	$Rune.scale = lerp(
-		$Rune.scale,
-		Vector3(_target_rune_scale, _target_rune_scale, _target_rune_scale),
-		Utilities.critical_lerp(delta, 10.0))
-	
-	$Rune.global_rotation.x = 0.0
-	$Rune.global_rotation.z = 0.0
-	$Rune.global_rotation.y += delta * 1.0
-	$Rune.global_position = lerp(
-		$Rune.global_position, $Compendium/OffsetAnchor.global_position, Utilities.critical_lerp(delta, 25.0))
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("toggle_deco_vfx"):
+		$Compendium.visible = !$Compendium.visible

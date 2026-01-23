@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://fx684833x53q"]
+[gd_scene format=3 uid="uid://fx684833x53q"]
 
 [ext_resource type="Script" uid="uid://d21sl7lju40qq" path="res://lib/hud/state_indicator/state_indicator.gd" id="1_wu1av"]
 [ext_resource type="Texture2D" uid="uid://bkpeyg76a0wqf" path="res://lib/hud/state_indicator/textures/hud_ornament_new.png" id="2_qdtt7"]
@@ -42,11 +42,11 @@ _data = {
 &"pulse": SubResource("Animation_i0gw8")
 }
 
-[node name="StateIndicator" type="CanvasLayer"]
+[node name="StateIndicator" type="CanvasLayer" unique_id=1966995859]
 script = ExtResource("1_wu1av")
 tint_color = Color(1, 0.302167, 0.21, 1)
 
-[node name="Base" type="Control" parent="."]
+[node name="Base" type="Control" parent="." unique_id=2095841962]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,13 +55,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Anim" type="AnimationPlayer" parent="Base"]
-libraries = {
-&"": SubResource("AnimationLibrary_syp8u")
-}
-autoplay = "pulse"
+[node name="Anim" type="AnimationPlayer" parent="Base" unique_id=1337174284]
+libraries/ = SubResource("AnimationLibrary_syp8u")
+autoplay = &"pulse"
 
-[node name="Corner" type="TextureRect" parent="Base"]
+[node name="Corner" type="TextureRect" parent="Base" unique_id=1966256281]
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
 anchors_preset = 1
@@ -74,7 +72,7 @@ mouse_filter = 2
 texture = ExtResource("2_qdtt7")
 expand_mode = 1
 
-[node name="Corner2" type="TextureRect" parent="Base"]
+[node name="Corner2" type="TextureRect" parent="Base" unique_id=1408274093]
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
 anchors_preset = 3
@@ -91,7 +89,7 @@ texture = ExtResource("2_qdtt7")
 expand_mode = 1
 flip_v = true
 
-[node name="Corner3" type="TextureRect" parent="Base"]
+[node name="Corner3" type="TextureRect" parent="Base" unique_id=120991420]
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
 anchors_preset = 2
@@ -106,7 +104,7 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="Corner4" type="TextureRect" parent="Base"]
+[node name="Corner4" type="TextureRect" parent="Base" unique_id=520818823]
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
 offset_right = 736.0

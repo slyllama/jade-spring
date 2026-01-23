@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5u3318qly2re"]
+[gd_scene format=3 uid="uid://c5u3318qly2re"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_tkh2g"]
 [ext_resource type="Script" uid="uid://bq30l7nl663mk" path="res://lib/bindings/bindings_pane.gd" id="2_kesgs"]
@@ -10,23 +10,23 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
 border_blend = true
 
-[node name="BindingsPane" instance=ExtResource("1_tkh2g")]
+[node name="BindingsPane" unique_id=294915695 instance=ExtResource("1_tkh2g")]
 script = ExtResource("2_kesgs")
 title = "Input Bindings"
 moveable = false
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Container" index="3"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Container" index="3" unique_id=995723985]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_rp8fw")
 
-[node name="Contents" type="VBoxContainer" parent="Container/ScrollContainer" index="0"]
+[node name="Contents" type="VBoxContainer" parent="Container/ScrollContainer" index="0" unique_id=1528875279]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 1
 
-[node name="Subtitle" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="0"]
+[node name="Subtitle" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="0" unique_id=1598766695]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -41,48 +41,48 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator" type="ColorRect" parent="Container/ScrollContainer/Contents" index="1"]
+[node name="TitleSeparator" type="ColorRect" parent="Container/ScrollContainer/Contents" index="1" unique_id=782680748]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="MoveForward" parent="Container/ScrollContainer/Contents" index="2" instance=ExtResource("4_voemp")]
+[node name="MoveForward" parent="Container/ScrollContainer/Contents" index="2" unique_id=1202719185 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Move Forward"
 action = "move_forward"
 
-[node name="MoveBack" parent="Container/ScrollContainer/Contents" index="3" instance=ExtResource("4_voemp")]
+[node name="MoveBack" parent="Container/ScrollContainer/Contents" index="3" unique_id=1691729848 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Move Back"
 action = "move_back"
 
-[node name="StrafeLeft" parent="Container/ScrollContainer/Contents" index="4" instance=ExtResource("4_voemp")]
+[node name="StrafeLeft" parent="Container/ScrollContainer/Contents" index="4" unique_id=405332859 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Left"
 action = "move_left"
 
-[node name="StrafeRight" parent="Container/ScrollContainer/Contents" index="5" instance=ExtResource("4_voemp")]
+[node name="StrafeRight" parent="Container/ScrollContainer/Contents" index="5" unique_id=812252539 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Right"
 action = "move_right"
 
-[node name="Sprint" parent="Container/ScrollContainer/Contents" index="6" instance=ExtResource("4_voemp")]
+[node name="Sprint" parent="Container/ScrollContainer/Contents" index="6" unique_id=959803649 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Sprint"
 action = "sprint"
 
-[node name="Ascend" parent="Container/ScrollContainer/Contents" index="7" instance=ExtResource("4_voemp")]
+[node name="Ascend" parent="Container/ScrollContainer/Contents" index="7" unique_id=200922253 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Ascend/Jump"
 action = "move_up"
 
-[node name="Descent" parent="Container/ScrollContainer/Contents" index="8" instance=ExtResource("4_voemp")]
+[node name="Descent" parent="Container/ScrollContainer/Contents" index="8" unique_id=329891988 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Descend"
 action = "move_down"
 
-[node name="Subtitle2" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="9"]
+[node name="Subtitle2" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="9" unique_id=701556809]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -97,28 +97,33 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator2" type="ColorRect" parent="Container/ScrollContainer/Contents" index="10"]
+[node name="TitleSeparator2" type="ColorRect" parent="Container/ScrollContainer/Contents" index="10" unique_id=1131726121]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Interact" parent="Container/ScrollContainer/Contents" index="11" instance=ExtResource("4_voemp")]
+[node name="Interact" parent="Container/ScrollContainer/Contents" index="11" unique_id=77327732 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Interact"
 action = "interact"
 
-[node name="ToggleAction" parent="Container/ScrollContainer/Contents" index="12" instance=ExtResource("4_voemp")]
+[node name="ToggleAction" parent="Container/ScrollContainer/Contents" index="12" unique_id=555601152 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Toggle Action Camera"
 action = "action_camera"
 
-[node name="ToggleHUD" parent="Container/ScrollContainer/Contents" index="13" instance=ExtResource("4_voemp")]
+[node name="ToggleHUD" parent="Container/ScrollContainer/Contents" index="13" unique_id=72166358 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Show/Hide HUD"
 action = "toggle_hud"
 
-[node name="Subtitle3" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="14"]
+[node name="ToggleDecoVFX" parent="Container/ScrollContainer/Contents" index="14" unique_id=1952767916 instance=ExtResource("4_voemp")]
+layout_mode = 2
+input_name = "Toggle Decorating Effects"
+action = "toggle_deco_vfx"
+
+[node name="Subtitle3" type="RichTextLabel" parent="Container/ScrollContainer/Contents" index="15" unique_id=29088938]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -134,54 +139,54 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator3" type="ColorRect" parent="Container/ScrollContainer/Contents" index="15"]
+[node name="TitleSeparator3" type="ColorRect" parent="Container/ScrollContainer/Contents" index="16" unique_id=1877122754]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Skill1" parent="Container/ScrollContainer/Contents" index="16" instance=ExtResource("4_voemp")]
+[node name="Skill1" parent="Container/ScrollContainer/Contents" index="17" unique_id=1224480938 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Skill 1"
 action = "skill_1"
 
-[node name="Skill2" parent="Container/ScrollContainer/Contents" index="17" instance=ExtResource("4_voemp")]
+[node name="Skill2" parent="Container/ScrollContainer/Contents" index="18" unique_id=401027319 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Skill 2"
 action = "skill_2"
 
-[node name="Skill3" parent="Container/ScrollContainer/Contents" index="18" instance=ExtResource("4_voemp")]
+[node name="Skill3" parent="Container/ScrollContainer/Contents" index="19" unique_id=509952990 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Skill 3"
 action = "skill_3"
 
-[node name="Skill4" parent="Container/ScrollContainer/Contents" index="19" instance=ExtResource("4_voemp")]
+[node name="Skill4" parent="Container/ScrollContainer/Contents" index="20" unique_id=1633505460 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Skill 4"
 action = "skill_4"
 
-[node name="Skill5" parent="Container/ScrollContainer/Contents" index="20" instance=ExtResource("4_voemp")]
+[node name="Skill5" parent="Container/ScrollContainer/Contents" index="21" unique_id=1932896100 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Skill 5"
 action = "skill_5"
 
-[node name="Skill6" parent="Container/ScrollContainer/Contents" index="21" instance=ExtResource("4_voemp")]
+[node name="Skill6" parent="Container/ScrollContainer/Contents" index="22" unique_id=474381367 instance=ExtResource("4_voemp")]
 layout_mode = 2
 input_name = "Skill 6"
 action = "skill_6"
 
-[node name="TitleSeparator2" type="ColorRect" parent="Container" index="4"]
+[node name="TitleSeparator2" type="ColorRect" parent="Container" index="4" unique_id=1953306430]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="ResetInputs" type="Button" parent="Container" index="5"]
+[node name="ResetInputs" type="Button" parent="Container" index="5" unique_id=446253947]
 modulate = Color(1, 0.54902, 0.509804, 1)
 layout_mode = 2
 text = "Reset Inputs"
 
-[node name="Done" type="Button" parent="Container" index="6"]
+[node name="Done" type="Button" parent="Container" index="6" unique_id=1665404365]
 layout_mode = 2
 text = "Done"
 

@@ -24,6 +24,6 @@ autowrap_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-text = "((Button))"
+text = "(Unbound)"
 
 [connection signal="button_down" from="Key" to="." method="_on_key_button_down"]

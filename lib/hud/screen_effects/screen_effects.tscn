@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6kvxy3mhfso3"]
+[gd_scene format=3 uid="uid://c6kvxy3mhfso3"]
 
 [ext_resource type="Texture2D" uid="uid://be87557001j28" path="res://lib/hud/screen_effects/textures/bug_overlay.png" id="1_5cg80"]
 [ext_resource type="Shader" uid="uid://caswrklnmafxo" path="res://lib/hud/screen_effects/shaders/shader_screen_fx.gdshader" id="1_diqkw"]
@@ -58,10 +58,10 @@ shader = ExtResource("1_diqkw")
 shader_parameter/swirl_texture = ExtResource("13_60mn6")
 shader_parameter/alpha_exponent = 0.0
 
-[node name="ScreenEffects" type="CanvasLayer"]
+[node name="ScreenEffects" type="CanvasLayer" unique_id=1295113596]
 script = ExtResource("1_momb4")
 
-[node name="Underlay" type="TextureRect" parent="."]
+[node name="Underlay" type="TextureRect" parent="." unique_id=1453490482]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,7 +72,7 @@ texture = ExtResource("2_hbd12")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="ScreenShader" type="ColorRect" parent="."]
+[node name="ScreenShader" type="ColorRect" parent="." unique_id=991252877]
 material = SubResource("ShaderMaterial_llcq0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Debug" type="TextureRect" parent="."]
+[node name="Debug" type="TextureRect" parent="." unique_id=1163854877]
 material = SubResource("ShaderMaterial_7nql0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +92,7 @@ mouse_filter = 2
 texture = ExtResource("5_rn3j2")
 expand_mode = 1
 
-[node name="Bugs" type="Control" parent="."]
+[node name="Bugs" type="Control" parent="." unique_id=2026168367]
 material = SubResource("ShaderMaterial_kp0xq")
 layout_mode = 3
 anchors_preset = 15
@@ -102,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="NW" type="TextureRect" parent="Bugs"]
+[node name="NW" type="TextureRect" parent="Bugs" unique_id=580340778]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -112,7 +112,7 @@ mouse_filter = 2
 texture = ExtResource("1_5cg80")
 expand_mode = 1
 
-[node name="NE" type="TextureRect" parent="Bugs"]
+[node name="NE" type="TextureRect" parent="Bugs" unique_id=523388099]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -127,7 +127,7 @@ texture = ExtResource("1_5cg80")
 expand_mode = 1
 flip_h = true
 
-[node name="SE" type="TextureRect" parent="Bugs"]
+[node name="SE" type="TextureRect" parent="Bugs" unique_id=1535195808]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -146,7 +146,7 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="SW" type="TextureRect" parent="Bugs"]
+[node name="SW" type="TextureRect" parent="Bugs" unique_id=1440842127]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -161,7 +161,7 @@ texture = ExtResource("1_5cg80")
 expand_mode = 1
 flip_v = true
 
-[node name="Dragonvoid" type="Control" parent="."]
+[node name="Dragonvoid" type="Control" parent="." unique_id=1399834848]
 visible = false
 material = SubResource("ShaderMaterial_kp0xq")
 layout_mode = 3
@@ -172,7 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="NW" type="TextureRect" parent="Dragonvoid"]
+[node name="NW" type="TextureRect" parent="Dragonvoid" unique_id=79172411]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -183,7 +183,7 @@ texture = ExtResource("14_oc4ic")
 expand_mode = 1
 flip_h = true
 
-[node name="NE" type="TextureRect" parent="Dragonvoid"]
+[node name="NE" type="TextureRect" parent="Dragonvoid" unique_id=1253069087]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -197,7 +197,7 @@ mouse_filter = 2
 texture = ExtResource("14_oc4ic")
 expand_mode = 1
 
-[node name="SE" type="TextureRect" parent="Dragonvoid"]
+[node name="SE" type="TextureRect" parent="Dragonvoid" unique_id=640278056]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -215,7 +215,7 @@ texture = ExtResource("14_oc4ic")
 expand_mode = 1
 flip_v = true
 
-[node name="SW" type="TextureRect" parent="Dragonvoid"]
+[node name="SW" type="TextureRect" parent="Dragonvoid" unique_id=1626690950]
 use_parent_material = true
 custom_minimum_size = Vector2(480, 270)
 layout_mode = 1
@@ -231,7 +231,7 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="Anime" type="TextureRect" parent="."]
+[node name="Anime" type="TextureRect" parent="." unique_id=1402499865]
 material = SubResource("ShaderMaterial_hynki")
 anchors_preset = 15
 anchor_right = 1.0
@@ -242,7 +242,7 @@ mouse_filter = 2
 texture = ExtResource("7_uiyq1")
 expand_mode = 1
 
-[node name="Flowers" type="TextureRect" parent="."]
+[node name="Flowers" type="TextureRect" parent="." unique_id=730416466]
 material = SubResource("ShaderMaterial_bse0l")
 anchors_preset = 15
 anchor_right = 1.0
@@ -251,7 +251,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Flower" type="TextureRect" parent="Flowers"]
+[node name="Flower" type="TextureRect" parent="Flowers" unique_id=1692277610]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 1
@@ -264,7 +264,7 @@ mouse_filter = 2
 texture = ExtResource("12_kp4ce")
 expand_mode = 1
 
-[node name="Flower2" type="TextureRect" parent="Flowers"]
+[node name="Flower2" type="TextureRect" parent="Flowers" unique_id=1082164116]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 3
@@ -282,7 +282,7 @@ mouse_filter = 2
 texture = ExtResource("12_kp4ce")
 expand_mode = 1
 
-[node name="Flower3" type="TextureRect" parent="Flowers"]
+[node name="Flower3" type="TextureRect" parent="Flowers" unique_id=897740260]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 2
@@ -297,7 +297,7 @@ mouse_filter = 2
 texture = ExtResource("12_kp4ce")
 expand_mode = 1
 
-[node name="Flower4" type="TextureRect" parent="Flowers"]
+[node name="Flower4" type="TextureRect" parent="Flowers" unique_id=696751414]
 use_parent_material = true
 layout_mode = 1
 offset_top = 347.0
