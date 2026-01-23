@@ -3,19 +3,21 @@ class_name OrbitHandler extends Node
 # OrbitHandler
 # Handles getting mouse drag events for orbiting
 
-var orbiting = false
-var target_rotation = Vector3.ZERO
-var smooth_rotation = Vector3.ZERO
-var smooth_modifier = 1.0 # orbit smoothing will be multiplied by this value - used for commands
+var orbiting := false
+var target_rotation := Vector3.ZERO
+var smooth_rotation := Vector3.ZERO
+var smooth_modifier := 1.0 # orbit smoothing will be multiplied by this value - used for commands
+var y_axis_modifier := 1.0 # Y-axis will be multiplied by this value - used for inversion in settings
 
-var action_cam_is_default = true
-var action_cam_active = false
-var action_cam_paused = false
+var action_cam_is_default := true
+var action_cam_active := false
+var action_cam_paused := false
 
-var _controller_validated = false
-var _mouse_delta = Vector2.ZERO # event.relative
-var _last_mouse_delta = _mouse_delta
-var _last_click_position = Vector2.ZERO
+var _controller_validated := false
+var _mouse_delta := Vector2.ZERO # event.relative
+var _last_mouse_delta := _mouse_delta
+var _last_click_position := Vector2.ZERO
+
 # If a click and drag is initiated in the map, the drag will not influence camera
 # orbiting until release
 var _clicked_in_ui = false
@@ -37,6 +39,13 @@ func _ready() -> void:
 	
 	Global.action_cam_enable.connect(_enable_action_cam)
 	Global.action_cam_disable.connect(_disable_action_cam)
+	
+	SettingsHandler.setting_changed.connect(func(_param):
+		# Toggle Y-axis inversion in settings
+		if _param == "invert_camera_y_axis":
+			var _value = SettingsHandler.settings.invert_camera_y_axis
+			if _value == "on": y_axis_modifier = -1.0
+			else: y_axis_modifier = 1.0)
 	
 	Global.command_sent.connect(func(_cmd):
 		if "/orbitsmooth=" in _cmd:
@@ -147,11 +156,11 @@ func _process(delta: float) -> void:
 	if _controller_validated:
 		target_rotation.y -= Input.get_action_raw_strength("axis_camera_yaw_right") * Global.orbit_sensitivity_multiplier * 10.0
 		target_rotation.y += Input.get_action_raw_strength("axis_camera_yaw_left") * Global.orbit_sensitivity_multiplier * 10.0
-		target_rotation.x -= Input.get_action_raw_strength("axis_camera_pitch_down") * Global.orbit_sensitivity_multiplier * 4.0
-		target_rotation.x += Input.get_action_raw_strength("axis_camera_pitch_up") * Global.orbit_sensitivity_multiplier * 4.0
+		target_rotation.x -= Input.get_action_raw_strength("axis_camera_pitch_down") * Global.orbit_sensitivity_multiplier * 4.0 * y_axis_modifier
+		target_rotation.x += Input.get_action_raw_strength("axis_camera_pitch_up") * Global.orbit_sensitivity_multiplier * 4.0 * y_axis_modifier
 	
 	if orbiting:
-		target_rotation.x -= _mouse_delta.y * Global.orbit_sensitivity_multiplier
+		target_rotation.x -= _mouse_delta.y * Global.orbit_sensitivity_multiplier * y_axis_modifier
 		target_rotation.y -= _mouse_delta.x * Global.orbit_sensitivity_multiplier
 	
 	if get_parent().clamp_x: target_rotation.x = clamp(

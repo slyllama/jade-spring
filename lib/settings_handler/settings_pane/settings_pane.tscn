@@ -319,13 +319,20 @@ layout_mode = 2
 title = "Orbit sensitivity"
 id = "orbit_sensitivity"
 
-[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="28" unique_id=1621096173]
+[node name="InvertCameraYAxis" parent="Container/SC/Contents" index="28" unique_id=989150416 instance=ExtResource("3_b7vwo")]
+layout_mode = 2
+title = "Invert camera Y-axis"
+id = "invert_camera_y_axis"
+options = Array[String](["on", "off"])
+default_option = "off"
+
+[node name="TitleSeparator5" type="ColorRect" parent="Container/SC/Contents" index="29" unique_id=1621096173]
 custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="29" unique_id=527616516]
+[node name="Subtitle3" type="RichTextLabel" parent="Container/SC/Contents" index="30" unique_id=527616516]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -341,18 +348,18 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="30" unique_id=496076367]
+[node name="TitleSeparator6" type="ColorRect" parent="Container/SC/Contents" index="31" unique_id=496076367]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Volume" parent="Container/SC/Contents" index="31" unique_id=795637953 instance=ExtResource("4_q7g3p")]
+[node name="Volume" parent="Container/SC/Contents" index="32" unique_id=795637953 instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Volume"
 id = "volume"
 
-[node name="MusicVol" parent="Container/SC/Contents" index="32" unique_id=215731661 instance=ExtResource("4_q7g3p")]
+[node name="MusicVol" parent="Container/SC/Contents" index="33" unique_id=215731661 instance=ExtResource("4_q7g3p")]
 layout_mode = 2
 title = "Music volume"
 id = "music_vol"
