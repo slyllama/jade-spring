@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c8tdedpvfcxgj"]
+
+[ext_resource type="Texture2D" uid="uid://b0mdc72lwfjl2" path="res://maps/seitung/materials/textures/weathered_wood_diff.jpg" id="1_dasqa"]
+[ext_resource type="Texture2D" uid="uid://b0k6k5mw0pvd2" path="res://maps/seitung/materials/textures/weathered_wood_norm.jpg" id="2_y0b7c"]
+
+[resource]
+albedo_texture = ExtResource("1_dasqa")
+normal_enabled = true
+normal_texture = ExtResource("2_y0b7c")
+uv1_scale = Vector3(8, 8, 8)

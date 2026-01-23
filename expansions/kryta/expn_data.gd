@@ -42,5 +42,12 @@ const data = {
 		"preview_y_rotation": -90,
 		"tags": ["Architecture", "Kryta", "Furniture"],
 		"a_cull": true
+	},
+	"jeb_windmill": {
+		"name": "Jeb's Windmill",
+		"preview_scale": 0.3,
+		"preview_v_offset": 0.6,
+		"preview_y_rotation": 20.0,
+		"tags": ["Architecture", "Kryta"]
 	}
 }
