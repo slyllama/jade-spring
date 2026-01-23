@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b5rqfmavxpqcy"]
+[gd_scene format=3 uid="uid://b5rqfmavxpqcy"]
 
 [ext_resource type="Script" uid="uid://cc2u7k76ui72p" path="res://lib/attenuator/attenuator.gd" id="1_3up0s"]
 [ext_resource type="Texture2D" uid="uid://blrm1hl1lltu4" path="res://lib/attenuator/textures/base.png" id="2_3yp7v"]
@@ -75,12 +75,12 @@ void fragment() {
 shader = SubResource("Shader_c74ux")
 shader_parameter/alpha = 1.0
 
-[node name="Attenuator" type="CanvasLayer"]
+[node name="Attenuator" type="CanvasLayer" unique_id=2060081614]
 layer = 4
 script = ExtResource("1_3up0s")
 supress_hint = null
 
-[node name="Underlay" type="TextureRect" parent="."]
+[node name="Underlay" type="TextureRect" parent="." unique_id=38882817]
 visible = false
 modulate = Color(0.25, 0.25, 0.25, 1)
 anchors_preset = 15
@@ -93,9 +93,9 @@ texture = ExtResource("2_qd7v5")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="DispulsionFX" parent="." instance=ExtResource("3_dgqi3")]
+[node name="DispulsionFX" parent="." unique_id=844093064 instance=ExtResource("3_dgqi3")]
 
-[node name="Base" type="TextureRect" parent="."]
+[node name="Base" type="TextureRect" parent="." unique_id=1231222674]
 material = SubResource("ShaderMaterial_cwvft")
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,7 +113,7 @@ texture = ExtResource("2_3yp7v")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="EEUpper" type="TextureRect" parent="Base"]
+[node name="EEUpper" type="TextureRect" parent="Base" unique_id=1813656804]
 z_index = -1
 material = SubResource("ShaderMaterial_eisi1")
 layout_mode = 1
@@ -133,7 +133,7 @@ mouse_filter = 2
 texture = ExtResource("12_a26c3")
 expand_mode = 1
 
-[node name="EELower" type="TextureRect" parent="Base"]
+[node name="EELower" type="TextureRect" parent="Base" unique_id=2125725159]
 z_index = -1
 material = SubResource("ShaderMaterial_eisi1")
 layout_mode = 1
@@ -154,7 +154,7 @@ texture = ExtResource("12_a26c3")
 expand_mode = 1
 flip_h = true
 
-[node name="Debug" type="RichTextLabel" parent="Base"]
+[node name="Debug" type="RichTextLabel" parent="Base" unique_id=884618944]
 visible = false
 clip_contents = false
 layout_mode = 1
@@ -178,7 +178,7 @@ bbcode_enabled = true
 text = "((Debug))"
 autowrap_mode = 1
 
-[node name="Close" type="TextureButton" parent="Base"]
+[node name="Close" type="TextureButton" parent="Base" unique_id=1603355011]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 7
@@ -197,7 +197,7 @@ texture_hover = ExtResource("7_13bqe")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ControlContainer" type="VBoxContainer" parent="Base"]
+[node name="ControlContainer" type="VBoxContainer" parent="Base" unique_id=651705611]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
@@ -213,7 +213,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
-[node name="GlyphContainer" type="TextureRect" parent="Base/ControlContainer"]
+[node name="GlyphContainer" type="TextureRect" parent="Base/ControlContainer" unique_id=17681324]
 use_parent_material = true
 custom_minimum_size = Vector2(0, 116)
 layout_mode = 2
@@ -221,7 +221,7 @@ texture = ExtResource("8_4iiki")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DragonTitle" type="RichTextLabel" parent="Base/ControlContainer"]
+[node name="DragonTitle" type="RichTextLabel" parent="Base/ControlContainer" unique_id=175620576]
 use_parent_material = true
 layout_mode = 2
 bbcode_enabled = true
@@ -230,13 +230,13 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="ArrowBox" type="HBoxContainer" parent="Base/ControlContainer"]
+[node name="ArrowBox" type="HBoxContainer" parent="Base/ControlContainer" unique_id=290333661]
 use_parent_material = true
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Previous" type="TextureButton" parent="Base/ControlContainer/ArrowBox"]
+[node name="Previous" type="TextureButton" parent="Base/ControlContainer/ArrowBox" unique_id=1514724727]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -246,7 +246,7 @@ texture_disabled = ExtResource("14_q6c1q")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Next" type="TextureButton" parent="Base/ControlContainer/ArrowBox"]
+[node name="Next" type="TextureButton" parent="Base/ControlContainer/ArrowBox" unique_id=1876811017]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -258,7 +258,7 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
-[node name="IsOnMap" type="RichTextLabel" parent="Base/ControlContainer"]
+[node name="IsOnMap" type="RichTextLabel" parent="Base/ControlContainer" unique_id=489050150]
 modulate = Color(0.762496, 0.944031, 0.466318, 1)
 use_parent_material = true
 layout_mode = 2
@@ -268,19 +268,19 @@ text = "[center]Detected In Garden[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="Close" type="Button" parent="Base/ControlContainer"]
+[node name="Close" type="Button" parent="Base/ControlContainer" unique_id=260426886]
 layout_mode = 2
 size_flags_vertical = 10
 focus_mode = 0
 text = "Close"
 
-[node name="Reset" type="Button" parent="Base/ControlContainer"]
+[node name="Reset" type="Button" parent="Base/ControlContainer" unique_id=974436923]
 layout_mode = 2
 size_flags_vertical = 8
 focus_mode = 0
 text = "Reset"
 
-[node name="KeyContainer" type="VBoxContainer" parent="Base"]
+[node name="KeyContainer" type="VBoxContainer" parent="Base" unique_id=929410038]
 material = ExtResource("4_0j0el")
 layout_mode = 1
 anchors_preset = 8
@@ -297,7 +297,7 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Cursor" type="TextureRect" parent="Base"]
+[node name="Cursor" type="TextureRect" parent="Base" unique_id=802004093]
 material = SubResource("ShaderMaterial_03uyh")
 layout_mode = 0
 offset_left = 52.0
@@ -309,16 +309,16 @@ texture = ExtResource("16_0v5q4")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Marker" type="Sprite2D" parent="Base"]
+[node name="Marker" type="Sprite2D" parent="Base" unique_id=339427607]
 use_parent_material = true
 position = Vector2(276, 356)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_ftpwr")
 
-[node name="SuccessBanner" type="Marker2D" parent="."]
+[node name="SuccessBanner" type="Marker2D" parent="." unique_id=147202798]
 material = ExtResource("4_0j0el")
 
-[node name="Base" type="TextureRect" parent="SuccessBanner"]
+[node name="Base" type="TextureRect" parent="SuccessBanner" unique_id=1652018569]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -336,7 +336,7 @@ texture = ExtResource("23_q2mbi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Copy" type="RichTextLabel" parent="SuccessBanner"]
+[node name="Copy" type="RichTextLabel" parent="SuccessBanner" unique_id=291199338]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -354,7 +354,7 @@ theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "[center]ATTUNED[/center]"
 
-[node name="DragonTitle" type="RichTextLabel" parent="SuccessBanner"]
+[node name="DragonTitle" type="RichTextLabel" parent="SuccessBanner" unique_id=632067653]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -376,7 +376,7 @@ theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
 text = "[center]ELDER DRAGON[/center]"
 
-[node name="Quote" type="RichTextLabel" parent="SuccessBanner"]
+[node name="Quote" type="RichTextLabel" parent="SuccessBanner" unique_id=1618264075]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -395,13 +395,13 @@ theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "[center]Quote[/center]"
 
-[node name="Rune" type="Sprite2D" parent="SuccessBanner"]
+[node name="Rune" type="Sprite2D" parent="SuccessBanner" unique_id=1623656522]
 use_parent_material = true
 position = Vector2(5, -123)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_qdpey")
 
-[node name="Close2" type="Button" parent="SuccessBanner"]
+[node name="Close2" type="Button" parent="SuccessBanner" unique_id=567545818]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -417,23 +417,23 @@ grow_vertical = 2
 size_flags_vertical = 10
 text = "Close"
 
-[node name="Click" type="AudioStreamPlayer" parent="."]
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1589721832]
 stream = ExtResource("10_r8x0m")
 
-[node name="Success" type="AudioStreamPlayer" parent="."]
+[node name="Success" type="AudioStreamPlayer" parent="." unique_id=1086114915]
 stream = ExtResource("15_vld85")
 volume_db = -3.0
 
-[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+[node name="OpenSound" type="AudioStreamPlayer" parent="." unique_id=481702537]
 stream = ExtResource("26_oesam")
 
-[node name="KeyCursor" type="Sprite2D" parent="."]
+[node name="KeyCursor" type="Sprite2D" parent="." unique_id=1162722844]
 position = Vector2(306, 165)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_1ia51")
 flip_h = true
 
-[node name="SelectTimeout" type="Timer" parent="."]
+[node name="SelectTimeout" type="Timer" parent="." unique_id=680734391]
 wait_time = 0.3
 one_shot = true
 

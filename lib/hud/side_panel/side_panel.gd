@@ -88,8 +88,6 @@ func proc_story() -> void:
 		update_roster_visibility(3)
 	elif _p == "gratitude":
 		update_roster_visibility(3)
-		if Save.data.vault_entered == false:
-			_toggle_enclave_box_visibility()
 	elif _p == "stewardship":
 		update_roster_visibility(4)
 		if Save.data.vault_entered == false:

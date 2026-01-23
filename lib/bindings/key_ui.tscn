@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxyq3hqxr2k7u"]
+[gd_scene format=3 uid="uid://bxyq3hqxr2k7u"]
 
 [ext_resource type="Script" uid="uid://e3oeo5lfto6v" path="res://lib/bindings/key_ui.gd" id="1_lrqo7"]
 
-[node name="KeyUI" type="HBoxContainer"]
+[node name="KeyUI" type="HBoxContainer" unique_id=1952767916]
 custom_minimum_size = Vector2(0, 24)
 offset_right = 302.0
 offset_bottom = 27.0
@@ -11,7 +11,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = 20
 script = ExtResource("1_lrqo7")
 
-[node name="Title" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="." unique_id=1979118030]
 custom_minimum_size = Vector2(196, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -20,7 +20,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Key" type="Button" parent="."]
+[node name="Key" type="Button" parent="." unique_id=2030220804]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0

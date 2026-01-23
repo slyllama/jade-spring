@@ -256,9 +256,9 @@ const gift = {
 	"id": "gift",
 	"title": "Ratchet",
 	"_entry": {
-		"string": "((A small token of my appreciation, from both Ratchet and myself as a developer. Of course, this is placeholder dialogue and I will replace it through the beta, hehe.))",
+		"string": "The air is d-different. C-calm, and free of errors. T-thank you, friend. As a token of our appreciation, here is some apparel I constructed myself. A f-fine model, indeed.",
 		"options": {
-			"exit": "((Receive gift.))"
+			"exit": "Put on the gift hood. Fitting snugly over your metal chassis, it imbues a kind of comfort that your sensors can feel, but not describe."
 		}
 	},
 	"exit": {

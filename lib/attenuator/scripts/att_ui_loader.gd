@@ -11,7 +11,6 @@ var transitioning = false
 signal pulled(resource: Resource)
 
 func _ready() -> void:
-	print("Loading " + str(PATH))
 	ResourceLoader.load_threaded_request(PATH)
 
 func _process(_delta: float) -> void:

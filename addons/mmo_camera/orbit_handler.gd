@@ -50,6 +50,7 @@ func _enable_action_cam(override = false) -> void:
 		or Global.tool_mode == Global.TOOL_MODE_ADJUST
 		or Global.tool_mode == Global.TOOL_MODE_PLACE
 		or Global.tool_mode == Global.TOOL_MODE_EYEDROPPER
+		or Global.design_pane_open
 		or Global.story_panel_open
 		or Global.deco_pane_open
 		or Global.settings_open

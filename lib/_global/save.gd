@@ -145,6 +145,10 @@ func advance_story() -> void:
 		if DiscordRPC.get_is_discord_working():
 			DiscordRPC.details = STORY_POINT_SCRIPT[data.story_point].title
 			DiscordRPC.refresh()
+		
+		if data.story_point == "stewardship":
+			var _g = load("res://lib/letters/complete_letter.tscn").instantiate()
+			Global.hud.get_node("TopLevel").add_child(_g)
 
 func load_from_file() -> void:
 	if Global.map_name == "debug":

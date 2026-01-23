@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bxrobdrinqrop"]
+
+[ext_resource type="PackedScene" uid="uid://ceasnql6pvyyj" path="res://lib/letters/letter.tscn" id="1_8ckew"]
+[ext_resource type="Texture2D" uid="uid://buiy4ive8l3pm" path="res://lib/letters/textures/gift_revealed.png" id="2_8ckew"]
+
+[node name="CompleteLetter" unique_id=1624551646 instance=ExtResource("1_8ckew")]
+title = "[center]Thank You for Tending the Jade Spring[/center]"
+
+[node name="Container" parent="." index="0"]
+offset_top = 37.0
+offset_bottom = -27.0
+theme_override_constants/separation = 6
+
+[node name="Title" parent="Container" index="0"]
+text = "[center]Thank You for Tending the Jade Spring[/center]"
+
+[node name="Copy" parent="Container" index="1"]
+custom_minimum_size = Vector2(370, 0)
+size_flags_horizontal = 0
+theme_override_constants/line_separation = -3
+theme_override_constants/paragraph_separation = -6
+text = "My instruments confirm what my senses keenly corroborate: there is a new-found peace and purpose to this place, one it hasn't experienced in a long while. The garden is free of the influence of Dragonvoid, and now it can recuperate, enriched by Soo-Won's memory rather than corrupted because of it. You have our gratitude for your efforts in bringing about this new peace. Ratchet has spent some time weaving a hood with which we would like to gift you. The winters get cold in the Jade Spring, but you may still find comfort here all year round.
+
+[i]Talk to Ratchet to claim your gift hood![/i]"
+
+[node name="Silhouette" type="TextureRect" parent="." index="3" unique_id=44840549]
+use_parent_material = true
+custom_minimum_size = Vector2(220, 240)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = -292.0
+offset_right = 311.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_8ckew")
+expand_mode = 1
+stretch_mode = 5
