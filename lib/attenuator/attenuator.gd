@@ -212,6 +212,15 @@ func render() -> void:
 					for _o in $Base/KeyContainer.get_children():
 						_o.disable()
 					
+					# Make achievement check for holding all Dragonvoid
+					var dv_count := 0
+					for effect: String in Global.current_effects:
+						if "d_" in effect:
+							dv_count += 1
+					if dv_count == Utilities.DRAGON_DATA.size():
+						if SteamHandler.get_achievment_completion("the_all") == 0:
+							SteamHandler.complete_achievement("the_all")
+					
 					# Disable and hide various keys - the inverse has to be done too
 					$Base/Cursor.visible = false
 					$KeyCursor.visible = false

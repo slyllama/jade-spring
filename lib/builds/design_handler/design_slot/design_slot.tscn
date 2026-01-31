@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm2j0idqta5qw"]
+[gd_scene format=3 uid="uid://dm2j0idqta5qw"]
 
 [ext_resource type="Texture2D" uid="uid://budw1cm8qdwp7" path="res://lib/builds/design_handler/design_slot/textures/design_slot_bg.png" id="1_jjgtk"]
 [ext_resource type="Script" uid="uid://v8pieffgamg5" path="res://lib/builds/design_handler/design_slot/design_slot.gd" id="2_obeuh"]
@@ -9,12 +9,12 @@
 resource_local_to_scene = true
 texture = ExtResource("1_jjgtk")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gqdv"]
-bg_color = Color(1, 1, 1, 0.0784314)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aj1is"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obeuh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aj1is"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gqdv"]
+bg_color = Color(1, 1, 1, 0.0784314)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aj1is"]
 content_margin_left = 4.0
@@ -42,7 +42,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[node name="DesignSlot" type="Panel"]
+[node name="DesignSlot" type="Panel" unique_id=866922190]
 use_parent_material = true
 custom_minimum_size = Vector2(0, 48)
 anchors_preset = 10
@@ -52,7 +52,7 @@ grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_obeuh")
 script = ExtResource("2_obeuh")
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="." unique_id=1925479366]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
@@ -65,23 +65,23 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="LineEdit" parent="HBox"]
+[node name="Name" type="LineEdit" parent="HBox" unique_id=592641317]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_colors/selection_color = Color(0.176284, 0.12011, 0.304021, 1)
-theme_override_colors/caret_color = Color(1, 1, 1, 1)
-theme_override_colors/font_uneditable_color = Color(0.933333, 0.741176, 0.635294, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_2gqdv")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_obeuh")
+theme_override_colors/font_uneditable_color = Color(0.933333, 0.741176, 0.635294, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.176284, 0.12011, 0.304021, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aj1is")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_obeuh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2gqdv")
 text = "Build With a Cool Name"
 editable = false
 expand_to_text_length = true
 
-[node name="DecoLogo" type="TextureRect" parent="HBox"]
+[node name="DecoLogo" type="TextureRect" parent="HBox" unique_id=2116334185]
 use_parent_material = true
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
@@ -90,7 +90,7 @@ texture = ExtResource("3_aj1is")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DecoCount" type="RichTextLabel" parent="HBox"]
+[node name="DecoCount" type="RichTextLabel" parent="HBox" unique_id=1176477558]
 use_parent_material = true
 layout_mode = 2
 text = "(x)"
@@ -99,13 +99,13 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="Padding" type="ColorRect" parent="HBox"]
+[node name="Padding" type="ColorRect" parent="HBox" unique_id=521043931]
 use_parent_material = true
 custom_minimum_size = Vector2(12, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Activate" type="Button" parent="HBox"]
+[node name="Activate" type="Button" parent="HBox" unique_id=1552401440]
 use_parent_material = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -114,14 +114,14 @@ theme_override_colors/font_color = Color(0.783333, 0.930179, 0.640819, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_aj1is")
 text = "Activate"
 
-[node name="Rename" type="Button" parent="HBox"]
+[node name="Rename" type="Button" parent="HBox" unique_id=2018166080]
 use_parent_material = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 focus_mode = 0
 text = "Rename"
 
-[node name="Delete" type="Button" parent="HBox"]
+[node name="Delete" type="Button" parent="HBox" unique_id=215604925]
 use_parent_material = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
@@ -130,7 +130,7 @@ theme_override_colors/font_color = Color(0.940441, 0.820314, 0.782053, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_07vpr")
 text = "Delete"
 
-[node name="Warning" type="AudioStreamPlayer" parent="."]
+[node name="Warning" type="AudioStreamPlayer" parent="." unique_id=411649262]
 stream = ExtResource("4_07vpr")
 volume_db = -7.0
 

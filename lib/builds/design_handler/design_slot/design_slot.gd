@@ -39,6 +39,9 @@ func update() -> void:
 		print("[DesignSlot] Couldn't get decoration count for '" + design_name + "'.")
 
 func _on_activate_button_down() -> void:
+	if SteamHandler.get_achievment_completion("astral_architect") == 0:
+		SteamHandler.complete_achievement("astral_architect")
+	
 	Global.click_sound.emit()
 	activated.emit()
 	update()

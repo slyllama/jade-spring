@@ -15,7 +15,11 @@ const AchievementsList = [
 	"homesteader",
 	"architect",
 	"my_friend_ratchet",
-	"twilight_peace"
+	"twilight_peace",
+	"the_all",
+	"astral_architect",
+	"small_things",
+	"something_fishy"
 ]
 
 const StatsList = [
@@ -62,6 +66,31 @@ const Achievements = {
 		"desc": "Place 50 decorations.",
 		"icon_unearned": preload("res://lib/steam/achievements/icons/architect.jpg"),
 		"icon_earned": preload("res://lib/steam/achievements/icons/architect_earned.jpg")
+	},
+	# New achievements
+	"the_all": {
+		"title": "The All",
+		"desc": "Be attuned to all six Elder Dragons simultaneously.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/the_all.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/the_all_earned.jpg")
+	},
+	"astral_architect": {
+		"title": "Astral Architect",
+		"desc": "Enter the Otter's Enclave and switch to a different design template.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/enclave.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/enclave_earned.jpg")
+	},
+	"small_things": {
+		"title": "It's the Small Things",
+		"desc": "Use Cid's Mini-Banner to transform yourself into a miniature Jade Bot.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/small_things.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/small_things_earned.jpg")
+	},
+	"something_fishy": {
+		"title": "Something's Fishy",
+		"desc": "Become a fish! Hint: Gravity Mode will help with this.",
+		"icon_unearned": preload("res://lib/steam/achievements/icons/something_fishy.jpg"),
+		"icon_earned": preload("res://lib/steam/achievements/icons/something_fishy_earned.jpg")
 	}
 }
 
