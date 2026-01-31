@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3fmul7liil3q"]
+[gd_scene format=3 uid="uid://d3fmul7liil3q"]
 
 [ext_resource type="PackedScene" uid="uid://dmcbebjwagmmf" path="res://lib/ui_container/ui_container.tscn" id="1_fjtii"]
 [ext_resource type="Script" uid="uid://pesvxchn6o35" path="res://lib/steam/steam_pane.gd" id="2_ia0vl"]
@@ -26,11 +26,6 @@ bg_color = Color(0.8, 0.639067, 0.232, 0.117647)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm5k5"]
 content_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdtak"]
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.796078, 0.635294, 0.231373, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rmwf"]
 content_margin_top = 4.0
 content_margin_bottom = 4.0
@@ -41,17 +36,22 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.796078, 0.635294, 0.231373, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdtak"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.796078, 0.635294, 0.231373, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofa3g"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
 border_blend = true
 
-[node name="SteamPane" instance=ExtResource("1_fjtii")]
+[node name="SteamPane" unique_id=50232733 instance=ExtResource("1_fjtii")]
 theme_override_styles/panel = SubResource("StyleBoxFlat_jtmrk")
 script = ExtResource("2_ia0vl")
 title = "Steam"
 
-[node name="DecorationSE" type="TextureRect" parent="." index="0"]
+[node name="DecorationSE" type="TextureRect" parent="." index="0" unique_id=836901092]
 modulate = Color(0.087286, 0.151066, 0.177802, 1)
 layout_mode = 1
 anchors_preset = 3
@@ -71,7 +71,7 @@ expand_mode = 1
 stretch_mode = 5
 flip_h = true
 
-[node name="Icon" type="TextureRect" parent="Container/TitleContainer" index="0"]
+[node name="Icon" type="TextureRect" parent="Container/TitleContainer" index="0" unique_id=545191874]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
@@ -79,23 +79,23 @@ texture = ExtResource("4_v3lyv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CScroll" type="ScrollContainer" parent="Container" index="3"]
+[node name="CScroll" type="ScrollContainer" parent="Container" index="3" unique_id=1032551799]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CBox" type="VBoxContainer" parent="Container/CScroll" index="0"]
+[node name="CBox" type="VBoxContainer" parent="Container/CScroll" index="0" unique_id=590289997]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="ResetBox" type="PanelContainer" parent="Container/CScroll/CBox" index="0"]
+[node name="ResetBox" type="PanelContainer" parent="Container/CScroll/CBox" index="0" unique_id=711224607]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4dqoj")
 
-[node name="ResetVBox" type="VBoxContainer" parent="Container/CScroll/CBox/ResetBox" index="0"]
+[node name="ResetVBox" type="VBoxContainer" parent="Container/CScroll/CBox/ResetBox" index="0" unique_id=25958680]
 layout_mode = 2
 
-[node name="Warning" type="RichTextLabel" parent="Container/CScroll/CBox/ResetBox/ResetVBox" index="0"]
+[node name="Warning" type="RichTextLabel" parent="Container/CScroll/CBox/ResetBox/ResetVBox" index="0" unique_id=1395563999]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -108,42 +108,42 @@ text = "((Warning: this button will close the game, and instantly and permanentl
 fit_content = true
 scroll_active = false
 
-[node name="Reset" type="Button" parent="Container/CScroll/CBox/ResetBox/ResetVBox" index="1"]
+[node name="Reset" type="Button" parent="Container/CScroll/CBox/ResetBox/ResetVBox" index="1" unique_id=407082]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_colors/font_color = Color(0.796078, 0.635294, 0.231373, 1)
-theme_override_styles/hover = SubResource("StyleBoxFlat_cdtak")
+theme_override_colors/font_hover_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_2rmwf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cdtak")
 text = "Reset Stats"
 
-[node name="SectionSeparator2" type="ColorRect" parent="Container/CScroll/CBox" index="1"]
+[node name="SectionSeparator2" type="ColorRect" parent="Container/CScroll/CBox" index="1" unique_id=1324467663]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="StatsSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="2"]
+[node name="StatsSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="2" unique_id=833112513]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_ofa3g")
 text = "Garden Log"
 fit_content = true
 scroll_active = false
 
-[node name="TitleSeparator2" type="ColorRect" parent="Container/CScroll/CBox" index="3"]
+[node name="TitleSeparator2" type="ColorRect" parent="Container/CScroll/CBox" index="3" unique_id=1920142138]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="StatsContext" type="RichTextLabel" parent="Container/CScroll/CBox" index="4"]
+[node name="StatsContext" type="RichTextLabel" parent="Container/CScroll/CBox" index="4" unique_id=1249589383]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -154,42 +154,42 @@ text = "Statistics aggregated from total play-time."
 fit_content = true
 scroll_active = false
 
-[node name="C1" parent="Container/CScroll/CBox" index="5" instance=ExtResource("4_picwt")]
+[node name="C1" parent="Container/CScroll/CBox" index="5" unique_id=1468182866 instance=ExtResource("4_picwt")]
 layout_mode = 2
 
-[node name="C2" parent="Container/CScroll/CBox" index="6" instance=ExtResource("4_picwt")]
+[node name="C2" parent="Container/CScroll/CBox" index="6" unique_id=960142807 instance=ExtResource("4_picwt")]
 layout_mode = 2
 
-[node name="C3" parent="Container/CScroll/CBox" index="7" instance=ExtResource("4_picwt")]
+[node name="C3" parent="Container/CScroll/CBox" index="7" unique_id=639995319 instance=ExtResource("4_picwt")]
 layout_mode = 2
 
-[node name="SectionSeparator" type="ColorRect" parent="Container/CScroll/CBox" index="8"]
+[node name="SectionSeparator" type="ColorRect" parent="Container/CScroll/CBox" index="8" unique_id=1062574393]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="AchieveSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="9"]
+[node name="AchieveSubtitle" type="RichTextLabel" parent="Container/CScroll/CBox" index="9" unique_id=23792588]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.545361, 0.904654, 0.498629, 1)
-theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = -2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_ofa3g")
 text = "Achievements"
 fit_content = true
 scroll_active = false
 
-[node name="TitleSeparator3" type="ColorRect" parent="Container/CScroll/CBox" index="10"]
+[node name="TitleSeparator3" type="ColorRect" parent="Container/CScroll/CBox" index="10" unique_id=2043261249]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Spinner" type="Sprite2D" parent="." index="4"]
+[node name="Spinner" type="Sprite2D" parent="." index="4" unique_id=368248941]
 position = Vector2(200, 240)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_6lexo")

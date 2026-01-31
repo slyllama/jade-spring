@@ -3,7 +3,7 @@ extends CanvasLayer
 
 signal closed
 
-const PianoKey = preload("res://lib/attenuator/piano_key.tscn")
+var PianoKey = load("res://lib/attenuator/piano_key.tscn")
 
 const NOTES = [
 	{"float": 0.0, "color": Color.CADET_BLUE},	# C
@@ -14,22 +14,22 @@ const NOTES = [
 	{"float": 5.5, "color": Color.WHITE},		# A
 	{"float": 7.2, "color": Color.WHITE},		# B
 ]
-const NOTE_FILES = [
-	preload("res://lib/attenuator/sounds/c1.ogg"),
-	preload("res://lib/attenuator/sounds/d1.ogg"),
-	preload("res://lib/attenuator/sounds/e1.ogg"),
-	preload("res://lib/attenuator/sounds/f1.ogg"),
-	preload("res://lib/attenuator/sounds/g1.ogg"),
-	preload("res://lib/attenuator/sounds/a1.ogg"),
-	preload("res://lib/attenuator/sounds/b1.ogg"),
-	preload("res://lib/attenuator/sounds/c2.ogg"),
-	preload("res://lib/attenuator/sounds/d2.ogg"),
-	preload("res://lib/attenuator/sounds/e2.ogg"),
-	preload("res://lib/attenuator/sounds/f2.ogg"),
-	preload("res://lib/attenuator/sounds/g2.ogg"),
-	preload("res://lib/attenuator/sounds/a2.ogg"),
-	preload("res://lib/attenuator/sounds/b2.ogg"),
-	preload("res://lib/attenuator/sounds/c3.ogg")
+const NOTE_PATHS = [
+	"res://lib/attenuator/sounds/c1.ogg",
+	"res://lib/attenuator/sounds/d1.ogg",
+	"res://lib/attenuator/sounds/e1.ogg",
+	"res://lib/attenuator/sounds/f1.ogg",
+	"res://lib/attenuator/sounds/g1.ogg",
+	"res://lib/attenuator/sounds/a1.ogg",
+	"res://lib/attenuator/sounds/b1.ogg",
+	"res://lib/attenuator/sounds/c2.ogg",
+	"res://lib/attenuator/sounds/d2.ogg",
+	"res://lib/attenuator/sounds/e2.ogg",
+	"res://lib/attenuator/sounds/f2.ogg",
+	"res://lib/attenuator/sounds/g2.ogg",
+	"res://lib/attenuator/sounds/a2.ogg",
+	"res://lib/attenuator/sounds/b2.ogg",
+	"res://lib/attenuator/sounds/c3.ogg"
 ]
 const KEY_INDICES = [
 	"c1", "d1", "e1", "f1", "g1", "a1", "b1",
@@ -42,13 +42,13 @@ const TUNES = {
 	"kralkatorrik": [ "a1", "_", "a1", "e1", "f1", "_", "b1", "_", "a1", "b1", "c2", "b1" ],
 	"jormag": [ "e1", "c1", "a1", "e2", "_", "f2", "b1" ]
 }
-const SUCCESS_TUNES = {
-	"mordremoth": preload("res://lib/attenuator/sounds/mordremoth_success.ogg"),
-	"soo_won": preload("res://lib/attenuator/sounds/soo_won_success.ogg"),
-	"primordus": preload("res://lib/attenuator/sounds/primordus_success.ogg"),
-	"kralkatorrik": preload("res://lib/attenuator/sounds/kralkatorrik_success.ogg"),
-	"jormag": preload("res://lib/attenuator/sounds/jormag_success.ogg"),
-	"zhaitan": preload("res://lib/attenuator/sounds/zhaitan_success.ogg")
+var SUCCESS_TUNES = {
+	"mordremoth": load("res://lib/attenuator/sounds/mordremoth_success.ogg"),
+	"soo_won": load("res://lib/attenuator/sounds/soo_won_success.ogg"),
+	"primordus": load("res://lib/attenuator/sounds/primordus_success.ogg"),
+	"kralkatorrik": load("res://lib/attenuator/sounds/kralkatorrik_success.ogg"),
+	"jormag": load("res://lib/attenuator/sounds/jormag_success.ogg"),
+	"zhaitan": load("res://lib/attenuator/sounds/zhaitan_success.ogg")
 }
 const TUNES_ORDER = [ "primordus", "soo_won", "mordremoth", "zhaitan", "kralkatorrik", "jormag" ]
 
@@ -170,7 +170,7 @@ func render() -> void:
 	var _d = 0
 	for _i in two_oct:
 		var _n = PianoKey.instantiate()
-		_n.get_node("Note").stream = NOTE_FILES[_d]
+		_n.get_node("Note").stream = load(NOTE_PATHS[_d])
 		_n.id = _d
 		_n.note_name = KEY_INDICES[_d]
 		_n.modulate = _i.color
@@ -211,6 +211,15 @@ func render() -> void:
 					Global.add_effect.emit("d_" + current_dragon)
 					for _o in $Base/KeyContainer.get_children():
 						_o.disable()
+					
+					# Make achievement check for holding all Dragonvoid
+					var dv_count := 0
+					for effect: String in Global.current_effects:
+						if "d_" in effect:
+							dv_count += 1
+					if dv_count == Utilities.DRAGON_DATA.size():
+						if SteamHandler.get_achievment_completion("the_all") == 0:
+							SteamHandler.complete_achievement("the_all")
 					
 					# Disable and hide various keys - the inverse has to be done too
 					$Base/Cursor.visible = false

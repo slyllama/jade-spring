@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b5aewysclei7o"]
+[gd_scene format=3 uid="uid://b5aewysclei7o"]
 
 [ext_resource type="Script" uid="uid://dj3l3q0uia8li" path="res://addons/mmo_camera/mmo_camera.gd" id="1_lnnkv"]
 [ext_resource type="Script" uid="uid://q6dwqrwcci8w" path="res://lib/player/player.gd" id="1_wipkt"]
@@ -206,11 +206,11 @@ blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5upv6"]
 graph_offset = Vector2(-43.0414, 79.4703)
+nodes/output/position = Vector2(680, 80)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_um6qk")
 nodes/Animation/position = Vector2(0, 240)
 nodes/elongate/node = SubResource("AnimationNodeAnimation_3pws5")
 nodes/elongate/position = Vector2(266.667, 280)
-nodes/output/position = Vector2(680, 80)
 nodes/set_elongate/node = SubResource("AnimationNodeAdd2_k87ed")
 nodes/set_elongate/position = Vector2(480, 80)
 nodes/strafe/node = SubResource("AnimationNodeAdd2_7v0mc")
@@ -234,7 +234,7 @@ material = SubResource("StandardMaterial3D_11m6v")
 size = Vector2(80, 80)
 orientation = 1
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=478471210]
 collision_layer = 9
 collision_mask = 9
 input_ray_pickable = false
@@ -246,17 +246,17 @@ platform_wall_layers = 1
 safe_margin = 0.01
 script = ExtResource("1_wipkt")
 
-[node name="Collision" type="CollisionShape3D" parent="."]
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=492647782]
 shape = SubResource("CapsuleShape3D_lchpp")
 
-[node name="FloorCast" type="RayCast3D" parent="Collision"]
+[node name="FloorCast" type="RayCast3D" parent="Collision" unique_id=2118369626]
 target_position = Vector3(0, -0.21, 0)
 collision_mask = 3
 
-[node name="Spider" parent="." instance=ExtResource("4_81ee3")]
+[node name="Spider" parent="." unique_id=237347379 instance=ExtResource("4_81ee3")]
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 0, -0.382746, 0)
 
-[node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("excluded_collision_objects")]
+[node name="Camera" type="Node3D" parent="." unique_id=2083641752 node_paths=PackedStringArray("excluded_collision_objects")]
 script = ExtResource("1_lnnkv")
 orbit_smoothing = 18.0
 zoom_increment = 0.2
@@ -266,43 +266,43 @@ v_offset = 0.7
 excluded_collision_objects = [NodePath("..")]
 clamp_x_upper = 50.0
 
-[node name="Listener" type="AudioListener3D" parent="Camera"]
+[node name="Listener" type="AudioListener3D" parent="Camera" unique_id=780655381]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.0263149, 0)
 current = true
 
-[node name="PlayerMesh" parent="." instance=ExtResource("4_0sx7s")]
+[node name="PlayerMesh" parent="." unique_id=207146939 instance=ExtResource("4_0sx7s")]
 transform = Transform3D(-0.85, 0, -1.28346e-07, 0, 0.85, 0, 1.28346e-07, 0, -0.85, 0, 0, 0)
 
-[node name="MotesAnchor" type="Node3D" parent="PlayerMesh"]
+[node name="MotesAnchor" type="Node3D" parent="PlayerMesh" unique_id=1311403167]
 
-[node name="Karma" parent="PlayerMesh" instance=ExtResource("5_bkuho")]
+[node name="Karma" parent="PlayerMesh" unique_id=603032724 instance=ExtResource("5_bkuho")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 3)
 
-[node name="SplashTest" type="RayCast3D" parent="PlayerMesh"]
+[node name="SplashTest" type="RayCast3D" parent="PlayerMesh" unique_id=1632768758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0961596, 0)
 target_position = Vector3(0, -3.4, 0)
 collision_mask = 1024
 collide_with_areas = true
 script = ExtResource("5_eb87h")
 
-[node name="Salmon" parent="PlayerMesh/SplashTest" instance=ExtResource("25_duig0")]
+[node name="Salmon" parent="PlayerMesh/SplashTest" unique_id=259480953 instance=ExtResource("25_duig0")]
 transform = Transform3D(-1.17647, -4.98255e-22, 1.77642e-07, 0, 1.17647, 0, -1.77642e-07, -7.52341e-29, -1.17647, 0, -0.6, 0)
 
-[node name="FishSplash" type="AudioStreamPlayer" parent="PlayerMesh/SplashTest/Salmon"]
+[node name="FishSplash" type="AudioStreamPlayer" parent="PlayerMesh/SplashTest/Salmon" unique_id=242470427]
 stream = ExtResource("9_srqdh")
 volume_db = -3.0
 
-[node name="SplashSound" type="AudioStreamPlayer" parent="PlayerMesh/SplashTest"]
+[node name="SplashSound" type="AudioStreamPlayer" parent="PlayerMesh/SplashTest" unique_id=1001386331]
 stream = ExtResource("24_4yxld")
 volume_db = -80.0
 autoplay = true
 
-[node name="SplashArm" type="SpringArm3D" parent="PlayerMesh/SplashTest"]
+[node name="SplashArm" type="SpringArm3D" parent="PlayerMesh/SplashTest" unique_id=298330116]
 transform = Transform3D(-1.17647, 1.77641e-07, 0, 0, -5.14252e-08, -1.17647, -1.77641e-07, -1.17647, 5.14252e-08, 0, 0, 0)
 collision_mask = 1024
 spring_length = 3.4
 
-[node name="Foam" type="GPUParticles3D" parent="PlayerMesh/SplashTest/SplashArm"]
+[node name="Foam" type="GPUParticles3D" parent="PlayerMesh/SplashTest/SplashArm" unique_id=691219189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 cast_shadow = 0
 emitting = false
@@ -310,7 +310,7 @@ amount = 30
 process_material = SubResource("ParticleProcessMaterial_xbakh")
 draw_pass_1 = SubResource("QuadMesh_55yxv")
 
-[node name="Motes" type="GPUParticles3D" parent="PlayerMesh"]
+[node name="Motes" type="GPUParticles3D" parent="PlayerMesh" unique_id=206182141]
 transform = Transform3D(1, 0, -4.83169e-13, 0, 1, 0, 4.83169e-13, 0, 1, -2.56692e-07, 0, -1.7)
 top_level = true
 amount = 240
@@ -321,37 +321,35 @@ visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 process_material = SubResource("ParticleProcessMaterial_ng7wp")
 draw_pass_1 = SubResource("PlaneMesh_l62be")
 
-[node name="Compendium" parent="PlayerMesh" instance=ExtResource("19_fw2jq")]
+[node name="Compendium" parent="PlayerMesh" unique_id=1488860886 instance=ExtResource("19_fw2jq")]
 transform = Transform3D(1.45, -7.10543e-15, 8.52651e-14, 0, 1.3546, 0.51727, 5.68434e-14, -0.51727, 1.3546, -0.0818188, -0.098934, 0.594162)
 
-[node name="NightLight" type="OmniLight3D" parent="PlayerMesh"]
+[node name="NightLight" type="OmniLight3D" parent="PlayerMesh" unique_id=1881095637]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -1.77642e-07, 0, 1.17647)
 visible = false
 light_color = Color(0.7429, 0.85, 0.493, 1)
 omni_range = 3.0
 
-[node name="HeartParticles" parent="PlayerMesh" instance=ExtResource("4_bxjah")]
+[node name="HeartParticles" parent="PlayerMesh" unique_id=1671462135 instance=ExtResource("4_bxjah")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.2, 0)
 emitting = false
 explosiveness = 0.45
 
-[node name="Stars" type="GPUParticles3D" parent="PlayerMesh"]
+[node name="Stars" type="GPUParticles3D" parent="PlayerMesh" unique_id=862437695]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-08, -0.223685, -0.2)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_2h2up")
 draw_pass_1 = ExtResource("4_wdnsj")
 
-[node name="Tree" type="AnimationTree" parent="PlayerMesh"]
-libraries = {
-&"player": SubResource("AnimationLibrary_6ksk3")
-}
+[node name="Tree" type="AnimationTree" parent="PlayerMesh" unique_id=1923036750]
+libraries/player = SubResource("AnimationLibrary_6ksk3")
 tree_root = SubResource("AnimationNodeBlendTree_5upv6")
 parameters/set_elongate/add_amount = 0.0
 parameters/strafe/add_amount = 0.4
 parameters/test_blend/blend_position = -0.95739
 parameters/time_scale/scale = 1.0
 
-[node name="Decal" type="Decal" parent="PlayerMesh"]
+[node name="Decal" type="Decal" parent="PlayerMesh" unique_id=1509030269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3257, 0)
 visible = false
 size = Vector3(0.5, 2, 0.5)
@@ -364,32 +362,32 @@ distance_fade_begin = 0.75
 distance_fade_length = 1.0
 cull_mask = 1048573
 
-[node name="EngineSound" type="AudioStreamPlayer3D" parent="."]
+[node name="EngineSound" type="AudioStreamPlayer3D" parent="." unique_id=61177861]
 stream = ExtResource("8_ao383")
 attenuation_model = 1
 max_db = -3.2
 autoplay = true
 
-[node name="FloorMesh" type="MeshInstance3D" parent="."]
+[node name="FloorMesh" type="MeshInstance3D" parent="." unique_id=520150950]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
 visible = false
 mesh = SubResource("QuadMesh_jd243")
 
-[node name="SprintSoundCD" type="Timer" parent="."]
+[node name="SprintSoundCD" type="Timer" parent="." unique_id=512561628]
 wait_time = 17.0
 one_shot = true
 
-[node name="SprintSoundPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SprintSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1598627604]
 volume_db = -3.2
 
-[node name="Jump" type="AudioStreamPlayer" parent="."]
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=655415149]
 stream = ExtResource("17_o537a")
 volume_db = 1.0
 
-[node name="Walk" type="AudioStreamPlayer" parent="."]
+[node name="Walk" type="AudioStreamPlayer" parent="." unique_id=1450915680]
 stream = ExtResource("18_443tu")
 
-[node name="HeartTimer" type="Timer" parent="."]
+[node name="HeartTimer" type="Timer" parent="." unique_id=752594191]
 wait_time = 3.0
 one_shot = true
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://crbwp7e5cu7ee"]
+
+[ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_abkya"]
+[ext_resource type="PackedScene" uid="uid://c5apmgubss4x3" path="res://decorations/drizzlewood_platform/meshes/drizzlewood_platform.glb" id="2_deevt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_deevt"]
+height = 0.15
+radius = 5.0
+
+[node name="DrizzlewoodPlatform" type="Node3D" node_paths=PackedStringArray("collision_box")]
+script = ExtResource("1_abkya")
+id = "drizzlewood_platform"
+collision_box = NodePath("Body")
+metadata/_custom_type_script = "uid://gqv7s1su1j1i"
+
+[node name="Mesh" parent="." instance=ExtResource("2_deevt")]
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+shape = SubResource("CylinderShape3D_deevt")

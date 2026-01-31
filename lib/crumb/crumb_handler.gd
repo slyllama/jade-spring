@@ -6,7 +6,6 @@ const BugSwarm = preload("res://lib/crumb/bug_swarm.tscn")
 const Weed = preload("res://lib/crumb/weed.tscn")
 const Dragonvoid = preload("res://lib/crumb/dragonvoid.tscn")
 const Nettles = preload("res://lib/crumb/weed/nettles.glb")
-const GiftLetter = preload("res://lib/letters/gift_letter.tscn")
 const DRAGONS = ["kralkatorrik", "soo_won", "primordus", "jormag", "zhaitan", "mordremoth"]
 
 var totals = {}
@@ -71,9 +70,6 @@ func update_crumb_count() -> void:
 		# Gift letter and story advancing
 		if "gratitude" in Save.data.story_point:
 			# TODO: game completion happens here
-			#var _g = GiftLetter.instantiate()
-			#_g.set_text("((Game completion!))")
-			#Global.hud.get_node("TopLevel").add_child(_g)
 			if Save.data.story_point == "ratchet_gratitude":
 				Save.data.story_point = "gratitude" # skip to the correct story step if we're behind
 			Save.advance_story()

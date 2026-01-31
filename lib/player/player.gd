@@ -122,7 +122,6 @@ func toggle_gift_visibility(state: bool) -> void:
 
 func _ready() -> void:
 	$PlayerMesh/Karma.animate_out()
-	
 	SPRINT_SOUNDS.append_array(JADE_SOUNDS)
 	toggle_gift_visibility(false)
 	$Spider/AnimationPlayer.play("walk")
@@ -150,7 +149,7 @@ func _ready() -> void:
 	
 	# TODO: working on DOF here
 	var _cam_attrs = CameraAttributesPractical.new()
-	_cam_attrs.dof_blur_amount = 0.012
+	_cam_attrs.dof_blur_amount = 0.018
 	Global.camera.attributes = _cam_attrs
 	
 	Global.command_sent.connect(func(_cmd):
@@ -226,6 +225,9 @@ var _gravity_last_in_current_effects = false
 var _double_jump_state = 0
 
 func _physics_process(delta: float) -> void:
+	if Window.get_focused_window():
+		if "SUBWINDOW" in Window.get_focused_window(): return
+	
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
 		_elongate_target = 2.0
 		velocity.y = 1.0
@@ -282,7 +284,8 @@ func _physics_process(delta: float) -> void:
 			$Camera.get_node("OrbitHandler").target_rotation.y += delta * 120.0
 	
 	if !"gravity" in Global.current_effects:
-		if Input.is_action_pressed("move_up"): _direction.y = 1
+		if Input.is_action_pressed("move_up"):
+			_direction.y = 1
 		elif Input.is_action_pressed("move_down"): _direction.y = -1
 		else: _direction.y = 0
 	

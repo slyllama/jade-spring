@@ -2,9 +2,9 @@ extends HBoxContainer
 
 const HIGHLIGHT = Color("b13087")
 
-const FILL_TEX = preload("res://lib/attenuator/textures/pill_filled.png")
-const KEY_UP_TEX = preload("res://lib/attenuator/textures/piano_key.png")
-const KEY_DOWN_TEX = preload("res://lib/attenuator/textures/piano_key_press.png")
+var FILL_TEX = load("res://lib/attenuator/textures/pill_filled.png")
+var KEY_UP_TEX = load("res://lib/attenuator/textures/piano_key.png")
+var KEY_DOWN_TEX = load("res://lib/attenuator/textures/piano_key_press.png")
 
 var alpha = 0.0
 var pills: Array[TextureRect] = []

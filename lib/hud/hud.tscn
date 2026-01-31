@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://mc7cfdajs4rm"]
+[gd_scene format=3 uid="uid://mc7cfdajs4rm"]
 
 [ext_resource type="Texture2D" uid="uid://xv8rsnsaeksv" path="res://generic/textures/corner.png" id="1_8jsj4"]
 [ext_resource type="Script" uid="uid://b3w8s1v8lbv3o" path="res://lib/hud/hud.gd" id="1_ryxhn"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="2_lglf3"]
+[ext_resource type="PackedScene" uid="uid://c7s6otmq568q4" path="res://lib/deco_data_manager/deco_data_manager.tscn" id="2_um878"]
 [ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="2_yply7"]
 [ext_resource type="PackedScene" uid="uid://c6kvxy3mhfso3" path="res://lib/hud/screen_effects/screen_effects.tscn" id="4_m3be7"]
 [ext_resource type="PackedScene" uid="uid://rn5fh3rx0ovg" path="res://lib/toolbox/toolbox.tscn" id="4_r77lv"]
@@ -26,8 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://bn4mflm3n5emx" path="res://generic/textures/action_cursor.png" id="18_5631a"]
 [ext_resource type="AudioStream" uid="uid://q6mwdov1lvd7" path="res://generic/sounds/interact_enter.ogg" id="20_hhimw"]
 [ext_resource type="PackedScene" uid="uid://b0blxymb4wob0" path="res://lib/controller_cursor/controller_cursor.tscn" id="24_40fv2"]
-[ext_resource type="Texture2D" uid="uid://cw1qny1ob1i8j" path="res://lib/loader/textures/spinner_box.png" id="25_um878"]
-[ext_resource type="PackedScene" uid="uid://qam37s2cdrnp" path="res://lib/hud/camera_debug/camera_debug.tscn" id="27_mw7io"]
 
 [sub_resource type="Gradient" id="Gradient_rfne7"]
 
@@ -54,11 +53,13 @@ shader_parameter/mask2 = SubResource("GradientTexture2D_h7w5p")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sruav"]
 bg_color = Color(0, 0, 0, 0.196078)
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=552166616]
 process_mode = 3
 script = ExtResource("1_ryxhn")
 
-[node name="Underlay" type="TextureRect" parent="."]
+[node name="DecoDataManager" parent="." unique_id=2139946424 instance=ExtResource("2_um878")]
+
+[node name="Underlay" type="TextureRect" parent="." unique_id=1038994515]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,7 +69,7 @@ texture = ExtResource("2_lglf3")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Vignette" type="Control" parent="."]
+[node name="Vignette" type="Control" parent="." unique_id=1611625434]
 modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 3
 anchors_preset = 15
@@ -78,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CornerNW" type="TextureRect" parent="Vignette"]
+[node name="CornerNW" type="TextureRect" parent="Vignette" unique_id=1795426831]
 layout_mode = 0
 offset_right = 158.0
 offset_bottom = 159.0
@@ -86,7 +87,7 @@ mouse_filter = 2
 texture = ExtResource("1_8jsj4")
 expand_mode = 1
 
-[node name="CornerSE" type="TextureRect" parent="Vignette"]
+[node name="CornerSE" type="TextureRect" parent="Vignette" unique_id=7736958]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -104,7 +105,7 @@ expand_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="CornerSW" type="TextureRect" parent="Vignette"]
+[node name="CornerSW" type="TextureRect" parent="Vignette" unique_id=1501665454]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -118,22 +119,22 @@ texture = ExtResource("1_8jsj4")
 expand_mode = 1
 flip_v = true
 
-[node name="ScreenEffects" parent="." instance=ExtResource("4_m3be7")]
+[node name="ScreenEffects" parent="." unique_id=1961026124 instance=ExtResource("4_m3be7")]
 
-[node name="CornerButtons" type="HBoxContainer" parent="."]
+[node name="CornerButtons" type="HBoxContainer" parent="." unique_id=520513099]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 257.0
 offset_bottom = 28.0
 theme_override_constants/separation = 8
 
-[node name="Padding" type="ColorRect" parent="CornerButtons"]
+[node name="Padding" type="ColorRect" parent="CornerButtons" unique_id=562143929]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="SettingsButton" type="TextureButton" parent="CornerButtons"]
+[node name="SettingsButton" type="TextureButton" parent="CornerButtons" unique_id=261548367]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
@@ -142,7 +143,7 @@ texture_normal = ExtResource("6_n0v1s")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="ReportBug" type="TextureButton" parent="CornerButtons"]
+[node name="ReportBug" type="TextureButton" parent="CornerButtons" unique_id=1740419793]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
@@ -151,7 +152,7 @@ texture_normal = ExtResource("6_n1qy2")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="SafePoint" type="TextureButton" parent="CornerButtons"]
+[node name="SafePoint" type="TextureButton" parent="CornerButtons" unique_id=634945503]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
@@ -160,7 +161,7 @@ texture_normal = ExtResource("5_reoex")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Camera" type="TextureButton" parent="CornerButtons"]
+[node name="Camera" type="TextureButton" parent="CornerButtons" unique_id=1615527364]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
@@ -169,7 +170,7 @@ texture_normal = ExtResource("5_ycds6")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="BlurPanel" type="ColorRect" parent="."]
+[node name="BlurPanel" type="ColorRect" parent="." unique_id=883969067]
 material = SubResource("ShaderMaterial_0u2sw")
 anchors_preset = 1
 anchor_left = 1.0
@@ -180,7 +181,7 @@ grow_horizontal = 0
 mouse_filter = 2
 color = Color(1, 0, 1, 1)
 
-[node name="SidePanel" parent="." instance=ExtResource("7_6qwis")]
+[node name="SidePanel" parent="." unique_id=96144198 instance=ExtResource("7_6qwis")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -188,7 +189,7 @@ offset_left = -290.0
 offset_right = 0.0
 grow_horizontal = 0
 
-[node name="MinorSeparator3" type="TextureRect" parent="."]
+[node name="MinorSeparator3" type="TextureRect" parent="." unique_id=1379629818]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -197,15 +198,15 @@ offset_bottom = 6.0
 grow_horizontal = 0
 texture = ExtResource("10_hvlxk")
 
-[node name="BuildCanvas" type="CanvasLayer" parent="."]
+[node name="BuildCanvas" type="CanvasLayer" parent="." unique_id=1020529824]
 layer = 2
 
-[node name="Announcement" parent="." instance=ExtResource("9_6p63t")]
+[node name="Announcement" parent="." unique_id=1767611942 instance=ExtResource("9_6p63t")]
 visible = false
 offset_top = -86.0
 offset_bottom = -36.0
 
-[node name="FXList" parent="." instance=ExtResource("7_5oqpl")]
+[node name="FXList" parent="." unique_id=1534374258 instance=ExtResource("7_5oqpl")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -219,10 +220,10 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Toolbox" parent="." instance=ExtResource("4_r77lv")]
+[node name="Toolbox" parent="." unique_id=345587214 instance=ExtResource("4_r77lv")]
 layer = 3
 
-[node name="InteractIndicator" type="TextureButton" parent="."]
+[node name="InteractIndicator" type="TextureButton" parent="." unique_id=1137635125]
 custom_minimum_size = Vector2(237, 92)
 anchors_preset = 8
 anchor_left = 0.5
@@ -240,7 +241,7 @@ ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("15_yinsv")
 
-[node name="Blur" type="TextureRect" parent="InteractIndicator"]
+[node name="Blur" type="TextureRect" parent="InteractIndicator" unique_id=22320723]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
@@ -258,7 +259,7 @@ mouse_filter = 2
 texture = ExtResource("14_7wyoj")
 expand_mode = 1
 
-[node name="Text" type="RichTextLabel" parent="InteractIndicator"]
+[node name="Text" type="RichTextLabel" parent="InteractIndicator" unique_id=538351673]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
 offset_left = 22.0
@@ -275,7 +276,7 @@ text = "Interact"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="DecoPane" parent="." instance=ExtResource("9_qacaq")]
+[node name="DecoPane" parent="." unique_id=316820290 instance=ExtResource("9_qacaq")]
 visible = false
 z_index = 1
 anchors_preset = 8
@@ -291,10 +292,10 @@ grow_horizontal = 2
 grow_vertical = 2
 title = "Decorations"
 
-[node name="BuildCanvas2" type="CanvasLayer" parent="."]
+[node name="BuildCanvas2" type="CanvasLayer" parent="." unique_id=810606616]
 layer = 2
 
-[node name="Version" type="RichTextLabel" parent="."]
+[node name="Version" type="RichTextLabel" parent="." unique_id=1025471230]
 modulate = Color(1, 1, 1, 0.784314)
 clip_contents = false
 anchors_preset = 3
@@ -314,11 +315,12 @@ bbcode_enabled = true
 text = "[Version]"
 scroll_active = false
 autowrap_mode = 0
+horizontal_alignment = 2
 script = ExtResource("18_0n0fc")
 align_right = true
 show_updates = false
 
-[node name="Debug" type="RichTextLabel" parent="."]
+[node name="Debug" type="RichTextLabel" parent="." unique_id=1239840308]
 clip_contents = false
 anchors_preset = 1
 anchor_left = 1.0
@@ -341,7 +343,7 @@ text = "[right][Debug][/right]"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Cursor" type="TextureRect" parent="."]
+[node name="Cursor" type="TextureRect" parent="." unique_id=1795278970]
 visible = false
 modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 8
@@ -359,13 +361,13 @@ texture = ExtResource("18_5631a")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StateIndicator" parent="." instance=ExtResource("16_s3yhc")]
+[node name="StateIndicator" parent="." unique_id=1909314296 instance=ExtResource("16_s3yhc")]
 visible = false
 
-[node name="TopLevel" type="CanvasLayer" parent="."]
+[node name="TopLevel" type="CanvasLayer" parent="." unique_id=756168063]
 layer = 5
 
-[node name="SettingsPane" parent="TopLevel" instance=ExtResource("7_w7sr0")]
+[node name="SettingsPane" parent="TopLevel" unique_id=1976280044 instance=ExtResource("7_w7sr0")]
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -379,7 +381,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DebugEntry" type="LineEdit" parent="TopLevel"]
+[node name="DebugEntry" type="LineEdit" parent="TopLevel" unique_id=1681415851]
 process_mode = 3
 modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 2
@@ -397,28 +399,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_hsocp")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sruav")
 placeholder_text = "Enter command:"
 
-[node name="SpinnerBox" type="TextureRect" parent="TopLevel"]
-visible = false
-z_index = 10
-custom_minimum_size = Vector2(143, 121)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.5
-offset_top = -92.5
-offset_right = 71.5
-offset_bottom = 28.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("25_um878")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="FG" type="ColorRect" parent="TopLevel"]
-visible = false
-z_index = 2
+[node name="FG" type="ColorRect" parent="TopLevel" unique_id=525892379]
+z_index = 101
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -426,30 +408,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="PreparingShaders" type="RichTextLabel" parent="TopLevel/FG"]
-modulate = Color(0.5, 0.5, 0.5, 1)
-layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 232.0
-offset_bottom = 64.0
-mouse_filter = 2
-text = "Preparing shaders..."
+[node name="ControllerCursor" parent="TopLevel" unique_id=1662599641 instance=ExtResource("24_40fv2")]
 
-[node name="ControllerCursor" parent="TopLevel" instance=ExtResource("24_40fv2")]
-
-[node name="CameraDebug" parent="TopLevel" instance=ExtResource("27_mw7io")]
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -631.0
-offset_top = 112.0
-offset_right = -311.0
-offset_bottom = 158.0
-grow_horizontal = 0
-
-[node name="InteractEnter" type="AudioStreamPlayer" parent="."]
+[node name="InteractEnter" type="AudioStreamPlayer" parent="." unique_id=600575817]
 stream = ExtResource("20_hhimw")
 
 [connection signal="button_down" from="CornerButtons/SettingsButton" to="." method="_on_settings_down"]

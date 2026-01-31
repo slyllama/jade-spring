@@ -76,7 +76,7 @@ func _on_quit_button_down() -> void:
 		
 		Global.hud.fade_out()
 		await Global.hud.fade_out_complete
-		get_tree().change_scene_to_file("res://lib/main_menu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://lib/main_menu/mm_loader/mm_loader.tscn")
 
 func _process(delta: float) -> void:
 	super(delta)
@@ -118,7 +118,7 @@ func _on_gp_low_button_down() -> void:
 	SettingsHandler.update("foliage_density", "low")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "off")
-	SettingsHandler.update("draw_cap", "low")
+	SettingsHandler.update("shadows", "low")
 	
 	SettingsHandler.update("saturation", 0.65)
 	SettingsHandler.update("brightness", 1.0)
@@ -129,7 +129,7 @@ func _on_gp_normal_button_down() -> void:
 	SettingsHandler.update("foliage_density", "high")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
-	SettingsHandler.update("draw_cap", "high")
+	SettingsHandler.update("shadows", "low")
 	
 	SettingsHandler.update("saturation", 0.5)
 	SettingsHandler.update("brightness", 0.5)
@@ -140,7 +140,7 @@ func _on_gp_high_button_down() -> void:
 	SettingsHandler.update("foliage_density", "ultra")
 	SettingsHandler.update("fps_cap", "60")
 	SettingsHandler.update("bloom", "on")
-	SettingsHandler.update("draw_cap", "none")
+	SettingsHandler.update("shadows", "high")
 	
 	SettingsHandler.update("saturation", 0.5)
 	SettingsHandler.update("brightness", 0.5)

@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://c7s6otmq568q4"]
+
+[ext_resource type="Script" uid="uid://chtohc56g8bok" path="res://lib/deco_data_manager/deco_data_manager.gd" id="1_wua7u"]
+[ext_resource type="FontFile" uid="uid://drvjsmav1gcj3" path="res://generic/fonts/ibm_plex_mono.otf" id="2_em6rf"]
+[ext_resource type="Texture2D" uid="uid://dp1j524j5uwre" path="res://generic/textures/stickers/sticker_warning.png" id="2_hip86"]
+
+[node name="DecoDataManager" type="Window" unique_id=2139946424]
+disable_3d = true
+handle_input_locally = false
+oversampling_override = 1.0
+title = "Decoration Data Manager"
+position = Vector2i(0, 36)
+size = Vector2i(400, 400)
+visible = false
+always_on_top = true
+sharp_corners = true
+max_size = Vector2i(800, 800)
+content_scale_mode = 1
+script = ExtResource("1_wua7u")
+
+[node name="Box" type="VBoxContainer" parent="." unique_id=1849554597]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Blank" type="TextureRect" parent="Box" unique_id=838134011]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 6
+texture = ExtResource("2_hip86")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CBox" type="VBoxContainer" parent="Box" unique_id=86947318]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ID" type="Label" parent="Box/CBox" unique_id=1297577833]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_em6rf")
+theme_override_font_sizes/font_size = 21
+text = "((ID))"
+
+[node name="Separator" type="ColorRect" parent="Box/CBox" unique_id=1189583361]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Padding2" type="ColorRect" parent="Box/CBox" unique_id=1018434923]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="NameBox" type="HBoxContainer" parent="Box/CBox" unique_id=1270883388]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Box/CBox/NameBox" unique_id=1521994602]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Name:"
+
+[node name="Name" type="LineEdit" parent="Box/CBox/NameBox" unique_id=363282917]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScenePath" type="HBoxContainer" parent="Box/CBox" unique_id=2019416858]
+layout_mode = 2
+
+[node name="ScenePathLabel" type="Label" parent="Box/CBox/ScenePath" unique_id=1437143525]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Scene Path:"
+
+[node name="ScenePath" type="LineEdit" parent="Box/CBox/ScenePath" unique_id=492173742]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="CursorPath" type="HBoxContainer" parent="Box/CBox" unique_id=1797113471]
+layout_mode = 2
+
+[node name="CursorPathLabel" type="Label" parent="Box/CBox/CursorPath" unique_id=1510423020]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Cursor Path:"
+
+[node name="CursorPath" type="LineEdit" parent="Box/CBox/CursorPath" unique_id=2077307367]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Value" type="HBoxContainer" parent="Box/CBox" unique_id=1666586386]
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="Box/CBox/Value" unique_id=1432187505]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Unlock Value:"
+
+[node name="Value" type="LineEdit" parent="Box/CBox/Value" unique_id=15472026]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Preview" type="Label" parent="Box/CBox" unique_id=1313283011]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Preview"
+vertical_alignment = 2
+
+[node name="Tags" type="HBoxContainer" parent="Box/CBox" unique_id=911134044]
+layout_mode = 2
+
+[node name="TagsLabel" type="Label" parent="Box/CBox/Tags" unique_id=1845861463]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Tags:"
+
+[node name="Tags" type="LineEdit" parent="Box/CBox/Tags" unique_id=91790844]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Scale" type="HBoxContainer" parent="Box/CBox" unique_id=1748443684]
+layout_mode = 2
+
+[node name="ScaleLabel" type="Label" parent="Box/CBox/Scale" unique_id=1457772754]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Scale:"
+
+[node name="Scale" type="LineEdit" parent="Box/CBox/Scale" unique_id=885922874]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VOffset" type="HBoxContainer" parent="Box/CBox" unique_id=838500160]
+layout_mode = 2
+
+[node name="HOffsetLabel" type="Label" parent="Box/CBox/VOffset" unique_id=620664460]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "X-Offset:"
+
+[node name="HOffset" type="LineEdit" parent="Box/CBox/VOffset" unique_id=675061120]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VOffsetLabel" type="Label" parent="Box/CBox/VOffset" unique_id=1457113477]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+text = "Y-Offset:"
+
+[node name="VOffset" type="LineEdit" parent="Box/CBox/VOffset" unique_id=359664387]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Rotation" type="HBoxContainer" parent="Box/CBox" unique_id=201921441]
+layout_mode = 2
+
+[node name="RotationLabel" type="Label" parent="Box/CBox/Rotation" unique_id=1776951896]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Rotation:"
+
+[node name="Rotation" type="LineEdit" parent="Box/CBox/Rotation" unique_id=24405515]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Padding" type="ColorRect" parent="Box/CBox" unique_id=1163853733]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="DoPreview" type="Button" parent="Box/CBox" unique_id=431461095]
+layout_mode = 2
+text = "Preview"
+
+[connection signal="pressed" from="Box/CBox/DoPreview" to="." method="_on_do_preview_pressed"]

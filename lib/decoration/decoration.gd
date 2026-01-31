@@ -1,5 +1,5 @@
 @tool
-@icon("res://lib/decoration/icon_decoration.svg")
+@icon("res://lib/decoration/icon_deco.svg")
 class_name Decoration extends Node3D
 enum {TRANSFORM_TYPE_TRANSLATE, TRANSFORM_TYPE_ROTATE}
 
@@ -45,7 +45,7 @@ func set_outline(state = true) -> void:
 		for _i in 2: await get_tree().process_frame # give the cursor a chance to be re-added
 		if Global.cursor_active and Global.highlighted_decoration == self:
 			outline_mat.set_shader_parameter("outline_color", Color.GREEN_YELLOW)
-			outline_mat.set_shader_parameter("outline_width", 0.35)
+			outline_mat.set_shader_parameter("outline_width", 0.45)
 	else:
 		outline_mat.set_shader_parameter("outline_color", Color.TRANSPARENT)
 		outline_mat.set_shader_parameter("outline_width", 0)
@@ -206,8 +206,6 @@ func cancel_adjustment() -> void:
 		collision_box.set_collision_layer_value(1, true)
 		collision_box.set_collision_layer_value(2, true)
 	if Global.active_decoration == self:
-		#select_label.fade_out()
-		print("clear")
 		_replace_grid(true)
 		Global.active_decoration = null
 		Global.jade_bot_sound.emit()
@@ -256,6 +254,8 @@ func _ready() -> void:
 				if "shader_parameter/alpha_scissor_threshold" in _mat:
 					_valid = false
 				if "shader_parameter/alpha" in _mat:
+					_valid = false
+				if "is_portal" in _mat:
 					_valid = false
 			if _mat is StandardMaterial3D:
 				if _mat.transparency != StandardMaterial3D.TRANSPARENCY_DISABLED:
@@ -394,7 +394,9 @@ func _ready() -> void:
 						set_selected(false)
 				elif Global.tool_mode == Global.TOOL_MODE_DELETE:
 					Global.deco_deleted.emit()
-					Global.decorations.erase(self)
+					Global.deco_count -= 1
+					Global.deco_count_changed.emit()
+					print("deleting...")
 					queue_free()
 				elif Global.tool_mode == Global.TOOL_MODE_EYEDROPPER:
 					Global.deco_sampled.emit({

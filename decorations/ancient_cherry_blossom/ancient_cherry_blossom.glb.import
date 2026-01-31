@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/ancient_cherry_blossom.glb-b650b1fe4066cdcba4
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_branch": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/ancient_cherry_blossom/materials/mat_blossom_branch.tres"
+"use_external/fallback_path": "res://decorations/ancient_cherry_blossom/materials/mat_blossom_branch.tres",
+"use_external/path": "uid://e7jpf8cp5tfb"
 },
 "mat_foliage": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/ancient_cherry_blossom/materials/mat_blossom_foliage.tres"
+"use_external/fallback_path": "res://decorations/ancient_cherry_blossom/materials/mat_blossom_foliage.tres",
+"use_external/path": "uid://chlav5hmpdcpp"
 }
 },
 "nodes": {

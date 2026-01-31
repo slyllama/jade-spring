@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=4 format=3 uid="uid://pkvuagid82dc"]
+[gd_resource type="Environment" format=3 uid="uid://pkvuagid82dc"]
 
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_itm2h"]
 

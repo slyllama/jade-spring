@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b52gq2vfxvxxl"]
+[gd_scene format=3 uid="uid://b52gq2vfxvxxl"]
 
 [ext_resource type="Script" uid="uid://bypyxkrtdagpi" path="res://lib/_global/steam_handler.gd" id="1_c7ljs"]
 
-[node name="SteamHandler" type="Node"]
+[node name="SteamHandler" type="Node" unique_id=836090978]
 process_mode = 3
 script = ExtResource("1_c7ljs")

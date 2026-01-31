@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/lantern.glb-b99491a64770b15eb5f383055927d29e.
 
 nodes/root_type=""
 nodes/root_name="Lantern"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.35
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,27 +34,35 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_emission": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/player/materials/mat_jade.tres"
+"use_external/fallback_path": "res://lib/player/materials/mat_jade.tres",
+"use_external/path": "uid://ihoir867mar"
 },
 "mat_rock_base": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/lantern/materials/mat_rock_base.tres"
+"use_external/fallback_path": "res://decorations/lantern/materials/mat_rock_base.tres",
+"use_external/path": "uid://b3wn3x1j3qe5a"
 },
 "mat_rock_top": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/lantern/materials/mat_rock_top.tres"
+"use_external/fallback_path": "res://decorations/lantern/materials/mat_rock_top.tres",
+"use_external/path": "uid://co04qmi7scdgw"
 },
 "mat_wood": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/lantern/materials/mat_wood.tres"
+"use_external/fallback_path": "res://decorations/lantern/materials/mat_wood.tres",
+"use_external/path": "uid://dea4wfxui5nk8"
 },
 "mat_wood_dark": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/lantern/materials/mat_wood_darker.tres"
+"use_external/fallback_path": "res://decorations/lantern/materials/mat_wood_darker.tres",
+"use_external/path": "uid://c2l6u06jv4p8r"
 }
 }
 }

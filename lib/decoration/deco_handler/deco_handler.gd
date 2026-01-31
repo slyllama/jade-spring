@@ -2,7 +2,7 @@ class_name DecoHandler extends Node3D
 # DecoHandler
 # Manages the placing and removal of decorations
 
-const TEST_DECORATION = preload("res://decorations/lantern/deco_lantern.tscn")
+const DecoThreadedLoader = preload("res://lib/decoration/deco_threaded_loader/deco_threaded_loader.tscn")
 const FILE_PATH = "user://save/deco.dat"
 var default_deco_data = {}
 
@@ -47,8 +47,10 @@ func place_decoration(data: Dictionary) -> void:
 		_d.global_rotation.x = data.x_rotation
 	if "eyedrop_scale" in data:
 		_d.scale = data.eyedrop_scale
-	Global.decorations.append(_d)
 	Global.command_sent.emit("/savedeco")
+	
+	Global.deco_count += 1
+	Global.deco_count_changed.emit()
 	
 	await get_tree().process_frame
 	
@@ -68,29 +70,51 @@ func _clear_decorations() -> void:
 	for _n in get_children():
 		if _n is Decoration:
 			_n.queue_free()
-	Global.decorations = []
 
-# Load decorations into the world from a dataset
-# TODO: it might be best to perform this asynchronously
+var _deco_count_position := 0 # increment when a decoration load is finalized
+
+signal load_increment
+
 func _load_decorations(data = []) -> void:
-	print("[DecoHandler] Loading decorations...")
-	Global.deco_load_started.emit()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().process_frame # race condition with HUD reveal
 	_clear_decorations()
+	
+	_deco_count_position = 0
+	Global.deco_load_started.emit()
+	Global.deco_count = data.size()
+	Global.deco_count_changed.emit()
+	
+	if data.size() == 0:
+		_save_decorations()
+		Global.decorations_loaded.emit()
+		Global.deco_load_ended.emit()
+		return
+	
+	var batched_data := {}
 	for _d in data:
-		if !_d.id in Global.DecoData:
-			print_rich("[color=red][ERROR][DecoHandler] '" + _d.id + "' is not in this version of Jade Spring.[/color]")
-			continue
-		var _decoration: Decoration = load(Global.DecoData[_d.id].scene).instantiate()
-		
-		call_deferred("add_child", _decoration)
-		await _decoration.tree_entered
-		
-		_decoration.global_position = _d.position
-		_decoration.rotation = _d.rotation
-		_decoration.scale = _d.scale
-		Global.decorations.append(_decoration)
-	Global.deco_load_ended.emit()
+		if !_d.id in Global.DecoData: continue
+		var _deco_spawn_data = SpawnData.new()
+		_deco_spawn_data.position = _d.position
+		_deco_spawn_data.rotation = _d.rotation
+		_deco_spawn_data.scale = _d.scale
+		if _d.id in batched_data:
+			batched_data[_d.id].append(_deco_spawn_data)
+		else: batched_data[_d.id] = [_deco_spawn_data]
+	
+	for _b in batched_data:
+		var _deco_loader: DecoThreadedLoaderScript = DecoThreadedLoader.instantiate()
+		_deco_loader.deco_id = _b
+		_deco_loader.spawn_data = batched_data[_b]
+		_deco_loader.loaded.connect(func():
+			load_increment.emit()
+			_deco_count_position += batched_data[_b].size()
+			if _deco_count_position == Global.deco_count: # finished
+				await get_tree().process_frame
+				_save_decorations()
+				Global.decorations_loaded.emit()
+				Global.deco_load_ended.emit())
+		add_child.call_deferred(_deco_loader)
+		await load_increment
 
 # Load decorations from a file as a dictionary to use with other functions
 func _load_decoration_file(deco_path = FILE_PATH) -> Array:
@@ -102,8 +126,7 @@ func _load_decoration_file(deco_path = FILE_PATH) -> Array:
 		if _file_decos is Array:
 			return(_file_decos)
 		else: return([])
-	else:
-		return([])
+	else: return([])
 
 func _get_decoration_list() -> Array:
 	var _decoration_save_data = []
@@ -127,10 +150,6 @@ func _save_decorations() -> void:
 
 func _ready() -> void:
 	Global.deco_handler = self
-	
-	for _n in get_children():
-		if _n is Decoration:
-			Global.decorations.append(_n)
 	default_deco_data = _get_decoration_list()
 	
 	# Strict eligibility for achievements
@@ -173,9 +192,10 @@ func _ready() -> void:
 			await Global.deco_load_ended
 			Global.announcement_sent.emit("((Loaded decorations from file))")
 		elif _cmd == "/resetdeco":
-			_load_decorations(default_deco_data)
+			var _default_data = _load_decoration_file(
+			"res://maps/seitung/default_deco.dat")
+			_load_decorations(_default_data)
 			await Global.deco_load_ended
-			await get_tree().process_frame
 			_save_decorations()
 		elif _cmd == "/savedeco":
 			_save_decorations()
@@ -190,5 +210,10 @@ func _on_design_handler_ready() -> void:
 	if Global.map_name == "debug": return
 	
 	if !Global.start_params.new_save:
-		print("[DecoHandler] Loading design '" + SettingsHandler.settings.current_design + "'.")
+		print("[DecoHandler] Loading design '"
+			+ SettingsHandler.settings.current_design + "'.")
 		_load_decorations(_load_decoration_file())
+	else:
+		print("Loading default decoration file.")
+		var _default_data = _load_decoration_file("res://maps/seitung/default_deco.dat")
+		_load_decorations(_default_data)

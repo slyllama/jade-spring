@@ -18,6 +18,15 @@ const DecoData = {
 		"tags": ["Architecture", "Cantha", "Furniture"],
 		"a_cull": true
 	},
+	"drizzlewood_scaffold": {
+		"name": "Drizzlewood Scaffold",
+		"scene": "res://decorations/drizzlewood_scaffold/drizzlewood_scaffold.tscn",
+		"cursor_model": "res://decorations/drizzlewood_scaffold/meshes/drizzlewood_scaffold.glb",
+		"preview_scale": 1.0,
+		"preview_v_offset": -0.45,
+		"tags": ["Architecture"],
+		"preview_y_rotation": 20,
+	},
 	"happy_cloud": {
 		"name": "Happy Cloud",
 		"scene": "res://decorations/happy_cloud/happy_cloud.tscn",
@@ -36,6 +45,16 @@ const DecoData = {
 		"unlock_value": 17,
 		"a_cull": true
 	},
+	"railroad_bridge": {
+		"name": "Railroad Bridge",
+		"scene": "res://decorations/railroad_bridge/railroad_bridge.tscn",
+		"cursor_model": "res://decorations/railroad_bridge/meshes/railroad_bridge.glb",
+		"preview_scale": 0.7,
+		"preview_v_offset": 0.2,
+		"tags": ["Architecture"],
+		"unlock_value": 10,
+		"a_cull": true
+	},
 	"honey_drips": {
 		"name": "Honey Drips",
 		"scene": "res://decorations/janthiri_bee/honey_drips/honey_drips.tscn",
@@ -52,6 +71,16 @@ const DecoData = {
 		"cursor_model": "res://maps/seitung/meshes/small_boulders.glb",
 		"preview_scale": 0.9,
 		"tags": ["Natural Feature"],
+		"a_cull": true
+	},
+	"ventaris_tablet": {
+		"name": "Ventari's Tablet",
+		"scene": "res://decorations/ventaris_tablet/ventaris_tablet.tscn",
+		"cursor_model": "res://decorations/ventaris_tablet/meshes/ventaris_tablet.glb",
+		"preview_scale": 1.0,
+		"preview_v_offset": -0.6,
+		"tags": ["Furniture"],
+		"unlock_value": 30,
 		"a_cull": true
 	},
 	"string_lights": {
@@ -252,6 +281,14 @@ const DecoData = {
 		"preview_scale": 0.42,
 		"model_offset": Vector3(0, 0.5, 0),
 		"preview_y_rotation": 35,
+		"tags": ["Architecture", "Floor"]
+	},
+	"drizzlewood_platform": {
+		"name": "Drizzlewood Platform",
+		"scene": "res://decorations/drizzlewood_platform/drizzlewood_platform.tscn",
+		"cursor_model": "res://decorations/drizzlewood_platform/meshes/drizzlewood_platform.glb",
+		"preview_scale": 0.3,
+		"model_offset": Vector3(0, 0.7, 0),
 		"tags": ["Architecture", "Floor"]
 	},
 	"honeycomb": {
@@ -506,5 +543,14 @@ const DecoData = {
 		"model_offset": Vector3(0, 0.5, 0),
 		"tags": ["Cantha", "Ornament"],
 		"a_cull": true
+	},
+	"asuran_portal": {
+		"name": "Asuran Portal",
+		"scene": "res://decorations/asuran_portal/portal.tscn",
+		"cursor_model": "res://decorations/asuran_portal/portal_mesh.tscn",
+		"preview_scale": 0.8,
+		"model_offset": Vector3(0, -0.1, 0),
+		"preview_y_rotation": 20,
+		"tags": ["Asura", "Architecture"],
 	},
 }

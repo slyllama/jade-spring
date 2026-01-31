@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bxj3pc7r8l63r"]
+[gd_scene format=3 uid="uid://bxj3pc7r8l63r"]
 
 [ext_resource type="PackedScene" uid="uid://dytel2pgikquu" path="res://lib/gadget/gadget.tscn" id="1_7ikog"]
 [ext_resource type="Script" uid="uid://c8vteorf7w8be" path="res://lib/pulley/pulley.gd" id="2_8d48b"]
@@ -22,9 +22,9 @@ radius = 0.6
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_77j05"]
-seamless = true
-color_ramp = SubResource("Gradient_7wybj")
 noise = SubResource("FastNoiseLite_0rs2m")
+color_ramp = SubResource("Gradient_7wybj")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_dfi2r"]
 offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)
@@ -60,9 +60,9 @@ orientation = 2
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_p54p2"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1t7wh"]
-seamless = true
-color_ramp = SubResource("Gradient_4ar3n")
 noise = SubResource("FastNoiseLite_p54p2")
+color_ramp = SubResource("Gradient_4ar3n")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8mwt3"]
 render_priority = -1
@@ -116,12 +116,12 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_g48oo")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7emif"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g48oo"]
 render_priority = 2
 shader = ExtResource("8_7emif")
 shader_parameter/mask_texture = ExtResource("9_earbl")
 shader_parameter/vertical_mask = SubResource("GradientTexture2D_kipk4")
-shader_parameter/color = Color(1, 0.482353, 0, 1)
+shader_parameter/color = Color(1, 0.48235294, 0, 1)
 shader_parameter/uv_scale = Vector2(2, 0.6)
 shader_parameter/exponent = 1.8
 shader_parameter/time_scale = 0.07
@@ -146,7 +146,7 @@ distance_fade_max_distance = 13.0
 [sub_resource type="QuadMesh" id="QuadMesh_fspdm"]
 material = SubResource("StandardMaterial3D_4qhoa")
 
-[node name="Pulley" instance=ExtResource("1_7ikog")]
+[node name="Pulley" unique_id=2000384151 instance=ExtResource("1_7ikog")]
 transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 0, 0)
 script = ExtResource("2_8d48b")
 show_area = true
@@ -155,12 +155,12 @@ show_area = true
 visible = false
 shape = SubResource("CylinderShape3D_7emif")
 
-[node name="SpatialText" parent="." index="1" instance=ExtResource("3_ypg4v")]
+[node name="SpatialText" parent="." index="1" unique_id=801312312 instance=ExtResource("3_ypg4v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 spatial_string = "Ratchet"
 color = "green"
 
-[node name="Placeholder" type="CSGSphere3D" parent="." index="2"]
+[node name="Placeholder" type="CSGSphere3D" parent="." index="2" unique_id=1858629702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 radius = 0.4
@@ -168,15 +168,15 @@ radial_segments = 32
 rings = 16
 material = ExtResource("4_cuapp")
 
-[node name="PulleyMesh" parent="." index="3" instance=ExtResource("5_p28vv")]
+[node name="PulleyMesh" parent="." index="3" unique_id=1118022852 instance=ExtResource("5_p28vv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Ray" type="MeshInstance3D" parent="." index="4"]
+[node name="Ray" type="MeshInstance3D" parent="." index="4" unique_id=1886343078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.631505, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_rox8u")
 
-[node name="Glow" type="MeshInstance3D" parent="Ray" index="0"]
+[node name="Glow" type="MeshInstance3D" parent="Ray" index="0" unique_id=873413961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0407044, 0)
 mesh = SubResource("QuadMesh_f178q")
 
@@ -184,9 +184,9 @@ mesh = SubResource("QuadMesh_f178q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = true
 mesh = SubResource("CylinderMesh_earbl")
-surface_material_override/0 = SubResource("ShaderMaterial_7emif")
+surface_material_override/0 = SubResource("ShaderMaterial_g48oo")
 
-[node name="QuestMarker" type="MeshInstance3D" parent="." index="6"]
+[node name="QuestMarker" type="MeshInstance3D" parent="." index="6" unique_id=1639539563]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.8, 0)
 visible = false
 cast_shadow = 0

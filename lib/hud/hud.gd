@@ -1,7 +1,6 @@
-extends CanvasLayer
+class_name HUDScript extends CanvasLayer
 
 const FADE = 0.6 # faded buttons will have this alpha value
-const StoryPanel = preload("res://lib/story_panel/story_panel.tscn")
 
 func _render_fps() -> String: # pretty formatting of FPS values
 	var color = "green"
@@ -73,6 +72,11 @@ func proc_story() -> void:
 				Vector2(get_viewport().size.x / Global.retina_scale * 0.5 - 460,
 				40 - get_viewport().size.y / Global.retina_scale * 0.5)), true)
 
+# Set whether the effects list registers mouse inputs or ignores them
+func set_fx_pickable(state := true) -> void:
+	if state: $FXList.mouse_filter = Control.MOUSE_FILTER_PASS
+	else: $FXList.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if $TopLevel/DebugEntry.has_focus():
@@ -82,47 +86,49 @@ func _input(_event: InputEvent) -> void:
 			and !$TopLevel/SettingsPane.is_open):
 			$TopLevel/SettingsPane.open()
 	
-	if Input.is_action_just_pressed("debug_cmd"):
-		if !Global.debug_enabled or !Global.debug_allowed or Global.design_pane_open: return
-		await get_tree().process_frame
-		if !$TopLevel/DebugEntry.has_focus():
-			# Select the command line for entry
+	if Global.debug_allowed:
+		if Input.is_action_just_pressed("debug_cmd"):
+			if !Global.debug_enabled or !Global.debug_allowed or Global.design_pane_open: return
+			await get_tree().process_frame
+			if !$TopLevel/DebugEntry.has_focus():
+				# Select the command line for entry
+				_debug_cmd_gain_focus()
+			else:
+				# Send text and clear the command line
+				Global.last_command = $TopLevel/DebugEntry.text
+				Global.command_sent.emit($TopLevel/DebugEntry.text)
+				_debug_cmd_lose_focus(true)
+		
+		if Input.is_action_just_pressed("debug_cmd_slash"):
+			if !Global.debug_allowed: return
+			if !Global.debug_enabled: # enable debug first, if it hasn't been already
+				Global.debug_enabled = true
+				Global.debug_toggled.emit()
+			if !$TopLevel/DebugEntry.has_focus():
+				_debug_cmd_gain_focus()
+		
+		if Input.is_action_just_pressed("last_cmd"):
+			if !Global.debug_allowed: return
+			Global.command_sent.emit(Global.last_command)
+		
+		# Fill the command line with the last-used command
+		if Input.is_action_just_pressed("debug_fill_last_cmd"):
+			if !Global.debug_allowed: return
+			if !Global.debug_enabled: # enable debug first, if it hasn't been already
+				Global.debug_enabled = true
+				Global.debug_toggled.emit()
 			_debug_cmd_gain_focus()
-		else:
-			# Send text and clear the command line
-			Global.last_command = $TopLevel/DebugEntry.text
-			Global.command_sent.emit($TopLevel/DebugEntry.text)
-			_debug_cmd_lose_focus(true)
-	
-	if Input.is_action_just_pressed("debug_cmd_slash"):
-		if !Global.debug_allowed: return
-		if !Global.debug_enabled: # enable debug first, if it hasn't been already
-			Global.debug_enabled = true
-			Global.debug_toggled.emit()
-		if !$TopLevel/DebugEntry.has_focus():
-			_debug_cmd_gain_focus()
-	
-	if Input.is_action_just_pressed("last_cmd"):
-		if !Global.debug_allowed: return
-		Global.command_sent.emit(Global.last_command)
-	
-	# Fill the command line with the last-used command
-	if Input.is_action_just_pressed("debug_fill_last_cmd"):
-		if !Global.debug_allowed: return
-		if !Global.debug_enabled: # enable debug first, if it hasn't been already
-			Global.debug_enabled = true
-			Global.debug_toggled.emit()
-		_debug_cmd_gain_focus()
-		$TopLevel/DebugEntry.text = Global.last_command
-		await get_tree().process_frame
-		$TopLevel/DebugEntry.set_caret_column(100)
+			$TopLevel/DebugEntry.text = Global.last_command
+			await get_tree().process_frame
+			$TopLevel/DebugEntry.set_caret_column(100)
+		
+		if Input.is_action_just_pressed("debug_deco_manager"):
+			$DecoDataManager.visible = !$DecoDataManager.visible
 	
 	# Toggle HUD visibility (good for promotional screenshots)
 	if Input.is_action_just_pressed("toggle_hud"):
-		if visible:
-			hide_hud()
-		else:
-			show_hud()
+		if visible: hide_hud()
+		else: show_hud()
 
 func show_hud() -> void:
 	if visible: return
@@ -155,7 +161,24 @@ func fade_in() -> void:
 	_fade_tween.tween_callback(func():
 		$TopLevel/FG.visible = false)
 
+var entered_reveal := false # reveal can only be entered once
+
+# Called once decorations have finished loading - reveals the map
+func reveal() -> void:
+	if entered_reveal: return
+	entered_reveal = true
+	
+	var _fade_tween = create_tween()
+	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
+	_fade_tween.tween_callback(func():
+		$TopLevel/FG.visible = false)
+	# Opening story panel (if the story hasn't been advanced)
+	if Save.data.story_point == "game_start":
+		Global.summon_story_panel.emit(Save.STORY_POINT_SCRIPT["game_start"])
+	proc_story()
+
 func _ready() -> void:
+	$TopLevel/SettingsPane/Container/SC/Contents/ResetBox.visible = false
 	Global.hud = self # reference
 	
 	# Interaction connections
@@ -171,10 +194,7 @@ func _ready() -> void:
 	Global.deco_pane_opened.connect($DecoPane.open)
 	Global.fishing_started.connect(_hide_int)
 	
-	Global.deco_load_started.connect(func():
-		$TopLevel/SpinnerBox.visible = true)
-	Global.deco_load_ended.connect(func():
-		$TopLevel/SpinnerBox.visible = false)
+	Save.story_advanced.connect(proc_story)
 	
 	Global.command_sent.connect(func(_cmd):
 		if _cmd == "/quit":
@@ -188,13 +208,11 @@ func _ready() -> void:
 	Global.debug_toggled.connect(func():
 		if visible:
 			$TopLevel/DebugEntry.visible = Global.debug_enabled
-		$Debug.visible = Global.debug_enabled
-		$TopLevel/CameraDebug.visible = Global.debug_enabled)
+		$Debug.visible = Global.debug_enabled)
 	
 	Global.summon_story_panel.connect(func(data):
 		if !"description" in data or !"title" in data: return
-		
-		var _sp = StoryPanel.instantiate()
+		var _sp = load("res://lib/story_panel/story_panel.tscn").instantiate()
 		add_child(_sp)
 		if "sticker" in data: _sp.open(data.title, data.description, data.sticker)
 		else: _sp.open(data.title, data.description)
@@ -215,21 +233,8 @@ func _ready() -> void:
 	$TopLevel/FG.visible = true
 	$Underlay.queue_free()
 	
-	await Global.shader_preload_complete
-	await get_tree().create_timer(0.51).timeout
-	
-	var _fade_tween = create_tween()
-	_fade_tween.tween_property($TopLevel/FG, "modulate:a", 0.0, 0.5)
-	_fade_tween.tween_callback(func():
-		$TopLevel/FG.visible = false
-		$TopLevel/FG/PreparingShaders.visible = false)
-	
-	# Opening story panel (if the story hasn't been advanced)
-	if Save.data.story_point == "game_start":
-		Global.summon_story_panel.emit(Save.STORY_POINT_SCRIPT["game_start"])
-	
-	Save.story_advanced.connect(proc_story)
-	proc_story()
+	await get_tree().create_timer(0.5).timeout
+	reveal()
 
 func _process(_delta: float) -> void:
 	if Global.tool_mode != Global.TOOL_MODE_NONE:
@@ -243,12 +248,11 @@ func _process(_delta: float) -> void:
 	if Global.debug_enabled:
 		$Debug.text = "[right]"
 		$Debug.text += _render_fps()
-		#$Debug.text += "\n(" + Utilities.fmt_vec3(Global.player_position) + ")"
+		$Debug.text += "\n(" + Utilities.fmt_vec3(Global.player_position) + ")"
 		$Debug.text += (" ("
 			+ str(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)) + ")")
 		$Debug.text += "\n"
 		$Debug.text += ("\n" + str(Global.tool_identities[Global.tool_mode]))
-		#$Debug.text += ("\n" + str(Utilities.fmt_vec3(Global.player_position)))
 		$Debug.text += ("\nSave.STORY_POINTS." + str(Save.data.story_point))
 		$Debug.text += "\n"
 		if Global.in_exclusive_ui: $Debug.text += ("\n[color=yellow]Exclusive UI[/color]")

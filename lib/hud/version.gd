@@ -32,7 +32,6 @@ func _ready() -> void:
 		if Input.is_action_just_pressed("left_click"):
 			if _c <= 0.0:
 				_c = 0.3
-				print("doing this")
 				OS.shell_open("https://slyllama.net/jade-spring"))
 	Version.latest_version_retrieved.connect(func(latest_version):
 		if show_updates and !updated:

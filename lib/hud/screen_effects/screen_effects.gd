@@ -70,14 +70,11 @@ func _input(_event: InputEvent) -> void:
 		_f.tween_method(_set_anime_alpha, 0.0, 0.5, 0.1)
 	elif Input.is_action_just_released("sprint"):
 		var _f = create_tween()
-		_f.tween_method(_set_anime_alpha, $Anime.material.get_shader_parameter("modulate_a"), 0.0, 0.1)
-	
-	if Input.is_action_just_pressed("toggle_hud"):
-		if $Debug.visible:
-			$Debug.visible = false
-		else:
-			if Global.map_name == "debug":
-				$Debug.visible = true
+		_f.tween_method(
+			_set_anime_alpha,
+			$Anime.material.get_shader_parameter("modulate_a"),
+			0.0,
+			0.1)
 
 func _ready() -> void:
 	_set_bugs_exponent(1.0)
@@ -89,8 +86,9 @@ func _ready() -> void:
 	$Underlay.visible = false
 	$Flowers.visible = false
 	
-	if Global.map_name == "debug": $Debug.visible = true
-	else: $Debug.visible = false
+	if Global.map_name == "debug":
+		$Debug.visible = true
+	else: $Debug.queue_free()
 	
 	get_window().focus_exited.connect(func():
 		if $Anime.material.get_shader_parameter("modulate_a") > 0.0:
@@ -101,10 +99,9 @@ func _ready() -> void:
 		if cmd == "/ping":
 			_aberrate()
 		elif cmd == "/screenshot":
-			$Debug.visible = false
+			if Global.map_name == "debug": $Debug.visible = false
 			for _x in 2: await get_tree().process_frame
-			if Global.map_name == "debug":
-				$Debug.visible = true
+			if Global.map_name == "debug": $Debug.visible = true
 		elif cmd == "/mini=true":
 			_aberrate())
 	

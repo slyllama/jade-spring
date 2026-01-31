@@ -59,6 +59,9 @@ func get_screen_center(offset = Vector2.ZERO) -> Vector2:
 	return(Vector2(get_window().size.x / Global.retina_scale / 2.0 - 150.0,
 		get_window().size.y / Global.retina_scale / 2.0) + offset)
 
+func get_screen_position() -> Vector2i: # recalled from DisplayServer
+	return(DisplayServer.screen_get_position())
+
 # Is the specified point within the world boundaries?
 # TODO: relies on magic numbers; should use the boundary nodes themselves
 func point_in_wb(point: Vector3) -> bool:
@@ -90,9 +93,7 @@ func get_time() -> String:
 	return("%02d:%02d:%02d" % [time.hour, time.minute, time.second])
 
 func set_window_mode(window_mode: String) -> void:
-	if Engine.is_embedded_in_editor():
-		print("[Utilities] Skipping window resize because the game is embedded in editor.")
-		return
+	if Engine.is_embedded_in_editor(): return
 	if window_mode == "full_screen":
 		if get_window().mode != Window.MODE_FULLSCREEN:
 			get_window().mode = Window.MODE_FULLSCREEN
@@ -114,8 +115,7 @@ func set_window_mode(window_mode: String) -> void:
 func get_user_vol() -> float:
 	if "volume" in SettingsHandler.settings:
 		return(clamp(float(SettingsHandler.settings.volume), 0.0, 1.0))
-	else:
-		return(0.0)
+	else: return(0.0)
 
 # Set master volume on the bus
 func set_master_vol(vol = get_user_vol()) -> void:

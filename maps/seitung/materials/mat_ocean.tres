@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://bjvh70xfkt3wx"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bjvh70xfkt3wx"]
 
 [ext_resource type="Texture2D" uid="uid://b8qfv5boxgf0s" path="res://maps/seitung/materials/textures/ocean_alpha_mask.jpg" id="1_ttv1q"]
 [ext_resource type="Shader" uid="uid://d0lxlmq8gekwj" path="res://maps/seitung/materials/shaders/shader_ocean.tres" id="1_yxsul"]

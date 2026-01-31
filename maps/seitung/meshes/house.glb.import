@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/house.glb-c81e989351ec7d5c53e0ae3fa1b543eb.sc
 
 nodes/root_type=""
 nodes/root_name="House"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=false
@@ -32,19 +34,25 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_ornament": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_ornate_stone.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_ornate_stone.tres",
+"use_external/path": "uid://2fs6tnks1hct"
 },
 "mat_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://generic/materials/mat_placeholder.tres"
+"use_external/fallback_path": "res://generic/materials/mat_placeholder.tres",
+"use_external/path": "uid://d4a1lhxjtjvy5"
 },
 "mat_rock": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/fountain/materials/mat_rocks.tres"
+"use_external/fallback_path": "res://decorations/fountain/materials/mat_rocks.tres",
+"use_external/path": "uid://clultbhtl11xx"
 }
 }
 }

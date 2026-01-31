@@ -2,7 +2,6 @@ extends "res://lib/map/map.gd"
 
 func _ready() -> void:
 	super()
-	$Portal/AnimationPlayer.play("spin")
 	Global.hud.get_node("SidePanel").modulate.a = 1.0 # just for debug
 	
 	Global.command_sent.connect(func(cmd):
@@ -13,7 +12,6 @@ func _ready() -> void:
 			Engine.max_fps = _max_fps
 		)
 	
-	Global.command_sent.emit("/resetdeco")
 	Global.current_effects = []
 	Save.data.story_point = "stewardship"
 	Save.advance_story()

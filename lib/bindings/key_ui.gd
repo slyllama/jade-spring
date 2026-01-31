@@ -19,7 +19,7 @@ signal await_input_ended
 func _get_key_as_text() -> String:
 	if action in InputMap.get_actions():
 		var _a = InputMap.action_get_events(action)
-		return(_a[0].as_text().replace(" (Physical)", ""))
+		return(_a[0].as_text().replace(" - Physical", ""))
 	else: return("((ERR))")
 
 func _set_input_name(_val):

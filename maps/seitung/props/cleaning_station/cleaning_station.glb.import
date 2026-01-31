@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/cleaning_station.glb-f45b218797bd30f708bf8d7f
 
 nodes/root_type=""
 nodes/root_name="CleaningStation"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,47 +34,60 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_column_wood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_column.tres"
+"use_external/fallback_path": "res://maps/seitung/props/cleaning_station/materials/mat_column.tres",
+"use_external/path": "uid://dmfetrhr5x543"
 },
 "mat_grey": {
 "use_external/enabled": true,
-"use_external/path": "res://generic/materials/mat_rocks.tres"
+"use_external/fallback_path": "res://generic/materials/mat_rocks.tres",
+"use_external/path": "uid://c0fvglthikhmd"
 },
 "mat_parts": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/rusted_ac_unit/materials/mat_ac_parts.tres"
+"use_external/fallback_path": "res://decorations/rusted_ac_unit/materials/mat_ac_parts.tres",
+"use_external/path": "uid://cq0dcshpbowpo"
 },
 "mat_pipe": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_rubber.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_rubber.tres",
+"use_external/path": "uid://djcgvm0ir704u"
 },
 "mat_rafter_generic": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_roof_tiles_generic.tres"
+"use_external/fallback_path": "res://maps/seitung/props/cleaning_station/materials/mat_roof_tiles_generic.tres",
+"use_external/path": "uid://bnb83y5hy08r8"
 },
 "mat_rafter_wood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_rafter_piece.tres"
+"use_external/fallback_path": "res://maps/seitung/props/cleaning_station/materials/mat_rafter_piece.tres",
+"use_external/path": "uid://jnjwj0lesi8"
 },
 "mat_roof_tiles": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/props/cleaning_station/materials/mat_roof_tiles.tres"
+"use_external/fallback_path": "res://maps/seitung/props/cleaning_station/materials/mat_roof_tiles.tres",
+"use_external/path": "uid://bmchhg13fkc1"
 },
 "mat_rough_planks": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_rough_planks.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_rough_planks.tres",
+"use_external/path": "uid://ckwnebp5gmotf"
 },
 "mat_rust": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/rusted_ac_unit/materials/mat_ac_body.tres"
+"use_external/fallback_path": "res://decorations/rusted_ac_unit/materials/mat_ac_body.tres",
+"use_external/path": "uid://c3mjqqk5pin5v"
 },
 "mat_wood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_columns.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_arch/mat_arch_columns.tres",
+"use_external/path": "uid://cee7wt4lbymht"
 }
 }
 }

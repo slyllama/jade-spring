@@ -3,4 +3,8 @@
 [ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_aunu6"]
 
 [node name="Decoration" type="Node3D"]
+process_priority = 1
+process_thread_group = 2
+process_thread_group_order = 1
+process_thread_messages = 0
 script = ExtResource("1_aunu6")

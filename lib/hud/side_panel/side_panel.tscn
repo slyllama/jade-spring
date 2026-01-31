@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://gokqv1eo16nh"]
+[gd_scene format=3 uid="uid://gokqv1eo16nh"]
 
 [ext_resource type="Script" uid="uid://ixtwercme0f" path="res://lib/hud/side_panel/side_panel.gd" id="1_xy7kn"]
 [ext_resource type="Shader" uid="uid://daqys71d7waad" path="res://lib/hud/side_panel/materials/shaders/shader_panel_gradient.gdshader" id="2_xwfhn"]
@@ -8,10 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dgvxowegr8bu3" path="res://lib/hud/side_panel/textures/side_panel_minor_separator.png" id="5_rs76w"]
 [ext_resource type="Texture2D" uid="uid://duigeleeyist" path="res://generic/textures/koru.png" id="5_xhh38"]
 [ext_resource type="Texture2D" uid="uid://bs0q6kx81u58w" path="res://lib/hud/textures/settings_icon_outline.png" id="6_if1f0"]
+[ext_resource type="Texture2D" uid="uid://bjmnb8toocd16" path="res://lib/hud/side_panel/side_panel_regular_gradient.tres" id="7_i3mal"]
 [ext_resource type="Texture2D" uid="uid://cfb7i61lbowa0" path="res://lib/hud/side_panel/textures/side_panel_separator.png" id="7_rlga1"]
 [ext_resource type="Texture2D" uid="uid://b3cek2svfjg6j" path="res://lib/hud/textures/icon_count.png" id="8_sm7pe"]
 [ext_resource type="Texture2D" uid="uid://2exkkxah4mdt" path="res://lib/hud/textures/icon_karma.png" id="9_cafge"]
 [ext_resource type="StyleBox" uid="uid://ddh75o1b4csod" path="res://lib/hud/side_panel/gradient.tres" id="10_n04xy"]
+[ext_resource type="PackedScene" uid="uid://djwyojptwsm2c" path="res://lib/hud/side_panel/enclave_box/enclave_box.tscn" id="10_w0f4w"]
 [ext_resource type="Texture2D" uid="uid://cnowmk0g403s5" path="res://lib/story_marker/textures/story_marker_small.png" id="12_1fach"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fqi0m"]
@@ -25,16 +27,10 @@ content_margin_right = 20.0
 content_margin_bottom = 16.0
 texture = ExtResource("5_qmfye")
 
-[sub_resource type="Gradient" id="Gradient_e0ypv"]
-colors = PackedColorArray(0.59, 0.314667, 0, 0, 0.59, 0.314667, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bc4yj"]
-gradient = SubResource("Gradient_e0ypv")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ue70"]
 content_margin_top = 14.0
 content_margin_bottom = 14.0
-texture = SubResource("GradientTexture1D_bc4yj")
+texture = ExtResource("7_i3mal")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncvum"]
 content_margin_left = 3.0
@@ -52,19 +48,19 @@ content_margin_top = 1.0
 content_margin_right = 24.0
 content_margin_bottom = 1.0
 
-[node name="SidePanel" type="VBoxContainer"]
+[node name="SidePanel" type="VBoxContainer" unique_id=1548468709]
 custom_minimum_size = Vector2(290, 0)
 offset_right = 290.0
 offset_bottom = 264.0
 theme_override_constants/separation = 0
 script = ExtResource("1_xy7kn")
 
-[node name="Separator" type="ColorRect" parent="."]
+[node name="Separator" type="ColorRect" parent="." unique_id=10528810]
 material = SubResource("ShaderMaterial_fqi0m")
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
-[node name="StoryText" type="RichTextLabel" parent="."]
+[node name="StoryText" type="RichTextLabel" parent="." unique_id=607398776]
 layout_mode = 2
 theme_override_constants/line_separation = -2
 theme_override_constants/outline_size = 5
@@ -75,7 +71,7 @@ text = "((Story comments))"
 fit_content = true
 scroll_active = false
 
-[node name="DecorationNE" type="TextureRect" parent="StoryText"]
+[node name="DecorationNE" type="TextureRect" parent="StoryText" unique_id=1070504496]
 modulate = Color(0, 0.17, 0.0708333, 0.0901961)
 layout_mode = 1
 anchors_preset = 1
@@ -91,28 +87,28 @@ texture = ExtResource("5_xhh38")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MinorSeparator2" type="TextureRect" parent="."]
+[node name="MinorSeparator2" type="TextureRect" parent="." unique_id=2014432806]
 layout_mode = 2
 texture = ExtResource("5_rs76w")
 
-[node name="Details" type="PanelContainer" parent="."]
+[node name="Details" type="PanelContainer" parent="." unique_id=1589639609]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_0ue70")
 
-[node name="DetailsBox" type="VBoxContainer" parent="Details"]
+[node name="DetailsBox" type="VBoxContainer" parent="Details" unique_id=519534476]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TitleBox" type="HBoxContainer" parent="Details/DetailsBox"]
+[node name="TitleBox" type="HBoxContainer" parent="Details/DetailsBox" unique_id=1718463506]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="P_Left" type="ColorRect" parent="Details/DetailsBox/TitleBox"]
+[node name="P_Left" type="ColorRect" parent="Details/DetailsBox/TitleBox" unique_id=1279950182]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Title" type="RichTextLabel" parent="Details/DetailsBox/TitleBox"]
+[node name="Title" type="RichTextLabel" parent="Details/DetailsBox/TitleBox" unique_id=563246710]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/line_separation = -2
@@ -124,7 +120,7 @@ text = "My Garden"
 fit_content = true
 scroll_active = false
 
-[node name="SettingsIcon" type="TextureRect" parent="Details/DetailsBox/TitleBox"]
+[node name="SettingsIcon" type="TextureRect" parent="Details/DetailsBox/TitleBox" unique_id=1963386045]
 visible = false
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
@@ -134,21 +130,21 @@ texture = ExtResource("6_if1f0")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="P_Right" type="ColorRect" parent="Details/DetailsBox/TitleBox"]
+[node name="P_Right" type="ColorRect" parent="Details/DetailsBox/TitleBox" unique_id=620594445]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="StatsBox" type="HBoxContainer" parent="Details/DetailsBox"]
+[node name="StatsBox" type="HBoxContainer" parent="Details/DetailsBox" unique_id=1568307732]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Padding" type="ColorRect" parent="Details/DetailsBox/StatsBox"]
+[node name="Padding" type="ColorRect" parent="Details/DetailsBox/StatsBox" unique_id=1623366088]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="DecoCountIcon" type="TextureRect" parent="Details/DetailsBox/StatsBox"]
+[node name="DecoCountIcon" type="TextureRect" parent="Details/DetailsBox/StatsBox" unique_id=507574026]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -158,7 +154,7 @@ texture = ExtResource("8_sm7pe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DecoCount" type="RichTextLabel" parent="Details/DetailsBox/StatsBox"]
+[node name="DecoCount" type="RichTextLabel" parent="Details/DetailsBox/StatsBox" unique_id=1277835908]
 layout_mode = 2
 size_flags_horizontal = 0
 tooltip_text = "Decoration count."
@@ -172,12 +168,12 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Padding2" type="ColorRect" parent="Details/DetailsBox/StatsBox"]
+[node name="Padding2" type="ColorRect" parent="Details/DetailsBox/StatsBox" unique_id=973626269]
 custom_minimum_size = Vector2(6, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="KarmaCountIcon" type="TextureRect" parent="Details/DetailsBox/StatsBox"]
+[node name="KarmaCountIcon" type="TextureRect" parent="Details/DetailsBox/StatsBox" unique_id=1466692634]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -187,7 +183,7 @@ texture = ExtResource("9_cafge")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="KarmaCount" type="RichTextLabel" parent="Details/DetailsBox/StatsBox"]
+[node name="KarmaCount" type="RichTextLabel" parent="Details/DetailsBox/StatsBox" unique_id=711469440]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -201,16 +197,23 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="MinorSeparator" type="TextureRect" parent="."]
+[node name="MinorSeparator" type="TextureRect" parent="." unique_id=1147705546]
 layout_mode = 2
 texture = ExtResource("5_rs76w")
 
-[node name="Separator2" type="ColorRect" parent="."]
+[node name="EnclaveBox" parent="." unique_id=212592992 instance=ExtResource("10_w0f4w")]
+layout_mode = 2
+
+[node name="EnclaveSeparator" type="TextureRect" parent="." unique_id=460111119]
+layout_mode = 2
+texture = ExtResource("5_rs76w")
+
+[node name="Separator2" type="ColorRect" parent="." unique_id=1877063878]
 material = SubResource("ShaderMaterial_fqi0m")
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
-[node name="B_U" type="RichTextLabel" parent="."]
+[node name="B_U" type="RichTextLabel" parent="." unique_id=866759498]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 2
@@ -221,7 +224,7 @@ text = " "
 fit_content = true
 scroll_active = false
 
-[node name="Subtitle" type="RichTextLabel" parent="."]
+[node name="Subtitle" type="RichTextLabel" parent="." unique_id=1057424919]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 18
@@ -230,7 +233,7 @@ text = "Garden Roster (Total Progress)"
 fit_content = true
 scroll_active = false
 
-[node name="WeedsText" type="RichTextLabel" parent="." groups=["Roster"]]
+[node name="WeedsText" type="RichTextLabel" parent="." unique_id=1740844371 groups=["Roster"]]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
@@ -239,10 +242,10 @@ text = "Compost weeds"
 fit_content = true
 scroll_active = false
 
-[node name="WeedsBar" parent="." groups=["Roster"] instance=ExtResource("4_7d8f4")]
+[node name="WeedsBar" parent="." unique_id=1864852144 groups=["Roster"] instance=ExtResource("4_7d8f4")]
 layout_mode = 2
 
-[node name="BugsText" type="RichTextLabel" parent="." groups=["Roster"]]
+[node name="BugsText" type="RichTextLabel" parent="." unique_id=1753798711 groups=["Roster"]]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
@@ -251,10 +254,10 @@ text = "Clear invasive pests"
 fit_content = true
 scroll_active = false
 
-[node name="BugsBar" parent="." groups=["Roster"] instance=ExtResource("4_7d8f4")]
+[node name="BugsBar" parent="." unique_id=1755645916 groups=["Roster"] instance=ExtResource("4_7d8f4")]
 layout_mode = 2
 
-[node name="DVText" type="RichTextLabel" parent="." groups=["Roster"]]
+[node name="DVText" type="RichTextLabel" parent="." unique_id=155367683 groups=["Roster"]]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 15
@@ -263,24 +266,24 @@ text = "Disperse Dragonvoid"
 fit_content = true
 scroll_active = false
 
-[node name="DVBar" parent="." groups=["Roster"] instance=ExtResource("4_7d8f4")]
+[node name="DVBar" parent="." unique_id=832948328 groups=["Roster"] instance=ExtResource("4_7d8f4")]
 layout_mode = 2
 
-[node name="Completion" type="PanelContainer" parent="."]
+[node name="Completion" type="PanelContainer" parent="." unique_id=1311909185]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("10_n04xy")
 
-[node name="CompleteBox" type="HBoxContainer" parent="Completion"]
+[node name="CompleteBox" type="HBoxContainer" parent="Completion" unique_id=20445863]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Completion/CompleteBox"]
+[node name="Icon" type="TextureRect" parent="Completion/CompleteBox" unique_id=2136799306]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("12_1fach")
 expand_mode = 1
 
-[node name="CompleteText" type="RichTextLabel" parent="Completion/CompleteBox"]
+[node name="CompleteText" type="RichTextLabel" parent="Completion/CompleteBox" unique_id=1132415364]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -292,7 +295,7 @@ text = "The Jade Spring has been purified."
 fit_content = true
 scroll_active = false
 
-[node name="B_L" type="RichTextLabel" parent="."]
+[node name="B_L" type="RichTextLabel" parent="." unique_id=1732707463]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 5
 theme_override_styles/normal = ExtResource("10_n04xy")
@@ -300,17 +303,18 @@ text = " "
 fit_content = true
 scroll_active = false
 
-[node name="Separator3" type="ColorRect" parent="."]
+[node name="Separator3" type="ColorRect" parent="." unique_id=1526520982]
 material = SubResource("ShaderMaterial_fqi0m")
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
-[node name="MajorSeparator" type="TextureRect" parent="."]
+[node name="MajorSeparator" type="TextureRect" parent="." unique_id=1001979602]
 layout_mode = 2
 texture = ExtResource("7_rlga1")
 
-[node name="IgnoreStoryUpdates" type="Timer" parent="."]
+[node name="IgnoreStoryUpdates" type="Timer" parent="." unique_id=775697504]
 one_shot = true
 autostart = true
 
+[connection signal="closed" from="EnclaveBox" to="." method="_on_enclave_box_closed"]
 [connection signal="timeout" from="IgnoreStoryUpdates" to="." method="_on_ignore_story_updates_timeout"]

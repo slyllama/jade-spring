@@ -19,6 +19,15 @@ const data = {
 		"tags": ["Architecture", "Kryta", "Furniture"],
 		"a_cull": true
 	},
+	"orrian_arch": {
+		"name": "Orrian Arch",
+		"preview_scale": 0.55,
+		"preview_v_offset": -0.4,
+		"preview_y_rotation": 260,
+		"preview_h_offset": 0.1,
+		"tags": ["Architecture"],
+		"a_cull": true
+	},
 	"krytan_side_table": {
 		"name": "Krytan Side Table",
 		"preview_scale": 1.2,
@@ -33,5 +42,12 @@ const data = {
 		"preview_y_rotation": -90,
 		"tags": ["Architecture", "Kryta", "Furniture"],
 		"a_cull": true
+	},
+	"jeb_windmill": {
+		"name": "Jeb's Windmill",
+		"preview_scale": 0.3,
+		"preview_v_offset": 0.6,
+		"preview_y_rotation": 20.0,
+		"tags": ["Architecture", "Kryta"]
 	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drejsvmhfj166"]
+[gd_scene format=3 uid="uid://drejsvmhfj166"]
 
 [ext_resource type="Script" uid="uid://c3pjt2xhcfecb" path="res://lib/builds/design_pane/design_pane.gd" id="1_aofi5"]
 [ext_resource type="Shader" uid="uid://rqnfrjajec7x" path="res://lib/dragger/shaders/shader_dissolve.gdshader" id="1_q4hye"]
@@ -39,7 +39,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 corner_detail = 2
 
-[node name="DesignPane" type="Panel"]
+[node name="DesignPane" type="Panel" unique_id=150749515]
 material = SubResource("ShaderMaterial_vfwvk")
 custom_minimum_size = Vector2(400, 500)
 anchors_preset = 8
@@ -56,7 +56,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q4hye")
 script = ExtResource("1_aofi5")
 
-[node name="Base" type="TextureRect" parent="."]
+[node name="Base" type="TextureRect" parent="." unique_id=1961194393]
 custom_minimum_size = Vector2(1139, 752)
 layout_mode = 1
 anchors_preset = 8
@@ -73,7 +73,7 @@ grow_vertical = 2
 texture = ExtResource("4_icjx6")
 expand_mode = 1
 
-[node name="Title" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="." unique_id=577373736]
 use_parent_material = true
 layout_mode = 1
 offset_left = -191.0
@@ -91,7 +91,7 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="CloseButton" type="TextureButton" parent="."]
+[node name="CloseButton" type="TextureButton" parent="." unique_id=1686225024]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 1
@@ -108,7 +108,7 @@ texture_hover = ExtResource("5_t1hw8")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=528910536]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
@@ -121,35 +121,35 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Separator" type="ColorRect" parent="VBox"]
+[node name="Separator" type="ColorRect" parent="VBox" unique_id=1121831656]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0)
 
-[node name="Scroll" type="ScrollContainer" parent="VBox"]
+[node name="Scroll" type="ScrollContainer" parent="VBox" unique_id=769843920]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SlotsRoot" type="VBoxContainer" parent="VBox/Scroll"]
+[node name="SlotsRoot" type="VBoxContainer" parent="VBox/Scroll" unique_id=1803486467]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Separator2" type="ColorRect" parent="VBox"]
+[node name="Separator2" type="ColorRect" parent="VBox" unique_id=1453257442]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0)
 
-[node name="NewSlotBoxContainer" type="Panel" parent="VBox"]
+[node name="NewSlotBoxContainer" type="Panel" parent="VBox" unique_id=1805783930]
 use_parent_material = true
 custom_minimum_size = Vector2(0, 91.33)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lxasb")
 
-[node name="NewSlotBox" type="HBoxContainer" parent="VBox/NewSlotBoxContainer"]
+[node name="NewSlotBox" type="HBoxContainer" parent="VBox/NewSlotBoxContainer" unique_id=2030449042]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 10
@@ -160,7 +160,7 @@ offset_right = -41.0
 offset_bottom = 36.0
 grow_horizontal = 2
 
-[node name="SlotNameInput" type="LineEdit" parent="VBox/NewSlotBoxContainer/NewSlotBox"]
+[node name="SlotNameInput" type="LineEdit" parent="VBox/NewSlotBoxContainer/NewSlotBox" unique_id=149623485]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -169,14 +169,14 @@ theme_override_colors/font_placeholder_color = Color(0.823345, 0.699542, 0.46573
 theme_override_styles/normal = SubResource("StyleBoxFlat_icjx6")
 placeholder_text = "Type design name, or drag design file here."
 
-[node name="TestNewSlot" type="Button" parent="VBox/NewSlotBoxContainer/NewSlotBox"]
+[node name="TestNewSlot" type="Button" parent="VBox/NewSlotBoxContainer/NewSlotBox" unique_id=905499925]
 use_parent_material = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 focus_mode = 0
 text = "Create Design"
 
-[node name="PaperSound" type="AudioStreamPlayer" parent="."]
+[node name="PaperSound" type="AudioStreamPlayer" parent="." unique_id=361560625]
 stream = ExtResource("6_t1hw8")
 volume_db = -3.0
 

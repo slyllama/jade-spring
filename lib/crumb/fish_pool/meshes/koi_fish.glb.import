@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/koi_fish.glb-0f18591aeefa0231be7becc3da42c1ec
 
 nodes/root_type="Node3D"
 nodes/root_name="KoiFish"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,11 +34,15 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_koi": {
 "use_external/enabled": true,
-"use_external/path": "res://lib/crumb/fish_pool/materials/mat_koi.tres"
+"use_external/fallback_path": "res://lib/crumb/fish_pool/materials/mat_koi.tres",
+"use_external/path": "uid://cecbak3rd0ev5"
 }
 }
 }

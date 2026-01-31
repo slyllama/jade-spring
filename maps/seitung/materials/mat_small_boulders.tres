@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://bj7jp82e64gxp"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bj7jp82e64gxp"]
 
 [ext_resource type="Shader" uid="uid://c7kntj0027epd" path="res://decorations/materials/shaders/shader_multires_rock.gdshader" id="1_24lep"]
 [ext_resource type="Texture2D" uid="uid://mycf4akhf2ov" path="res://decorations/lantern/materials/textures/rock_norm.jpg" id="3_0axv0"]

@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/weed_bin.glb-91cb733b512022142eefd543d611a71c
 
 nodes/root_type=""
 nodes/root_name="WeedBin"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.1
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,23 +34,30 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_dirt": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_soil.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_soil.tres",
+"use_external/path": "uid://651ghcwp7rhl"
 },
 "mat_sack": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_wall.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_wall.tres",
+"use_external/path": "uid://yurnw86budfb"
 },
 "mat_weed_pile": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_foliage.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_foliage.tres",
+"use_external/path": "uid://yyklje3keocf"
 },
 "mat_wood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_wood.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_compost_bin/mat_compost_wood.tres",
+"use_external/path": "uid://f0tshnn2vagd"
 }
 }
 }

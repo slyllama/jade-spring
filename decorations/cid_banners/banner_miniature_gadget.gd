@@ -39,8 +39,12 @@ func _on_interacted() -> void:
 	var _d = Dialogue.instantiate()
 	_d.data = TEST_DIALOGUE
 	_d.block_played.connect(func(id):
-		if id == "mini": _do_command("/mini=true")
-		elif id == "return": _do_command("/mini=false"))
+		if id == "mini":
+			if SteamHandler.get_achievment_completion("small_things") == 0:
+				SteamHandler.complete_achievement("small_things")
+			_do_command("/mini=true")
+		elif id == "return":
+			_do_command("/mini=false"))
 	Global.hud.add_child(_d)
 	_d.open()
 

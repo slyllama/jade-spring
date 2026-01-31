@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://css5f06cjlswq"]
+[gd_scene format=3 uid="uid://css5f06cjlswq"]
 
 [ext_resource type="Script" uid="uid://cmpc2g761j0qf" path="res://lib/karma/karma.gd" id="1_7siie"]
 [ext_resource type="Shader" uid="uid://bqxexmcnu4j0l" path="res://lib/player/materials/shaders/shader_jade.gdshader" id="1_i10le"]
@@ -51,7 +51,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yc704"]
 render_priority = 1
 shader = SubResource("Shader_of80e")
-shader_parameter/proximity_fade_distance = 0.14
+shader_parameter/proximity_fade_distance = 0.0499999988824
 shader_parameter/noise_texture = ExtResource("4_yc704")
 shader_parameter/albedo_color = Color(0.999999, 0.32197, 0.809051, 1)
 
@@ -66,9 +66,9 @@ rings = 12
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_77j05"]
-seamless = true
-color_ramp = SubResource("Gradient_ab0nn")
 noise = SubResource("FastNoiseLite_oqkxy")
+color_ramp = SubResource("Gradient_ab0nn")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_ajv0q"]
 offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)
@@ -145,29 +145,29 @@ material = SubResource("StandardMaterial3D_of80e")
 size = Vector2(4, 4)
 orientation = 1
 
-[node name="Karma" type="Node3D"]
+[node name="Karma" type="Node3D" unique_id=1964784347]
 script = ExtResource("1_7siie")
 
-[node name="YCast" type="RayCast3D" parent="."]
+[node name="YCast" type="RayCast3D" parent="." unique_id=2074814173]
 target_position = Vector3(0, -20, 0)
 collision_mask = 3
 
-[node name="Orb" type="MeshInstance3D" parent="."]
+[node name="Orb" type="MeshInstance3D" parent="." unique_id=1694501223]
 cast_shadow = 0
 mesh = SubResource("SphereMesh_renxr")
 
-[node name="AreaSphere" type="MeshInstance3D" parent="Orb"]
+[node name="AreaSphere" type="MeshInstance3D" parent="Orb" unique_id=1067233344]
 cast_shadow = 0
 mesh = SubResource("SphereMesh_h4qgs")
 skeleton = NodePath("../..")
 
-[node name="Ray" type="MeshInstance3D" parent="Orb"]
+[node name="Ray" type="MeshInstance3D" parent="Orb" unique_id=1312646109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102116, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_65p8k")
 skeleton = NodePath("../../YCast")
 
-[node name="Stars" type="GPUParticles3D" parent="Orb"]
+[node name="Stars" type="GPUParticles3D" parent="Orb" unique_id=285001731]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 emitting = false
 amount = 16
@@ -178,7 +178,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_gcgmw")
 draw_pass_1 = ExtResource("4_ma66g")
 
-[node name="Decal" type="Decal" parent="Orb"]
+[node name="Decal" type="Decal" parent="Orb" unique_id=2011877182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 visible = false
 size = Vector3(0.3, 1, 0.3)
@@ -186,16 +186,16 @@ texture_albedo = ExtResource("6_vvvmv")
 emission_energy = 2.0
 cull_mask = 1048574
 
-[node name="PickUpArea" type="Area3D" parent="Orb"]
+[node name="PickUpArea" type="Area3D" parent="Orb" unique_id=1697714833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 
-[node name="Collision" type="CollisionShape3D" parent="Orb/PickUpArea"]
+[node name="Collision" type="CollisionShape3D" parent="Orb/PickUpArea" unique_id=125288887]
 shape = SubResource("CylinderShape3D_ksru4")
 
-[node name="DespawnTimer" type="Timer" parent="."]
+[node name="DespawnTimer" type="Timer" parent="." unique_id=2085563764]
 one_shot = true
 
-[node name="Debug" type="MeshInstance3D" parent="."]
+[node name="Debug" type="MeshInstance3D" parent="." unique_id=2038327729]
 visible = false
 mesh = SubResource("QuadMesh_yc704")
 

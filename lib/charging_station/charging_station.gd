@@ -1,7 +1,6 @@
 @tool
 extends "res://lib/gadget/gadget.gd"
 
-const AttenuatorUI = preload("res://lib/attenuator/attenuator.tscn")
 var in_ui = false
 
 func _update_interact_text() -> void:
@@ -53,15 +52,21 @@ func _on_interacted() -> void:
 		Global.remove_effect.emit("discombobulator_qty")
 		Global.play_flux_sound()
 		for _i in _new_qty: Global.add_qty_effect("discombobulator_qty")
+		var _ui_loader = load("res://lib/attenuator/scripts/att_ui_loader.gd").new()
+		_ui_loader.pulled.connect(func(resource: Resource):
+			var _ui = resource.instantiate()
+			Global.hud.get_node("TopLevel").add_child(_ui)
+			in_ui = true
+			_ui.closed.connect(func():
+				in_ui = false
+				in_range = true
+				Global.generic_area_entered.emit()
+				Global.action_cam_enable.emit()
+			)
+			_ui_loader.queue_free()
+		)
+		add_child(_ui_loader)
 		
-		in_ui = true
-		var _ui = AttenuatorUI.instantiate()
-		Global.hud.get_node("TopLevel").add_child(_ui)
-		_ui.closed.connect(func():
-			in_ui = false
-			in_range = true
-			Global.generic_area_entered.emit()
-			Global.action_cam_enable.emit())
 	else:
 		Global.announcement_sent.emit("This attunement gadget charges Raw Dispersion Flux.")
 		return

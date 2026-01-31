@@ -37,15 +37,13 @@ func _transition():
 			ResourceLoader.load_threaded_get(target_scene)))
 
 func _ready() -> void:
-	$Decorations.modulate.a = 0.0
-	$Spinner.visible = true
-	
 	if Global.load_debug_next:
 		target_scene = "res://maps/debug/debug.tscn"
 	Global.load_debug_next = false
 	
-	var _deco_fade_in = create_tween()
-	_deco_fade_in.tween_property($Decorations, "modulate:a", 1.0, 0.2)
+	$Raiqqo.modulate.a = 0.0
+	var _fade_in = create_tween()
+	_fade_in.tween_property($Raiqqo, "modulate:a", 1.0, 0.2)
 	
 	AudioServer.set_bus_volume_db(0, -80)
 	SettingsHandler.setting_changed.connect(func(parameter):
@@ -58,10 +56,7 @@ func _ready() -> void:
 	_reset_map()
 	ResourceLoader.load_threaded_request(target_scene)
 
-func _process(delta: float) -> void:
-	$Spinner.position.x = get_window().size.x / 2.0 / Global.retina_scale
-	$Spinner.position.y = float(get_window().size.y) / Global.retina_scale - 80.0
-	$Spinner.rotation_degrees += delta * 240.0
+func _process(_delta: float) -> void:
 	loading_status = ResourceLoader.load_threaded_get_status(target_scene, progress)
 	match loading_status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
@@ -72,7 +67,6 @@ func _process(delta: float) -> void:
 				if has_loaded: return
 				has_loaded = true # only once
 				$ContinueButton.modulate.a = 0.0
-				$Spinner.visible = false
 				$ContinueButton.visible = true
 				$ContinueButton.grab_focus()
 				

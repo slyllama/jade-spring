@@ -1,7 +1,5 @@
 extends Node3D
 
-const BuildPane = preload("res://lib/builds/design_pane/design_pane.tscn")
-
 var build_pane_open = false
 
 func _ready() -> void:
@@ -13,6 +11,7 @@ func _ready() -> void:
 		# Handle music
 		$Ambience.play()
 		Global.target_music_ratio = 0.0
+		$Ambience.play()
 		$Ambience/Volume.play("louden"))
 	
 	Global.vault_left.connect(func():
@@ -26,7 +25,7 @@ func _on_builds_gadget_interacted() -> void:
 	if build_pane_open: return
 	
 	build_pane_open = true
-	var _b = BuildPane.instantiate()
+	var _b = load("res://lib/builds/design_pane/design_pane.tscn").instantiate()
 	Global.hud.get_node("BuildCanvas").add_child(_b)
 	Global.can_move = false
 	
@@ -36,4 +35,4 @@ func _on_builds_gadget_interacted() -> void:
 
 func _on_volume_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "unlouden":
-		$Ambience/Volume.stop()
+		$Ambience.stop()

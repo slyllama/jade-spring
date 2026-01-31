@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c3ygaq1wjp7c0"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c3ygaq1wjp7c0"]
 
 [ext_resource type="Shader" uid="uid://cr660gpb0btrf" path="res://lib/player/materials/shaders/shader_engine_glow.tres" id="1_u7gul"]
 

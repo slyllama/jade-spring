@@ -11,7 +11,7 @@ var crumb_handler: CrumbHandler
 var save_handler: SaveHandler
 var deco_handler: DecoHandler
 var design_handler: DesignHandler
-var hud: CanvasLayer
+var hud: HUDScript
 var player: CharacterBody3D
 var orbit_handler: OrbitHandler
 
@@ -25,7 +25,7 @@ var kv_fish_max = 20
 # Karma is added here when spawned, then subtracted when collected. The remainder is added to the player's Karma count
 var assigned_karma = 0
 
-var aggressive_culling = true
+var aggressive_culling = false
 var aggressive_cull_distance_squared = 100.0
 
 var attenuator_open = false
@@ -91,6 +91,7 @@ signal controller_skill(node)
 signal debug_toggled
 signal debug_skill_used
 signal deco_card_clicked(id)
+signal decorations_loaded
 signal dialogue_opened
 signal dialogue_closed
 signal dragonvoid_crumb_entered
@@ -142,7 +143,9 @@ func get_effect_qty(effect: String) -> int:
 	var _d = effect.split("=") # effect data
 	for _fx in Global.current_effects:
 		if _d[0] in _fx:
-			_qty = int(_fx.split("=")[1])
+			if "=" in _fx:
+				_qty = int(_fx.split("=")[1])
+			else: return(-1) # not actually a quantity - return an error
 	return(_qty)
 
 func get_dv_quantity() -> int:
@@ -198,6 +201,7 @@ signal adjustment_mode_translate
 signal selection_started # applies to eyedropper too
 signal selection_canceled # applies to eyedropper too
 
+signal deco_count_changed
 signal deco_sampled(data) # decoration sampled with the eyedropper tool
 signal deco_pane_closed
 signal deco_pane_opened
@@ -209,6 +213,8 @@ signal deco_deletion_canceled
 signal deco_deleted
 signal deco_load_started
 signal deco_load_ended
+signal deco_preview_opened(id: String)
+signal deco_preview_data_updated
 signal drag_started
 signal snapping_enabled
 signal snapping_disabled
@@ -221,6 +227,7 @@ signal transform_mode_changed(transform_mode)
 const SNAP_INCREMENT = 0.25
 
 var decorations = [] # references to decorations will populate here
+var deco_count := 0
 var highlighted_decoration: Decoration = null
 var active_decoration: Decoration = null # decoration currently being adjusted
 var queued_decoration = "none" # next decoration that will be placed
@@ -280,7 +287,7 @@ func dismiss_hints() -> void:
 			_h.close()
 
 const Hint = preload("res://lib/hint/hint.tscn")
-func play_hint(id: String, data: Dictionary, position: Vector2, play_once = false) -> void:
+func play_hint(id: String, data: Dictionary, position: Vector2, play_once = false) -> HintPanel:
 	dismiss_hints()
 	
 	if play_once:
@@ -293,6 +300,7 @@ func play_hint(id: String, data: Dictionary, position: Vector2, play_once = fals
 	hud.get_node("TopLevel").add_child(_hint)
 	_hint.position = position
 	_hint.set_text(data)
+	return(_hint)
 
 const EXPN_PATH_PREFIX = "res://expansions/"
 
@@ -318,6 +326,9 @@ func play_flux_sound() -> void:
 ##### Execution
 
 func _init() -> void:
+	print_rich("[b]This is Jade Spring.[/b]")
+	print_rich("[color=pink][b]Important: .dat files must be included in the export settings, which are not captured by Git.[/b][/color]")
+	
 	var debug_cmd = false
 	var args = Array(OS.get_cmdline_args())
 	if args.has("--debug=true"):
@@ -344,7 +355,8 @@ func _ready() -> void:
 		DiscordRPC.register_steam(3561310)
 		DiscordRPC.state = "In Menu"
 		DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
-		DiscordRPC.refresh()
+		if DiscordRPC.get_is_discord_working():
+			DiscordRPC.refresh()
 	
 	Utilities.set_master_vol(0.0)
 	
@@ -353,21 +365,6 @@ func _ready() -> void:
 	DecoData = _d.DecoData.duplicate(true)
 	load_expn("kodan")
 	load_expn("kryta")
-	
-	SettingsHandler.setting_changed.connect(func(_param):
-		if _param == "draw_cap":
-			var _val = SettingsHandler.settings.draw_cap
-			print("[Global] Setting draw distance to " + _val + "...")
-			if _val == "low":
-				aggressive_culling = true
-				aggressive_cull_distance_squared = 50.0
-			elif _val == "medium":
-				aggressive_culling = true
-				aggressive_cull_distance_squared = 100.0
-			elif _val == "high":
-				aggressive_culling = true
-				aggressive_cull_distance_squared = 200.0
-			else: aggressive_culling = false)
 	
 	karma_collected.connect(func():
 		var _p = 0.9 + rng.randf() * 0.2 # pitch variance
@@ -387,21 +384,22 @@ func _ready() -> void:
 			retina_scale = 2
 		if !Engine.is_embedded_in_editor():
 			get_window().size *= retina_scale
-	get_window().min_size = Vector2i(
-		floor(1280 * Global.retina_scale) - 1,
-		floor(720 * Global.retina_scale) - 1)
-	
-	get_window().position = DisplayServer.screen_get_position() + Vector2i(32, 64)
+	if !Engine.is_embedded_in_editor():
+		get_window().min_size = Vector2i(
+			floor(1280 * Global.retina_scale) - 1,
+			floor(720 * Global.retina_scale) - 1)
+		get_window().position = (
+			DisplayServer.screen_get_position() + Vector2i(32, 64))
 	
 	await get_tree().process_frame
 	get_window().size_changed.connect(func():
-		get_window().position.x += 1
 		await get_tree().process_frame
 		if get_window().mode == Window.MODE_MAXIMIZED:
 			SettingsHandler.update("window_mode", "maximized")
 			SettingsHandler.save_to_file()
 		elif get_window().mode == Window.MODE_WINDOWED:
-			if !SettingsHandler.settings.window_mode == "windowed" and !SettingsHandler.settings.window_mode == "windowed_(1080p)":
+			if (!SettingsHandler.settings.window_mode == "windowed"
+				and !SettingsHandler.settings.window_mode == "windowed_(1080p)"):
 				SettingsHandler.update("window_mode", "windowed")
 				SettingsHandler.save_to_file())
 
@@ -412,7 +410,6 @@ func _on_click_sound() -> void:
 	$Click.play()
 
 # Skill cooldowns
-
 const SKILL_COOLDOWN_TIME = 0.2
 var on_skill_cooldown = false
 @onready var skill_cooldown_timer = Timer.new()

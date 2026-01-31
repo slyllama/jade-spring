@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/arch.glb-4b2f091f89bad6990c06d383847b26d5.scn
 
 nodes/root_type=""
 nodes/root_name="Arch"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.25
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,31 +34,40 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "AlternateRoofTile": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_rafters.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_arch/mat_rafters.tres",
+"use_external/path": "uid://n24mva1r1w20"
 },
 "LighterWood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_desaturated.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_arch/mat_arch_desaturated.tres",
+"use_external/path": "uid://bw3haakap6lqw"
 },
 "RoofTile": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_roof.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_arch/mat_roof.tres",
+"use_external/path": "uid://dild3r36n6ou0"
 },
 "Trellis": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_trellis.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_arch/mat_trellis.tres",
+"use_external/path": "uid://2wi4fvfmx4k6"
 },
 "Wood": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_frame.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_arch/mat_arch_frame.tres",
+"use_external/path": "uid://d062edjgqt67l"
 },
 "WoodColumns": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_arch/mat_arch_columns.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_arch/mat_arch_columns.tres",
+"use_external/path": "uid://cee7wt4lbymht"
 }
 }
 }

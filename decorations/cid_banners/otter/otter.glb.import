@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/otter.glb-7e8ee70e0f16284ec3c6d3bf55de4ed9.sc
 
 nodes/root_type=""
 nodes/root_name="Otter"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,11 +34,15 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_stars": {
 "use_external/enabled": true,
-"use_external/path": "res://decorations/cid_banners/otter/materials/mat_stars.tres"
+"use_external/fallback_path": "res://decorations/cid_banners/otter/materials/mat_stars.tres",
+"use_external/path": "uid://bh4udt32u1se"
 }
 },
 "nodes": {

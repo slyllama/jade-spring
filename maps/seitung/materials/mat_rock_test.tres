@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://ctgytbnxixsro"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ctgytbnxixsro"]
 
 [ext_resource type="Shader" uid="uid://o00tmlt54hji" path="res://maps/seitung/materials/shaders/shader_grass.gdshader" id="1_eyvj3"]
 [ext_resource type="Texture2D" uid="uid://bm0hfc606sqqo" path="res://maps/seitung/materials/textures/rock_mask.jpg" id="2_7g6kk"]

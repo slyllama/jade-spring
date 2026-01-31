@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dtfekbth5h36s"]
+
+[ext_resource type="Shader" uid="uid://dsw1bx11r4ld4" path="res://lib/story_marker/materials/shaders/enclave_ray.gdshader" id="1_jusyf"]
+[ext_resource type="Texture2D" uid="uid://d36xnbvbv5dvn" path="res://lib/builds/build_vault/materials/textures/stars_diff.jpg" id="2_11t3m"]
+
+[sub_resource type="Gradient" id="Gradient_ab0nn"]
+offsets = PackedFloat32Array(0, 0.47260273)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqkxy"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_11t3m"]
+noise = SubResource("FastNoiseLite_oqkxy")
+color_ramp = SubResource("Gradient_ab0nn")
+seamless = true
+
+[sub_resource type="Gradient" id="Gradient_ajv0q"]
+offsets = PackedFloat32Array(0.0355191, 0.5, 0.948087)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_komhn"]
+gradient = SubResource("Gradient_ajv0q")
+
+[sub_resource type="Gradient" id="Gradient_acgf2"]
+offsets = PackedFloat32Array(0.0601093, 0.448087, 0.625683, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n2cx7"]
+gradient = SubResource("Gradient_acgf2")
+fill_from = Vector2(1, 1)
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jusyf")
+shader_parameter/ray_mask_texture = SubResource("NoiseTexture2D_11t3m")
+shader_parameter/uv_scale = Vector2(1, 2)
+shader_parameter/albedo_uv_scale = Vector2(0.75, 15)
+shader_parameter/x_gradient_texture = SubResource("GradientTexture2D_komhn")
+shader_parameter/y_gradient_texture = SubResource("GradientTexture2D_n2cx7")
+shader_parameter/albedo_texture = ExtResource("2_11t3m")

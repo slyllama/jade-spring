@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://djua7a6d1wk2x"]
+[gd_scene format=3 uid="uid://djua7a6d1wk2x"]
 
 [ext_resource type="Script" uid="uid://ed5amihsvj20" path="res://lib/map/map.gd" id="1_juxxi"]
 [ext_resource type="Texture2D" uid="uid://uuliwd58xylq" path="res://generic/hdri/sky.hdr" id="1_twsw1"]
 [ext_resource type="PackedScene" uid="uid://b5aewysclei7o" path="res://lib/player/player.tscn" id="2_dib65"]
-[ext_resource type="PackedScene" uid="uid://jsxfgufgx7tk" path="res://lib/shader_preload/shader_preload.tscn" id="2_q1vmn"]
 [ext_resource type="PackedScene" uid="uid://mc7cfdajs4rm" path="res://lib/hud/hud.tscn" id="3_d4nbx"]
 [ext_resource type="PackedScene" uid="uid://ddcm83g0l0n58" path="res://lib/crumb/crumb_handler.tscn" id="4_2klpx"]
 [ext_resource type="Texture2D" uid="uid://8p3iw303ye44" path="res://generic/materials/textures/tile_64px_diff.png" id="5_47c3a"]
@@ -14,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://12h1x7xjn8c2" path="res://lib/story_marker/story_marker.tscn" id="10_743fl"]
 [ext_resource type="AudioStream" uid="uid://clllef7a23fpa" path="res://lib/ping/sounds/ping.ogg" id="11_gkdk1"]
 [ext_resource type="AudioStream" uid="uid://cctlih2gry63t" path="res://generic/sounds/shutter.ogg" id="12_6iy5x"]
-[ext_resource type="AudioStream" uid="uid://bpdk0q1mtdimr" path="res://generic/sounds/podzol.mp3" id="12_gs5g2"]
+[ext_resource type="Script" uid="uid://umvnca5nos0h" path="res://lib/map/scripts/gift_hint.gd" id="16_2ocmt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3jmvg"]
 panorama = ExtResource("1_twsw1")
@@ -63,66 +62,64 @@ material = SubResource("StandardMaterial3D_gs5g2")
 size = Vector2(80, 80)
 orientation = 1
 
-[node name="Map" type="Node3D"]
+[node name="Map" type="Node3D" unique_id=277619578]
 script = ExtResource("1_juxxi")
 
-[node name="ShaderPreload" parent="." instance=ExtResource("2_q1vmn")]
-
-[node name="Sky" type="WorldEnvironment" parent="."]
+[node name="Sky" type="WorldEnvironment" parent="." unique_id=706070438]
 environment = SubResource("Environment_a76kq")
 
-[node name="Sun" type="DirectionalLight3D" parent="Sky"]
+[node name="Sun" type="DirectionalLight3D" parent="Sky" unique_id=64158718]
 transform = Transform3D(-0.306146, -0.4254, 0.851651, -0.290381, 0.893701, 0.34202, -0.906616, -0.142595, -0.397131, 0, 3, 0)
 shadow_enabled = true
+directional_shadow_max_distance = 50.0
 
-[node name="Player" parent="." instance=ExtResource("2_dib65")]
+[node name="Player" parent="." unique_id=30808248 instance=ExtResource("2_dib65")]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 1, 0)
 
-[node name="HUD" parent="." instance=ExtResource("3_d4nbx")]
+[node name="HUD" parent="." unique_id=1851424346 instance=ExtResource("3_d4nbx")]
 layer = 2
 
-[node name="CrumbHandler" parent="." instance=ExtResource("4_2klpx")]
+[node name="CrumbHandler" parent="." unique_id=2000776596 instance=ExtResource("4_2klpx")]
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1584529441]
 collision_layer = 3
 collision_mask = 3
 
-[node name="Collision" type="CollisionShape3D" parent="Floor"]
+[node name="Collision" type="CollisionShape3D" parent="Floor" unique_id=1775458227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_g86cy")
 debug_fill = false
 
-[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor" unique_id=444531480]
 mesh = SubResource("QuadMesh_kt5au")
 
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1899723152]
 stream = ExtResource("5_uggpi")
 volume_db = 5.0
 autoplay = true
 
-[node name="DecoHandler" parent="." instance=ExtResource("6_p5ee1")]
+[node name="DecoHandler" parent="." unique_id=152839557 instance=ExtResource("6_p5ee1")]
 
-[node name="Decoration" type="Node3D" parent="."]
+[node name="Decoration" type="Node3D" parent="." unique_id=255224606]
 
-[node name="Foliage" type="Node3D" parent="Decoration"]
+[node name="Foliage" type="Node3D" parent="Decoration" unique_id=56399757]
 
-[node name="SafePoint" type="Marker3D" parent="."]
+[node name="SafePoint" type="Marker3D" parent="." unique_id=2081722632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61923, 1, 7.56866)
 
-[node name="Jukebox" type="AudioStreamPlayer" parent="."]
+[node name="Jukebox" type="AudioStreamPlayer" parent="." unique_id=1726425784]
 script = ExtResource("10_0ckh4")
 
-[node name="Podzol" type="AudioStreamPlayer" parent="Jukebox"]
-stream = ExtResource("12_gs5g2")
-volume_db = -5.0
-
-[node name="Ping" type="AudioStreamPlayer" parent="Jukebox"]
+[node name="Ping" type="AudioStreamPlayer" parent="Jukebox" unique_id=1789664521]
 stream = ExtResource("11_gkdk1")
 volume_db = -7.0
 max_polyphony = 2
 
-[node name="StoryMarker" parent="." instance=ExtResource("10_743fl")]
+[node name="StoryMarker" parent="." unique_id=48671384 instance=ExtResource("10_743fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 
-[node name="Shutter" type="AudioStreamPlayer" parent="."]
+[node name="Shutter" type="AudioStreamPlayer" parent="." unique_id=51344292]
 stream = ExtResource("12_6iy5x")
+
+[node name="GiftHint" type="Node" parent="." unique_id=1320849985]
+script = ExtResource("16_2ocmt")

@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dci6t05ng26jj"]
+
+[ext_resource type="Shader" uid="uid://bbhc3a4wa733" path="res://generic/materials/shaders/shader_nospec.gdshader" id="1_kd7qw"]
+[ext_resource type="Texture2D" uid="uid://dbxf51vkfg0uk" path="res://decorations/drizzlewood_platform/materials/textures/platform_diff.jpg" id="2_2glbq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kd7qw")
+shader_parameter/albedo_texture = ExtResource("2_2glbq")
+shader_parameter/uv_scale = 1.0
+shader_parameter/normal_strength = 1.0
+shader_parameter/albedo_color = Color(0.75, 0.75, 0.75, 1)

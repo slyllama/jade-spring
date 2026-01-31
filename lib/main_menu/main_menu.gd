@@ -122,11 +122,13 @@ func play() -> void:
 		get_tree().change_scene_to_file(LOADER_SCENE))
 
 func _input(_event: InputEvent) -> void:
-	if !Global.debug_allowed: return
 	if Input.is_action_just_pressed("enter"):
 		var _f = get_window().gui_get_focus_owner()
 		if _f is Button:
 			_f.button_down.emit()
+	
+	if !Global.debug_allowed: return
+	
 	if Input.is_action_just_pressed("debug_action"):
 		if !can_interact or ngc_open: return
 		Global.load_debug_next = true
@@ -134,6 +136,7 @@ func _input(_event: InputEvent) -> void:
 		play()
 
 func _ready() -> void:
+	get_viewport().gui_embed_subwindows = false
 	$Raiqqo/Anim.play("fade_in")
 	
 	backup_save_files()
@@ -172,6 +175,7 @@ func _ready() -> void:
 	
 	set_up_nodule()
 	await get_tree().process_frame
+	Global.camera_orbiting = false
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_property($FG, "modulate:a", 0.0, 0.55)

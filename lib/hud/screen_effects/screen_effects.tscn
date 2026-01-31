@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6kvxy3mhfso3"]
+[gd_scene format=3 uid="uid://c6kvxy3mhfso3"]
 
 [ext_resource type="Texture2D" uid="uid://be87557001j28" path="res://lib/hud/screen_effects/textures/bug_overlay.png" id="1_5cg80"]
 [ext_resource type="Shader" uid="uid://caswrklnmafxo" path="res://lib/hud/screen_effects/shaders/shader_screen_fx.gdshader" id="1_diqkw"]
@@ -8,11 +8,11 @@
 [ext_resource type="Shader" uid="uid://3duwa6y0oqoc" path="res://lib/hud/screen_effects/shaders/shader_screen.gdshader" id="3_ocfdl"]
 [ext_resource type="Texture2D" uid="uid://bvjwutjdvywwd" path="res://lib/hud/screen_effects/textures/grain_mask.jpg" id="4_i0jfh"]
 [ext_resource type="Texture2D" uid="uid://kl8rmamvk4hh" path="res://lib/hud/screen_effects/textures/debug_overlay.png" id="5_rn3j2"]
-[ext_resource type="Texture2D" uid="uid://wjxdrde88kpf" path="res://lib/hud/screen_effects/textures/dragonvoid_overlay.png" id="6_ln4dv"]
 [ext_resource type="Shader" uid="uid://y1nevy5gjfgy" path="res://lib/hud/screen_effects/shaders/shader_anime.gdshader" id="7_c2qk6"]
 [ext_resource type="Texture2D" uid="uid://pcdu4s7kntsv" path="res://lib/hud/screen_effects/textures/anime.png" id="7_uiyq1"]
 [ext_resource type="Texture2D" uid="uid://cbqjjnj41tcww" path="res://lib/hud/screen_effects/textures/flowers.png" id="12_kp4ce"]
 [ext_resource type="Texture2D" uid="uid://s1cx6pt1qrnu" path="res://lib/dialogue/textures/paint_mottled.jpg" id="13_60mn6"]
+[ext_resource type="Texture2D" uid="uid://d21l2h4hd822j" path="res://lib/hud/screen_effects/textures/dv_overlay.png" id="14_oc4ic"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_llcq0"]
 shader = ExtResource("3_ocfdl")
@@ -43,9 +43,9 @@ shader_parameter/alpha_exponent = 1.0
 noise_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6q7g2"]
-seamless = true
-color_ramp = SubResource("Gradient_e2og7")
 noise = SubResource("FastNoiseLite_f5umt")
+color_ramp = SubResource("Gradient_e2og7")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hynki"]
 shader = ExtResource("7_c2qk6")
@@ -58,10 +58,10 @@ shader = ExtResource("1_diqkw")
 shader_parameter/swirl_texture = ExtResource("13_60mn6")
 shader_parameter/alpha_exponent = 0.0
 
-[node name="ScreenEffects" type="CanvasLayer"]
+[node name="ScreenEffects" type="CanvasLayer" unique_id=1295113596]
 script = ExtResource("1_momb4")
 
-[node name="Underlay" type="TextureRect" parent="."]
+[node name="Underlay" type="TextureRect" parent="." unique_id=1453490482]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,7 +72,7 @@ texture = ExtResource("2_hbd12")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="ScreenShader" type="ColorRect" parent="."]
+[node name="ScreenShader" type="ColorRect" parent="." unique_id=991252877]
 material = SubResource("ShaderMaterial_llcq0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Debug" type="TextureRect" parent="."]
+[node name="Debug" type="TextureRect" parent="." unique_id=1163854877]
 material = SubResource("ShaderMaterial_7nql0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,31 +92,146 @@ mouse_filter = 2
 texture = ExtResource("5_rn3j2")
 expand_mode = 1
 
-[node name="Bugs" type="TextureRect" parent="."]
-visible = false
+[node name="Bugs" type="Control" parent="." unique_id=2026168367]
 material = SubResource("ShaderMaterial_kp0xq")
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="NW" type="TextureRect" parent="Bugs" unique_id=580340778]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+offset_right = 480.0
+offset_bottom = 270.0
 mouse_filter = 2
 texture = ExtResource("1_5cg80")
 expand_mode = 1
 
-[node name="Dragonvoid" type="TextureRect" parent="."]
+[node name="NE" type="TextureRect" parent="Bugs" unique_id=523388099]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_bottom = 270.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("1_5cg80")
+expand_mode = 1
+flip_h = true
+
+[node name="SE" type="TextureRect" parent="Bugs" unique_id=1535195808]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -270.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_5cg80")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="SW" type="TextureRect" parent="Bugs" unique_id=1440842127]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_right = 480.0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_5cg80")
+expand_mode = 1
+flip_v = true
+
+[node name="Dragonvoid" type="Control" parent="." unique_id=1399834848]
 visible = false
 material = SubResource("ShaderMaterial_kp0xq")
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("6_ln4dv")
+
+[node name="NW" type="TextureRect" parent="Dragonvoid" unique_id=79172411]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+offset_right = 480.0
+offset_bottom = 270.0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
+expand_mode = 1
+flip_h = true
+
+[node name="NE" type="TextureRect" parent="Dragonvoid" unique_id=1253069087]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_bottom = 270.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
 expand_mode = 1
 
-[node name="Anime" type="TextureRect" parent="."]
+[node name="SE" type="TextureRect" parent="Dragonvoid" unique_id=640278056]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -270.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
+expand_mode = 1
+flip_v = true
+
+[node name="SW" type="TextureRect" parent="Dragonvoid" unique_id=1626690950]
+use_parent_material = true
+custom_minimum_size = Vector2(480, 270)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_right = 480.0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("14_oc4ic")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="Anime" type="TextureRect" parent="." unique_id=1402499865]
 material = SubResource("ShaderMaterial_hynki")
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,7 +242,7 @@ mouse_filter = 2
 texture = ExtResource("7_uiyq1")
 expand_mode = 1
 
-[node name="Flowers" type="TextureRect" parent="."]
+[node name="Flowers" type="TextureRect" parent="." unique_id=730416466]
 material = SubResource("ShaderMaterial_bse0l")
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,7 +251,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Flower" type="TextureRect" parent="Flowers"]
+[node name="Flower" type="TextureRect" parent="Flowers" unique_id=1692277610]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 1
@@ -149,7 +264,7 @@ mouse_filter = 2
 texture = ExtResource("12_kp4ce")
 expand_mode = 1
 
-[node name="Flower2" type="TextureRect" parent="Flowers"]
+[node name="Flower2" type="TextureRect" parent="Flowers" unique_id=1082164116]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 3
@@ -167,7 +282,7 @@ mouse_filter = 2
 texture = ExtResource("12_kp4ce")
 expand_mode = 1
 
-[node name="Flower3" type="TextureRect" parent="Flowers"]
+[node name="Flower3" type="TextureRect" parent="Flowers" unique_id=897740260]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 2
@@ -182,7 +297,7 @@ mouse_filter = 2
 texture = ExtResource("12_kp4ce")
 expand_mode = 1
 
-[node name="Flower4" type="TextureRect" parent="Flowers"]
+[node name="Flower4" type="TextureRect" parent="Flowers" unique_id=696751414]
 use_parent_material = true
 layout_mode = 1
 offset_top = 347.0

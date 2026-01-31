@@ -1,24 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://l4rm0sut0ia0"]
+[gd_scene format=3 uid="uid://l4rm0sut0ia0"]
 
 [ext_resource type="Script" uid="uid://qvphn02e0i8s" path="res://lib/_global/global.gd" id="1_bx37s"]
 [ext_resource type="AudioStream" uid="uid://bjdutdjfx2x1v" path="res://lib/ui_container/sounds/click.ogg" id="2_4wn1a"]
 [ext_resource type="AudioStream" uid="uid://cf4vigsxqembu" path="res://lib/karma/sounds/karma_collect.ogg" id="3_a5myb"]
 [ext_resource type="AudioStream" uid="uid://btny21c88vj2y" path="res://generic/sounds/use_discombobulator.ogg" id="4_lgdpa"]
 
-[node name="Global" type="Node"]
+[node name="Global" type="Node" unique_id=64707802]
 process_mode = 3
 script = ExtResource("1_bx37s")
 
-[node name="Click" type="AudioStreamPlayer" parent="."]
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=309642408]
 stream = ExtResource("2_4wn1a")
 volume_db = 5.0
 
-[node name="KarmaCollect" type="AudioStreamPlayer" parent="."]
+[node name="KarmaCollect" type="AudioStreamPlayer" parent="." unique_id=1926497933]
 stream = ExtResource("3_a5myb")
 volume_db = -3.0
 max_polyphony = 2
 
-[node name="DiscombobulatorUse" type="AudioStreamPlayer" parent="."]
+[node name="DiscombobulatorUse" type="AudioStreamPlayer" parent="." unique_id=218758443]
 stream = ExtResource("4_lgdpa")
 volume_db = -7.0
 max_polyphony = 2

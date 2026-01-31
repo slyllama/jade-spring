@@ -34,3 +34,7 @@ func _ready() -> void:
 	Global.adjustment_applied.connect(func(): visible = false)
 	Global.adjustment_canceled.connect(func(): visible = false)
 	Global.deco_deletion_canceled.connect(func(): visible = false)
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("toggle_deco_vfx"):
+		$Base.visible = !$Base.visible

@@ -44,13 +44,19 @@ func _update_unlock_button(id: String) -> void:
 		$ActionsBox/PlaceDecoration.disabled = false
 
 func open(silent = false) -> void:
+	call_deferred_thread_group("_load_bg")
+	
 	active = true
 	render(selected_tag)
 	Global.deco_pane_open = true
 	last_deco_count = Global.deco_handler.get_deco_count()
 	super(silent)
+	
+	_on_clear_search_button_down() # clear search button
+	Global.deco_preview_opened.emit(current_id)
 
 func close():
+	$Base.texture = null
 	Global.deco_pane_open = false
 	super()
 	await get_tree().process_frame
@@ -58,6 +64,7 @@ func close():
 		if active:
 			Global.action_cam_enable.emit()
 	active = false
+	Global.deco_preview_opened.emit("_none") # clear the pane
 
 func start_decoration_placement(id: String) -> void:
 	Global.mouse_3d_override_rotation = null
@@ -94,6 +101,8 @@ func load_model_by_id(model_id: String) -> void:
 	var _p = _dl.scene
 	var _already_loaded = false
 	
+	Global.deco_preview_opened.emit(_d)
+	
 	if _d == current_id: _already_loaded = true
 	else: current_id = _d
 	preview.current_id = current_id
@@ -121,6 +130,9 @@ func load_model_by_id(model_id: String) -> void:
 		preview.load_model(_p, _dl.preview_scale, _get_y_rotation(_dl))
 		for _i in 3: await get_tree().process_frame
 		$Base/PreviewContainer.visible = true
+
+func _load_bg() -> void:
+	$Base.texture = load("res://lib/decoration/decoration_pane/textures/deco_pane_base.png")
 
 func render(tag = "None", custom_data = []) -> void:
 	if tag != "None":
@@ -219,6 +231,7 @@ func _input(_event) -> void:
 func _ready() -> void:
 	super()
 	Global.deco_placement_started.connect(close)
+	Global.deco_preview_data_updated.connect(render)
 	
 	var _scroll_bar: VScrollBar = $Container/ScrollBox.get_v_scroll_bar()
 	_scroll_bar.mouse_filter = Control.MOUSE_FILTER_PASS
@@ -292,8 +305,11 @@ func _on_search_text_changed(new_text: String) -> void:
 		if Global.DecoData[_d].name.findn(new_text) > -1:
 			_decos.append(_d)
 			found += 1
-	if found > 0: render("None", _decos)
-	else: render("Empty")
+	if found > 0:
+		Global.deco_preview_opened.emit(current_id)
+		render("None", _decos)
+	else:
+		render("Empty")
 	
 	if new_text.length() > 0:
 		categories.visible = false

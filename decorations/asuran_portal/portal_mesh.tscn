@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bj282dfm663hm"]
+
+[ext_resource type="PackedScene" uid="uid://hkj34yq516sa" path="res://decorations/asuran_portal/portal.glb" id="1_lgu33"]
+[ext_resource type="Material" uid="uid://dig43sv6nmdtc" path="res://decorations/asuran_portal/materials/mat_portal.tres" id="2_pw2vl"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_i3t4k"]
+material = ExtResource("2_pw2vl")
+size = Vector2(1.5, 1.5)
+orientation = 0
+
+[node name="PortalMesh" type="Node3D" unique_id=901176894]
+
+[node name="PortalMesh" parent="." unique_id=545304688 instance=ExtResource("1_lgu33")]
+
+[node name="PortalCenter" type="MeshInstance3D" parent="." unique_id=1794646172]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.05, -0.06945257)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_i3t4k")
+skeleton = NodePath("../..")

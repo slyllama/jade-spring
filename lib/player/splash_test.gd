@@ -9,6 +9,10 @@ signal entered_gravity_water
 signal left_gravity_water
 
 func enter_gravity_water() -> void:
+	# Grant achievement for becoming a salmon
+	if SteamHandler.get_achievment_completion("something_fishy") == 0:
+		SteamHandler.complete_achievement("something_fishy")
+	
 	$Salmon/SalmonMesh.visible = true
 	$Salmon/Splash.restart()
 	$Salmon/FishSplash.play()

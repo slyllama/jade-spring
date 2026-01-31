@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cbtbbwrlx6qnd"]
+
+[ext_resource type="Texture2D" uid="uid://c7e3kjfcwitdo" path="res://decorations/asuran_portal/materials/textures/portal_brick_diff.jpg" id="1_4r11t"]
+
+[resource]
+albedo_texture = ExtResource("1_4r11t")
+metallic_specular = 0.0
+uv1_scale = Vector3(3, 3, 3)

@@ -8,6 +8,10 @@ sky_material = SubResource("ProceduralSkyMaterial_7skuw")
 [sub_resource type="Environment" id="Environment_n7vcf"]
 background_mode = 2
 sky = SubResource("Sky_lyj34")
+tonemap_mode = 2
+tonemap_exposure = 1.1
+adjustment_enabled = true
+adjustment_saturation = 1.25
 
 [node name="CharaViewerWorld" type="Node3D"]
 

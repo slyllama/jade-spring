@@ -23,7 +23,8 @@ const DEFAULT_SETTINGS = {
 	"direction_control": "strafe",
 	"dof": "off",
 	"current_design": "default",
-	"draw_cap": "none"
+	"shadows": "low",
+	"invert_camera_y_axis": "off"
 }
 @onready var settings = DEFAULT_SETTINGS.duplicate()
 signal setting_changed(parameter)

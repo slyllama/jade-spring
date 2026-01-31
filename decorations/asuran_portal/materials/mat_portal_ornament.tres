@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bb2i3fhysdq36"]
+
+[ext_resource type="Texture2D" uid="uid://ck6mgh8v811vc" path="res://decorations/asuran_portal/materials/textures/portal_ornament_diff.jpg" id="1_3pq63"]
+
+[resource]
+albedo_color = Color(0.8, 0.8, 0.8, 1)
+albedo_texture = ExtResource("1_3pq63")
+metallic_specular = 0.0
+uv1_scale = Vector3(4, 4, 4)

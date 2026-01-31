@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://boj0v1rjxe2nt"]
+
+[ext_resource type="Texture2D" uid="uid://bxr05ef0cet01" path="res://expansions/kryta/jeb_windmill/materials/textures/folds_diff.jpg" id="1_2pk5g"]
+[ext_resource type="Texture2D" uid="uid://4ydm1hv6rjbq" path="res://expansions/kryta/jeb_windmill/materials/textures/folds_norm.jpg" id="2_14jab"]
+
+[resource]
+cull_mode = 2
+albedo_color = Color(0.82, 0.952, 1, 1)
+albedo_texture = ExtResource("1_2pk5g")
+normal_enabled = true
+normal_texture = ExtResource("2_14jab")

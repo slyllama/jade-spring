@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/pine_simple.glb-950374983fd830accd9ad9d2e3168
 
 nodes/root_type=""
 nodes/root_name="SimplePine"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.79
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "mat_branch_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_pine_trunk.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_pine_trunk.tres",
+"use_external/path": "uid://dhwa8s725qu0y"
 },
 "mat_placeholder": {
 "use_external/enabled": true,
-"use_external/path": "res://maps/seitung/materials/mat_pine_foliage.tres"
+"use_external/fallback_path": "res://maps/seitung/materials/mat_pine_foliage.tres",
+"use_external/path": "uid://dgsydbvgkeifh"
 }
 },
 "nodes": {

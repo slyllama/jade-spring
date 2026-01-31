@@ -5,9 +5,6 @@ extends Node3D
 const FishingInstance = preload("res://lib/fishing/fishing.tscn")
 const Karma = preload("res://lib/karma/karma.tscn")
 const Ping = preload("res://lib/ping/ping.tscn")
-const GiftLetter = preload("res://lib/letters/gift_letter.tscn")
-const DAY_ENV = preload("res://maps/seitung/seitung_day.tres")
-const NIGHT_ENV = preload("res://maps/seitung/seitung_night.tres")
 
 const KARMA_JITTER = 0.2
 const HIDDEN_POS = Vector3(0, -32, 0) # hide story marker far away
@@ -91,9 +88,6 @@ func set_marker_pos() -> void: # set the position of the story marker
 		"_": $StoryMarker.position = HIDDEN_POS # hide under map
 
 func _ready() -> void:
-	if !Global.map_entered_once:
-		$Jukebox/Podzol.volume_db = linear_to_db(SettingsHandler.settings.music_vol)
-		$Jukebox/Podzol.play()
 	Global.map_entered_once = true
 	
 	# Set initial state
@@ -114,12 +108,12 @@ func _ready() -> void:
 	Global.command_sent.connect(func(cmd):
 		if cmd == "/time=night":
 			Global.time_of_day = "night"
-			$Sky.environment = NIGHT_ENV
+			$Sky.environment = load("res://maps/seitung/seitung_night.tres")
 			$Sky/Sun.visible = false
 			update_saturation()
 		elif cmd == "/time=day":
 			Global.time_of_day = "day"
-			$Sky.environment = DAY_ENV
+			$Sky.environment = load("res://maps/seitung/seitung_day.tres")
 			$Sky/Sun.visible = true
 			update_saturation()
 		elif cmd == "/ping":
@@ -170,7 +164,7 @@ func _ready() -> void:
 			_count = clamp(_count, 0, 50)
 			spawn_karma(_count, Global.player_position)
 		elif cmd == "/giftletter":
-			var _g = GiftLetter.instantiate()
+			var _g = load("res://lib/letters/gift_letter.tscn").instantiate()
 			Global.hud.get_node("TopLevel").add_child(_g)
 		elif cmd == "/printorphans":
 			print_orphan_nodes()
@@ -202,6 +196,18 @@ func _ready() -> void:
 			"vsync":
 				if _value == "on": DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 				else: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+			"shadows":
+				if _value == "low":
+					$Sky/Sun.shadow_enabled = true
+					$Sky/Sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
+				elif _value == "medium":
+					$Sky/Sun.shadow_enabled = true
+					$Sky/Sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+				elif _value == "high":
+					$Sky/Sun.shadow_enabled = true
+					$Sky/Sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
+				else: # off
+					$Sky/Sun.shadow_enabled = false
 			"saturation":
 				update_saturation()
 			"brightness":
