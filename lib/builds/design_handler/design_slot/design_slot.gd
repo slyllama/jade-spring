@@ -8,6 +8,7 @@ signal slot_deleted
 const BASE_TEX_ACTIVATED = preload("res://lib/builds/design_handler/design_slot/textures/design_slot_bg_activated.png")
 
 var editing_name = false
+var deco_count := 0
 
 @export var design_name: String:
 	get: return(design_name)
@@ -32,9 +33,12 @@ func update() -> void:
 	var _df = FileAccess.open(DesignHandler.DPATH + "/" + design_name + ".dat", FileAccess.READ)
 	if _df:
 		var _df_data = _df.get_var()
-		for _dd in _df_data: _deco_count += 1
+		for _dd in _df_data:
+			_deco_count += 1
 		_df.close()
 		$HBox/DecoCount.text = "(" + str(_deco_count) + ")"
+		
+		deco_count = _deco_count
 	else:
 		print("[DesignSlot] Couldn't get decoration count for '" + design_name + "'.")
 
@@ -42,6 +46,7 @@ func _on_activate_button_down() -> void:
 	if SteamHandler.get_achievment_completion("astral_architect") == 0:
 		SteamHandler.complete_achievement("astral_architect")
 	
+	Global.deco_count = deco_count
 	Global.click_sound.emit()
 	activated.emit()
 	update()
