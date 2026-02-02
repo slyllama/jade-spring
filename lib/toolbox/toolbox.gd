@@ -127,6 +127,13 @@ func _ready() -> void:
 	Global.deco_placement_canceled.connect(set_default_skills)
 	
 	Global.adjustment_started.connect(func():
+		Global.play_hint("scale", { 
+			"title": "This System Scales",
+			"arrow": "down",
+			"anchor_preset": Control.LayoutPreset.PRESET_CENTER_BOTTOM,
+			"text": "In addition to moving and rotating, you can scale your decorations using the white spherical grabber under the arrows. Experiment with changing transformation modes and setting the transform basis!"
+		}, Utilities.get_screen_center(Vector2(0, get_viewport().size.y / Global.retina_scale * 0.5 - 300)), true)
+		
 		clear_skills()
 		Global.adjustment_mode = Global.ADJUSTMENT_MODE_TRANSLATE
 		$Box/Skill1.switch_skill("accept")

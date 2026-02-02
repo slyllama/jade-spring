@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cky3ys7aa5jwx"]
+[gd_scene format=3 uid="uid://cky3ys7aa5jwx"]
 
 [ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_daki5"]
 [ext_resource type="PackedScene" uid="uid://c3005dg5aw5md" path="res://decorations/cid_banners/banner_miniature_gadget.tscn" id="2_daki5"]
@@ -7,24 +7,24 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
 
-[node name="BannerMiniature" type="Node3D" node_paths=PackedStringArray("collision_box")]
+[node name="BannerMiniature" type="Node3D" unique_id=70820941 node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_daki5")
 id = "cid_mini_banner"
 collision_box = NodePath("Body")
 
-[node name="BannerMiniatureGadget" parent="." instance=ExtResource("2_daki5")]
+[node name="BannerMiniatureGadget" parent="." unique_id=1453699711 instance=ExtResource("2_daki5")]
 
-[node name="LightRay" parent="BannerMiniatureGadget" instance=ExtResource("3_5ucpy")]
-transform = Transform3D(0.487503, 0.111089, 0, -0.111089, 0.487503, 0, 0, 0, 0.5, -0.3802, 1.02849, -0.0161505)
+[node name="LightRay" parent="BannerMiniatureGadget" unique_id=1328023253 instance=ExtResource("3_5ucpy")]
+transform = Transform3D(0.24983366, -0.018234707, 0, 0.009117354, 0.49966732, 0, 0, 0, 0.5, -0.077161506, 1.2433636, -0.0161505)
 
-[node name="Body" type="Area3D" parent="."]
+[node name="Body" type="Area3D" parent="." unique_id=1505679344]
 collision_layer = 3
 collision_mask = 3
 
-[node name="Collision" type="CollisionShape3D" parent="Body"]
+[node name="Collision" type="CollisionShape3D" parent="Body" unique_id=1793264076]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ioh2s")
 
-[node name="Title" parent="." instance=ExtResource("4_m1g5t")]
+[node name="Title" parent="." unique_id=672706226 instance=ExtResource("4_m1g5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 spatial_string = "Cid's Mini-Banner"

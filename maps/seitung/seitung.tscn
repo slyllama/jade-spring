@@ -317,13 +317,13 @@ transform = Transform3D(1.98271, 0.196091, 0.174417, 0, 1.32921, -1.49439, -0.26
 [node name="LightRays" type="Node3D" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="1" unique_id=2051836710]
 
 [node name="LightRay" parent="Decoration/LightRays" index="0" unique_id=368234652 instance=ExtResource("44_mlhiv")]
-transform = Transform3D(1.47241, 0, 1.35352, 0, 2, 0, -1.35352, 0, 1.47241, -11.927, 1.08454, 2.39926)
+transform = Transform3D(0.7111187, -0.38108736, 1.35352, 0.25881904, 1.9318516, 0, -0.65369934, 0.35031644, 1.47241, -11.927, 1.08454, 2.39926)
 
 [node name="LightRay2" parent="Decoration/LightRays" index="1" unique_id=1222223822 instance=ExtResource("44_mlhiv")]
-transform = Transform3D(1.53021, 0, 1.81634, 0, 2.375, 0, -1.81634, 0, 1.53021, -12.2563, 2.79728, -5.8544)
+transform = Transform3D(0.62234455, -0.3960472, 1.8163401, 0.25881904, 2.2940738, 0, -0.7387151, 0.47010303, 1.5302101, -12.2563, 2.79728, -5.8544)
 
 [node name="LightRay3" parent="Decoration/LightRays" index="2" unique_id=1946966181 instance=ExtResource("44_mlhiv")]
-transform = Transform3D(-2.22, 0, -3.35211e-07, 0, 2.22, 0, 3.35211e-07, 0, -2.22, 3.13823, 0.17833, -7.66438)
+transform = Transform3D(-0.9659258, 0.5745783, -3.352107e-07, 0.25881904, 2.1443553, 0, 1.4585075e-07, -8.675891e-08, -2.22, 3.13823, 0.17833, -7.66438)
 
 [node name="pine_simple" parent="Decoration" parent_id_path=PackedInt32Array(255224606) index="2" unique_id=1664361284 instance=ExtResource("15_larjc")]
 transform = Transform3D(1, 0, 0, 0, 0.999571, 0.0292824, 0, -0.0292824, 0.999571, -15.5235, 1.50269, 2.58758)

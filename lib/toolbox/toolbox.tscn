@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://rn5fh3rx0ovg"]
+[gd_scene format=3 uid="uid://rn5fh3rx0ovg"]
 
 [ext_resource type="Script" uid="uid://dl2fo15qpro6c" path="res://lib/toolbox/toolbox.gd" id="1_2co4q"]
 [ext_resource type="PackedScene" uid="uid://c7mfp50wcm5wy" path="res://lib/skill_button/skill_button.tscn" id="2_xy11a"]
@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dv0f3vmgqba2p" path="res://generic/textures/blur_bright.png" id="3_rqk3s"]
 [ext_resource type="AudioStream" uid="uid://bj5a20hla1f17" path="res://lib/toolbox/sounds/skill_swap.ogg" id="5_fb1ma"]
 
-[node name="Toolbox" type="CanvasLayer"]
+[node name="Toolbox" type="CanvasLayer" unique_id=1167592998]
 script = ExtResource("1_2co4q")
 
-[node name="UI" type="TextureRect" parent="."]
+[node name="UI" type="TextureRect" parent="." unique_id=1962587986]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -21,7 +21,7 @@ texture = ExtResource("3_ap58g")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Blur" type="TextureRect" parent="UI"]
+[node name="Blur" type="TextureRect" parent="UI" unique_id=174089664]
 visible = false
 modulate = Color(0, 0, 0, 0.784314)
 z_index = -1
@@ -40,7 +40,7 @@ mouse_filter = 2
 texture = ExtResource("3_rqk3s")
 expand_mode = 1
 
-[node name="Box" type="HBoxContainer" parent="."]
+[node name="Box" type="HBoxContainer" parent="." unique_id=1175600787]
 custom_minimum_size = Vector2(0, 64)
 anchors_preset = 12
 anchor_top = 1.0
@@ -52,35 +52,35 @@ grow_vertical = 0
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Skill1" parent="Box" instance=ExtResource("2_xy11a")]
+[node name="Skill1" parent="Box" unique_id=1566914027 instance=ExtResource("2_xy11a")]
 layout_mode = 2
 input_binding = "skill_1"
 
-[node name="Skill2" parent="Box" instance=ExtResource("2_xy11a")]
+[node name="Skill2" parent="Box" unique_id=1787067714 instance=ExtResource("2_xy11a")]
 layout_mode = 2
 input_binding = "skill_2"
 
-[node name="Skill3" parent="Box" instance=ExtResource("2_xy11a")]
+[node name="Skill3" parent="Box" unique_id=321444860 instance=ExtResource("2_xy11a")]
 layout_mode = 2
 input_binding = "skill_3"
 
-[node name="Skill4" parent="Box" instance=ExtResource("2_xy11a")]
+[node name="Skill4" parent="Box" unique_id=323547107 instance=ExtResource("2_xy11a")]
 layout_mode = 2
 input_binding = "skill_4"
 
-[node name="Skill5" parent="Box" instance=ExtResource("2_xy11a")]
+[node name="Skill5" parent="Box" unique_id=147934213 instance=ExtResource("2_xy11a")]
 layout_mode = 2
 input_binding = "skill_5"
 
-[node name="Skill6" parent="Box" instance=ExtResource("2_xy11a")]
+[node name="Skill6" parent="Box" unique_id=905894518 instance=ExtResource("2_xy11a")]
 layout_mode = 2
 input_binding = "skill_6"
 
-[node name="SkillSwap" type="AudioStreamPlayer" parent="."]
+[node name="SkillSwap" type="AudioStreamPlayer" parent="." unique_id=1308288118]
 stream = ExtResource("5_fb1ma")
 max_polyphony = 2
 
-[node name="MarkerRestPos" type="Control" parent="."]
+[node name="MarkerRestPos" type="Control" parent="." unique_id=272997245]
 custom_minimum_size = Vector2(4, 4)
 layout_mode = 3
 anchors_preset = 0
@@ -89,7 +89,7 @@ offset_top = 627.0
 offset_right = 361.0
 offset_bottom = 631.0
 
-[node name="GravityCD" type="Timer" parent="."]
+[node name="GravityCD" type="Timer" parent="." unique_id=2003530680]
 wait_time = 0.2
 one_shot = true
 

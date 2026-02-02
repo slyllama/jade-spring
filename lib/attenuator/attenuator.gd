@@ -400,10 +400,7 @@ func _process(delta: float) -> void:
 			Utilities.critical_lerp(delta, 40.0))
 	
 	# Cursor follows mouse and highlights the whole row
-	$Base/Cursor.global_position.y = lerp(
-		$Base/Cursor.global_position.y,
-		moused_note_y_pos,
-		Utilities.critical_lerp(delta, 70.0))
+	$Base/Cursor.global_position.y = moused_note_y_pos
 	
 	for _n in glyph_box.get_children():
 		_n.position.x = glyph_box.size.x / 2.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://co07o3aacdvcq"]
+[gd_scene format=3 uid="uid://co07o3aacdvcq"]
 
 [ext_resource type="Script" uid="uid://gqv7s1su1j1i" path="res://lib/decoration/decoration.gd" id="1_dakct"]
 [ext_resource type="PackedScene" uid="uid://plb3te1tt65t" path="res://decorations/cid_banners/banner_time_gadget.tscn" id="2_77unr"]
@@ -7,24 +7,24 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ioh2s"]
 
-[node name="BannerTime" type="Node3D" node_paths=PackedStringArray("collision_box")]
+[node name="BannerTime" type="Node3D" unique_id=1645754016 node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_dakct")
 id = "cid_time_banner"
 collision_box = NodePath("Body")
 
-[node name="BannerTimeGadget" parent="." instance=ExtResource("2_77unr")]
+[node name="BannerTimeGadget" parent="." unique_id=560605590 instance=ExtResource("2_77unr")]
 
-[node name="LightRay" parent="BannerTimeGadget" instance=ExtResource("3_otdmy")]
-transform = Transform3D(0.487503, 0.111089, 0, -0.111089, 0.487503, 0, 0, 0, 0.5, -0.3802, 1.02849, -0.0161505)
+[node name="LightRay" parent="BannerTimeGadget" unique_id=1328023253 instance=ExtResource("3_otdmy")]
+transform = Transform3D(0.24983366, -0.018234707, 0, 0.009117354, 0.49966732, 0, 0, 0, 0.5, -0.077161506, 1.2433636, -0.0161505)
 
-[node name="Body" type="Area3D" parent="."]
+[node name="Body" type="Area3D" parent="." unique_id=1462398701]
 collision_layer = 3
 collision_mask = 3
 
-[node name="Collision" type="CollisionShape3D" parent="Body"]
+[node name="Collision" type="CollisionShape3D" parent="Body" unique_id=1869270043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ioh2s")
 
-[node name="Title" parent="." instance=ExtResource("4_870ef")]
+[node name="Title" parent="." unique_id=1664254012 instance=ExtResource("4_870ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 spatial_string = "Cid's Time Banner"

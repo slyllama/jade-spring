@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://do3fcqudbcd2x"]
+[gd_scene format=3 uid="uid://do3fcqudbcd2x"]
 
 [ext_resource type="Script" uid="uid://bdxkxy0s6qxfj" path="res://decorations/light_ray/deco_light_ray.gd" id="1_3f2mh"]
 [ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="2_xo3ta"]
@@ -6,17 +6,18 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_v23nb"]
 size = Vector3(1.34766, 2.92163, 0.18335)
 
-[node name="DecoLightRay" type="Node3D" node_paths=PackedStringArray("collision_box")]
+[node name="DecoLightRay" type="Node3D" unique_id=526778730 node_paths=PackedStringArray("collision_box")]
 script = ExtResource("1_3f2mh")
 id = "light_ray"
 collision_box = NodePath("Body")
 
-[node name="LightRay" parent="." instance=ExtResource("2_xo3ta")]
+[node name="LightRay" parent="." unique_id=1328023253 instance=ExtResource("2_xo3ta")]
+transform = Transform3D(0.48312742, -0.25758815, 0, 0.12879407, 0.96625483, 0, 0, 0, 1, 0.38597775, 0.06930184, 0)
 
-[node name="Body" type="Area3D" parent="."]
+[node name="Body" type="Area3D" parent="." unique_id=2135444946]
 collision_layer = 3
 collision_mask = 3
 
-[node name="Collision" type="CollisionShape3D" parent="Body"]
+[node name="Collision" type="CollisionShape3D" parent="Body" unique_id=1972351348]
 transform = Transform3D(0.921633, -0.388063, 0, 0.388063, 0.921633, 0, 0, 0, 1, 0, 2.08682, 0)
 shape = SubResource("BoxShape3D_v23nb")

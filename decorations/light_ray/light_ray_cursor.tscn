@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cluu748cgnnbi"]
+
+[ext_resource type="PackedScene" uid="uid://b1eb6tuc5vgnl" path="res://decorations/light_ray/light_ray.glb" id="1_ulrkr"]
+
+[node name="LightRayCursor" type="Node3D" unique_id=769837019]
+
+[node name="LightRay" parent="." unique_id=1328023253 instance=ExtResource("1_ulrkr")]
+transform = Transform3D(0.48312742, -0.25758815, 0, 0.12879407, 0.96625483, 0, 0, 0, 1, 0.38597775, 0.06930184, 0)

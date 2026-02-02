@@ -120,9 +120,6 @@ func load_model_by_id(model_id: String) -> void:
 		$DecoDetail.visible = false
 		$DecoDetail.text = ""
 	
-	# Model exceptions
-	if _d == "light_ray":
-		_p = "res://decorations/light_ray/light_ray_cursor.glb"
 	$DecoTitle.text = "[center]" + _dl.name + "[/center]"
 	if !_already_loaded:
 		$Base/PreviewContainer.visible = false
