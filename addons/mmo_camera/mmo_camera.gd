@@ -32,10 +32,10 @@ var _target_zoom = max_zoom_out
 var added_fov = 0.0 # added every frame to current FOV
 var fov = 50.0
 
-var axis = SpringArm3D.new()
-var camera = Camera3D.new()
-var orbit_handler = MMOOrbitHandler.new()
-var target = Node3D.new()
+var axis := SpringArm3D.new()
+var camera := Camera3D.new()
+var orbit_handler := MMOOrbitHandler.new()
+var target := Node3D.new()
 
 func set_initial_cam_rotation(new_rotation: Vector3) -> void:
 	await get_tree().process_frame

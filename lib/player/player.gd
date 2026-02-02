@@ -228,6 +228,9 @@ func _physics_process(delta: float) -> void:
 	if Window.get_focused_window():
 		if "SUBWINDOW" in Window.get_focused_window(): return
 	
+	# Force the audio listener to keep pace with the camera
+	%Listener.global_position = $Camera.camera.global_position
+	
 	if _gravity_last_in_current_effects and !"gravity" in Global.current_effects:
 		_elongate_target = 2.0
 		velocity.y = 1.0

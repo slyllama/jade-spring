@@ -43,7 +43,6 @@ shapes/collision/shape_color=Color(0, 0.72, 0.8, 1)
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/subwindows/embed_subwindows=false
 mouse_cursor/custom_image="res://generic/textures/cursor.png"
 
 [editor]

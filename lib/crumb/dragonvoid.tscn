@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cknccdf2rvyk8"]
+[gd_scene format=3 uid="uid://cknccdf2rvyk8"]
 
 [ext_resource type="Script" uid="uid://v2rktgaak112" path="res://lib/crumb/dragonvoid.gd" id="1_xg3mb"]
 [ext_resource type="PackedScene" uid="uid://dufx2yeippqey" path="res://lib/crumb/dragonvoid/meshes/dragonvoid_arc.glb" id="2_xs588"]
@@ -80,16 +80,16 @@ rings = 0
 cap_top = false
 cap_bottom = false
 
-[node name="Dragonvoid" type="Area3D"]
+[node name="Dragonvoid" type="Area3D" unique_id=1954270497]
 input_ray_pickable = false
 script = ExtResource("1_xg3mb")
 type = "dragonvoid"
 area_radius = 0.7
 
-[node name="DragonvoidArc" parent="." instance=ExtResource("2_xs588")]
+[node name="DragonvoidArc" parent="." unique_id=1156825034 instance=ExtResource("2_xs588")]
 transform = Transform3D(0.410926, -0.911669, 0, 0.911669, 0.410926, 0, 0, 0, 1, 2.37039, 2.11277, 0)
 
-[node name="Motes" type="GPUParticles3D" parent="."]
+[node name="Motes" type="GPUParticles3D" parent="." unique_id=704851466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40543, 0)
 amount = 55
 lifetime = 2.0
@@ -98,11 +98,11 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_6ksov")
 draw_pass_1 = SubResource("PlaneMesh_m4kwj")
 
-[node name="VisualArea" parent="." instance=ExtResource("3_ytxy4")]
+[node name="VisualArea" parent="." unique_id=1719026579 instance=ExtResource("3_ytxy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CylinderMesh_3fip3")
 
-[node name="Icon" parent="." instance=ExtResource("6_hdk5x")]
+[node name="Icon" parent="." unique_id=320674961 instance=ExtResource("6_hdk5x")]
 transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 1.2, 0)
 aabb = AABB(-0.2, -0.311328, -0.2, 0.4, 0.4, 0.4)
 spatial_string = ""
@@ -112,7 +112,7 @@ override_settings = true
 clip_contents = false
 text = ""
 
-[node name="CollectionIcon" type="TextureRect" parent="Icon/FG/Title" index="1"]
+[node name="CollectionIcon" type="TextureRect" parent="Icon/FG/Title" index="2" unique_id=2001221505]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -130,7 +130,7 @@ texture = ExtResource("8_l0y0y")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Text" parent="." instance=ExtResource("6_hdk5x")]
+[node name="Text" parent="." unique_id=1673511055 instance=ExtResource("6_hdk5x")]
 transform = Transform3D(-0.995179, 0, 0.0980692, 0, 1, 0, -0.0980692, 0, -0.995179, 0, 1.2, 0)
 aabb = AABB(-0.2, -0.311328, -0.2, 0.4, 0.4, 0.4)
 spatial_string = "Dragonvoid"
@@ -138,18 +138,19 @@ spatial_string = "Dragonvoid"
 [node name="Title" parent="Text/FG" index="1"]
 clip_contents = false
 
-[node name="Blight" type="AudioStreamPlayer" parent="."]
+[node name="Blight" type="AudioStreamPlayer" parent="." unique_id=1904334425]
 stream = ExtResource("9_lggxj")
 volume_db = -2.0
 
-[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(0.999519, -0.0310096, 0, 0.0310096, 0.999519, 0, 0, 0, 1, 0, 1, 0)
+[node name="Ambience" type="AudioStreamPlayer3D" parent="." unique_id=1674361126]
+transform = Transform3D(0.9995191, -0.031009603, 0, 0.031009603, 0.9995191, 0, 0, 0, 1, 0, 2.241127, 0)
 stream = ExtResource("10_0uf6v")
 volume_db = 2.0
-max_db = 4.0
+max_db = 0.0
 pitch_scale = 1.1
 autoplay = true
-max_distance = 4.2
+max_distance = 6.0
+panning_strength = 1.5
 attenuation_filter_cutoff_hz = 10000.0
 
 [connection signal="interacted" from="." to="." method="interact"]

@@ -267,7 +267,9 @@ excluded_collision_objects = [NodePath("..")]
 clamp_x_upper = 50.0
 
 [node name="Listener" type="AudioListener3D" parent="Camera" unique_id=780655381]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.0263149, 0)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0)
+top_level = true
 current = true
 
 [node name="PlayerMesh" parent="." unique_id=207146939 instance=ExtResource("4_0sx7s")]

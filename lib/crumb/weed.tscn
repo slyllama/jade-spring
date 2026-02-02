@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dm88qsqr4e6bj"]
+[gd_scene format=4 uid="uid://dm88qsqr4e6bj"]
 
 [ext_resource type="Script" uid="uid://cit7qlu5xoddq" path="res://lib/crumb/weed.gd" id="1_lklqf"]
 [ext_resource type="Shader" uid="uid://b5a7c3uofthq4" path="res://generic/materials/shaders/shader_foliage_base.tres" id="2_5nw6f"]
@@ -261,13 +261,13 @@ rings = 0
 cap_top = false
 cap_bottom = false
 
-[node name="Weed" type="Area3D"]
+[node name="Weed" type="Area3D" unique_id=1870160385]
 input_ray_pickable = false
 script = ExtResource("1_lklqf")
 type = "weed"
 area_radius = 0.3
 
-[node name="RockDecal" type="Decal" parent="."]
+[node name="RockDecal" type="Decal" parent="." unique_id=1125139966]
 size = Vector3(2, 0.5, 2)
 texture_albedo = ExtResource("2_sniks")
 modulate = Color(0.9, 0.7413, 0.486, 1)
@@ -277,26 +277,26 @@ distance_fade_begin = 6.0
 distance_fade_length = 0.5
 cull_mask = 8
 
-[node name="WeedMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.789891, 0.041569, -0.611837, 0.00664426, 0.997061, 0.0763195, 0.613211, -0.0643493, 0.787293, 0, 0, 0)
+[node name="WeedMesh" type="MeshInstance3D" parent="." unique_id=615418746]
+transform = Transform3D(-0.42406914, 0.098484784, 0.9002589, 0.05012872, 0.99509805, -0.085246556, -0.9042414, 0.008978397, -0.42692727, 0, 0, 0)
 skeleton = NodePath("Core")
 
-[node name="Core" type="MeshInstance3D" parent="WeedMesh"]
+[node name="Core" type="MeshInstance3D" parent="WeedMesh" unique_id=725870806]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nf87d")
 skeleton = NodePath("../..")
 
-[node name="WeedMeshBase" type="MeshInstance3D" parent="WeedMesh/Core"]
+[node name="WeedMeshBase" type="MeshInstance3D" parent="WeedMesh/Core" unique_id=1737540149]
 transform = Transform3D(1.09027, 2.77972e-09, 0.708032, 0, 0.5, -1.32698e-08, -0.708032, 4.28038e-09, 1.09027, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nf87d")
 skeleton = NodePath("../../..")
 
-[node name="SpatialText" parent="." instance=ExtResource("4_rqa4i")]
+[node name="SpatialText" parent="." unique_id=1983573536 instance=ExtResource("4_rqa4i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51818, 0)
 spatial_string = "Rotting Shrub"
 color = "yellow"
 
-[node name="Foam" type="GPUParticles3D" parent="."]
+[node name="Foam" type="GPUParticles3D" parent="." unique_id=342926175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.427572, 0)
 cast_shadow = 0
 emitting = false
@@ -307,20 +307,16 @@ randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_atedg")
 draw_pass_1 = SubResource("QuadMesh_rdugy")
 
-[node name="Player" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ypjpg")
-}
+[node name="Player" type="AnimationPlayer" parent="." unique_id=634752029]
+libraries/ = SubResource("AnimationLibrary_ypjpg")
 
-[node name="LeafSound" type="AudioStreamPlayer3D" parent="."]
+[node name="LeafSound" type="AudioStreamPlayer3D" parent="." unique_id=495698767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 stream = ExtResource("6_xdr4b")
-volume_db = -9.0
 autoplay = true
-max_distance = 5.0
 attenuation_filter_cutoff_hz = 10000.0
 
-[node name="VisualArea" parent="." instance=ExtResource("7_ec7aa")]
+[node name="VisualArea" parent="." unique_id=2049835087 instance=ExtResource("7_ec7aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_w56ai")
 
