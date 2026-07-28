@@ -262,6 +262,13 @@ func _ready() -> void:
 	
 	Global.can_move = true
 	
+	# Configure Panic
+	$Panic.camera = Global.camera
+	Global.command_sent.connect(func(cmd):
+		if cmd == "/panic":
+			$Panic.dump_render_state()
+			$Panic.generate_debug_mesh())
+	
 	# Fade volume in and play music after a short delay
 	Utilities.set_master_vol(0.0)
 	await get_tree().create_timer(0.5).timeout

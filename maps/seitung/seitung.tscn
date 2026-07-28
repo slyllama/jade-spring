@@ -22,7 +22,6 @@
 [ext_resource type="AudioStream" uid="uid://dfuppoomsjr3p" path="res://maps/seitung/sounds/mus_haiju_percussion.ogg" id="26_xpcn1"]
 [ext_resource type="AudioStream" uid="uid://2a40t0ubngvq" path="res://maps/seitung/sounds/mus_haiju_full.ogg" id="27_ery84"]
 [ext_resource type="PackedScene" uid="uid://bh3h8snrh07d5" path="res://lib/gadget/weed_bin.tscn" id="28_m4ym0"]
-[ext_resource type="AudioStream" uid="uid://b282652nkr8w4" path="res://maps/seitung/sounds/mus_glass_darkly.ogg" id="28_wohrl"]
 [ext_resource type="PackedScene" uid="uid://bm1eu0vwmgnl0" path="res://lib/gadget/discombobulator.tscn" id="29_5yngu"]
 [ext_resource type="Shader" uid="uid://bji5wrktufnh5" path="res://lib/story_marker/materials/shaders/shader_ray.gdshader" id="35_42aun"]
 [ext_resource type="PackedScene" uid="uid://cknccdf2rvyk8" path="res://lib/crumb/dragonvoid.tscn" id="35_f6q0j"]
@@ -558,7 +557,7 @@ cull_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23016, 1.8535, 2.85007)
 
 [node name="Jukebox" parent="." index="9" unique_id=1726425784]
-track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("28_wohrl"), ExtResource("56_oq8ka"), ExtResource("62_2xddo")])
+track_list = Array[AudioStreamOggVorbis]([ExtResource("24_r334e"), ExtResource("25_6ir35"), ExtResource("26_xpcn1"), ExtResource("27_ery84"), ExtResource("56_oq8ka"), ExtResource("62_2xddo")])
 
 [node name="SpawnKarma" type="AudioStreamPlayer" parent="Jukebox" index="0" unique_id=1765597944]
 stream = ExtResource("59_gjbjt")
